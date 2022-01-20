@@ -13,6 +13,11 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_FLAG {
         *self
     }
 }
+impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
 }
@@ -145,6 +150,11 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
+impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
@@ -183,6 +193,11 @@ impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ATTACH_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_FLAG {
@@ -350,6 +365,11 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for ATTACH_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -432,6 +452,11 @@ impl ::core::marker::Copy for COMPACT_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMPACT_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_FLAG {
@@ -565,6 +590,11 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for COMPACT_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -605,6 +635,11 @@ impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATE_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_FLAG {
@@ -970,6 +1005,11 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for CREATE_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -1035,6 +1075,11 @@ impl ::core::marker::Copy for DELETE_SNAPSHOT_VHDSET_FLAG {}
 impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
@@ -1168,6 +1213,11 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
+impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
@@ -1216,6 +1266,11 @@ impl ::core::clone::Clone for DEPENDENT_DISK_FLAG {
         *self
     }
 }
+impl ::core::default::Default for DEPENDENT_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEPENDENT_DISK_FLAG {
     type Abi = Self;
 }
@@ -1262,6 +1317,11 @@ impl ::core::marker::Copy for DETACH_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for DETACH_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DETACH_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DETACH_VIRTUAL_DISK_FLAG {
@@ -1357,6 +1417,11 @@ impl ::core::marker::Copy for EXPAND_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXPAND_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_FLAG {
@@ -1490,6 +1555,11 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for EXPAND_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -1540,6 +1610,11 @@ impl ::core::marker::Copy for FORK_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for FORK_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FORK_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_FLAG {
@@ -1695,6 +1770,11 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for FORK_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -1732,6 +1812,11 @@ impl ::core::marker::Copy for GET_STORAGE_DEPENDENCY_FLAG {}
 impl ::core::clone::Clone for GET_STORAGE_DEPENDENCY_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_STORAGE_DEPENDENCY_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_STORAGE_DEPENDENCY_FLAG {
@@ -2051,6 +2136,11 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_VERSION {
         *self
     }
 }
+impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
 }
@@ -2161,6 +2251,11 @@ impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MERGE_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_FLAG {
@@ -2328,6 +2423,11 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for MERGE_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -2354,6 +2454,11 @@ impl ::core::marker::Copy for MIRROR_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIRROR_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_FLAG {
@@ -2509,6 +2614,11 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for MIRROR_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -2529,6 +2639,11 @@ impl ::core::marker::Copy for MODIFY_VHDSET_FLAG {}
 impl ::core::clone::Clone for MODIFY_VHDSET_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MODIFY_VHDSET_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_FLAG {
@@ -2691,6 +2806,11 @@ impl ::core::clone::Clone for MODIFY_VHDSET_VERSION {
         *self
     }
 }
+impl ::core::default::Default for MODIFY_VHDSET_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
 }
@@ -2778,6 +2898,11 @@ impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPEN_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_FLAG {
@@ -3022,6 +3147,11 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for OPEN_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -3055,6 +3185,11 @@ impl ::core::marker::Copy for QUERY_CHANGES_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
@@ -3150,6 +3285,11 @@ impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
@@ -3396,6 +3536,11 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_VERSION {
         *self
     }
 }
+impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
@@ -3418,6 +3563,11 @@ impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_FLAG {}
 impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESIZE_VIRTUAL_DISK_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_FLAG {
@@ -3549,6 +3699,11 @@ impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_VERSION {}
 impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESIZE_VIRTUAL_DISK_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_VERSION {
@@ -3764,6 +3919,11 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_VERSION {
         *self
     }
 }
+impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
 }
@@ -3941,6 +4101,11 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_VERSION {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type Abi = Self;
 }
@@ -3991,6 +4156,11 @@ impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_FLAG {}
 impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
@@ -4124,6 +4294,11 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
+impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
@@ -4175,6 +4350,11 @@ impl ::core::marker::Copy for VIRTUAL_DISK_ACCESS_MASK {}
 impl ::core::clone::Clone for VIRTUAL_DISK_ACCESS_MASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_DISK_ACCESS_MASK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_DISK_ACCESS_MASK {

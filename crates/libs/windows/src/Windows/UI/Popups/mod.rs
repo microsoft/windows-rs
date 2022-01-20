@@ -391,6 +391,11 @@ impl ::core::clone::Clone for MessageDialogOptions {
         *self
     }
 }
+impl ::core::default::Default for MessageDialogOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MessageDialogOptions {
     type Abi = Self;
 }
@@ -448,6 +453,11 @@ impl ::core::marker::Copy for Placement {}
 impl ::core::clone::Clone for Placement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Placement {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Placement {

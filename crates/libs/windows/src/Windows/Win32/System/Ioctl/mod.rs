@@ -147,6 +147,11 @@ impl ::core::clone::Clone for BIN_TYPES {
         *self
     }
 }
+impl ::core::default::Default for BIN_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BIN_TYPES {
     type Abi = Self;
 }
@@ -291,6 +296,11 @@ impl ::core::marker::Copy for CHANGER_DEVICE_PROBLEM_TYPE {}
 impl ::core::clone::Clone for CHANGER_DEVICE_PROBLEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHANGER_DEVICE_PROBLEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_DEVICE_PROBLEM_TYPE {
@@ -493,6 +503,11 @@ impl ::core::clone::Clone for CHANGER_ELEMENT_STATUS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CHANGER_ELEMENT_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGER_ELEMENT_STATUS_FLAGS {
     type Abi = Self;
 }
@@ -638,6 +653,11 @@ impl ::core::marker::Copy for CHANGER_FEATURES {}
 impl ::core::clone::Clone for CHANGER_FEATURES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHANGER_FEATURES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHANGER_FEATURES {
@@ -1299,6 +1319,11 @@ impl ::core::clone::Clone for CSVFS_DISK_CONNECTIVITY {
         *self
     }
 }
+impl ::core::default::Default for CSVFS_DISK_CONNECTIVITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSVFS_DISK_CONNECTIVITY {
     type Abi = Self;
 }
@@ -1351,6 +1376,11 @@ impl ::core::marker::Copy for CSV_CONTROL_OP {}
 impl ::core::clone::Clone for CSV_CONTROL_OP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSV_CONTROL_OP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSV_CONTROL_OP {
@@ -1911,6 +1941,11 @@ impl ::core::marker::Copy for DETECTION_TYPE {}
 impl ::core::clone::Clone for DETECTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DETECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DETECTION_TYPE {
@@ -3261,6 +3296,11 @@ impl ::core::clone::Clone for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -3289,6 +3329,11 @@ impl ::core::marker::Copy for DEVICE_INTERNAL_STATUS_DATA_SET {}
 impl ::core::clone::Clone for DEVICE_INTERNAL_STATUS_DATA_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEVICE_INTERNAL_STATUS_DATA_SET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_INTERNAL_STATUS_DATA_SET {
@@ -4279,6 +4324,11 @@ impl ::core::marker::Copy for DISK_CACHE_RETENTION_PRIORITY {}
 impl ::core::clone::Clone for DISK_CACHE_RETENTION_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISK_CACHE_RETENTION_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISK_CACHE_RETENTION_PRIORITY {
@@ -5281,6 +5331,11 @@ impl ::core::clone::Clone for DUPLICATE_EXTENTS_STATE {
         *self
     }
 }
+impl ::core::default::Default for DUPLICATE_EXTENTS_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DUPLICATE_EXTENTS_STATE {
     type Abi = Self;
 }
@@ -5317,6 +5372,11 @@ impl ::core::marker::Copy for ELEMENT_TYPE {}
 impl ::core::clone::Clone for ELEMENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ELEMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ELEMENT_TYPE {
@@ -5739,6 +5799,11 @@ impl ::core::marker::Copy for FILESYSTEM_STATISTICS_TYPE {}
 impl ::core::clone::Clone for FILESYSTEM_STATISTICS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILESYSTEM_STATISTICS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILESYSTEM_STATISTICS_TYPE {
@@ -7014,6 +7079,11 @@ impl ::core::clone::Clone for FILE_STORAGE_TIER_CLASS {
         *self
     }
 }
+impl ::core::default::Default for FILE_STORAGE_TIER_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_CLASS {
     type Abi = Self;
 }
@@ -7034,6 +7104,11 @@ impl ::core::marker::Copy for FILE_STORAGE_TIER_FLAGS {}
 impl ::core::clone::Clone for FILE_STORAGE_TIER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILE_STORAGE_TIER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_FLAGS {
@@ -7098,6 +7173,11 @@ impl ::core::marker::Copy for FILE_STORAGE_TIER_MEDIA_TYPE {}
 impl ::core::clone::Clone for FILE_STORAGE_TIER_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILE_STORAGE_TIER_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILE_STORAGE_TIER_MEDIA_TYPE {
@@ -8231,6 +8311,11 @@ impl ::core::clone::Clone for FS_BPIO_INFLAGS {
         *self
     }
 }
+impl ::core::default::Default for FS_BPIO_INFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FS_BPIO_INFLAGS {
     type Abi = Self;
 }
@@ -8332,6 +8417,11 @@ impl ::core::clone::Clone for FS_BPIO_OPERATIONS {
         *self
     }
 }
+impl ::core::default::Default for FS_BPIO_OPERATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FS_BPIO_OPERATIONS {
     type Abi = Self;
 }
@@ -8358,6 +8448,11 @@ impl ::core::marker::Copy for FS_BPIO_OUTFLAGS {}
 impl ::core::clone::Clone for FS_BPIO_OUTFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FS_BPIO_OUTFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FS_BPIO_OUTFLAGS {
@@ -8612,6 +8707,11 @@ impl ::core::clone::Clone for GET_CHANGER_PARAMETERS_FEATURES1 {
         *self
     }
 }
+impl ::core::default::Default for GET_CHANGER_PARAMETERS_FEATURES1 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_CHANGER_PARAMETERS_FEATURES1 {
     type Abi = Self;
 }
@@ -8859,6 +8959,11 @@ impl ::core::marker::Copy for GPT_ATTRIBUTES {}
 impl ::core::clone::Clone for GPT_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPT_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPT_ATTRIBUTES {
@@ -9718,6 +9823,11 @@ impl ::core::marker::Copy for MEDIA_TYPE {}
 impl ::core::clone::Clone for MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MEDIA_TYPE {
@@ -10976,6 +11086,11 @@ impl ::core::clone::Clone for PARTITION_STYLE {
         *self
     }
 }
+impl ::core::default::Default for PARTITION_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PARTITION_STYLE {
     type Abi = Self;
 }
@@ -11540,6 +11655,11 @@ impl ::core::clone::Clone for QUERY_FILE_LAYOUT_FILTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for QUERY_FILE_LAYOUT_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QUERY_FILE_LAYOUT_FILTER_TYPE {
     type Abi = Self;
 }
@@ -11936,6 +12056,11 @@ impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_ACTION {
         *self
     }
 }
+impl ::core::default::Default for REFS_SMR_VOLUME_GC_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_ACTION {
     type Abi = Self;
 }
@@ -11958,6 +12083,11 @@ impl ::core::marker::Copy for REFS_SMR_VOLUME_GC_METHOD {}
 impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_METHOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REFS_SMR_VOLUME_GC_METHOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_METHOD {
@@ -12022,6 +12152,11 @@ impl ::core::marker::Copy for REFS_SMR_VOLUME_GC_STATE {}
 impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REFS_SMR_VOLUME_GC_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REFS_SMR_VOLUME_GC_STATE {
@@ -12713,6 +12848,11 @@ impl ::core::clone::Clone for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
 }
@@ -12737,6 +12877,11 @@ impl ::core::marker::Copy for SCM_BUS_PROPERTY_ID {}
 impl ::core::clone::Clone for SCM_BUS_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_BUS_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_BUS_PROPERTY_ID {
@@ -12829,6 +12974,11 @@ impl ::core::marker::Copy for SCM_BUS_QUERY_TYPE {}
 impl ::core::clone::Clone for SCM_BUS_QUERY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_BUS_QUERY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_BUS_QUERY_TYPE {
@@ -12947,6 +13097,11 @@ impl ::core::marker::Copy for SCM_BUS_SET_TYPE {}
 impl ::core::clone::Clone for SCM_BUS_SET_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_BUS_SET_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_BUS_SET_TYPE {
@@ -13348,6 +13503,11 @@ impl ::core::clone::Clone for SCM_PD_FIRMWARE_ACTIVATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for SCM_PD_FIRMWARE_ACTIVATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
 }
@@ -13550,6 +13710,11 @@ impl ::core::clone::Clone for SCM_PD_HEALTH_STATUS {
         *self
     }
 }
+impl ::core::default::Default for SCM_PD_HEALTH_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_HEALTH_STATUS {
     type Abi = Self;
 }
@@ -13582,6 +13747,11 @@ impl ::core::marker::Copy for SCM_PD_LAST_FW_ACTIVATION_STATUS {}
 impl ::core::clone::Clone for SCM_PD_LAST_FW_ACTIVATION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_PD_LAST_FW_ACTIVATION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_LAST_FW_ACTIVATION_STATUS {
@@ -13680,6 +13850,11 @@ impl ::core::clone::Clone for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
         *self
     }
 }
+impl ::core::default::Default for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
     type Abi = Self;
 }
@@ -13714,6 +13889,11 @@ impl ::core::marker::Copy for SCM_PD_OPERATIONAL_STATUS {}
 impl ::core::clone::Clone for SCM_PD_OPERATIONAL_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_PD_OPERATIONAL_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_OPERATIONAL_STATUS {
@@ -13780,6 +13960,11 @@ impl ::core::marker::Copy for SCM_PD_OPERATIONAL_STATUS_REASON {}
 impl ::core::clone::Clone for SCM_PD_OPERATIONAL_STATUS_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_PD_OPERATIONAL_STATUS_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_OPERATIONAL_STATUS_REASON {
@@ -13953,6 +14138,11 @@ impl ::core::clone::Clone for SCM_PD_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for SCM_PD_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_PROPERTY_ID {
     type Abi = Self;
 }
@@ -14045,6 +14235,11 @@ impl ::core::marker::Copy for SCM_PD_QUERY_TYPE {}
 impl ::core::clone::Clone for SCM_PD_QUERY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_PD_QUERY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_PD_QUERY_TYPE {
@@ -14236,6 +14431,11 @@ impl ::core::clone::Clone for SCM_PD_SET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SCM_PD_SET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCM_PD_SET_TYPE {
     type Abi = Self;
 }
@@ -14409,6 +14609,11 @@ impl ::core::marker::Copy for SCM_REGION_FLAG {}
 impl ::core::clone::Clone for SCM_REGION_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCM_REGION_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCM_REGION_FLAG {
@@ -15086,6 +15291,11 @@ impl ::core::clone::Clone for SHRINK_VOLUME_REQUEST_TYPES {
         *self
     }
 }
+impl ::core::default::Default for SHRINK_VOLUME_REQUEST_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SHRINK_VOLUME_REQUEST_TYPES {
     type Abi = Self;
 }
@@ -15568,6 +15778,11 @@ impl ::core::clone::Clone for STORAGE_ASSOCIATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_ASSOCIATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_ASSOCIATION_TYPE {
     type Abi = Self;
 }
@@ -15631,6 +15846,11 @@ impl ::core::marker::Copy for STORAGE_ATTRIBUTE_MGMT_ACTION {}
 impl ::core::clone::Clone for STORAGE_ATTRIBUTE_MGMT_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_ATTRIBUTE_MGMT_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ATTRIBUTE_MGMT_ACTION {
@@ -15729,6 +15949,11 @@ impl ::core::marker::Copy for STORAGE_COMPONENT_HEALTH_STATUS {}
 impl ::core::clone::Clone for STORAGE_COMPONENT_HEALTH_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_COMPONENT_HEALTH_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_COMPONENT_HEALTH_STATUS {
@@ -15910,6 +16135,11 @@ impl ::core::clone::Clone for STORAGE_COUNTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_COUNTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_COUNTER_TYPE {
     type Abi = Self;
 }
@@ -15938,6 +16168,11 @@ impl ::core::marker::Copy for STORAGE_CRYPTO_ALGORITHM_ID {}
 impl ::core::clone::Clone for STORAGE_CRYPTO_ALGORITHM_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_CRYPTO_ALGORITHM_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_ALGORITHM_ID {
@@ -16039,6 +16274,11 @@ impl ::core::marker::Copy for STORAGE_CRYPTO_KEY_SIZE {}
 impl ::core::clone::Clone for STORAGE_CRYPTO_KEY_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_CRYPTO_KEY_SIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_CRYPTO_KEY_SIZE {
@@ -16245,6 +16485,11 @@ impl ::core::marker::Copy for STORAGE_DEVICE_FORM_FACTOR {}
 impl ::core::clone::Clone for STORAGE_DEVICE_FORM_FACTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_DEVICE_FORM_FACTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_FORM_FACTOR {
@@ -16596,6 +16841,11 @@ impl ::core::clone::Clone for STORAGE_DEVICE_POWER_CAP_UNITS {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_DEVICE_POWER_CAP_UNITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DEVICE_POWER_CAP_UNITS {
     type Abi = Self;
 }
@@ -16801,6 +17051,11 @@ impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_DIAGNOSTIC_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
 }
@@ -16863,6 +17118,11 @@ impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_TARGET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
 }
@@ -16889,6 +17149,11 @@ impl ::core::marker::Copy for STORAGE_DISK_HEALTH_STATUS {}
 impl ::core::clone::Clone for STORAGE_DISK_HEALTH_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_DISK_HEALTH_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DISK_HEALTH_STATUS {
@@ -16925,6 +17190,11 @@ impl ::core::marker::Copy for STORAGE_DISK_OPERATIONAL_STATUS {}
 impl ::core::clone::Clone for STORAGE_DISK_OPERATIONAL_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_DISK_OPERATIONAL_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_DISK_OPERATIONAL_STATUS {
@@ -17529,6 +17799,11 @@ impl ::core::clone::Clone for STORAGE_IDENTIFIER_CODE_SET {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_IDENTIFIER_CODE_SET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
 }
@@ -17563,6 +17838,11 @@ impl ::core::marker::Copy for STORAGE_IDENTIFIER_TYPE {}
 impl ::core::clone::Clone for STORAGE_IDENTIFIER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_IDENTIFIER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_IDENTIFIER_TYPE {
@@ -17654,6 +17934,11 @@ impl ::core::marker::Copy for STORAGE_ID_NAA_FORMAT {}
 impl ::core::clone::Clone for STORAGE_ID_NAA_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_ID_NAA_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ID_NAA_FORMAT {
@@ -17867,6 +18152,11 @@ impl ::core::marker::Copy for STORAGE_MEDIA_TYPE {}
 impl ::core::clone::Clone for STORAGE_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_MEDIA_TYPE {
@@ -18350,6 +18640,11 @@ impl ::core::clone::Clone for STORAGE_OPERATIONAL_STATUS_REASON {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_OPERATIONAL_STATUS_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_OPERATIONAL_STATUS_REASON {
     type Abi = Self;
 }
@@ -18533,6 +18828,11 @@ impl ::core::clone::Clone for STORAGE_PORT_CODE_SET {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_PORT_CODE_SET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PORT_CODE_SET {
     type Abi = Self;
 }
@@ -18555,6 +18855,11 @@ impl ::core::marker::Copy for STORAGE_POWERUP_REASON_TYPE {}
 impl ::core::clone::Clone for STORAGE_POWERUP_REASON_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_POWERUP_REASON_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_POWERUP_REASON_TYPE {
@@ -18710,6 +19015,11 @@ impl ::core::clone::Clone for STORAGE_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROPERTY_ID {
     type Abi = Self;
 }
@@ -18796,6 +19106,11 @@ impl ::core::marker::Copy for STORAGE_PROTOCOL_ATA_DATA_TYPE {}
 impl ::core::clone::Clone for STORAGE_PROTOCOL_ATA_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_PROTOCOL_ATA_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_ATA_DATA_TYPE {
@@ -19016,6 +19331,11 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_NVME_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_PROTOCOL_NVME_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_NVME_DATA_TYPE {
     type Abi = Self;
 }
@@ -19180,6 +19500,11 @@ impl ::core::clone::Clone for STORAGE_PROTOCOL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_PROTOCOL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_TYPE {
     type Abi = Self;
 }
@@ -19210,6 +19535,11 @@ impl ::core::marker::Copy for STORAGE_PROTOCOL_UFS_DATA_TYPE {}
 impl ::core::clone::Clone for STORAGE_PROTOCOL_UFS_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_PROTOCOL_UFS_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_PROTOCOL_UFS_DATA_TYPE {
@@ -19441,6 +19771,11 @@ impl ::core::clone::Clone for STORAGE_QUERY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_QUERY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_QUERY_TYPE {
     type Abi = Self;
 }
@@ -19566,6 +19901,11 @@ impl ::core::clone::Clone for STORAGE_RESERVE_ID {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_RESERVE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_RESERVE_ID {
     type Abi = Self;
 }
@@ -19596,6 +19936,11 @@ impl ::core::marker::Copy for STORAGE_RPMB_COMMAND_TYPE {}
 impl ::core::clone::Clone for STORAGE_RPMB_COMMAND_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_RPMB_COMMAND_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_RPMB_COMMAND_TYPE {
@@ -19696,6 +20041,11 @@ impl ::core::clone::Clone for STORAGE_RPMB_FRAME_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_RPMB_FRAME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_RPMB_FRAME_TYPE {
     type Abi = Self;
 }
@@ -19722,6 +20072,11 @@ impl ::core::clone::Clone for STORAGE_SANITIZE_METHOD {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_SANITIZE_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_SANITIZE_METHOD {
     type Abi = Self;
 }
@@ -19744,6 +20099,11 @@ impl ::core::marker::Copy for STORAGE_SET_TYPE {}
 impl ::core::clone::Clone for STORAGE_SET_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_SET_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_SET_TYPE {
@@ -20060,6 +20420,11 @@ impl ::core::clone::Clone for STORAGE_TIER_CLASS {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_TIER_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_TIER_CLASS {
     type Abi = Self;
 }
@@ -20098,6 +20463,11 @@ impl ::core::marker::Copy for STORAGE_TIER_MEDIA_TYPE {}
 impl ::core::clone::Clone for STORAGE_TIER_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_TIER_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_TIER_MEDIA_TYPE {
@@ -20366,6 +20736,11 @@ impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for STORAGE_ZONED_DEVICE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_TYPES {
     type Abi = Self;
 }
@@ -20390,6 +20765,11 @@ impl ::core::marker::Copy for STORAGE_ZONES_ATTRIBUTES {}
 impl ::core::clone::Clone for STORAGE_ZONES_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_ZONES_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ZONES_ATTRIBUTES {
@@ -20424,6 +20804,11 @@ impl ::core::marker::Copy for STORAGE_ZONE_CONDITION {}
 impl ::core::clone::Clone for STORAGE_ZONE_CONDITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_ZONE_CONDITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ZONE_CONDITION {
@@ -20528,6 +20913,11 @@ impl ::core::marker::Copy for STORAGE_ZONE_TYPES {}
 impl ::core::clone::Clone for STORAGE_ZONE_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STORAGE_ZONE_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STORAGE_ZONE_TYPES {
@@ -21520,6 +21910,11 @@ impl ::core::clone::Clone for TXFS_RMF_LAGS {
         *self
     }
 }
+impl ::core::default::Default for TXFS_RMF_LAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TXFS_RMF_LAGS {
     type Abi = Self;
 }
@@ -21831,6 +22226,11 @@ impl ::core::marker::Copy for USN_DELETE_FLAGS {}
 impl ::core::clone::Clone for USN_DELETE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USN_DELETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USN_DELETE_FLAGS {
@@ -22366,6 +22766,11 @@ impl ::core::clone::Clone for USN_SOURCE_INFO_ID {
         *self
     }
 }
+impl ::core::default::Default for USN_SOURCE_INFO_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USN_SOURCE_INFO_ID {
     type Abi = Self;
 }
@@ -22583,6 +22988,11 @@ impl ::core::marker::Copy for VIRTUAL_STORAGE_BEHAVIOR_CODE {}
 impl ::core::clone::Clone for VIRTUAL_STORAGE_BEHAVIOR_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_STORAGE_BEHAVIOR_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_BEHAVIOR_CODE {
@@ -23042,6 +23452,11 @@ impl ::core::clone::Clone for WRITE_CACHE_CHANGE {
         *self
     }
 }
+impl ::core::default::Default for WRITE_CACHE_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WRITE_CACHE_CHANGE {
     type Abi = Self;
 }
@@ -23064,6 +23479,11 @@ impl ::core::marker::Copy for WRITE_CACHE_ENABLE {}
 impl ::core::clone::Clone for WRITE_CACHE_ENABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WRITE_CACHE_ENABLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WRITE_CACHE_ENABLE {
@@ -23092,6 +23512,11 @@ impl ::core::clone::Clone for WRITE_CACHE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WRITE_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WRITE_CACHE_TYPE {
     type Abi = Self;
 }
@@ -23116,6 +23541,11 @@ impl ::core::marker::Copy for WRITE_THROUGH {}
 impl ::core::clone::Clone for WRITE_THROUGH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WRITE_THROUGH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WRITE_THROUGH {
@@ -23171,6 +23601,11 @@ impl ::core::marker::Copy for _DEVICEDUMP_COLLECTION_TYPE {}
 impl ::core::clone::Clone for _DEVICEDUMP_COLLECTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DEVICEDUMP_COLLECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DEVICEDUMP_COLLECTION_TYPE {

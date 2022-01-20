@@ -129,6 +129,11 @@ impl ::core::clone::Clone for CellularApnAuthenticationType {
         *self
     }
 }
+impl ::core::default::Default for CellularApnAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
     type Abi = Self;
 }
@@ -700,6 +705,11 @@ impl ::core::marker::Copy for ConnectionProfileDeleteStatus {}
 impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ConnectionProfileDeleteStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
@@ -1506,6 +1516,11 @@ impl ::core::clone::Clone for DataUsageGranularity {
         *self
     }
 }
+impl ::core::default::Default for DataUsageGranularity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataUsageGranularity {
     type Abi = Self;
 }
@@ -1533,6 +1548,11 @@ impl ::core::marker::Copy for DomainConnectivityLevel {}
 impl ::core::clone::Clone for DomainConnectivityLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DomainConnectivityLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
@@ -2697,6 +2717,11 @@ impl ::core::clone::Clone for NetworkAuthenticationType {
         *self
     }
 }
+impl ::core::default::Default for NetworkAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
     type Abi = Self;
 }
@@ -2727,6 +2752,11 @@ impl ::core::clone::Clone for NetworkConnectivityLevel {
         *self
     }
 }
+impl ::core::default::Default for NetworkConnectivityLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
     type Abi = Self;
 }
@@ -2755,6 +2785,11 @@ impl ::core::marker::Copy for NetworkCostType {}
 impl ::core::clone::Clone for NetworkCostType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NetworkCostType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NetworkCostType {
@@ -2793,6 +2828,11 @@ impl ::core::marker::Copy for NetworkEncryptionType {}
 impl ::core::clone::Clone for NetworkEncryptionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NetworkEncryptionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NetworkEncryptionType {
@@ -3302,6 +3342,11 @@ impl ::core::clone::Clone for NetworkTypes {
         *self
     }
 }
+impl ::core::default::Default for NetworkTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkTypes {
     type Abi = Self;
 }
@@ -3681,6 +3726,11 @@ impl ::core::clone::Clone for RoamingStates {
         *self
     }
 }
+impl ::core::default::Default for RoamingStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RoamingStates {
     type Abi = Self;
 }
@@ -3845,6 +3895,11 @@ impl ::core::marker::Copy for TriStates {}
 impl ::core::clone::Clone for TriStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TriStates {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TriStates {
@@ -4091,6 +4146,11 @@ impl ::core::clone::Clone for WwanDataClass {
         *self
     }
 }
+impl ::core::default::Default for WwanDataClass {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WwanDataClass {
     type Abi = Self;
 }
@@ -4150,6 +4210,11 @@ impl ::core::clone::Clone for WwanNetworkIPKind {
         *self
     }
 }
+impl ::core::default::Default for WwanNetworkIPKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WwanNetworkIPKind {
     type Abi = Self;
 }
@@ -4181,6 +4246,11 @@ impl ::core::marker::Copy for WwanNetworkRegistrationState {}
 impl ::core::clone::Clone for WwanNetworkRegistrationState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WwanNetworkRegistrationState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WwanNetworkRegistrationState {

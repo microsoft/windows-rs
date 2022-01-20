@@ -428,6 +428,11 @@ impl ::core::clone::Clone for WalletActionKind {
         *self
     }
 }
+impl ::core::default::Default for WalletActionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WalletActionKind {
     type Abi = Self;
 }
@@ -584,6 +589,11 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
         *self
     }
 }
+impl ::core::default::Default for WalletBarcodeSymbology {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
     type Abi = Self;
 }
@@ -623,6 +633,11 @@ impl ::core::marker::Copy for WalletDetailViewPosition {}
 impl ::core::clone::Clone for WalletDetailViewPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WalletDetailViewPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
@@ -1272,6 +1287,11 @@ impl ::core::clone::Clone for WalletItemKind {
         *self
     }
 }
+impl ::core::default::Default for WalletItemKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WalletItemKind {
     type Abi = Self;
 }
@@ -1590,6 +1610,11 @@ impl ::core::marker::Copy for WalletSummaryViewPosition {}
 impl ::core::clone::Clone for WalletSummaryViewPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WalletSummaryViewPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {

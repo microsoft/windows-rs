@@ -17,6 +17,11 @@ impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
         *self
     }
 }
+impl ::core::default::Default for ENTERPRISE_DATA_POLICIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENTERPRISE_DATA_POLICIES {
     type Abi = Self;
 }
@@ -493,6 +498,11 @@ impl ::core::clone::Clone for SRPHOSTING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SRPHOSTING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SRPHOSTING_TYPE {
     type Abi = Self;
 }
@@ -511,6 +521,11 @@ impl ::core::marker::Copy for SRPHOSTING_VERSION {}
 impl ::core::clone::Clone for SRPHOSTING_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SRPHOSTING_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SRPHOSTING_VERSION {

@@ -633,6 +633,11 @@ impl ::core::clone::Clone for AppWindowClosedReason {
         *self
     }
 }
+impl ::core::default::Default for AppWindowClosedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppWindowClosedReason {
     type Abi = Self;
 }
@@ -754,6 +759,11 @@ impl ::core::marker::Copy for AppWindowFrameStyle {}
 impl ::core::clone::Clone for AppWindowFrameStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppWindowFrameStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowFrameStyle {
@@ -963,6 +973,11 @@ impl ::core::marker::Copy for AppWindowPresentationKind {}
 impl ::core::clone::Clone for AppWindowPresentationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppWindowPresentationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowPresentationKind {
@@ -1474,6 +1489,11 @@ impl ::core::marker::Copy for AppWindowTitleBarVisibility {}
 impl ::core::clone::Clone for AppWindowTitleBarVisibility {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppWindowTitleBarVisibility {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppWindowTitleBarVisibility {
@@ -2835,6 +2855,11 @@ impl ::core::marker::Copy for WindowingEnvironmentKind {}
 impl ::core::clone::Clone for WindowingEnvironmentKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WindowingEnvironmentKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WindowingEnvironmentKind {

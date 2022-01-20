@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AdrClientDisplayFlags {
         *self
     }
 }
+impl ::core::default::Default for AdrClientDisplayFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdrClientDisplayFlags {
     type Abi = Self;
 }
@@ -36,6 +41,11 @@ impl ::core::marker::Copy for AdrClientErrorType {}
 impl ::core::clone::Clone for AdrClientErrorType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AdrClientErrorType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AdrClientErrorType {
@@ -64,6 +74,11 @@ impl ::core::clone::Clone for AdrClientFlags {
         *self
     }
 }
+impl ::core::default::Default for AdrClientFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdrClientFlags {
     type Abi = Self;
 }
@@ -90,6 +105,11 @@ impl ::core::marker::Copy for AdrEmailFlags {}
 impl ::core::clone::Clone for AdrEmailFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AdrEmailFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AdrEmailFlags {
@@ -519,6 +539,11 @@ impl ::core::clone::Clone for FsrmAccountType {
         *self
     }
 }
+impl ::core::default::Default for FsrmAccountType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmAccountType {
     type Abi = Self;
 }
@@ -545,6 +570,11 @@ impl ::core::marker::Copy for FsrmActionType {}
 impl ::core::clone::Clone for FsrmActionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmActionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmActionType {
@@ -575,6 +605,11 @@ impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
         *self
     }
 }
+impl ::core::default::Default for FsrmClassificationLoggingFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmClassificationLoggingFlags {
     type Abi = Self;
 }
@@ -602,6 +637,11 @@ impl ::core::clone::Clone for FsrmCollectionState {
         *self
     }
 }
+impl ::core::default::Default for FsrmCollectionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmCollectionState {
     type Abi = Self;
 }
@@ -622,6 +662,11 @@ impl ::core::marker::Copy for FsrmCommitOptions {}
 impl ::core::clone::Clone for FsrmCommitOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmCommitOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmCommitOptions {
@@ -654,6 +699,11 @@ impl ::core::clone::Clone for FsrmEnumOptions {
         *self
     }
 }
+impl ::core::default::Default for FsrmEnumOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmEnumOptions {
     type Abi = Self;
 }
@@ -678,6 +728,11 @@ impl ::core::marker::Copy for FsrmEventType {}
 impl ::core::clone::Clone for FsrmEventType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmEventType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmEventType {
@@ -706,6 +761,11 @@ impl ::core::clone::Clone for FsrmExecutionOption {
         *self
     }
 }
+impl ::core::default::Default for FsrmExecutionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmExecutionOption {
     type Abi = Self;
 }
@@ -727,6 +787,11 @@ impl ::core::marker::Copy for FsrmFileConditionType {}
 impl ::core::clone::Clone for FsrmFileConditionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmFileConditionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmFileConditionType {
@@ -757,6 +822,11 @@ impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
         *self
     }
 }
+impl ::core::default::Default for FsrmFileManagementLoggingFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmFileManagementLoggingFlags {
     type Abi = Self;
 }
@@ -783,6 +853,11 @@ impl ::core::clone::Clone for FsrmFileManagementType {
         *self
     }
 }
+impl ::core::default::Default for FsrmFileManagementType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmFileManagementType {
     type Abi = Self;
 }
@@ -801,6 +876,11 @@ impl ::core::marker::Copy for FsrmFileScreenFlags {}
 impl ::core::clone::Clone for FsrmFileScreenFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmFileScreenFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmFileScreenFlags {
@@ -829,6 +909,11 @@ impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
         *self
     }
 }
+impl ::core::default::Default for FsrmFileStreamingInterfaceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmFileStreamingInterfaceType {
     type Abi = Self;
 }
@@ -851,6 +936,11 @@ impl ::core::marker::Copy for FsrmFileStreamingMode {}
 impl ::core::clone::Clone for FsrmFileStreamingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmFileStreamingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmFileStreamingMode {
@@ -883,6 +973,11 @@ impl ::core::clone::Clone for FsrmFileSystemPropertyId {
         *self
     }
 }
+impl ::core::default::Default for FsrmFileSystemPropertyId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmFileSystemPropertyId {
     type Abi = Self;
 }
@@ -909,6 +1004,11 @@ impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
 impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmGetFilePropertyOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmGetFilePropertyOptions {
@@ -949,6 +1049,11 @@ impl ::core::clone::Clone for FsrmPipelineModuleType {
         *self
     }
 }
+impl ::core::default::Default for FsrmPipelineModuleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmPipelineModuleType {
     type Abi = Self;
 }
@@ -969,6 +1074,11 @@ impl ::core::marker::Copy for FsrmPropertyBagField {}
 impl ::core::clone::Clone for FsrmPropertyBagField {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyBagField {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyBagField {
@@ -995,6 +1105,11 @@ impl ::core::marker::Copy for FsrmPropertyBagFlags {}
 impl ::core::clone::Clone for FsrmPropertyBagFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyBagFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyBagFlags {
@@ -1043,6 +1158,11 @@ impl ::core::clone::Clone for FsrmPropertyConditionType {
         *self
     }
 }
+impl ::core::default::Default for FsrmPropertyConditionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmPropertyConditionType {
     type Abi = Self;
 }
@@ -1063,6 +1183,11 @@ impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionAppliesTo {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionAppliesTo {
@@ -1087,6 +1212,11 @@ impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionFlags {
@@ -1123,6 +1253,11 @@ impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyDefinitionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyDefinitionType {
@@ -1183,6 +1318,11 @@ impl ::core::clone::Clone for FsrmPropertyFlags {
         *self
     }
 }
+impl ::core::default::Default for FsrmPropertyFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmPropertyFlags {
     type Abi = Self;
 }
@@ -1205,6 +1345,11 @@ impl ::core::marker::Copy for FsrmPropertyValueType {}
 impl ::core::clone::Clone for FsrmPropertyValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmPropertyValueType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmPropertyValueType {
@@ -1231,6 +1376,11 @@ impl ::core::marker::Copy for FsrmQuotaFlags {}
 impl ::core::clone::Clone for FsrmQuotaFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmQuotaFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmQuotaFlags {
@@ -1269,6 +1419,11 @@ impl ::core::clone::Clone for FsrmReportFilter {
         *self
     }
 }
+impl ::core::default::Default for FsrmReportFilter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmReportFilter {
     type Abi = Self;
 }
@@ -1299,6 +1454,11 @@ impl ::core::clone::Clone for FsrmReportFormat {
         *self
     }
 }
+impl ::core::default::Default for FsrmReportFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmReportFormat {
     type Abi = Self;
 }
@@ -1323,6 +1483,11 @@ impl ::core::marker::Copy for FsrmReportGenerationContext {}
 impl ::core::clone::Clone for FsrmReportGenerationContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmReportGenerationContext {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmReportGenerationContext {
@@ -1367,6 +1532,11 @@ impl ::core::clone::Clone for FsrmReportLimit {
         *self
     }
 }
+impl ::core::default::Default for FsrmReportLimit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmReportLimit {
     type Abi = Self;
 }
@@ -1392,6 +1562,11 @@ impl ::core::marker::Copy for FsrmReportRunningStatus {}
 impl ::core::clone::Clone for FsrmReportRunningStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmReportRunningStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmReportRunningStatus {
@@ -1441,6 +1616,11 @@ impl ::core::clone::Clone for FsrmReportType {
         *self
     }
 }
+impl ::core::default::Default for FsrmReportType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmReportType {
     type Abi = Self;
 }
@@ -1467,6 +1647,11 @@ impl ::core::clone::Clone for FsrmRuleFlags {
         *self
     }
 }
+impl ::core::default::Default for FsrmRuleFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmRuleFlags {
     type Abi = Self;
 }
@@ -1489,6 +1674,11 @@ impl ::core::marker::Copy for FsrmRuleType {}
 impl ::core::clone::Clone for FsrmRuleType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmRuleType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmRuleType {
@@ -1520,6 +1710,11 @@ impl ::core::clone::Clone for FsrmStorageModuleCaps {
         *self
     }
 }
+impl ::core::default::Default for FsrmStorageModuleCaps {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmStorageModuleCaps {
     type Abi = Self;
 }
@@ -1548,6 +1743,11 @@ impl ::core::clone::Clone for FsrmStorageModuleType {
         *self
     }
 }
+impl ::core::default::Default for FsrmStorageModuleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsrmStorageModuleType {
     type Abi = Self;
 }
@@ -1568,6 +1768,11 @@ impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
 impl ::core::clone::Clone for FsrmTemplateApplyOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsrmTemplateApplyOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsrmTemplateApplyOptions {

@@ -51,6 +51,11 @@ impl ::core::clone::Clone for DRAWPROGRESSFLAGS {
         *self
     }
 }
+impl ::core::default::Default for DRAWPROGRESSFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRAWPROGRESSFLAGS {
     type Abi = Self;
 }
@@ -125,6 +130,11 @@ impl ::core::marker::Copy for GETPROPERTYSTOREFLAGS {}
 impl ::core::clone::Clone for GETPROPERTYSTOREFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GETPROPERTYSTOREFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GETPROPERTYSTOREFLAGS {
@@ -3439,6 +3449,11 @@ impl ::core::clone::Clone for PDOPSTATUS {
         *self
     }
 }
+impl ::core::default::Default for PDOPSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PDOPSTATUS {
     type Abi = Self;
 }
@@ -3461,6 +3476,11 @@ impl ::core::marker::Copy for PKA_FLAGS {}
 impl ::core::clone::Clone for PKA_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PKA_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PKA_FLAGS {
@@ -3525,6 +3545,11 @@ impl ::core::clone::Clone for PLACEHOLDER_STATES {
         *self
     }
 }
+impl ::core::default::Default for PLACEHOLDER_STATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PLACEHOLDER_STATES {
     type Abi = Self;
 }
@@ -3587,6 +3612,11 @@ impl ::core::clone::Clone for PROPDESC_AGGREGATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_AGGREGATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_AGGREGATION_TYPE {
     type Abi = Self;
 }
@@ -3615,6 +3645,11 @@ impl ::core::marker::Copy for PROPDESC_COLUMNINDEX_TYPE {}
 impl ::core::clone::Clone for PROPDESC_COLUMNINDEX_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_COLUMNINDEX_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_COLUMNINDEX_TYPE {
@@ -3647,6 +3682,11 @@ impl ::core::clone::Clone for PROPDESC_CONDITION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_CONDITION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_CONDITION_TYPE {
     type Abi = Self;
 }
@@ -3673,6 +3713,11 @@ impl ::core::marker::Copy for PROPDESC_DISPLAYTYPE {}
 impl ::core::clone::Clone for PROPDESC_DISPLAYTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_DISPLAYTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_DISPLAYTYPE {
@@ -3705,6 +3750,11 @@ impl ::core::marker::Copy for PROPDESC_ENUMFILTER {}
 impl ::core::clone::Clone for PROPDESC_ENUMFILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_ENUMFILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_ENUMFILTER {
@@ -3753,6 +3803,11 @@ impl ::core::marker::Copy for PROPDESC_FORMAT_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_FORMAT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_FORMAT_FLAGS {
@@ -3815,6 +3870,11 @@ impl ::core::clone::Clone for PROPDESC_GROUPING_RANGE {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_GROUPING_RANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_GROUPING_RANGE {
     type Abi = Self;
 }
@@ -3855,6 +3915,11 @@ impl ::core::clone::Clone for PROPDESC_RELATIVEDESCRIPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_RELATIVEDESCRIPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_RELATIVEDESCRIPTION_TYPE {
     type Abi = Self;
 }
@@ -3883,6 +3948,11 @@ impl ::core::marker::Copy for PROPDESC_SEARCHINFO_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_SEARCHINFO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_SEARCHINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_SEARCHINFO_FLAGS {
@@ -3941,6 +4011,11 @@ impl ::core::clone::Clone for PROPDESC_SORTDESCRIPTION {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_SORTDESCRIPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_SORTDESCRIPTION {
     type Abi = Self;
 }
@@ -3991,6 +4066,11 @@ impl ::core::clone::Clone for PROPDESC_TYPE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PROPDESC_TYPE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPDESC_TYPE_FLAGS {
     type Abi = Self;
 }
@@ -4035,6 +4115,11 @@ impl ::core::marker::Copy for PROPDESC_VIEW_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_VIEW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPDESC_VIEW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPDESC_VIEW_FLAGS {
@@ -4091,6 +4176,11 @@ impl ::core::clone::Clone for PROPENUMTYPE {
         *self
     }
 }
+impl ::core::default::Default for PROPENUMTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPENUMTYPE {
     type Abi = Self;
 }
@@ -4144,6 +4234,11 @@ impl ::core::marker::Copy for PROPERTYUI_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPERTYUI_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTYUI_FLAGS {
@@ -4202,6 +4297,11 @@ impl ::core::clone::Clone for PROPERTYUI_FORMAT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PROPERTYUI_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPERTYUI_FORMAT_FLAGS {
     type Abi = Self;
 }
@@ -4250,6 +4350,11 @@ impl ::core::marker::Copy for PROPERTYUI_NAME_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_NAME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPERTYUI_NAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTYUI_NAME_FLAGS {
@@ -4353,6 +4458,11 @@ impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PROPVAR_CHANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPVAR_CHANGE_FLAGS {
     type Abi = Self;
 }
@@ -4411,6 +4521,11 @@ impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPVAR_COMPARE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPVAR_COMPARE_FLAGS {
@@ -4473,6 +4588,11 @@ impl ::core::clone::Clone for PROPVAR_COMPARE_UNIT {
         *self
     }
 }
+impl ::core::default::Default for PROPVAR_COMPARE_UNIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPVAR_COMPARE_UNIT {
     type Abi = Self;
 }
@@ -4497,6 +4617,11 @@ impl ::core::marker::Copy for PSC_STATE {}
 impl ::core::clone::Clone for PSC_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSC_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSC_STATE {
@@ -5494,6 +5619,11 @@ impl ::core::marker::Copy for PSTIME_FLAGS {}
 impl ::core::clone::Clone for PSTIME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSTIME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSTIME_FLAGS {
@@ -6657,6 +6787,11 @@ impl ::core::clone::Clone for SYNC_ENGINE_STATE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SYNC_ENGINE_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_ENGINE_STATE_FLAGS {
     type Abi = Self;
 }
@@ -6725,6 +6860,11 @@ impl ::core::marker::Copy for SYNC_TRANSFER_STATUS {}
 impl ::core::clone::Clone for SYNC_TRANSFER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYNC_TRANSFER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_TRANSFER_STATUS {
@@ -7625,6 +7765,11 @@ impl ::core::marker::Copy for _PERSIST_SPROPSTORE_FLAGS {}
 impl ::core::clone::Clone for _PERSIST_SPROPSTORE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _PERSIST_SPROPSTORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _PERSIST_SPROPSTORE_FLAGS {

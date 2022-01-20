@@ -21,6 +21,11 @@ impl ::core::clone::Clone for Direct3DBindings {
         *self
     }
 }
+impl ::core::default::Default for Direct3DBindings {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
 }
@@ -153,6 +158,11 @@ impl ::core::marker::Copy for Direct3DUsage {}
 impl ::core::clone::Clone for Direct3DUsage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Direct3DUsage {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Direct3DUsage {

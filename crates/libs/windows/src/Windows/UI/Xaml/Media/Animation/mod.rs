@@ -822,6 +822,11 @@ impl ::core::clone::Clone for ClockState {
         *self
     }
 }
+impl ::core::default::Default for ClockState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClockState {
     type Abi = Self;
 }
@@ -1943,6 +1948,11 @@ impl ::core::marker::Copy for ConnectedAnimationComponent {}
 impl ::core::clone::Clone for ConnectedAnimationComponent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ConnectedAnimationComponent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ConnectedAnimationComponent {
@@ -5467,6 +5477,11 @@ impl ::core::clone::Clone for EasingMode {
         *self
     }
 }
+impl ::core::default::Default for EasingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasingMode {
     type Abi = Self;
 }
@@ -6713,6 +6728,11 @@ impl ::core::marker::Copy for FillBehavior {}
 impl ::core::clone::Clone for FillBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FillBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FillBehavior {
@@ -13316,6 +13336,11 @@ impl ::core::clone::Clone for RepeatBehaviorType {
         *self
     }
 }
+impl ::core::default::Default for RepeatBehaviorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RepeatBehaviorType {
     type Abi = Self;
 }
@@ -13793,6 +13818,11 @@ impl ::core::marker::Copy for SlideNavigationTransitionEffect {}
 impl ::core::clone::Clone for SlideNavigationTransitionEffect {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SlideNavigationTransitionEffect {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SlideNavigationTransitionEffect {

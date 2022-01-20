@@ -1293,6 +1293,11 @@ impl ::core::clone::Clone for PhotoOrientation {
         *self
     }
 }
+impl ::core::default::Default for PhotoOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoOrientation {
     type Abi = Self;
 }
@@ -1323,6 +1328,11 @@ impl ::core::marker::Copy for PropertyPrefetchOptions {}
 impl ::core::clone::Clone for PropertyPrefetchOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PropertyPrefetchOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
@@ -1934,6 +1944,11 @@ impl ::core::clone::Clone for ThumbnailMode {
         *self
     }
 }
+impl ::core::default::Default for ThumbnailMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ThumbnailMode {
     type Abi = Self;
 }
@@ -1962,6 +1977,11 @@ impl ::core::marker::Copy for ThumbnailOptions {}
 impl ::core::clone::Clone for ThumbnailOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ThumbnailOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ThumbnailOptions {
@@ -2020,6 +2040,11 @@ impl ::core::clone::Clone for ThumbnailType {
         *self
     }
 }
+impl ::core::default::Default for ThumbnailType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ThumbnailType {
     type Abi = Self;
 }
@@ -2048,6 +2073,11 @@ impl ::core::marker::Copy for VideoOrientation {}
 impl ::core::clone::Clone for VideoOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoOrientation {

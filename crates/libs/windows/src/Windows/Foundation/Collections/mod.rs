@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CollectionChange {
         *self
     }
 }
+impl ::core::default::Default for CollectionChange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CollectionChange {
     type Abi = Self;
 }

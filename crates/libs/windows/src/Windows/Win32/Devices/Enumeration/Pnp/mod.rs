@@ -2453,6 +2453,11 @@ impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
         *self
     }
 }
+impl ::core::default::Default for SW_DEVICE_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
 }
@@ -2524,6 +2529,11 @@ impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
 impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SW_DEVICE_LIFETIME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {

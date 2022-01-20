@@ -5945,6 +5945,11 @@ impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GPIOBUTTONS_BUTTON_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPIOBUTTONS_BUTTON_TYPE {
     type Abi = Self;
 }
@@ -6431,6 +6436,11 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for HIDP_KEYBOARD_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_DIRECTION {
     type Abi = Self;
 }
@@ -6566,6 +6576,11 @@ impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
 impl ::core::clone::Clone for HIDP_REPORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HIDP_REPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HIDP_REPORT_TYPE {

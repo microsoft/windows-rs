@@ -18,6 +18,11 @@ impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
         *self
     }
 }
+impl ::core::default::Default for AddPackageByAppInstallerOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
     type Abi = Self;
 }
@@ -1133,6 +1138,11 @@ impl ::core::clone::Clone for DeploymentOptions {
         *self
     }
 }
+impl ::core::default::Default for DeploymentOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeploymentOptions {
     type Abi = Self;
 }
@@ -1224,6 +1234,11 @@ impl ::core::marker::Copy for DeploymentProgressState {}
 impl ::core::clone::Clone for DeploymentProgressState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeploymentProgressState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeploymentProgressState {
@@ -2539,6 +2554,11 @@ impl ::core::clone::Clone for PackageInstallState {
         *self
     }
 }
+impl ::core::default::Default for PackageInstallState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageInstallState {
     type Abi = Self;
 }
@@ -3325,6 +3345,11 @@ impl ::core::clone::Clone for PackageState {
         *self
     }
 }
+impl ::core::default::Default for PackageState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageState {
     type Abi = Self;
 }
@@ -3354,6 +3379,11 @@ impl ::core::marker::Copy for PackageStatus {}
 impl ::core::clone::Clone for PackageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PackageStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PackageStatus {
@@ -3412,6 +3442,11 @@ impl ::core::clone::Clone for PackageStubPreference {
         *self
     }
 }
+impl ::core::default::Default for PackageStubPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageStubPreference {
     type Abi = Self;
 }
@@ -3444,6 +3479,11 @@ impl ::core::marker::Copy for PackageTypes {}
 impl ::core::clone::Clone for PackageTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PackageTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PackageTypes {
@@ -4095,6 +4135,11 @@ impl ::core::clone::Clone for RemovalOptions {
         *self
     }
 }
+impl ::core::default::Default for RemovalOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemovalOptions {
     type Abi = Self;
 }
@@ -4264,6 +4309,11 @@ impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
 impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SharedPackageContainerCreationCollisionOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
@@ -4532,6 +4582,11 @@ impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
         *self
     }
 }
+impl ::core::default::Default for SharedPackageContainerOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
     type Abi = Self;
 }
@@ -4795,6 +4850,11 @@ impl ::core::marker::Copy for StubPackageOption {}
 impl ::core::clone::Clone for StubPackageOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StubPackageOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StubPackageOption {

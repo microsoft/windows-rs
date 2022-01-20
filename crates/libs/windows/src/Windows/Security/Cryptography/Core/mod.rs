@@ -330,6 +330,11 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for Capi1KdfTargetAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
 }
@@ -678,6 +683,11 @@ impl ::core::clone::Clone for CryptographicPadding {
         *self
     }
 }
+impl ::core::default::Default for CryptographicPadding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CryptographicPadding {
     type Abi = Self;
 }
@@ -709,6 +719,11 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
         *self
     }
 }
+impl ::core::default::Default for CryptographicPrivateKeyBlobType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
 }
@@ -738,6 +753,11 @@ impl ::core::marker::Copy for CryptographicPublicKeyBlobType {}
 impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CryptographicPublicKeyBlobType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CryptographicPublicKeyBlobType {

@@ -936,6 +936,11 @@ impl ::core::clone::Clone for SettingsLaunchKind {
         *self
     }
 }
+impl ::core::default::Default for SettingsLaunchKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SettingsLaunchKind {
     type Abi = Self;
 }
@@ -963,6 +968,11 @@ impl ::core::marker::Copy for WorkflowPrintTicketValidationStatus {}
 impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WorkflowPrintTicketValidationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WorkflowPrintTicketValidationStatus {

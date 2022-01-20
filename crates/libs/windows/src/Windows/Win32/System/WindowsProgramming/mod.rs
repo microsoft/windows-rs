@@ -660,6 +660,11 @@ impl ::core::clone::Clone for CameraUIControlCaptureMode {
         *self
     }
 }
+impl ::core::default::Default for CameraUIControlCaptureMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
     type Abi = Self;
 }
@@ -682,6 +687,11 @@ impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
         *self
     }
 }
+impl ::core::default::Default for CameraUIControlLinearSelectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
     type Abi = Self;
 }
@@ -702,6 +712,11 @@ impl ::core::marker::Copy for CameraUIControlMode {}
 impl ::core::clone::Clone for CameraUIControlMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CameraUIControlMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CameraUIControlMode {
@@ -727,6 +742,11 @@ impl ::core::clone::Clone for CameraUIControlPhotoFormat {
         *self
     }
 }
+impl ::core::default::Default for CameraUIControlPhotoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
     type Abi = Self;
 }
@@ -749,6 +769,11 @@ impl ::core::clone::Clone for CameraUIControlVideoFormat {
         *self
     }
 }
+impl ::core::default::Default for CameraUIControlVideoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
     type Abi = Self;
 }
@@ -769,6 +794,11 @@ impl ::core::marker::Copy for CameraUIControlViewType {}
 impl ::core::clone::Clone for CameraUIControlViewType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CameraUIControlViewType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CameraUIControlViewType {
@@ -1481,6 +1511,11 @@ impl ::core::clone::Clone for DECISION_LOCATION {
         *self
     }
 }
+impl ::core::default::Default for DECISION_LOCATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DECISION_LOCATION {
     type Abi = Self;
 }
@@ -1898,6 +1933,11 @@ impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
         *self
     }
 }
+impl ::core::default::Default for FEATURE_CHANGE_TIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEATURE_CHANGE_TIME {
     type Abi = Self;
 }
@@ -1920,6 +1960,11 @@ impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
 impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEATURE_ENABLED_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEATURE_ENABLED_STATE {
@@ -2168,6 +2213,11 @@ impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
 impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILE_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILE_INFORMATION_CLASS {
@@ -4661,6 +4711,11 @@ impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KEY_SET_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -5162,6 +5217,11 @@ impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OBJECT_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -5432,6 +5492,11 @@ impl ::core::marker::Copy for PROC_THREAD_ATTRIBUTE_NUM {}
 impl ::core::clone::Clone for PROC_THREAD_ATTRIBUTE_NUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROC_THREAD_ATTRIBUTE_NUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROC_THREAD_ATTRIBUTE_NUM {
@@ -6667,6 +6732,11 @@ impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYSTEM_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -7311,6 +7381,11 @@ impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TDIENTITY_ENTITY_TYPE {
     type Abi = Self;
 }
@@ -7484,6 +7559,11 @@ impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
 impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_TYPE {
@@ -7746,6 +7826,11 @@ impl ::core::clone::Clone for VALUENAME {
         *self
     }
 }
+impl ::core::default::Default for VALUENAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VALUENAME {
     type Abi = Self;
 }
@@ -7817,6 +7902,11 @@ impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
 impl ::core::clone::Clone for WINSTATIONINFOCLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINSTATIONINFOCLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINSTATIONINFOCLASS {
@@ -7931,6 +8021,11 @@ impl ::core::clone::Clone for WLDP_HOST {
         *self
     }
 }
+impl ::core::default::Default for WLDP_HOST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLDP_HOST {
     type Abi = Self;
 }
@@ -7965,6 +8060,11 @@ impl ::core::marker::Copy for WLDP_HOST_ID {}
 impl ::core::clone::Clone for WLDP_HOST_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLDP_HOST_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLDP_HOST_ID {
@@ -8034,6 +8134,11 @@ impl ::core::clone::Clone for WLDP_KEY {
         *self
     }
 }
+impl ::core::default::Default for WLDP_KEY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLDP_KEY {
     type Abi = Self;
 }
@@ -8070,6 +8175,11 @@ impl ::core::clone::Clone for WLDP_POLICY_SETTING {
         *self
     }
 }
+impl ::core::default::Default for WLDP_POLICY_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLDP_POLICY_SETTING {
     type Abi = Self;
 }
@@ -8096,6 +8206,11 @@ impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
         *self
     }
 }
+impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_MODE {
     type Abi = Self;
 }
@@ -8120,6 +8235,11 @@ impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
 impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {

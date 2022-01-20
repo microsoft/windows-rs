@@ -33,6 +33,11 @@ impl ::core::clone::Clone for RM_APP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for RM_APP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RM_APP_STATUS {
     type Abi = Self;
 }
@@ -65,6 +70,11 @@ impl ::core::clone::Clone for RM_APP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RM_APP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RM_APP_TYPE {
     type Abi = Self;
 }
@@ -87,6 +97,11 @@ impl ::core::marker::Copy for RM_FILTER_ACTION {}
 impl ::core::clone::Clone for RM_FILTER_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RM_FILTER_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RM_FILTER_ACTION {
@@ -184,6 +199,11 @@ impl ::core::clone::Clone for RM_FILTER_TRIGGER {
         *self
     }
 }
+impl ::core::default::Default for RM_FILTER_TRIGGER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RM_FILTER_TRIGGER {
     type Abi = Self;
 }
@@ -262,6 +282,11 @@ impl ::core::clone::Clone for RM_REBOOT_REASON {
         *self
     }
 }
+impl ::core::default::Default for RM_REBOOT_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RM_REBOOT_REASON {
     type Abi = Self;
 }
@@ -282,6 +307,11 @@ impl ::core::marker::Copy for RM_SHUTDOWN_TYPE {}
 impl ::core::clone::Clone for RM_SHUTDOWN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RM_SHUTDOWN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RM_SHUTDOWN_TYPE {

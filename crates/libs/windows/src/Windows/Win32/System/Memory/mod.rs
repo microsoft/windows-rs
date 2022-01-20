@@ -245,6 +245,11 @@ impl ::core::clone::Clone for FILE_MAP {
         *self
     }
 }
+impl ::core::default::Default for FILE_MAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_MAP {
     type Abi = Self;
 }
@@ -329,6 +334,11 @@ impl ::core::marker::Copy for GLOBAL_ALLOC_FLAGS {}
 impl ::core::clone::Clone for GLOBAL_ALLOC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GLOBAL_ALLOC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GLOBAL_ALLOC_FLAGS {
@@ -625,6 +635,11 @@ impl ::core::clone::Clone for HEAP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for HEAP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HEAP_FLAGS {
     type Abi = Self;
 }
@@ -677,6 +692,11 @@ impl ::core::marker::Copy for HEAP_INFORMATION_CLASS {}
 impl ::core::clone::Clone for HEAP_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HEAP_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HEAP_INFORMATION_CLASS {
@@ -1059,6 +1079,11 @@ impl ::core::clone::Clone for LOCAL_ALLOC_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for LOCAL_ALLOC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOCAL_ALLOC_FLAGS {
     type Abi = Self;
 }
@@ -1387,6 +1412,11 @@ impl ::core::clone::Clone for MEMORY_RESOURCE_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -1526,6 +1556,11 @@ impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_TYPE {}
 impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MEM_EXTENDED_PARAMETER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_TYPE {
@@ -1687,6 +1722,11 @@ impl ::core::marker::Copy for OFFER_PRIORITY {}
 impl ::core::clone::Clone for OFFER_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFER_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFER_PRIORITY {
@@ -1859,6 +1899,11 @@ impl ::core::clone::Clone for PAGE_PROTECTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PAGE_PROTECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PAGE_PROTECTION_FLAGS {
     type Abi = Self;
 }
@@ -1909,6 +1954,11 @@ impl ::core::marker::Copy for PAGE_TYPE {}
 impl ::core::clone::Clone for PAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PAGE_TYPE {
@@ -2352,6 +2402,11 @@ impl ::core::clone::Clone for UNMAP_VIEW_OF_FILE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UNMAP_VIEW_OF_FILE_FLAGS {
     type Abi = Self;
 }
@@ -2474,6 +2529,11 @@ impl ::core::clone::Clone for VIRTUAL_ALLOCATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VIRTUAL_ALLOCATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_ALLOCATION_TYPE {
     type Abi = Self;
 }
@@ -2522,6 +2582,11 @@ impl ::core::marker::Copy for VIRTUAL_FREE_TYPE {}
 impl ::core::clone::Clone for VIRTUAL_FREE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_FREE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_FREE_TYPE {
@@ -2809,6 +2874,11 @@ impl ::core::clone::Clone for WIN32_MEMORY_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for WIN32_MEMORY_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -2893,6 +2963,11 @@ impl ::core::marker::Copy for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {}
 impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {

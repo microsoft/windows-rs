@@ -109,6 +109,11 @@ impl ::core::clone::Clone for AUDIOPOSTURE_ORIENTATION {
         *self
     }
 }
+impl ::core::default::Default for AUDIOPOSTURE_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIOPOSTURE_ORIENTATION {
     type Abi = Self;
 }
@@ -168,6 +173,11 @@ impl ::core::marker::Copy for AUDIO_CURVE_TYPE {}
 impl ::core::clone::Clone for AUDIO_CURVE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUDIO_CURVE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_CURVE_TYPE {
@@ -239,6 +249,11 @@ impl ::core::marker::Copy for CAPTURE_MEMORY_ALLOCATION_FLAGS {}
 impl ::core::clone::Clone for CAPTURE_MEMORY_ALLOCATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CAPTURE_MEMORY_ALLOCATION_FLAGS {
@@ -336,6 +351,11 @@ impl ::core::marker::Copy for CONSTRICTOR_OPTION {}
 impl ::core::clone::Clone for CONSTRICTOR_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONSTRICTOR_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONSTRICTOR_OPTION {
@@ -573,6 +593,11 @@ impl ::core::clone::Clone for EPcxConnectionType {
         *self
     }
 }
+impl ::core::default::Default for EPcxConnectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EPcxConnectionType {
     type Abi = Self;
 }
@@ -599,6 +624,11 @@ impl ::core::marker::Copy for EPcxGenLocation {}
 impl ::core::clone::Clone for EPcxGenLocation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EPcxGenLocation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EPcxGenLocation {
@@ -651,6 +681,11 @@ impl ::core::clone::Clone for EPcxGeoLocation {
         *self
     }
 }
+impl ::core::default::Default for EPcxGeoLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EPcxGeoLocation {
     type Abi = Self;
 }
@@ -675,6 +710,11 @@ impl ::core::marker::Copy for EPxcPortConnection {}
 impl ::core::clone::Clone for EPxcPortConnection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EPxcPortConnection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EPxcPortConnection {
@@ -707,6 +747,11 @@ impl ::core::clone::Clone for FRAMING_CACHE_OPS {
         *self
     }
 }
+impl ::core::default::Default for FRAMING_CACHE_OPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FRAMING_CACHE_OPS {
     type Abi = Self;
 }
@@ -731,6 +776,11 @@ impl ::core::marker::Copy for FRAMING_PROP {}
 impl ::core::clone::Clone for FRAMING_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FRAMING_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FRAMING_PROP {
@@ -1612,6 +1662,11 @@ impl ::core::marker::Copy for KSALLOCATORMODE {}
 impl ::core::clone::Clone for KSALLOCATORMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSALLOCATORMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSALLOCATORMODE {
@@ -3100,6 +3155,11 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
         *self
     }
 }
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
     type Abi = Self;
 }
@@ -3272,6 +3332,11 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
         *self
     }
 }
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
     type Abi = Self;
 }
@@ -3403,6 +3468,11 @@ impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROITYPE {}
 impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROITYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_ROITYPE {
@@ -3875,6 +3945,11 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WBPRESET {
         *self
     }
 }
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WBPRESET {
     type Abi = Self;
 }
@@ -3895,6 +3970,11 @@ impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {}
 impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
@@ -4230,6 +4310,11 @@ impl ::core::clone::Clone for KSCAMERA_MetadataId {
         *self
     }
 }
+impl ::core::default::Default for KSCAMERA_MetadataId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSCAMERA_MetadataId {
     type Abi = Self;
 }
@@ -4458,6 +4543,11 @@ impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {}
 impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
@@ -5134,6 +5224,11 @@ impl ::core::clone::Clone for KSDEGRADE_STANDARD {
         *self
     }
 }
+impl ::core::default::Default for KSDEGRADE_STANDARD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSDEGRADE_STANDARD {
     type Abi = Self;
 }
@@ -5253,6 +5348,11 @@ impl ::core::marker::Copy for KSDEVICE_THERMAL_STATE {}
 impl ::core::clone::Clone for KSDEVICE_THERMAL_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSDEVICE_THERMAL_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSDEVICE_THERMAL_STATE {
@@ -5378,6 +5478,11 @@ impl ::core::clone::Clone for KSDS3D_HRTF_COEFF_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for KSDS3D_HRTF_COEFF_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSDS3D_HRTF_COEFF_FORMAT {
     type Abi = Self;
 }
@@ -5435,6 +5540,11 @@ impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_METHOD {
         *self
     }
 }
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_METHOD {
     type Abi = Self;
 }
@@ -5459,6 +5569,11 @@ impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_QUALITY {
         *self
     }
 }
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_QUALITY {
     type Abi = Self;
 }
@@ -5477,6 +5592,11 @@ impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_VERSION {}
 impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_VERSION {
@@ -5979,6 +6099,11 @@ impl ::core::clone::Clone for KSEVENT_AUDIO_CONTROL_CHANGE {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_AUDIO_CONTROL_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_AUDIO_CONTROL_CHANGE {
     type Abi = Self;
 }
@@ -6001,6 +6126,11 @@ impl ::core::clone::Clone for KSEVENT_CAMERACONTROL {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_CAMERACONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_CAMERACONTROL {
     type Abi = Self;
 }
@@ -6019,6 +6149,11 @@ impl ::core::marker::Copy for KSEVENT_CAMERAEVENT {}
 impl ::core::clone::Clone for KSEVENT_CAMERAEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CAMERAEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_CAMERAEVENT {
@@ -6041,6 +6176,11 @@ impl ::core::marker::Copy for KSEVENT_CLOCK_POSITION {}
 impl ::core::clone::Clone for KSEVENT_CLOCK_POSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CLOCK_POSITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_CLOCK_POSITION {
@@ -6071,6 +6211,11 @@ impl ::core::clone::Clone for KSEVENT_CONNECTION {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_CONNECTION {
     type Abi = Self;
 }
@@ -6089,6 +6234,11 @@ impl ::core::marker::Copy for KSEVENT_CROSSBAR {}
 impl ::core::clone::Clone for KSEVENT_CROSSBAR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CROSSBAR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_CROSSBAR {
@@ -6125,6 +6275,11 @@ impl ::core::clone::Clone for KSEVENT_DEVCMD {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_DEVCMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_DEVCMD {
     type Abi = Self;
 }
@@ -6151,6 +6306,11 @@ impl ::core::clone::Clone for KSEVENT_DEVICE {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_DEVICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_DEVICE {
     type Abi = Self;
 }
@@ -6169,6 +6329,11 @@ impl ::core::marker::Copy for KSEVENT_DYNAMICFORMATCHANGE {}
 impl ::core::clone::Clone for KSEVENT_DYNAMICFORMATCHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_DYNAMICFORMATCHANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_DYNAMICFORMATCHANGE {
@@ -6197,6 +6362,11 @@ impl ::core::clone::Clone for KSEVENT_LOOPEDSTREAMING {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_LOOPEDSTREAMING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_LOOPEDSTREAMING {
     type Abi = Self;
 }
@@ -6219,6 +6389,11 @@ impl ::core::clone::Clone for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
     type Abi = Self;
 }
@@ -6237,6 +6412,11 @@ impl ::core::marker::Copy for KSEVENT_SOUNDDETECTOR {}
 impl ::core::clone::Clone for KSEVENT_SOUNDDETECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_SOUNDDETECTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_SOUNDDETECTOR {
@@ -6261,6 +6441,11 @@ impl ::core::clone::Clone for KSEVENT_STREAMALLOCATOR {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_STREAMALLOCATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_STREAMALLOCATOR {
     type Abi = Self;
 }
@@ -6279,6 +6464,11 @@ impl ::core::marker::Copy for KSEVENT_TELEPHONY {}
 impl ::core::clone::Clone for KSEVENT_TELEPHONY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_TELEPHONY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_TELEPHONY {
@@ -6370,6 +6560,11 @@ impl ::core::clone::Clone for KSEVENT_TUNER {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_TUNER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_TUNER {
     type Abi = Self;
 }
@@ -6424,6 +6619,11 @@ impl ::core::clone::Clone for KSEVENT_TVAUDIO {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_TVAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_TVAUDIO {
     type Abi = Self;
 }
@@ -6462,6 +6662,11 @@ impl ::core::clone::Clone for KSEVENT_VIDCAPTOSTI {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_VIDCAPTOSTI {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_VIDCAPTOSTI {
     type Abi = Self;
 }
@@ -6480,6 +6685,11 @@ impl ::core::marker::Copy for KSEVENT_VIDEODECODER {}
 impl ::core::clone::Clone for KSEVENT_VIDEODECODER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VIDEODECODER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_VIDEODECODER {
@@ -6502,6 +6712,11 @@ impl ::core::clone::Clone for KSEVENT_VOLUMELIMIT {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_VOLUMELIMIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_VOLUMELIMIT {
     type Abi = Self;
 }
@@ -6522,6 +6737,11 @@ impl ::core::clone::Clone for KSEVENT_VPNOTIFY {
         *self
     }
 }
+impl ::core::default::Default for KSEVENT_VPNOTIFY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEVENT_VPNOTIFY {
     type Abi = Self;
 }
@@ -6540,6 +6760,11 @@ impl ::core::marker::Copy for KSEVENT_VPVBINOTIFY {}
 impl ::core::clone::Clone for KSEVENT_VPVBINOTIFY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VPVBINOTIFY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSEVENT_VPVBINOTIFY {
@@ -6789,6 +7014,11 @@ impl ::core::clone::Clone for KSINTERFACE_FILEIO {
         *self
     }
 }
+impl ::core::default::Default for KSINTERFACE_FILEIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSINTERFACE_FILEIO {
     type Abi = Self;
 }
@@ -6813,6 +7043,11 @@ impl ::core::clone::Clone for KSINTERFACE_MEDIA {
         *self
     }
 }
+impl ::core::default::Default for KSINTERFACE_MEDIA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSINTERFACE_MEDIA {
     type Abi = Self;
 }
@@ -6835,6 +7070,11 @@ impl ::core::marker::Copy for KSINTERFACE_STANDARD {}
 impl ::core::clone::Clone for KSINTERFACE_STANDARD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSINTERFACE_STANDARD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSINTERFACE_STANDARD {
@@ -6965,6 +7205,11 @@ impl ::core::clone::Clone for KSJACK_SINK_CONNECTIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for KSJACK_SINK_CONNECTIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSJACK_SINK_CONNECTIONTYPE {
     type Abi = Self;
 }
@@ -7048,6 +7293,11 @@ impl ::core::clone::Clone for KSMETHOD_STREAMALLOCATOR {
         *self
     }
 }
+impl ::core::default::Default for KSMETHOD_STREAMALLOCATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSMETHOD_STREAMALLOCATOR {
     type Abi = Self;
 }
@@ -7068,6 +7318,11 @@ impl ::core::marker::Copy for KSMETHOD_STREAMIO {}
 impl ::core::clone::Clone for KSMETHOD_STREAMIO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSMETHOD_STREAMIO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSMETHOD_STREAMIO {
@@ -7114,6 +7369,11 @@ impl ::core::clone::Clone for KSMETHOD_WAVETABLE {
         *self
     }
 }
+impl ::core::default::Default for KSMETHOD_WAVETABLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSMETHOD_WAVETABLE {
     type Abi = Self;
 }
@@ -7150,6 +7410,11 @@ impl ::core::clone::Clone for KSMICARRAY_MICARRAYTYPE {
         *self
     }
 }
+impl ::core::default::Default for KSMICARRAY_MICARRAYTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSMICARRAY_MICARRAYTYPE {
     type Abi = Self;
 }
@@ -7180,6 +7445,11 @@ impl ::core::marker::Copy for KSMICARRAY_MICTYPE {}
 impl ::core::clone::Clone for KSMICARRAY_MICTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSMICARRAY_MICTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSMICARRAY_MICTYPE {
@@ -7775,6 +8045,11 @@ impl ::core::clone::Clone for KSPIN_COMMUNICATION {
         *self
     }
 }
+impl ::core::default::Default for KSPIN_COMMUNICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPIN_COMMUNICATION {
     type Abi = Self;
 }
@@ -7831,6 +8106,11 @@ impl ::core::marker::Copy for KSPIN_DATAFLOW {}
 impl ::core::clone::Clone for KSPIN_DATAFLOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPIN_DATAFLOW {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPIN_DATAFLOW {
@@ -7897,6 +8177,11 @@ impl ::core::marker::Copy for KSPIN_MDL_CACHING_EVENT {}
 impl ::core::clone::Clone for KSPIN_MDL_CACHING_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPIN_MDL_CACHING_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPIN_MDL_CACHING_EVENT {
@@ -8013,6 +8298,11 @@ impl ::core::clone::Clone for KSPPROPERTY_ALLOCATOR_MDLCACHING {
         *self
     }
 }
+impl ::core::default::Default for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPPROPERTY_ALLOCATOR_MDLCACHING {
     type Abi = Self;
 }
@@ -8101,6 +8391,11 @@ impl ::core::clone::Clone for KSPROPERTY_AC3 {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_AC3 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_AC3 {
     type Abi = Self;
 }
@@ -8125,6 +8420,11 @@ impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL {}
 impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_ALLOCATOR_CONTROL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_ALLOCATOR_CONTROL {
@@ -8238,6 +8538,11 @@ impl ::core::marker::Copy for KSPROPERTY_AUDDECOUT {}
 impl ::core::clone::Clone for KSPROPERTY_AUDDECOUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDDECOUT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDDECOUT {
@@ -8378,6 +8683,11 @@ impl ::core::clone::Clone for KSPROPERTY_AUDIO {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_AUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIO {
     type Abi = Self;
 }
@@ -8414,6 +8724,11 @@ impl ::core::clone::Clone for KSPROPERTY_AUDIOENGINE {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_AUDIOENGINE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOENGINE {
     type Abi = Self;
 }
@@ -8438,6 +8753,11 @@ impl ::core::clone::Clone for KSPROPERTY_AUDIOMODULE {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_AUDIOMODULE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOMODULE {
     type Abi = Self;
 }
@@ -8456,6 +8776,11 @@ impl ::core::marker::Copy for KSPROPERTY_AUDIOPOSTURE {}
 impl ::core::clone::Clone for KSPROPERTY_AUDIOPOSTURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOPOSTURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOPOSTURE {
@@ -8478,6 +8803,11 @@ impl ::core::clone::Clone for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
     type Abi = Self;
 }
@@ -8496,6 +8826,11 @@ impl ::core::marker::Copy for KSPROPERTY_AUDIOSIGNALPROCESSING {}
 impl ::core::clone::Clone for KSPROPERTY_AUDIOSIGNALPROCESSING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOSIGNALPROCESSING {
@@ -8588,6 +8923,11 @@ impl ::core::marker::Copy for KSPROPERTY_BIBLIOGRAPHIC {}
 impl ::core::clone::Clone for KSPROPERTY_BIBLIOGRAPHIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_BIBLIOGRAPHIC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_BIBLIOGRAPHIC {
@@ -8788,6 +9128,11 @@ impl ::core::clone::Clone for KSPROPERTY_BTAUDIO {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_BTAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_BTAUDIO {
     type Abi = Self;
 }
@@ -8898,6 +9243,11 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
     type Abi = Self;
 }
@@ -8926,6 +9276,11 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FLASH {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FLASH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FLASH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_FLASH {
@@ -9015,6 +9370,11 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
@@ -9161,6 +9521,11 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY 
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
     type Abi = Self;
 }
@@ -9179,6 +9544,11 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
@@ -9422,6 +9792,11 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE 
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
     type Abi = Self;
 }
@@ -9442,6 +9817,11 @@ impl ::core::marker::Copy for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {}
 impl ::core::clone::Clone for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
@@ -9472,6 +9852,11 @@ impl ::core::marker::Copy for KSPROPERTY_CLOCK {}
 impl ::core::clone::Clone for KSPROPERTY_CLOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CLOCK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_CLOCK {
@@ -9508,6 +9893,11 @@ impl ::core::clone::Clone for KSPROPERTY_CONNECTION {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CONNECTION {
     type Abi = Self;
 }
@@ -9540,6 +9930,11 @@ impl ::core::marker::Copy for KSPROPERTY_COPYPROT {}
 impl ::core::clone::Clone for KSPROPERTY_COPYPROT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_COPYPROT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_COPYPROT {
@@ -9674,6 +10069,11 @@ impl ::core::clone::Clone for KSPROPERTY_CYCLIC {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_CYCLIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_CYCLIC {
     type Abi = Self;
 }
@@ -9739,6 +10139,11 @@ impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DBUFFER {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DBUFFER {
     type Abi = Self;
 }
@@ -9775,6 +10180,11 @@ impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DLISTENER {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DLISTENER {
     type Abi = Self;
 }
@@ -9793,6 +10203,11 @@ impl ::core::marker::Copy for KSPROPERTY_DRMAUDIOSTREAM {}
 impl ::core::clone::Clone for KSPROPERTY_DRMAUDIOSTREAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_DRMAUDIOSTREAM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_DRMAUDIOSTREAM {
@@ -9847,6 +10262,11 @@ impl ::core::clone::Clone for KSPROPERTY_DVDSUBPIC {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_DVDSUBPIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_DVDSUBPIC {
     type Abi = Self;
 }
@@ -9873,6 +10293,11 @@ impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE {}
 impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_EXTDEVICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_EXTDEVICE {
@@ -9954,6 +10379,11 @@ impl ::core::clone::Clone for KSPROPERTY_EXTENSION_UNIT {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_EXTENSION_UNIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_EXTENSION_UNIT {
     type Abi = Self;
 }
@@ -9992,6 +10422,11 @@ impl ::core::marker::Copy for KSPROPERTY_EXTXPORT {}
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_EXTXPORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_EXTXPORT {
@@ -10320,6 +10755,11 @@ impl ::core::clone::Clone for KSPROPERTY_FMRX_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_FMRX_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_CONTROL {
     type Abi = Self;
 }
@@ -10344,6 +10784,11 @@ impl ::core::clone::Clone for KSPROPERTY_FMRX_TOPOLOGY {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_FMRX_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_TOPOLOGY {
     type Abi = Self;
 }
@@ -10362,6 +10807,11 @@ impl ::core::marker::Copy for KSPROPERTY_GENERAL {}
 impl ::core::clone::Clone for KSPROPERTY_GENERAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_GENERAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_GENERAL {
@@ -10388,6 +10838,11 @@ impl ::core::clone::Clone for KSPROPERTY_HRTF3D {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_HRTF3D {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_HRTF3D {
     type Abi = Self;
 }
@@ -10408,6 +10863,11 @@ impl ::core::clone::Clone for KSPROPERTY_INTERLEAVEDAUDIO {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_INTERLEAVEDAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_INTERLEAVEDAUDIO {
     type Abi = Self;
 }
@@ -10426,6 +10886,11 @@ impl ::core::marker::Copy for KSPROPERTY_ITD3D {}
 impl ::core::clone::Clone for KSPROPERTY_ITD3D {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_ITD3D {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_ITD3D {
@@ -10452,6 +10917,11 @@ impl ::core::marker::Copy for KSPROPERTY_JACK {}
 impl ::core::clone::Clone for KSPROPERTY_JACK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_JACK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_JACK {
@@ -10521,6 +10991,11 @@ impl ::core::marker::Copy for KSPROPERTY_MEDIASEEKING {}
 impl ::core::clone::Clone for KSPROPERTY_MEDIASEEKING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_MEDIASEEKING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_MEDIASEEKING {
@@ -10598,6 +11073,11 @@ impl ::core::clone::Clone for KSPROPERTY_MPEG2VID {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_MPEG2VID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG2VID {
     type Abi = Self;
 }
@@ -10616,6 +11096,11 @@ impl ::core::marker::Copy for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {}
 impl ::core::clone::Clone for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
@@ -10712,6 +11197,11 @@ impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
     type Abi = Self;
 }
@@ -10767,6 +11257,11 @@ impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
     type Abi = Self;
 }
@@ -10791,6 +11286,11 @@ impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {}
 impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
@@ -10823,6 +11323,11 @@ impl ::core::marker::Copy for KSPROPERTY_OVERLAYUPDATE {}
 impl ::core::clone::Clone for KSPROPERTY_OVERLAYUPDATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_OVERLAYUPDATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_OVERLAYUPDATE {
@@ -10875,6 +11380,11 @@ impl ::core::marker::Copy for KSPROPERTY_PIN {}
 impl ::core::clone::Clone for KSPROPERTY_PIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_PIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_PIN {
@@ -10936,6 +11446,11 @@ impl ::core::clone::Clone for KSPROPERTY_QUALITY {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_QUALITY {
     type Abi = Self;
 }
@@ -10980,6 +11495,11 @@ impl ::core::marker::Copy for KSPROPERTY_RTAUDIO {}
 impl ::core::clone::Clone for KSPROPERTY_RTAUDIO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_RTAUDIO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_RTAUDIO {
@@ -11119,6 +11639,11 @@ impl ::core::marker::Copy for KSPROPERTY_SOUNDDETECTOR {}
 impl ::core::clone::Clone for KSPROPERTY_SOUNDDETECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_SOUNDDETECTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_SOUNDDETECTOR {
@@ -11282,6 +11807,11 @@ impl ::core::clone::Clone for KSPROPERTY_STREAM {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_STREAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_STREAM {
     type Abi = Self;
 }
@@ -11300,6 +11830,11 @@ impl ::core::marker::Copy for KSPROPERTY_STREAMINTERFACE {}
 impl ::core::clone::Clone for KSPROPERTY_STREAMINTERFACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_STREAMINTERFACE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_STREAMINTERFACE {
@@ -11332,6 +11867,11 @@ impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_TELEPHONY_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_CONTROL {
     type Abi = Self;
 }
@@ -11352,6 +11892,11 @@ impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_TOPOLOGY {}
 impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_TOPOLOGY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_TOPOLOGY {
@@ -11376,6 +11921,11 @@ impl ::core::marker::Copy for KSPROPERTY_TIMECODE {}
 impl ::core::clone::Clone for KSPROPERTY_TIMECODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TIMECODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TIMECODE {
@@ -11456,6 +12006,11 @@ impl ::core::clone::Clone for KSPROPERTY_TOPOLOGY {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGY {
     type Abi = Self;
 }
@@ -11476,6 +12031,11 @@ impl ::core::marker::Copy for KSPROPERTY_TOPOLOGYNODE {}
 impl ::core::clone::Clone for KSPROPERTY_TOPOLOGYNODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TOPOLOGYNODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGYNODE {
@@ -11518,6 +12078,11 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TUNER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER {
@@ -11659,6 +12224,11 @@ impl ::core::marker::Copy for KSPROPERTY_TUNER_MODES {}
 impl ::core::clone::Clone for KSPROPERTY_TUNER_MODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TUNER_MODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_MODES {
@@ -12005,6 +12575,11 @@ impl ::core::clone::Clone for KSPROPERTY_VBICAP {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VBICAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICAP {
     type Abi = Self;
 }
@@ -12031,6 +12606,11 @@ impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING {}
 impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING {
@@ -12325,6 +12905,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CAMERACONTROL {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CAMERACONTROL {
     type Abi = Self;
 }
@@ -12353,6 +12938,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CROSSBAR {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDCAP_CROSSBAR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CROSSBAR {
     type Abi = Self;
 }
@@ -12371,6 +12961,11 @@ impl ::core::marker::Copy for KSPROPERTY_VIDCAP_DROPPEDFRAMES {}
 impl ::core::clone::Clone for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
@@ -12395,6 +12990,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDCAP_SELECTOR {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDCAP_SELECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_SELECTOR {
     type Abi = Self;
 }
@@ -12417,6 +13017,11 @@ impl ::core::marker::Copy for KSPROPERTY_VIDCAP_TVAUDIO {}
 impl ::core::clone::Clone for KSPROPERTY_VIDCAP_TVAUDIO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_TVAUDIO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_TVAUDIO {
@@ -12451,6 +13056,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
     type Abi = Self;
 }
@@ -12475,6 +13085,11 @@ impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCONTROL {}
 impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCONTROL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCONTROL {
@@ -12507,6 +13122,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEODECODER {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEODECODER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEODECODER {
     type Abi = Self;
 }
@@ -12531,6 +13151,11 @@ impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOENCODER {}
 impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOENCODER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOENCODER {
@@ -12577,6 +13202,11 @@ impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOPROCAMP {}
 impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
@@ -13073,6 +13703,11 @@ impl ::core::clone::Clone for KSPROPERTY_VIDMEM_TRANSPORT {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VIDMEM_TRANSPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VIDMEM_TRANSPORT {
     type Abi = Self;
 }
@@ -13123,6 +13758,11 @@ impl ::core::clone::Clone for KSPROPERTY_VPCONFIG {
         *self
     }
 }
+impl ::core::default::Default for KSPROPERTY_VPCONFIG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSPROPERTY_VPCONFIG {
     type Abi = Self;
 }
@@ -13153,6 +13793,11 @@ impl ::core::marker::Copy for KSPROPERTY_WAVE {}
 impl ::core::clone::Clone for KSPROPERTY_WAVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_WAVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSPROPERTY_WAVE {
@@ -13575,6 +14220,11 @@ impl ::core::marker::Copy for KSRESET {}
 impl ::core::clone::Clone for KSRESET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSRESET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSRESET {
@@ -14190,6 +14840,11 @@ impl ::core::marker::Copy for KSSTATE {}
 impl ::core::clone::Clone for KSSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KSSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KSSTATE {
@@ -15165,6 +15820,11 @@ impl ::core::clone::Clone for KS_AMPixAspectRatio {
         *self
     }
 }
+impl ::core::default::Default for KS_AMPixAspectRatio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_AMPixAspectRatio {
     type Abi = Self;
 }
@@ -15330,6 +15990,11 @@ impl ::core::clone::Clone for KS_AMVP_MODE {
         *self
     }
 }
+impl ::core::default::Default for KS_AMVP_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_AMVP_MODE {
     type Abi = Self;
 }
@@ -15352,6 +16017,11 @@ impl ::core::marker::Copy for KS_AMVP_SELECTFORMATBY {}
 impl ::core::clone::Clone for KS_AMVP_SELECTFORMATBY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_AMVP_SELECTFORMATBY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_AMVP_SELECTFORMATBY {
@@ -15409,6 +16079,11 @@ impl ::core::marker::Copy for KS_AM_PROPERTY_TS_RATE_CHANGE {}
 impl ::core::clone::Clone for KS_AM_PROPERTY_TS_RATE_CHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_AM_PROPERTY_TS_RATE_CHANGE {
@@ -15544,6 +16219,11 @@ impl ::core::marker::Copy for KS_AnalogVideoStandard {}
 impl ::core::clone::Clone for KS_AnalogVideoStandard {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_AnalogVideoStandard {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_AnalogVideoStandard {
@@ -15751,6 +16431,11 @@ impl ::core::clone::Clone for KS_COPY_MACROVISION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for KS_COPY_MACROVISION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_COPY_MACROVISION_LEVEL {
     type Abi = Self;
 }
@@ -15773,6 +16458,11 @@ impl ::core::marker::Copy for KS_CameraControlAsyncOperation {}
 impl ::core::clone::Clone for KS_CameraControlAsyncOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_CameraControlAsyncOperation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_CameraControlAsyncOperation {
@@ -15801,6 +16491,11 @@ impl ::core::marker::Copy for KS_CompressionCaps {}
 impl ::core::clone::Clone for KS_CompressionCaps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_CompressionCaps {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_CompressionCaps {
@@ -16372,6 +17067,11 @@ impl ::core::marker::Copy for KS_DVDCOPYSTATE {}
 impl ::core::clone::Clone for KS_DVDCOPYSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_DVDCOPYSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_DVDCOPYSTATE {
@@ -17083,6 +17783,11 @@ impl ::core::clone::Clone for KS_LogicalMemoryType {
         *self
     }
 }
+impl ::core::default::Default for KS_LogicalMemoryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_LogicalMemoryType {
     type Abi = Self;
 }
@@ -17185,6 +17890,11 @@ impl ::core::clone::Clone for KS_MPEG2Level {
         *self
     }
 }
+impl ::core::default::Default for KS_MPEG2Level {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_MPEG2Level {
     type Abi = Self;
 }
@@ -17211,6 +17921,11 @@ impl ::core::marker::Copy for KS_MPEG2Profile {}
 impl ::core::clone::Clone for KS_MPEG2Profile {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_MPEG2Profile {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_MPEG2Profile {
@@ -17365,6 +18080,11 @@ impl ::core::clone::Clone for KS_PhysicalConnectorType {
         *self
     }
 }
+impl ::core::default::Default for KS_PhysicalConnectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_PhysicalConnectorType {
     type Abi = Self;
 }
@@ -17431,6 +18151,11 @@ impl ::core::clone::Clone for KS_SEEKING_CAPABILITIES {
         *self
     }
 }
+impl ::core::default::Default for KS_SEEKING_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_SEEKING_CAPABILITIES {
     type Abi = Self;
 }
@@ -17461,6 +18186,11 @@ impl ::core::marker::Copy for KS_SEEKING_FLAGS {}
 impl ::core::clone::Clone for KS_SEEKING_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_SEEKING_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_SEEKING_FLAGS {
@@ -17518,6 +18248,11 @@ impl ::core::clone::Clone for KS_TUNER_STRATEGY {
         *self
     }
 }
+impl ::core::default::Default for KS_TUNER_STRATEGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_TUNER_STRATEGY {
     type Abi = Self;
 }
@@ -17540,6 +18275,11 @@ impl ::core::marker::Copy for KS_TUNER_TUNING_FLAGS {}
 impl ::core::clone::Clone for KS_TUNER_TUNING_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_TUNER_TUNING_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_TUNER_TUNING_FLAGS {
@@ -17733,6 +18473,11 @@ impl ::core::marker::Copy for KS_VIDEODECODER_FLAGS {}
 impl ::core::clone::Clone for KS_VIDEODECODER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_VIDEODECODER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_VIDEODECODER_FLAGS {
@@ -18090,6 +18835,11 @@ impl ::core::clone::Clone for KS_VideoControlFlags {
         *self
     }
 }
+impl ::core::default::Default for KS_VideoControlFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KS_VideoControlFlags {
     type Abi = Self;
 }
@@ -18116,6 +18866,11 @@ impl ::core::marker::Copy for KS_VideoStreamingHints {}
 impl ::core::clone::Clone for KS_VideoStreamingHints {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KS_VideoStreamingHints {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KS_VideoStreamingHints {
@@ -18581,6 +19336,11 @@ impl ::core::clone::Clone for PIPE_ALLOCATOR_PLACE {
         *self
     }
 }
+impl ::core::default::Default for PIPE_ALLOCATOR_PLACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PIPE_ALLOCATOR_PLACE {
     type Abi = Self;
 }
@@ -18639,6 +19399,11 @@ impl ::core::marker::Copy for PIPE_STATE {}
 impl ::core::clone::Clone for PIPE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PIPE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PIPE_STATE {
@@ -18857,6 +19622,11 @@ impl ::core::clone::Clone for TELEPHONY_CALLCONTROLOP {
         *self
     }
 }
+impl ::core::default::Default for TELEPHONY_CALLCONTROLOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TELEPHONY_CALLCONTROLOP {
     type Abi = Self;
 }
@@ -18883,6 +19653,11 @@ impl ::core::clone::Clone for TELEPHONY_CALLSTATE {
         *self
     }
 }
+impl ::core::default::Default for TELEPHONY_CALLSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TELEPHONY_CALLSTATE {
     type Abi = Self;
 }
@@ -18907,6 +19682,11 @@ impl ::core::clone::Clone for TELEPHONY_CALLTYPE {
         *self
     }
 }
+impl ::core::default::Default for TELEPHONY_CALLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TELEPHONY_CALLTYPE {
     type Abi = Self;
 }
@@ -18929,6 +19709,11 @@ impl ::core::marker::Copy for TELEPHONY_PROVIDERCHANGEOP {}
 impl ::core::clone::Clone for TELEPHONY_PROVIDERCHANGEOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TELEPHONY_PROVIDERCHANGEOP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TELEPHONY_PROVIDERCHANGEOP {
@@ -19829,6 +20614,11 @@ impl ::core::marker::Copy for _TunerDecoderLockType {}
 impl ::core::clone::Clone for _TunerDecoderLockType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _TunerDecoderLockType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _TunerDecoderLockType {

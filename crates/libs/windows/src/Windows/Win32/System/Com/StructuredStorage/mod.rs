@@ -2207,6 +2207,11 @@ impl ::core::clone::Clone for LOCKTYPE {
         *self
     }
 }
+impl ::core::default::Default for LOCKTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOCKTYPE {
     type Abi = Self;
 }
@@ -2414,6 +2419,11 @@ impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
         *self
     }
 }
+impl ::core::default::Default for PIDMSI_STATUS_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
     type Abi = Self;
 }
@@ -2619,6 +2629,11 @@ impl ::core::marker::Copy for PROPSPEC_KIND {}
 impl ::core::clone::Clone for PROPSPEC_KIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPSPEC_KIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
@@ -3026,6 +3041,11 @@ impl ::core::clone::Clone for STATFLAG {
         *self
     }
 }
+impl ::core::default::Default for STATFLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STATFLAG {
     type Abi = Self;
 }
@@ -3138,6 +3158,11 @@ impl ::core::clone::Clone for STGC {
         *self
     }
 }
+impl ::core::default::Default for STGC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STGC {
     type Abi = Self;
 }
@@ -3194,6 +3219,11 @@ impl ::core::marker::Copy for STGFMT {}
 impl ::core::clone::Clone for STGFMT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STGFMT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STGFMT {
@@ -3278,6 +3308,11 @@ impl ::core::clone::Clone for STGM {
         *self
     }
 }
+impl ::core::default::Default for STGM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STGM {
     type Abi = Self;
 }
@@ -3328,6 +3363,11 @@ impl ::core::marker::Copy for STGMOVE {}
 impl ::core::clone::Clone for STGMOVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STGMOVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STGMOVE {

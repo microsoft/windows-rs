@@ -35,6 +35,11 @@ impl ::core::clone::Clone for ACCOUNTINGPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for ACCOUNTINGPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACCOUNTINGPROPERTIES {
     type Abi = Self;
 }
@@ -57,6 +62,11 @@ impl ::core::marker::Copy for ATTRIBUTEFILTER {}
 impl ::core::clone::Clone for ATTRIBUTEFILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ATTRIBUTEFILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTEFILTER {
@@ -563,6 +573,11 @@ impl ::core::clone::Clone for ATTRIBUTEID {
         *self
     }
 }
+impl ::core::default::Default for ATTRIBUTEID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTRIBUTEID {
     type Abi = Self;
 }
@@ -623,6 +638,11 @@ impl ::core::clone::Clone for ATTRIBUTEINFO {
         *self
     }
 }
+impl ::core::default::Default for ATTRIBUTEINFO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTRIBUTEINFO {
     type Abi = Self;
 }
@@ -677,6 +697,11 @@ impl ::core::clone::Clone for ATTRIBUTEPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for ATTRIBUTEPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTRIBUTEPROPERTIES {
     type Abi = Self;
 }
@@ -707,6 +732,11 @@ impl ::core::marker::Copy for ATTRIBUTERESTRICTIONS {}
 impl ::core::clone::Clone for ATTRIBUTERESTRICTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ATTRIBUTERESTRICTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTERESTRICTIONS {
@@ -745,6 +775,11 @@ impl ::core::marker::Copy for ATTRIBUTESYNTAX {}
 impl ::core::clone::Clone for ATTRIBUTESYNTAX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ATTRIBUTESYNTAX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ATTRIBUTESYNTAX {
@@ -789,6 +824,11 @@ impl ::core::clone::Clone for AUTHENTICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for AUTHENTICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHENTICATION_TYPE {
     type Abi = Self;
 }
@@ -823,6 +863,11 @@ impl ::core::clone::Clone for CLIENTPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for CLIENTPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLIENTPROPERTIES {
     type Abi = Self;
 }
@@ -841,6 +886,11 @@ impl ::core::marker::Copy for CONDITIONPROPERTIES {}
 impl ::core::clone::Clone for CONDITIONPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONDITIONPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONDITIONPROPERTIES {
@@ -863,6 +913,11 @@ impl ::core::marker::Copy for DICTIONARYPROPERTIES {}
 impl ::core::clone::Clone for DICTIONARYPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DICTIONARYPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DICTIONARYPROPERTIES {
@@ -901,6 +956,11 @@ impl ::core::clone::Clone for IASCOMMONPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for IASCOMMONPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IASCOMMONPROPERTIES {
     type Abi = Self;
 }
@@ -925,6 +985,11 @@ impl ::core::clone::Clone for IASCOMPONENTPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for IASCOMPONENTPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IASCOMPONENTPROPERTIES {
     type Abi = Self;
 }
@@ -945,6 +1010,11 @@ impl ::core::marker::Copy for IASDATASTORE {}
 impl ::core::clone::Clone for IASDATASTORE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IASDATASTORE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IASDATASTORE {
@@ -971,6 +1041,11 @@ impl ::core::marker::Copy for IASDOMAINTYPE {}
 impl ::core::clone::Clone for IASDOMAINTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IASDOMAINTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IASDOMAINTYPE {
@@ -1019,6 +1094,11 @@ impl ::core::clone::Clone for IASOSTYPE {
         *self
     }
 }
+impl ::core::default::Default for IASOSTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IASOSTYPE {
     type Abi = Self;
 }
@@ -1057,6 +1137,11 @@ impl ::core::clone::Clone for IASPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for IASPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IASPROPERTIES {
     type Abi = Self;
 }
@@ -1077,6 +1162,11 @@ impl ::core::clone::Clone for IDENTITY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IDENTITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IDENTITY_TYPE {
     type Abi = Self;
 }
@@ -1095,6 +1185,11 @@ impl ::core::marker::Copy for IPFILTERPROPERTIES {}
 impl ::core::clone::Clone for IPFILTERPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPFILTERPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPFILTERPROPERTIES {
@@ -2311,6 +2406,11 @@ impl ::core::clone::Clone for NAMESPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for NAMESPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NAMESPROPERTIES {
     type Abi = Self;
 }
@@ -2331,6 +2431,11 @@ impl ::core::marker::Copy for NAPPROPERTIES {}
 impl ::core::clone::Clone for NAPPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NAPPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NAPPROPERTIES {
@@ -2361,6 +2466,11 @@ impl ::core::clone::Clone for NEW_LOG_FILE_FREQUENCY {
         *self
     }
 }
+impl ::core::default::Default for NEW_LOG_FILE_FREQUENCY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NEW_LOG_FILE_FREQUENCY {
     type Abi = Self;
 }
@@ -2385,6 +2495,11 @@ impl ::core::clone::Clone for NTEVENTLOGPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for NTEVENTLOGPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NTEVENTLOGPROPERTIES {
     type Abi = Self;
 }
@@ -2403,6 +2518,11 @@ impl ::core::marker::Copy for NTSAMPROPERTIES {}
 impl ::core::clone::Clone for NTSAMPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NTSAMPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NTSAMPROPERTIES {
@@ -2441,6 +2561,11 @@ impl ::core::clone::Clone for POLICYPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for POLICYPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POLICYPROPERTIES {
     type Abi = Self;
 }
@@ -2475,6 +2600,11 @@ impl ::core::clone::Clone for PROFILEPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for PROFILEPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROFILEPROPERTIES {
     type Abi = Self;
 }
@@ -2495,6 +2625,11 @@ impl ::core::marker::Copy for PROTOCOLPROPERTIES {}
 impl ::core::clone::Clone for PROTOCOLPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROTOCOLPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROTOCOLPROPERTIES {
@@ -2523,6 +2658,11 @@ impl ::core::clone::Clone for RADIUSPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for RADIUSPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUSPROPERTIES {
     type Abi = Self;
 }
@@ -2543,6 +2683,11 @@ impl ::core::clone::Clone for RADIUSPROXYPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for RADIUSPROXYPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUSPROXYPROPERTIES {
     type Abi = Self;
 }
@@ -2561,6 +2706,11 @@ impl ::core::marker::Copy for RADIUSSERVERGROUPPROPERTIES {}
 impl ::core::clone::Clone for RADIUSSERVERGROUPPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RADIUSSERVERGROUPPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RADIUSSERVERGROUPPROPERTIES {
@@ -2609,6 +2759,11 @@ impl ::core::clone::Clone for RADIUSSERVERPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for RADIUSSERVERPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUSSERVERPROPERTIES {
     type Abi = Self;
 }
@@ -2631,6 +2786,11 @@ impl ::core::marker::Copy for RADIUS_ACTION {}
 impl ::core::clone::Clone for RADIUS_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RADIUS_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_ACTION {
@@ -2899,6 +3059,11 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RADIUS_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -2929,6 +3094,11 @@ impl ::core::marker::Copy for RADIUS_AUTHENTICATION_PROVIDER {}
 impl ::core::clone::Clone for RADIUS_AUTHENTICATION_PROVIDER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RADIUS_AUTHENTICATION_PROVIDER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_AUTHENTICATION_PROVIDER {
@@ -2965,6 +3135,11 @@ impl ::core::clone::Clone for RADIUS_CODE {
         *self
     }
 }
+impl ::core::default::Default for RADIUS_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUS_CODE {
     type Abi = Self;
 }
@@ -2993,6 +3168,11 @@ impl ::core::marker::Copy for RADIUS_DATA_TYPE {}
 impl ::core::clone::Clone for RADIUS_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RADIUS_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_DATA_TYPE {
@@ -3054,6 +3234,11 @@ impl ::core::clone::Clone for RADIUS_EXTENSION_POINT {
         *self
     }
 }
+impl ::core::default::Default for RADIUS_EXTENSION_POINT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RADIUS_EXTENSION_POINT {
     type Abi = Self;
 }
@@ -3082,6 +3267,11 @@ impl ::core::marker::Copy for RADIUS_REJECT_REASON_CODE {}
 impl ::core::clone::Clone for RADIUS_REJECT_REASON_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RADIUS_REJECT_REASON_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RADIUS_REJECT_REASON_CODE {
@@ -3137,6 +3327,11 @@ impl ::core::clone::Clone for REMEDIATIONSERVERGROUPPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for REMEDIATIONSERVERGROUPPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REMEDIATIONSERVERGROUPPROPERTIES {
     type Abi = Self;
 }
@@ -3159,6 +3354,11 @@ impl ::core::clone::Clone for REMEDIATIONSERVERPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for REMEDIATIONSERVERPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REMEDIATIONSERVERPROPERTIES {
     type Abi = Self;
 }
@@ -3177,6 +3377,11 @@ impl ::core::marker::Copy for REMEDIATIONSERVERSPROPERTIES {}
 impl ::core::clone::Clone for REMEDIATIONSERVERSPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REMEDIATIONSERVERSPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REMEDIATIONSERVERSPROPERTIES {
@@ -3205,6 +3410,11 @@ impl ::core::clone::Clone for SERVICE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TYPE {
     type Abi = Self;
 }
@@ -3223,6 +3433,11 @@ impl ::core::marker::Copy for SHAREDSECRETPROPERTIES {}
 impl ::core::clone::Clone for SHAREDSECRETPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHAREDSECRETPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHAREDSECRETPROPERTIES {
@@ -3247,6 +3462,11 @@ impl ::core::marker::Copy for SHVTEMPLATEPROPERTIES {}
 impl ::core::clone::Clone for SHVTEMPLATEPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHVTEMPLATEPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHVTEMPLATEPROPERTIES {
@@ -3281,6 +3501,11 @@ impl ::core::marker::Copy for SHV_COMBINATION_TYPE {}
 impl ::core::clone::Clone for SHV_COMBINATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHV_COMBINATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHV_COMBINATION_TYPE {
@@ -3324,6 +3549,11 @@ impl ::core::marker::Copy for TEMPLATESPROPERTIES {}
 impl ::core::clone::Clone for TEMPLATESPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TEMPLATESPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TEMPLATESPROPERTIES {
@@ -3376,6 +3606,11 @@ impl ::core::clone::Clone for USERPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for USERPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USERPROPERTIES {
     type Abi = Self;
 }
@@ -3394,6 +3629,11 @@ impl ::core::marker::Copy for VENDORPROPERTIES {}
 impl ::core::clone::Clone for VENDORPROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VENDORPROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VENDORPROPERTIES {

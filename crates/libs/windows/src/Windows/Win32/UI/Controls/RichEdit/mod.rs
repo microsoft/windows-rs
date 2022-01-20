@@ -108,6 +108,11 @@ impl ::core::clone::Clone for CARET_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CARET_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CARET_FLAGS {
     type Abi = Self;
 }
@@ -207,6 +212,11 @@ impl ::core::marker::Copy for CFE_EFFECTS {}
 impl ::core::clone::Clone for CFE_EFFECTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CFE_EFFECTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CFE_EFFECTS {
@@ -341,6 +351,11 @@ impl ::core::clone::Clone for CFM_MASK {
         *self
     }
 }
+impl ::core::default::Default for CFM_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CFM_MASK {
     type Abi = Self;
 }
@@ -424,6 +439,11 @@ impl ::core::marker::Copy for CHANGETYPE {}
 impl ::core::clone::Clone for CHANGETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHANGETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHANGETYPE {
@@ -1161,6 +1181,11 @@ impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY_CODE {
         *self
     }
 }
+impl ::core::default::Default for ENDCOMPOSITIONNOTIFY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENDCOMPOSITIONNOTIFY_CODE {
     type Abi = Self;
 }
@@ -1805,6 +1830,11 @@ impl ::core::clone::Clone for GETTEXTEX_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for GETTEXTEX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GETTEXTEX_FLAGS {
     type Abi = Self;
 }
@@ -1892,6 +1922,11 @@ impl ::core::marker::Copy for GETTEXTLENGTHEX_FLAGS {}
 impl ::core::clone::Clone for GETTEXTLENGTHEX_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GETTEXTLENGTHEX_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GETTEXTLENGTHEX_FLAGS {
@@ -2010,6 +2045,11 @@ impl ::core::marker::Copy for IMECOMPTEXT_FLAGS {}
 impl ::core::clone::Clone for IMECOMPTEXT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMECOMPTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMECOMPTEXT_FLAGS {
@@ -10068,6 +10108,11 @@ impl ::core::clone::Clone for KHYPH {
         *self
     }
 }
+impl ::core::default::Default for KHYPH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KHYPH {
     type Abi = Self;
 }
@@ -10116,6 +10161,11 @@ impl ::core::marker::Copy for MANCODE {}
 impl ::core::clone::Clone for MANCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MANCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MANCODE {
@@ -10271,6 +10321,11 @@ impl ::core::clone::Clone for OBJECTTYPE {
         *self
     }
 }
+impl ::core::default::Default for OBJECTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OBJECTTYPE {
     type Abi = Self;
 }
@@ -10396,6 +10451,11 @@ impl ::core::clone::Clone for PARAFORMAT_ALIGNMENT {
         *self
     }
 }
+impl ::core::default::Default for PARAFORMAT_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PARAFORMAT_ALIGNMENT {
     type Abi = Self;
 }
@@ -10426,6 +10486,11 @@ impl ::core::marker::Copy for PARAFORMAT_BORDERS {}
 impl ::core::clone::Clone for PARAFORMAT_BORDERS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PARAFORMAT_BORDERS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PARAFORMAT_BORDERS {
@@ -10490,6 +10555,11 @@ impl ::core::clone::Clone for PARAFORMAT_MASK {
         *self
     }
 }
+impl ::core::default::Default for PARAFORMAT_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PARAFORMAT_MASK {
     type Abi = Self;
 }
@@ -10548,6 +10618,11 @@ impl ::core::clone::Clone for PARAFORMAT_NUMBERING_STYLE {
         *self
     }
 }
+impl ::core::default::Default for PARAFORMAT_NUMBERING_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PARAFORMAT_NUMBERING_STYLE {
     type Abi = Self;
 }
@@ -10590,6 +10665,11 @@ impl ::core::marker::Copy for PARAFORMAT_SHADING_STYLE {}
 impl ::core::clone::Clone for PARAFORMAT_SHADING_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PARAFORMAT_SHADING_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PARAFORMAT_SHADING_STYLE {
@@ -10829,6 +10909,11 @@ impl ::core::clone::Clone for REOBJECT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for REOBJECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REOBJECT_FLAGS {
     type Abi = Self;
 }
@@ -10986,6 +11071,11 @@ impl ::core::clone::Clone for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     type Abi = Self;
 }
@@ -11040,6 +11130,11 @@ impl ::core::marker::Copy for RICH_EDIT_GET_OBJECT_FLAGS {}
 impl ::core::clone::Clone for RICH_EDIT_GET_OBJECT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RICH_EDIT_GET_OBJECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RICH_EDIT_GET_OBJECT_FLAGS {
@@ -11417,6 +11512,11 @@ impl ::core::clone::Clone for TEXTMODE {
         *self
     }
 }
+impl ::core::default::Default for TEXTMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TEXTMODE {
     type Abi = Self;
 }
@@ -11515,6 +11615,11 @@ impl ::core::clone::Clone for TXTBACKSTYLE {
         *self
     }
 }
+impl ::core::default::Default for TXTBACKSTYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TXTBACKSTYLE {
     type Abi = Self;
 }
@@ -11601,6 +11706,11 @@ impl ::core::clone::Clone for TXTHITRESULT {
         *self
     }
 }
+impl ::core::default::Default for TXTHITRESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TXTHITRESULT {
     type Abi = Self;
 }
@@ -11633,6 +11743,11 @@ impl ::core::clone::Clone for TXTNATURALSIZE {
         *self
     }
 }
+impl ::core::default::Default for TXTNATURALSIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TXTNATURALSIZE {
     type Abi = Self;
 }
@@ -11653,6 +11768,11 @@ impl ::core::marker::Copy for TXTVIEW {}
 impl ::core::clone::Clone for TXTVIEW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TXTVIEW {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TXTVIEW {
@@ -11685,6 +11805,11 @@ impl ::core::marker::Copy for UNDONAMEID {}
 impl ::core::clone::Clone for UNDONAMEID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UNDONAMEID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UNDONAMEID {
@@ -12970,6 +13095,11 @@ impl ::core::marker::Copy for tomConstants {}
 impl ::core::clone::Clone for tomConstants {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for tomConstants {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for tomConstants {

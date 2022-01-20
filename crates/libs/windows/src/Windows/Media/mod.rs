@@ -229,6 +229,11 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
         *self
     }
 }
+impl ::core::default::Default for AudioBufferAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
     type Abi = Self;
 }
@@ -485,6 +490,11 @@ impl ::core::marker::Copy for AudioProcessing {}
 impl ::core::clone::Clone for AudioProcessing {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioProcessing {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioProcessing {
@@ -2445,6 +2455,11 @@ impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
         *self
     }
 }
+impl ::core::default::Default for MediaPlaybackAutoRepeatMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
     type Abi = Self;
 }
@@ -2476,6 +2491,11 @@ impl ::core::clone::Clone for MediaPlaybackStatus {
         *self
     }
 }
+impl ::core::default::Default for MediaPlaybackStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
     type Abi = Self;
 }
@@ -2504,6 +2524,11 @@ impl ::core::marker::Copy for MediaPlaybackType {}
 impl ::core::clone::Clone for MediaPlaybackType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackType {
@@ -2965,6 +2990,11 @@ impl ::core::clone::Clone for MediaTimelineControllerState {
         *self
     }
 }
+impl ::core::default::Default for MediaTimelineControllerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
     type Abi = Self;
 }
@@ -3398,6 +3428,11 @@ impl ::core::clone::Clone for SoundLevel {
         *self
     }
 }
+impl ::core::default::Default for SoundLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SoundLevel {
     type Abi = Self;
 }
@@ -3825,6 +3860,11 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
         *self
     }
 }
+impl ::core::default::Default for SystemMediaTransportControlsButton {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
     type Abi = Self;
 }
@@ -4088,6 +4128,11 @@ impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
 impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemMediaTransportControlsProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {

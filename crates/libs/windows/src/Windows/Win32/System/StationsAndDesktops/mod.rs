@@ -31,6 +31,11 @@ impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type Abi = Self;
 }
@@ -81,6 +86,11 @@ impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
 impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
@@ -757,6 +767,11 @@ impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
 impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USER_OBJECT_INFORMATION_INDEX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USER_OBJECT_INFORMATION_INDEX {

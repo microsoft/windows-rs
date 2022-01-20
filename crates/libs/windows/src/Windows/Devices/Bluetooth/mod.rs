@@ -220,6 +220,11 @@ impl ::core::clone::Clone for BluetoothAddressType {
         *self
     }
 }
+impl ::core::default::Default for BluetoothAddressType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothAddressType {
     type Abi = Self;
 }
@@ -246,6 +251,11 @@ impl ::core::marker::Copy for BluetoothCacheMode {}
 impl ::core::clone::Clone for BluetoothCacheMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothCacheMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothCacheMode {
@@ -398,6 +408,11 @@ impl ::core::marker::Copy for BluetoothConnectionStatus {}
 impl ::core::clone::Clone for BluetoothConnectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothConnectionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothConnectionStatus {
@@ -915,6 +930,11 @@ impl ::core::marker::Copy for BluetoothError {}
 impl ::core::clone::Clone for BluetoothError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothError {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothError {
@@ -2396,6 +2416,11 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestSta
         *self
     }
 }
+impl ::core::default::Default for BluetoothLEPreferredConnectionParametersRequestStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEPreferredConnectionParametersRequestStatus {
     type Abi = Self;
 }
@@ -2430,6 +2455,11 @@ impl ::core::marker::Copy for BluetoothMajorClass {}
 impl ::core::clone::Clone for BluetoothMajorClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothMajorClass {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothMajorClass {
@@ -2529,6 +2559,11 @@ impl ::core::clone::Clone for BluetoothMinorClass {
         *self
     }
 }
+impl ::core::default::Default for BluetoothMinorClass {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothMinorClass {
     type Abi = Self;
 }
@@ -2563,6 +2598,11 @@ impl ::core::marker::Copy for BluetoothServiceCapabilities {}
 impl ::core::clone::Clone for BluetoothServiceCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothServiceCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothServiceCapabilities {

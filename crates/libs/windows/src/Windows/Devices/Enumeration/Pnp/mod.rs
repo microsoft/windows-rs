@@ -497,6 +497,11 @@ impl ::core::clone::Clone for PnpObjectType {
         *self
     }
 }
+impl ::core::default::Default for PnpObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PnpObjectType {
     type Abi = Self;
 }

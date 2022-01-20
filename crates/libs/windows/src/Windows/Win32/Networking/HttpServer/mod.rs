@@ -107,6 +107,11 @@ impl ::core::clone::Clone for HTTP_503_RESPONSE_VERBOSITY {
         *self
     }
 }
+impl ::core::default::Default for HTTP_503_RESPONSE_VERBOSITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_503_RESPONSE_VERBOSITY {
     type Abi = Self;
 }
@@ -129,6 +134,11 @@ impl ::core::marker::Copy for HTTP_AUTHENTICATION_HARDENING_LEVELS {}
 impl ::core::clone::Clone for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_AUTHENTICATION_HARDENING_LEVELS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_AUTHENTICATION_HARDENING_LEVELS {
@@ -167,6 +177,11 @@ impl ::core::marker::Copy for HTTP_AUTH_STATUS {}
 impl ::core::clone::Clone for HTTP_AUTH_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_AUTH_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_AUTH_STATUS {
@@ -327,6 +342,11 @@ impl ::core::clone::Clone for HTTP_CACHE_POLICY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_CACHE_POLICY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY_TYPE {
     type Abi = Self;
 }
@@ -474,6 +494,11 @@ impl ::core::marker::Copy for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {}
 impl ::core::clone::Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
@@ -802,6 +827,11 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_DATA_CHUNK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_TYPE {
     type Abi = Self;
 }
@@ -822,6 +852,11 @@ impl ::core::marker::Copy for HTTP_DELEGATE_REQUEST_PROPERTY_ID {}
 impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
@@ -878,6 +913,11 @@ impl ::core::marker::Copy for HTTP_ENABLED_STATE {}
 impl ::core::clone::Clone for HTTP_ENABLED_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_ENABLED_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_ENABLED_STATE {
@@ -948,6 +988,11 @@ impl ::core::marker::Copy for HTTP_FEATURE_ID {}
 impl ::core::clone::Clone for HTTP_FEATURE_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_FEATURE_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_FEATURE_ID {
@@ -1111,6 +1156,11 @@ impl ::core::clone::Clone for HTTP_HEADER_ID {
         *self
     }
 }
+impl ::core::default::Default for HTTP_HEADER_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_HEADER_ID {
     type Abi = Self;
 }
@@ -1131,6 +1181,11 @@ impl ::core::marker::Copy for HTTP_INITIALIZE {}
 impl ::core::clone::Clone for HTTP_INITIALIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_INITIALIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_INITIALIZE {
@@ -1341,6 +1396,11 @@ impl ::core::clone::Clone for HTTP_LOGGING_ROLLOVER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_LOGGING_ROLLOVER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
     type Abi = Self;
 }
@@ -1365,6 +1425,11 @@ impl ::core::marker::Copy for HTTP_LOGGING_TYPE {}
 impl ::core::clone::Clone for HTTP_LOGGING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_LOGGING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_LOGGING_TYPE {
@@ -1415,6 +1480,11 @@ impl ::core::marker::Copy for HTTP_LOG_DATA_TYPE {}
 impl ::core::clone::Clone for HTTP_LOG_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_LOG_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_LOG_DATA_TYPE {
@@ -1686,6 +1756,11 @@ impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_PERFORMANCE_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM_TYPE {
     type Abi = Self;
 }
@@ -1771,6 +1846,11 @@ impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_PROTECTION_LEVEL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_TYPE {
     type Abi = Self;
 }
@@ -1824,6 +1904,11 @@ impl ::core::marker::Copy for HTTP_QOS_SETTING_TYPE {}
 impl ::core::clone::Clone for HTTP_QOS_SETTING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_QOS_SETTING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_TYPE {
@@ -2063,6 +2148,11 @@ impl ::core::clone::Clone for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type Abi = Self;
 }
@@ -2189,6 +2279,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_AUTH_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_AUTH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_REQUEST_AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_TYPE {
@@ -2344,6 +2439,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_REQUEST_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO_TYPE {
     type Abi = Self;
 }
@@ -2376,6 +2476,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_PROPERTY {}
 impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_REQUEST_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY {
@@ -2516,6 +2621,11 @@ impl ::core::clone::Clone for HTTP_REQUEST_SIZING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_REQUEST_SIZING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_TYPE {
     type Abi = Self;
 }
@@ -2625,6 +2735,11 @@ impl ::core::marker::Copy for HTTP_REQUEST_TIMING_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_TIMING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_REQUEST_TIMING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_TYPE {
@@ -2881,6 +2996,11 @@ impl ::core::clone::Clone for HTTP_RESPONSE_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_RESPONSE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO_TYPE {
     type Abi = Self;
 }
@@ -2988,6 +3108,11 @@ impl ::core::marker::Copy for HTTP_SCHEME {}
 impl ::core::clone::Clone for HTTP_SCHEME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_SCHEME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SCHEME {
@@ -3173,6 +3298,11 @@ impl ::core::clone::Clone for HTTP_SERVER_PROPERTY {
         *self
     }
 }
+impl ::core::default::Default for HTTP_SERVER_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVER_PROPERTY {
     type Abi = Self;
 }
@@ -3267,6 +3397,11 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_SERVICE_BINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_TYPE {
     type Abi = Self;
 }
@@ -3327,6 +3462,11 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_CACHE_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_SERVICE_CONFIG_CACHE_KEY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_KEY {
@@ -3404,6 +3544,11 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_ID {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_SERVICE_CONFIG_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_ID {
@@ -3508,6 +3653,11 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_QUERY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_SERVICE_CONFIG_QUERY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type Abi = Self;
 }
@@ -3528,6 +3678,11 @@ impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SETTING_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_SERVICE_CONFIG_SETTING_KEY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_KEY {
@@ -4352,6 +4507,11 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
         *self
     }
 }
+impl ::core::default::Default for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     type Abi = Self;
 }
@@ -4693,6 +4853,11 @@ impl ::core::clone::Clone for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     type Abi = Self;
 }
@@ -4962,6 +5127,11 @@ impl ::core::marker::Copy for HTTP_VERB {}
 impl ::core::clone::Clone for HTTP_VERB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_VERB {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_VERB {

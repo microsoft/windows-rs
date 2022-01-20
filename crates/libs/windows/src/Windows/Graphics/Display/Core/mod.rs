@@ -15,6 +15,11 @@ impl ::core::clone::Clone for HdmiDisplayColorSpace {
         *self
     }
 }
+impl ::core::default::Default for HdmiDisplayColorSpace {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HdmiDisplayColorSpace {
     type Abi = Self;
 }
@@ -103,6 +108,11 @@ impl ::core::marker::Copy for HdmiDisplayHdrOption {}
 impl ::core::clone::Clone for HdmiDisplayHdrOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdmiDisplayHdrOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdmiDisplayHdrOption {
@@ -455,6 +465,11 @@ impl ::core::marker::Copy for HdmiDisplayPixelEncoding {}
 impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdmiDisplayPixelEncoding {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdmiDisplayPixelEncoding {

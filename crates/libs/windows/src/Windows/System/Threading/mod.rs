@@ -506,6 +506,11 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
+impl ::core::default::Default for WorkItemOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WorkItemOptions {
     type Abi = Self;
 }
@@ -561,6 +566,11 @@ impl ::core::marker::Copy for WorkItemPriority {}
 impl ::core::clone::Clone for WorkItemPriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WorkItemPriority {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WorkItemPriority {

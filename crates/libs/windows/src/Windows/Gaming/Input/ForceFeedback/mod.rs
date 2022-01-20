@@ -167,6 +167,11 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
         *self
     }
 }
+impl ::core::default::Default for ConditionForceEffectKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ConditionForceEffectKind {
     type Abi = Self;
 }
@@ -342,6 +347,11 @@ impl ::core::clone::Clone for ForceFeedbackEffectAxes {
         *self
     }
 }
+impl ::core::default::Default for ForceFeedbackEffectAxes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectAxes {
     type Abi = Self;
 }
@@ -400,6 +410,11 @@ impl ::core::clone::Clone for ForceFeedbackEffectState {
         *self
     }
 }
+impl ::core::default::Default for ForceFeedbackEffectState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectState {
     type Abi = Self;
 }
@@ -427,6 +442,11 @@ impl ::core::marker::Copy for ForceFeedbackLoadEffectResult {}
 impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ForceFeedbackLoadEffectResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ForceFeedbackLoadEffectResult {
@@ -1039,6 +1059,11 @@ impl ::core::marker::Copy for PeriodicForceEffectKind {}
 impl ::core::clone::Clone for PeriodicForceEffectKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PeriodicForceEffectKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PeriodicForceEffectKind {

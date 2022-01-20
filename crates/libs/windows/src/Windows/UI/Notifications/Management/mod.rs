@@ -203,6 +203,11 @@ impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for UserNotificationListenerAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
 }

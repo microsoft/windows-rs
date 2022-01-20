@@ -151,6 +151,11 @@ impl ::core::clone::Clone for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Abi = Self;
 }
@@ -348,6 +353,11 @@ impl ::core::clone::Clone for SAFER_IDENTIFICATION_TYPES {
         *self
     }
 }
+impl ::core::default::Default for SAFER_IDENTIFICATION_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_TYPES {
     type Abi = Self;
 }
@@ -414,6 +424,11 @@ impl ::core::marker::Copy for SAFER_OBJECT_INFO_CLASS {}
 impl ::core::clone::Clone for SAFER_OBJECT_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SAFER_OBJECT_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SAFER_OBJECT_INFO_CLASS {
@@ -491,6 +506,11 @@ impl ::core::marker::Copy for SAFER_POLICY_INFO_CLASS {}
 impl ::core::clone::Clone for SAFER_POLICY_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SAFER_POLICY_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SAFER_POLICY_INFO_CLASS {

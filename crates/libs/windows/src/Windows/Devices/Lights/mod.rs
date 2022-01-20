@@ -708,6 +708,11 @@ impl ::core::clone::Clone for LampArrayKind {
         *self
     }
 }
+impl ::core::default::Default for LampArrayKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayKind {
     type Abi = Self;
 }
@@ -977,6 +982,11 @@ impl ::core::marker::Copy for LampPurposes {}
 impl ::core::clone::Clone for LampPurposes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LampPurposes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LampPurposes {

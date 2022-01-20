@@ -28,6 +28,11 @@ impl ::core::clone::Clone for DataClasses {
         *self
     }
 }
+impl ::core::default::Default for DataClasses {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataClasses {
     type Abi = Self;
 }
@@ -373,6 +378,11 @@ impl ::core::clone::Clone for ESimAuthenticationPreference {
         *self
     }
 }
+impl ::core::default::Default for ESimAuthenticationPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ESimAuthenticationPreference {
     type Abi = Self;
 }
@@ -595,6 +605,11 @@ impl ::core::marker::Copy for ESimDiscoverResultKind {}
 impl ::core::clone::Clone for ESimDiscoverResultKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESimDiscoverResultKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESimDiscoverResultKind {
@@ -859,6 +874,11 @@ impl ::core::marker::Copy for ESimOperationStatus {}
 impl ::core::clone::Clone for ESimOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESimOperationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESimOperationStatus {
@@ -1136,6 +1156,11 @@ impl ::core::clone::Clone for ESimProfileClass {
         *self
     }
 }
+impl ::core::default::Default for ESimProfileClass {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ESimProfileClass {
     type Abi = Self;
 }
@@ -1388,6 +1413,11 @@ impl ::core::clone::Clone for ESimProfileMetadataState {
         *self
     }
 }
+impl ::core::default::Default for ESimProfileMetadataState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ESimProfileMetadataState {
     type Abi = Self;
 }
@@ -1513,6 +1543,11 @@ impl ::core::marker::Copy for ESimProfileState {}
 impl ::core::clone::Clone for ESimProfileState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESimProfileState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESimProfileState {
@@ -1713,6 +1748,11 @@ impl ::core::marker::Copy for ESimState {}
 impl ::core::clone::Clone for ESimState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESimState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESimState {
@@ -1991,6 +2031,11 @@ impl ::core::marker::Copy for ESimWatcherStatus {}
 impl ::core::clone::Clone for ESimWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESimWatcherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESimWatcherStatus {
@@ -2279,6 +2324,11 @@ impl ::core::marker::Copy for HotspotAuthenticationResponseCode {}
 impl ::core::clone::Clone for HotspotAuthenticationResponseCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HotspotAuthenticationResponseCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HotspotAuthenticationResponseCode {
@@ -5403,6 +5453,11 @@ impl ::core::clone::Clone for MobileBroadbandAccountWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for MobileBroadbandAccountWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MobileBroadbandAccountWatcherStatus {
     type Abi = Self;
 }
@@ -7573,6 +7628,11 @@ impl ::core::clone::Clone for MobileBroadbandDeviceType {
         *self
     }
 }
+impl ::core::default::Default for MobileBroadbandDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MobileBroadbandDeviceType {
     type Abi = Self;
 }
@@ -8049,6 +8109,11 @@ impl ::core::marker::Copy for MobileBroadbandModemStatus {}
 impl ::core::clone::Clone for MobileBroadbandModemStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandModemStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MobileBroadbandModemStatus {
@@ -8780,6 +8845,11 @@ impl ::core::clone::Clone for MobileBroadbandPinFormat {
         *self
     }
 }
+impl ::core::default::Default for MobileBroadbandPinFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MobileBroadbandPinFormat {
     type Abi = Self;
 }
@@ -8808,6 +8878,11 @@ impl ::core::marker::Copy for MobileBroadbandPinLockState {}
 impl ::core::clone::Clone for MobileBroadbandPinLockState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandPinLockState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MobileBroadbandPinLockState {
@@ -9205,6 +9280,11 @@ impl ::core::clone::Clone for MobileBroadbandPinType {
         *self
     }
 }
+impl ::core::default::Default for MobileBroadbandPinType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MobileBroadbandPinType {
     type Abi = Self;
 }
@@ -9231,6 +9311,11 @@ impl ::core::marker::Copy for MobileBroadbandRadioState {}
 impl ::core::clone::Clone for MobileBroadbandRadioState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandRadioState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MobileBroadbandRadioState {
@@ -9941,6 +10026,11 @@ impl ::core::clone::Clone for MobileBroadbandSlotState {
         *self
     }
 }
+impl ::core::default::Default for MobileBroadbandSlotState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MobileBroadbandSlotState {
     type Abi = Self;
 }
@@ -10248,6 +10338,11 @@ impl ::core::marker::Copy for MobileBroadbandUiccAppOperationStatus {}
 impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandUiccAppOperationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MobileBroadbandUiccAppOperationStatus {
@@ -10585,6 +10680,11 @@ impl ::core::clone::Clone for NetworkDeviceStatus {
         *self
     }
 }
+impl ::core::default::Default for NetworkDeviceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkDeviceStatus {
     type Abi = Self;
 }
@@ -10610,6 +10710,11 @@ impl ::core::marker::Copy for NetworkOperatorDataUsageNotificationKind {}
 impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NetworkOperatorDataUsageNotificationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NetworkOperatorDataUsageNotificationKind {
@@ -10730,6 +10835,11 @@ impl ::core::marker::Copy for NetworkOperatorEventMessageType {}
 impl ::core::clone::Clone for NetworkOperatorEventMessageType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NetworkOperatorEventMessageType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NetworkOperatorEventMessageType {
@@ -11433,6 +11543,11 @@ impl ::core::clone::Clone for NetworkRegistrationState {
         *self
     }
 }
+impl ::core::default::Default for NetworkRegistrationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NetworkRegistrationState {
     type Abi = Self;
 }
@@ -11459,6 +11574,11 @@ impl ::core::marker::Copy for ProfileMediaType {}
 impl ::core::clone::Clone for ProfileMediaType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProfileMediaType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProfileMediaType {
@@ -11819,6 +11939,11 @@ impl ::core::clone::Clone for TetheringCapability {
         *self
     }
 }
+impl ::core::default::Default for TetheringCapability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TetheringCapability {
     type Abi = Self;
 }
@@ -11945,6 +12070,11 @@ impl ::core::clone::Clone for TetheringOperationStatus {
         *self
     }
 }
+impl ::core::default::Default for TetheringOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TetheringOperationStatus {
     type Abi = Self;
 }
@@ -11975,6 +12105,11 @@ impl ::core::clone::Clone for TetheringOperationalState {
         *self
     }
 }
+impl ::core::default::Default for TetheringOperationalState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TetheringOperationalState {
     type Abi = Self;
 }
@@ -12002,6 +12137,11 @@ impl ::core::marker::Copy for TetheringWiFiBand {}
 impl ::core::clone::Clone for TetheringWiFiBand {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TetheringWiFiBand {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TetheringWiFiBand {
@@ -12038,6 +12178,11 @@ impl ::core::clone::Clone for UiccAccessCondition {
         *self
     }
 }
+impl ::core::default::Default for UiccAccessCondition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UiccAccessCondition {
     type Abi = Self;
 }
@@ -12071,6 +12216,11 @@ impl ::core::clone::Clone for UiccAppKind {
         *self
     }
 }
+impl ::core::default::Default for UiccAppKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UiccAppKind {
     type Abi = Self;
 }
@@ -12098,6 +12248,11 @@ impl ::core::marker::Copy for UiccAppRecordKind {}
 impl ::core::clone::Clone for UiccAppRecordKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UiccAppRecordKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UiccAppRecordKind {
@@ -12341,6 +12496,11 @@ impl ::core::marker::Copy for UssdResultCode {}
 impl ::core::clone::Clone for UssdResultCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UssdResultCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UssdResultCode {

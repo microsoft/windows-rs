@@ -1291,6 +1291,11 @@ impl ::core::clone::Clone for NLM_CONNECTION_COST {
         *self
     }
 }
+impl ::core::default::Default for NLM_CONNECTION_COST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_CONNECTION_COST {
     type Abi = Self;
 }
@@ -1309,6 +1314,11 @@ impl ::core::marker::Copy for NLM_CONNECTION_PROPERTY_CHANGE {}
 impl ::core::clone::Clone for NLM_CONNECTION_PROPERTY_CHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLM_CONNECTION_PROPERTY_CHANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLM_CONNECTION_PROPERTY_CHANGE {
@@ -1345,6 +1355,11 @@ impl ::core::marker::Copy for NLM_CONNECTIVITY {}
 impl ::core::clone::Clone for NLM_CONNECTIVITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLM_CONNECTIVITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLM_CONNECTIVITY {
@@ -1416,6 +1431,11 @@ impl ::core::clone::Clone for NLM_DOMAIN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NLM_DOMAIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_DOMAIN_TYPE {
     type Abi = Self;
 }
@@ -1440,6 +1460,11 @@ impl ::core::clone::Clone for NLM_ENUM_NETWORK {
         *self
     }
 }
+impl ::core::default::Default for NLM_ENUM_NETWORK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_ENUM_NETWORK {
     type Abi = Self;
 }
@@ -1462,6 +1487,11 @@ impl ::core::marker::Copy for NLM_INTERNET_CONNECTIVITY {}
 impl ::core::clone::Clone for NLM_INTERNET_CONNECTIVITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLM_INTERNET_CONNECTIVITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLM_INTERNET_CONNECTIVITY {
@@ -1490,6 +1520,11 @@ impl ::core::clone::Clone for NLM_NETWORK_CATEGORY {
         *self
     }
 }
+impl ::core::default::Default for NLM_NETWORK_CATEGORY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLM_NETWORK_CATEGORY {
     type Abi = Self;
 }
@@ -1512,6 +1547,11 @@ impl ::core::marker::Copy for NLM_NETWORK_CLASS {}
 impl ::core::clone::Clone for NLM_NETWORK_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLM_NETWORK_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLM_NETWORK_CLASS {
@@ -1540,6 +1580,11 @@ impl ::core::marker::Copy for NLM_NETWORK_PROPERTY_CHANGE {}
 impl ::core::clone::Clone for NLM_NETWORK_PROPERTY_CHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLM_NETWORK_PROPERTY_CHANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLM_NETWORK_PROPERTY_CHANGE {

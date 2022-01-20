@@ -372,6 +372,11 @@ impl ::core::clone::Clone for HidCollectionType {
         *self
     }
 }
+impl ::core::default::Default for HidCollectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HidCollectionType {
     type Abi = Self;
 }
@@ -1508,6 +1513,11 @@ impl ::core::marker::Copy for HidReportType {}
 impl ::core::clone::Clone for HidReportType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HidReportType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HidReportType {

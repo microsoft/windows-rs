@@ -425,6 +425,11 @@ impl ::core::clone::Clone for InkAnalysisDrawingKind {
         *self
     }
 }
+impl ::core::default::Default for InkAnalysisDrawingKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisDrawingKind {
     type Abi = Self;
 }
@@ -1465,6 +1470,11 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
         *self
     }
 }
+impl ::core::default::Default for InkAnalysisNodeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisNodeKind {
     type Abi = Self;
 }
@@ -1909,6 +1919,11 @@ impl ::core::clone::Clone for InkAnalysisStatus {
         *self
     }
 }
+impl ::core::default::Default for InkAnalysisStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkAnalysisStatus {
     type Abi = Self;
 }
@@ -1936,6 +1951,11 @@ impl ::core::marker::Copy for InkAnalysisStrokeKind {}
 impl ::core::clone::Clone for InkAnalysisStrokeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkAnalysisStrokeKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkAnalysisStrokeKind {

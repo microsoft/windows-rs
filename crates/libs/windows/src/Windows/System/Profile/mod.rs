@@ -793,6 +793,11 @@ impl ::core::clone::Clone for PlatformDataCollectionLevel {
         *self
     }
 }
+impl ::core::default::Default for PlatformDataCollectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
     type Abi = Self;
 }
@@ -1036,6 +1041,11 @@ impl ::core::clone::Clone for SystemIdentificationSource {
         *self
     }
 }
+impl ::core::default::Default for SystemIdentificationSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SystemIdentificationSource {
     type Abi = Self;
 }
@@ -1063,6 +1073,11 @@ impl ::core::marker::Copy for SystemOutOfBoxExperienceState {}
 impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemOutOfBoxExperienceState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
@@ -1212,6 +1227,11 @@ impl ::core::marker::Copy for UnsupportedAppRequirementReasons {}
 impl ::core::clone::Clone for UnsupportedAppRequirementReasons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UnsupportedAppRequirementReasons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UnsupportedAppRequirementReasons {

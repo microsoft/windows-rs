@@ -75,6 +75,11 @@ impl ::core::clone::Clone for PlatformDiagnosticActionState {
         *self
     }
 }
+impl ::core::default::Default for PlatformDiagnosticActionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticActionState {
     type Abi = Self;
 }
@@ -174,6 +179,11 @@ impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
         *self
     }
 }
+impl ::core::default::Default for PlatformDiagnosticEscalationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEscalationType {
     type Abi = Self;
 }
@@ -201,6 +211,11 @@ impl ::core::marker::Copy for PlatformDiagnosticEventBufferLatencies {}
 impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticEventBufferLatencies {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEventBufferLatencies {
@@ -380,6 +395,11 @@ impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
         *self
     }
 }
+impl ::core::default::Default for PlatformDiagnosticTracePriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTracePriority {
     type Abi = Self;
 }
@@ -498,6 +518,11 @@ impl ::core::clone::Clone for PlatformDiagnosticTraceSlotState {
         *self
     }
 }
+impl ::core::default::Default for PlatformDiagnosticTraceSlotState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotState {
     type Abi = Self;
 }
@@ -525,6 +550,11 @@ impl ::core::marker::Copy for PlatformDiagnosticTraceSlotType {}
 impl ::core::clone::Clone for PlatformDiagnosticTraceSlotType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticTraceSlotType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotType {

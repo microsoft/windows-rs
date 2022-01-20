@@ -59,6 +59,11 @@ impl ::core::clone::Clone for CausalityRelation {
         *self
     }
 }
+impl ::core::default::Default for CausalityRelation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CausalityRelation {
     type Abi = Self;
 }
@@ -86,6 +91,11 @@ impl ::core::marker::Copy for CausalitySource {}
 impl ::core::clone::Clone for CausalitySource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CausalitySource {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CausalitySource {
@@ -117,6 +127,11 @@ impl ::core::clone::Clone for CausalitySynchronousWork {
         *self
     }
 }
+impl ::core::default::Default for CausalitySynchronousWork {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
     type Abi = Self;
 }
@@ -144,6 +159,11 @@ impl ::core::marker::Copy for CausalityTraceLevel {}
 impl ::core::clone::Clone for CausalityTraceLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CausalityTraceLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CausalityTraceLevel {
@@ -284,6 +304,11 @@ impl ::core::marker::Copy for ErrorOptions {}
 impl ::core::clone::Clone for ErrorOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ErrorOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ErrorOptions {
@@ -2388,6 +2413,11 @@ impl ::core::clone::Clone for LoggingFieldFormat {
         *self
     }
 }
+impl ::core::default::Default for LoggingFieldFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LoggingFieldFormat {
     type Abi = Self;
 }
@@ -3074,6 +3104,11 @@ impl ::core::clone::Clone for LoggingLevel {
         *self
     }
 }
+impl ::core::default::Default for LoggingLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LoggingLevel {
     type Abi = Self;
 }
@@ -3105,6 +3140,11 @@ impl ::core::marker::Copy for LoggingOpcode {}
 impl ::core::clone::Clone for LoggingOpcode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LoggingOpcode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LoggingOpcode {

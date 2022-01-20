@@ -560,6 +560,11 @@ impl ::core::clone::Clone for UserDataAccountContentKinds {
         *self
     }
 }
+impl ::core::default::Default for UserDataAccountContentKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
     type Abi = Self;
 }
@@ -765,6 +770,11 @@ impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
         *self
     }
 }
+impl ::core::default::Default for UserDataAccountOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
     type Abi = Self;
 }
@@ -924,6 +934,11 @@ impl ::core::marker::Copy for UserDataAccountStoreAccessType {}
 impl ::core::clone::Clone for UserDataAccountStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataAccountStoreAccessType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {

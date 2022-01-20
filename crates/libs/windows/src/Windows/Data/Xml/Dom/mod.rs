@@ -2555,6 +2555,11 @@ impl ::core::clone::Clone for NodeType {
         *self
     }
 }
+impl ::core::default::Default for NodeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NodeType {
     type Abi = Self;
 }

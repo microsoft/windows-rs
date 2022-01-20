@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AccessibilityView {
         *self
     }
 }
+impl ::core::default::Default for AccessibilityView {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AccessibilityView {
     type Abi = Self;
 }
@@ -1092,6 +1097,11 @@ impl ::core::clone::Clone for AutomationControlType {
         *self
     }
 }
+impl ::core::default::Default for AutomationControlType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationControlType {
     type Abi = Self;
 }
@@ -1148,6 +1158,11 @@ impl ::core::clone::Clone for AutomationEvents {
         *self
     }
 }
+impl ::core::default::Default for AutomationEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationEvents {
     type Abi = Self;
 }
@@ -1184,6 +1199,11 @@ impl ::core::clone::Clone for AutomationHeadingLevel {
         *self
     }
 }
+impl ::core::default::Default for AutomationHeadingLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationHeadingLevel {
     type Abi = Self;
 }
@@ -1216,6 +1236,11 @@ impl ::core::clone::Clone for AutomationLandmarkType {
         *self
     }
 }
+impl ::core::default::Default for AutomationLandmarkType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationLandmarkType {
     type Abi = Self;
 }
@@ -1243,6 +1268,11 @@ impl ::core::marker::Copy for AutomationLiveSetting {}
 impl ::core::clone::Clone for AutomationLiveSetting {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationLiveSetting {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationLiveSetting {
@@ -1276,6 +1306,11 @@ impl ::core::clone::Clone for AutomationNavigationDirection {
         *self
     }
 }
+impl ::core::default::Default for AutomationNavigationDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationNavigationDirection {
     type Abi = Self;
 }
@@ -1305,6 +1340,11 @@ impl ::core::marker::Copy for AutomationNotificationKind {}
 impl ::core::clone::Clone for AutomationNotificationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationNotificationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationNotificationKind {
@@ -1338,6 +1378,11 @@ impl ::core::clone::Clone for AutomationNotificationProcessing {
         *self
     }
 }
+impl ::core::default::Default for AutomationNotificationProcessing {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationNotificationProcessing {
     type Abi = Self;
 }
@@ -1365,6 +1410,11 @@ impl ::core::marker::Copy for AutomationOrientation {}
 impl ::core::clone::Clone for AutomationOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationOrientation {
@@ -2107,6 +2157,11 @@ impl ::core::marker::Copy for AutomationStructureChangeType {}
 impl ::core::clone::Clone for AutomationStructureChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationStructureChangeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationStructureChangeType {
@@ -15432,6 +15487,11 @@ impl ::core::marker::Copy for PatternInterface {}
 impl ::core::clone::Clone for PatternInterface {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PatternInterface {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PatternInterface {

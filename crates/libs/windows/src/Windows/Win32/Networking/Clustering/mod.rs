@@ -572,6 +572,11 @@ impl ::core::clone::Clone for CLCTL_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLCTL_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLCTL_CODES {
     type Abi = Self;
 }
@@ -1009,6 +1014,11 @@ impl ::core::clone::Clone for CLUADMEX_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUADMEX_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUADMEX_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -1125,6 +1135,11 @@ impl ::core::clone::Clone for CLUSCTL_AFFINITYRULE_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLUSCTL_AFFINITYRULE_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_AFFINITYRULE_CODES {
     type Abi = Self;
 }
@@ -1219,6 +1234,11 @@ impl ::core::clone::Clone for CLUSCTL_CLUSTER_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLUSCTL_CLUSTER_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_CLUSTER_CODES {
     type Abi = Self;
 }
@@ -1259,6 +1279,11 @@ impl ::core::marker::Copy for CLUSCTL_GROUPSET_CODES {}
 impl ::core::clone::Clone for CLUSCTL_GROUPSET_CODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSCTL_GROUPSET_CODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSCTL_GROUPSET_CODES {
@@ -1319,6 +1344,11 @@ impl ::core::marker::Copy for CLUSCTL_GROUP_CODES {}
 impl ::core::clone::Clone for CLUSCTL_GROUP_CODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSCTL_GROUP_CODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSCTL_GROUP_CODES {
@@ -1417,6 +1447,11 @@ impl ::core::clone::Clone for CLUSCTL_NETINTERFACE_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLUSCTL_NETINTERFACE_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_NETINTERFACE_CODES {
     type Abi = Self;
 }
@@ -1467,6 +1502,11 @@ impl ::core::marker::Copy for CLUSCTL_NETWORK_CODES {}
 impl ::core::clone::Clone for CLUSCTL_NETWORK_CODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSCTL_NETWORK_CODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSCTL_NETWORK_CODES {
@@ -1533,6 +1573,11 @@ impl ::core::marker::Copy for CLUSCTL_NODE_CODES {}
 impl ::core::clone::Clone for CLUSCTL_NODE_CODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSCTL_NODE_CODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSCTL_NODE_CODES {
@@ -1777,6 +1822,11 @@ impl ::core::clone::Clone for CLUSCTL_RESOURCE_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLUSCTL_RESOURCE_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_CODES {
     type Abi = Self;
 }
@@ -1959,6 +2009,11 @@ impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_CODES {
         *self
     }
 }
+impl ::core::default::Default for CLUSCTL_RESOURCE_TYPE_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_TYPE_CODES {
     type Abi = Self;
 }
@@ -2080,6 +2135,11 @@ impl ::core::marker::Copy for CLUSGROUP_TYPE {}
 impl ::core::clone::Clone for CLUSGROUP_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSGROUP_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSGROUP_TYPE {
@@ -2302,6 +2362,11 @@ impl ::core::clone::Clone for CLUSPROP_IPADDR_ENABLENETBIOS {
         *self
     }
 }
+impl ::core::default::Default for CLUSPROP_IPADDR_ENABLENETBIOS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSPROP_IPADDR_ENABLENETBIOS {
     type Abi = Self;
 }
@@ -2490,6 +2555,11 @@ impl ::core::marker::Copy for CLUSPROP_PIFLAGS {}
 impl ::core::clone::Clone for CLUSPROP_PIFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSPROP_PIFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSPROP_PIFLAGS {
@@ -2896,6 +2966,11 @@ impl ::core::clone::Clone for CLUSTERSET_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTERSET_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTERSET_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -3150,6 +3225,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE {
     type Abi = Self;
 }
@@ -3196,6 +3276,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_CLUSTER_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_CLUSTER_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_CLUSTER_V2 {
     type Abi = Self;
 }
@@ -3232,6 +3317,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_GROUPSET_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_GROUPSET_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_GROUPSET_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_GROUPSET_V2 {
@@ -3274,6 +3364,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_GROUP_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_GROUP_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_GROUP_V2 {
     type Abi = Self;
 }
@@ -3302,6 +3397,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_NETINTERFACE_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_NETINTERFACE_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_NETINTERFACE_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NETINTERFACE_V2 {
@@ -3334,6 +3434,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_NETWORK_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_NETWORK_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NETWORK_V2 {
     type Abi = Self;
 }
@@ -3358,6 +3463,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
@@ -3396,6 +3506,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_NODE_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NODE_V2 {
     type Abi = Self;
 }
@@ -3416,6 +3531,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_QUORUM_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_QUORUM_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_QUORUM_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_QUORUM_V2 {
@@ -3448,6 +3568,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_REGISTRY_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_REGISTRY_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_REGISTRY_V2 {
     type Abi = Self;
 }
@@ -3478,6 +3603,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
@@ -3522,6 +3652,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_RESOURCE_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_RESOURCE_V2 {
     type Abi = Self;
 }
@@ -3548,6 +3683,11 @@ impl ::core::clone::Clone for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
     type Abi = Self;
 }
@@ -3566,6 +3706,11 @@ impl ::core::marker::Copy for CLUSTER_CHANGE_SPACEPORT_V2 {}
 impl ::core::clone::Clone for CLUSTER_CHANGE_SPACEPORT_V2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CHANGE_SPACEPORT_V2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_SPACEPORT_V2 {
@@ -3592,6 +3737,11 @@ impl ::core::marker::Copy for CLUSTER_CLOUD_TYPE {}
 impl ::core::clone::Clone for CLUSTER_CLOUD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CLOUD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CLOUD_TYPE {
@@ -3634,6 +3784,11 @@ impl ::core::marker::Copy for CLUSTER_CONTROL_OBJECT {}
 impl ::core::clone::Clone for CLUSTER_CONTROL_OBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_CONTROL_OBJECT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_CONTROL_OBJECT {
@@ -3699,6 +3854,11 @@ impl ::core::clone::Clone for CLUSTER_CSV_VOLUME_FAULT_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_CSV_VOLUME_FAULT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_CSV_VOLUME_FAULT_STATE {
     type Abi = Self;
 }
@@ -3737,6 +3897,11 @@ impl ::core::marker::Copy for CLUSTER_ENUM {}
 impl ::core::clone::Clone for CLUSTER_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_ENUM {
@@ -3810,6 +3975,11 @@ impl ::core::clone::Clone for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
     type Abi = Self;
 }
@@ -3832,6 +4002,11 @@ impl ::core::marker::Copy for CLUSTER_GROUP_ENUM {}
 impl ::core::clone::Clone for CLUSTER_GROUP_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_GROUP_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_GROUP_ENUM {
@@ -3928,6 +4103,11 @@ impl ::core::clone::Clone for CLUSTER_GROUP_PRIORITY {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_GROUP_PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_GROUP_PRIORITY {
     type Abi = Self;
 }
@@ -3956,6 +4136,11 @@ impl ::core::marker::Copy for CLUSTER_GROUP_STATE {}
 impl ::core::clone::Clone for CLUSTER_GROUP_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_GROUP_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_GROUP_STATE {
@@ -4162,6 +4347,11 @@ impl ::core::clone::Clone for CLUSTER_MGMT_POINT_RESTYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_MGMT_POINT_RESTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_MGMT_POINT_RESTYPE {
     type Abi = Self;
 }
@@ -4186,6 +4376,11 @@ impl ::core::marker::Copy for CLUSTER_MGMT_POINT_TYPE {}
 impl ::core::clone::Clone for CLUSTER_MGMT_POINT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_MGMT_POINT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_MGMT_POINT_TYPE {
@@ -4216,6 +4411,11 @@ impl ::core::clone::Clone for CLUSTER_NETINTERFACE_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_NETINTERFACE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_NETINTERFACE_STATE {
     type Abi = Self;
 }
@@ -4236,6 +4436,11 @@ impl ::core::marker::Copy for CLUSTER_NETWORK_ENUM {}
 impl ::core::clone::Clone for CLUSTER_NETWORK_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_NETWORK_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_ENUM {
@@ -4262,6 +4467,11 @@ impl ::core::marker::Copy for CLUSTER_NETWORK_ROLE {}
 impl ::core::clone::Clone for CLUSTER_NETWORK_ROLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_NETWORK_ROLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_ROLE {
@@ -4292,6 +4502,11 @@ impl ::core::clone::Clone for CLUSTER_NETWORK_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_NETWORK_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_STATE {
     type Abi = Self;
 }
@@ -4320,6 +4535,11 @@ impl ::core::clone::Clone for CLUSTER_NODE_DRAIN_STATUS {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_NODE_DRAIN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_NODE_DRAIN_STATUS {
     type Abi = Self;
 }
@@ -4344,6 +4564,11 @@ impl ::core::marker::Copy for CLUSTER_NODE_ENUM {}
 impl ::core::clone::Clone for CLUSTER_NODE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_NODE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_NODE_ENUM {
@@ -4372,6 +4597,11 @@ impl ::core::clone::Clone for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
     type Abi = Self;
 }
@@ -4398,6 +4628,11 @@ impl ::core::marker::Copy for CLUSTER_NODE_STATE {}
 impl ::core::clone::Clone for CLUSTER_NODE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_NODE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_NODE_STATE {
@@ -4434,6 +4669,11 @@ impl ::core::clone::Clone for CLUSTER_NODE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_NODE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_NODE_STATUS {
     type Abi = Self;
 }
@@ -4454,6 +4694,11 @@ impl ::core::marker::Copy for CLUSTER_NOTIFICATIONS_VERSION {}
 impl ::core::clone::Clone for CLUSTER_NOTIFICATIONS_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_NOTIFICATIONS_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_NOTIFICATIONS_VERSION {
@@ -4498,6 +4743,11 @@ impl ::core::marker::Copy for CLUSTER_OBJECT_TYPE {}
 impl ::core::clone::Clone for CLUSTER_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_OBJECT_TYPE {
@@ -4548,6 +4798,11 @@ impl ::core::marker::Copy for CLUSTER_PROPERTY_FORMAT {}
 impl ::core::clone::Clone for CLUSTER_PROPERTY_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_PROPERTY_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_FORMAT {
@@ -4620,6 +4875,11 @@ impl ::core::marker::Copy for CLUSTER_PROPERTY_SYNTAX {}
 impl ::core::clone::Clone for CLUSTER_PROPERTY_SYNTAX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_PROPERTY_SYNTAX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_SYNTAX {
@@ -4704,6 +4964,11 @@ impl ::core::clone::Clone for CLUSTER_PROPERTY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_TYPE {
     type Abi = Self;
 }
@@ -4726,6 +4991,11 @@ impl ::core::clone::Clone for CLUSTER_QUORUM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_QUORUM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_QUORUM_TYPE {
     type Abi = Self;
 }
@@ -4746,6 +5016,11 @@ impl ::core::marker::Copy for CLUSTER_QUORUM_VALUE {}
 impl ::core::clone::Clone for CLUSTER_QUORUM_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_QUORUM_VALUE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_QUORUM_VALUE {
@@ -4849,6 +5124,11 @@ impl ::core::clone::Clone for CLUSTER_REG_COMMAND {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_REG_COMMAND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_REG_COMMAND {
     type Abi = Self;
 }
@@ -4871,6 +5151,11 @@ impl ::core::marker::Copy for CLUSTER_RESOURCE_APPLICATION_STATE {}
 impl ::core::clone::Clone for CLUSTER_RESOURCE_APPLICATION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_RESOURCE_APPLICATION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_APPLICATION_STATE {
@@ -4899,6 +5184,11 @@ impl ::core::clone::Clone for CLUSTER_RESOURCE_CLASS {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_RESOURCE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_CLASS {
     type Abi = Self;
 }
@@ -4921,6 +5211,11 @@ impl ::core::marker::Copy for CLUSTER_RESOURCE_CREATE_FLAGS {}
 impl ::core::clone::Clone for CLUSTER_RESOURCE_CREATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_RESOURCE_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_CREATE_FLAGS {
@@ -4947,6 +5242,11 @@ impl ::core::clone::Clone for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
     type Abi = Self;
 }
@@ -4971,6 +5271,11 @@ impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM {}
 impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_RESOURCE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_ENUM {
@@ -5067,6 +5372,11 @@ impl ::core::clone::Clone for CLUSTER_RESOURCE_RESTART_ACTION {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_RESOURCE_RESTART_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_RESTART_ACTION {
     type Abi = Self;
 }
@@ -5103,6 +5413,11 @@ impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_RESOURCE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_STATE {
     type Abi = Self;
 }
@@ -5133,6 +5448,11 @@ impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
     type Abi = Self;
 }
@@ -5155,6 +5475,11 @@ impl ::core::marker::Copy for CLUSTER_RESOURCE_TYPE_ENUM {}
 impl ::core::clone::Clone for CLUSTER_RESOURCE_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_RESOURCE_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_TYPE_ENUM {
@@ -5239,6 +5564,11 @@ impl ::core::clone::Clone for CLUSTER_ROLE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_ROLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_ROLE {
     type Abi = Self;
 }
@@ -5261,6 +5591,11 @@ impl ::core::marker::Copy for CLUSTER_ROLE_STATE {}
 impl ::core::clone::Clone for CLUSTER_ROLE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_ROLE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_ROLE_STATE {
@@ -5339,6 +5674,11 @@ impl ::core::clone::Clone for CLUSTER_SETUP_PHASE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_SETUP_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE {
     type Abi = Self;
 }
@@ -5361,6 +5701,11 @@ impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_SEVERITY {}
 impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_SEVERITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_SETUP_PHASE_SEVERITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE_SEVERITY {
@@ -5387,6 +5732,11 @@ impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_TYPE {}
 impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_SETUP_PHASE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE_TYPE {
@@ -5453,6 +5803,11 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_BACKUP_STATE {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
@@ -5596,6 +5951,11 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
     type Abi = Self;
 }
@@ -5676,6 +6036,11 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
     type Abi = Self;
 }
@@ -5702,6 +6067,11 @@ impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_SHARED_VOLUME_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE {
@@ -5801,6 +6171,11 @@ impl ::core::clone::Clone for CLUSTER_STORAGENODE_STATE {
         *self
     }
 }
+impl ::core::default::Default for CLUSTER_STORAGENODE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUSTER_STORAGENODE_STATE {
     type Abi = Self;
 }
@@ -5827,6 +6202,11 @@ impl ::core::marker::Copy for CLUSTER_UPGRADE_PHASE {}
 impl ::core::clone::Clone for CLUSTER_UPGRADE_PHASE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSTER_UPGRADE_PHASE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSTER_UPGRADE_PHASE {
@@ -5991,6 +6371,11 @@ impl ::core::clone::Clone for CLUS_AFFINITY_RULE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLUS_AFFINITY_RULE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_AFFINITY_RULE_TYPE {
     type Abi = Self;
 }
@@ -6049,6 +6434,11 @@ impl ::core::marker::Copy for CLUS_CHARACTERISTICS {}
 impl ::core::clone::Clone for CLUS_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUS_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_CHARACTERISTICS {
@@ -6373,6 +6763,11 @@ impl ::core::clone::Clone for CLUS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CLUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_FLAGS {
     type Abi = Self;
 }
@@ -6461,6 +6856,11 @@ impl ::core::marker::Copy for CLUS_GROUP_START_SETTING {}
 impl ::core::clone::Clone for CLUS_GROUP_START_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUS_GROUP_START_SETTING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_GROUP_START_SETTING {
@@ -7031,6 +7431,11 @@ impl ::core::clone::Clone for CLUS_RESSUBCLASS {
         *self
     }
 }
+impl ::core::default::Default for CLUS_RESSUBCLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS {
     type Abi = Self;
 }
@@ -7049,6 +7454,11 @@ impl ::core::marker::Copy for CLUS_RESSUBCLASS_NETWORK {}
 impl ::core::clone::Clone for CLUS_RESSUBCLASS_NETWORK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUS_RESSUBCLASS_NETWORK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS_NETWORK {
@@ -7073,6 +7483,11 @@ impl ::core::marker::Copy for CLUS_RESSUBCLASS_STORAGE {}
 impl ::core::clone::Clone for CLUS_RESSUBCLASS_STORAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUS_RESSUBCLASS_STORAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS_STORAGE {
@@ -9705,6 +10120,11 @@ impl ::core::clone::Clone for FAILURE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FAILURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAILURE_TYPE {
     type Abi = Self;
 }
@@ -9762,6 +10182,11 @@ impl ::core::marker::Copy for FILESHARE_CHANGE_ENUM {}
 impl ::core::clone::Clone for FILESHARE_CHANGE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILESHARE_CHANGE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILESHARE_CHANGE_ENUM {
@@ -9982,6 +10407,11 @@ impl ::core::marker::Copy for GRP_PLACEMENT_OPTIONS {}
 impl ::core::clone::Clone for GRP_PLACEMENT_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GRP_PLACEMENT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GRP_PLACEMENT_OPTIONS {
@@ -18395,6 +18825,11 @@ impl ::core::clone::Clone for LOG_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for LOG_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOG_LEVEL {
     type Abi = Self;
 }
@@ -18425,6 +18860,11 @@ impl ::core::marker::Copy for MAINTENANCE_MODE_TYPE_ENUM {}
 impl ::core::clone::Clone for MAINTENANCE_MODE_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MAINTENANCE_MODE_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MAINTENANCE_MODE_TYPE_ENUM {
@@ -18542,6 +18982,11 @@ impl ::core::marker::Copy for NODE_CLUSTER_STATE {}
 impl ::core::clone::Clone for NODE_CLUSTER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NODE_CLUSTER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NODE_CLUSTER_STATE {
@@ -19617,6 +20062,11 @@ impl ::core::clone::Clone for PLACEMENT_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for PLACEMENT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PLACEMENT_OPTIONS {
     type Abi = Self;
 }
@@ -20107,6 +20557,11 @@ impl ::core::clone::Clone for RESDLL_CONTEXT_OPERATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RESDLL_CONTEXT_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RESDLL_CONTEXT_OPERATION_TYPE {
     type Abi = Self;
 }
@@ -20129,6 +20584,11 @@ impl ::core::marker::Copy for RESOURCE_EXIT_STATE {}
 impl ::core::clone::Clone for RESOURCE_EXIT_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESOURCE_EXIT_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESOURCE_EXIT_STATE {
@@ -20243,6 +20703,11 @@ impl ::core::marker::Copy for RESOURCE_MONITOR_STATE {}
 impl ::core::clone::Clone for RESOURCE_MONITOR_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESOURCE_MONITOR_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESOURCE_MONITOR_STATE {
@@ -22368,6 +22833,11 @@ impl ::core::clone::Clone for SR_DISK_REPLICATION_ELIGIBLE {
         *self
     }
 }
+impl ::core::default::Default for SR_DISK_REPLICATION_ELIGIBLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SR_DISK_REPLICATION_ELIGIBLE {
     type Abi = Self;
 }
@@ -22400,6 +22870,11 @@ impl ::core::marker::Copy for SR_REPLICATED_DISK_TYPE {}
 impl ::core::clone::Clone for SR_REPLICATED_DISK_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SR_REPLICATED_DISK_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SR_REPLICATED_DISK_TYPE {
@@ -23008,6 +23483,11 @@ impl ::core::marker::Copy for VM_RESDLL_CONTEXT {}
 impl ::core::clone::Clone for VM_RESDLL_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VM_RESDLL_CONTEXT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VM_RESDLL_CONTEXT {

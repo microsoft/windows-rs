@@ -961,6 +961,11 @@ impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
         *self
     }
 }
+impl ::core::default::Default for WebViewControlAcceleratorKeyRoutingStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebViewControlAcceleratorKeyRoutingStage {
     type Abi = Self;
 }
@@ -988,6 +993,11 @@ impl ::core::marker::Copy for WebViewControlMoveFocusReason {}
 impl ::core::clone::Clone for WebViewControlMoveFocusReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebViewControlMoveFocusReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebViewControlMoveFocusReason {
@@ -1248,6 +1258,11 @@ impl ::core::marker::Copy for WebViewControlProcessCapabilityState {}
 impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebViewControlProcessCapabilityState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebViewControlProcessCapabilityState {

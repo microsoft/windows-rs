@@ -1151,6 +1151,11 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
         *self
     }
 }
+impl ::core::default::Default for Print3DTaskCompletion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
     type Abi = Self;
 }
@@ -1182,6 +1187,11 @@ impl ::core::marker::Copy for Print3DTaskDetail {}
 impl ::core::clone::Clone for Print3DTaskDetail {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Print3DTaskDetail {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Print3DTaskDetail {
@@ -2063,6 +2073,11 @@ impl ::core::marker::Copy for Printing3DBufferFormat {}
 impl ::core::clone::Clone for Printing3DBufferFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Printing3DBufferFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
@@ -3263,6 +3278,11 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
         *self
     }
 }
+impl ::core::default::Default for Printing3DMeshVerificationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
 }
@@ -3761,6 +3781,11 @@ impl ::core::clone::Clone for Printing3DModelUnit {
         *self
     }
 }
+impl ::core::default::Default for Printing3DModelUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DModelUnit {
     type Abi = Self;
 }
@@ -3990,6 +4015,11 @@ impl ::core::clone::Clone for Printing3DObjectType {
         *self
     }
 }
+impl ::core::default::Default for Printing3DObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Printing3DObjectType {
     type Abi = Self;
 }
@@ -4017,6 +4047,11 @@ impl ::core::marker::Copy for Printing3DPackageCompression {}
 impl ::core::clone::Clone for Printing3DPackageCompression {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Printing3DPackageCompression {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
@@ -4281,6 +4316,11 @@ impl ::core::marker::Copy for Printing3DTextureEdgeBehavior {}
 impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Printing3DTextureEdgeBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {

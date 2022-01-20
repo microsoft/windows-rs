@@ -20,6 +20,11 @@ impl ::core::clone::Clone for ClosedCaptionColor {
         *self
     }
 }
+impl ::core::default::Default for ClosedCaptionColor {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClosedCaptionColor {
     type Abi = Self;
 }
@@ -52,6 +57,11 @@ impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
         *self
     }
 }
+impl ::core::default::Default for ClosedCaptionEdgeEffect {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClosedCaptionEdgeEffect {
     type Abi = Self;
 }
@@ -81,6 +91,11 @@ impl ::core::marker::Copy for ClosedCaptionOpacity {}
 impl ::core::clone::Clone for ClosedCaptionOpacity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ClosedCaptionOpacity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ClosedCaptionOpacity {
@@ -213,6 +228,11 @@ impl ::core::clone::Clone for ClosedCaptionSize {
         *self
     }
 }
+impl ::core::default::Default for ClosedCaptionSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClosedCaptionSize {
     type Abi = Self;
 }
@@ -245,6 +265,11 @@ impl ::core::marker::Copy for ClosedCaptionStyle {}
 impl ::core::clone::Clone for ClosedCaptionStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ClosedCaptionStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ClosedCaptionStyle {

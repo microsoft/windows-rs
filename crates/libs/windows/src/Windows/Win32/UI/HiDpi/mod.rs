@@ -45,6 +45,11 @@ impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
         *self
     }
 }
+impl ::core::default::Default for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type Abi = Self;
 }
@@ -99,6 +104,11 @@ impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
         *self
     }
 }
+impl ::core::default::Default for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
     type Abi = Self;
 }
@@ -151,6 +161,11 @@ impl ::core::marker::Copy for DPI_AWARENESS {}
 impl ::core::clone::Clone for DPI_AWARENESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DPI_AWARENESS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DPI_AWARENESS {
@@ -219,6 +234,11 @@ impl ::core::marker::Copy for DPI_HOSTING_BEHAVIOR {}
 impl ::core::clone::Clone for DPI_HOSTING_BEHAVIOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DPI_HOSTING_BEHAVIOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DPI_HOSTING_BEHAVIOR {
@@ -512,6 +532,11 @@ impl ::core::clone::Clone for MONITOR_DPI_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MONITOR_DPI_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MONITOR_DPI_TYPE {
     type Abi = Self;
 }
@@ -549,6 +574,11 @@ impl ::core::marker::Copy for PROCESS_DPI_AWARENESS {}
 impl ::core::clone::Clone for PROCESS_DPI_AWARENESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESS_DPI_AWARENESS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_DPI_AWARENESS {

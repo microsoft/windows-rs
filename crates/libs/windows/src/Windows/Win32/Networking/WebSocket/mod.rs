@@ -19,6 +19,11 @@ impl ::core::clone::Clone for WEB_SOCKET_ACTION {
         *self
     }
 }
+impl ::core::default::Default for WEB_SOCKET_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION {
     type Abi = Self;
 }
@@ -41,6 +46,11 @@ impl ::core::marker::Copy for WEB_SOCKET_ACTION_QUEUE {}
 impl ::core::clone::Clone for WEB_SOCKET_ACTION_QUEUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WEB_SOCKET_ACTION_QUEUE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION_QUEUE {
@@ -164,6 +174,11 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WEB_SOCKET_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -204,6 +219,11 @@ impl ::core::marker::Copy for WEB_SOCKET_CLOSE_STATUS {}
 impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WEB_SOCKET_CLOSE_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WEB_SOCKET_CLOSE_STATUS {
@@ -345,6 +365,11 @@ impl ::core::marker::Copy for WEB_SOCKET_PROPERTY_TYPE {}
 impl ::core::clone::Clone for WEB_SOCKET_PROPERTY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WEB_SOCKET_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY_TYPE {

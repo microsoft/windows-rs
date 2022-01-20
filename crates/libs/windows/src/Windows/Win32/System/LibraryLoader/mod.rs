@@ -611,6 +611,11 @@ impl ::core::clone::Clone for LOAD_LIBRARY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for LOAD_LIBRARY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOAD_LIBRARY_FLAGS {
     type Abi = Self;
 }

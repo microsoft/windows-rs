@@ -228,6 +228,11 @@ impl ::core::clone::Clone for DeviceAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for DeviceAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccessStatus {
     type Abi = Self;
 }
@@ -259,6 +264,11 @@ impl ::core::marker::Copy for DeviceClass {}
 impl ::core::clone::Clone for DeviceClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceClass {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceClass {
@@ -1057,6 +1067,11 @@ impl ::core::clone::Clone for DeviceInformationKind {
         *self
     }
 }
+impl ::core::default::Default for DeviceInformationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceInformationKind {
     type Abi = Self;
 }
@@ -1352,6 +1367,11 @@ impl ::core::clone::Clone for DevicePairingKinds {
         *self
     }
 }
+impl ::core::default::Default for DevicePairingKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DevicePairingKinds {
     type Abi = Self;
 }
@@ -1408,6 +1428,11 @@ impl ::core::marker::Copy for DevicePairingProtectionLevel {}
 impl ::core::clone::Clone for DevicePairingProtectionLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DevicePairingProtectionLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DevicePairingProtectionLevel {
@@ -1665,6 +1690,11 @@ impl ::core::marker::Copy for DevicePairingResultStatus {}
 impl ::core::clone::Clone for DevicePairingResultStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DevicePairingResultStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DevicePairingResultStatus {
@@ -2061,6 +2091,11 @@ impl ::core::marker::Copy for DevicePickerDisplayStatusOptions {}
 impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DevicePickerDisplayStatusOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DevicePickerDisplayStatusOptions {
@@ -2740,6 +2775,11 @@ impl ::core::clone::Clone for DeviceUnpairingResultStatus {
         *self
     }
 }
+impl ::core::default::Default for DeviceUnpairingResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceUnpairingResultStatus {
     type Abi = Self;
 }
@@ -3041,6 +3081,11 @@ impl ::core::clone::Clone for DeviceWatcherEventKind {
         *self
     }
 }
+impl ::core::default::Default for DeviceWatcherEventKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceWatcherEventKind {
     type Abi = Self;
 }
@@ -3071,6 +3116,11 @@ impl ::core::marker::Copy for DeviceWatcherStatus {}
 impl ::core::clone::Clone for DeviceWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceWatcherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceWatcherStatus {
@@ -4044,6 +4094,11 @@ impl ::core::marker::Copy for Panel {}
 impl ::core::clone::Clone for Panel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Panel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Panel {

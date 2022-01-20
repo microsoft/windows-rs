@@ -1871,6 +1871,11 @@ impl ::core::clone::Clone for STDMSHLFLAGS {
         *self
     }
 }
+impl ::core::default::Default for STDMSHLFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STDMSHLFLAGS {
     type Abi = Self;
 }

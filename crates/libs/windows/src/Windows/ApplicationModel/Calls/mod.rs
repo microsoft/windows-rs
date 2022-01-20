@@ -260,6 +260,11 @@ impl ::core::clone::Clone for CellularDtmfMode {
         *self
     }
 }
+impl ::core::default::Default for CellularDtmfMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CellularDtmfMode {
     type Abi = Self;
 }
@@ -298,6 +303,11 @@ impl ::core::clone::Clone for DtmfKey {
         *self
     }
 }
+impl ::core::default::Default for DtmfKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DtmfKey {
     type Abi = Self;
 }
@@ -324,6 +334,11 @@ impl ::core::marker::Copy for DtmfToneAudioPlayback {}
 impl ::core::clone::Clone for DtmfToneAudioPlayback {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DtmfToneAudioPlayback {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
@@ -1854,6 +1869,11 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
         *self
     }
 }
+impl ::core::default::Default for PhoneAudioRoutingEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -2215,6 +2235,11 @@ impl ::core::clone::Clone for PhoneCallAudioDevice {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallAudioDevice {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
     type Abi = Self;
 }
@@ -2284,6 +2309,11 @@ impl ::core::marker::Copy for PhoneCallDirection {}
 impl ::core::clone::Clone for PhoneCallDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
@@ -2766,6 +2796,11 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallHistoryEntryMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
     type Abi = Self;
 }
@@ -2792,6 +2827,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryOtherAppReadAccess {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
@@ -2822,6 +2862,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryQueryDesiredMedia {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
@@ -2980,6 +3025,11 @@ impl ::core::marker::Copy for PhoneCallHistoryEntryRawAddressKind {}
 impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryRawAddressKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
@@ -3216,6 +3266,11 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallHistorySourceIdKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
     type Abi = Self;
 }
@@ -3422,6 +3477,11 @@ impl ::core::marker::Copy for PhoneCallHistoryStoreAccessType {}
 impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryStoreAccessType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
@@ -3635,6 +3695,11 @@ impl ::core::clone::Clone for PhoneCallMedia {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallMedia {
     type Abi = Self;
 }
@@ -3664,6 +3729,11 @@ impl ::core::marker::Copy for PhoneCallOperationStatus {}
 impl ::core::clone::Clone for PhoneCallOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallOperationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
@@ -3696,6 +3766,11 @@ impl ::core::marker::Copy for PhoneCallStatus {}
 impl ::core::clone::Clone for PhoneCallStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallStatus {
@@ -4736,6 +4811,11 @@ impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
         *self
     }
 }
+impl ::core::default::Default for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
     type Abi = Self;
 }
@@ -4767,6 +4847,11 @@ impl ::core::clone::Clone for PhoneLineOperationStatus {
         *self
     }
 }
+impl ::core::default::Default for PhoneLineOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
     type Abi = Self;
 }
@@ -4794,6 +4879,11 @@ impl ::core::marker::Copy for PhoneLineTransport {}
 impl ::core::clone::Clone for PhoneLineTransport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneLineTransport {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneLineTransport {
@@ -5290,6 +5380,11 @@ impl ::core::clone::Clone for PhoneLineWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for PhoneLineWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
     type Abi = Self;
 }
@@ -5324,6 +5419,11 @@ impl ::core::clone::Clone for PhoneNetworkState {
         *self
     }
 }
+impl ::core::default::Default for PhoneNetworkState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNetworkState {
     type Abi = Self;
 }
@@ -5356,6 +5456,11 @@ impl ::core::marker::Copy for PhoneSimState {}
 impl ::core::clone::Clone for PhoneSimState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneSimState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneSimState {
@@ -5493,6 +5598,11 @@ impl ::core::clone::Clone for PhoneVoicemailType {
         *self
     }
 }
+impl ::core::default::Default for PhoneVoicemailType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneVoicemailType {
     type Abi = Self;
 }
@@ -5520,6 +5630,11 @@ impl ::core::marker::Copy for TransportDeviceAudioRoutingStatus {}
 impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TransportDeviceAudioRoutingStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
@@ -6003,6 +6118,11 @@ impl ::core::clone::Clone for VoipPhoneCallMedia {
         *self
     }
 }
+impl ::core::default::Default for VoipPhoneCallMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VoipPhoneCallMedia {
     type Abi = Self;
 }
@@ -6062,6 +6182,11 @@ impl ::core::clone::Clone for VoipPhoneCallRejectReason {
         *self
     }
 }
+impl ::core::default::Default for VoipPhoneCallRejectReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VoipPhoneCallRejectReason {
     type Abi = Self;
 }
@@ -6088,6 +6213,11 @@ impl ::core::marker::Copy for VoipPhoneCallResourceReservationStatus {}
 impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VoipPhoneCallResourceReservationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VoipPhoneCallResourceReservationStatus {
@@ -6119,6 +6249,11 @@ impl ::core::marker::Copy for VoipPhoneCallState {}
 impl ::core::clone::Clone for VoipPhoneCallState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VoipPhoneCallState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VoipPhoneCallState {

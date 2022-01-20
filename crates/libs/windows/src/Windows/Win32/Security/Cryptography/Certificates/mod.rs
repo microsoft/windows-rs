@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ADDED_CERT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ADDED_CERT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADDED_CERT_TYPE {
     type Abi = Self;
 }
@@ -63,6 +68,11 @@ impl ::core::clone::Clone for AlgorithmFlags {
         *self
     }
 }
+impl ::core::default::Default for AlgorithmFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AlgorithmFlags {
     type Abi = Self;
 }
@@ -107,6 +117,11 @@ impl ::core::clone::Clone for AlgorithmOperationFlags {
         *self
     }
 }
+impl ::core::default::Default for AlgorithmOperationFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AlgorithmOperationFlags {
     type Abi = Self;
 }
@@ -139,6 +154,11 @@ impl ::core::marker::Copy for AlgorithmType {}
 impl ::core::clone::Clone for AlgorithmType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AlgorithmType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AlgorithmType {
@@ -181,6 +201,11 @@ impl ::core::marker::Copy for AlternativeNameType {}
 impl ::core::clone::Clone for AlternativeNameType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AlternativeNameType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AlternativeNameType {
@@ -335,6 +360,11 @@ impl ::core::marker::Copy for CERTADMIN_GET_ROLES_FLAGS {}
 impl ::core::clone::Clone for CERTADMIN_GET_ROLES_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERTADMIN_GET_ROLES_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERTADMIN_GET_ROLES_FLAGS {
@@ -1261,6 +1291,11 @@ impl ::core::clone::Clone for CERTENROLL_OBJECTID {
         *self
     }
 }
+impl ::core::default::Default for CERTENROLL_OBJECTID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERTENROLL_OBJECTID {
     type Abi = Self;
 }
@@ -1479,6 +1514,11 @@ impl ::core::clone::Clone for CERTENROLL_PROPERTYID {
         *self
     }
 }
+impl ::core::default::Default for CERTENROLL_PROPERTYID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERTENROLL_PROPERTYID {
     type Abi = Self;
 }
@@ -1576,6 +1616,11 @@ impl ::core::clone::Clone for CERT_ALT_NAME {
         *self
     }
 }
+impl ::core::default::Default for CERT_ALT_NAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_ALT_NAME {
     type Abi = Self;
 }
@@ -1630,6 +1675,11 @@ impl ::core::clone::Clone for CERT_CREATE_REQUEST_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_CREATE_REQUEST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_CREATE_REQUEST_FLAGS {
     type Abi = Self;
 }
@@ -1678,6 +1728,11 @@ impl ::core::marker::Copy for CERT_DELETE_ROW_FLAGS {}
 impl ::core::clone::Clone for CERT_DELETE_ROW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_DELETE_ROW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_DELETE_ROW_FLAGS {
@@ -1740,6 +1795,11 @@ impl ::core::clone::Clone for CERT_EXIT_EVENT_MASK {
         *self
     }
 }
+impl ::core::default::Default for CERT_EXIT_EVENT_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_EXIT_EVENT_MASK {
     type Abi = Self;
 }
@@ -1798,6 +1858,11 @@ impl ::core::clone::Clone for CERT_GET_CONFIG_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_GET_CONFIG_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_GET_CONFIG_FLAGS {
     type Abi = Self;
 }
@@ -1848,6 +1913,11 @@ impl ::core::marker::Copy for CERT_IMPORT_FLAGS {}
 impl ::core::clone::Clone for CERT_IMPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_IMPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_IMPORT_FLAGS {
@@ -1904,6 +1974,11 @@ impl ::core::clone::Clone for CERT_PROPERTY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CERT_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_PROPERTY_TYPE {
     type Abi = Self;
 }
@@ -1954,6 +2029,11 @@ impl ::core::marker::Copy for CERT_REQUEST_OUT_TYPE {}
 impl ::core::clone::Clone for CERT_REQUEST_OUT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_REQUEST_OUT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_REQUEST_OUT_TYPE {
@@ -2008,6 +2088,11 @@ impl ::core::clone::Clone for CERT_VIEW_COLUMN_INDEX {
         *self
     }
 }
+impl ::core::default::Default for CERT_VIEW_COLUMN_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_VIEW_COLUMN_INDEX {
     type Abi = Self;
 }
@@ -2034,6 +2119,11 @@ impl ::core::marker::Copy for CERT_VIEW_SEEK_OPERATOR_FLAGS {}
 impl ::core::clone::Clone for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_VIEW_SEEK_OPERATOR_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_VIEW_SEEK_OPERATOR_FLAGS {
@@ -2184,6 +2274,11 @@ impl ::core::clone::Clone for CRLRevocationReason {
         *self
     }
 }
+impl ::core::default::Default for CRLRevocationReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRLRevocationReason {
     type Abi = Self;
 }
@@ -2214,6 +2309,11 @@ impl ::core::marker::Copy for CR_DISP {}
 impl ::core::clone::Clone for CR_DISP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CR_DISP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CR_DISP {
@@ -2478,6 +2578,11 @@ impl ::core::clone::Clone for CSBACKUP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CSBACKUP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSBACKUP_TYPE {
     type Abi = Self;
 }
@@ -2648,6 +2753,11 @@ impl ::core::clone::Clone for CVRC_COLUMN {
         *self
     }
 }
+impl ::core::default::Default for CVRC_COLUMN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CVRC_COLUMN {
     type Abi = Self;
 }
@@ -2700,6 +2810,11 @@ impl ::core::marker::Copy for CVRC_TABLE {}
 impl ::core::clone::Clone for CVRC_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CVRC_TABLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CVRC_TABLE {
@@ -3096,6 +3211,11 @@ impl ::core::clone::Clone for CommitTemplateFlags {
         *self
     }
 }
+impl ::core::default::Default for CommitTemplateFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CommitTemplateFlags {
     type Abi = Self;
 }
@@ -3178,6 +3298,11 @@ impl ::core::marker::Copy for DelayRetryAction {}
 impl ::core::clone::Clone for DelayRetryAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DelayRetryAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DelayRetryAction {
@@ -3270,6 +3395,11 @@ impl ::core::clone::Clone for ENUM_CATYPES {
         *self
     }
 }
+impl ::core::default::Default for ENUM_CATYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENUM_CATYPES {
     type Abi = Self;
 }
@@ -3304,6 +3434,11 @@ impl ::core::marker::Copy for ENUM_CERT_COLUMN_VALUE_FLAGS {}
 impl ::core::clone::Clone for ENUM_CERT_COLUMN_VALUE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENUM_CERT_COLUMN_VALUE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENUM_CERT_COLUMN_VALUE_FLAGS {
@@ -3440,6 +3575,11 @@ impl ::core::clone::Clone for EncodingType {
         *self
     }
 }
+impl ::core::default::Default for EncodingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EncodingType {
     type Abi = Self;
 }
@@ -3482,6 +3622,11 @@ impl ::core::clone::Clone for EnrollmentCAProperty {
         *self
     }
 }
+impl ::core::default::Default for EnrollmentCAProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EnrollmentCAProperty {
     type Abi = Self;
 }
@@ -3502,6 +3647,11 @@ impl ::core::marker::Copy for EnrollmentDisplayStatus {}
 impl ::core::clone::Clone for EnrollmentDisplayStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnrollmentDisplayStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnrollmentDisplayStatus {
@@ -3536,6 +3686,11 @@ impl ::core::clone::Clone for EnrollmentEnrollStatus {
         *self
     }
 }
+impl ::core::default::Default for EnrollmentEnrollStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EnrollmentEnrollStatus {
     type Abi = Self;
 }
@@ -3556,6 +3711,11 @@ impl ::core::marker::Copy for EnrollmentPolicyFlags {}
 impl ::core::clone::Clone for EnrollmentPolicyFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnrollmentPolicyFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnrollmentPolicyFlags {
@@ -3580,6 +3740,11 @@ impl ::core::clone::Clone for EnrollmentPolicyServerPropertyFlags {
         *self
     }
 }
+impl ::core::default::Default for EnrollmentPolicyServerPropertyFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EnrollmentPolicyServerPropertyFlags {
     type Abi = Self;
 }
@@ -3600,6 +3765,11 @@ impl ::core::marker::Copy for EnrollmentSelectionStatus {}
 impl ::core::clone::Clone for EnrollmentSelectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnrollmentSelectionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnrollmentSelectionStatus {
@@ -3680,6 +3850,11 @@ impl ::core::marker::Copy for EnrollmentTemplateProperty {}
 impl ::core::clone::Clone for EnrollmentTemplateProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnrollmentTemplateProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnrollmentTemplateProperty {
@@ -3790,6 +3965,11 @@ impl ::core::marker::Copy for FULL_RESPONSE_PROPERTY_ID {}
 impl ::core::clone::Clone for FULL_RESPONSE_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FULL_RESPONSE_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FULL_RESPONSE_PROPERTY_ID {
@@ -37168,6 +37348,11 @@ impl ::core::clone::Clone for ImportPFXFlags {
         *self
     }
 }
+impl ::core::default::Default for ImportPFXFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ImportPFXFlags {
     type Abi = Self;
 }
@@ -37188,6 +37373,11 @@ impl ::core::marker::Copy for InnerRequestLevel {}
 impl ::core::clone::Clone for InnerRequestLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InnerRequestLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InnerRequestLevel {
@@ -37214,6 +37404,11 @@ impl ::core::marker::Copy for InstallResponseRestrictionFlags {}
 impl ::core::clone::Clone for InstallResponseRestrictionFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InstallResponseRestrictionFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InstallResponseRestrictionFlags {
@@ -37270,6 +37465,11 @@ impl ::core::clone::Clone for KeyAttestationClaimType {
         *self
     }
 }
+impl ::core::default::Default for KeyAttestationClaimType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyAttestationClaimType {
     type Abi = Self;
 }
@@ -37298,6 +37498,11 @@ impl ::core::clone::Clone for KeyIdentifierHashAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for KeyIdentifierHashAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyIdentifierHashAlgorithm {
     type Abi = Self;
 }
@@ -37322,6 +37527,11 @@ impl ::core::marker::Copy for OCSPRequestFlag {}
 impl ::core::clone::Clone for OCSPRequestFlag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OCSPRequestFlag {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OCSPRequestFlag {
@@ -37360,6 +37570,11 @@ impl ::core::marker::Copy for OCSPSigningFlag {}
 impl ::core::clone::Clone for OCSPSigningFlag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OCSPSigningFlag {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OCSPSigningFlag {
@@ -37420,6 +37635,11 @@ impl ::core::clone::Clone for ObjectIdGroupId {
         *self
     }
 }
+impl ::core::default::Default for ObjectIdGroupId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ObjectIdGroupId {
     type Abi = Self;
 }
@@ -37442,6 +37662,11 @@ impl ::core::marker::Copy for ObjectIdPublicKeyFlags {}
 impl ::core::clone::Clone for ObjectIdPublicKeyFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ObjectIdPublicKeyFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ObjectIdPublicKeyFlags {
@@ -37470,6 +37695,11 @@ impl ::core::marker::Copy for PENDING_REQUEST_DESIRED_PROPERTY {}
 impl ::core::clone::Clone for PENDING_REQUEST_DESIRED_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PENDING_REQUEST_DESIRED_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PENDING_REQUEST_DESIRED_PROPERTY {
@@ -37524,6 +37754,11 @@ impl ::core::clone::Clone for PFXExportOptions {
         *self
     }
 }
+impl ::core::default::Default for PFXExportOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PFXExportOptions {
     type Abi = Self;
 }
@@ -37566,6 +37801,11 @@ impl ::core::clone::Clone for Pkcs10AllowedSignatureTypes {
         *self
     }
 }
+impl ::core::default::Default for Pkcs10AllowedSignatureTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Pkcs10AllowedSignatureTypes {
     type Abi = Self;
 }
@@ -37590,6 +37830,11 @@ impl ::core::marker::Copy for PolicyQualifierType {}
 impl ::core::clone::Clone for PolicyQualifierType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PolicyQualifierType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PolicyQualifierType {
@@ -37622,6 +37867,11 @@ impl ::core::clone::Clone for PolicyServerUrlFlags {
         *self
     }
 }
+impl ::core::default::Default for PolicyServerUrlFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PolicyServerUrlFlags {
     type Abi = Self;
 }
@@ -37642,6 +37892,11 @@ impl ::core::marker::Copy for PolicyServerUrlPropertyID {}
 impl ::core::clone::Clone for PolicyServerUrlPropertyID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PolicyServerUrlPropertyID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PolicyServerUrlPropertyID {
@@ -37840,6 +38095,11 @@ impl ::core::clone::Clone for RequestClientInfoClientId {
         *self
     }
 }
+impl ::core::default::Default for RequestClientInfoClientId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RequestClientInfoClientId {
     type Abi = Self;
 }
@@ -37898,6 +38158,11 @@ impl ::core::clone::Clone for WebEnrollmentFlags {
         *self
     }
 }
+impl ::core::default::Default for WebEnrollmentFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebEnrollmentFlags {
     type Abi = Self;
 }
@@ -37918,6 +38183,11 @@ impl ::core::marker::Copy for WebSecurityLevel {}
 impl ::core::clone::Clone for WebSecurityLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebSecurityLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebSecurityLevel {
@@ -37978,6 +38248,11 @@ impl ::core::clone::Clone for X500NameFlags {
         *self
     }
 }
+impl ::core::default::Default for X500NameFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X500NameFlags {
     type Abi = Self;
 }
@@ -38002,6 +38277,11 @@ impl ::core::marker::Copy for X509CertificateEnrollmentContext {}
 impl ::core::clone::Clone for X509CertificateEnrollmentContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509CertificateEnrollmentContext {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509CertificateEnrollmentContext {
@@ -38060,6 +38340,11 @@ impl ::core::clone::Clone for X509CertificateTemplateEnrollmentFlag {
         *self
     }
 }
+impl ::core::default::Default for X509CertificateTemplateEnrollmentFlag {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509CertificateTemplateEnrollmentFlag {
     type Abi = Self;
 }
@@ -38088,6 +38373,11 @@ impl ::core::marker::Copy for X509CertificateTemplateGeneralFlag {}
 impl ::core::clone::Clone for X509CertificateTemplateGeneralFlag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509CertificateTemplateGeneralFlag {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509CertificateTemplateGeneralFlag {
@@ -38148,6 +38438,11 @@ impl ::core::clone::Clone for X509CertificateTemplatePrivateKeyFlag {
         *self
     }
 }
+impl ::core::default::Default for X509CertificateTemplatePrivateKeyFlag {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509CertificateTemplatePrivateKeyFlag {
     type Abi = Self;
 }
@@ -38192,6 +38487,11 @@ impl ::core::clone::Clone for X509CertificateTemplateSubjectNameFlag {
         *self
     }
 }
+impl ::core::default::Default for X509CertificateTemplateSubjectNameFlag {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509CertificateTemplateSubjectNameFlag {
     type Abi = Self;
 }
@@ -38220,6 +38520,11 @@ impl ::core::clone::Clone for X509EnrollmentAuthFlags {
         *self
     }
 }
+impl ::core::default::Default for X509EnrollmentAuthFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509EnrollmentAuthFlags {
     type Abi = Self;
 }
@@ -38242,6 +38547,11 @@ impl ::core::marker::Copy for X509EnrollmentPolicyExportFlags {}
 impl ::core::clone::Clone for X509EnrollmentPolicyExportFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509EnrollmentPolicyExportFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509EnrollmentPolicyExportFlags {
@@ -38268,6 +38578,11 @@ impl ::core::marker::Copy for X509EnrollmentPolicyLoadOption {}
 impl ::core::clone::Clone for X509EnrollmentPolicyLoadOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509EnrollmentPolicyLoadOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509EnrollmentPolicyLoadOption {
@@ -38302,6 +38617,11 @@ impl ::core::clone::Clone for X509HardwareKeyUsageFlags {
         *self
     }
 }
+impl ::core::default::Default for X509HardwareKeyUsageFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509HardwareKeyUsageFlags {
     type Abi = Self;
 }
@@ -38326,6 +38646,11 @@ impl ::core::clone::Clone for X509KeyParametersExportType {
         *self
     }
 }
+impl ::core::default::Default for X509KeyParametersExportType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509KeyParametersExportType {
     type Abi = Self;
 }
@@ -38348,6 +38673,11 @@ impl ::core::marker::Copy for X509KeySpec {}
 impl ::core::clone::Clone for X509KeySpec {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509KeySpec {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509KeySpec {
@@ -38390,6 +38720,11 @@ impl ::core::clone::Clone for X509KeyUsageFlags {
         *self
     }
 }
+impl ::core::default::Default for X509KeyUsageFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509KeyUsageFlags {
     type Abi = Self;
 }
@@ -38418,6 +38753,11 @@ impl ::core::clone::Clone for X509PrivateKeyExportFlags {
         *self
     }
 }
+impl ::core::default::Default for X509PrivateKeyExportFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509PrivateKeyExportFlags {
     type Abi = Self;
 }
@@ -38444,6 +38784,11 @@ impl ::core::marker::Copy for X509PrivateKeyProtection {}
 impl ::core::clone::Clone for X509PrivateKeyProtection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509PrivateKeyProtection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509PrivateKeyProtection {
@@ -38476,6 +38821,11 @@ impl ::core::clone::Clone for X509PrivateKeyUsageFlags {
         *self
     }
 }
+impl ::core::default::Default for X509PrivateKeyUsageFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509PrivateKeyUsageFlags {
     type Abi = Self;
 }
@@ -38502,6 +38852,11 @@ impl ::core::marker::Copy for X509PrivateKeyVerify {}
 impl ::core::clone::Clone for X509PrivateKeyVerify {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509PrivateKeyVerify {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509PrivateKeyVerify {
@@ -38560,6 +38915,11 @@ impl ::core::clone::Clone for X509ProviderType {
         *self
     }
 }
+impl ::core::default::Default for X509ProviderType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509ProviderType {
     type Abi = Self;
 }
@@ -38606,6 +38966,11 @@ impl ::core::clone::Clone for X509RequestInheritOptions {
         *self
     }
 }
+impl ::core::default::Default for X509RequestInheritOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509RequestInheritOptions {
     type Abi = Self;
 }
@@ -38632,6 +38997,11 @@ impl ::core::marker::Copy for X509RequestType {}
 impl ::core::clone::Clone for X509RequestType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509RequestType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509RequestType {
@@ -38662,6 +39032,11 @@ impl ::core::clone::Clone for X509SCEPDisposition {
         *self
     }
 }
+impl ::core::default::Default for X509SCEPDisposition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509SCEPDisposition {
     type Abi = Self;
 }
@@ -38690,6 +39065,11 @@ impl ::core::marker::Copy for X509SCEPFailInfo {}
 impl ::core::clone::Clone for X509SCEPFailInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509SCEPFailInfo {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509SCEPFailInfo {
@@ -38724,6 +39104,11 @@ impl ::core::clone::Clone for X509SCEPMessageType {
         *self
     }
 }
+impl ::core::default::Default for X509SCEPMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for X509SCEPMessageType {
     type Abi = Self;
 }
@@ -38744,6 +39129,11 @@ impl ::core::marker::Copy for X509SCEPProcessMessageFlags {}
 impl ::core::clone::Clone for X509SCEPProcessMessageFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for X509SCEPProcessMessageFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for X509SCEPProcessMessageFlags {
@@ -38780,6 +39170,11 @@ impl ::core::marker::Copy for XEKL_KEYSIZE {}
 impl ::core::clone::Clone for XEKL_KEYSIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XEKL_KEYSIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XEKL_KEYSIZE {
@@ -38832,6 +39227,11 @@ impl ::core::marker::Copy for XEKL_KEYSPEC {}
 impl ::core::clone::Clone for XEKL_KEYSPEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XEKL_KEYSPEC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XEKL_KEYSPEC {

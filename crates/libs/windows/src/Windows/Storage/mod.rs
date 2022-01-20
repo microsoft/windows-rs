@@ -1205,6 +1205,11 @@ impl ::core::clone::Clone for ApplicationDataCreateDisposition {
         *self
     }
 }
+impl ::core::default::Default for ApplicationDataCreateDisposition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationDataCreateDisposition {
     type Abi = Self;
 }
@@ -1234,6 +1239,11 @@ impl ::core::marker::Copy for ApplicationDataLocality {}
 impl ::core::clone::Clone for ApplicationDataLocality {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ApplicationDataLocality {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationDataLocality {
@@ -1368,6 +1378,11 @@ impl ::core::clone::Clone for CreationCollisionOption {
         *self
     }
 }
+impl ::core::default::Default for CreationCollisionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CreationCollisionOption {
     type Abi = Self;
 }
@@ -1477,6 +1492,11 @@ impl ::core::clone::Clone for FileAccessMode {
         *self
     }
 }
+impl ::core::default::Default for FileAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FileAccessMode {
     type Abi = Self;
 }
@@ -1507,6 +1527,11 @@ impl ::core::marker::Copy for FileAttributes {}
 impl ::core::clone::Clone for FileAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileAttributes {
@@ -4777,6 +4802,11 @@ impl ::core::clone::Clone for KnownFolderId {
         *self
     }
 }
+impl ::core::default::Default for KnownFolderId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KnownFolderId {
     type Abi = Self;
 }
@@ -4974,6 +5004,11 @@ impl ::core::clone::Clone for KnownFoldersAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for KnownFoldersAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KnownFoldersAccessStatus {
     type Abi = Self;
 }
@@ -5004,6 +5039,11 @@ impl ::core::clone::Clone for KnownLibraryId {
         *self
     }
 }
+impl ::core::default::Default for KnownLibraryId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KnownLibraryId {
     type Abi = Self;
 }
@@ -5031,6 +5071,11 @@ impl ::core::marker::Copy for NameCollisionOption {}
 impl ::core::clone::Clone for NameCollisionOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NameCollisionOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NameCollisionOption {
@@ -5366,6 +5411,11 @@ impl ::core::marker::Copy for StorageDeleteOption {}
 impl ::core::clone::Clone for StorageDeleteOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageDeleteOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageDeleteOption {
@@ -6845,6 +6895,11 @@ impl ::core::clone::Clone for StorageItemTypes {
         *self
     }
 }
+impl ::core::default::Default for StorageItemTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageItemTypes {
     type Abi = Self;
 }
@@ -7480,6 +7535,11 @@ impl ::core::clone::Clone for StorageLibraryChangeType {
         *self
     }
 }
+impl ::core::default::Default for StorageLibraryChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageLibraryChangeType {
     type Abi = Self;
 }
@@ -7592,6 +7652,11 @@ impl ::core::marker::Copy for StorageOpenOptions {}
 impl ::core::clone::Clone for StorageOpenOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageOpenOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageOpenOptions {
@@ -8154,6 +8219,11 @@ impl ::core::marker::Copy for StreamedFileFailureMode {}
 impl ::core::clone::Clone for StreamedFileFailureMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StreamedFileFailureMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StreamedFileFailureMode {

@@ -106,6 +106,11 @@ impl ::core::clone::Clone for AttributeTargets {
         *self
     }
 }
+impl ::core::default::Default for AttributeTargets {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AttributeTargets {
     type Abi = Self;
 }
@@ -162,6 +167,11 @@ impl ::core::clone::Clone for CompositionType {
         *self
     }
 }
+impl ::core::default::Default for CompositionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionType {
     type Abi = Self;
 }
@@ -188,6 +198,11 @@ impl ::core::marker::Copy for DeprecationType {}
 impl ::core::clone::Clone for DeprecationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeprecationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeprecationType {
@@ -220,6 +235,11 @@ impl ::core::clone::Clone for FeatureStage {
         *self
     }
 }
+impl ::core::default::Default for FeatureStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FeatureStage {
     type Abi = Self;
 }
@@ -247,6 +267,11 @@ impl ::core::marker::Copy for GCPressureAmount {}
 impl ::core::clone::Clone for GCPressureAmount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GCPressureAmount {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GCPressureAmount {
@@ -301,6 +326,11 @@ impl ::core::clone::Clone for MarshalingType {
         *self
     }
 }
+impl ::core::default::Default for MarshalingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MarshalingType {
     type Abi = Self;
 }
@@ -327,6 +357,11 @@ impl ::core::marker::Copy for Platform {}
 impl ::core::clone::Clone for Platform {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Platform {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Platform {
@@ -357,6 +392,11 @@ impl ::core::marker::Copy for ThreadingModel {}
 impl ::core::clone::Clone for ThreadingModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ThreadingModel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ThreadingModel {

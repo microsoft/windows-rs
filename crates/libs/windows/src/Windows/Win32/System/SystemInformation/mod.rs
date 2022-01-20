@@ -119,6 +119,11 @@ impl ::core::clone::Clone for COMPUTER_NAME_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for COMPUTER_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMPUTER_NAME_FORMAT {
     type Abi = Self;
 }
@@ -137,6 +142,11 @@ impl ::core::marker::Copy for CPU_SET_INFORMATION_TYPE {}
 impl ::core::clone::Clone for CPU_SET_INFORMATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CPU_SET_INFORMATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CPU_SET_INFORMATION_TYPE {
@@ -165,6 +175,11 @@ impl ::core::marker::Copy for DEP_SYSTEM_POLICY_TYPE {}
 impl ::core::clone::Clone for DEP_SYSTEM_POLICY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEP_SYSTEM_POLICY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEP_SYSTEM_POLICY_TYPE {
@@ -279,6 +294,11 @@ impl ::core::clone::Clone for DEVICEFAMILYDEVICEFORM {
         *self
     }
 }
+impl ::core::default::Default for DEVICEFAMILYDEVICEFORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICEFAMILYDEVICEFORM {
     type Abi = Self;
 }
@@ -361,6 +381,11 @@ impl ::core::marker::Copy for DEVICEFAMILYINFOENUM {}
 impl ::core::clone::Clone for DEVICEFAMILYINFOENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEVICEFAMILYINFOENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEVICEFAMILYINFOENUM {
@@ -478,6 +503,11 @@ impl ::core::clone::Clone for FIRMWARE_TABLE_PROVIDER {
         *self
     }
 }
+impl ::core::default::Default for FIRMWARE_TABLE_PROVIDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_PROVIDER {
     type Abi = Self;
 }
@@ -530,6 +560,11 @@ impl ::core::marker::Copy for FIRMWARE_TYPE {}
 impl ::core::clone::Clone for FIRMWARE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FIRMWARE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FIRMWARE_TYPE {
@@ -1258,6 +1293,11 @@ impl ::core::clone::Clone for LOGICAL_PROCESSOR_RELATIONSHIP {
         *self
     }
 }
+impl ::core::default::Default for LOGICAL_PROCESSOR_RELATIONSHIP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
@@ -1697,6 +1737,11 @@ impl ::core::clone::Clone for OS_DEPLOYEMENT_STATE_VALUES {
         *self
     }
 }
+impl ::core::default::Default for OS_DEPLOYEMENT_STATE_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OS_DEPLOYEMENT_STATE_VALUES {
     type Abi = Self;
 }
@@ -1907,6 +1952,11 @@ impl ::core::clone::Clone for OS_PRODUCT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OS_PRODUCT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OS_PRODUCT_TYPE {
     type Abi = Self;
 }
@@ -1965,6 +2015,11 @@ impl ::core::marker::Copy for PROCESSOR_CACHE_TYPE {}
 impl ::core::clone::Clone for PROCESSOR_CACHE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESSOR_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_CACHE_TYPE {
@@ -2078,6 +2133,11 @@ impl ::core::marker::Copy for RTL_SYSTEM_GLOBAL_DATA_ID {}
 impl ::core::clone::Clone for RTL_SYSTEM_GLOBAL_DATA_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTL_SYSTEM_GLOBAL_DATA_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
@@ -2890,6 +2950,11 @@ impl ::core::clone::Clone for USER_CET_ENVIRONMENT {
         *self
     }
 }
+impl ::core::default::Default for USER_CET_ENVIRONMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USER_CET_ENVIRONMENT {
     type Abi = Self;
 }
@@ -2950,6 +3015,11 @@ impl ::core::marker::Copy for VER_FLAGS {}
 impl ::core::clone::Clone for VER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VER_FLAGS {

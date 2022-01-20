@@ -87,6 +87,11 @@ impl ::core::clone::Clone for AAAccountingDataType {
         *self
     }
 }
+impl ::core::default::Default for AAAccountingDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AAAccountingDataType {
     type Abi = Self;
 }
@@ -131,6 +136,11 @@ impl ::core::clone::Clone for AAAuthSchemes {
         *self
     }
 }
+impl ::core::default::Default for AAAuthSchemes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AAAuthSchemes {
     type Abi = Self;
 }
@@ -153,6 +163,11 @@ impl ::core::marker::Copy for AATrustClassID {}
 impl ::core::clone::Clone for AATrustClassID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AATrustClassID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AATrustClassID {
@@ -217,6 +232,11 @@ impl ::core::marker::Copy for AE_POSITION_FLAGS {}
 impl ::core::clone::Clone for AE_POSITION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AE_POSITION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AE_POSITION_FLAGS {
@@ -513,6 +533,11 @@ impl ::core::clone::Clone for CLIENT_MESSAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLIENT_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLIENT_MESSAGE_TYPE {
     type Abi = Self;
 }
@@ -547,6 +572,11 @@ impl ::core::marker::Copy for CONNECTION_CHANGE_NOTIFICATION {}
 impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONNECTION_CHANGE_NOTIFICATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONNECTION_CHANGE_NOTIFICATION {
@@ -10385,6 +10415,11 @@ impl ::core::clone::Clone for KeyCombinationType {
         *self
     }
 }
+impl ::core::default::Default for KeyCombinationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyCombinationType {
     type Abi = Self;
 }
@@ -10449,6 +10484,11 @@ impl ::core::clone::Clone for PLUGIN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PLUGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PLUGIN_TYPE {
     type Abi = Self;
 }
@@ -10494,6 +10534,11 @@ impl ::core::clone::Clone for PasswordEncodingType {
         *self
     }
 }
+impl ::core::default::Default for PasswordEncodingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PasswordEncodingType {
     type Abi = Self;
 }
@@ -10526,6 +10571,11 @@ impl ::core::marker::Copy for PolicyAttributeType {}
 impl ::core::clone::Clone for PolicyAttributeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PolicyAttributeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PolicyAttributeType {
@@ -10580,6 +10630,11 @@ impl ::core::clone::Clone for RDV_TASK_STATUS {
         *self
     }
 }
+impl ::core::default::Default for RDV_TASK_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RDV_TASK_STATUS {
     type Abi = Self;
 }
@@ -10610,6 +10665,11 @@ impl ::core::marker::Copy for RD_FARM_TYPE {}
 impl ::core::clone::Clone for RD_FARM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RD_FARM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RD_FARM_TYPE {
@@ -10977,6 +11037,11 @@ impl ::core::clone::Clone for RemoteActionType {
         *self
     }
 }
+impl ::core::default::Default for RemoteActionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteActionType {
     type Abi = Self;
 }
@@ -11001,6 +11066,11 @@ impl ::core::clone::Clone for SESSION_TIMEOUT_ACTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SESSION_TIMEOUT_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SESSION_TIMEOUT_ACTION_TYPE {
     type Abi = Self;
 }
@@ -11021,6 +11091,11 @@ impl ::core::marker::Copy for SnapshotEncodingType {}
 impl ::core::clone::Clone for SnapshotEncodingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SnapshotEncodingType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SnapshotEncodingType {
@@ -11045,6 +11120,11 @@ impl ::core::marker::Copy for SnapshotFormatType {}
 impl ::core::clone::Clone for SnapshotFormatType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SnapshotFormatType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SnapshotFormatType {
@@ -11087,6 +11167,11 @@ impl ::core::clone::Clone for TARGET_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TARGET_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TARGET_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -11109,6 +11194,11 @@ impl ::core::marker::Copy for TARGET_OWNER {}
 impl ::core::clone::Clone for TARGET_OWNER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TARGET_OWNER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TARGET_OWNER {
@@ -11137,6 +11227,11 @@ impl ::core::marker::Copy for TARGET_PATCH_STATE {}
 impl ::core::clone::Clone for TARGET_PATCH_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TARGET_PATCH_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TARGET_PATCH_STATE {
@@ -11179,6 +11274,11 @@ impl ::core::clone::Clone for TARGET_STATE {
         *self
     }
 }
+impl ::core::default::Default for TARGET_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TARGET_STATE {
     type Abi = Self;
 }
@@ -11203,6 +11303,11 @@ impl ::core::clone::Clone for TARGET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TARGET_TYPE {
     type Abi = Self;
 }
@@ -11225,6 +11330,11 @@ impl ::core::clone::Clone for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
     type Abi = Self;
 }
@@ -11245,6 +11355,11 @@ impl ::core::marker::Copy for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {}
 impl ::core::clone::Clone for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
@@ -11273,6 +11388,11 @@ impl ::core::clone::Clone for TSSB_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TSSB_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TSSB_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -11295,6 +11415,11 @@ impl ::core::marker::Copy for TSSD_AddrV46Type {}
 impl ::core::clone::Clone for TSSD_AddrV46Type {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TSSD_AddrV46Type {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TSSD_AddrV46Type {
@@ -11372,6 +11497,11 @@ impl ::core::clone::Clone for TSSESSION_STATE {
         *self
     }
 }
+impl ::core::default::Default for TSSESSION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TSSESSION_STATE {
     type Abi = Self;
 }
@@ -11395,6 +11525,11 @@ impl ::core::marker::Copy for TS_SB_SORT_BY {}
 impl ::core::clone::Clone for TS_SB_SORT_BY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TS_SB_SORT_BY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TS_SB_SORT_BY {
@@ -11431,6 +11566,11 @@ impl ::core::marker::Copy for VM_HOST_NOTIFY_STATUS {}
 impl ::core::clone::Clone for VM_HOST_NOTIFY_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VM_HOST_NOTIFY_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VM_HOST_NOTIFY_STATUS {
@@ -11521,6 +11661,11 @@ impl ::core::marker::Copy for VM_NOTIFY_STATUS {}
 impl ::core::clone::Clone for VM_NOTIFY_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VM_NOTIFY_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VM_NOTIFY_STATUS {
@@ -11759,6 +11904,11 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTING_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for WRDS_CONNECTION_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTING_LEVEL {
     type Abi = Self;
 }
@@ -11920,6 +12070,11 @@ impl ::core::marker::Copy for WRDS_LISTENER_SETTING_LEVEL {}
 impl ::core::clone::Clone for WRDS_LISTENER_SETTING_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WRDS_LISTENER_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTING_LEVEL {
@@ -12145,6 +12300,11 @@ impl ::core::clone::Clone for WRDS_SETTING_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for WRDS_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WRDS_SETTING_LEVEL {
     type Abi = Self;
 }
@@ -12171,6 +12331,11 @@ impl ::core::clone::Clone for WRDS_SETTING_STATUS {
         *self
     }
 }
+impl ::core::default::Default for WRDS_SETTING_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WRDS_SETTING_STATUS {
     type Abi = Self;
 }
@@ -12195,6 +12360,11 @@ impl ::core::marker::Copy for WRDS_SETTING_TYPE {}
 impl ::core::clone::Clone for WRDS_SETTING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WRDS_SETTING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WRDS_SETTING_TYPE {
@@ -12227,6 +12397,11 @@ impl ::core::marker::Copy for WRdsGraphicsChannelType {}
 impl ::core::clone::Clone for WRdsGraphicsChannelType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WRdsGraphicsChannelType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WRdsGraphicsChannelType {
@@ -13704,6 +13879,11 @@ impl ::core::clone::Clone for WTSSBX_ADDRESS_FAMILY {
         *self
     }
 }
+impl ::core::default::Default for WTSSBX_ADDRESS_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTSSBX_ADDRESS_FAMILY {
     type Abi = Self;
 }
@@ -13794,6 +13974,11 @@ impl ::core::clone::Clone for WTSSBX_MACHINE_DRAIN {
         *self
     }
 }
+impl ::core::default::Default for WTSSBX_MACHINE_DRAIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_DRAIN {
     type Abi = Self;
 }
@@ -13855,6 +14040,11 @@ impl ::core::clone::Clone for WTSSBX_MACHINE_SESSION_MODE {
         *self
     }
 }
+impl ::core::default::Default for WTSSBX_MACHINE_SESSION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_SESSION_MODE {
     type Abi = Self;
 }
@@ -13877,6 +14067,11 @@ impl ::core::marker::Copy for WTSSBX_MACHINE_STATE {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTSSBX_MACHINE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_STATE {
@@ -13903,6 +14098,11 @@ impl ::core::marker::Copy for WTSSBX_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for WTSSBX_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTSSBX_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTSSBX_NOTIFICATION_TYPE {
@@ -13971,6 +14171,11 @@ impl ::core::marker::Copy for WTSSBX_SESSION_STATE {}
 impl ::core::clone::Clone for WTSSBX_SESSION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTSSBX_SESSION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTSSBX_SESSION_STATE {
@@ -14568,6 +14773,11 @@ impl ::core::clone::Clone for WTS_CERT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WTS_CERT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_CERT_TYPE {
     type Abi = Self;
 }
@@ -14795,6 +15005,11 @@ impl ::core::clone::Clone for WTS_CONFIG_CLASS {
         *self
     }
 }
+impl ::core::default::Default for WTS_CONFIG_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_CONFIG_CLASS {
     type Abi = Self;
 }
@@ -14813,6 +15028,11 @@ impl ::core::marker::Copy for WTS_CONFIG_SOURCE {}
 impl ::core::clone::Clone for WTS_CONFIG_SOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTS_CONFIG_SOURCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTS_CONFIG_SOURCE {
@@ -14851,6 +15071,11 @@ impl ::core::marker::Copy for WTS_CONNECTSTATE_CLASS {}
 impl ::core::clone::Clone for WTS_CONNECTSTATE_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTS_CONNECTSTATE_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTS_CONNECTSTATE_CLASS {
@@ -15000,6 +15225,11 @@ impl ::core::clone::Clone for WTS_INFO_CLASS {
         *self
     }
 }
+impl ::core::default::Default for WTS_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_INFO_CLASS {
     type Abi = Self;
 }
@@ -15085,6 +15315,11 @@ impl ::core::marker::Copy for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {}
 impl ::core::clone::Clone for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
@@ -15696,6 +15931,11 @@ impl ::core::clone::Clone for WTS_RCM_DRAIN_STATE {
         *self
     }
 }
+impl ::core::default::Default for WTS_RCM_DRAIN_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_RCM_DRAIN_STATE {
     type Abi = Self;
 }
@@ -15718,6 +15958,11 @@ impl ::core::marker::Copy for WTS_RCM_SERVICE_STATE {}
 impl ::core::clone::Clone for WTS_RCM_SERVICE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTS_RCM_SERVICE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTS_RCM_SERVICE_STATE {
@@ -16334,6 +16579,11 @@ impl ::core::clone::Clone for WTS_TYPE_CLASS {
         *self
     }
 }
+impl ::core::default::Default for WTS_TYPE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WTS_TYPE_CLASS {
     type Abi = Self;
 }
@@ -16504,6 +16754,11 @@ impl ::core::marker::Copy for WTS_VIRTUAL_CLASS {}
 impl ::core::clone::Clone for WTS_VIRTUAL_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WTS_VIRTUAL_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WTS_VIRTUAL_CLASS {

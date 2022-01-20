@@ -15,6 +15,11 @@ impl ::core::clone::Clone for ADDRESS_FAMILY {
         *self
     }
 }
+impl ::core::default::Default for ADDRESS_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADDRESS_FAMILY {
     type Abi = Self;
 }
@@ -750,6 +755,11 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DNS_SERVER_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DNS_SERVER_PROPERTY_TYPE {
     type Abi = Self;
 }
@@ -1260,6 +1270,11 @@ impl ::core::clone::Clone for GET_ADAPTERS_ADDRESSES_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_ADAPTERS_ADDRESSES_FLAGS {
     type Abi = Self;
 }
@@ -1310,6 +1325,11 @@ impl ::core::marker::Copy for GLOBAL_FILTER {}
 impl ::core::clone::Clone for GLOBAL_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GLOBAL_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GLOBAL_FILTER {
@@ -2565,6 +2585,11 @@ impl ::core::clone::Clone for ICMP4_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ICMP4_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ICMP4_TYPE {
     type Abi = Self;
 }
@@ -2615,6 +2640,11 @@ impl ::core::clone::Clone for ICMP6_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ICMP6_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ICMP6_TYPE {
     type Abi = Self;
 }
@@ -2647,6 +2677,11 @@ impl ::core::clone::Clone for IF_ACCESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IF_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IF_ACCESS_TYPE {
     type Abi = Self;
 }
@@ -2669,6 +2704,11 @@ impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
 impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IF_ADMINISTRATIVE_STATE {
@@ -2756,6 +2796,11 @@ impl ::core::marker::Copy for IF_OPER_STATUS {}
 impl ::core::clone::Clone for IF_OPER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IF_OPER_STATUS {
@@ -3398,6 +3443,11 @@ impl ::core::marker::Copy for INTERNAL_IF_OPER_STATUS {}
 impl ::core::clone::Clone for INTERNAL_IF_OPER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERNAL_IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERNAL_IF_OPER_STATUS {
@@ -6153,6 +6203,11 @@ impl ::core::clone::Clone for MIB_IF_ENTRY_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for MIB_IF_ENTRY_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IF_ENTRY_LEVEL {
     type Abi = Self;
 }
@@ -6318,6 +6373,11 @@ impl ::core::marker::Copy for MIB_IF_TABLE_LEVEL {}
 impl ::core::clone::Clone for MIB_IF_TABLE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIB_IF_TABLE_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IF_TABLE_LEVEL {
@@ -6857,6 +6917,11 @@ impl ::core::marker::Copy for MIB_IPFORWARD_TYPE {}
 impl ::core::clone::Clone for MIB_IPFORWARD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIB_IPFORWARD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPFORWARD_TYPE {
@@ -7806,6 +7871,11 @@ impl ::core::clone::Clone for MIB_IPNET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MIB_IPNET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_IPNET_TYPE {
     type Abi = Self;
 }
@@ -7937,6 +8007,11 @@ impl ::core::marker::Copy for MIB_IPSTATS_FORWARDING {}
 impl ::core::clone::Clone for MIB_IPSTATS_FORWARDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIB_IPSTATS_FORWARDING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIB_IPSTATS_FORWARDING {
@@ -8343,6 +8418,11 @@ impl ::core::marker::Copy for MIB_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for MIB_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIB_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIB_NOTIFICATION_TYPE {
@@ -9336,6 +9416,11 @@ impl ::core::clone::Clone for MIB_TCP_STATE {
         *self
     }
 }
+impl ::core::default::Default for MIB_TCP_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIB_TCP_STATE {
     type Abi = Self;
 }
@@ -10327,6 +10412,11 @@ impl ::core::clone::Clone for NET_ADDRESS_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for NET_ADDRESS_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_ADDRESS_FORMAT {
     type Abi = Self;
 }
@@ -10357,6 +10447,11 @@ impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_IF_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_IF_ACCESS_TYPE {
     type Abi = Self;
 }
@@ -10379,6 +10474,11 @@ impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
 impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_IF_ADMIN_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_IF_ADMIN_STATUS {
@@ -10438,6 +10538,11 @@ impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_IF_CONNECTION_TYPE {
     type Abi = Self;
 }
@@ -10464,6 +10569,11 @@ impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_IF_DIRECTION_TYPE {
     type Abi = Self;
 }
@@ -10488,6 +10598,11 @@ impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
         *self
     }
 }
+impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_IF_MEDIA_CONNECT_STATE {
     type Abi = Self;
 }
@@ -10510,6 +10625,11 @@ impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
 impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_IF_MEDIA_DUPLEX_STATE {
@@ -10550,6 +10670,11 @@ impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
 impl ::core::clone::Clone for NET_IF_OPER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_IF_OPER_STATUS {
@@ -10614,6 +10739,11 @@ impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
 impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_TYPE {
@@ -10909,6 +11039,11 @@ impl ::core::clone::Clone for PFADDRESSTYPE {
         *self
     }
 }
+impl ::core::default::Default for PFADDRESSTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PFADDRESSTYPE {
     type Abi = Self;
 }
@@ -10937,6 +11072,11 @@ impl ::core::clone::Clone for PFFORWARD_ACTION {
         *self
     }
 }
+impl ::core::default::Default for PFFORWARD_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PFFORWARD_ACTION {
     type Abi = Self;
 }
@@ -10959,6 +11099,11 @@ impl ::core::marker::Copy for PFFRAMETYPE {}
 impl ::core::clone::Clone for PFFRAMETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PFFRAMETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PFFRAMETYPE {
@@ -11863,6 +12008,11 @@ impl ::core::clone::Clone for TCPIP_OWNER_MODULE_INFO_CLASS {
         *self
     }
 }
+impl ::core::default::Default for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TCPIP_OWNER_MODULE_INFO_CLASS {
     type Abi = Self;
 }
@@ -11887,6 +12037,11 @@ impl ::core::marker::Copy for TCP_BOOLEAN_OPTIONAL {}
 impl ::core::clone::Clone for TCP_BOOLEAN_OPTIONAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TCP_BOOLEAN_OPTIONAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TCP_BOOLEAN_OPTIONAL {
@@ -11915,6 +12070,11 @@ impl ::core::marker::Copy for TCP_CONNECTION_OFFLOAD_STATE {}
 impl ::core::clone::Clone for TCP_CONNECTION_OFFLOAD_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TCP_CONNECTION_OFFLOAD_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TCP_CONNECTION_OFFLOAD_STATE {
@@ -12756,6 +12916,11 @@ impl ::core::clone::Clone for TCP_ESTATS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TCP_ESTATS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_ESTATS_TYPE {
     type Abi = Self;
 }
@@ -12790,6 +12955,11 @@ impl ::core::marker::Copy for TCP_RTO_ALGORITHM {}
 impl ::core::clone::Clone for TCP_RTO_ALGORITHM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TCP_RTO_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TCP_RTO_ALGORITHM {
@@ -12828,6 +12998,11 @@ impl ::core::marker::Copy for TCP_SOFT_ERROR {}
 impl ::core::clone::Clone for TCP_SOFT_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TCP_SOFT_ERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TCP_SOFT_ERROR {
@@ -12870,6 +13045,11 @@ impl ::core::clone::Clone for TCP_TABLE_CLASS {
         *self
     }
 }
+impl ::core::default::Default for TCP_TABLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TCP_TABLE_CLASS {
     type Abi = Self;
 }
@@ -12902,6 +13082,11 @@ impl ::core::clone::Clone for TUNNEL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TUNNEL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TUNNEL_TYPE {
     type Abi = Self;
 }
@@ -12932,6 +13117,11 @@ impl ::core::marker::Copy for UDP_TABLE_CLASS {}
 impl ::core::clone::Clone for UDP_TABLE_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UDP_TABLE_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UDP_TABLE_CLASS {

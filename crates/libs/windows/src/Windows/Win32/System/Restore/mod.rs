@@ -116,6 +116,11 @@ impl ::core::clone::Clone for RESTOREPOINTINFO_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RESTOREPOINTINFO_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_EVENT_TYPE {
     type Abi = Self;
 }
@@ -170,6 +175,11 @@ impl ::core::marker::Copy for RESTOREPOINTINFO_TYPE {}
 impl ::core::clone::Clone for RESTOREPOINTINFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESTOREPOINTINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_TYPE {

@@ -522,6 +522,11 @@ impl ::core::clone::Clone for IppAttributeErrorReason {
         *self
     }
 }
+impl ::core::default::Default for IppAttributeErrorReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
     type Abi = Self;
 }
@@ -1112,6 +1117,11 @@ impl ::core::clone::Clone for IppAttributeValueKind {
         *self
     }
 }
+impl ::core::default::Default for IppAttributeValueKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IppAttributeValueKind {
     type Abi = Self;
 }
@@ -1474,6 +1484,11 @@ impl ::core::marker::Copy for IppResolutionUnit {}
 impl ::core::clone::Clone for IppResolutionUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IppResolutionUnit {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IppResolutionUnit {

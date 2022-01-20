@@ -61,6 +61,11 @@ impl ::core::clone::Clone for EFaultRepRetVal {
         *self
     }
 }
+impl ::core::default::Default for EFaultRepRetVal {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EFaultRepRetVal {
     type Abi = Self;
 }
@@ -166,6 +171,11 @@ impl ::core::clone::Clone for REPORT_STORE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for REPORT_STORE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REPORT_STORE_TYPES {
     type Abi = Self;
 }
@@ -207,6 +217,11 @@ impl ::core::marker::Copy for WER_CONSENT {}
 impl ::core::clone::Clone for WER_CONSENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_CONSENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_CONSENT {
@@ -439,6 +454,11 @@ impl ::core::clone::Clone for WER_DUMP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WER_DUMP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WER_DUMP_TYPE {
     type Abi = Self;
 }
@@ -506,6 +526,11 @@ impl ::core::clone::Clone for WER_FAULT_REPORTING {
         *self
     }
 }
+impl ::core::default::Default for WER_FAULT_REPORTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WER_FAULT_REPORTING {
     type Abi = Self;
 }
@@ -566,6 +591,11 @@ impl ::core::marker::Copy for WER_FILE {}
 impl ::core::clone::Clone for WER_FILE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_FILE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_FILE {
@@ -634,6 +664,11 @@ impl ::core::marker::Copy for WER_FILE_TYPE {}
 impl ::core::clone::Clone for WER_FILE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_FILE_TYPE {
@@ -714,6 +749,11 @@ impl ::core::marker::Copy for WER_REGISTER_FILE_TYPE {}
 impl ::core::clone::Clone for WER_REGISTER_FILE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_REGISTER_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_REGISTER_FILE_TYPE {
@@ -1215,6 +1255,11 @@ impl ::core::clone::Clone for WER_REPORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WER_REPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WER_REPORT_TYPE {
     type Abi = Self;
 }
@@ -1253,6 +1298,11 @@ impl ::core::marker::Copy for WER_REPORT_UI {}
 impl ::core::clone::Clone for WER_REPORT_UI {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_REPORT_UI {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_REPORT_UI {
@@ -1344,6 +1394,11 @@ impl ::core::clone::Clone for WER_SUBMIT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WER_SUBMIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WER_SUBMIT_FLAGS {
     type Abi = Self;
 }
@@ -1414,6 +1469,11 @@ impl ::core::marker::Copy for WER_SUBMIT_RESULT {}
 impl ::core::clone::Clone for WER_SUBMIT_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WER_SUBMIT_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WER_SUBMIT_RESULT {

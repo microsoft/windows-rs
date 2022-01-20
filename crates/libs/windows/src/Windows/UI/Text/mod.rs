@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CaretType {
         *self
     }
 }
+impl ::core::default::Default for CaretType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CaretType {
     type Abi = Self;
 }
@@ -191,6 +196,11 @@ impl ::core::clone::Clone for FindOptions {
         *self
     }
 }
+impl ::core::default::Default for FindOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FindOptions {
     type Abi = Self;
 }
@@ -255,6 +265,11 @@ impl ::core::clone::Clone for FontStretch {
         *self
     }
 }
+impl ::core::default::Default for FontStretch {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FontStretch {
     type Abi = Self;
 }
@@ -282,6 +297,11 @@ impl ::core::marker::Copy for FontStyle {}
 impl ::core::clone::Clone for FontStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FontStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FontStyle {
@@ -505,6 +525,11 @@ impl ::core::clone::Clone for FormatEffect {
         *self
     }
 }
+impl ::core::default::Default for FormatEffect {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FormatEffect {
     type Abi = Self;
 }
@@ -532,6 +557,11 @@ impl ::core::marker::Copy for HorizontalCharacterAlignment {}
 impl ::core::clone::Clone for HorizontalCharacterAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HorizontalCharacterAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HorizontalCharacterAlignment {
@@ -2880,6 +2910,11 @@ impl ::core::clone::Clone for LetterCase {
         *self
     }
 }
+impl ::core::default::Default for LetterCase {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LetterCase {
     type Abi = Self;
 }
@@ -2912,6 +2947,11 @@ impl ::core::marker::Copy for LineSpacingRule {}
 impl ::core::clone::Clone for LineSpacingRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LineSpacingRule {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LineSpacingRule {
@@ -2949,6 +2989,11 @@ impl ::core::clone::Clone for LinkType {
         *self
     }
 }
+impl ::core::default::Default for LinkType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LinkType {
     type Abi = Self;
 }
@@ -2977,6 +3022,11 @@ impl ::core::marker::Copy for MarkerAlignment {}
 impl ::core::clone::Clone for MarkerAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MarkerAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MarkerAlignment {
@@ -3010,6 +3060,11 @@ impl ::core::marker::Copy for MarkerStyle {}
 impl ::core::clone::Clone for MarkerStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MarkerStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MarkerStyle {
@@ -3063,6 +3118,11 @@ impl ::core::clone::Clone for MarkerType {
         *self
     }
 }
+impl ::core::default::Default for MarkerType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MarkerType {
     type Abi = Self;
 }
@@ -3092,6 +3152,11 @@ impl ::core::marker::Copy for ParagraphAlignment {}
 impl ::core::clone::Clone for ParagraphAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ParagraphAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ParagraphAlignment {
@@ -3132,6 +3197,11 @@ impl ::core::clone::Clone for ParagraphStyle {
         *self
     }
 }
+impl ::core::default::Default for ParagraphStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ParagraphStyle {
     type Abi = Self;
 }
@@ -3164,6 +3234,11 @@ impl ::core::marker::Copy for PointOptions {}
 impl ::core::clone::Clone for PointOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PointOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PointOptions {
@@ -3225,6 +3300,11 @@ impl ::core::clone::Clone for RangeGravity {
         *self
     }
 }
+impl ::core::default::Default for RangeGravity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RangeGravity {
     type Abi = Self;
 }
@@ -3251,6 +3331,11 @@ impl ::core::marker::Copy for RichEditMathMode {}
 impl ::core::clone::Clone for RichEditMathMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RichEditMathMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RichEditMathMode {
@@ -4054,6 +4139,11 @@ impl ::core::clone::Clone for SelectionOptions {
         *self
     }
 }
+impl ::core::default::Default for SelectionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SelectionOptions {
     type Abi = Self;
 }
@@ -4113,6 +4203,11 @@ impl ::core::clone::Clone for SelectionType {
         *self
     }
 }
+impl ::core::default::Default for SelectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SelectionType {
     type Abi = Self;
 }
@@ -4142,6 +4237,11 @@ impl ::core::marker::Copy for TabAlignment {}
 impl ::core::clone::Clone for TabAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TabAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TabAlignment {
@@ -4174,6 +4274,11 @@ impl ::core::marker::Copy for TabLeader {}
 impl ::core::clone::Clone for TabLeader {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TabLeader {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TabLeader {
@@ -4273,6 +4378,11 @@ impl ::core::clone::Clone for TextDecorations {
         *self
     }
 }
+impl ::core::default::Default for TextDecorations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextDecorations {
     type Abi = Self;
 }
@@ -4334,6 +4444,11 @@ impl ::core::marker::Copy for TextGetOptions {}
 impl ::core::clone::Clone for TextGetOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TextGetOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TextGetOptions {
@@ -4421,6 +4536,11 @@ impl ::core::marker::Copy for TextRangeUnit {}
 impl ::core::clone::Clone for TextRangeUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TextRangeUnit {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TextRangeUnit {
@@ -4513,6 +4633,11 @@ impl ::core::clone::Clone for TextScript {
         *self
     }
 }
+impl ::core::default::Default for TextScript {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextScript {
     type Abi = Self;
 }
@@ -4544,6 +4669,11 @@ impl ::core::marker::Copy for TextSetOptions {}
 impl ::core::clone::Clone for TextSetOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TextSetOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TextSetOptions {
@@ -4620,6 +4750,11 @@ impl ::core::clone::Clone for UnderlineType {
         *self
     }
 }
+impl ::core::default::Default for UnderlineType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UnderlineType {
     type Abi = Self;
 }
@@ -4647,6 +4782,11 @@ impl ::core::marker::Copy for VerticalCharacterAlignment {}
 impl ::core::clone::Clone for VerticalCharacterAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VerticalCharacterAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VerticalCharacterAlignment {

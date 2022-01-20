@@ -378,6 +378,11 @@ impl ::core::clone::Clone for REG_CREATE_KEY_DISPOSITION {
         *self
     }
 }
+impl ::core::default::Default for REG_CREATE_KEY_DISPOSITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REG_CREATE_KEY_DISPOSITION {
     type Abi = Self;
 }
@@ -434,6 +439,11 @@ impl ::core::marker::Copy for REG_NOTIFY_FILTER {}
 impl ::core::clone::Clone for REG_NOTIFY_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REG_NOTIFY_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REG_NOTIFY_FILTER {
@@ -496,6 +506,11 @@ impl ::core::clone::Clone for REG_OPEN_CREATE_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for REG_OPEN_CREATE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REG_OPEN_CREATE_OPTIONS {
     type Abi = Self;
 }
@@ -548,6 +563,11 @@ impl ::core::clone::Clone for REG_RESTORE_KEY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for REG_RESTORE_KEY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REG_RESTORE_KEY_FLAGS {
     type Abi = Self;
 }
@@ -590,6 +610,11 @@ impl ::core::marker::Copy for REG_SAM_FLAGS {}
 impl ::core::clone::Clone for REG_SAM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REG_SAM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REG_SAM_FLAGS {
@@ -642,6 +667,11 @@ impl ::core::marker::Copy for REG_SAVE_FORMAT {}
 impl ::core::clone::Clone for REG_SAVE_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REG_SAVE_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REG_SAVE_FORMAT {
@@ -722,6 +752,11 @@ impl ::core::clone::Clone for REG_VALUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for REG_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
     type Abi = Self;
 }
@@ -788,6 +823,11 @@ impl ::core::marker::Copy for RRF_RT {}
 impl ::core::clone::Clone for RRF_RT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RRF_RT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RRF_RT {

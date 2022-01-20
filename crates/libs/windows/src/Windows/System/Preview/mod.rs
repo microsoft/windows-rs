@@ -22,6 +22,12 @@ impl ::core::clone::Clone for HingeState {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for HingeState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for HingeState {
     type Abi = Self;
 }

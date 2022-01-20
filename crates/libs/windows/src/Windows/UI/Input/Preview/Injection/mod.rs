@@ -229,6 +229,11 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
         *self
     }
 }
+impl ::core::default::Default for InjectedInputButtonChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
     type Abi = Self;
 }
@@ -442,6 +447,11 @@ impl ::core::marker::Copy for InjectedInputKeyOptions {}
 impl ::core::clone::Clone for InjectedInputKeyOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InjectedInputKeyOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
@@ -773,6 +783,11 @@ impl ::core::clone::Clone for InjectedInputMouseOptions {
         *self
     }
 }
+impl ::core::default::Default for InjectedInputMouseOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
     type Abi = Self;
 }
@@ -829,6 +844,11 @@ impl ::core::marker::Copy for InjectedInputPenButtons {}
 impl ::core::clone::Clone for InjectedInputPenButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InjectedInputPenButtons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
@@ -1059,6 +1079,11 @@ impl ::core::clone::Clone for InjectedInputPenParameters {
         *self
     }
 }
+impl ::core::default::Default for InjectedInputPenParameters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
     type Abi = Self;
 }
@@ -1203,6 +1228,11 @@ impl ::core::clone::Clone for InjectedInputPointerOptions {
         *self
     }
 }
+impl ::core::default::Default for InjectedInputPointerOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
     type Abi = Self;
 }
@@ -1297,6 +1327,11 @@ impl ::core::marker::Copy for InjectedInputShortcut {}
 impl ::core::clone::Clone for InjectedInputShortcut {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InjectedInputShortcut {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputShortcut {
@@ -1472,6 +1507,11 @@ impl ::core::clone::Clone for InjectedInputTouchParameters {
         *self
     }
 }
+impl ::core::default::Default for InjectedInputTouchParameters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
     type Abi = Self;
 }
@@ -1527,6 +1567,11 @@ impl ::core::marker::Copy for InjectedInputVisualizationMode {}
 impl ::core::clone::Clone for InjectedInputVisualizationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InjectedInputVisualizationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {

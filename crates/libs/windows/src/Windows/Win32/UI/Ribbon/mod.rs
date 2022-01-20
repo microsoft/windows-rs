@@ -838,6 +838,11 @@ impl ::core::clone::Clone for UI_COLLECTIONCHANGE {
         *self
     }
 }
+impl ::core::default::Default for UI_COLLECTIONCHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_COLLECTIONCHANGE {
     type Abi = Self;
 }
@@ -884,6 +889,11 @@ impl ::core::clone::Clone for UI_COMMANDTYPE {
         *self
     }
 }
+impl ::core::default::Default for UI_COMMANDTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_COMMANDTYPE {
     type Abi = Self;
 }
@@ -908,6 +918,11 @@ impl ::core::clone::Clone for UI_CONTEXTAVAILABILITY {
         *self
     }
 }
+impl ::core::default::Default for UI_CONTEXTAVAILABILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_CONTEXTAVAILABILITY {
     type Abi = Self;
 }
@@ -928,6 +943,11 @@ impl ::core::marker::Copy for UI_CONTROLDOCK {}
 impl ::core::clone::Clone for UI_CONTROLDOCK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_CONTROLDOCK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_CONTROLDOCK {
@@ -954,6 +974,11 @@ impl ::core::marker::Copy for UI_EVENTLOCATION {}
 impl ::core::clone::Clone for UI_EVENTLOCATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_EVENTLOCATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_EVENTLOCATION {
@@ -1099,6 +1124,11 @@ impl ::core::clone::Clone for UI_EVENTTYPE {
         *self
     }
 }
+impl ::core::default::Default for UI_EVENTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_EVENTTYPE {
     type Abi = Self;
 }
@@ -1123,6 +1153,11 @@ impl ::core::clone::Clone for UI_EXECUTIONVERB {
         *self
     }
 }
+impl ::core::default::Default for UI_EXECUTIONVERB {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_EXECUTIONVERB {
     type Abi = Self;
 }
@@ -1143,6 +1178,11 @@ impl ::core::marker::Copy for UI_FONTDELTASIZE {}
 impl ::core::clone::Clone for UI_FONTDELTASIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_FONTDELTASIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_FONTDELTASIZE {
@@ -1169,6 +1209,11 @@ impl ::core::clone::Clone for UI_FONTPROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for UI_FONTPROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_FONTPROPERTIES {
     type Abi = Self;
 }
@@ -1191,6 +1236,11 @@ impl ::core::marker::Copy for UI_FONTUNDERLINE {}
 impl ::core::clone::Clone for UI_FONTUNDERLINE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_FONTUNDERLINE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_FONTUNDERLINE {
@@ -1219,6 +1269,11 @@ impl ::core::clone::Clone for UI_FONTVERTICALPOSITION {
         *self
     }
 }
+impl ::core::default::Default for UI_FONTVERTICALPOSITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_FONTVERTICALPOSITION {
     type Abi = Self;
 }
@@ -1245,6 +1300,11 @@ impl ::core::clone::Clone for UI_INVALIDATIONS {
         *self
     }
 }
+impl ::core::default::Default for UI_INVALIDATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_INVALIDATIONS {
     type Abi = Self;
 }
@@ -1267,6 +1327,11 @@ impl ::core::clone::Clone for UI_OWNERSHIP {
         *self
     }
 }
+impl ::core::default::Default for UI_OWNERSHIP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_OWNERSHIP {
     type Abi = Self;
 }
@@ -1287,6 +1352,11 @@ impl ::core::marker::Copy for UI_SWATCHCOLORMODE {}
 impl ::core::clone::Clone for UI_SWATCHCOLORMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_SWATCHCOLORMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_SWATCHCOLORMODE {
@@ -1313,6 +1383,11 @@ impl ::core::clone::Clone for UI_SWATCHCOLORTYPE {
         *self
     }
 }
+impl ::core::default::Default for UI_SWATCHCOLORTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_SWATCHCOLORTYPE {
     type Abi = Self;
 }
@@ -1331,6 +1406,11 @@ impl ::core::marker::Copy for UI_VIEWTYPE {}
 impl ::core::clone::Clone for UI_VIEWTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_VIEWTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_VIEWTYPE {
@@ -1357,6 +1437,11 @@ impl ::core::marker::Copy for UI_VIEWVERB {}
 impl ::core::clone::Clone for UI_VIEWVERB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_VIEWVERB {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_VIEWVERB {

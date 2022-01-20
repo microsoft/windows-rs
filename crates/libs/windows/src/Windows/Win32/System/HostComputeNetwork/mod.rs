@@ -39,6 +39,11 @@ impl ::core::clone::Clone for HCN_NOTIFICATIONS {
         *self
     }
 }
+impl ::core::default::Default for HCN_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
 }
@@ -64,6 +69,11 @@ impl ::core::clone::Clone for HCN_PORT_ACCESS {
         *self
     }
 }
+impl ::core::default::Default for HCN_PORT_ACCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
     type Abi = Self;
 }
@@ -86,6 +96,11 @@ impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
 impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HCN_PORT_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {

@@ -13108,6 +13108,11 @@ impl ::core::clone::Clone for NETSOURCE_URLCREDPOLICY_SETTINGS {
         *self
     }
 }
+impl ::core::default::Default for NETSOURCE_URLCREDPOLICY_SETTINGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETSOURCE_URLCREDPOLICY_SETTINGS {
     type Abi = Self;
 }
@@ -13128,6 +13133,11 @@ impl ::core::marker::Copy for WEBSTREAM_SAMPLE_TYPE {}
 impl ::core::clone::Clone for WEBSTREAM_SAMPLE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WEBSTREAM_SAMPLE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WEBSTREAM_SAMPLE_TYPE {
@@ -13491,6 +13501,11 @@ impl ::core::clone::Clone for WMT_ATTR_DATATYPE {
         *self
     }
 }
+impl ::core::default::Default for WMT_ATTR_DATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_ATTR_DATATYPE {
     type Abi = Self;
 }
@@ -13513,6 +13528,11 @@ impl ::core::marker::Copy for WMT_ATTR_IMAGETYPE {}
 impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_ATTR_IMAGETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_ATTR_IMAGETYPE {
@@ -13568,6 +13588,11 @@ impl ::core::marker::Copy for WMT_CODEC_INFO_TYPE {}
 impl ::core::clone::Clone for WMT_CODEC_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_CODEC_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_CODEC_INFO_TYPE {
@@ -13630,6 +13655,11 @@ impl ::core::clone::Clone for WMT_CREDENTIAL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WMT_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_CREDENTIAL_FLAGS {
     type Abi = Self;
 }
@@ -13654,6 +13684,11 @@ impl ::core::marker::Copy for WMT_DRMLA_TRUST {}
 impl ::core::clone::Clone for WMT_DRMLA_TRUST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_DRMLA_TRUST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_DRMLA_TRUST {
@@ -13719,6 +13754,11 @@ impl ::core::clone::Clone for WMT_FILESINK_MODE {
         *self
     }
 }
+impl ::core::default::Default for WMT_FILESINK_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_FILESINK_MODE {
     type Abi = Self;
 }
@@ -13745,6 +13785,11 @@ impl ::core::clone::Clone for WMT_IMAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WMT_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_IMAGE_TYPE {
     type Abi = Self;
 }
@@ -13767,6 +13812,11 @@ impl ::core::marker::Copy for WMT_INDEXER_TYPE {}
 impl ::core::clone::Clone for WMT_INDEXER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_INDEXER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_INDEXER_TYPE {
@@ -13793,6 +13843,11 @@ impl ::core::clone::Clone for WMT_INDEX_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WMT_INDEX_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_INDEX_TYPE {
     type Abi = Self;
 }
@@ -13817,6 +13872,11 @@ impl ::core::clone::Clone for WMT_MUSICSPEECH_CLASS_MODE {
         *self
     }
 }
+impl ::core::default::Default for WMT_MUSICSPEECH_CLASS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_MUSICSPEECH_CLASS_MODE {
     type Abi = Self;
 }
@@ -13835,6 +13895,11 @@ impl ::core::marker::Copy for WMT_NET_PROTOCOL {}
 impl ::core::clone::Clone for WMT_NET_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_NET_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_NET_PROTOCOL {
@@ -13863,6 +13928,11 @@ impl ::core::marker::Copy for WMT_OFFSET_FORMAT {}
 impl ::core::clone::Clone for WMT_OFFSET_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_OFFSET_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_OFFSET_FORMAT {
@@ -13921,6 +13991,11 @@ impl ::core::clone::Clone for WMT_PLAY_MODE {
         *self
     }
 }
+impl ::core::default::Default for WMT_PLAY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_PLAY_MODE {
     type Abi = Self;
 }
@@ -13947,6 +14022,11 @@ impl ::core::marker::Copy for WMT_PROXY_SETTINGS {}
 impl ::core::clone::Clone for WMT_PROXY_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_PROXY_SETTINGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_PROXY_SETTINGS {
@@ -13985,6 +14065,11 @@ impl ::core::marker::Copy for WMT_RIGHTS {}
 impl ::core::clone::Clone for WMT_RIGHTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_RIGHTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_RIGHTS {
@@ -14111,6 +14196,11 @@ impl ::core::clone::Clone for WMT_STATUS {
         *self
     }
 }
+impl ::core::default::Default for WMT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_STATUS {
     type Abi = Self;
 }
@@ -14131,6 +14221,11 @@ impl ::core::marker::Copy for WMT_STORAGE_FORMAT {}
 impl ::core::clone::Clone for WMT_STORAGE_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_STORAGE_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_STORAGE_FORMAT {
@@ -14155,6 +14250,11 @@ impl ::core::marker::Copy for WMT_STREAM_SELECTION {}
 impl ::core::clone::Clone for WMT_STREAM_SELECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_STREAM_SELECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_STREAM_SELECTION {
@@ -14211,6 +14311,11 @@ impl ::core::clone::Clone for WMT_TIMECODE_FRAMERATE {
         *self
     }
 }
+impl ::core::default::Default for WMT_TIMECODE_FRAMERATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_TIMECODE_FRAMERATE {
     type Abi = Self;
 }
@@ -14231,6 +14336,11 @@ impl ::core::marker::Copy for WMT_TRANSPORT_TYPE {}
 impl ::core::clone::Clone for WMT_TRANSPORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_TRANSPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_TRANSPORT_TYPE {
@@ -14257,6 +14367,11 @@ impl ::core::marker::Copy for WMT_VERSION {}
 impl ::core::clone::Clone for WMT_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMT_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMT_VERSION {
@@ -14542,6 +14657,11 @@ impl ::core::clone::Clone for WMT_WATERMARK_ENTRY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WMT_WATERMARK_ENTRY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY_TYPE {
     type Abi = Self;
 }
@@ -14767,6 +14887,11 @@ impl ::core::clone::Clone for WM_AETYPE {
         *self
     }
 }
+impl ::core::default::Default for WM_AETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WM_AETYPE {
     type Abi = Self;
 }
@@ -14881,6 +15006,11 @@ impl ::core::clone::Clone for WM_DM_INTERLACED_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WM_DM_INTERLACED_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WM_DM_INTERLACED_TYPE {
     type Abi = Self;
 }
@@ -14919,6 +15049,11 @@ impl ::core::marker::Copy for WM_DM_IT_FIRST_FRAME_COHERENCY {}
 impl ::core::clone::Clone for WM_DM_IT_FIRST_FRAME_COHERENCY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WM_DM_IT_FIRST_FRAME_COHERENCY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WM_DM_IT_FIRST_FRAME_COHERENCY {
@@ -15065,6 +15200,11 @@ impl ::core::clone::Clone for WM_PLAYBACK_DRC_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for WM_PLAYBACK_DRC_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WM_PLAYBACK_DRC_LEVEL {
     type Abi = Self;
 }
@@ -15199,6 +15339,11 @@ impl ::core::clone::Clone for WM_SFEX_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WM_SFEX_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WM_SFEX_TYPE {
     type Abi = Self;
 }
@@ -15221,6 +15366,11 @@ impl ::core::marker::Copy for WM_SF_TYPE {}
 impl ::core::clone::Clone for WM_SF_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WM_SF_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WM_SF_TYPE {
@@ -15522,6 +15672,11 @@ impl ::core::marker::Copy for _AM_ASFWRITERCONFIG_PARAM {}
 impl ::core::clone::Clone for _AM_ASFWRITERCONFIG_PARAM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _AM_ASFWRITERCONFIG_PARAM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _AM_ASFWRITERCONFIG_PARAM {

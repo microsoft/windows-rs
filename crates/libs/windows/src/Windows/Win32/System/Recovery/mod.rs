@@ -78,6 +78,11 @@ impl ::core::clone::Clone for REGISTER_APPLICATION_RESTART_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for REGISTER_APPLICATION_RESTART_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REGISTER_APPLICATION_RESTART_FLAGS {
     type Abi = Self;
 }

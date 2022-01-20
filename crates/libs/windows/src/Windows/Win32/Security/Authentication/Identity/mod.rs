@@ -25,6 +25,11 @@ impl ::core::clone::Clone for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
         *self
     }
 }
+impl ::core::default::Default for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
     type Abi = Self;
 }
@@ -938,6 +943,11 @@ impl ::core::clone::Clone for CRED_FETCH {
         *self
     }
 }
+impl ::core::default::Default for CRED_FETCH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRED_FETCH {
     type Abi = Self;
 }
@@ -1104,6 +1114,11 @@ impl ::core::clone::Clone for DOMAIN_PASSWORD_PROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for DOMAIN_PASSWORD_PROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOMAIN_PASSWORD_PROPERTIES {
     type Abi = Self;
 }
@@ -1266,6 +1281,11 @@ impl ::core::clone::Clone for EXPORT_SECURITY_CONTEXT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXPORT_SECURITY_CONTEXT_FLAGS {
     type Abi = Self;
 }
@@ -1337,6 +1357,11 @@ impl ::core::marker::Copy for EXTENDED_NAME_FORMAT {}
 impl ::core::clone::Clone for EXTENDED_NAME_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXTENDED_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXTENDED_NAME_FORMAT {
@@ -1876,6 +1901,11 @@ impl ::core::clone::Clone for KERB_ADDRESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KERB_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KERB_ADDRESS_TYPE {
     type Abi = Self;
 }
@@ -2227,6 +2257,11 @@ impl ::core::marker::Copy for KERB_CERTIFICATE_INFO_TYPE {}
 impl ::core::clone::Clone for KERB_CERTIFICATE_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KERB_CERTIFICATE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_INFO_TYPE {
@@ -2689,6 +2724,11 @@ impl ::core::clone::Clone for KERB_CRYPTO_KEY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KERB_CRYPTO_KEY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY_TYPE {
     type Abi = Self;
 }
@@ -3142,6 +3182,11 @@ impl ::core::clone::Clone for KERB_LOGON_SUBMIT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KERB_LOGON_SUBMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KERB_LOGON_SUBMIT_TYPE {
     type Abi = Self;
 }
@@ -3245,6 +3290,11 @@ impl ::core::clone::Clone for KERB_PROFILE_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KERB_PROFILE_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KERB_PROFILE_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -3335,6 +3385,11 @@ impl ::core::marker::Copy for KERB_PROTOCOL_MESSAGE_TYPE {}
 impl ::core::clone::Clone for KERB_PROTOCOL_MESSAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KERB_PROTOCOL_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KERB_PROTOCOL_MESSAGE_TYPE {
@@ -4159,6 +4214,11 @@ impl ::core::marker::Copy for KERB_REQUEST_FLAGS {}
 impl ::core::clone::Clone for KERB_REQUEST_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KERB_REQUEST_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KERB_REQUEST_FLAGS {
@@ -5016,6 +5076,11 @@ impl ::core::clone::Clone for KERB_TICKET_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for KERB_TICKET_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KERB_TICKET_FLAGS {
     type Abi = Self;
 }
@@ -5266,6 +5331,11 @@ impl ::core::clone::Clone for KSEC_CONTEXT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for KSEC_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSEC_CONTEXT_TYPE {
     type Abi = Self;
 }
@@ -5474,6 +5544,11 @@ impl ::core::marker::Copy for LSA_AUTH_INFORMATION_AUTH_TYPE {}
 impl ::core::clone::Clone for LSA_AUTH_INFORMATION_AUTH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION_AUTH_TYPE {
@@ -5739,6 +5814,11 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
     type Abi = Self;
 }
@@ -5913,6 +5993,11 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD_TYPE {
     type Abi = Self;
 }
@@ -5975,6 +6060,11 @@ impl ::core::marker::Copy for LSA_LOOKUP_DOMAIN_INFO_CLASS {}
 impl ::core::clone::Clone for LSA_LOOKUP_DOMAIN_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LSA_LOOKUP_DOMAIN_INFO_CLASS {
@@ -6279,6 +6369,11 @@ impl ::core::marker::Copy for LSA_TOKEN_INFORMATION_TYPE {}
 impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LSA_TOKEN_INFORMATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_TYPE {
@@ -7254,6 +7349,11 @@ impl ::core::clone::Clone for MSV1_0 {
         *self
     }
 }
+impl ::core::default::Default for MSV1_0 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSV1_0 {
     type Abi = Self;
 }
@@ -7324,6 +7424,11 @@ impl ::core::marker::Copy for MSV1_0_AVID {}
 impl ::core::clone::Clone for MSV1_0_AVID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSV1_0_AVID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSV1_0_AVID {
@@ -7510,6 +7615,11 @@ impl ::core::marker::Copy for MSV1_0_CREDENTIAL_KEY_TYPE {}
 impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSV1_0_CREDENTIAL_KEY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSV1_0_CREDENTIAL_KEY_TYPE {
@@ -7808,6 +7918,11 @@ impl ::core::clone::Clone for MSV1_0_LOGON_SUBMIT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MSV1_0_LOGON_SUBMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSV1_0_LOGON_SUBMIT_TYPE {
     type Abi = Self;
 }
@@ -7958,6 +8073,11 @@ impl ::core::clone::Clone for MSV1_0_PROFILE_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MSV1_0_PROFILE_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSV1_0_PROFILE_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -8024,6 +8144,11 @@ impl ::core::marker::Copy for MSV1_0_PROTOCOL_MESSAGE_TYPE {}
 impl ::core::clone::Clone for MSV1_0_PROTOCOL_MESSAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSV1_0_PROTOCOL_MESSAGE_TYPE {
@@ -8447,6 +8572,11 @@ impl ::core::clone::Clone for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     type Abi = Self;
 }
@@ -8511,6 +8641,11 @@ impl ::core::clone::Clone for MSV_SUB_AUTHENTICATION_FILTER {
         *self
     }
 }
+impl ::core::default::Default for MSV_SUB_AUTHENTICATION_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSV_SUB_AUTHENTICATION_FILTER {
     type Abi = Self;
 }
@@ -8561,6 +8696,11 @@ impl ::core::marker::Copy for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {}
 impl ::core::clone::Clone for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
@@ -8714,6 +8854,11 @@ impl ::core::marker::Copy for NEGOTIATE_MESSAGES {}
 impl ::core::clone::Clone for NEGOTIATE_MESSAGES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NEGOTIATE_MESSAGES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NEGOTIATE_MESSAGES {
@@ -8938,6 +9083,11 @@ impl ::core::marker::Copy for NETLOGON_LOGON_INFO_CLASS {}
 impl ::core::clone::Clone for NETLOGON_LOGON_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NETLOGON_LOGON_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NETLOGON_LOGON_INFO_CLASS {
@@ -9212,6 +9362,11 @@ impl ::core::marker::Copy for PKU2U_LOGON_SUBMIT_TYPE {}
 impl ::core::clone::Clone for PKU2U_LOGON_SUBMIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PKU2U_LOGON_SUBMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PKU2U_LOGON_SUBMIT_TYPE {
@@ -9633,6 +9788,11 @@ impl ::core::clone::Clone for POLICY_AUDIT_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for POLICY_AUDIT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POLICY_AUDIT_EVENT_TYPE {
     type Abi = Self;
 }
@@ -9958,6 +10118,11 @@ impl ::core::clone::Clone for POLICY_DOMAIN_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for POLICY_DOMAIN_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POLICY_DOMAIN_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -10045,6 +10210,11 @@ impl ::core::clone::Clone for POLICY_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for POLICY_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POLICY_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -10069,6 +10239,11 @@ impl ::core::marker::Copy for POLICY_LSA_SERVER_ROLE {}
 impl ::core::clone::Clone for POLICY_LSA_SERVER_ROLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POLICY_LSA_SERVER_ROLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POLICY_LSA_SERVER_ROLE {
@@ -10207,6 +10382,11 @@ impl ::core::marker::Copy for POLICY_NOTIFICATION_INFORMATION_CLASS {}
 impl ::core::clone::Clone for POLICY_NOTIFICATION_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POLICY_NOTIFICATION_INFORMATION_CLASS {
@@ -10825,6 +11005,11 @@ impl ::core::clone::Clone for SASL_AUTHZID_STATE {
         *self
     }
 }
+impl ::core::default::Default for SASL_AUTHZID_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SASL_AUTHZID_STATE {
     type Abi = Self;
 }
@@ -10887,6 +11072,11 @@ impl ::core::marker::Copy for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {}
 impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
@@ -11136,6 +11326,11 @@ impl ::core::clone::Clone for SCHANNEL_CRED_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SCHANNEL_CRED_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCHANNEL_CRED_FLAGS {
     type Abi = Self;
 }
@@ -11225,6 +11420,11 @@ impl ::core::marker::Copy for SCHANNEL_SESSION_TOKEN_FLAGS {}
 impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN_FLAGS {
@@ -11708,6 +11908,11 @@ impl ::core::clone::Clone for SECPKG_ATTR {
         *self
     }
 }
+impl ::core::default::Default for SECPKG_ATTR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECPKG_ATTR {
     type Abi = Self;
 }
@@ -11790,6 +11995,11 @@ impl ::core::marker::Copy for SECPKG_ATTR_LCT_STATUS {}
 impl ::core::clone::Clone for SECPKG_ATTR_LCT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_ATTR_LCT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_ATTR_LCT_STATUS {
@@ -11965,6 +12175,11 @@ impl ::core::marker::Copy for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {}
 impl ::core::clone::Clone for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
@@ -12210,6 +12425,11 @@ impl ::core::clone::Clone for SECPKG_CRED {
         *self
     }
 }
+impl ::core::default::Default for SECPKG_CRED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECPKG_CRED {
     type Abi = Self;
 }
@@ -12352,6 +12572,11 @@ impl ::core::marker::Copy for SECPKG_CRED_CLASS {}
 impl ::core::clone::Clone for SECPKG_CRED_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_CRED_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_CRED_CLASS {
@@ -12606,6 +12831,11 @@ impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION_CLASS {}
 impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION_CLASS {
@@ -13050,6 +13280,11 @@ impl ::core::clone::Clone for SECPKG_NAME_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SECPKG_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECPKG_NAME_TYPE {
     type Abi = Self;
 }
@@ -13115,6 +13350,11 @@ impl ::core::marker::Copy for SECPKG_PACKAGE_CHANGE_TYPE {}
 impl ::core::clone::Clone for SECPKG_PACKAGE_CHANGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_PACKAGE_CHANGE_TYPE {
@@ -13471,6 +13711,11 @@ impl ::core::marker::Copy for SECPKG_SESSIONINFO_TYPE {}
 impl ::core::clone::Clone for SECPKG_SESSIONINFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECPKG_SESSIONINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECPKG_SESSIONINFO_TYPE {
@@ -13978,6 +14223,11 @@ impl ::core::clone::Clone for SECURITY_LOGON_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SECURITY_LOGON_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECURITY_LOGON_TYPE {
     type Abi = Self;
 }
@@ -14038,6 +14288,11 @@ impl ::core::marker::Copy for SECURITY_PACKAGE_OPTIONS_TYPE {}
 impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS_TYPE {
@@ -14206,6 +14461,11 @@ impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
         *self
     }
 }
+impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
     type Abi = Self;
 }
@@ -14228,6 +14488,11 @@ impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {}
 impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
@@ -14589,6 +14854,11 @@ impl ::core::marker::Copy for SEC_TRAFFIC_SECRET_TYPE {}
 impl ::core::clone::Clone for SEC_TRAFFIC_SECRET_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEC_TRAFFIC_SECRET_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEC_TRAFFIC_SECRET_TYPE {
@@ -15243,6 +15513,11 @@ impl ::core::clone::Clone for SE_ADT_PARAMETER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SE_ADT_PARAMETER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_TYPE {
     type Abi = Self;
 }
@@ -15338,6 +15613,11 @@ impl ::core::marker::Copy for SLDATATYPE {}
 impl ::core::clone::Clone for SLDATATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SLDATATYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SLDATATYPE {
@@ -15753,6 +16033,11 @@ impl ::core::clone::Clone for SLIDTYPE {
         *self
     }
 }
+impl ::core::default::Default for SLIDTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SLIDTYPE {
     type Abi = Self;
 }
@@ -15826,6 +16111,11 @@ impl ::core::clone::Clone for SLLICENSINGSTATUS {
         *self
     }
 }
+impl ::core::default::Default for SLLICENSINGSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SLLICENSINGSTATUS {
     type Abi = Self;
 }
@@ -15881,6 +16171,11 @@ impl ::core::marker::Copy for SLREFERRALTYPE {}
 impl ::core::clone::Clone for SLREFERRALTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SLREFERRALTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SLREFERRALTYPE {
@@ -16021,6 +16316,11 @@ impl ::core::marker::Copy for SL_ACTIVATION_TYPE {}
 impl ::core::clone::Clone for SL_ACTIVATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SL_ACTIVATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SL_ACTIVATION_TYPE {
@@ -16659,6 +16959,11 @@ impl ::core::marker::Copy for SL_GENUINE_STATE {}
 impl ::core::clone::Clone for SL_GENUINE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SL_GENUINE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SL_GENUINE_STATE {
@@ -17397,6 +17702,11 @@ impl ::core::clone::Clone for SchGetExtensionsOptions {
         *self
     }
 }
+impl ::core::default::Default for SchGetExtensionsOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SchGetExtensionsOptions {
     type Abi = Self;
 }
@@ -17515,6 +17825,11 @@ impl ::core::marker::Copy for SecDelegationType {}
 impl ::core::clone::Clone for SecDelegationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SecDelegationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SecDelegationType {
@@ -21067,6 +21382,11 @@ impl ::core::clone::Clone for TOKENBINDING_EXTENSION_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for TOKENBINDING_EXTENSION_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOKENBINDING_EXTENSION_FORMAT {
     type Abi = Self;
 }
@@ -21121,6 +21441,11 @@ impl ::core::marker::Copy for TOKENBINDING_KEY_PARAMETERS_TYPE {}
 impl ::core::clone::Clone for TOKENBINDING_KEY_PARAMETERS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOKENBINDING_KEY_PARAMETERS_TYPE {
@@ -21240,6 +21565,11 @@ impl ::core::marker::Copy for TOKENBINDING_TYPE {}
 impl ::core::clone::Clone for TOKENBINDING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOKENBINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOKENBINDING_TYPE {
@@ -21591,6 +21921,11 @@ impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
     type Abi = Self;
 }
@@ -21645,6 +21980,11 @@ impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_DIRECTION {
     type Abi = Self;
 }
@@ -21697,6 +22037,11 @@ impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_TYPE {}
 impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_TYPE {
@@ -21769,6 +22114,11 @@ impl ::core::marker::Copy for TRUSTED_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TRUSTED_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRUSTED_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRUSTED_INFORMATION_CLASS {
@@ -22299,6 +22649,11 @@ impl ::core::clone::Clone for eTlsHashAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for eTlsHashAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eTlsHashAlgorithm {
     type Abi = Self;
 }
@@ -22323,6 +22678,11 @@ impl ::core::marker::Copy for eTlsSignatureAlgorithm {}
 impl ::core::clone::Clone for eTlsSignatureAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eTlsSignatureAlgorithm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eTlsSignatureAlgorithm {

@@ -254,6 +254,11 @@ impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_AGNSS_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -795,6 +800,11 @@ impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_DRIVERCOMMAND_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_DRIVERCOMMAND_TYPE {
     type Abi = Self;
 }
@@ -813,6 +823,11 @@ impl ::core::marker::Copy for GNSS_DRIVER_REQUEST {}
 impl ::core::clone::Clone for GNSS_DRIVER_REQUEST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_DRIVER_REQUEST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_DRIVER_REQUEST {
@@ -1098,6 +1113,11 @@ impl ::core::marker::Copy for GNSS_EVENT_TYPE {}
 impl ::core::clone::Clone for GNSS_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_EVENT_TYPE {
@@ -1468,6 +1488,11 @@ impl ::core::clone::Clone for GNSS_FIXSESSIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_FIXSESSIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_FIXSESSIONTYPE {
     type Abi = Self;
 }
@@ -1742,6 +1767,11 @@ impl ::core::clone::Clone for GNSS_GEOFENCE_STATE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_GEOFENCE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_STATE {
     type Abi = Self;
 }
@@ -1814,6 +1844,11 @@ impl ::core::marker::Copy for GNSS_GEOREGIONTYPE {}
 impl ::core::clone::Clone for GNSS_GEOREGIONTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_GEOREGIONTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_GEOREGIONTYPE {
@@ -1909,6 +1944,11 @@ impl ::core::clone::Clone for GNSS_NI_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_NI_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_NI_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -1931,6 +1971,11 @@ impl ::core::marker::Copy for GNSS_NI_PLANE_TYPE {}
 impl ::core::clone::Clone for GNSS_NI_PLANE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_NI_PLANE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_NI_PLANE_TYPE {
@@ -2029,6 +2074,11 @@ impl ::core::clone::Clone for GNSS_NI_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GNSS_NI_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -2084,6 +2134,11 @@ impl ::core::marker::Copy for GNSS_NI_USER_RESPONSE {}
 impl ::core::clone::Clone for GNSS_NI_USER_RESPONSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_NI_USER_RESPONSE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_NI_USER_RESPONSE {
@@ -2405,6 +2460,11 @@ impl ::core::marker::Copy for GNSS_SUPL_CERT_ACTION {}
 impl ::core::clone::Clone for GNSS_SUPL_CERT_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GNSS_SUPL_CERT_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GNSS_SUPL_CERT_ACTION {
@@ -4226,6 +4286,11 @@ impl ::core::marker::Copy for LOCATION_REPORT_STATUS {}
 impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LOCATION_REPORT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LOCATION_REPORT_STATUS {

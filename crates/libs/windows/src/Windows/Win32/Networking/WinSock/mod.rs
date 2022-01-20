@@ -140,6 +140,11 @@ impl ::core::clone::Clone for AAL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for AAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AAL_TYPE {
     type Abi = Self;
 }
@@ -1126,6 +1131,11 @@ impl ::core::marker::Copy for CONTROL_CHANNEL_TRIGGER_STATUS {}
 impl ::core::clone::Clone for CONTROL_CHANNEL_TRIGGER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONTROL_CHANNEL_TRIGGER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONTROL_CHANNEL_TRIGGER_STATUS {
@@ -2494,6 +2504,11 @@ impl ::core::clone::Clone for IPPROTO {
         *self
     }
 }
+impl ::core::default::Default for IPPROTO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPPROTO {
     type Abi = Self;
 }
@@ -3578,6 +3593,11 @@ impl ::core::clone::Clone for MULTICAST_MODE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MULTICAST_MODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MULTICAST_MODE_TYPE {
     type Abi = Self;
 }
@@ -3669,6 +3689,11 @@ impl ::core::clone::Clone for NAPI_PROVIDER_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for NAPI_PROVIDER_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NAPI_PROVIDER_LEVEL {
     type Abi = Self;
 }
@@ -3689,6 +3714,11 @@ impl ::core::marker::Copy for NAPI_PROVIDER_TYPE {}
 impl ::core::clone::Clone for NAPI_PROVIDER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NAPI_PROVIDER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NAPI_PROVIDER_TYPE {
@@ -4147,6 +4177,11 @@ impl ::core::clone::Clone for NLA_BLOB_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NLA_BLOB_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLA_BLOB_DATA_TYPE {
     type Abi = Self;
 }
@@ -4173,6 +4208,11 @@ impl ::core::clone::Clone for NLA_CONNECTIVITY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NLA_CONNECTIVITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NLA_CONNECTIVITY_TYPE {
     type Abi = Self;
 }
@@ -4197,6 +4237,11 @@ impl ::core::marker::Copy for NLA_INTERNET {}
 impl ::core::clone::Clone for NLA_INTERNET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NLA_INTERNET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NLA_INTERNET {
@@ -4229,6 +4274,11 @@ impl ::core::clone::Clone for NL_ADDRESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NL_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_ADDRESS_TYPE {
     type Abi = Self;
 }
@@ -4251,6 +4301,11 @@ impl ::core::marker::Copy for NL_BANDWIDTH_FLAG {}
 impl ::core::clone::Clone for NL_BANDWIDTH_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_BANDWIDTH_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_BANDWIDTH_FLAG {
@@ -4331,6 +4386,11 @@ impl ::core::clone::Clone for NL_DAD_STATE {
         *self
     }
 }
+impl ::core::default::Default for NL_DAD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_DAD_STATE {
     type Abi = Self;
 }
@@ -4357,6 +4417,11 @@ impl ::core::marker::Copy for NL_INTERFACE_NETWORK_CATEGORY_STATE {}
 impl ::core::clone::Clone for NL_INTERFACE_NETWORK_CATEGORY_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_INTERFACE_NETWORK_CATEGORY_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_INTERFACE_NETWORK_CATEGORY_STATE {
@@ -4415,6 +4480,11 @@ impl ::core::clone::Clone for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
         *self
     }
 }
+impl ::core::default::Default for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
     type Abi = Self;
 }
@@ -4449,6 +4519,11 @@ impl ::core::clone::Clone for NL_NEIGHBOR_STATE {
         *self
     }
 }
+impl ::core::default::Default for NL_NEIGHBOR_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_NEIGHBOR_STATE {
     type Abi = Self;
 }
@@ -4477,6 +4552,11 @@ impl ::core::clone::Clone for NL_NETWORK_CATEGORY {
         *self
     }
 }
+impl ::core::default::Default for NL_NETWORK_CATEGORY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_NETWORK_CATEGORY {
     type Abi = Self;
 }
@@ -4501,6 +4581,11 @@ impl ::core::marker::Copy for NL_NETWORK_CONNECTIVITY_COST_HINT {}
 impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_COST_HINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_NETWORK_CONNECTIVITY_COST_HINT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_NETWORK_CONNECTIVITY_COST_HINT {
@@ -4575,6 +4660,11 @@ impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
         *self
     }
 }
+impl ::core::default::Default for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
     type Abi = Self;
 }
@@ -4645,6 +4735,11 @@ impl ::core::clone::Clone for NL_PREFIX_ORIGIN {
         *self
     }
 }
+impl ::core::default::Default for NL_PREFIX_ORIGIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_PREFIX_ORIGIN {
     type Abi = Self;
 }
@@ -4669,6 +4764,11 @@ impl ::core::marker::Copy for NL_ROUTER_DISCOVERY_BEHAVIOR {}
 impl ::core::clone::Clone for NL_ROUTER_DISCOVERY_BEHAVIOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_ROUTER_DISCOVERY_BEHAVIOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_ROUTER_DISCOVERY_BEHAVIOR {
@@ -4697,6 +4797,11 @@ impl ::core::marker::Copy for NL_ROUTE_ORIGIN {}
 impl ::core::clone::Clone for NL_ROUTE_ORIGIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_ROUTE_ORIGIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_ROUTE_ORIGIN {
@@ -4843,6 +4948,11 @@ impl ::core::clone::Clone for NL_ROUTE_PROTOCOL {
         *self
     }
 }
+impl ::core::default::Default for NL_ROUTE_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NL_ROUTE_PROTOCOL {
     type Abi = Self;
 }
@@ -4885,6 +4995,11 @@ impl ::core::marker::Copy for NL_SUFFIX_ORIGIN {}
 impl ::core::clone::Clone for NL_SUFFIX_ORIGIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NL_SUFFIX_ORIGIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NL_SUFFIX_ORIGIN {
@@ -5321,6 +5436,11 @@ impl ::core::clone::Clone for PMTUD_STATE {
         *self
     }
 }
+impl ::core::default::Default for PMTUD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PMTUD_STATE {
     type Abi = Self;
 }
@@ -5577,6 +5697,11 @@ impl ::core::clone::Clone for Q2931_IE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for Q2931_IE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Q2931_IE_TYPE {
     type Abi = Self;
 }
@@ -5642,6 +5767,11 @@ impl ::core::marker::Copy for RCVALL_VALUE {}
 impl ::core::clone::Clone for RCVALL_VALUE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RCVALL_VALUE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RCVALL_VALUE {
@@ -5777,6 +5907,11 @@ impl ::core::marker::Copy for RESOURCE_DISPLAY_TYPE {}
 impl ::core::clone::Clone for RESOURCE_DISPLAY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESOURCE_DISPLAY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESOURCE_DISPLAY_TYPE {
@@ -6167,6 +6302,11 @@ impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION_TYPE {}
 impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RIO_NOTIFICATION_COMPLETION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RIO_NOTIFICATION_COMPLETION_TYPE {
@@ -6857,6 +6997,11 @@ impl ::core::clone::Clone for SCOPE_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for SCOPE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCOPE_LEVEL {
     type Abi = Self;
 }
@@ -6893,6 +7038,11 @@ impl ::core::marker::Copy for SEND_FLAGS {}
 impl ::core::clone::Clone for SEND_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEND_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEND_FLAGS {
@@ -7397,6 +7547,11 @@ impl ::core::marker::Copy for SET_SERVICE_OPERATION {}
 impl ::core::clone::Clone for SET_SERVICE_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SET_SERVICE_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SET_SERVICE_OPERATION {
@@ -8024,6 +8179,11 @@ impl ::core::clone::Clone for SOCKET_PRIORITY_HINT {
         *self
     }
 }
+impl ::core::default::Default for SOCKET_PRIORITY_HINT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SOCKET_PRIORITY_HINT {
     type Abi = Self;
 }
@@ -8094,6 +8254,11 @@ impl ::core::marker::Copy for SOCKET_SECURITY_PROTOCOL {}
 impl ::core::clone::Clone for SOCKET_SECURITY_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SOCKET_SECURITY_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SOCKET_SECURITY_PROTOCOL {
@@ -8361,6 +8526,11 @@ impl ::core::marker::Copy for SOCKET_USAGE_TYPE {}
 impl ::core::clone::Clone for SOCKET_USAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SOCKET_USAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SOCKET_USAGE_TYPE {
@@ -8665,6 +8835,11 @@ impl ::core::clone::Clone for TCPSTATE {
         *self
     }
 }
+impl ::core::default::Default for TCPSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TCPSTATE {
     type Abi = Self;
 }
@@ -8741,6 +8916,11 @@ impl ::core::marker::Copy for TCP_ICW_LEVEL {}
 impl ::core::clone::Clone for TCP_ICW_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TCP_ICW_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TCP_ICW_LEVEL {
@@ -10236,6 +10416,11 @@ impl ::core::clone::Clone for WSACOMPLETIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for WSACOMPLETIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSACOMPLETIONTYPE {
     type Abi = Self;
 }
@@ -10541,6 +10726,11 @@ impl ::core::clone::Clone for WSAECOMPARATOR {
         *self
     }
 }
+impl ::core::default::Default for WSAECOMPARATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSAECOMPARATOR {
     type Abi = Self;
 }
@@ -10563,6 +10753,11 @@ impl ::core::marker::Copy for WSAESETSERVICEOP {}
 impl ::core::clone::Clone for WSAESETSERVICEOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSAESETSERVICEOP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSAESETSERVICEOP {
@@ -12529,6 +12724,11 @@ impl ::core::clone::Clone for WSA_COMPATIBILITY_BEHAVIOR_ID {
         *self
     }
 }
+impl ::core::default::Default for WSA_COMPATIBILITY_BEHAVIOR_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSA_COMPATIBILITY_BEHAVIOR_ID {
     type Abi = Self;
 }
@@ -12772,6 +12972,11 @@ impl ::core::marker::Copy for WSA_ERROR {}
 impl ::core::clone::Clone for WSA_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSA_ERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSA_ERROR {
@@ -13318,6 +13523,11 @@ impl ::core::marker::Copy for WSC_PROVIDER_INFO_TYPE {}
 impl ::core::clone::Clone for WSC_PROVIDER_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSC_PROVIDER_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSC_PROVIDER_INFO_TYPE {
@@ -14336,6 +14546,11 @@ impl ::core::marker::Copy for eWINDOW_ADVANCE_METHOD {}
 impl ::core::clone::Clone for eWINDOW_ADVANCE_METHOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eWINDOW_ADVANCE_METHOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eWINDOW_ADVANCE_METHOD {

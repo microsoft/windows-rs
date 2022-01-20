@@ -127,6 +127,11 @@ impl ::core::clone::Clone for DECODING_SOURCE {
         *self
     }
 }
+impl ::core::default::Default for DECODING_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DECODING_SOURCE {
     type Abi = Self;
 }
@@ -150,6 +155,11 @@ impl ::core::marker::Copy for ENABLECALLBACK_ENABLED_STATE {}
 impl ::core::clone::Clone for ENABLECALLBACK_ENABLED_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENABLECALLBACK_ENABLED_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENABLECALLBACK_ENABLED_STATE {
@@ -372,6 +382,11 @@ impl ::core::clone::Clone for ETW_COMPRESSION_RESUMPTION_MODE {
         *self
     }
 }
+impl ::core::default::Default for ETW_COMPRESSION_RESUMPTION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ETW_COMPRESSION_RESUMPTION_MODE {
     type Abi = Self;
 }
@@ -488,6 +503,11 @@ impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ETW_PMC_COUNTER_OWNER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
     type Abi = Self;
 }
@@ -516,6 +536,11 @@ impl ::core::clone::Clone for ETW_PROCESS_HANDLE_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ETW_PROCESS_HANDLE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
     type Abi = Self;
 }
@@ -538,6 +563,11 @@ impl ::core::marker::Copy for ETW_PROVIDER_TRAIT_TYPE {}
 impl ::core::clone::Clone for ETW_PROVIDER_TRAIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ETW_PROVIDER_TRAIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ETW_PROVIDER_TRAIT_TYPE {
@@ -672,6 +702,11 @@ impl ::core::marker::Copy for EVENTSECURITYOPERATION {}
 impl ::core::clone::Clone for EVENTSECURITYOPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVENTSECURITYOPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVENTSECURITYOPERATION {
@@ -1204,6 +1239,11 @@ impl ::core::clone::Clone for EVENT_FIELD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EVENT_FIELD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_FIELD_TYPE {
     type Abi = Self;
 }
@@ -1674,6 +1714,11 @@ impl ::core::marker::Copy for EVENT_INFO_CLASS {}
 impl ::core::clone::Clone for EVENT_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVENT_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_INFO_CLASS {
@@ -2448,6 +2493,11 @@ impl ::core::clone::Clone for EVENT_TRACE_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for EVENT_TRACE_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_TRACE_CONTROL {
     type Abi = Self;
 }
@@ -2564,6 +2614,11 @@ impl ::core::marker::Copy for EVENT_TRACE_FLAG {}
 impl ::core::clone::Clone for EVENT_TRACE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVENT_TRACE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVENT_TRACE_FLAG {
@@ -4309,6 +4364,11 @@ impl ::core::clone::Clone for MAP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MAP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MAP_FLAGS {
     type Abi = Self;
 }
@@ -4329,6 +4389,11 @@ impl ::core::marker::Copy for MAP_VALUETYPE {}
 impl ::core::clone::Clone for MAP_VALUETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MAP_VALUETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MAP_VALUETYPE {
@@ -4528,6 +4593,11 @@ impl ::core::clone::Clone for PAYLOAD_OPERATOR {
         *self
     }
 }
+impl ::core::default::Default for PAYLOAD_OPERATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
 }
@@ -4645,6 +4715,11 @@ impl ::core::marker::Copy for PROPERTY_FLAGS {}
 impl ::core::clone::Clone for PROPERTY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROPERTY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROPERTY_FLAGS {
@@ -5283,6 +5358,11 @@ impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TDH_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TDH_CONTEXT_TYPE {
     type Abi = Self;
 }
@@ -5339,6 +5419,11 @@ impl ::core::marker::Copy for TEMPLATE_FLAGS {}
 impl ::core::clone::Clone for TEMPLATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TEMPLATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TEMPLATE_FLAGS {
@@ -6312,6 +6397,11 @@ impl ::core::clone::Clone for TRACE_MESSAGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for TRACE_MESSAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRACE_MESSAGE_FLAGS {
     type Abi = Self;
 }
@@ -6552,6 +6642,11 @@ impl ::core::marker::Copy for TRACE_QUERY_INFO_CLASS {}
 impl ::core::clone::Clone for TRACE_QUERY_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRACE_QUERY_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRACE_QUERY_INFO_CLASS {
@@ -7180,6 +7275,11 @@ impl ::core::marker::Copy for WMIDPREQUESTCODE {}
 impl ::core::clone::Clone for WMIDPREQUESTCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMIDPREQUESTCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMIDPREQUESTCODE {
@@ -7905,6 +8005,11 @@ impl ::core::clone::Clone for _TDH_IN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for _TDH_IN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _TDH_IN_TYPE {
     type Abi = Self;
 }
@@ -8003,6 +8108,11 @@ impl ::core::marker::Copy for _TDH_OUT_TYPE {}
 impl ::core::clone::Clone for _TDH_OUT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _TDH_OUT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _TDH_OUT_TYPE {

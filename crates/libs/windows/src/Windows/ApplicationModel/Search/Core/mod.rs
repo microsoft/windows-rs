@@ -298,6 +298,11 @@ impl ::core::clone::Clone for SearchSuggestionKind {
         *self
     }
 }
+impl ::core::default::Default for SearchSuggestionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SearchSuggestionKind {
     type Abi = Self;
 }

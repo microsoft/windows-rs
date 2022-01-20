@@ -1900,6 +1900,11 @@ impl ::core::clone::Clone for PrintContent {
         *self
     }
 }
+impl ::core::default::Default for PrintContent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintContent {
     type Abi = Self;
 }

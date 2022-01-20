@@ -712,6 +712,11 @@ impl ::core::clone::Clone for JsonErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for JsonErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JsonErrorStatus {
     type Abi = Self;
 }
@@ -1427,6 +1432,11 @@ impl ::core::marker::Copy for JsonValueType {}
 impl ::core::clone::Clone for JsonValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JsonValueType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JsonValueType {

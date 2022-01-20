@@ -25,6 +25,11 @@ impl ::core::clone::Clone for EC_SUBSCRIPTION_CONFIGURATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for EC_SUBSCRIPTION_CONFIGURATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     type Abi = Self;
 }
@@ -45,6 +50,11 @@ impl ::core::marker::Copy for EC_SUBSCRIPTION_CONTENT_FORMAT {}
 impl ::core::clone::Clone for EC_SUBSCRIPTION_CONTENT_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EC_SUBSCRIPTION_CONTENT_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CONTENT_FORMAT {
@@ -75,6 +85,11 @@ impl ::core::clone::Clone for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     type Abi = Self;
 }
@@ -95,6 +110,11 @@ impl ::core::marker::Copy for EC_SUBSCRIPTION_DELIVERY_MODE {}
 impl ::core::clone::Clone for EC_SUBSCRIPTION_DELIVERY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EC_SUBSCRIPTION_DELIVERY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_DELIVERY_MODE {
@@ -181,6 +201,11 @@ impl ::core::clone::Clone for EC_SUBSCRIPTION_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for EC_SUBSCRIPTION_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_PROPERTY_ID {
     type Abi = Self;
 }
@@ -205,6 +230,11 @@ impl ::core::marker::Copy for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {}
 impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
@@ -241,6 +271,11 @@ impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
         *self
     }
 }
+impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     type Abi = Self;
 }
@@ -261,6 +296,11 @@ impl ::core::marker::Copy for EC_SUBSCRIPTION_TYPE {}
 impl ::core::clone::Clone for EC_SUBSCRIPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EC_SUBSCRIPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_TYPE {
@@ -365,6 +405,11 @@ impl ::core::marker::Copy for EC_VARIANT_TYPE {}
 impl ::core::clone::Clone for EC_VARIANT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EC_VARIANT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EC_VARIANT_TYPE {

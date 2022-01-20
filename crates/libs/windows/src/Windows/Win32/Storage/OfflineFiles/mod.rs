@@ -3820,6 +3820,11 @@ impl ::core::clone::Clone for OFFLINEFILES_CACHING_MODE {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_CACHING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_CACHING_MODE {
     type Abi = Self;
 }
@@ -3864,6 +3869,11 @@ impl ::core::clone::Clone for OFFLINEFILES_COMPARE {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_COMPARE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_COMPARE {
     type Abi = Self;
 }
@@ -3890,6 +3900,11 @@ impl ::core::marker::Copy for OFFLINEFILES_CONNECT_STATE {}
 impl ::core::clone::Clone for OFFLINEFILES_CONNECT_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_CONNECT_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_CONNECT_STATE {
@@ -4012,6 +4027,11 @@ impl ::core::clone::Clone for OFFLINEFILES_EVENTS {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_EVENTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_EVENTS {
     type Abi = Self;
 }
@@ -4034,6 +4054,11 @@ impl ::core::marker::Copy for OFFLINEFILES_ITEM_COPY {}
 impl ::core::clone::Clone for OFFLINEFILES_ITEM_COPY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_ITEM_COPY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_COPY {
@@ -4126,6 +4151,11 @@ impl ::core::clone::Clone for OFFLINEFILES_ITEM_TIME {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_ITEM_TIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TIME {
     type Abi = Self;
 }
@@ -4150,6 +4180,11 @@ impl ::core::marker::Copy for OFFLINEFILES_ITEM_TYPE {}
 impl ::core::clone::Clone for OFFLINEFILES_ITEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_ITEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TYPE {
@@ -4184,6 +4219,11 @@ impl ::core::clone::Clone for OFFLINEFILES_OFFLINE_REASON {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_OFFLINE_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_OFFLINE_REASON {
     type Abi = Self;
 }
@@ -4206,6 +4246,11 @@ impl ::core::marker::Copy for OFFLINEFILES_OP_RESPONSE {}
 impl ::core::clone::Clone for OFFLINEFILES_OP_RESPONSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_OP_RESPONSE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_OP_RESPONSE {
@@ -4234,6 +4279,11 @@ impl ::core::marker::Copy for OFFLINEFILES_PATHFILTER_MATCH {}
 impl ::core::clone::Clone for OFFLINEFILES_PATHFILTER_MATCH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_PATHFILTER_MATCH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_PATHFILTER_MATCH {
@@ -4296,6 +4346,11 @@ impl ::core::clone::Clone for OFFLINEFILES_SETTING_VALUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OFFLINEFILES_SETTING_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLINEFILES_SETTING_VALUE_TYPE {
     type Abi = Self;
 }
@@ -4330,6 +4385,11 @@ impl ::core::marker::Copy for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {}
 impl ::core::clone::Clone for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
@@ -4416,6 +4476,11 @@ impl ::core::marker::Copy for OFFLINEFILES_SYNC_OPERATION {}
 impl ::core::clone::Clone for OFFLINEFILES_SYNC_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_SYNC_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_OPERATION {
@@ -4544,6 +4609,11 @@ impl ::core::marker::Copy for OFFLINEFILES_SYNC_STATE {}
 impl ::core::clone::Clone for OFFLINEFILES_SYNC_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLINEFILES_SYNC_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_STATE {

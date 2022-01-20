@@ -1458,6 +1458,11 @@ impl ::core::clone::Clone for MidiMessageType {
         *self
     }
 }
+impl ::core::default::Default for MidiMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MidiMessageType {
     type Abi = Self;
 }

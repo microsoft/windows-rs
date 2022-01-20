@@ -687,6 +687,11 @@ impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
         *self
     }
 }
+impl ::core::default::Default for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
     type Abi = Self;
 }
@@ -705,6 +710,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0002 {}
 impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
@@ -813,6 +823,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0003 {}
 impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0003 {

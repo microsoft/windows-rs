@@ -14,6 +14,11 @@ impl ::core::clone::Clone for BitmapAlphaMode {
         *self
     }
 }
+impl ::core::default::Default for BitmapAlphaMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapAlphaMode {
     type Abi = Self;
 }
@@ -236,6 +241,11 @@ impl ::core::marker::Copy for BitmapBufferAccessMode {}
 impl ::core::clone::Clone for BitmapBufferAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BitmapBufferAccessMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BitmapBufferAccessMode {
@@ -1036,6 +1046,11 @@ impl ::core::clone::Clone for BitmapFlip {
         *self
     }
 }
+impl ::core::default::Default for BitmapFlip {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapFlip {
     type Abi = Self;
 }
@@ -1309,6 +1324,11 @@ impl ::core::clone::Clone for BitmapInterpolationMode {
         *self
     }
 }
+impl ::core::default::Default for BitmapInterpolationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapInterpolationMode {
     type Abi = Self;
 }
@@ -1342,6 +1362,11 @@ impl ::core::marker::Copy for BitmapPixelFormat {}
 impl ::core::clone::Clone for BitmapPixelFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BitmapPixelFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BitmapPixelFormat {
@@ -1863,6 +1888,11 @@ impl ::core::clone::Clone for BitmapRotation {
         *self
     }
 }
+impl ::core::default::Default for BitmapRotation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapRotation {
     type Abi = Self;
 }
@@ -2189,6 +2219,11 @@ impl ::core::clone::Clone for ColorManagementMode {
         *self
     }
 }
+impl ::core::default::Default for ColorManagementMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ColorManagementMode {
     type Abi = Self;
 }
@@ -2215,6 +2250,11 @@ impl ::core::marker::Copy for ExifOrientationMode {}
 impl ::core::clone::Clone for ExifOrientationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExifOrientationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExifOrientationMode {
@@ -3490,6 +3530,11 @@ impl ::core::clone::Clone for JpegSubsamplingMode {
         *self
     }
 }
+impl ::core::default::Default for JpegSubsamplingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JpegSubsamplingMode {
     type Abi = Self;
 }
@@ -3602,6 +3647,11 @@ impl ::core::marker::Copy for PngFilterMode {}
 impl ::core::clone::Clone for PngFilterMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PngFilterMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PngFilterMode {
@@ -3917,6 +3967,11 @@ impl ::core::marker::Copy for TiffCompressionMode {}
 impl ::core::clone::Clone for TiffCompressionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TiffCompressionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TiffCompressionMode {

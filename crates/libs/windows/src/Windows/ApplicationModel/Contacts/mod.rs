@@ -816,6 +816,11 @@ impl ::core::clone::Clone for ContactAddressKind {
         *self
     }
 }
+impl ::core::default::Default for ContactAddressKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAddressKind {
     type Abi = Self;
 }
@@ -1165,6 +1170,11 @@ impl ::core::clone::Clone for ContactAnnotationOperations {
         *self
     }
 }
+impl ::core::default::Default for ContactAnnotationOperations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAnnotationOperations {
     type Abi = Self;
 }
@@ -1375,6 +1385,11 @@ impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
         *self
     }
 }
+impl ::core::default::Default for ContactAnnotationStoreAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactAnnotationStoreAccessType {
     type Abi = Self;
 }
@@ -1492,6 +1507,11 @@ impl ::core::marker::Copy for ContactBatchStatus {}
 impl ::core::clone::Clone for ContactBatchStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactBatchStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactBatchStatus {
@@ -1631,6 +1651,11 @@ impl ::core::marker::Copy for ContactCardHeaderKind {}
 impl ::core::clone::Clone for ContactCardHeaderKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactCardHeaderKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactCardHeaderKind {
@@ -1778,6 +1803,11 @@ impl ::core::marker::Copy for ContactCardTabKind {}
 impl ::core::clone::Clone for ContactCardTabKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactCardTabKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactCardTabKind {
@@ -2088,6 +2118,11 @@ impl ::core::marker::Copy for ContactChangeType {}
 impl ::core::clone::Clone for ContactChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactChangeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactChangeType {
@@ -2535,6 +2570,11 @@ impl ::core::clone::Clone for ContactDateKind {
         *self
     }
 }
+impl ::core::default::Default for ContactDateKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactDateKind {
     type Abi = Self;
 }
@@ -2681,6 +2721,11 @@ impl ::core::marker::Copy for ContactEmailKind {}
 impl ::core::clone::Clone for ContactEmailKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactEmailKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactEmailKind {
@@ -2865,6 +2910,11 @@ impl ::core::marker::Copy for ContactFieldCategory {}
 impl ::core::clone::Clone for ContactFieldCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactFieldCategory {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactFieldCategory {
@@ -3122,6 +3172,11 @@ impl ::core::marker::Copy for ContactFieldType {}
 impl ::core::clone::Clone for ContactFieldType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactFieldType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactFieldType {
@@ -4182,6 +4237,11 @@ impl ::core::clone::Clone for ContactListOtherAppReadAccess {
         *self
     }
 }
+impl ::core::default::Default for ContactListOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactListOtherAppReadAccess {
     type Abi = Self;
 }
@@ -4209,6 +4269,11 @@ impl ::core::marker::Copy for ContactListOtherAppWriteAccess {}
 impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactListOtherAppWriteAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactListOtherAppWriteAccess {
@@ -4873,6 +4938,11 @@ impl ::core::marker::Copy for ContactListSyncStatus {}
 impl ::core::clone::Clone for ContactListSyncStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactListSyncStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactListSyncStatus {
@@ -5542,6 +5612,11 @@ impl ::core::clone::Clone for ContactMatchReasonKind {
         *self
     }
 }
+impl ::core::default::Default for ContactMatchReasonKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactMatchReasonKind {
     type Abi = Self;
 }
@@ -5568,6 +5643,11 @@ impl ::core::marker::Copy for ContactNameOrder {}
 impl ::core::clone::Clone for ContactNameOrder {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactNameOrder {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactNameOrder {
@@ -6016,6 +6096,11 @@ impl ::core::clone::Clone for ContactPhoneKind {
         *self
     }
 }
+impl ::core::default::Default for ContactPhoneKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactPhoneKind {
     type Abi = Self;
 }
@@ -6232,6 +6317,11 @@ impl ::core::marker::Copy for ContactQueryDesiredFields {}
 impl ::core::clone::Clone for ContactQueryDesiredFields {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactQueryDesiredFields {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactQueryDesiredFields {
@@ -6457,6 +6547,11 @@ impl ::core::clone::Clone for ContactQuerySearchFields {
         *self
     }
 }
+impl ::core::default::Default for ContactQuerySearchFields {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactQuerySearchFields {
     type Abi = Self;
 }
@@ -6511,6 +6606,11 @@ impl ::core::marker::Copy for ContactQuerySearchScope {}
 impl ::core::clone::Clone for ContactQuerySearchScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactQuerySearchScope {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactQuerySearchScope {
@@ -6748,6 +6848,11 @@ impl ::core::clone::Clone for ContactRelationship {
         *self
     }
 }
+impl ::core::default::Default for ContactRelationship {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactRelationship {
     type Abi = Self;
 }
@@ -6774,6 +6879,11 @@ impl ::core::marker::Copy for ContactSelectionMode {}
 impl ::core::clone::Clone for ContactSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactSelectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactSelectionMode {
@@ -7122,6 +7232,11 @@ impl ::core::marker::Copy for ContactStoreAccessType {}
 impl ::core::clone::Clone for ContactStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactStoreAccessType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactStoreAccessType {
@@ -10022,6 +10137,11 @@ impl ::core::marker::Copy for PinnedContactSurface {}
 impl ::core::clone::Clone for PinnedContactSurface {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PinnedContactSurface {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PinnedContactSurface {

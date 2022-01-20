@@ -164,6 +164,11 @@ impl ::core::clone::Clone for SpeechAppendedSilence {
         *self
     }
 }
+impl ::core::default::Default for SpeechAppendedSilence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
     type Abi = Self;
 }
@@ -190,6 +195,11 @@ impl ::core::marker::Copy for SpeechPunctuationSilence {}
 impl ::core::clone::Clone for SpeechPunctuationSilence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechPunctuationSilence {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
@@ -956,6 +966,11 @@ impl ::core::marker::Copy for VoiceGender {}
 impl ::core::clone::Clone for VoiceGender {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VoiceGender {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VoiceGender {

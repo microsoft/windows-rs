@@ -766,6 +766,11 @@ impl ::core::clone::Clone for PushNotificationType {
         *self
     }
 }
+impl ::core::default::Default for PushNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PushNotificationType {
     type Abi = Self;
 }

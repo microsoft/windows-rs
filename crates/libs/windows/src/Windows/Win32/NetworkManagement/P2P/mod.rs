@@ -66,6 +66,11 @@ impl ::core::clone::Clone for DRT_ADDRESS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DRT_ADDRESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_ADDRESS_FLAGS {
     type Abi = Self;
 }
@@ -426,6 +431,11 @@ impl ::core::clone::Clone for DRT_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DRT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_EVENT_TYPE {
     type Abi = Self;
 }
@@ -530,6 +540,11 @@ impl ::core::clone::Clone for DRT_LEAFSET_KEY_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DRT_LEAFSET_KEY_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_LEAFSET_KEY_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -554,6 +569,11 @@ impl ::core::marker::Copy for DRT_MATCH_TYPE {}
 impl ::core::clone::Clone for DRT_MATCH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRT_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRT_MATCH_TYPE {
@@ -617,6 +637,11 @@ impl ::core::clone::Clone for DRT_REGISTRATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for DRT_REGISTRATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRT_REGISTRATION_STATE {
     type Abi = Self;
 }
@@ -639,6 +664,11 @@ impl ::core::marker::Copy for DRT_SCOPE {}
 impl ::core::clone::Clone for DRT_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRT_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRT_SCOPE {
@@ -740,6 +770,11 @@ impl ::core::marker::Copy for DRT_SECURITY_MODE {}
 impl ::core::clone::Clone for DRT_SECURITY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRT_SECURITY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRT_SECURITY_MODE {
@@ -882,6 +917,11 @@ impl ::core::marker::Copy for DRT_STATUS {}
 impl ::core::clone::Clone for DRT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRT_STATUS {
@@ -1351,6 +1391,11 @@ impl ::core::clone::Clone for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
         *self
     }
 }
+impl ::core::default::Default for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
     type Abi = Self;
 }
@@ -1479,6 +1524,11 @@ impl ::core::clone::Clone for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VAL
         *self
     }
 }
+impl ::core::default::Default for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
     type Abi = Self;
 }
@@ -1529,6 +1579,11 @@ impl ::core::marker::Copy for PEERDIST_STATUS {}
 impl ::core::clone::Clone for PEERDIST_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEERDIST_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEERDIST_STATUS {
@@ -1700,6 +1755,11 @@ impl ::core::clone::Clone for PEER_APPLICATION_REGISTRATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_TYPE {
     type Abi = Self;
 }
@@ -1762,6 +1822,11 @@ impl ::core::marker::Copy for PEER_CHANGE_TYPE {}
 impl ::core::clone::Clone for PEER_CHANGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_CHANGE_TYPE {
@@ -1906,6 +1971,11 @@ impl ::core::clone::Clone for PEER_COLLAB_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_COLLAB_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_TYPE {
     type Abi = Self;
 }
@@ -1927,6 +1997,11 @@ impl ::core::marker::Copy for PEER_CONNECTION_FLAGS {}
 impl ::core::clone::Clone for PEER_CONNECTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_CONNECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_CONNECTION_FLAGS {
@@ -1988,6 +2063,11 @@ impl ::core::marker::Copy for PEER_CONNECTION_STATUS {}
 impl ::core::clone::Clone for PEER_CONNECTION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_CONNECTION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_CONNECTION_STATUS {
@@ -2796,6 +2876,11 @@ impl ::core::clone::Clone for PEER_GRAPH_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_GRAPH_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_TYPE {
     type Abi = Self;
 }
@@ -2865,6 +2950,11 @@ impl ::core::clone::Clone for PEER_GRAPH_PROPERTY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PEER_GRAPH_PROPERTY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTY_FLAGS {
     type Abi = Self;
 }
@@ -2893,6 +2983,11 @@ impl ::core::clone::Clone for PEER_GRAPH_SCOPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_GRAPH_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GRAPH_SCOPE {
     type Abi = Self;
 }
@@ -2917,6 +3012,11 @@ impl ::core::clone::Clone for PEER_GRAPH_STATUS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PEER_GRAPH_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GRAPH_STATUS_FLAGS {
     type Abi = Self;
 }
@@ -2937,6 +3037,11 @@ impl ::core::marker::Copy for PEER_GROUP_AUTHENTICATION_SCHEME {}
 impl ::core::clone::Clone for PEER_GROUP_AUTHENTICATION_SCHEME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_AUTHENTICATION_SCHEME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_GROUP_AUTHENTICATION_SCHEME {
@@ -3076,6 +3181,11 @@ impl ::core::clone::Clone for PEER_GROUP_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_GROUP_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_TYPE {
     type Abi = Self;
 }
@@ -3094,6 +3204,11 @@ impl ::core::marker::Copy for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {}
 impl ::core::clone::Clone for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
@@ -3184,6 +3299,11 @@ impl ::core::clone::Clone for PEER_GROUP_PROPERTY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PEER_GROUP_PROPERTY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTY_FLAGS {
     type Abi = Self;
 }
@@ -3207,6 +3327,11 @@ impl ::core::marker::Copy for PEER_GROUP_STATUS {}
 impl ::core::clone::Clone for PEER_GROUP_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_GROUP_STATUS {
@@ -3391,6 +3516,11 @@ impl ::core::clone::Clone for PEER_INVITATION_RESPONSE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_INVITATION_RESPONSE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE_TYPE {
     type Abi = Self;
 }
@@ -3464,6 +3594,11 @@ impl ::core::clone::Clone for PEER_MEMBER_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_MEMBER_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_MEMBER_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -3482,6 +3617,11 @@ impl ::core::marker::Copy for PEER_MEMBER_FLAGS {}
 impl ::core::clone::Clone for PEER_MEMBER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_MEMBER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_MEMBER_FLAGS {
@@ -3546,6 +3686,11 @@ impl ::core::marker::Copy for PEER_NODE_CHANGE_TYPE {}
 impl ::core::clone::Clone for PEER_NODE_CHANGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_NODE_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_NODE_CHANGE_TYPE {
@@ -3856,6 +4001,11 @@ impl ::core::clone::Clone for PEER_PRESENCE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for PEER_PRESENCE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_PRESENCE_STATUS {
     type Abi = Self;
 }
@@ -3880,6 +4030,11 @@ impl ::core::marker::Copy for PEER_PUBLICATION_SCOPE {}
 impl ::core::clone::Clone for PEER_PUBLICATION_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_PUBLICATION_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_PUBLICATION_SCOPE {
@@ -3972,6 +4127,11 @@ impl ::core::clone::Clone for PEER_RECORD_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEER_RECORD_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_RECORD_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -3992,6 +4152,11 @@ impl ::core::marker::Copy for PEER_RECORD_FLAGS {}
 impl ::core::clone::Clone for PEER_RECORD_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_RECORD_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_RECORD_FLAGS {
@@ -4078,6 +4243,11 @@ impl ::core::clone::Clone for PEER_SIGNIN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PEER_SIGNIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEER_SIGNIN_FLAGS {
     type Abi = Self;
 }
@@ -4129,6 +4299,11 @@ impl ::core::marker::Copy for PEER_WATCH_PERMISSION {}
 impl ::core::clone::Clone for PEER_WATCH_PERMISSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEER_WATCH_PERMISSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEER_WATCH_PERMISSION {
@@ -4323,6 +4498,11 @@ impl ::core::clone::Clone for PNRP_CLOUD_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PNRP_CLOUD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PNRP_CLOUD_FLAGS {
     type Abi = Self;
 }
@@ -4387,6 +4567,11 @@ impl ::core::clone::Clone for PNRP_CLOUD_STATE {
         *self
     }
 }
+impl ::core::default::Default for PNRP_CLOUD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PNRP_CLOUD_STATE {
     type Abi = Self;
 }
@@ -4409,6 +4594,11 @@ impl ::core::marker::Copy for PNRP_EXTENDED_PAYLOAD_TYPE {}
 impl ::core::clone::Clone for PNRP_EXTENDED_PAYLOAD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PNRP_EXTENDED_PAYLOAD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PNRP_EXTENDED_PAYLOAD_TYPE {
@@ -4435,6 +4625,11 @@ impl ::core::marker::Copy for PNRP_REGISTERED_ID_STATE {}
 impl ::core::clone::Clone for PNRP_REGISTERED_ID_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PNRP_REGISTERED_ID_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PNRP_REGISTERED_ID_STATE {
@@ -4469,6 +4664,11 @@ impl ::core::clone::Clone for PNRP_RESOLVE_CRITERIA {
         *self
     }
 }
+impl ::core::default::Default for PNRP_RESOLVE_CRITERIA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PNRP_RESOLVE_CRITERIA {
     type Abi = Self;
 }
@@ -4493,6 +4693,11 @@ impl ::core::marker::Copy for PNRP_SCOPE {}
 impl ::core::clone::Clone for PNRP_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PNRP_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PNRP_SCOPE {

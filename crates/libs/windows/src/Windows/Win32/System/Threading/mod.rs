@@ -155,6 +155,11 @@ impl ::core::clone::Clone for CREATE_EVENT {
         *self
     }
 }
+impl ::core::default::Default for CREATE_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_EVENT {
     type Abi = Self;
 }
@@ -205,6 +210,11 @@ impl ::core::marker::Copy for CREATE_PROCESS_LOGON_FLAGS {}
 impl ::core::clone::Clone for CREATE_PROCESS_LOGON_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATE_PROCESS_LOGON_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_PROCESS_LOGON_FLAGS {
@@ -1444,6 +1454,11 @@ impl ::core::marker::Copy for GET_GUI_RESOURCES_FLAGS {}
 impl ::core::clone::Clone for GET_GUI_RESOURCES_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_GUI_RESOURCES_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_GUI_RESOURCES_FLAGS {
@@ -2856,6 +2871,11 @@ impl ::core::clone::Clone for MACHINE_ATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for MACHINE_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MACHINE_ATTRIBUTES {
     type Abi = Self;
 }
@@ -2910,6 +2930,11 @@ impl ::core::marker::Copy for MEMORY_PRIORITY {}
 impl ::core::clone::Clone for MEMORY_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MEMORY_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MEMORY_PRIORITY {
@@ -3365,6 +3390,11 @@ impl ::core::clone::Clone for POWER_REQUEST_CONTEXT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for POWER_REQUEST_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POWER_REQUEST_CONTEXT_FLAGS {
     type Abi = Self;
 }
@@ -3423,6 +3453,11 @@ impl ::core::marker::Copy for PROCESSINFOCLASS {}
 impl ::core::clone::Clone for PROCESSINFOCLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESSINFOCLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSINFOCLASS {
@@ -3497,6 +3532,11 @@ impl ::core::marker::Copy for PROCESSOR_FEATURE_ID {}
 impl ::core::clone::Clone for PROCESSOR_FEATURE_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESSOR_FEATURE_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESSOR_FEATURE_ID {
@@ -3587,6 +3627,11 @@ impl ::core::clone::Clone for PROCESS_ACCESS_RIGHTS {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_ACCESS_RIGHTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_ACCESS_RIGHTS {
     type Abi = Self;
 }
@@ -3635,6 +3680,11 @@ impl ::core::marker::Copy for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {}
 impl ::core::clone::Clone for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
@@ -3787,6 +3837,11 @@ impl ::core::clone::Clone for PROCESS_CREATION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_CREATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_CREATION_FLAGS {
     type Abi = Self;
 }
@@ -3837,6 +3892,11 @@ impl ::core::marker::Copy for PROCESS_DEP_FLAGS {}
 impl ::core::clone::Clone for PROCESS_DEP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESS_DEP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_DEP_FLAGS {
@@ -4077,6 +4137,11 @@ impl ::core::clone::Clone for PROCESS_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -4199,6 +4264,11 @@ impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_MEMORY_EXHAUSTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_TYPE {
     type Abi = Self;
 }
@@ -4253,6 +4323,11 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_POLICY {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_MITIGATION_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_POLICY {
     type Abi = Self;
 }
@@ -4273,6 +4348,11 @@ impl ::core::marker::Copy for PROCESS_NAME_FORMAT {}
 impl ::core::clone::Clone for PROCESS_NAME_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESS_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_NAME_FORMAT {
@@ -4377,6 +4457,11 @@ impl ::core::marker::Copy for PROCESS_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROCESS_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL {
@@ -4525,6 +4610,11 @@ impl ::core::marker::Copy for QUEUE_USER_APC_FLAGS {}
 impl ::core::clone::Clone for QUEUE_USER_APC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUEUE_USER_APC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUEUE_USER_APC_FLAGS {
@@ -5027,6 +5117,11 @@ impl ::core::clone::Clone for RTL_UMS_THREAD_INFO_CLASS {
         *self
     }
 }
+impl ::core::default::Default for RTL_UMS_THREAD_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTL_UMS_THREAD_INFO_CLASS {
     type Abi = Self;
 }
@@ -5471,6 +5566,11 @@ impl ::core::marker::Copy for STARTUPINFOW_FLAGS {}
 impl ::core::clone::Clone for STARTUPINFOW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STARTUPINFOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STARTUPINFOW_FLAGS {
@@ -6274,6 +6374,11 @@ impl ::core::clone::Clone for THREADINFOCLASS {
         *self
     }
 }
+impl ::core::default::Default for THREADINFOCLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for THREADINFOCLASS {
     type Abi = Self;
 }
@@ -6330,6 +6435,11 @@ impl ::core::clone::Clone for THREAD_ACCESS_RIGHTS {
         *self
     }
 }
+impl ::core::default::Default for THREAD_ACCESS_RIGHTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for THREAD_ACCESS_RIGHTS {
     type Abi = Self;
 }
@@ -6380,6 +6490,11 @@ impl ::core::marker::Copy for THREAD_CREATION_FLAGS {}
 impl ::core::clone::Clone for THREAD_CREATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for THREAD_CREATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for THREAD_CREATION_FLAGS {
@@ -6436,6 +6551,11 @@ impl ::core::marker::Copy for THREAD_INFORMATION_CLASS {}
 impl ::core::clone::Clone for THREAD_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for THREAD_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for THREAD_INFORMATION_CLASS {
@@ -6512,6 +6632,11 @@ impl ::core::marker::Copy for THREAD_PRIORITY {}
 impl ::core::clone::Clone for THREAD_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for THREAD_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for THREAD_PRIORITY {
@@ -6634,6 +6759,11 @@ impl ::core::marker::Copy for TP_CALLBACK_PRIORITY {}
 impl ::core::clone::Clone for TP_CALLBACK_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TP_CALLBACK_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TP_CALLBACK_PRIORITY {
@@ -7083,6 +7213,11 @@ impl ::core::marker::Copy for WORKER_THREAD_FLAGS {}
 impl ::core::clone::Clone for WORKER_THREAD_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WORKER_THREAD_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WORKER_THREAD_FLAGS {

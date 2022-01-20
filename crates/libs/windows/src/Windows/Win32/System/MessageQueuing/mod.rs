@@ -15,6 +15,11 @@ impl ::core::clone::Clone for FOREIGN_STATUS {
         *self
     }
 }
+impl ::core::default::Default for FOREIGN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FOREIGN_STATUS {
     type Abi = Self;
 }
@@ -10114,6 +10119,11 @@ impl ::core::clone::Clone for MQACCESS {
         *self
     }
 }
+impl ::core::default::Default for MQACCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQACCESS {
     type Abi = Self;
 }
@@ -10134,6 +10144,11 @@ impl ::core::marker::Copy for MQAUTHENTICATE {}
 impl ::core::clone::Clone for MQAUTHENTICATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQAUTHENTICATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQAUTHENTICATE {
@@ -10180,6 +10195,11 @@ impl ::core::clone::Clone for MQCALG {
         *self
     }
 }
+impl ::core::default::Default for MQCALG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQCALG {
     type Abi = Self;
 }
@@ -10200,6 +10220,11 @@ impl ::core::marker::Copy for MQCERT_REGISTER {}
 impl ::core::clone::Clone for MQCERT_REGISTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQCERT_REGISTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQCERT_REGISTER {
@@ -10250,6 +10275,11 @@ impl ::core::marker::Copy for MQDEFAULT {}
 impl ::core::clone::Clone for MQDEFAULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQDEFAULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQDEFAULT {
@@ -10536,6 +10566,11 @@ impl ::core::clone::Clone for MQERROR {
         *self
     }
 }
+impl ::core::default::Default for MQERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQERROR {
     type Abi = Self;
 }
@@ -10558,6 +10593,11 @@ impl ::core::clone::Clone for MQJOURNAL {
         *self
     }
 }
+impl ::core::default::Default for MQJOURNAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQJOURNAL {
     type Abi = Self;
 }
@@ -10578,6 +10618,11 @@ impl ::core::marker::Copy for MQMAX {}
 impl ::core::clone::Clone for MQMAX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQMAX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQMAX {
@@ -10616,6 +10661,11 @@ impl ::core::clone::Clone for MQMSGACKNOWLEDGEMENT {
         *self
     }
 }
+impl ::core::default::Default for MQMSGACKNOWLEDGEMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGACKNOWLEDGEMENT {
     type Abi = Self;
 }
@@ -10648,6 +10698,11 @@ impl ::core::clone::Clone for MQMSGAUTHENTICATION {
         *self
     }
 }
+impl ::core::default::Default for MQMSGAUTHENTICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGAUTHENTICATION {
     type Abi = Self;
 }
@@ -10678,6 +10733,11 @@ impl ::core::marker::Copy for MQMSGAUTHLEVEL {}
 impl ::core::clone::Clone for MQMSGAUTHLEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQMSGAUTHLEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQMSGAUTHLEVEL {
@@ -10740,6 +10800,11 @@ impl ::core::clone::Clone for MQMSGCLASS {
         *self
     }
 }
+impl ::core::default::Default for MQMSGCLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGCLASS {
     type Abi = Self;
 }
@@ -10764,6 +10829,11 @@ impl ::core::clone::Clone for MQMSGCURSOR {
         *self
     }
 }
+impl ::core::default::Default for MQMSGCURSOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGCURSOR {
     type Abi = Self;
 }
@@ -10784,6 +10854,11 @@ impl ::core::marker::Copy for MQMSGDELIVERY {}
 impl ::core::clone::Clone for MQMSGDELIVERY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQMSGDELIVERY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQMSGDELIVERY {
@@ -10810,6 +10885,11 @@ impl ::core::clone::Clone for MQMSGIDSIZE {
         *self
     }
 }
+impl ::core::default::Default for MQMSGIDSIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGIDSIZE {
     type Abi = Self;
 }
@@ -10834,6 +10914,11 @@ impl ::core::clone::Clone for MQMSGJOURNAL {
         *self
     }
 }
+impl ::core::default::Default for MQMSGJOURNAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGJOURNAL {
     type Abi = Self;
 }
@@ -10852,6 +10937,11 @@ impl ::core::marker::Copy for MQMSGMAX {}
 impl ::core::clone::Clone for MQMSGMAX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQMSGMAX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQMSGMAX {
@@ -10878,6 +10968,11 @@ impl ::core::clone::Clone for MQMSGPRIVLEVEL {
         *self
     }
 }
+impl ::core::default::Default for MQMSGPRIVLEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGPRIVLEVEL {
     type Abi = Self;
 }
@@ -10900,6 +10995,11 @@ impl ::core::clone::Clone for MQMSGSENDERIDTYPE {
         *self
     }
 }
+impl ::core::default::Default for MQMSGSENDERIDTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQMSGSENDERIDTYPE {
     type Abi = Self;
 }
@@ -10920,6 +11020,11 @@ impl ::core::marker::Copy for MQMSGTRACE {}
 impl ::core::clone::Clone for MQMSGTRACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQMSGTRACE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQMSGTRACE {
@@ -10956,6 +11061,11 @@ impl ::core::clone::Clone for MQPRIORITY {
         *self
     }
 }
+impl ::core::default::Default for MQPRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQPRIORITY {
     type Abi = Self;
 }
@@ -10978,6 +11088,11 @@ impl ::core::marker::Copy for MQPRIVLEVEL {}
 impl ::core::clone::Clone for MQPRIVLEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQPRIVLEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQPRIVLEVEL {
@@ -11022,6 +11137,11 @@ impl ::core::clone::Clone for MQSHARE {
         *self
     }
 }
+impl ::core::default::Default for MQSHARE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQSHARE {
     type Abi = Self;
 }
@@ -11048,6 +11168,11 @@ impl ::core::clone::Clone for MQTRANSACTION {
         *self
     }
 }
+impl ::core::default::Default for MQTRANSACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MQTRANSACTION {
     type Abi = Self;
 }
@@ -11068,6 +11193,11 @@ impl ::core::marker::Copy for MQTRANSACTIONAL {}
 impl ::core::clone::Clone for MQTRANSACTIONAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQTRANSACTIONAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQTRANSACTIONAL {
@@ -11104,6 +11234,11 @@ impl ::core::marker::Copy for MQWARNING {}
 impl ::core::clone::Clone for MQWARNING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MQWARNING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MQWARNING {
@@ -11493,6 +11628,11 @@ impl ::core::clone::Clone for QUEUE_STATE {
         *self
     }
 }
+impl ::core::default::Default for QUEUE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QUEUE_STATE {
     type Abi = Self;
 }
@@ -11519,6 +11659,11 @@ impl ::core::marker::Copy for QUEUE_TYPE {}
 impl ::core::clone::Clone for QUEUE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUEUE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUEUE_TYPE {
@@ -11553,6 +11698,11 @@ impl ::core::clone::Clone for RELOPS {
         *self
     }
 }
+impl ::core::default::Default for RELOPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RELOPS {
     type Abi = Self;
 }
@@ -11575,6 +11725,11 @@ impl ::core::marker::Copy for XACT_STATUS {}
 impl ::core::clone::Clone for XACT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACT_STATUS {

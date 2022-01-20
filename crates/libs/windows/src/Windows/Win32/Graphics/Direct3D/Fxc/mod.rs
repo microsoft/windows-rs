@@ -21,6 +21,11 @@ impl ::core::clone::Clone for D3DCOMPILER_STRIP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3DCOMPILER_STRIP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DCOMPILER_STRIP_FLAGS {
     type Abi = Self;
 }
@@ -530,6 +535,11 @@ impl ::core::marker::Copy for D3D_BLOB_PART {}
 impl ::core::clone::Clone for D3D_BLOB_PART {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_BLOB_PART {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_BLOB_PART {

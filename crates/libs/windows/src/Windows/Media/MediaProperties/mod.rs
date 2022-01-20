@@ -284,6 +284,11 @@ impl ::core::clone::Clone for AudioEncodingQuality {
         *self
     }
 }
+impl ::core::default::Default for AudioEncodingQuality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioEncodingQuality {
     type Abi = Self;
 }
@@ -2154,6 +2159,11 @@ impl ::core::clone::Clone for MediaMirroringOptions {
         *self
     }
 }
+impl ::core::default::Default for MediaMirroringOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaMirroringOptions {
     type Abi = Self;
 }
@@ -2209,6 +2219,11 @@ impl ::core::marker::Copy for MediaPixelFormat {}
 impl ::core::clone::Clone for MediaPixelFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPixelFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPixelFormat {
@@ -2573,6 +2588,11 @@ impl ::core::clone::Clone for MediaRotation {
         *self
     }
 }
+impl ::core::default::Default for MediaRotation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaRotation {
     type Abi = Self;
 }
@@ -2599,6 +2619,11 @@ impl ::core::marker::Copy for MediaThumbnailFormat {}
 impl ::core::clone::Clone for MediaThumbnailFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaThumbnailFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
@@ -2677,6 +2702,11 @@ impl ::core::clone::Clone for SphericalVideoFrameFormat {
         *self
     }
 }
+impl ::core::default::Default for SphericalVideoFrameFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
     type Abi = Self;
 }
@@ -2704,6 +2734,11 @@ impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
 impl ::core::clone::Clone for StereoscopicVideoPackingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StereoscopicVideoPackingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
@@ -3195,6 +3230,11 @@ impl ::core::marker::Copy for VideoEncodingQuality {}
 impl ::core::clone::Clone for VideoEncodingQuality {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoEncodingQuality {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoEncodingQuality {

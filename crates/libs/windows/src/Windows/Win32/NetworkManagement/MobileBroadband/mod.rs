@@ -3445,6 +3445,11 @@ impl ::core::clone::Clone for MBN_ACTIVATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_ACTIVATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_ACTIVATION_STATE {
     type Abi = Self;
 }
@@ -3469,6 +3474,11 @@ impl ::core::marker::Copy for MBN_AUTH_PROTOCOL {}
 impl ::core::clone::Clone for MBN_AUTH_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_AUTH_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_AUTH_PROTOCOL {
@@ -3529,6 +3539,11 @@ impl ::core::clone::Clone for MBN_BAND_CLASS {
         *self
     }
 }
+impl ::core::default::Default for MBN_BAND_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_BAND_CLASS {
     type Abi = Self;
 }
@@ -3553,6 +3568,11 @@ impl ::core::clone::Clone for MBN_CELLULAR_CLASS {
         *self
     }
 }
+impl ::core::default::Default for MBN_CELLULAR_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_CELLULAR_CLASS {
     type Abi = Self;
 }
@@ -3575,6 +3595,11 @@ impl ::core::clone::Clone for MBN_COMPRESSION {
         *self
     }
 }
+impl ::core::default::Default for MBN_COMPRESSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_COMPRESSION {
     type Abi = Self;
 }
@@ -3595,6 +3620,11 @@ impl ::core::marker::Copy for MBN_CONNECTION_MODE {}
 impl ::core::clone::Clone for MBN_CONNECTION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_CONNECTION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_CONNECTION_MODE {
@@ -3673,6 +3703,11 @@ impl ::core::clone::Clone for MBN_CONTEXT_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for MBN_CONTEXT_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_CONTEXT_CONSTANTS {
     type Abi = Self;
 }
@@ -3703,6 +3738,11 @@ impl ::core::marker::Copy for MBN_CONTEXT_TYPE {}
 impl ::core::clone::Clone for MBN_CONTEXT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_CONTEXT_TYPE {
@@ -3739,6 +3779,11 @@ impl ::core::marker::Copy for MBN_CTRL_CAPS {}
 impl ::core::clone::Clone for MBN_CTRL_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_CTRL_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_CTRL_CAPS {
@@ -3791,6 +3836,11 @@ impl ::core::marker::Copy for MBN_DATA_CLASS {}
 impl ::core::clone::Clone for MBN_DATA_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_DATA_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_DATA_CLASS {
@@ -3853,6 +3903,11 @@ impl ::core::clone::Clone for MBN_DEVICE_SERVICES_INTERFACE_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_DEVICE_SERVICES_INTERFACE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICES_INTERFACE_STATE {
     type Abi = Self;
 }
@@ -3871,6 +3926,11 @@ impl ::core::marker::Copy for MBN_DEVICE_SERVICE_SESSIONS_STATE {}
 impl ::core::clone::Clone for MBN_DEVICE_SERVICE_SESSIONS_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_DEVICE_SERVICE_SESSIONS_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE_SESSIONS_STATE {
@@ -3975,6 +4035,11 @@ impl ::core::clone::Clone for MBN_INTERFACE_CAPS_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for MBN_INTERFACE_CAPS_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS_CONSTANTS {
     type Abi = Self;
 }
@@ -4001,6 +4066,11 @@ impl ::core::clone::Clone for MBN_MSG_STATUS {
         *self
     }
 }
+impl ::core::default::Default for MBN_MSG_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_MSG_STATUS {
     type Abi = Self;
 }
@@ -4021,6 +4091,11 @@ impl ::core::marker::Copy for MBN_PIN_CONSTANTS {}
 impl ::core::clone::Clone for MBN_PIN_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_PIN_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_CONSTANTS {
@@ -4045,6 +4120,11 @@ impl ::core::marker::Copy for MBN_PIN_FORMAT {}
 impl ::core::clone::Clone for MBN_PIN_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_PIN_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_FORMAT {
@@ -4101,6 +4181,11 @@ impl ::core::clone::Clone for MBN_PIN_MODE {
         *self
     }
 }
+impl ::core::default::Default for MBN_PIN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_PIN_MODE {
     type Abi = Self;
 }
@@ -4123,6 +4208,11 @@ impl ::core::marker::Copy for MBN_PIN_STATE {}
 impl ::core::clone::Clone for MBN_PIN_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_PIN_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_STATE {
@@ -4163,6 +4253,11 @@ impl ::core::marker::Copy for MBN_PIN_TYPE {}
 impl ::core::clone::Clone for MBN_PIN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_PIN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_PIN_TYPE {
@@ -4265,6 +4360,11 @@ impl ::core::clone::Clone for MBN_PROVIDER_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for MBN_PROVIDER_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_PROVIDER_CONSTANTS {
     type Abi = Self;
 }
@@ -4297,6 +4397,11 @@ impl ::core::clone::Clone for MBN_PROVIDER_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_PROVIDER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_PROVIDER_STATE {
     type Abi = Self;
 }
@@ -4317,6 +4422,11 @@ impl ::core::marker::Copy for MBN_RADIO {}
 impl ::core::clone::Clone for MBN_RADIO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_RADIO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_RADIO {
@@ -4355,6 +4465,11 @@ impl ::core::clone::Clone for MBN_READY_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_READY_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_READY_STATE {
     type Abi = Self;
 }
@@ -4377,6 +4492,11 @@ impl ::core::marker::Copy for MBN_REGISTER_MODE {}
 impl ::core::clone::Clone for MBN_REGISTER_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_REGISTER_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_REGISTER_MODE {
@@ -4411,6 +4531,11 @@ impl ::core::clone::Clone for MBN_REGISTER_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_REGISTER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_REGISTER_STATE {
     type Abi = Self;
 }
@@ -4431,6 +4556,11 @@ impl ::core::marker::Copy for MBN_REGISTRATION_CONSTANTS {}
 impl ::core::clone::Clone for MBN_REGISTRATION_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_REGISTRATION_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_REGISTRATION_CONSTANTS {
@@ -4459,6 +4589,11 @@ impl ::core::clone::Clone for MBN_SIGNAL_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for MBN_SIGNAL_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SIGNAL_CONSTANTS {
     type Abi = Self;
 }
@@ -4485,6 +4620,11 @@ impl ::core::marker::Copy for MBN_SMS_CAPS {}
 impl ::core::clone::Clone for MBN_SMS_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_SMS_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_SMS_CAPS {
@@ -4525,6 +4665,11 @@ impl ::core::clone::Clone for MBN_SMS_CDMA_ENCODING {
         *self
     }
 }
+impl ::core::default::Default for MBN_SMS_CDMA_ENCODING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SMS_CDMA_ENCODING {
     type Abi = Self;
 }
@@ -4557,6 +4702,11 @@ impl ::core::marker::Copy for MBN_SMS_CDMA_LANG {}
 impl ::core::clone::Clone for MBN_SMS_CDMA_LANG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_SMS_CDMA_LANG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_SMS_CDMA_LANG {
@@ -4620,6 +4770,11 @@ impl ::core::clone::Clone for MBN_SMS_FLAG {
         *self
     }
 }
+impl ::core::default::Default for MBN_SMS_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SMS_FLAG {
     type Abi = Self;
 }
@@ -4644,6 +4799,11 @@ impl ::core::clone::Clone for MBN_SMS_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for MBN_SMS_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_SMS_FORMAT {
     type Abi = Self;
 }
@@ -4666,6 +4826,11 @@ impl ::core::marker::Copy for MBN_SMS_STATUS_FLAG {}
 impl ::core::clone::Clone for MBN_SMS_STATUS_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_SMS_STATUS_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_FLAG {
@@ -4723,6 +4888,11 @@ impl ::core::clone::Clone for MBN_VOICE_CALL_STATE {
         *self
     }
 }
+impl ::core::default::Default for MBN_VOICE_CALL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MBN_VOICE_CALL_STATE {
     type Abi = Self;
 }
@@ -4747,6 +4917,11 @@ impl ::core::marker::Copy for MBN_VOICE_CLASS {}
 impl ::core::clone::Clone for MBN_VOICE_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MBN_VOICE_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MBN_VOICE_CLASS {
@@ -4775,6 +4950,11 @@ impl ::core::marker::Copy for WWAEXT_SMS_CONSTANTS {}
 impl ::core::clone::Clone for WWAEXT_SMS_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WWAEXT_SMS_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WWAEXT_SMS_CONSTANTS {

@@ -13,6 +13,11 @@ impl ::core::clone::Clone for EDefaultDevmodeType {
         *self
     }
 }
+impl ::core::default::Default for EDefaultDevmodeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
     type Abi = Self;
 }
@@ -35,6 +40,11 @@ impl ::core::marker::Copy for EPrintTicketScope {}
 impl ::core::clone::Clone for EPrintTicketScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EPrintTicketScope {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EPrintTicketScope {

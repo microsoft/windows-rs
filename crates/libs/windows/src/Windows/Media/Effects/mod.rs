@@ -341,6 +341,11 @@ impl ::core::clone::Clone for AudioEffectType {
         *self
     }
 }
+impl ::core::default::Default for AudioEffectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioEffectType {
     type Abi = Self;
 }
@@ -1730,6 +1735,11 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
         *self
     }
 }
+impl ::core::default::Default for MediaEffectClosedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
     type Abi = Self;
 }
@@ -1757,6 +1767,11 @@ impl ::core::marker::Copy for MediaMemoryTypes {}
 impl ::core::clone::Clone for MediaMemoryTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaMemoryTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaMemoryTypes {

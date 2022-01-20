@@ -712,6 +712,11 @@ impl ::core::clone::Clone for DEVPROPSTORE {
         *self
     }
 }
+impl ::core::default::Default for DEVPROPSTORE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVPROPSTORE {
     type Abi = Self;
 }

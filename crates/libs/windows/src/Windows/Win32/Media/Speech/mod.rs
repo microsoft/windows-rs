@@ -49,6 +49,11 @@ impl ::core::clone::Clone for DISPIDSPRG {
         *self
     }
 }
+impl ::core::default::Default for DISPIDSPRG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPIDSPRG {
     type Abi = Self;
 }
@@ -73,6 +78,11 @@ impl ::core::marker::Copy for DISPIDSPTSI {}
 impl ::core::clone::Clone for DISPIDSPTSI {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPIDSPTSI {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPIDSPTSI {
@@ -107,6 +117,11 @@ impl ::core::clone::Clone for DISPID_SpeechAudio {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechAudio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechAudio {
     type Abi = Self;
 }
@@ -129,6 +144,11 @@ impl ::core::marker::Copy for DISPID_SpeechAudioBufferInfo {}
 impl ::core::clone::Clone for DISPID_SpeechAudioBufferInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudioBufferInfo {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechAudioBufferInfo {
@@ -155,6 +175,11 @@ impl ::core::marker::Copy for DISPID_SpeechAudioFormat {}
 impl ::core::clone::Clone for DISPID_SpeechAudioFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechAudioFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechAudioFormat {
@@ -185,6 +210,11 @@ impl ::core::clone::Clone for DISPID_SpeechAudioStatus {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechAudioStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechAudioStatus {
     type Abi = Self;
 }
@@ -211,6 +241,11 @@ impl ::core::clone::Clone for DISPID_SpeechBaseStream {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechBaseStream {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechBaseStream {
     type Abi = Self;
 }
@@ -229,6 +264,11 @@ impl ::core::marker::Copy for DISPID_SpeechCustomStream {}
 impl ::core::clone::Clone for DISPID_SpeechCustomStream {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechCustomStream {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechCustomStream {
@@ -273,6 +313,11 @@ impl ::core::clone::Clone for DISPID_SpeechDataKey {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechDataKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechDataKey {
     type Abi = Self;
 }
@@ -293,6 +338,11 @@ impl ::core::marker::Copy for DISPID_SpeechFileStream {}
 impl ::core::clone::Clone for DISPID_SpeechFileStream {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechFileStream {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechFileStream {
@@ -327,6 +377,11 @@ impl ::core::clone::Clone for DISPID_SpeechGrammarRule {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechGrammarRule {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRule {
     type Abi = Self;
 }
@@ -353,6 +408,11 @@ impl ::core::marker::Copy for DISPID_SpeechGrammarRuleState {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRuleState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRuleState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleState {
@@ -389,6 +449,11 @@ impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransition {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransition {
     type Abi = Self;
 }
@@ -411,6 +476,11 @@ impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransitions {}
 impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransitions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransitions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRuleStateTransitions {
@@ -447,6 +517,11 @@ impl ::core::clone::Clone for DISPID_SpeechGrammarRules {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechGrammarRules {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechGrammarRules {
     type Abi = Self;
 }
@@ -481,6 +556,11 @@ impl ::core::clone::Clone for DISPID_SpeechLexicon {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechLexicon {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechLexicon {
     type Abi = Self;
 }
@@ -503,6 +583,11 @@ impl ::core::marker::Copy for DISPID_SpeechLexiconProns {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconProns {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconProns {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconProns {
@@ -533,6 +618,11 @@ impl ::core::clone::Clone for DISPID_SpeechLexiconPronunciation {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechLexiconPronunciation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconPronunciation {
     type Abi = Self;
 }
@@ -559,6 +649,11 @@ impl ::core::clone::Clone for DISPID_SpeechLexiconWord {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechLexiconWord {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWord {
     type Abi = Self;
 }
@@ -581,6 +676,11 @@ impl ::core::marker::Copy for DISPID_SpeechLexiconWords {}
 impl ::core::clone::Clone for DISPID_SpeechLexiconWords {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechLexiconWords {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechLexiconWords {
@@ -607,6 +707,11 @@ impl ::core::clone::Clone for DISPID_SpeechMMSysAudio {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechMMSysAudio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechMMSysAudio {
     type Abi = Self;
 }
@@ -627,6 +732,11 @@ impl ::core::marker::Copy for DISPID_SpeechMemoryStream {}
 impl ::core::clone::Clone for DISPID_SpeechMemoryStream {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechMemoryStream {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechMemoryStream {
@@ -673,6 +783,11 @@ impl ::core::clone::Clone for DISPID_SpeechObjectToken {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechObjectToken {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechObjectToken {
     type Abi = Self;
 }
@@ -701,6 +816,11 @@ impl ::core::clone::Clone for DISPID_SpeechObjectTokenCategory {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechObjectTokenCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokenCategory {
     type Abi = Self;
 }
@@ -725,6 +845,11 @@ impl ::core::clone::Clone for DISPID_SpeechObjectTokens {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechObjectTokens {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechObjectTokens {
     type Abi = Self;
 }
@@ -747,6 +872,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhoneConverter {}
 impl ::core::clone::Clone for DISPID_SpeechPhoneConverter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhoneConverter {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhoneConverter {
@@ -777,6 +907,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseAlternate {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseAlternate {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternate {
     type Abi = Self;
 }
@@ -801,6 +936,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseAlternates {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseAlternates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseAlternates {
     type Abi = Self;
 }
@@ -819,6 +959,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhraseBuilder {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseBuilder {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseBuilder {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseBuilder {
@@ -865,6 +1010,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseElement {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseElement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElement {
     type Abi = Self;
 }
@@ -887,6 +1037,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhraseElements {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseElements {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseElements {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseElements {
@@ -939,6 +1094,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseInfo {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseInfo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseInfo {
     type Abi = Self;
 }
@@ -961,6 +1121,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhraseProperties {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperties {
@@ -999,6 +1164,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseProperty {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseProperty {
     type Abi = Self;
 }
@@ -1025,6 +1195,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseReplacement {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseReplacement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacement {
     type Abi = Self;
 }
@@ -1047,6 +1222,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhraseReplacements {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseReplacements {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseReplacements {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseReplacements {
@@ -1083,6 +1263,11 @@ impl ::core::clone::Clone for DISPID_SpeechPhraseRule {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechPhraseRule {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRule {
     type Abi = Self;
 }
@@ -1105,6 +1290,11 @@ impl ::core::marker::Copy for DISPID_SpeechPhraseRules {}
 impl ::core::clone::Clone for DISPID_SpeechPhraseRules {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechPhraseRules {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechPhraseRules {
@@ -1157,6 +1347,11 @@ impl ::core::marker::Copy for DISPID_SpeechRecoContext {}
 impl ::core::clone::Clone for DISPID_SpeechRecoContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoContext {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContext {
@@ -1213,6 +1408,11 @@ impl ::core::clone::Clone for DISPID_SpeechRecoContextEvents {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechRecoContextEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecoContextEvents {
     type Abi = Self;
 }
@@ -1249,6 +1449,11 @@ impl ::core::clone::Clone for DISPID_SpeechRecoResult {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechRecoResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult {
     type Abi = Self;
 }
@@ -1267,6 +1472,11 @@ impl ::core::marker::Copy for DISPID_SpeechRecoResult2 {}
 impl ::core::clone::Clone for DISPID_SpeechRecoResult2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoResult2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResult2 {
@@ -1293,6 +1503,11 @@ impl ::core::marker::Copy for DISPID_SpeechRecoResultTimes {}
 impl ::core::clone::Clone for DISPID_SpeechRecoResultTimes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecoResultTimes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecoResultTimes {
@@ -1353,6 +1568,11 @@ impl ::core::clone::Clone for DISPID_SpeechRecognizer {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechRecognizer {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizer {
     type Abi = Self;
 }
@@ -1381,6 +1601,11 @@ impl ::core::marker::Copy for DISPID_SpeechRecognizerStatus {}
 impl ::core::clone::Clone for DISPID_SpeechRecognizerStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechRecognizerStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechRecognizerStatus {
@@ -1445,6 +1670,11 @@ impl ::core::clone::Clone for DISPID_SpeechVoice {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechVoice {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechVoice {
     type Abi = Self;
 }
@@ -1481,6 +1711,11 @@ impl ::core::marker::Copy for DISPID_SpeechVoiceEvent {}
 impl ::core::clone::Clone for DISPID_SpeechVoiceEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechVoiceEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceEvent {
@@ -1525,6 +1760,11 @@ impl ::core::clone::Clone for DISPID_SpeechVoiceStatus {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechVoiceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechVoiceStatus {
     type Abi = Self;
 }
@@ -1557,6 +1797,11 @@ impl ::core::clone::Clone for DISPID_SpeechWaveFormatEx {
         *self
     }
 }
+impl ::core::default::Default for DISPID_SpeechWaveFormatEx {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_SpeechWaveFormatEx {
     type Abi = Self;
 }
@@ -1577,6 +1822,11 @@ impl ::core::marker::Copy for DISPID_SpeechXMLRecoResult {}
 impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_SpeechXMLRecoResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_SpeechXMLRecoResult {
@@ -16604,6 +16854,11 @@ impl ::core::clone::Clone for PHONETICALPHABET {
         *self
     }
 }
+impl ::core::default::Default for PHONETICALPHABET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONETICALPHABET {
     type Abi = Self;
 }
@@ -16630,6 +16885,11 @@ impl ::core::marker::Copy for SPADAPTATIONRELEVANCE {}
 impl ::core::clone::Clone for SPADAPTATIONRELEVANCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPADAPTATIONRELEVANCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPADAPTATIONRELEVANCE {
@@ -16660,6 +16920,11 @@ impl ::core::marker::Copy for SPADAPTATIONSETTINGS {}
 impl ::core::clone::Clone for SPADAPTATIONSETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPADAPTATIONSETTINGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPADAPTATIONSETTINGS {
@@ -16716,6 +16981,11 @@ impl ::core::clone::Clone for SPAUDIOOPTIONS {
         *self
     }
 }
+impl ::core::default::Default for SPAUDIOOPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPAUDIOOPTIONS {
     type Abi = Self;
 }
@@ -16740,6 +17010,11 @@ impl ::core::marker::Copy for SPAUDIOSTATE {}
 impl ::core::clone::Clone for SPAUDIOSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPAUDIOSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPAUDIOSTATE {
@@ -16834,6 +17109,11 @@ impl ::core::clone::Clone for SPBOOKMARKOPTIONS {
         *self
     }
 }
+impl ::core::default::Default for SPBOOKMARKOPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPBOOKMARKOPTIONS {
     type Abi = Self;
 }
@@ -16870,6 +17150,11 @@ impl ::core::clone::Clone for SPCFGRULEATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for SPCFGRULEATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPCFGRULEATTRIBUTES {
     type Abi = Self;
 }
@@ -16894,6 +17179,11 @@ impl ::core::clone::Clone for SPCOMMITFLAGS {
         *self
     }
 }
+impl ::core::default::Default for SPCOMMITFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPCOMMITFLAGS {
     type Abi = Self;
 }
@@ -16914,6 +17204,11 @@ impl ::core::marker::Copy for SPCONTEXTSTATE {}
 impl ::core::clone::Clone for SPCONTEXTSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPCONTEXTSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPCONTEXTSTATE {
@@ -16940,6 +17235,11 @@ impl ::core::marker::Copy for SPDATAKEYLOCATION {}
 impl ::core::clone::Clone for SPDATAKEYLOCATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPDATAKEYLOCATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPDATAKEYLOCATION {
@@ -17051,6 +17351,11 @@ impl ::core::clone::Clone for SPDISPLYATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for SPDISPLYATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPDISPLYATTRIBUTES {
     type Abi = Self;
 }
@@ -17099,6 +17404,11 @@ impl ::core::clone::Clone for SPEAKFLAGS {
         *self
     }
 }
+impl ::core::default::Default for SPEAKFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPEAKFLAGS {
     type Abi = Self;
 }
@@ -17121,6 +17431,11 @@ impl ::core::marker::Copy for SPENDSRSTREAMFLAGS {}
 impl ::core::clone::Clone for SPENDSRSTREAMFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPENDSRSTREAMFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPENDSRSTREAMFLAGS {
@@ -17263,6 +17578,11 @@ impl ::core::clone::Clone for SPEVENTENUM {
         *self
     }
 }
+impl ::core::default::Default for SPEVENTENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPEVENTENUM {
     type Abi = Self;
 }
@@ -17334,6 +17654,11 @@ impl ::core::clone::Clone for SPEVENTLPARAMTYPE {
         *self
     }
 }
+impl ::core::default::Default for SPEVENTLPARAMTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPEVENTLPARAMTYPE {
     type Abi = Self;
 }
@@ -17394,6 +17719,11 @@ impl ::core::clone::Clone for SPFILEMODE {
         *self
     }
 }
+impl ::core::default::Default for SPFILEMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPFILEMODE {
     type Abi = Self;
 }
@@ -17438,6 +17768,11 @@ impl ::core::clone::Clone for SPGRAMMAROPTIONS {
         *self
     }
 }
+impl ::core::default::Default for SPGRAMMAROPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPGRAMMAROPTIONS {
     type Abi = Self;
 }
@@ -17460,6 +17795,11 @@ impl ::core::marker::Copy for SPGRAMMARSTATE {}
 impl ::core::clone::Clone for SPGRAMMARSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPGRAMMARSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPGRAMMARSTATE {
@@ -17486,6 +17826,11 @@ impl ::core::marker::Copy for SPGRAMMARWORDTYPE {}
 impl ::core::clone::Clone for SPGRAMMARWORDTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPGRAMMARWORDTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPGRAMMARWORDTYPE {
@@ -17524,6 +17869,11 @@ impl ::core::marker::Copy for SPINTERFERENCE {}
 impl ::core::clone::Clone for SPINTERFERENCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPINTERFERENCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPINTERFERENCE {
@@ -17608,6 +17958,11 @@ impl ::core::clone::Clone for SPLEXICONTYPE {
         *self
     }
 }
+impl ::core::default::Default for SPLEXICONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPLEXICONTYPE {
     type Abi = Self;
 }
@@ -17628,6 +17983,11 @@ impl ::core::marker::Copy for SPLOADOPTIONS {}
 impl ::core::clone::Clone for SPLOADOPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPLOADOPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPLOADOPTIONS {
@@ -17656,6 +18016,11 @@ impl ::core::marker::Copy for SPMATCHINGMODE {}
 impl ::core::clone::Clone for SPMATCHINGMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPMATCHINGMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPMATCHINGMODE {
@@ -17728,6 +18093,11 @@ impl ::core::marker::Copy for SPPARTOFSPEECH {}
 impl ::core::clone::Clone for SPPARTOFSPEECH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPPARTOFSPEECH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPPARTOFSPEECH {
@@ -17981,6 +18351,11 @@ impl ::core::clone::Clone for SPPHRASEPROPERTYUNIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for SPPHRASEPROPERTYUNIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTYUNIONTYPE {
     type Abi = Self;
 }
@@ -18040,6 +18415,11 @@ impl ::core::marker::Copy for SPPHRASERNG {}
 impl ::core::clone::Clone for SPPHRASERNG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPPHRASERNG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPPHRASERNG {
@@ -18179,6 +18559,11 @@ impl ::core::clone::Clone for SPPRONUNCIATIONFLAGS {
         *self
     }
 }
+impl ::core::default::Default for SPPRONUNCIATIONFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPPRONUNCIATIONFLAGS {
     type Abi = Self;
 }
@@ -18275,6 +18660,11 @@ impl ::core::marker::Copy for SPRECOEVENTFLAGS {}
 impl ::core::clone::Clone for SPRECOEVENTFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPRECOEVENTFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPRECOEVENTFLAGS {
@@ -18383,6 +18773,11 @@ impl ::core::clone::Clone for SPRECOSTATE {
         *self
     }
 }
+impl ::core::default::Default for SPRECOSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPRECOSTATE {
     type Abi = Self;
 }
@@ -18451,6 +18846,11 @@ impl ::core::clone::Clone for SPRULESTATE {
         *self
     }
 }
+impl ::core::default::Default for SPRULESTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPRULESTATE {
     type Abi = Self;
 }
@@ -18471,6 +18871,11 @@ impl ::core::marker::Copy for SPRUNSTATE {}
 impl ::core::clone::Clone for SPRUNSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPRUNSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPRUNSTATE {
@@ -18541,6 +18946,11 @@ impl ::core::marker::Copy for SPSEMANTICFORMAT {}
 impl ::core::clone::Clone for SPSEMANTICFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPSEMANTICFORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPSEMANTICFORMAT {
@@ -18787,6 +19197,11 @@ impl ::core::clone::Clone for SPSHORTCUTTYPE {
         *self
     }
 }
+impl ::core::default::Default for SPSHORTCUTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPSHORTCUTTYPE {
     type Abi = Self;
 }
@@ -18977,6 +19392,11 @@ impl ::core::clone::Clone for SPSTREAMFORMAT {
         *self
     }
 }
+impl ::core::default::Default for SPSTREAMFORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPSTREAMFORMAT {
     type Abi = Self;
 }
@@ -19042,6 +19462,11 @@ impl ::core::clone::Clone for SPVACTIONS {
         *self
     }
 }
+impl ::core::default::Default for SPVACTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPVACTIONS {
     type Abi = Self;
 }
@@ -19076,6 +19501,11 @@ impl ::core::marker::Copy for SPVALUETYPE {}
 impl ::core::clone::Clone for SPVALUETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPVALUETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPVALUETYPE {
@@ -19140,6 +19570,11 @@ impl ::core::clone::Clone for SPVFEATURE {
         *self
     }
 }
+impl ::core::default::Default for SPVFEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPVFEATURE {
     type Abi = Self;
 }
@@ -19202,6 +19637,11 @@ impl ::core::clone::Clone for SPVISEMES {
         *self
     }
 }
+impl ::core::default::Default for SPVISEMES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPVISEMES {
     type Abi = Self;
 }
@@ -19226,6 +19666,11 @@ impl ::core::marker::Copy for SPVLIMITS {}
 impl ::core::clone::Clone for SPVLIMITS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPVLIMITS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPVLIMITS {
@@ -19339,6 +19784,11 @@ impl ::core::clone::Clone for SPVPRIORITY {
         *self
     }
 }
+impl ::core::default::Default for SPVPRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPVPRIORITY {
     type Abi = Self;
 }
@@ -19407,6 +19857,11 @@ impl ::core::marker::Copy for SPWAVEFORMATTYPE {}
 impl ::core::clone::Clone for SPWAVEFORMATTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPWAVEFORMATTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPWAVEFORMATTYPE {
@@ -19516,6 +19971,11 @@ impl ::core::clone::Clone for SPWORDPRONOUNCEABLE {
         *self
     }
 }
+impl ::core::default::Default for SPWORDPRONOUNCEABLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPWORDPRONOUNCEABLE {
     type Abi = Self;
 }
@@ -19605,6 +20065,11 @@ impl ::core::clone::Clone for SPWORDTYPE {
         *self
     }
 }
+impl ::core::default::Default for SPWORDTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SPWORDTYPE {
     type Abi = Self;
 }
@@ -19625,6 +20090,11 @@ impl ::core::marker::Copy for SPXMLRESULTOPTIONS {}
 impl ::core::clone::Clone for SPXMLRESULTOPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPXMLRESULTOPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPXMLRESULTOPTIONS {
@@ -19831,6 +20301,11 @@ impl ::core::clone::Clone for SpeechAudioFormatType {
         *self
     }
 }
+impl ::core::default::Default for SpeechAudioFormatType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechAudioFormatType {
     type Abi = Self;
 }
@@ -19857,6 +20332,11 @@ impl ::core::clone::Clone for SpeechAudioState {
         *self
     }
 }
+impl ::core::default::Default for SpeechAudioState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechAudioState {
     type Abi = Self;
 }
@@ -19877,6 +20357,11 @@ impl ::core::marker::Copy for SpeechBookmarkOptions {}
 impl ::core::clone::Clone for SpeechBookmarkOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechBookmarkOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechBookmarkOptions {
@@ -19903,6 +20388,11 @@ impl ::core::marker::Copy for SpeechDataKeyLocation {}
 impl ::core::clone::Clone for SpeechDataKeyLocation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechDataKeyLocation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechDataKeyLocation {
@@ -19941,6 +20431,11 @@ impl ::core::clone::Clone for SpeechDiscardType {
         *self
     }
 }
+impl ::core::default::Default for SpeechDiscardType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechDiscardType {
     type Abi = Self;
 }
@@ -19965,6 +20460,11 @@ impl ::core::marker::Copy for SpeechDisplayAttributes {}
 impl ::core::clone::Clone for SpeechDisplayAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechDisplayAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechDisplayAttributes {
@@ -19997,6 +20497,11 @@ impl ::core::clone::Clone for SpeechEmulationCompareFlags {
         *self
     }
 }
+impl ::core::default::Default for SpeechEmulationCompareFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechEmulationCompareFlags {
     type Abi = Self;
 }
@@ -20021,6 +20526,11 @@ impl ::core::clone::Clone for SpeechEngineConfidence {
         *self
     }
 }
+impl ::core::default::Default for SpeechEngineConfidence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechEngineConfidence {
     type Abi = Self;
 }
@@ -20041,6 +20551,11 @@ impl ::core::marker::Copy for SpeechFormatType {}
 impl ::core::clone::Clone for SpeechFormatType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechFormatType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechFormatType {
@@ -20073,6 +20588,11 @@ impl ::core::clone::Clone for SpeechGrammarRuleStateTransitionType {
         *self
     }
 }
+impl ::core::default::Default for SpeechGrammarRuleStateTransitionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechGrammarRuleStateTransitionType {
     type Abi = Self;
 }
@@ -20095,6 +20615,11 @@ impl ::core::marker::Copy for SpeechGrammarState {}
 impl ::core::clone::Clone for SpeechGrammarState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechGrammarState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechGrammarState {
@@ -20121,6 +20646,11 @@ impl ::core::marker::Copy for SpeechGrammarWordType {}
 impl ::core::clone::Clone for SpeechGrammarWordType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechGrammarWordType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechGrammarWordType {
@@ -20155,6 +20685,11 @@ impl ::core::clone::Clone for SpeechInterference {
         *self
     }
 }
+impl ::core::default::Default for SpeechInterference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechInterference {
     type Abi = Self;
 }
@@ -20177,6 +20712,11 @@ impl ::core::clone::Clone for SpeechLexiconType {
         *self
     }
 }
+impl ::core::default::Default for SpeechLexiconType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechLexiconType {
     type Abi = Self;
 }
@@ -20197,6 +20737,11 @@ impl ::core::marker::Copy for SpeechLoadOption {}
 impl ::core::clone::Clone for SpeechLoadOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechLoadOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechLoadOption {
@@ -20235,6 +20780,11 @@ impl ::core::clone::Clone for SpeechPartOfSpeech {
         *self
     }
 }
+impl ::core::default::Default for SpeechPartOfSpeech {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechPartOfSpeech {
     type Abi = Self;
 }
@@ -20255,6 +20805,11 @@ impl ::core::marker::Copy for SpeechRecoContextState {}
 impl ::core::clone::Clone for SpeechRecoContextState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRecoContextState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecoContextState {
@@ -20313,6 +20868,11 @@ impl ::core::clone::Clone for SpeechRecoEvents {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecoEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecoEvents {
     type Abi = Self;
 }
@@ -20343,6 +20903,11 @@ impl ::core::clone::Clone for SpeechRecognitionType {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionType {
     type Abi = Self;
 }
@@ -20369,6 +20934,11 @@ impl ::core::clone::Clone for SpeechRecognizerState {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognizerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {
     type Abi = Self;
 }
@@ -20389,6 +20959,11 @@ impl ::core::marker::Copy for SpeechRetainedAudioOptions {}
 impl ::core::clone::Clone for SpeechRetainedAudioOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRetainedAudioOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRetainedAudioOptions {
@@ -20423,6 +20998,11 @@ impl ::core::clone::Clone for SpeechRuleAttributes {
         *self
     }
 }
+impl ::core::default::Default for SpeechRuleAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRuleAttributes {
     type Abi = Self;
 }
@@ -20449,6 +21029,11 @@ impl ::core::clone::Clone for SpeechRuleState {
         *self
     }
 }
+impl ::core::default::Default for SpeechRuleState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRuleState {
     type Abi = Self;
 }
@@ -20469,6 +21054,11 @@ impl ::core::marker::Copy for SpeechRunState {}
 impl ::core::clone::Clone for SpeechRunState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRunState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRunState {
@@ -20493,6 +21083,11 @@ impl ::core::marker::Copy for SpeechSpecialTransitionType {}
 impl ::core::clone::Clone for SpeechSpecialTransitionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechSpecialTransitionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechSpecialTransitionType {
@@ -20521,6 +21116,11 @@ impl ::core::clone::Clone for SpeechStreamFileMode {
         *self
     }
 }
+impl ::core::default::Default for SpeechStreamFileMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechStreamFileMode {
     type Abi = Self;
 }
@@ -20543,6 +21143,11 @@ impl ::core::marker::Copy for SpeechStreamSeekPositionType {}
 impl ::core::clone::Clone for SpeechStreamSeekPositionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechStreamSeekPositionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechStreamSeekPositionType {
@@ -20601,6 +21206,11 @@ impl ::core::clone::Clone for SpeechTokenContext {
         *self
     }
 }
+impl ::core::default::Default for SpeechTokenContext {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechTokenContext {
     type Abi = Self;
 }
@@ -20655,6 +21265,11 @@ impl ::core::clone::Clone for SpeechTokenShellFolder {
         *self
     }
 }
+impl ::core::default::Default for SpeechTokenShellFolder {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechTokenShellFolder {
     type Abi = Self;
 }
@@ -20677,6 +21292,11 @@ impl ::core::marker::Copy for SpeechVisemeFeature {}
 impl ::core::clone::Clone for SpeechVisemeFeature {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechVisemeFeature {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechVisemeFeature {
@@ -20741,6 +21361,11 @@ impl ::core::clone::Clone for SpeechVisemeType {
         *self
     }
 }
+impl ::core::default::Default for SpeechVisemeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechVisemeType {
     type Abi = Self;
 }
@@ -20781,6 +21406,11 @@ impl ::core::clone::Clone for SpeechVoiceEvents {
         *self
     }
 }
+impl ::core::default::Default for SpeechVoiceEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechVoiceEvents {
     type Abi = Self;
 }
@@ -20803,6 +21433,11 @@ impl ::core::marker::Copy for SpeechVoicePriority {}
 impl ::core::clone::Clone for SpeechVoicePriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechVoicePriority {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechVoicePriority {
@@ -20853,6 +21488,11 @@ impl ::core::clone::Clone for SpeechVoiceSpeakFlags {
         *self
     }
 }
+impl ::core::default::Default for SpeechVoiceSpeakFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechVoiceSpeakFlags {
     type Abi = Self;
 }
@@ -20877,6 +21517,11 @@ impl ::core::clone::Clone for SpeechWordPronounceable {
         *self
     }
 }
+impl ::core::default::Default for SpeechWordPronounceable {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechWordPronounceable {
     type Abi = Self;
 }
@@ -20897,6 +21542,11 @@ impl ::core::marker::Copy for SpeechWordType {}
 impl ::core::clone::Clone for SpeechWordType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechWordType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechWordType {

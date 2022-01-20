@@ -368,6 +368,11 @@ impl ::core::clone::Clone for XINPUT_VIRTUAL_KEY {
         *self
     }
 }
+impl ::core::default::Default for XINPUT_VIRTUAL_KEY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XINPUT_VIRTUAL_KEY {
     type Abi = Self;
 }

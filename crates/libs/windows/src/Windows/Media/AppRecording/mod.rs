@@ -248,6 +248,11 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
         *self
     }
 }
+impl ::core::default::Default for AppRecordingSaveScreenshotOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
     type Abi = Self;
 }

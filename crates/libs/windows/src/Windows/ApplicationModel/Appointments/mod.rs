@@ -446,6 +446,11 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
         *self
     }
 }
+impl ::core::default::Default for AppointmentBusyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentBusyStatus {
     type Abi = Self;
 }
@@ -945,6 +950,11 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
         *self
     }
 }
+impl ::core::default::Default for AppointmentCalendarOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppReadAccess {
     type Abi = Self;
 }
@@ -972,6 +982,11 @@ impl ::core::marker::Copy for AppointmentCalendarOtherAppWriteAccess {}
 impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppointmentCalendarOtherAppWriteAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppWriteAccess {
@@ -1147,6 +1162,11 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
         *self
     }
 }
+impl ::core::default::Default for AppointmentCalendarSyncStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentCalendarSyncStatus {
     type Abi = Self;
 }
@@ -1266,6 +1286,11 @@ impl ::core::clone::Clone for AppointmentConflictType {
         *self
     }
 }
+impl ::core::default::Default for AppointmentConflictType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentConflictType {
     type Abi = Self;
 }
@@ -1298,6 +1323,11 @@ impl ::core::marker::Copy for AppointmentDaysOfWeek {}
 impl ::core::clone::Clone for AppointmentDaysOfWeek {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppointmentDaysOfWeek {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentDaysOfWeek {
@@ -1354,6 +1384,11 @@ impl ::core::marker::Copy for AppointmentDetailsKind {}
 impl ::core::clone::Clone for AppointmentDetailsKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppointmentDetailsKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentDetailsKind {
@@ -2100,6 +2135,11 @@ impl ::core::clone::Clone for AppointmentParticipantResponse {
         *self
     }
 }
+impl ::core::default::Default for AppointmentParticipantResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentParticipantResponse {
     type Abi = Self;
 }
@@ -2127,6 +2167,11 @@ impl ::core::marker::Copy for AppointmentParticipantRole {}
 impl ::core::clone::Clone for AppointmentParticipantRole {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppointmentParticipantRole {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentParticipantRole {
@@ -2578,6 +2623,11 @@ impl ::core::clone::Clone for AppointmentRecurrenceUnit {
         *self
     }
 }
+impl ::core::default::Default for AppointmentRecurrenceUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentRecurrenceUnit {
     type Abi = Self;
 }
@@ -2604,6 +2654,11 @@ impl ::core::marker::Copy for AppointmentSensitivity {}
 impl ::core::clone::Clone for AppointmentSensitivity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppointmentSensitivity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppointmentSensitivity {
@@ -2928,6 +2983,11 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
         *self
     }
 }
+impl ::core::default::Default for AppointmentStoreAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentStoreAccessType {
     type Abi = Self;
 }
@@ -3249,6 +3309,11 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
         *self
     }
 }
+impl ::core::default::Default for AppointmentStoreChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentStoreChangeType {
     type Abi = Self;
 }
@@ -3508,6 +3573,11 @@ impl ::core::clone::Clone for AppointmentSummaryCardView {
         *self
     }
 }
+impl ::core::default::Default for AppointmentSummaryCardView {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentSummaryCardView {
     type Abi = Self;
 }
@@ -3539,6 +3609,11 @@ impl ::core::clone::Clone for AppointmentWeekOfMonth {
         *self
     }
 }
+impl ::core::default::Default for AppointmentWeekOfMonth {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppointmentWeekOfMonth {
     type Abi = Self;
 }
@@ -3565,6 +3640,11 @@ impl ::core::marker::Copy for FindAppointmentCalendarsOptions {}
 impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FindAppointmentCalendarsOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FindAppointmentCalendarsOptions {
@@ -4776,6 +4856,11 @@ impl ::core::marker::Copy for RecurrenceType {}
 impl ::core::clone::Clone for RecurrenceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RecurrenceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RecurrenceType {

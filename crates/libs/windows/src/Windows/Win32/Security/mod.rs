@@ -367,6 +367,11 @@ impl ::core::clone::Clone for ACE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACE_FLAGS {
     type Abi = Self;
 }
@@ -447,6 +452,11 @@ impl ::core::marker::Copy for ACE_REVISION {}
 impl ::core::clone::Clone for ACE_REVISION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ACE_REVISION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ACE_REVISION {
@@ -533,6 +543,11 @@ impl ::core::clone::Clone for ACL_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for ACL_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACL_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -615,6 +630,11 @@ impl ::core::marker::Copy for AUDIT_EVENT_TYPE {}
 impl ::core::clone::Clone for AUDIT_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUDIT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUDIT_EVENT_TYPE {
@@ -1387,6 +1407,11 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Abi = Self;
 }
@@ -1649,6 +1674,11 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
     type Abi = Self;
 }
@@ -1673,6 +1703,11 @@ impl ::core::marker::Copy for CREATE_RESTRICTED_TOKEN_FLAGS {}
 impl ::core::clone::Clone for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATE_RESTRICTED_TOKEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_RESTRICTED_TOKEN_FLAGS {
@@ -1962,6 +1997,11 @@ impl ::core::marker::Copy for ENUM_PERIOD {}
 impl ::core::clone::Clone for ENUM_PERIOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENUM_PERIOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENUM_PERIOD {
@@ -2882,6 +2922,11 @@ impl ::core::clone::Clone for LOGON32_LOGON {
         *self
     }
 }
+impl ::core::default::Default for LOGON32_LOGON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOGON32_LOGON {
     type Abi = Self;
 }
@@ -2932,6 +2977,11 @@ impl ::core::marker::Copy for LOGON32_PROVIDER {}
 impl ::core::clone::Clone for LOGON32_PROVIDER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LOGON32_PROVIDER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LOGON32_PROVIDER {
@@ -3243,6 +3293,11 @@ impl ::core::clone::Clone for MANDATORY_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for MANDATORY_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MANDATORY_LEVEL {
     type Abi = Self;
 }
@@ -3395,6 +3450,11 @@ impl ::core::marker::Copy for OBJECT_SECURITY_INFORMATION {}
 impl ::core::clone::Clone for OBJECT_SECURITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OBJECT_SECURITY_INFORMATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OBJECT_SECURITY_INFORMATION {
@@ -3907,6 +3967,11 @@ impl ::core::clone::Clone for SECURITY_AUTO_INHERIT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SECURITY_AUTO_INHERIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECURITY_AUTO_INHERIT_FLAGS {
     type Abi = Self;
 }
@@ -4044,6 +4109,11 @@ impl ::core::marker::Copy for SECURITY_IMPERSONATION_LEVEL {}
 impl ::core::clone::Clone for SECURITY_IMPERSONATION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECURITY_IMPERSONATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECURITY_IMPERSONATION_LEVEL {
@@ -4466,6 +4536,11 @@ impl ::core::clone::Clone for SID_NAME_USE {
         *self
     }
 }
+impl ::core::default::Default for SID_NAME_USE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SID_NAME_USE {
     type Abi = Self;
 }
@@ -4786,6 +4861,11 @@ impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {}
 impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
@@ -5295,6 +5375,11 @@ impl ::core::clone::Clone for TOKEN_ACCESS_MASK {
         *self
     }
 }
+impl ::core::default::Default for TOKEN_ACCESS_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOKEN_ACCESS_MASK {
     type Abi = Self;
 }
@@ -5546,6 +5631,11 @@ impl ::core::clone::Clone for TOKEN_ELEVATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TOKEN_ELEVATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOKEN_ELEVATION_TYPE {
     type Abi = Self;
 }
@@ -5757,6 +5847,11 @@ impl ::core::clone::Clone for TOKEN_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for TOKEN_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOKEN_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -5887,6 +5982,11 @@ impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY_ID {}
 impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOKEN_MANDATORY_POLICY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOKEN_MANDATORY_POLICY_ID {
@@ -6096,6 +6196,11 @@ impl ::core::clone::Clone for TOKEN_PRIVILEGES_ATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for TOKEN_PRIVILEGES_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOKEN_PRIVILEGES_ATTRIBUTES {
     type Abi = Self;
 }
@@ -6230,6 +6335,11 @@ impl ::core::marker::Copy for TOKEN_TYPE {}
 impl ::core::clone::Clone for TOKEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOKEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOKEN_TYPE {
@@ -6556,6 +6666,11 @@ impl ::core::marker::Copy for WELL_KNOWN_SID_TYPE {}
 impl ::core::clone::Clone for WELL_KNOWN_SID_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WELL_KNOWN_SID_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WELL_KNOWN_SID_TYPE {

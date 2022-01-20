@@ -45,6 +45,11 @@ impl ::core::clone::Clone for ACCESS_MASKENUM {
         *self
     }
 }
+impl ::core::default::Default for ACCESS_MASKENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACCESS_MASKENUM {
     type Abi = Self;
 }
@@ -108,6 +113,11 @@ impl ::core::marker::Copy for AUTH_TYPE {}
 impl ::core::clone::Clone for AUTH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTH_TYPE {
@@ -225,6 +235,11 @@ impl ::core::marker::Copy for CASE_REQUIREMENT {}
 impl ::core::clone::Clone for CASE_REQUIREMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CASE_REQUIREMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CASE_REQUIREMENT {
@@ -384,6 +399,11 @@ impl ::core::clone::Clone for CHANNEL_AGENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CHANNEL_AGENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHANNEL_AGENT_FLAGS {
     type Abi = Self;
 }
@@ -445,6 +465,11 @@ impl ::core::marker::Copy for CLUSION_REASON {}
 impl ::core::clone::Clone for CLUSION_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLUSION_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLUSION_REASON {
@@ -572,6 +597,11 @@ impl ::core::clone::Clone for CONDITION_CREATION_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for CONDITION_CREATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONDITION_CREATION_OPTIONS {
     type Abi = Self;
 }
@@ -685,6 +715,11 @@ impl ::core::marker::Copy for CREATESUBSCRIPTIONFLAGS {}
 impl ::core::clone::Clone for CREATESUBSCRIPTIONFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATESUBSCRIPTIONFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATESUBSCRIPTIONFLAGS {
@@ -829,6 +864,11 @@ impl ::core::clone::Clone for CatalogPausedReason {
         *self
     }
 }
+impl ::core::default::Default for CatalogPausedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CatalogPausedReason {
     type Abi = Self;
 }
@@ -859,6 +899,11 @@ impl ::core::marker::Copy for CatalogStatus {}
 impl ::core::clone::Clone for CatalogStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CatalogStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CatalogStatus {
@@ -925,6 +970,11 @@ impl ::core::clone::Clone for DBACCESSORFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBACCESSORFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBACCESSORFLAGSENUM {
     type Abi = Self;
 }
@@ -943,6 +993,11 @@ impl ::core::marker::Copy for DBASYNCHOPENUM {}
 impl ::core::clone::Clone for DBASYNCHOPENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBASYNCHOPENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBASYNCHOPENUM {
@@ -969,6 +1024,11 @@ impl ::core::marker::Copy for DBASYNCHPHASEENUM {}
 impl ::core::clone::Clone for DBASYNCHPHASEENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBASYNCHPHASEENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBASYNCHPHASEENUM {
@@ -1061,6 +1121,11 @@ impl ::core::marker::Copy for DBBINDFLAGENUM {}
 impl ::core::clone::Clone for DBBINDFLAGENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBBINDFLAGENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBBINDFLAGENUM {
@@ -1227,6 +1292,11 @@ impl ::core::clone::Clone for DBBINDSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBBINDSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBBINDSTATUSENUM {
     type Abi = Self;
 }
@@ -1279,6 +1349,11 @@ impl ::core::clone::Clone for DBBINDURLFLAGENUM {
         *self
     }
 }
+impl ::core::default::Default for DBBINDURLFLAGENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBBINDURLFLAGENUM {
     type Abi = Self;
 }
@@ -1305,6 +1380,11 @@ impl ::core::clone::Clone for DBBINDURLSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBBINDURLSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBBINDURLSTATUSENUM {
     type Abi = Self;
 }
@@ -1327,6 +1407,11 @@ impl ::core::marker::Copy for DBBOOKMARK {}
 impl ::core::clone::Clone for DBBOOKMARK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBBOOKMARK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBBOOKMARK {
@@ -1553,6 +1638,11 @@ impl ::core::clone::Clone for DBCOLUMNDESCFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCOLUMNDESCFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOLUMNDESCFLAGSENUM {
     type Abi = Self;
 }
@@ -1571,6 +1661,11 @@ impl ::core::marker::Copy for DBCOLUMNFLAGS15ENUM {}
 impl ::core::clone::Clone for DBCOLUMNFLAGS15ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOLUMNFLAGS15ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOLUMNFLAGS15ENUM {
@@ -1613,6 +1708,11 @@ impl ::core::clone::Clone for DBCOLUMNFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCOLUMNFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM {
     type Abi = Self;
 }
@@ -1633,6 +1733,11 @@ impl ::core::marker::Copy for DBCOLUMNFLAGSENUM20 {}
 impl ::core::clone::Clone for DBCOLUMNFLAGSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOLUMNFLAGSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM20 {
@@ -1659,6 +1764,11 @@ impl ::core::clone::Clone for DBCOLUMNFLAGSENUM21 {
         *self
     }
 }
+impl ::core::default::Default for DBCOLUMNFLAGSENUM21 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM21 {
     type Abi = Self;
 }
@@ -1683,6 +1793,11 @@ impl ::core::marker::Copy for DBCOLUMNFLAGSENUM26 {}
 impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOLUMNFLAGSENUM26 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM26 {
@@ -1796,6 +1911,11 @@ impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCOMMANDPERSISTFLAGENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOMMANDPERSISTFLAGENUM {
     type Abi = Self;
 }
@@ -1818,6 +1938,11 @@ impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM21 {}
 impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM21 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOMMANDPERSISTFLAGENUM21 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOMMANDPERSISTFLAGENUM21 {
@@ -1846,6 +1971,11 @@ impl ::core::marker::Copy for DBCOMPAREENUM {}
 impl ::core::clone::Clone for DBCOMPAREENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOMPAREENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOMPAREENUM {
@@ -1888,6 +2018,11 @@ impl ::core::clone::Clone for DBCOMPAREOPSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCOMPAREOPSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOMPAREOPSENUM {
     type Abi = Self;
 }
@@ -1908,6 +2043,11 @@ impl ::core::marker::Copy for DBCOMPAREOPSENUM20 {}
 impl ::core::clone::Clone for DBCOMPAREOPSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOMPAREOPSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOMPAREOPSENUM20 {
@@ -2068,6 +2208,11 @@ impl ::core::clone::Clone for DBCONSTRAINTTYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCONSTRAINTTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCONSTRAINTTYPEENUM {
     type Abi = Self;
 }
@@ -2088,6 +2233,11 @@ impl ::core::marker::Copy for DBCONVERTFLAGSENUM {}
 impl ::core::clone::Clone for DBCONVERTFLAGSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCONVERTFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCONVERTFLAGSENUM {
@@ -2112,6 +2262,11 @@ impl ::core::marker::Copy for DBCONVERTFLAGSENUM20 {}
 impl ::core::clone::Clone for DBCONVERTFLAGSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCONVERTFLAGSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCONVERTFLAGSENUM20 {
@@ -2140,6 +2295,11 @@ impl ::core::marker::Copy for DBCOPYFLAGSENUM {}
 impl ::core::clone::Clone for DBCOPYFLAGSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBCOPYFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBCOPYFLAGSENUM {
@@ -2270,6 +2430,11 @@ impl ::core::clone::Clone for DBCOSTUNITENUM {
         *self
     }
 }
+impl ::core::default::Default for DBCOSTUNITENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBCOSTUNITENUM {
     type Abi = Self;
 }
@@ -2296,6 +2461,11 @@ impl ::core::marker::Copy for DBDATACONVERTENUM {}
 impl ::core::clone::Clone for DBDATACONVERTENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBDATACONVERTENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBDATACONVERTENUM {
@@ -2352,6 +2522,11 @@ impl ::core::clone::Clone for DBDEFERRABILITYENUM {
         *self
     }
 }
+impl ::core::default::Default for DBDEFERRABILITYENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBDEFERRABILITYENUM {
     type Abi = Self;
 }
@@ -2372,6 +2547,11 @@ impl ::core::marker::Copy for DBDELETEFLAGSENUM {}
 impl ::core::clone::Clone for DBDELETEFLAGSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBDELETEFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBDELETEFLAGSENUM {
@@ -2402,6 +2582,11 @@ impl ::core::clone::Clone for DBEVENTPHASEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBEVENTPHASEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBEVENTPHASEENUM {
     type Abi = Self;
 }
@@ -2424,6 +2609,11 @@ impl ::core::marker::Copy for DBEXECLIMITSENUM {}
 impl ::core::clone::Clone for DBEXECLIMITSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBEXECLIMITSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBEXECLIMITSENUM {
@@ -2675,6 +2865,11 @@ impl ::core::clone::Clone for DBINDEX_COL_ORDERENUM {
         *self
     }
 }
+impl ::core::default::Default for DBINDEX_COL_ORDERENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBINDEX_COL_ORDERENUM {
     type Abi = Self;
 }
@@ -2735,6 +2930,11 @@ impl ::core::clone::Clone for DBLITERALENUM {
         *self
     }
 }
+impl ::core::default::Default for DBLITERALENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBLITERALENUM {
     type Abi = Self;
 }
@@ -2769,6 +2969,11 @@ impl ::core::clone::Clone for DBLITERALENUM20 {
         *self
     }
 }
+impl ::core::default::Default for DBLITERALENUM20 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBLITERALENUM20 {
     type Abi = Self;
 }
@@ -2789,6 +2994,11 @@ impl ::core::marker::Copy for DBLITERALENUM21 {}
 impl ::core::clone::Clone for DBLITERALENUM21 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBLITERALENUM21 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBLITERALENUM21 {
@@ -2910,6 +3120,11 @@ impl ::core::clone::Clone for DBMATCHTYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBMATCHTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBMATCHTYPEENUM {
     type Abi = Self;
 }
@@ -2932,6 +3147,11 @@ impl ::core::marker::Copy for DBMEMOWNERENUM {}
 impl ::core::clone::Clone for DBMEMOWNERENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBMEMOWNERENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBMEMOWNERENUM {
@@ -2960,6 +3180,11 @@ impl ::core::marker::Copy for DBMOVEFLAGSENUM {}
 impl ::core::clone::Clone for DBMOVEFLAGSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBMOVEFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBMOVEFLAGSENUM {
@@ -3157,6 +3382,11 @@ impl ::core::clone::Clone for DBPARAMFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPARAMFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPARAMFLAGSENUM {
     type Abi = Self;
 }
@@ -3175,6 +3405,11 @@ impl ::core::marker::Copy for DBPARAMFLAGSENUM20 {}
 impl ::core::clone::Clone for DBPARAMFLAGSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPARAMFLAGSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPARAMFLAGSENUM20 {
@@ -3296,6 +3531,11 @@ impl ::core::clone::Clone for DBPARAMIOENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPARAMIOENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPARAMIOENUM {
     type Abi = Self;
 }
@@ -3404,6 +3644,11 @@ impl ::core::clone::Clone for DBPARTENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPARTENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPARTENUM {
     type Abi = Self;
 }
@@ -3432,6 +3677,11 @@ impl ::core::clone::Clone for DBPENDINGSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPENDINGSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPENDINGSTATUSENUM {
     type Abi = Self;
 }
@@ -3456,6 +3706,11 @@ impl ::core::marker::Copy for DBPOSITIONFLAGSENUM {}
 impl ::core::clone::Clone for DBPOSITIONFLAGSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPOSITIONFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPOSITIONFLAGSENUM {
@@ -3486,6 +3741,11 @@ impl ::core::marker::Copy for DBPROMPTOPTIONSENUM {}
 impl ::core::clone::Clone for DBPROMPTOPTIONSENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROMPTOPTIONSENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROMPTOPTIONSENUM {
@@ -3907,6 +4167,11 @@ impl ::core::clone::Clone for DBPROPENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPROPENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPENUM {
     type Abi = Self;
 }
@@ -3955,6 +4220,11 @@ impl ::core::marker::Copy for DBPROPENUM15 {}
 impl ::core::clone::Clone for DBPROPENUM15 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPENUM15 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPENUM15 {
@@ -4061,6 +4331,11 @@ impl ::core::clone::Clone for DBPROPENUM20 {
         *self
     }
 }
+impl ::core::default::Default for DBPROPENUM20 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPENUM20 {
     type Abi = Self;
 }
@@ -4121,6 +4396,11 @@ impl ::core::clone::Clone for DBPROPENUM21 {
         *self
     }
 }
+impl ::core::default::Default for DBPROPENUM21 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPENUM21 {
     type Abi = Self;
 }
@@ -4145,6 +4425,11 @@ impl ::core::marker::Copy for DBPROPENUM25 {}
 impl ::core::clone::Clone for DBPROPENUM25 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPENUM25 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPENUM25 {
@@ -4197,6 +4482,11 @@ impl ::core::clone::Clone for DBPROPENUM25_DEPRECATED {
         *self
     }
 }
+impl ::core::default::Default for DBPROPENUM25_DEPRECATED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPENUM25_DEPRECATED {
     type Abi = Self;
 }
@@ -4225,6 +4515,11 @@ impl ::core::marker::Copy for DBPROPENUM26 {}
 impl ::core::clone::Clone for DBPROPENUM26 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPENUM26 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPENUM26 {
@@ -4273,6 +4568,11 @@ impl ::core::clone::Clone for DBPROPFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPROPFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM {
     type Abi = Self;
 }
@@ -4291,6 +4591,11 @@ impl ::core::marker::Copy for DBPROPFLAGSENUM21 {}
 impl ::core::clone::Clone for DBPROPFLAGSENUM21 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPFLAGSENUM21 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM21 {
@@ -4313,6 +4618,11 @@ impl ::core::clone::Clone for DBPROPFLAGSENUM25 {
         *self
     }
 }
+impl ::core::default::Default for DBPROPFLAGSENUM25 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM25 {
     type Abi = Self;
 }
@@ -4331,6 +4641,11 @@ impl ::core::marker::Copy for DBPROPFLAGSENUM26 {}
 impl ::core::clone::Clone for DBPROPFLAGSENUM26 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPFLAGSENUM26 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM26 {
@@ -4601,6 +4916,11 @@ impl ::core::clone::Clone for DBPROPOPTIONSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPROPOPTIONSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPOPTIONSENUM {
     type Abi = Self;
 }
@@ -4743,6 +5063,11 @@ impl ::core::clone::Clone for DBPROPSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBPROPSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBPROPSTATUSENUM {
     type Abi = Self;
 }
@@ -4761,6 +5086,11 @@ impl ::core::marker::Copy for DBPROPSTATUSENUM21 {}
 impl ::core::clone::Clone for DBPROPSTATUSENUM21 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBPROPSTATUSENUM21 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBPROPSTATUSENUM21 {
@@ -5185,6 +5515,11 @@ impl ::core::clone::Clone for DBRANGEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBRANGEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBRANGEENUM {
     type Abi = Self;
 }
@@ -5205,6 +5540,11 @@ impl ::core::marker::Copy for DBRANGEENUM20 {}
 impl ::core::clone::Clone for DBRANGEENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBRANGEENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBRANGEENUM20 {
@@ -5255,6 +5595,11 @@ impl ::core::clone::Clone for DBREASONENUM {
         *self
     }
 }
+impl ::core::default::Default for DBREASONENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBREASONENUM {
     type Abi = Self;
 }
@@ -5281,6 +5626,11 @@ impl ::core::clone::Clone for DBREASONENUM15 {
         *self
     }
 }
+impl ::core::default::Default for DBREASONENUM15 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBREASONENUM15 {
     type Abi = Self;
 }
@@ -5303,6 +5653,11 @@ impl ::core::marker::Copy for DBREASONENUM25 {}
 impl ::core::clone::Clone for DBREASONENUM25 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBREASONENUM25 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBREASONENUM25 {
@@ -5341,6 +5696,11 @@ impl ::core::clone::Clone for DBRESOURCEKINDENUM {
         *self
     }
 }
+impl ::core::default::Default for DBRESOURCEKINDENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBRESOURCEKINDENUM {
     type Abi = Self;
 }
@@ -5363,6 +5723,11 @@ impl ::core::marker::Copy for DBRESULTFLAGENUM {}
 impl ::core::clone::Clone for DBRESULTFLAGENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBRESULTFLAGENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBRESULTFLAGENUM {
@@ -5389,6 +5754,11 @@ impl ::core::marker::Copy for DBROWCHANGEKINDENUM {}
 impl ::core::clone::Clone for DBROWCHANGEKINDENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBROWCHANGEKINDENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBROWCHANGEKINDENUM {
@@ -5445,6 +5815,11 @@ impl ::core::clone::Clone for DBROWSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBROWSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBROWSTATUSENUM {
     type Abi = Self;
 }
@@ -5463,6 +5838,11 @@ impl ::core::marker::Copy for DBROWSTATUSENUM20 {}
 impl ::core::clone::Clone for DBROWSTATUSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBROWSTATUSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBROWSTATUSENUM20 {
@@ -5498,6 +5878,11 @@ impl ::core::clone::Clone for DBSEEKENUM {
         *self
     }
 }
+impl ::core::default::Default for DBSEEKENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSEEKENUM {
     type Abi = Self;
 }
@@ -5518,6 +5903,11 @@ impl ::core::marker::Copy for DBSORTENUM {}
 impl ::core::clone::Clone for DBSORTENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBSORTENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBSORTENUM {
@@ -5542,6 +5932,11 @@ impl ::core::clone::Clone for DBSOURCETYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBSOURCETYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM {
     type Abi = Self;
 }
@@ -5564,6 +5959,11 @@ impl ::core::clone::Clone for DBSOURCETYPEENUM20 {
         *self
     }
 }
+impl ::core::default::Default for DBSOURCETYPEENUM20 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM20 {
     type Abi = Self;
 }
@@ -5582,6 +5982,11 @@ impl ::core::marker::Copy for DBSOURCETYPEENUM25 {}
 impl ::core::clone::Clone for DBSOURCETYPEENUM25 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBSOURCETYPEENUM25 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM25 {
@@ -5630,6 +6035,11 @@ impl ::core::clone::Clone for DBSTATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for DBSTATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSTATUSENUM {
     type Abi = Self;
 }
@@ -5650,6 +6060,11 @@ impl ::core::marker::Copy for DBSTATUSENUM20 {}
 impl ::core::clone::Clone for DBSTATUSENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBSTATUSENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBSTATUSENUM20 {
@@ -5692,6 +6107,11 @@ impl ::core::clone::Clone for DBSTATUSENUM21 {
         *self
     }
 }
+impl ::core::default::Default for DBSTATUSENUM21 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSTATUSENUM21 {
     type Abi = Self;
 }
@@ -5714,6 +6134,11 @@ impl ::core::clone::Clone for DBSTATUSENUM25 {
         *self
     }
 }
+impl ::core::default::Default for DBSTATUSENUM25 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBSTATUSENUM25 {
     type Abi = Self;
 }
@@ -5732,6 +6157,11 @@ impl ::core::marker::Copy for DBSTATUSENUM26 {}
 impl ::core::clone::Clone for DBSTATUSENUM26 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBSTATUSENUM26 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBSTATUSENUM26 {
@@ -5756,6 +6186,11 @@ impl ::core::marker::Copy for DBTABLESTATISTICSTYPE26 {}
 impl ::core::clone::Clone for DBTABLESTATISTICSTYPE26 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBTABLESTATISTICSTYPE26 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBTABLESTATISTICSTYPE26 {
@@ -5958,6 +6393,11 @@ impl ::core::clone::Clone for DBTYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBTYPEENUM {
     type Abi = Self;
 }
@@ -5976,6 +6416,11 @@ impl ::core::marker::Copy for DBTYPEENUM15 {}
 impl ::core::clone::Clone for DBTYPEENUM15 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBTYPEENUM15 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBTYPEENUM15 {
@@ -6000,6 +6445,11 @@ impl ::core::marker::Copy for DBTYPEENUM20 {}
 impl ::core::clone::Clone for DBTYPEENUM20 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBTYPEENUM20 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBTYPEENUM20 {
@@ -6028,6 +6478,11 @@ impl ::core::marker::Copy for DBUPDELRULEENUM {}
 impl ::core::clone::Clone for DBUPDELRULEENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBUPDELRULEENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBUPDELRULEENUM {
@@ -6128,6 +6583,11 @@ impl ::core::clone::Clone for DBWATCHMODEENUM {
         *self
     }
 }
+impl ::core::default::Default for DBWATCHMODEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBWATCHMODEENUM {
     type Abi = Self;
 }
@@ -6150,6 +6610,11 @@ impl ::core::marker::Copy for DBWATCHNOTIFYENUM {}
 impl ::core::clone::Clone for DBWATCHNOTIFYENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DBWATCHNOTIFYENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DBWATCHNOTIFYENUM {
@@ -6685,6 +7150,11 @@ impl ::core::clone::Clone for DCINFOTYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for DCINFOTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DCINFOTYPEENUM {
     type Abi = Self;
 }
@@ -6707,6 +7177,11 @@ impl ::core::marker::Copy for DELIVERY_AGENT_FLAGS {}
 impl ::core::clone::Clone for DELIVERY_AGENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DELIVERY_AGENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DELIVERY_AGENT_FLAGS {
@@ -7083,6 +7558,11 @@ impl ::core::marker::Copy for EBindInfoOptions {}
 impl ::core::clone::Clone for EBindInfoOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EBindInfoOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EBindInfoOptions {
@@ -7676,6 +8156,11 @@ impl ::core::marker::Copy for FOLLOW_FLAGS {}
 impl ::core::clone::Clone for FOLLOW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FOLLOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FOLLOW_FLAGS {
@@ -13306,6 +13791,11 @@ impl ::core::marker::Copy for INTERVAL_LIMIT_KIND {}
 impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERVAL_LIMIT_KIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERVAL_LIMIT_KIND {
@@ -23113,6 +23603,11 @@ impl ::core::clone::Clone for KAGREQDIAGFLAGSENUM {
         *self
     }
 }
+impl ::core::default::Default for KAGREQDIAGFLAGSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KAGREQDIAGFLAGSENUM {
     type Abi = Self;
 }
@@ -23135,6 +23630,11 @@ impl ::core::marker::Copy for LOCKMODEENUM {}
 impl ::core::clone::Clone for LOCKMODEENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LOCKMODEENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LOCKMODEENUM {
@@ -23572,6 +24072,11 @@ impl ::core::clone::Clone for MSDSDBINITPROPENUM {
         *self
     }
 }
+impl ::core::default::Default for MSDSDBINITPROPENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSDSDBINITPROPENUM {
     type Abi = Self;
 }
@@ -23590,6 +24095,11 @@ impl ::core::marker::Copy for MSDSSESSIONPROPENUM {}
 impl ::core::clone::Clone for MSDSSESSIONPROPENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSDSSESSIONPROPENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSDSSESSIONPROPENUM {
@@ -23656,6 +24166,11 @@ impl ::core::marker::Copy for NAMED_ENTITY_CERTAINTY {}
 impl ::core::clone::Clone for NAMED_ENTITY_CERTAINTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NAMED_ENTITY_CERTAINTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NAMED_ENTITY_CERTAINTY {
@@ -24310,6 +24825,11 @@ impl ::core::clone::Clone for OSPCOMP {
         *self
     }
 }
+impl ::core::default::Default for OSPCOMP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OSPCOMP {
     type Abi = Self;
 }
@@ -24334,6 +24854,11 @@ impl ::core::marker::Copy for OSPFIND {}
 impl ::core::clone::Clone for OSPFIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OSPFIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OSPFIND {
@@ -24362,6 +24887,11 @@ impl ::core::clone::Clone for OSPFORMAT {
         *self
     }
 }
+impl ::core::default::Default for OSPFORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OSPFORMAT {
     type Abi = Self;
 }
@@ -24388,6 +24918,11 @@ impl ::core::clone::Clone for OSPRW {
         *self
     }
 }
+impl ::core::default::Default for OSPRW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OSPRW {
     type Abi = Self;
 }
@@ -24410,6 +24945,11 @@ impl ::core::marker::Copy for OSPXFER {}
 impl ::core::clone::Clone for OSPXFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OSPXFER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OSPXFER {
@@ -24482,6 +25022,11 @@ impl ::core::clone::Clone for PRIORITIZE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PRIORITIZE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRIORITIZE_FLAGS {
     type Abi = Self;
 }
@@ -24506,6 +25051,11 @@ impl ::core::marker::Copy for PRIORITY_LEVEL {}
 impl ::core::clone::Clone for PRIORITY_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRIORITY_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRIORITY_LEVEL {
@@ -24572,6 +25122,11 @@ impl ::core::marker::Copy for PROXY_ACCESS {}
 impl ::core::clone::Clone for PROXY_ACCESS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROXY_ACCESS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROXY_ACCESS {
@@ -24782,6 +25337,11 @@ impl ::core::marker::Copy for QUERY_PARSER_MANAGER_OPTION {}
 impl ::core::clone::Clone for QUERY_PARSER_MANAGER_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUERY_PARSER_MANAGER_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUERY_PARSER_MANAGER_OPTION {
@@ -25074,6 +25634,11 @@ impl ::core::clone::Clone for ROWSETEVENT_ITEMSTATE {
         *self
     }
 }
+impl ::core::default::Default for ROWSETEVENT_ITEMSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ROWSETEVENT_ITEMSTATE {
     type Abi = Self;
 }
@@ -25096,6 +25661,11 @@ impl ::core::marker::Copy for ROWSETEVENT_TYPE {}
 impl ::core::clone::Clone for ROWSETEVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ROWSETEVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ROWSETEVENT_TYPE {
@@ -25240,6 +25810,11 @@ impl ::core::marker::Copy for SEARCH_INDEXING_PHASE {}
 impl ::core::clone::Clone for SEARCH_INDEXING_PHASE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEARCH_INDEXING_PHASE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEARCH_INDEXING_PHASE {
@@ -25388,6 +25963,11 @@ impl ::core::clone::Clone for SEARCH_KIND_OF_CHANGE {
         *self
     }
 }
+impl ::core::default::Default for SEARCH_KIND_OF_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SEARCH_KIND_OF_CHANGE {
     type Abi = Self;
 }
@@ -25408,6 +25988,11 @@ impl ::core::marker::Copy for SEARCH_NOTIFICATION_PRIORITY {}
 impl ::core::clone::Clone for SEARCH_NOTIFICATION_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEARCH_NOTIFICATION_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEARCH_NOTIFICATION_PRIORITY {
@@ -25434,6 +26019,11 @@ impl ::core::clone::Clone for SEARCH_QUERY_SYNTAX {
         *self
     }
 }
+impl ::core::default::Default for SEARCH_QUERY_SYNTAX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SEARCH_QUERY_SYNTAX {
     type Abi = Self;
 }
@@ -25456,6 +26046,11 @@ impl ::core::marker::Copy for SEARCH_TERM_EXPANSION {}
 impl ::core::clone::Clone for SEARCH_TERM_EXPANSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEARCH_TERM_EXPANSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEARCH_TERM_EXPANSION {
@@ -27584,6 +28179,11 @@ impl ::core::clone::Clone for SQLINTERVAL {
         *self
     }
 }
+impl ::core::default::Default for SQLINTERVAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SQLINTERVAL {
     type Abi = Self;
 }
@@ -28663,6 +29263,11 @@ impl ::core::marker::Copy for SQLVARENUM {}
 impl ::core::clone::Clone for SQLVARENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SQLVARENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SQLVARENUM {
@@ -32344,6 +32949,11 @@ impl ::core::clone::Clone for STRUCTURED_QUERY_MULTIOPTION {
         *self
     }
 }
+impl ::core::default::Default for STRUCTURED_QUERY_MULTIOPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_MULTIOPTION {
     type Abi = Self;
 }
@@ -32374,6 +32984,11 @@ impl ::core::marker::Copy for STRUCTURED_QUERY_PARSE_ERROR {}
 impl ::core::clone::Clone for STRUCTURED_QUERY_PARSE_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STRUCTURED_QUERY_PARSE_ERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_PARSE_ERROR {
@@ -32414,6 +33029,11 @@ impl ::core::marker::Copy for STRUCTURED_QUERY_RESOLVE_OPTION {}
 impl ::core::clone::Clone for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_RESOLVE_OPTION {
@@ -32484,6 +33104,11 @@ impl ::core::clone::Clone for STRUCTURED_QUERY_SINGLE_OPTION {
         *self
     }
 }
+impl ::core::default::Default for STRUCTURED_QUERY_SINGLE_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_SINGLE_OPTION {
     type Abi = Self;
 }
@@ -32506,6 +33131,11 @@ impl ::core::marker::Copy for STRUCTURED_QUERY_SYNTAX {}
 impl ::core::clone::Clone for STRUCTURED_QUERY_SYNTAX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STRUCTURED_QUERY_SYNTAX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_SYNTAX {
@@ -32670,6 +33300,11 @@ impl ::core::clone::Clone for SUBSCRIPTIONINFOFLAGS {
         *self
     }
 }
+impl ::core::default::Default for SUBSCRIPTIONINFOFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SUBSCRIPTIONINFOFLAGS {
     type Abi = Self;
 }
@@ -32732,6 +33367,11 @@ impl ::core::clone::Clone for SUBSCRIPTIONSCHEDULE {
         *self
     }
 }
+impl ::core::default::Default for SUBSCRIPTIONSCHEDULE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SUBSCRIPTIONSCHEDULE {
     type Abi = Self;
 }
@@ -32758,6 +33398,11 @@ impl ::core::marker::Copy for SUBSCRIPTIONTYPE {}
 impl ::core::clone::Clone for SUBSCRIPTIONTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SUBSCRIPTIONTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SUBSCRIPTIONTYPE {
@@ -32995,6 +33640,11 @@ impl ::core::marker::Copy for WEBCRAWL_RECURSEFLAGS {}
 impl ::core::clone::Clone for WEBCRAWL_RECURSEFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WEBCRAWL_RECURSEFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WEBCRAWL_RECURSEFLAGS {

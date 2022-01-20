@@ -26,6 +26,11 @@ impl ::core::clone::Clone for DXC_CP {
         *self
     }
 }
+impl ::core::default::Default for DXC_CP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXC_CP {
     type Abi = Self;
 }
@@ -96,6 +101,11 @@ impl ::core::marker::Copy for DXC_OUT_KIND {}
 impl ::core::clone::Clone for DXC_OUT_KIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXC_OUT_KIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXC_OUT_KIND {

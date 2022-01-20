@@ -1248,6 +1248,11 @@ impl ::core::clone::Clone for UsbControlRecipient {
         *self
     }
 }
+impl ::core::default::Default for UsbControlRecipient {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UsbControlRecipient {
     type Abi = Self;
 }
@@ -1407,6 +1412,11 @@ impl ::core::marker::Copy for UsbControlTransferType {}
 impl ::core::clone::Clone for UsbControlTransferType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UsbControlTransferType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UsbControlTransferType {
@@ -2271,6 +2281,11 @@ impl ::core::marker::Copy for UsbEndpointType {}
 impl ::core::clone::Clone for UsbEndpointType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UsbEndpointType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UsbEndpointType {
@@ -3225,6 +3240,11 @@ impl ::core::clone::Clone for UsbReadOptions {
         *self
     }
 }
+impl ::core::default::Default for UsbReadOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UsbReadOptions {
     type Abi = Self;
 }
@@ -3439,6 +3459,11 @@ impl ::core::clone::Clone for UsbTransferDirection {
         *self
     }
 }
+impl ::core::default::Default for UsbTransferDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UsbTransferDirection {
     type Abi = Self;
 }
@@ -3466,6 +3491,11 @@ impl ::core::marker::Copy for UsbWriteOptions {}
 impl ::core::clone::Clone for UsbWriteOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UsbWriteOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UsbWriteOptions {

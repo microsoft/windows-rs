@@ -459,6 +459,11 @@ impl ::core::clone::Clone for VoiceCommandCompletionReason {
         *self
     }
 }
+impl ::core::default::Default for VoiceCommandCompletionReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
     type Abi = Self;
 }
@@ -758,6 +763,11 @@ impl ::core::marker::Copy for VoiceCommandContentTileType {}
 impl ::core::clone::Clone for VoiceCommandContentTileType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VoiceCommandContentTileType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {

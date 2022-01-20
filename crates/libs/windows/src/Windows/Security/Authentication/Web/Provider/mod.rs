@@ -1283,6 +1283,11 @@ impl ::core::clone::Clone for WebAccountClientViewType {
         *self
     }
 }
+impl ::core::default::Default for WebAccountClientViewType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountClientViewType {
     type Abi = Self;
 }
@@ -2138,6 +2143,11 @@ impl ::core::clone::Clone for WebAccountProviderOperationKind {
         *self
     }
 }
+impl ::core::default::Default for WebAccountProviderOperationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -2857,6 +2867,11 @@ impl ::core::clone::Clone for WebAccountScope {
         *self
     }
 }
+impl ::core::default::Default for WebAccountScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountScope {
     type Abi = Self;
 }
@@ -2883,6 +2898,11 @@ impl ::core::marker::Copy for WebAccountSelectionOptions {}
 impl ::core::clone::Clone for WebAccountSelectionOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebAccountSelectionOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {

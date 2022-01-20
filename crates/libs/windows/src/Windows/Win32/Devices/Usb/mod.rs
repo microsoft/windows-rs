@@ -638,6 +638,11 @@ impl ::core::clone::Clone for PIPE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PIPE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PIPE_TYPE {
     type Abi = Self;
 }
@@ -690,6 +695,11 @@ impl ::core::marker::Copy for RAW_PIPE_TYPE {}
 impl ::core::clone::Clone for RAW_PIPE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAW_PIPE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAW_PIPE_TYPE {
@@ -1063,6 +1073,11 @@ impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_MODE {
         *self
     }
 }
+impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_ENDPOINT_OFFLOAD_MODE {
     type Abi = Self;
 }
@@ -1218,6 +1233,11 @@ impl ::core::clone::Clone for USBD_PIPE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for USBD_PIPE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USBD_PIPE_TYPE {
     type Abi = Self;
 }
@@ -1362,6 +1382,11 @@ impl ::core::marker::Copy for USBFN_BUS_SPEED {}
 impl ::core::clone::Clone for USBFN_BUS_SPEED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USBFN_BUS_SPEED {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_BUS_SPEED {
@@ -1527,6 +1552,11 @@ impl ::core::clone::Clone for USBFN_DEVICE_STATE {
         *self
     }
 }
+impl ::core::default::Default for USBFN_DEVICE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USBFN_DEVICE_STATE {
     type Abi = Self;
 }
@@ -1555,6 +1585,11 @@ impl ::core::marker::Copy for USBFN_DIRECTION {}
 impl ::core::clone::Clone for USBFN_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USBFN_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_DIRECTION {
@@ -1599,6 +1634,11 @@ impl ::core::marker::Copy for USBFN_EVENT {}
 impl ::core::clone::Clone for USBFN_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USBFN_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_EVENT {
@@ -1747,6 +1787,11 @@ impl ::core::marker::Copy for USBFN_PORT_TYPE {}
 impl ::core::clone::Clone for USBFN_PORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USBFN_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USBFN_PORT_TYPE {
@@ -3005,6 +3050,11 @@ impl ::core::clone::Clone for USB_CONTROLLER_FLAVOR {
         *self
     }
 }
+impl ::core::default::Default for USB_CONTROLLER_FLAVOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USB_CONTROLLER_FLAVOR {
     type Abi = Self;
 }
@@ -4168,6 +4218,11 @@ impl ::core::clone::Clone for USB_DEVICE_SPEED {
         *self
     }
 }
+impl ::core::default::Default for USB_DEVICE_SPEED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USB_DEVICE_SPEED {
     type Abi = Self;
 }
@@ -4239,6 +4294,11 @@ impl ::core::marker::Copy for USB_DEVICE_TYPE {}
 impl ::core::clone::Clone for USB_DEVICE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USB_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USB_DEVICE_TYPE {
@@ -5971,6 +6031,11 @@ impl ::core::clone::Clone for USB_USER_ERROR_CODE {
         *self
     }
 }
+impl ::core::default::Default for USB_USER_ERROR_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USB_USER_ERROR_CODE {
     type Abi = Self;
 }
@@ -6013,6 +6078,11 @@ impl ::core::marker::Copy for WDMUSB_POWER_STATE {}
 impl ::core::clone::Clone for WDMUSB_POWER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDMUSB_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDMUSB_POWER_STATE {

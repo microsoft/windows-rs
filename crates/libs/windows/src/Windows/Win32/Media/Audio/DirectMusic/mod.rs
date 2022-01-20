@@ -233,6 +233,11 @@ impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
         *self
     }
 }
+impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
     type Abi = Self;
 }
@@ -255,6 +260,11 @@ impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
 impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_TYPE {
@@ -614,6 +624,11 @@ impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
 impl ::core::clone::Clone for DMUS_CLOCKTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DMUS_CLOCKTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DMUS_CLOCKTYPE {
@@ -1556,6 +1571,11 @@ impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {

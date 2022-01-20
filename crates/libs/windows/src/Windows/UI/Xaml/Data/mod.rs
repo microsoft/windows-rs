@@ -589,6 +589,11 @@ impl ::core::clone::Clone for BindingMode {
         *self
     }
 }
+impl ::core::default::Default for BindingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BindingMode {
     type Abi = Self;
 }
@@ -3248,6 +3253,11 @@ impl ::core::clone::Clone for RelativeSourceMode {
         *self
     }
 }
+impl ::core::default::Default for RelativeSourceMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RelativeSourceMode {
     type Abi = Self;
 }
@@ -3276,6 +3286,11 @@ impl ::core::marker::Copy for UpdateSourceTrigger {}
 impl ::core::clone::Clone for UpdateSourceTrigger {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UpdateSourceTrigger {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UpdateSourceTrigger {

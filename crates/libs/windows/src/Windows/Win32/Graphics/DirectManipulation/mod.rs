@@ -22,6 +22,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
     type Abi = Self;
 }
@@ -58,6 +63,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_CONFIGURATION {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_CONFIGURATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_CONFIGURATION {
     type Abi = Self;
 }
@@ -84,6 +94,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
@@ -116,6 +131,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_DRAG_DROP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_DRAG_DROP_STATUS {
     type Abi = Self;
 }
@@ -144,6 +164,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     type Abi = Self;
 }
@@ -166,6 +191,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_HITTEST_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_HITTEST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_HITTEST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_HITTEST_TYPE {
@@ -196,6 +226,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     type Abi = Self;
 }
@@ -216,6 +251,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_INPUT_MODE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_INPUT_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_INPUT_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_INPUT_MODE {
@@ -248,6 +288,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_INTERACTION_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_INTERACTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_INTERACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_INTERACTION_TYPE {
@@ -284,6 +329,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_MOTION_TYPES {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_MOTION_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_MOTION_TYPES {
     type Abi = Self;
 }
@@ -310,6 +360,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     type Abi = Self;
 }
@@ -334,6 +389,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_SNAPPOINT_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_SNAPPOINT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_SNAPPOINT_TYPE {
@@ -368,6 +428,11 @@ impl ::core::clone::Clone for DIRECTMANIPULATION_STATUS {
         *self
     }
 }
+impl ::core::default::Default for DIRECTMANIPULATION_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_STATUS {
     type Abi = Self;
 }
@@ -394,6 +459,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_VERTICALALIGNMENT {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_VERTICALALIGNMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_VERTICALALIGNMENT {
@@ -424,6 +494,11 @@ impl ::core::marker::Copy for DIRECTMANIPULATION_VIEWPORT_OPTIONS {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTMANIPULATION_VIEWPORT_OPTIONS {

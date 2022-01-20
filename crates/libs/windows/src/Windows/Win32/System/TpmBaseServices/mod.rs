@@ -49,6 +49,11 @@ impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
         *self
     }
 }
+impl ::core::default::Default for TBS_COMMAND_LOCALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
     type Abi = Self;
 }
@@ -103,6 +108,11 @@ impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
 impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TBS_COMMAND_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {

@@ -3895,6 +3895,11 @@ impl ::core::clone::Clone for PrintOptionStates {
         *self
     }
 }
+impl ::core::default::Default for PrintOptionStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintOptionStates {
     type Abi = Self;
 }
@@ -3952,6 +3957,11 @@ impl ::core::marker::Copy for PrintOptionType {}
 impl ::core::clone::Clone for PrintOptionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintOptionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintOptionType {

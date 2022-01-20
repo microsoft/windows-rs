@@ -2712,6 +2712,11 @@ impl ::core::clone::Clone for UI_ANIMATION_DEPENDENCIES {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_DEPENDENCIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_DEPENDENCIES {
     type Abi = Self;
 }
@@ -2760,6 +2765,11 @@ impl ::core::marker::Copy for UI_ANIMATION_IDLE_BEHAVIOR {}
 impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_IDLE_BEHAVIOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_IDLE_BEHAVIOR {
@@ -2818,6 +2828,11 @@ impl ::core::clone::Clone for UI_ANIMATION_MANAGER_STATUS {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_MANAGER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_MANAGER_STATUS {
     type Abi = Self;
 }
@@ -2842,6 +2857,11 @@ impl ::core::clone::Clone for UI_ANIMATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_MODE {
     type Abi = Self;
 }
@@ -2862,6 +2882,11 @@ impl ::core::marker::Copy for UI_ANIMATION_PRIORITY_EFFECT {}
 impl ::core::clone::Clone for UI_ANIMATION_PRIORITY_EFFECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_PRIORITY_EFFECT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_PRIORITY_EFFECT {
@@ -2892,6 +2917,11 @@ impl ::core::clone::Clone for UI_ANIMATION_REPEAT_MODE {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_REPEAT_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_REPEAT_MODE {
     type Abi = Self;
 }
@@ -2914,6 +2944,11 @@ impl ::core::marker::Copy for UI_ANIMATION_ROUNDING_MODE {}
 impl ::core::clone::Clone for UI_ANIMATION_ROUNDING_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_ROUNDING_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_ROUNDING_MODE {
@@ -2944,6 +2979,11 @@ impl ::core::clone::Clone for UI_ANIMATION_SCHEDULING_RESULT {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_SCHEDULING_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_SCHEDULING_RESULT {
     type Abi = Self;
 }
@@ -2968,6 +3008,11 @@ impl ::core::marker::Copy for UI_ANIMATION_SLOPE {}
 impl ::core::clone::Clone for UI_ANIMATION_SLOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_SLOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_SLOPE {
@@ -3004,6 +3049,11 @@ impl ::core::clone::Clone for UI_ANIMATION_STORYBOARD_STATUS {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_STORYBOARD_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_STORYBOARD_STATUS {
     type Abi = Self;
 }
@@ -3026,6 +3076,11 @@ impl ::core::clone::Clone for UI_ANIMATION_TIMER_CLIENT_STATUS {
         *self
     }
 }
+impl ::core::default::Default for UI_ANIMATION_TIMER_CLIENT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type Abi = Self;
 }
@@ -3046,6 +3101,11 @@ impl ::core::marker::Copy for UI_ANIMATION_UPDATE_RESULT {}
 impl ::core::clone::Clone for UI_ANIMATION_UPDATE_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_UPDATE_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_UPDATE_RESULT {

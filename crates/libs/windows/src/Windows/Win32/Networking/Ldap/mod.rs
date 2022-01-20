@@ -609,6 +609,11 @@ impl ::core::clone::Clone for LDAP_RETCODE {
         *self
     }
 }
+impl ::core::default::Default for LDAP_RETCODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LDAP_RETCODE {
     type Abi = Self;
 }

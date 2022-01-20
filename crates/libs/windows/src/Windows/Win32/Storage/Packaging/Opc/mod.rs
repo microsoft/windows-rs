@@ -3182,6 +3182,11 @@ impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
         *self
     }
 }
+impl ::core::default::Default for OPC_CANONICALIZATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_CANONICALIZATION_METHOD {
     type Abi = Self;
 }
@@ -3204,6 +3209,11 @@ impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
 impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPC_CERTIFICATE_EMBEDDING_OPTION {
@@ -3232,6 +3242,11 @@ impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
 impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPC_COMPRESSION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPC_COMPRESSION_OPTIONS {
@@ -3462,6 +3477,11 @@ impl ::core::clone::Clone for OPC_READ_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for OPC_READ_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_READ_FLAGS {
     type Abi = Self;
 }
@@ -3512,6 +3532,11 @@ impl ::core::clone::Clone for OPC_RELATIONSHIPS_SIGNING_OPTION {
         *self
     }
 }
+impl ::core::default::Default for OPC_RELATIONSHIPS_SIGNING_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_RELATIONSHIPS_SIGNING_OPTION {
     type Abi = Self;
 }
@@ -3532,6 +3557,11 @@ impl ::core::marker::Copy for OPC_RELATIONSHIP_SELECTOR {}
 impl ::core::clone::Clone for OPC_RELATIONSHIP_SELECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPC_RELATIONSHIP_SELECTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPC_RELATIONSHIP_SELECTOR {
@@ -3564,6 +3594,11 @@ impl ::core::clone::Clone for OPC_SIGNATURE_TIME_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for OPC_SIGNATURE_TIME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_SIGNATURE_TIME_FORMAT {
     type Abi = Self;
 }
@@ -3584,6 +3619,11 @@ impl ::core::marker::Copy for OPC_SIGNATURE_VALIDATION_RESULT {}
 impl ::core::clone::Clone for OPC_SIGNATURE_VALIDATION_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPC_SIGNATURE_VALIDATION_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPC_SIGNATURE_VALIDATION_RESULT {
@@ -3608,6 +3648,11 @@ impl ::core::clone::Clone for OPC_STREAM_IO_MODE {
         *self
     }
 }
+impl ::core::default::Default for OPC_STREAM_IO_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_STREAM_IO_MODE {
     type Abi = Self;
 }
@@ -3630,6 +3675,11 @@ impl ::core::clone::Clone for OPC_URI_TARGET_MODE {
         *self
     }
 }
+impl ::core::default::Default for OPC_URI_TARGET_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPC_URI_TARGET_MODE {
     type Abi = Self;
 }
@@ -3650,6 +3700,11 @@ impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
 impl ::core::clone::Clone for OPC_WRITE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPC_WRITE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPC_WRITE_FLAGS {

@@ -25,6 +25,11 @@ impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Abi = Self;
 }
@@ -205,6 +210,11 @@ impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
 impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
@@ -552,6 +562,11 @@ impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
         *self
     }
 }
+impl ::core::default::Default for HOT_KEY_MODIFIERS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HOT_KEY_MODIFIERS {
     type Abi = Self;
 }
@@ -655,6 +670,11 @@ impl ::core::marker::Copy for INPUT_TYPE {}
 impl ::core::clone::Clone for INPUT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INPUT_TYPE {
@@ -919,6 +939,11 @@ impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
 impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KEYBD_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
@@ -1354,6 +1379,11 @@ impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MOUSE_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSE_EVENT_FLAGS {
     type Abi = Self;
 }
@@ -1727,6 +1757,11 @@ impl ::core::marker::Copy for TRACKMOUSEEVENT_FLAGS {}
 impl ::core::clone::Clone for TRACKMOUSEEVENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRACKMOUSEEVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT_FLAGS {
@@ -2339,6 +2374,11 @@ impl ::core::marker::Copy for VIRTUAL_KEY {}
 impl ::core::clone::Clone for VIRTUAL_KEY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_KEY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_KEY {

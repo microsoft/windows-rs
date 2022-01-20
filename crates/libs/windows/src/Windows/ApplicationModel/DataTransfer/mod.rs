@@ -540,6 +540,11 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
         *self
     }
 }
+impl ::core::default::Default for ClipboardHistoryItemsResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
 }
@@ -807,6 +812,11 @@ impl ::core::marker::Copy for DataPackageOperation {}
 impl ::core::clone::Clone for DataPackageOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DataPackageOperation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DataPackageOperation {
@@ -3578,6 +3588,11 @@ impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
         *self
     }
 }
+impl ::core::default::Default for SetHistoryItemAsContentStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
 }
@@ -4279,6 +4294,11 @@ impl ::core::marker::Copy for ShareUITheme {}
 impl ::core::clone::Clone for ShareUITheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ShareUITheme {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ShareUITheme {

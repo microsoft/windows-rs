@@ -230,6 +230,11 @@ impl ::core::clone::Clone for EVT_CHANNEL_CLOCK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EVT_CHANNEL_CLOCK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_CLOCK_TYPE {
     type Abi = Self;
 }
@@ -292,6 +297,11 @@ impl ::core::clone::Clone for EVT_CHANNEL_CONFIG_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for EVT_CHANNEL_CONFIG_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     type Abi = Self;
 }
@@ -316,6 +326,11 @@ impl ::core::clone::Clone for EVT_CHANNEL_ISOLATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EVT_CHANNEL_ISOLATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_ISOLATION_TYPE {
     type Abi = Self;
 }
@@ -334,6 +349,11 @@ impl ::core::marker::Copy for EVT_CHANNEL_REFERENCE_FLAGS {}
 impl ::core::clone::Clone for EVT_CHANNEL_REFERENCE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_CHANNEL_REFERENCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_REFERENCE_FLAGS {
@@ -356,6 +376,11 @@ impl ::core::marker::Copy for EVT_CHANNEL_SID_TYPE {}
 impl ::core::clone::Clone for EVT_CHANNEL_SID_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_CHANNEL_SID_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_SID_TYPE {
@@ -382,6 +407,11 @@ impl ::core::marker::Copy for EVT_CHANNEL_TYPE {}
 impl ::core::clone::Clone for EVT_CHANNEL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_CHANNEL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_CHANNEL_TYPE {
@@ -424,6 +454,11 @@ impl ::core::clone::Clone for EVT_EVENT_METADATA_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for EVT_EVENT_METADATA_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_EVENT_METADATA_PROPERTY_ID {
     type Abi = Self;
 }
@@ -446,6 +481,11 @@ impl ::core::marker::Copy for EVT_EVENT_PROPERTY_ID {}
 impl ::core::clone::Clone for EVT_EVENT_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_EVENT_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_EVENT_PROPERTY_ID {
@@ -472,6 +512,11 @@ impl ::core::marker::Copy for EVT_EXPORTLOG_FLAGS {}
 impl ::core::clone::Clone for EVT_EXPORTLOG_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_EXPORTLOG_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_EXPORTLOG_FLAGS {
@@ -510,6 +555,11 @@ impl ::core::clone::Clone for EVT_FORMAT_MESSAGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EVT_FORMAT_MESSAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_FORMAT_MESSAGE_FLAGS {
     type Abi = Self;
 }
@@ -528,6 +578,11 @@ impl ::core::marker::Copy for EVT_LOGIN_CLASS {}
 impl ::core::clone::Clone for EVT_LOGIN_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_LOGIN_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_LOGIN_CLASS {
@@ -564,6 +619,11 @@ impl ::core::clone::Clone for EVT_LOG_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for EVT_LOG_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_LOG_PROPERTY_ID {
     type Abi = Self;
 }
@@ -584,6 +644,11 @@ impl ::core::marker::Copy for EVT_OPEN_LOG_FLAGS {}
 impl ::core::clone::Clone for EVT_OPEN_LOG_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_OPEN_LOG_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_OPEN_LOG_FLAGS {
@@ -664,6 +729,11 @@ impl ::core::clone::Clone for EVT_PUBLISHER_METADATA_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for EVT_PUBLISHER_METADATA_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     type Abi = Self;
 }
@@ -692,6 +762,11 @@ impl ::core::clone::Clone for EVT_QUERY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EVT_QUERY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_QUERY_FLAGS {
     type Abi = Self;
 }
@@ -714,6 +789,11 @@ impl ::core::marker::Copy for EVT_QUERY_PROPERTY_ID {}
 impl ::core::clone::Clone for EVT_QUERY_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_QUERY_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_QUERY_PROPERTY_ID {
@@ -742,6 +822,11 @@ impl ::core::clone::Clone for EVT_RENDER_CONTEXT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EVT_RENDER_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_RENDER_CONTEXT_FLAGS {
     type Abi = Self;
 }
@@ -764,6 +849,11 @@ impl ::core::marker::Copy for EVT_RENDER_FLAGS {}
 impl ::core::clone::Clone for EVT_RENDER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_RENDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_RENDER_FLAGS {
@@ -834,6 +924,11 @@ impl ::core::clone::Clone for EVT_RPC_LOGIN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EVT_RPC_LOGIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_RPC_LOGIN_FLAGS {
     type Abi = Self;
 }
@@ -862,6 +957,11 @@ impl ::core::marker::Copy for EVT_SEEK_FLAGS {}
 impl ::core::clone::Clone for EVT_SEEK_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_SEEK_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_SEEK_FLAGS {
@@ -896,6 +996,11 @@ impl ::core::clone::Clone for EVT_SUBSCRIBE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EVT_SUBSCRIBE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVT_SUBSCRIBE_FLAGS {
     type Abi = Self;
 }
@@ -916,6 +1021,11 @@ impl ::core::marker::Copy for EVT_SUBSCRIBE_NOTIFY_ACTION {}
 impl ::core::clone::Clone for EVT_SUBSCRIBE_NOTIFY_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_SUBSCRIBE_NOTIFY_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_SUBSCRIBE_NOTIFY_ACTION {
@@ -972,6 +1082,11 @@ impl ::core::marker::Copy for EVT_SYSTEM_PROPERTY_ID {}
 impl ::core::clone::Clone for EVT_SYSTEM_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_SYSTEM_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_SYSTEM_PROPERTY_ID {
@@ -1143,6 +1258,11 @@ impl ::core::marker::Copy for EVT_VARIANT_TYPE {}
 impl ::core::clone::Clone for EVT_VARIANT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVT_VARIANT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVT_VARIANT_TYPE {
@@ -1881,6 +2001,11 @@ impl ::core::clone::Clone for READ_EVENT_LOG_READ_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for READ_EVENT_LOG_READ_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for READ_EVENT_LOG_READ_FLAGS {
     type Abi = Self;
 }
@@ -1937,6 +2062,11 @@ impl ::core::marker::Copy for REPORT_EVENT_TYPE {}
 impl ::core::clone::Clone for REPORT_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REPORT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REPORT_EVENT_TYPE {

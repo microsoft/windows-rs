@@ -405,6 +405,11 @@ impl ::core::clone::Clone for WCN_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCN_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -453,6 +458,11 @@ impl ::core::clone::Clone for WCN_PASSWORD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCN_PASSWORD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_PASSWORD_TYPE {
     type Abi = Self;
 }
@@ -475,6 +485,11 @@ impl ::core::marker::Copy for WCN_SESSION_STATUS {}
 impl ::core::clone::Clone for WCN_SESSION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_SESSION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_SESSION_STATUS {
@@ -649,6 +664,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_ASSOCIATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_ASSOCIATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type Abi = Self;
 }
@@ -681,6 +701,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type Abi = Self;
 }
@@ -701,6 +726,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_BOOLEAN {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_BOOLEAN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_BOOLEAN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_BOOLEAN {
@@ -759,6 +789,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type Abi = Self;
 }
@@ -803,6 +838,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIG_METHODS {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_CONFIG_METHODS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
     type Abi = Self;
 }
@@ -823,6 +863,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_CONNECTION_TYPE {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_CONNECTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_CONNECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
@@ -863,6 +908,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type Abi = Self;
 }
@@ -889,6 +939,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_ENCRYPTION_TYPE {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
@@ -937,6 +992,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_MESSAGE_TYPE {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_MESSAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
@@ -992,6 +1052,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -1018,6 +1083,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_RESPONSE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_RESPONSE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type Abi = Self;
 }
@@ -1038,6 +1108,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_RF_BANDS {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_RF_BANDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_RF_BANDS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RF_BANDS {
@@ -1062,6 +1137,11 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_VERSION {
         *self
     }
 }
+impl ::core::default::Default for WCN_VALUE_TYPE_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_VERSION {
     type Abi = Self;
 }
@@ -1084,6 +1164,11 @@ impl ::core::marker::Copy for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {}
 impl ::core::clone::Clone for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {

@@ -65,6 +65,11 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
         *self
     }
 }
+impl ::core::default::Default for GameChatMessageOrigin {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameChatMessageOrigin {
     type Abi = Self;
 }
@@ -414,6 +419,11 @@ impl ::core::marker::Copy for GameChatOverlayPosition {}
 impl ::core::clone::Clone for GameChatOverlayPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameChatOverlayPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameChatOverlayPosition {

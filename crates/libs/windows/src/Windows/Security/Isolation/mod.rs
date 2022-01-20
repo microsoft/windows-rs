@@ -813,6 +813,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentActivator {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
     type Abi = Self;
 }
@@ -840,6 +845,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentAllowedClipboardFormats 
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
@@ -901,6 +911,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
     type Abi = Self;
 }
@@ -956,6 +971,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentClipboardCopyPasteDirect
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
@@ -1149,6 +1169,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentCreateStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
     type Abi = Self;
 }
@@ -1317,6 +1342,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentHostError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
     type Abi = Self;
 }
@@ -1444,6 +1474,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentLaunchFileStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
@@ -1910,6 +1945,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus 
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type Abi = Self;
 }
@@ -2026,6 +2066,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentPostMessageStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
@@ -2165,6 +2210,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentProcessState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
     type Abi = Self;
 }
@@ -2192,6 +2242,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentProgressState {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentProgressState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
@@ -2416,6 +2471,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentShareFileStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
     type Abi = Self;
 }
@@ -2629,6 +2689,11 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
         *self
     }
 }
+impl ::core::default::Default for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
     type Abi = Self;
 }
@@ -2755,6 +2820,11 @@ impl ::core::marker::Copy for IsolatedWindowsEnvironmentStartProcessStatus {}
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {

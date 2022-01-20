@@ -491,6 +491,11 @@ impl ::core::clone::Clone for TPMVSCMGR_ERROR {
         *self
     }
 }
+impl ::core::default::Default for TPMVSCMGR_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TPMVSCMGR_ERROR {
     type Abi = Self;
 }
@@ -537,6 +542,11 @@ impl ::core::clone::Clone for TPMVSCMGR_STATUS {
         *self
     }
 }
+impl ::core::default::Default for TPMVSCMGR_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TPMVSCMGR_STATUS {
     type Abi = Self;
 }
@@ -559,6 +569,11 @@ impl ::core::marker::Copy for TPMVSC_ATTESTATION_TYPE {}
 impl ::core::clone::Clone for TPMVSC_ATTESTATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TPMVSC_ATTESTATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TPMVSC_ATTESTATION_TYPE {

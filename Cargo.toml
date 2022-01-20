@@ -6,8 +6,7 @@ members = [
     "crates/tests/*",
     "crates/tools/*",
 ]
-# TODO: fix once enums are typed again
 exclude = [
     "crates/tests/win32",
-    "crates/tests/winrt",
+    #"crates/tests/winrt",
 ]

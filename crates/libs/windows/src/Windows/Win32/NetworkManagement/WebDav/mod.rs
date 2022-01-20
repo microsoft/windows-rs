@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AUTHNEXTSTEP {
         *self
     }
 }
+impl ::core::default::Default for AUTHNEXTSTEP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
     type Abi = Self;
 }

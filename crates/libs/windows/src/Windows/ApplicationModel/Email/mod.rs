@@ -245,6 +245,11 @@ impl ::core::clone::Clone for EmailAttachmentDownloadState {
         *self
     }
 }
+impl ::core::default::Default for EmailAttachmentDownloadState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailAttachmentDownloadState {
     type Abi = Self;
 }
@@ -272,6 +277,11 @@ impl ::core::marker::Copy for EmailBatchStatus {}
 impl ::core::clone::Clone for EmailBatchStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailBatchStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailBatchStatus {
@@ -309,6 +319,11 @@ impl ::core::marker::Copy for EmailCertificateValidationStatus {}
 impl ::core::clone::Clone for EmailCertificateValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailCertificateValidationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailCertificateValidationStatus {
@@ -709,6 +724,11 @@ impl ::core::clone::Clone for EmailFlagState {
         *self
     }
 }
+impl ::core::default::Default for EmailFlagState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailFlagState {
     type Abi = Self;
 }
@@ -1008,6 +1028,11 @@ impl ::core::marker::Copy for EmailImportance {}
 impl ::core::clone::Clone for EmailImportance {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailImportance {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailImportance {
@@ -2196,6 +2221,11 @@ impl ::core::clone::Clone for EmailMailboxActionKind {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxActionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxActionKind {
     type Abi = Self;
 }
@@ -2223,6 +2253,11 @@ impl ::core::marker::Copy for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
 impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
@@ -2350,6 +2385,11 @@ impl ::core::marker::Copy for EmailMailboxAutoReplyMessageResponseKind {}
 impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxAutoReplyMessageResponseKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxAutoReplyMessageResponseKind {
@@ -3097,6 +3137,11 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxChangeType {
     type Abi = Self;
 }
@@ -3378,6 +3423,11 @@ impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxCreateFolderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxCreateFolderStatus {
     type Abi = Self;
 }
@@ -3408,6 +3458,11 @@ impl ::core::marker::Copy for EmailMailboxDeleteFolderStatus {}
 impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxDeleteFolderStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxDeleteFolderStatus {
@@ -3442,6 +3497,11 @@ impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxEmptyFolderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxEmptyFolderStatus {
     type Abi = Self;
 }
@@ -3471,6 +3531,11 @@ impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppReadAccess {
     type Abi = Self;
 }
@@ -3497,6 +3562,11 @@ impl ::core::marker::Copy for EmailMailboxOtherAppWriteAccess {}
 impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxOtherAppWriteAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppWriteAccess {
@@ -3686,6 +3756,11 @@ impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for EmailMailboxSmimeEncryptionAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeEncryptionAlgorithm {
     type Abi = Self;
 }
@@ -3713,6 +3788,11 @@ impl ::core::marker::Copy for EmailMailboxSmimeSigningAlgorithm {}
 impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxSmimeSigningAlgorithm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeSigningAlgorithm {
@@ -3886,6 +3966,11 @@ impl ::core::marker::Copy for EmailMailboxSyncStatus {}
 impl ::core::clone::Clone for EmailMailboxSyncStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMailboxSyncStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMailboxSyncStatus {
@@ -4332,6 +4417,11 @@ impl ::core::marker::Copy for EmailMeetingResponseType {}
 impl ::core::clone::Clone for EmailMeetingResponseType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMeetingResponseType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMeetingResponseType {
@@ -4957,6 +5047,11 @@ impl ::core::clone::Clone for EmailMessageBodyKind {
         *self
     }
 }
+impl ::core::default::Default for EmailMessageBodyKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMessageBodyKind {
     type Abi = Self;
 }
@@ -4985,6 +5080,11 @@ impl ::core::marker::Copy for EmailMessageDownloadState {}
 impl ::core::clone::Clone for EmailMessageDownloadState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMessageDownloadState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMessageDownloadState {
@@ -5099,6 +5199,11 @@ impl ::core::clone::Clone for EmailMessageResponseKind {
         *self
     }
 }
+impl ::core::default::Default for EmailMessageResponseKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailMessageResponseKind {
     type Abi = Self;
 }
@@ -5127,6 +5232,11 @@ impl ::core::marker::Copy for EmailMessageSmimeKind {}
 impl ::core::clone::Clone for EmailMessageSmimeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailMessageSmimeKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailMessageSmimeKind {
@@ -5159,6 +5269,11 @@ impl ::core::marker::Copy for EmailQueryKind {}
 impl ::core::clone::Clone for EmailQueryKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailQueryKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailQueryKind {
@@ -5348,6 +5463,11 @@ impl ::core::clone::Clone for EmailQuerySearchFields {
         *self
     }
 }
+impl ::core::default::Default for EmailQuerySearchFields {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailQuerySearchFields {
     type Abi = Self;
 }
@@ -5404,6 +5524,11 @@ impl ::core::clone::Clone for EmailQuerySearchScope {
         *self
     }
 }
+impl ::core::default::Default for EmailQuerySearchScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailQuerySearchScope {
     type Abi = Self;
 }
@@ -5432,6 +5557,11 @@ impl ::core::clone::Clone for EmailQuerySortDirection {
         *self
     }
 }
+impl ::core::default::Default for EmailQuerySortDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailQuerySortDirection {
     type Abi = Self;
 }
@@ -5457,6 +5587,11 @@ impl ::core::marker::Copy for EmailQuerySortProperty {}
 impl ::core::clone::Clone for EmailQuerySortProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailQuerySortProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailQuerySortProperty {
@@ -5838,6 +5973,11 @@ impl ::core::clone::Clone for EmailRecipientResolutionStatus {
         *self
     }
 }
+impl ::core::default::Default for EmailRecipientResolutionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmailRecipientResolutionStatus {
     type Abi = Self;
 }
@@ -5869,6 +6009,11 @@ impl ::core::marker::Copy for EmailSpecialFolderKind {}
 impl ::core::clone::Clone for EmailSpecialFolderKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailSpecialFolderKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailSpecialFolderKind {
@@ -6065,6 +6210,11 @@ impl ::core::marker::Copy for EmailStoreAccessType {}
 impl ::core::clone::Clone for EmailStoreAccessType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EmailStoreAccessType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EmailStoreAccessType {

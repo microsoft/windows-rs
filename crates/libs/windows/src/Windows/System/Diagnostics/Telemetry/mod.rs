@@ -270,6 +270,11 @@ impl ::core::clone::Clone for PlatformTelemetryRegistrationStatus {
         *self
     }
 }
+impl ::core::default::Default for PlatformTelemetryRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformTelemetryRegistrationStatus {
     type Abi = Self;
 }

@@ -1025,6 +1025,11 @@ impl ::core::clone::Clone for SCF_BUTTON_IDS {
         *self
     }
 }
+impl ::core::default::Default for SCF_BUTTON_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCF_BUTTON_IDS {
     type Abi = Self;
 }
@@ -1112,6 +1117,11 @@ impl ::core::marker::Copy for SCF_EVENT_IDS {}
 impl ::core::clone::Clone for SCF_EVENT_IDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCF_EVENT_IDS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
@@ -1244,6 +1254,11 @@ impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
     type Abi = Self;
 }
@@ -1272,6 +1287,11 @@ impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
 impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {

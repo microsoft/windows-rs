@@ -18,6 +18,11 @@ impl ::core::clone::Clone for AuthenticationProtocol {
         *self
     }
 }
+impl ::core::default::Default for AuthenticationProtocol {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AuthenticationProtocol {
     type Abi = Self;
 }
@@ -421,6 +426,11 @@ impl ::core::clone::Clone for CredentialSaveOption {
         *self
     }
 }
+impl ::core::default::Default for CredentialSaveOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CredentialSaveOption {
     type Abi = Self;
 }
@@ -558,6 +568,11 @@ impl ::core::clone::Clone for UserConsentVerificationResult {
         *self
     }
 }
+impl ::core::default::Default for UserConsentVerificationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserConsentVerificationResult {
     type Abi = Self;
 }
@@ -615,6 +630,11 @@ impl ::core::marker::Copy for UserConsentVerifierAvailability {}
 impl ::core::clone::Clone for UserConsentVerifierAvailability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserConsentVerifierAvailability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserConsentVerifierAvailability {

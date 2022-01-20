@@ -165,6 +165,11 @@ impl ::core::clone::Clone for BG_AUTH_SCHEME {
         *self
     }
 }
+impl ::core::default::Default for BG_AUTH_SCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BG_AUTH_SCHEME {
     type Abi = Self;
 }
@@ -185,6 +190,11 @@ impl ::core::marker::Copy for BG_AUTH_TARGET {}
 impl ::core::clone::Clone for BG_AUTH_TARGET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BG_AUTH_TARGET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BG_AUTH_TARGET {
@@ -260,6 +270,11 @@ impl ::core::clone::Clone for BG_CERT_STORE_LOCATION {
         *self
     }
 }
+impl ::core::default::Default for BG_CERT_STORE_LOCATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BG_CERT_STORE_LOCATION {
     type Abi = Self;
 }
@@ -310,6 +325,11 @@ impl ::core::marker::Copy for BG_ERROR_CONTEXT {}
 impl ::core::clone::Clone for BG_ERROR_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BG_ERROR_CONTEXT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BG_ERROR_CONTEXT {
@@ -720,6 +740,11 @@ impl ::core::clone::Clone for BG_JOB_PRIORITY {
         *self
     }
 }
+impl ::core::default::Default for BG_JOB_PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BG_JOB_PRIORITY {
     type Abi = Self;
 }
@@ -777,6 +802,11 @@ impl ::core::marker::Copy for BG_JOB_PROXY_USAGE {}
 impl ::core::clone::Clone for BG_JOB_PROXY_USAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BG_JOB_PROXY_USAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BG_JOB_PROXY_USAGE {
@@ -846,6 +876,11 @@ impl ::core::clone::Clone for BG_JOB_STATE {
         *self
     }
 }
+impl ::core::default::Default for BG_JOB_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BG_JOB_STATE {
     type Abi = Self;
 }
@@ -910,6 +945,11 @@ impl ::core::clone::Clone for BG_JOB_TYPE {
         *self
     }
 }
+impl ::core::default::Default for BG_JOB_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BG_JOB_TYPE {
     type Abi = Self;
 }
@@ -962,6 +1002,11 @@ impl ::core::marker::Copy for BG_TOKEN {}
 impl ::core::clone::Clone for BG_TOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BG_TOKEN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BG_TOKEN {
@@ -1033,6 +1078,11 @@ impl ::core::clone::Clone for BITS_FILE_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for BITS_FILE_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BITS_FILE_PROPERTY_ID {
     type Abi = Self;
 }
@@ -1099,6 +1149,11 @@ impl ::core::clone::Clone for BITS_JOB_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for BITS_JOB_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BITS_JOB_PROPERTY_ID {
     type Abi = Self;
 }
@@ -1161,6 +1216,11 @@ impl ::core::marker::Copy for BITS_JOB_TRANSFER_POLICY {}
 impl ::core::clone::Clone for BITS_JOB_TRANSFER_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BITS_JOB_TRANSFER_POLICY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BITS_JOB_TRANSFER_POLICY {
@@ -1278,6 +1338,11 @@ impl ::core::marker::Copy for GROUPPROP {}
 impl ::core::clone::Clone for GROUPPROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GROUPPROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GROUPPROP {

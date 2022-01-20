@@ -1222,6 +1222,11 @@ impl ::core::clone::Clone for FrameFlashMode {
         *self
     }
 }
+impl ::core::default::Default for FrameFlashMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FrameFlashMode {
     type Abi = Self;
 }

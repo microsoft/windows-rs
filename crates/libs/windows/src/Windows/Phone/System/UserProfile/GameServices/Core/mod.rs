@@ -97,6 +97,11 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
         *self
     }
 }
+impl ::core::default::Default for GameServiceGameOutcome {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameServiceGameOutcome {
     type Abi = Self;
 }
@@ -205,6 +210,11 @@ impl ::core::marker::Copy for GameServiceScoreKind {}
 impl ::core::clone::Clone for GameServiceScoreKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameServiceScoreKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameServiceScoreKind {

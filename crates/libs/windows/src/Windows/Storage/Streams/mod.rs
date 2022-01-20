@@ -162,6 +162,11 @@ impl ::core::clone::Clone for ByteOrder {
         *self
     }
 }
+impl ::core::default::Default for ByteOrder {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ByteOrder {
     type Abi = Self;
 }
@@ -1465,6 +1470,11 @@ impl ::core::marker::Copy for FileOpenDisposition {}
 impl ::core::clone::Clone for FileOpenDisposition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileOpenDisposition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileOpenDisposition {
@@ -4229,6 +4239,11 @@ impl ::core::clone::Clone for InputStreamOptions {
         *self
     }
 }
+impl ::core::default::Default for InputStreamOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InputStreamOptions {
     type Abi = Self;
 }
@@ -4996,6 +5011,11 @@ impl ::core::marker::Copy for UnicodeEncoding {}
 impl ::core::clone::Clone for UnicodeEncoding {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UnicodeEncoding {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UnicodeEncoding {

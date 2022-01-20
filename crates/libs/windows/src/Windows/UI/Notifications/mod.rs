@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AdaptiveNotificationContentKind {
         *self
     }
 }
+impl ::core::default::Default for AdaptiveNotificationContentKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
     type Abi = Self;
 }
@@ -295,6 +300,11 @@ impl ::core::marker::Copy for BadgeTemplateType {}
 impl ::core::clone::Clone for BadgeTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BadgeTemplateType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BadgeTemplateType {
@@ -2494,6 +2504,11 @@ impl ::core::clone::Clone for NotificationKinds {
         *self
     }
 }
+impl ::core::default::Default for NotificationKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NotificationKinds {
     type Abi = Self;
 }
@@ -2550,6 +2565,11 @@ impl ::core::clone::Clone for NotificationMirroring {
         *self
     }
 }
+impl ::core::default::Default for NotificationMirroring {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NotificationMirroring {
     type Abi = Self;
 }
@@ -2581,6 +2601,11 @@ impl ::core::clone::Clone for NotificationSetting {
         *self
     }
 }
+impl ::core::default::Default for NotificationSetting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NotificationSetting {
     type Abi = Self;
 }
@@ -2608,6 +2633,11 @@ impl ::core::marker::Copy for NotificationUpdateResult {}
 impl ::core::clone::Clone for NotificationUpdateResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NotificationUpdateResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NotificationUpdateResult {
@@ -2742,6 +2772,11 @@ impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
 impl ::core::clone::Clone for PeriodicUpdateRecurrence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PeriodicUpdateRecurrence {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
@@ -3432,6 +3467,11 @@ impl ::core::clone::Clone for TileFlyoutTemplateType {
         *self
     }
 }
+impl ::core::default::Default for TileFlyoutTemplateType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
     type Abi = Self;
 }
@@ -3852,6 +3892,11 @@ impl ::core::marker::Copy for TileTemplateType {}
 impl ::core::clone::Clone for TileTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TileTemplateType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TileTemplateType {
@@ -4560,6 +4605,11 @@ impl ::core::clone::Clone for ToastDismissalReason {
         *self
     }
 }
+impl ::core::default::Default for ToastDismissalReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ToastDismissalReason {
     type Abi = Self;
 }
@@ -4750,6 +4800,11 @@ impl ::core::marker::Copy for ToastHistoryChangedType {}
 impl ::core::clone::Clone for ToastHistoryChangedType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ToastHistoryChangedType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
@@ -5553,6 +5608,11 @@ impl ::core::clone::Clone for ToastNotificationPriority {
         *self
     }
 }
+impl ::core::default::Default for ToastNotificationPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ToastNotificationPriority {
     type Abi = Self;
 }
@@ -5726,6 +5786,11 @@ impl ::core::marker::Copy for ToastTemplateType {}
 impl ::core::clone::Clone for ToastTemplateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ToastTemplateType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ToastTemplateType {
@@ -5950,6 +6015,11 @@ impl ::core::marker::Copy for UserNotificationChangedKind {}
 impl ::core::clone::Clone for UserNotificationChangedKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserNotificationChangedKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserNotificationChangedKind {

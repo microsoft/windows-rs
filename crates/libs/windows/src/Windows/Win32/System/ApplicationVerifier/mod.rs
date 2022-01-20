@@ -126,6 +126,11 @@ impl ::core::clone::Clone for VERIFIER_ENUM_RESOURCE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for VERIFIER_ENUM_RESOURCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
     type Abi = Self;
 }
@@ -193,6 +198,11 @@ impl ::core::clone::Clone for eAvrfResourceTypes {
         *self
     }
 }
+impl ::core::default::Default for eAvrfResourceTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAvrfResourceTypes {
     type Abi = Self;
 }
@@ -219,6 +229,11 @@ impl ::core::clone::Clone for eHANDLE_TRACE_OPERATIONS {
         *self
     }
 }
+impl ::core::default::Default for eHANDLE_TRACE_OPERATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eHANDLE_TRACE_OPERATIONS {
     type Abi = Self;
 }
@@ -243,6 +258,11 @@ impl ::core::clone::Clone for eHeapAllocationState {
         *self
     }
 }
+impl ::core::default::Default for eHeapAllocationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eHeapAllocationState {
     type Abi = Self;
 }
@@ -263,6 +283,11 @@ impl ::core::marker::Copy for eHeapEnumerationLevel {}
 impl ::core::clone::Clone for eHeapEnumerationLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eHeapEnumerationLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eHeapEnumerationLevel {
@@ -287,6 +312,11 @@ impl ::core::marker::Copy for eUserAllocationState {}
 impl ::core::clone::Clone for eUserAllocationState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eUserAllocationState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eUserAllocationState {

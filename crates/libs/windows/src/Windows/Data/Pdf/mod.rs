@@ -745,6 +745,11 @@ impl ::core::clone::Clone for PdfPageRotation {
         *self
     }
 }
+impl ::core::default::Default for PdfPageRotation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PdfPageRotation {
     type Abi = Self;
 }

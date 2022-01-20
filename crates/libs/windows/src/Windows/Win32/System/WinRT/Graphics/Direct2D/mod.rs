@@ -31,6 +31,11 @@ impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
         *self
     }
 }
+impl ::core::default::Default for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     type Abi = Self;
 }

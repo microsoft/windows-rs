@@ -17,6 +17,11 @@ impl ::core::clone::Clone for CompressAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for CompressAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompressAlgorithm {
     type Abi = Self;
 }

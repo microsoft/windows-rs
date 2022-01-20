@@ -19,6 +19,11 @@ impl ::core::clone::Clone for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::marker::Copy for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {}
 impl ::core::clone::Clone for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
@@ -81,6 +91,11 @@ impl ::core::marker::Copy for APPX_CAPABILITIES {}
 impl ::core::clone::Clone for APPX_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_CAPABILITIES {
@@ -141,6 +156,11 @@ impl ::core::clone::Clone for APPX_CAPABILITY_CLASS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for APPX_CAPABILITY_CLASS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_CAPABILITY_CLASS_TYPE {
     type Abi = Self;
 }
@@ -167,6 +187,11 @@ impl ::core::marker::Copy for APPX_COMPRESSION_OPTION {}
 impl ::core::clone::Clone for APPX_COMPRESSION_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_COMPRESSION_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_COMPRESSION_OPTION {
@@ -230,6 +255,11 @@ impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_OPTIONS {}
 impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
@@ -376,6 +406,11 @@ impl ::core::clone::Clone for APPX_FOOTPRINT_FILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for APPX_FOOTPRINT_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
 }
@@ -437,6 +472,11 @@ impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE {
         *self
     }
 }
+impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE {
     type Abi = Self;
 }
@@ -469,6 +509,11 @@ impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE2 {
         *self
     }
 }
+impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE2 {
     type Abi = Self;
 }
@@ -491,6 +536,11 @@ impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION
 impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
@@ -539,6 +589,11 @@ impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {}
 impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
@@ -643,6 +698,11 @@ impl ::core::clone::Clone for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -695,6 +755,11 @@ impl ::core::clone::Clone for AddPackageDependencyOptions {
         *self
     }
 }
+impl ::core::default::Default for AddPackageDependencyOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddPackageDependencyOptions {
     type Abi = Self;
 }
@@ -721,6 +786,11 @@ impl ::core::clone::Clone for AppPolicyClrCompat {
         *self
     }
 }
+impl ::core::default::Default for AppPolicyClrCompat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppPolicyClrCompat {
     type Abi = Self;
 }
@@ -741,6 +811,11 @@ impl ::core::marker::Copy for AppPolicyCreateFileAccess {}
 impl ::core::clone::Clone for AppPolicyCreateFileAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppPolicyCreateFileAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppPolicyCreateFileAccess {
@@ -885,6 +960,11 @@ impl ::core::clone::Clone for AppPolicyLifecycleManagement {
         *self
     }
 }
+impl ::core::default::Default for AppPolicyLifecycleManagement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppPolicyLifecycleManagement {
     type Abi = Self;
 }
@@ -905,6 +985,11 @@ impl ::core::marker::Copy for AppPolicyMediaFoundationCodecLoading {}
 impl ::core::clone::Clone for AppPolicyMediaFoundationCodecLoading {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppPolicyMediaFoundationCodecLoading {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppPolicyMediaFoundationCodecLoading {
@@ -929,6 +1014,11 @@ impl ::core::clone::Clone for AppPolicyProcessTerminationMethod {
         *self
     }
 }
+impl ::core::default::Default for AppPolicyProcessTerminationMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppPolicyProcessTerminationMethod {
     type Abi = Self;
 }
@@ -951,6 +1041,11 @@ impl ::core::clone::Clone for AppPolicyShowDeveloperDiagnostic {
         *self
     }
 }
+impl ::core::default::Default for AppPolicyShowDeveloperDiagnostic {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppPolicyShowDeveloperDiagnostic {
     type Abi = Self;
 }
@@ -971,6 +1066,11 @@ impl ::core::marker::Copy for AppPolicyThreadInitializationType {}
 impl ::core::clone::Clone for AppPolicyThreadInitializationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppPolicyThreadInitializationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppPolicyThreadInitializationType {
@@ -997,6 +1097,11 @@ impl ::core::marker::Copy for AppPolicyWindowingModel {}
 impl ::core::clone::Clone for AppPolicyWindowingModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppPolicyWindowingModel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppPolicyWindowingModel {
@@ -1058,6 +1163,11 @@ impl ::core::clone::Clone for CreatePackageDependencyOptions {
         *self
     }
 }
+impl ::core::default::Default for CreatePackageDependencyOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CreatePackageDependencyOptions {
     type Abi = Self;
 }
@@ -1098,6 +1208,11 @@ impl ::core::marker::Copy for DX_FEATURE_LEVEL {}
 impl ::core::clone::Clone for DX_FEATURE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DX_FEATURE_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DX_FEATURE_LEVEL {
@@ -8205,6 +8320,11 @@ impl ::core::clone::Clone for PackageDependencyLifetimeKind {
         *self
     }
 }
+impl ::core::default::Default for PackageDependencyLifetimeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageDependencyLifetimeKind {
     type Abi = Self;
 }
@@ -8235,6 +8355,11 @@ impl ::core::marker::Copy for PackageDependencyProcessorArchitectures {}
 impl ::core::clone::Clone for PackageDependencyProcessorArchitectures {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PackageDependencyProcessorArchitectures {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PackageDependencyProcessorArchitectures {
@@ -8344,6 +8469,11 @@ impl ::core::clone::Clone for PackageOrigin {
         *self
     }
 }
+impl ::core::default::Default for PackageOrigin {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageOrigin {
     type Abi = Self;
 }
@@ -8372,6 +8502,11 @@ impl ::core::marker::Copy for PackagePathType {}
 impl ::core::clone::Clone for PackagePathType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PackagePathType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PackagePathType {

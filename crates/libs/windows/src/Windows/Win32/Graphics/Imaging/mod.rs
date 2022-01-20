@@ -6316,6 +6316,11 @@ impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
         *self
     }
 }
+impl ::core::default::Default for WIC8BIMIptcDigestProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WIC8BIMIptcDigestProperties {
     type Abi = Self;
 }
@@ -6366,6 +6371,11 @@ impl ::core::marker::Copy for WIC8BIMIptcProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WIC8BIMIptcProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WIC8BIMIptcProperties {
@@ -6430,6 +6440,11 @@ impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
         *self
     }
 }
+impl ::core::default::Default for WIC8BIMResolutionInfoProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WIC8BIMResolutionInfoProperties {
     type Abi = Self;
 }
@@ -6484,6 +6499,11 @@ impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
         *self
     }
 }
+impl ::core::default::Default for WICBitmapAlphaChannelOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapAlphaChannelOption {
     type Abi = Self;
 }
@@ -6508,6 +6528,11 @@ impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
 impl ::core::clone::Clone for WICBitmapCreateCacheOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICBitmapCreateCacheOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapCreateCacheOption {
@@ -6538,6 +6563,11 @@ impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
 impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICBitmapDecoderCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapDecoderCapabilities {
@@ -6580,6 +6610,11 @@ impl ::core::clone::Clone for WICBitmapDitherType {
         *self
     }
 }
+impl ::core::default::Default for WICBitmapDitherType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapDitherType {
     type Abi = Self;
 }
@@ -6604,6 +6639,11 @@ impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
 impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICBitmapEncoderCacheOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapEncoderCacheOption {
@@ -6636,6 +6676,11 @@ impl ::core::clone::Clone for WICBitmapInterpolationMode {
         *self
     }
 }
+impl ::core::default::Default for WICBitmapInterpolationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapInterpolationMode {
     type Abi = Self;
 }
@@ -6658,6 +6703,11 @@ impl ::core::marker::Copy for WICBitmapLockFlags {}
 impl ::core::clone::Clone for WICBitmapLockFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICBitmapLockFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapLockFlags {
@@ -6706,6 +6756,11 @@ impl ::core::marker::Copy for WICBitmapPaletteType {}
 impl ::core::clone::Clone for WICBitmapPaletteType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICBitmapPaletteType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICBitmapPaletteType {
@@ -6847,6 +6902,11 @@ impl ::core::clone::Clone for WICBitmapTransformOptions {
         *self
     }
 }
+impl ::core::default::Default for WICBitmapTransformOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICBitmapTransformOptions {
     type Abi = Self;
 }
@@ -6869,6 +6929,11 @@ impl ::core::marker::Copy for WICColorContextType {}
 impl ::core::clone::Clone for WICColorContextType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICColorContextType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICColorContextType {
@@ -6901,6 +6966,11 @@ impl ::core::clone::Clone for WICComponentEnumerateOptions {
         *self
     }
 }
+impl ::core::default::Default for WICComponentEnumerateOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICComponentEnumerateOptions {
     type Abi = Self;
 }
@@ -6927,6 +6997,11 @@ impl ::core::marker::Copy for WICComponentSigning {}
 impl ::core::clone::Clone for WICComponentSigning {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICComponentSigning {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICComponentSigning {
@@ -6961,6 +7036,11 @@ impl ::core::marker::Copy for WICComponentType {}
 impl ::core::clone::Clone for WICComponentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICComponentType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICComponentType {
@@ -7040,6 +7120,11 @@ impl ::core::clone::Clone for WICDdsAlphaMode {
         *self
     }
 }
+impl ::core::default::Default for WICDdsAlphaMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICDdsAlphaMode {
     type Abi = Self;
 }
@@ -7066,6 +7151,11 @@ impl ::core::marker::Copy for WICDdsDimension {}
 impl ::core::clone::Clone for WICDdsDimension {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICDdsDimension {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICDdsDimension {
@@ -7178,6 +7268,11 @@ impl ::core::clone::Clone for WICDecodeOptions {
         *self
     }
 }
+impl ::core::default::Default for WICDecodeOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICDecodeOptions {
     type Abi = Self;
 }
@@ -7215,6 +7310,11 @@ impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
 impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICGifApplicationExtensionProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICGifApplicationExtensionProperties {
@@ -7265,6 +7365,11 @@ impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
 impl ::core::clone::Clone for WICGifCommentExtensionProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICGifCommentExtensionProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICGifCommentExtensionProperties {
@@ -7323,6 +7428,11 @@ impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
 impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICGifGraphicControlExtensionProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICGifGraphicControlExtensionProperties {
@@ -7387,6 +7497,11 @@ impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
 impl ::core::clone::Clone for WICGifImageDescriptorProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICGifImageDescriptorProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICGifImageDescriptorProperties {
@@ -7455,6 +7570,11 @@ impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
         *self
     }
 }
+impl ::core::default::Default for WICGifLogicalScreenDescriptorProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICGifLogicalScreenDescriptorProperties {
     type Abi = Self;
 }
@@ -7513,6 +7633,11 @@ impl ::core::clone::Clone for WICHeifHdrProperties {
         *self
     }
 }
+impl ::core::default::Default for WICHeifHdrProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICHeifHdrProperties {
     type Abi = Self;
 }
@@ -7561,6 +7686,11 @@ impl ::core::marker::Copy for WICHeifProperties {}
 impl ::core::clone::Clone for WICHeifProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICHeifProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICHeifProperties {
@@ -7657,6 +7787,11 @@ impl ::core::clone::Clone for WICJpegChrominanceProperties {
         *self
     }
 }
+impl ::core::default::Default for WICJpegChrominanceProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICJpegChrominanceProperties {
     type Abi = Self;
 }
@@ -7705,6 +7840,11 @@ impl ::core::marker::Copy for WICJpegCommentProperties {}
 impl ::core::clone::Clone for WICJpegCommentProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICJpegCommentProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegCommentProperties {
@@ -7796,6 +7936,11 @@ impl ::core::clone::Clone for WICJpegIndexingOptions {
         *self
     }
 }
+impl ::core::default::Default for WICJpegIndexingOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICJpegIndexingOptions {
     type Abi = Self;
 }
@@ -7844,6 +7989,11 @@ impl ::core::marker::Copy for WICJpegLuminanceProperties {}
 impl ::core::clone::Clone for WICJpegLuminanceProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICJpegLuminanceProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegLuminanceProperties {
@@ -7946,6 +8096,11 @@ impl ::core::clone::Clone for WICJpegScanType {
         *self
     }
 }
+impl ::core::default::Default for WICJpegScanType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICJpegScanType {
     type Abi = Self;
 }
@@ -7996,6 +8151,11 @@ impl ::core::marker::Copy for WICJpegTransferMatrix {}
 impl ::core::clone::Clone for WICJpegTransferMatrix {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICJpegTransferMatrix {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegTransferMatrix {
@@ -8054,6 +8214,11 @@ impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
 impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICJpegYCrCbSubsamplingOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICJpegYCrCbSubsamplingOption {
@@ -8142,6 +8307,11 @@ impl ::core::marker::Copy for WICMetadataCreationOptions {}
 impl ::core::clone::Clone for WICMetadataCreationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICMetadataCreationOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICMetadataCreationOptions {
@@ -8253,6 +8423,11 @@ impl ::core::clone::Clone for WICNamedWhitePoint {
         *self
     }
 }
+impl ::core::default::Default for WICNamedWhitePoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICNamedWhitePoint {
     type Abi = Self;
 }
@@ -8285,6 +8460,11 @@ impl ::core::clone::Clone for WICPersistOptions {
         *self
     }
 }
+impl ::core::default::Default for WICPersistOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPersistOptions {
     type Abi = Self;
 }
@@ -8315,6 +8495,11 @@ impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
 impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICPixelFormatNumericRepresentation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICPixelFormatNumericRepresentation {
@@ -8369,6 +8554,11 @@ impl ::core::clone::Clone for WICPlanarOptions {
         *self
     }
 }
+impl ::core::default::Default for WICPlanarOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPlanarOptions {
     type Abi = Self;
 }
@@ -8389,6 +8579,11 @@ impl ::core::marker::Copy for WICPngBkgdProperties {}
 impl ::core::clone::Clone for WICPngBkgdProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICPngBkgdProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICPngBkgdProperties {
@@ -8455,6 +8650,11 @@ impl ::core::clone::Clone for WICPngChrmProperties {
         *self
     }
 }
+impl ::core::default::Default for WICPngChrmProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPngChrmProperties {
     type Abi = Self;
 }
@@ -8517,6 +8717,11 @@ impl ::core::clone::Clone for WICPngFilterOption {
         *self
     }
 }
+impl ::core::default::Default for WICPngFilterOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPngFilterOption {
     type Abi = Self;
 }
@@ -8537,6 +8742,11 @@ impl ::core::marker::Copy for WICPngGamaProperties {}
 impl ::core::clone::Clone for WICPngGamaProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICPngGamaProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICPngGamaProperties {
@@ -8589,6 +8799,11 @@ impl ::core::clone::Clone for WICPngHistProperties {
         *self
     }
 }
+impl ::core::default::Default for WICPngHistProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPngHistProperties {
     type Abi = Self;
 }
@@ -8639,6 +8854,11 @@ impl ::core::marker::Copy for WICPngIccpProperties {}
 impl ::core::clone::Clone for WICPngIccpProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICPngIccpProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICPngIccpProperties {
@@ -8699,6 +8919,11 @@ impl ::core::clone::Clone for WICPngItxtProperties {
         *self
     }
 }
+impl ::core::default::Default for WICPngItxtProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPngItxtProperties {
     type Abi = Self;
 }
@@ -8747,6 +8972,11 @@ impl ::core::marker::Copy for WICPngSrgbProperties {}
 impl ::core::clone::Clone for WICPngSrgbProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICPngSrgbProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICPngSrgbProperties {
@@ -8809,6 +9039,11 @@ impl ::core::clone::Clone for WICPngTimeProperties {
         *self
     }
 }
+impl ::core::default::Default for WICPngTimeProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICPngTimeProperties {
     type Abi = Self;
 }
@@ -8865,6 +9100,11 @@ impl ::core::clone::Clone for WICProgressNotification {
         *self
     }
 }
+impl ::core::default::Default for WICProgressNotification {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICProgressNotification {
     type Abi = Self;
 }
@@ -8891,6 +9131,11 @@ impl ::core::clone::Clone for WICProgressOperation {
         *self
     }
 }
+impl ::core::default::Default for WICProgressOperation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICProgressOperation {
     type Abi = Self;
 }
@@ -8915,6 +9160,11 @@ impl ::core::marker::Copy for WICRawCapabilities {}
 impl ::core::clone::Clone for WICRawCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICRawCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICRawCapabilities {
@@ -9037,6 +9287,11 @@ impl ::core::clone::Clone for WICRawParameterSet {
         *self
     }
 }
+impl ::core::default::Default for WICRawParameterSet {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICRawParameterSet {
     type Abi = Self;
 }
@@ -9061,6 +9316,11 @@ impl ::core::marker::Copy for WICRawRenderMode {}
 impl ::core::clone::Clone for WICRawRenderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICRawRenderMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICRawRenderMode {
@@ -9089,6 +9349,11 @@ impl ::core::marker::Copy for WICRawRotationCapabilities {}
 impl ::core::clone::Clone for WICRawRotationCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICRawRotationCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICRawRotationCapabilities {
@@ -9210,6 +9475,11 @@ impl ::core::clone::Clone for WICSectionAccessLevel {
         *self
     }
 }
+impl ::core::default::Default for WICSectionAccessLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICSectionAccessLevel {
     type Abi = Self;
 }
@@ -9289,6 +9559,11 @@ impl ::core::clone::Clone for WICTiffCompressionOption {
         *self
     }
 }
+impl ::core::default::Default for WICTiffCompressionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WICTiffCompressionOption {
     type Abi = Self;
 }
@@ -9309,6 +9584,11 @@ impl ::core::marker::Copy for WICWebpAnimProperties {}
 impl ::core::clone::Clone for WICWebpAnimProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICWebpAnimProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICWebpAnimProperties {
@@ -9359,6 +9639,11 @@ impl ::core::marker::Copy for WICWebpAnmfProperties {}
 impl ::core::clone::Clone for WICWebpAnmfProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WICWebpAnmfProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WICWebpAnmfProperties {

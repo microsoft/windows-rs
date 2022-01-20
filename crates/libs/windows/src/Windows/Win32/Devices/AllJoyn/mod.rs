@@ -1008,6 +1008,11 @@ impl ::core::clone::Clone for QStatus {
         *self
     }
 }
+impl ::core::default::Default for QStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QStatus {
     type Abi = Self;
 }
@@ -1037,6 +1042,11 @@ impl ::core::marker::Copy for alljoyn_about_announceflag {}
 impl ::core::clone::Clone for alljoyn_about_announceflag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for alljoyn_about_announceflag {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_about_announceflag {
@@ -2566,6 +2576,11 @@ impl ::core::marker::Copy for alljoyn_applicationstate {}
 impl ::core::clone::Clone for alljoyn_applicationstate {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for alljoyn_applicationstate {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_applicationstate {
@@ -4932,6 +4947,11 @@ impl ::core::clone::Clone for alljoyn_claimcapability_masks {
         *self
     }
 }
+impl ::core::default::Default for alljoyn_claimcapability_masks {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for alljoyn_claimcapability_masks {
     type Abi = Self;
 }
@@ -4952,6 +4972,11 @@ impl ::core::marker::Copy for alljoyn_claimcapabilityadditionalinfo_masks {}
 impl ::core::clone::Clone for alljoyn_claimcapabilityadditionalinfo_masks {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for alljoyn_claimcapabilityadditionalinfo_masks {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_claimcapabilityadditionalinfo_masks {
@@ -6135,6 +6160,11 @@ impl ::core::clone::Clone for alljoyn_interfacedescription_securitypolicy {
         *self
     }
 }
+impl ::core::default::Default for alljoyn_interfacedescription_securitypolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_securitypolicy {
     type Abi = Self;
 }
@@ -7045,6 +7075,11 @@ impl ::core::marker::Copy for alljoyn_messagetype {}
 impl ::core::clone::Clone for alljoyn_messagetype {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for alljoyn_messagetype {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_messagetype {
@@ -10452,6 +10487,11 @@ impl ::core::clone::Clone for alljoyn_sessionlostreason {
         *self
     }
 }
+impl ::core::default::Default for alljoyn_sessionlostreason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for alljoyn_sessionlostreason {
     type Abi = Self;
 }
@@ -10856,6 +10896,11 @@ impl ::core::marker::Copy for alljoyn_typeid {}
 impl ::core::clone::Clone for alljoyn_typeid {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for alljoyn_typeid {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for alljoyn_typeid {

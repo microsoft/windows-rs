@@ -39,6 +39,11 @@ impl ::core::clone::Clone for ADSI_DIALECT_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADSI_DIALECT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADSI_DIALECT_ENUM {
     type Abi = Self;
 }
@@ -199,6 +204,11 @@ impl ::core::clone::Clone for ADSTYPEENUM {
         *self
     }
 }
+impl ::core::default::Default for ADSTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADSTYPEENUM {
     type Abi = Self;
 }
@@ -322,6 +332,11 @@ impl ::core::clone::Clone for ADS_ACEFLAG_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_ACEFLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_ACEFLAG_ENUM {
     type Abi = Self;
 }
@@ -368,6 +383,11 @@ impl ::core::marker::Copy for ADS_ACETYPE_ENUM {}
 impl ::core::clone::Clone for ADS_ACETYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_ACETYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_ACETYPE_ENUM {
@@ -506,6 +526,11 @@ impl ::core::clone::Clone for ADS_AUTHENTICATION_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_AUTHENTICATION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_AUTHENTICATION_ENUM {
     type Abi = Self;
 }
@@ -638,6 +663,11 @@ impl ::core::clone::Clone for ADS_CHASE_REFERRALS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_CHASE_REFERRALS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_CHASE_REFERRALS_ENUM {
     type Abi = Self;
 }
@@ -722,6 +752,11 @@ impl ::core::clone::Clone for ADS_DEREFENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_DEREFENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_DEREFENUM {
     type Abi = Self;
 }
@@ -742,6 +777,11 @@ impl ::core::marker::Copy for ADS_DISPLAY_ENUM {}
 impl ::core::clone::Clone for ADS_DISPLAY_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_DISPLAY_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_DISPLAY_ENUM {
@@ -888,6 +928,11 @@ impl ::core::clone::Clone for ADS_ESCAPE_MODE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_ESCAPE_MODE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_ESCAPE_MODE_ENUM {
     type Abi = Self;
 }
@@ -958,6 +1003,11 @@ impl ::core::clone::Clone for ADS_FLAGTYPE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_FLAGTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_FLAGTYPE_ENUM {
     type Abi = Self;
 }
@@ -998,6 +1048,11 @@ impl ::core::clone::Clone for ADS_FORMAT_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_FORMAT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_FORMAT_ENUM {
     type Abi = Self;
 }
@@ -1024,6 +1079,11 @@ impl ::core::marker::Copy for ADS_GROUP_TYPE_ENUM {}
 impl ::core::clone::Clone for ADS_GROUP_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_GROUP_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_GROUP_TYPE_ENUM {
@@ -1089,6 +1149,11 @@ impl ::core::clone::Clone for ADS_NAME_INITTYPE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_NAME_INITTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_NAME_INITTYPE_ENUM {
     type Abi = Self;
 }
@@ -1129,6 +1194,11 @@ impl ::core::marker::Copy for ADS_NAME_TYPE_ENUM {}
 impl ::core::clone::Clone for ADS_NAME_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_NAME_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_NAME_TYPE_ENUM {
@@ -1337,6 +1407,11 @@ impl ::core::clone::Clone for ADS_OPTION_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_OPTION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_OPTION_ENUM {
     type Abi = Self;
 }
@@ -1357,6 +1432,11 @@ impl ::core::marker::Copy for ADS_PASSWORD_ENCODING_ENUM {}
 impl ::core::clone::Clone for ADS_PASSWORD_ENCODING_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_PASSWORD_ENCODING_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_PASSWORD_ENCODING_ENUM {
@@ -1421,6 +1501,11 @@ impl ::core::marker::Copy for ADS_PATHTYPE_ENUM {}
 impl ::core::clone::Clone for ADS_PATHTYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_PATHTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_PATHTYPE_ENUM {
@@ -1505,6 +1590,11 @@ impl ::core::clone::Clone for ADS_PREFERENCES_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_PREFERENCES_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_PREFERENCES_ENUM {
     type Abi = Self;
 }
@@ -1529,6 +1619,11 @@ impl ::core::marker::Copy for ADS_PROPERTY_OPERATION_ENUM {}
 impl ::core::clone::Clone for ADS_PROPERTY_OPERATION_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_PROPERTY_OPERATION_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_PROPERTY_OPERATION_ENUM {
@@ -1660,6 +1755,11 @@ impl ::core::clone::Clone for ADS_RIGHTS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_RIGHTS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_RIGHTS_ENUM {
     type Abi = Self;
 }
@@ -1682,6 +1782,11 @@ impl ::core::marker::Copy for ADS_SCOPEENUM {}
 impl ::core::clone::Clone for ADS_SCOPEENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_SCOPEENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_SCOPEENUM {
@@ -1728,6 +1833,11 @@ impl ::core::clone::Clone for ADS_SD_CONTROL_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_SD_CONTROL_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_SD_CONTROL_ENUM {
     type Abi = Self;
 }
@@ -1752,6 +1862,11 @@ impl ::core::clone::Clone for ADS_SD_FORMAT_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_SD_FORMAT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_SD_FORMAT_ENUM {
     type Abi = Self;
 }
@@ -1770,6 +1885,11 @@ impl ::core::marker::Copy for ADS_SD_REVISION_ENUM {}
 impl ::core::clone::Clone for ADS_SD_REVISION_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_SD_REVISION_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_SD_REVISION_ENUM {
@@ -1828,6 +1948,11 @@ impl ::core::clone::Clone for ADS_SEARCHPREF_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_SEARCHPREF_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_SEARCHPREF_ENUM {
     type Abi = Self;
 }
@@ -1854,6 +1979,11 @@ impl ::core::clone::Clone for ADS_SECURITY_INFO_ENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_SECURITY_INFO_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_SECURITY_INFO_ENUM {
     type Abi = Self;
 }
@@ -1878,6 +2008,11 @@ impl ::core::marker::Copy for ADS_SETTYPE_ENUM {}
 impl ::core::clone::Clone for ADS_SETTYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_SETTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_SETTYPE_ENUM {
@@ -1944,6 +2079,11 @@ impl ::core::clone::Clone for ADS_STATUSENUM {
         *self
     }
 }
+impl ::core::default::Default for ADS_STATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADS_STATUSENUM {
     type Abi = Self;
 }
@@ -1980,6 +2120,11 @@ impl ::core::marker::Copy for ADS_SYSTEMFLAG_ENUM {}
 impl ::core::clone::Clone for ADS_SYSTEMFLAG_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_SYSTEMFLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_SYSTEMFLAG_ENUM {
@@ -2111,6 +2256,11 @@ impl ::core::marker::Copy for ADS_USER_FLAG_ENUM {}
 impl ::core::clone::Clone for ADS_USER_FLAG_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADS_USER_FLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADS_USER_FLAG_ENUM {
@@ -3870,6 +4020,11 @@ impl ::core::clone::Clone for DSROLE_MACHINE_ROLE {
         *self
     }
 }
+impl ::core::default::Default for DSROLE_MACHINE_ROLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DSROLE_MACHINE_ROLE {
     type Abi = Self;
 }
@@ -3892,6 +4047,11 @@ impl ::core::marker::Copy for DSROLE_OPERATION_STATE {}
 impl ::core::clone::Clone for DSROLE_OPERATION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DSROLE_OPERATION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DSROLE_OPERATION_STATE {
@@ -3993,6 +4153,11 @@ impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
     type Abi = Self;
 }
@@ -4021,6 +4186,11 @@ impl ::core::marker::Copy for DSROLE_SERVER_STATE {}
 impl ::core::clone::Clone for DSROLE_SERVER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DSROLE_SERVER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DSROLE_SERVER_STATE {
@@ -4634,6 +4804,11 @@ impl ::core::clone::Clone for DS_KCC_TASKID {
         *self
     }
 }
+impl ::core::default::Default for DS_KCC_TASKID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_KCC_TASKID {
     type Abi = Self;
 }
@@ -4674,6 +4849,11 @@ impl ::core::clone::Clone for DS_MANGLE_FOR {
         *self
     }
 }
+impl ::core::default::Default for DS_MANGLE_FOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_MANGLE_FOR {
     type Abi = Self;
 }
@@ -4708,6 +4888,11 @@ impl ::core::clone::Clone for DS_NAME_ERROR {
         *self
     }
 }
+impl ::core::default::Default for DS_NAME_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_NAME_ERROR {
     type Abi = Self;
 }
@@ -4734,6 +4919,11 @@ impl ::core::marker::Copy for DS_NAME_FLAGS {}
 impl ::core::clone::Clone for DS_NAME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DS_NAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DS_NAME_FLAGS {
@@ -4774,6 +4964,11 @@ impl ::core::marker::Copy for DS_NAME_FORMAT {}
 impl ::core::clone::Clone for DS_NAME_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DS_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DS_NAME_FORMAT {
@@ -5552,6 +5747,11 @@ impl ::core::clone::Clone for DS_REPL_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DS_REPL_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_REPL_INFO_TYPE {
     type Abi = Self;
 }
@@ -6094,6 +6294,11 @@ impl ::core::clone::Clone for DS_REPL_OP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DS_REPL_OP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_REPL_OP_TYPE {
     type Abi = Self;
 }
@@ -6626,6 +6831,11 @@ impl ::core::clone::Clone for DS_REPSYNCALL_ERROR {
         *self
     }
 }
+impl ::core::default::Default for DS_REPSYNCALL_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERROR {
     type Abi = Self;
 }
@@ -6650,6 +6860,11 @@ impl ::core::marker::Copy for DS_REPSYNCALL_EVENT {}
 impl ::core::clone::Clone for DS_REPSYNCALL_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DS_REPSYNCALL_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DS_REPSYNCALL_EVENT {
@@ -7136,6 +7351,11 @@ impl ::core::clone::Clone for DS_SPN_NAME_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DS_SPN_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DS_SPN_NAME_TYPE {
     type Abi = Self;
 }
@@ -7158,6 +7378,11 @@ impl ::core::marker::Copy for DS_SPN_WRITE_OP {}
 impl ::core::clone::Clone for DS_SPN_WRITE_OP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DS_SPN_WRITE_OP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DS_SPN_WRITE_OP {

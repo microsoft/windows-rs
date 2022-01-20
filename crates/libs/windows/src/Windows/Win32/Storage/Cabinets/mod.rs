@@ -186,6 +186,11 @@ impl ::core::clone::Clone for FCIERROR {
         *self
     }
 }
+impl ::core::default::Default for FCIERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FCIERROR {
     type Abi = Self;
 }
@@ -281,6 +286,11 @@ impl ::core::marker::Copy for FDICREATE_CPU_TYPE {}
 impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FDICREATE_CPU_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FDICREATE_CPU_TYPE {
@@ -557,6 +567,11 @@ impl ::core::clone::Clone for FDIDECRYPTTYPE {
         *self
     }
 }
+impl ::core::default::Default for FDIDECRYPTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
 }
@@ -614,6 +629,11 @@ impl ::core::marker::Copy for FDIERROR {}
 impl ::core::clone::Clone for FDIERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FDIERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FDIERROR {
@@ -709,6 +729,11 @@ impl ::core::marker::Copy for FDINOTIFICATIONTYPE {}
 impl ::core::clone::Clone for FDINOTIFICATIONTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FDINOTIFICATIONTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {

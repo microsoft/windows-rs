@@ -265,6 +265,11 @@ impl ::core::clone::Clone for AutoSvcs_Error_Constants {
         *self
     }
 }
+impl ::core::default::Default for AutoSvcs_Error_Constants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutoSvcs_Error_Constants {
     type Abi = Self;
 }
@@ -483,6 +488,11 @@ impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
         *self
     }
 }
+impl ::core::default::Default for COMAdminAccessChecksLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminAccessChecksLevelOptions {
     type Abi = Self;
 }
@@ -503,6 +513,11 @@ impl ::core::marker::Copy for COMAdminActivationOptions {}
 impl ::core::clone::Clone for COMAdminActivationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminActivationOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminActivationOptions {
@@ -533,6 +548,11 @@ impl ::core::clone::Clone for COMAdminApplicationExportOptions {
         *self
     }
 }
+impl ::core::default::Default for COMAdminApplicationExportOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminApplicationExportOptions {
     type Abi = Self;
 }
@@ -555,6 +575,11 @@ impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
 impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminApplicationInstallOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminApplicationInstallOptions {
@@ -581,6 +606,11 @@ impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminAuthenticationCapabilitiesOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminAuthenticationCapabilitiesOptions {
@@ -613,6 +643,11 @@ impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminAuthenticationLevelOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminAuthenticationLevelOptions {
@@ -648,6 +683,11 @@ impl ::core::clone::Clone for COMAdminComponentFlags {
         *self
     }
 }
+impl ::core::default::Default for COMAdminComponentFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminComponentFlags {
     type Abi = Self;
 }
@@ -668,6 +708,11 @@ impl ::core::marker::Copy for COMAdminComponentType {}
 impl ::core::clone::Clone for COMAdminComponentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminComponentType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminComponentType {
@@ -864,6 +909,11 @@ impl ::core::clone::Clone for COMAdminErrorCodes {
         *self
     }
 }
+impl ::core::default::Default for COMAdminErrorCodes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminErrorCodes {
     type Abi = Self;
 }
@@ -920,6 +970,11 @@ impl ::core::clone::Clone for COMAdminFileFlags {
         *self
     }
 }
+impl ::core::default::Default for COMAdminFileFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminFileFlags {
     type Abi = Self;
 }
@@ -944,6 +999,11 @@ impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
 impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminImpersonationLevelOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminImpersonationLevelOptions {
@@ -974,6 +1034,11 @@ impl ::core::marker::Copy for COMAdminInUse {}
 impl ::core::clone::Clone for COMAdminInUse {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminInUse {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminInUse {
@@ -1068,6 +1133,11 @@ impl ::core::clone::Clone for COMAdminOS {
         *self
     }
 }
+impl ::core::default::Default for COMAdminOS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminOS {
     type Abi = Self;
 }
@@ -1092,6 +1162,11 @@ impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
         *self
     }
 }
+impl ::core::default::Default for COMAdminQCMessageAuthenticateOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminQCMessageAuthenticateOptions {
     type Abi = Self;
 }
@@ -1110,6 +1185,11 @@ impl ::core::marker::Copy for COMAdminServiceOptions {}
 impl ::core::clone::Clone for COMAdminServiceOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminServiceOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminServiceOptions {
@@ -1146,6 +1226,11 @@ impl ::core::clone::Clone for COMAdminServiceStatusOptions {
         *self
     }
 }
+impl ::core::default::Default for COMAdminServiceStatusOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminServiceStatusOptions {
     type Abi = Self;
 }
@@ -1172,6 +1257,11 @@ impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
 impl ::core::clone::Clone for COMAdminSynchronizationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminSynchronizationOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminSynchronizationOptions {
@@ -1204,6 +1294,11 @@ impl ::core::clone::Clone for COMAdminThreadingModels {
         *self
     }
 }
+impl ::core::default::Default for COMAdminThreadingModels {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminThreadingModels {
     type Abi = Self;
 }
@@ -1230,6 +1325,11 @@ impl ::core::marker::Copy for COMAdminTransactionOptions {}
 impl ::core::clone::Clone for COMAdminTransactionOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMAdminTransactionOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMAdminTransactionOptions {
@@ -1260,6 +1360,11 @@ impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
         *self
     }
 }
+impl ::core::default::Default for COMAdminTxIsolationLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMAdminTxIsolationLevelOptions {
     type Abi = Self;
 }
@@ -1285,6 +1390,11 @@ impl ::core::marker::Copy for COMPLUS_APPTYPE {}
 impl ::core::clone::Clone for COMPLUS_APPTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMPLUS_APPTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMPLUS_APPTYPE {
@@ -1364,6 +1474,11 @@ impl ::core::clone::Clone for CRMFLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRMFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRMFLAGS {
     type Abi = Self;
 }
@@ -1390,6 +1505,11 @@ impl ::core::marker::Copy for CRMREGFLAGS {}
 impl ::core::clone::Clone for CRMREGFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRMREGFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRMREGFLAGS {
@@ -1427,6 +1547,11 @@ impl ::core::clone::Clone for CSC_Binding {
         *self
     }
 }
+impl ::core::default::Default for CSC_Binding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSC_Binding {
     type Abi = Self;
 }
@@ -1447,6 +1572,11 @@ impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
 impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSC_COMTIIntrinsicsConfig {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSC_COMTIIntrinsicsConfig {
@@ -1471,6 +1601,11 @@ impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
         *self
     }
 }
+impl ::core::default::Default for CSC_IISIntrinsicsConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSC_IISIntrinsicsConfig {
     type Abi = Self;
 }
@@ -1491,6 +1626,11 @@ impl ::core::marker::Copy for CSC_InheritanceConfig {}
 impl ::core::clone::Clone for CSC_InheritanceConfig {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSC_InheritanceConfig {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSC_InheritanceConfig {
@@ -1517,6 +1657,11 @@ impl ::core::clone::Clone for CSC_PartitionConfig {
         *self
     }
 }
+impl ::core::default::Default for CSC_PartitionConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSC_PartitionConfig {
     type Abi = Self;
 }
@@ -1539,6 +1684,11 @@ impl ::core::marker::Copy for CSC_SxsConfig {}
 impl ::core::clone::Clone for CSC_SxsConfig {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSC_SxsConfig {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSC_SxsConfig {
@@ -1567,6 +1717,11 @@ impl ::core::clone::Clone for CSC_SynchronizationConfig {
         *self
     }
 }
+impl ::core::default::Default for CSC_SynchronizationConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSC_SynchronizationConfig {
     type Abi = Self;
 }
@@ -1593,6 +1748,11 @@ impl ::core::clone::Clone for CSC_ThreadPool {
         *self
     }
 }
+impl ::core::default::Default for CSC_ThreadPool {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CSC_ThreadPool {
     type Abi = Self;
 }
@@ -1613,6 +1773,11 @@ impl ::core::marker::Copy for CSC_TrackerConfig {}
 impl ::core::clone::Clone for CSC_TrackerConfig {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSC_TrackerConfig {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSC_TrackerConfig {
@@ -1639,6 +1804,11 @@ impl ::core::marker::Copy for CSC_TransactionConfig {}
 impl ::core::clone::Clone for CSC_TransactionConfig {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CSC_TransactionConfig {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CSC_TransactionConfig {
@@ -2248,6 +2418,11 @@ impl ::core::clone::Clone for CrmTransactionState {
         *self
     }
 }
+impl ::core::default::Default for CrmTransactionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CrmTransactionState {
     type Abi = Self;
 }
@@ -2272,6 +2447,11 @@ impl ::core::marker::Copy for DUMPTYPE {}
 impl ::core::clone::Clone for DUMPTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DUMPTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DUMPTYPE {
@@ -2305,6 +2485,11 @@ impl ::core::marker::Copy for GetAppTrackerDataFlags {}
 impl ::core::clone::Clone for GetAppTrackerDataFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GetAppTrackerDataFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GetAppTrackerDataFlags {
@@ -13765,6 +13950,11 @@ impl ::core::clone::Clone for LockModes {
         *self
     }
 }
+impl ::core::default::Default for LockModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LockModes {
     type Abi = Self;
 }
@@ -14121,6 +14311,11 @@ impl ::core::clone::Clone for ReleaseModes {
         *self
     }
 }
+impl ::core::default::Default for ReleaseModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ReleaseModes {
     type Abi = Self;
 }
@@ -14315,6 +14510,11 @@ impl ::core::clone::Clone for TRACKING_COLL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TRACKING_COLL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRACKING_COLL_TYPE {
     type Abi = Self;
 }
@@ -14338,6 +14538,11 @@ impl ::core::marker::Copy for TransactionVote {}
 impl ::core::clone::Clone for TransactionVote {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TransactionVote {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TransactionVote {

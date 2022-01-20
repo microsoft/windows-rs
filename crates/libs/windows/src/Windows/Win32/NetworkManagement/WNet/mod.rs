@@ -105,6 +105,11 @@ impl ::core::clone::Clone for CONNECTDLGSTRUCT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCT_FLAGS {
     type Abi = Self;
 }
@@ -257,6 +262,11 @@ impl ::core::marker::Copy for DISCDLGSTRUCT_FLAGS {}
 impl ::core::clone::Clone for DISCDLGSTRUCT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
@@ -420,6 +430,11 @@ impl ::core::clone::Clone for NETINFOSTRUCT_CHARACTERISTICS {
         *self
     }
 }
+impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
     type Abi = Self;
 }
@@ -562,6 +577,11 @@ impl ::core::clone::Clone for NETWORK_NAME_FORMAT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETWORK_NAME_FORMAT_FLAGS {
     type Abi = Self;
 }
@@ -616,6 +636,11 @@ impl ::core::clone::Clone for NET_RESOURCE_SCOPE {
         *self
     }
 }
+impl ::core::default::Default for NET_RESOURCE_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
     type Abi = Self;
 }
@@ -666,6 +691,11 @@ impl ::core::marker::Copy for NET_RESOURCE_TYPE {}
 impl ::core::clone::Clone for NET_RESOURCE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_RESOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_RESOURCE_TYPE {
@@ -730,6 +760,11 @@ impl ::core::marker::Copy for NET_USE_CONNECT_FLAGS {}
 impl ::core::clone::Clone for NET_USE_CONNECT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
@@ -991,6 +1026,11 @@ impl ::core::clone::Clone for NPDIRECTORY_NOTIFY_OPERATION {
         *self
     }
 }
+impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NPDIRECTORY_NOTIFY_OPERATION {
     type Abi = Self;
 }
@@ -1220,6 +1260,11 @@ impl ::core::marker::Copy for NP_PROPERTY_DIALOG_SELECTION {}
 impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
@@ -1500,6 +1545,11 @@ impl ::core::clone::Clone for UNC_INFO_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for UNC_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
     type Abi = Self;
 }
@@ -1644,6 +1694,11 @@ impl ::core::clone::Clone for WNET_OPEN_ENUM_USAGE {
         *self
     }
 }
+impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
     type Abi = Self;
 }
@@ -1778,6 +1833,11 @@ impl ::core::marker::Copy for WNPERM_DLG {}
 impl ::core::clone::Clone for WNPERM_DLG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WNPERM_DLG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WNPERM_DLG {

@@ -284,6 +284,11 @@ impl ::core::clone::Clone for NAMED_PIPE_MODE {
         *self
     }
 }
+impl ::core::default::Default for NAMED_PIPE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NAMED_PIPE_MODE {
     type Abi = Self;
 }

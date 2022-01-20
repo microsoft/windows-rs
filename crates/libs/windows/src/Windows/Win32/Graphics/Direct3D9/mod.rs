@@ -204,6 +204,11 @@ impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNELTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DAUTHENTICATEDCHANNELTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DAUTHENTICATEDCHANNELTYPE {
     type Abi = Self;
 }
@@ -503,6 +508,11 @@ impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {}
 impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
@@ -1474,6 +1484,11 @@ impl ::core::clone::Clone for D3DBACKBUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DBACKBUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DBACKBUFFER_TYPE {
     type Abi = Self;
 }
@@ -1528,6 +1543,11 @@ impl ::core::clone::Clone for D3DBASISTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DBASISTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DBASISTYPE {
     type Abi = Self;
 }
@@ -1580,6 +1600,11 @@ impl ::core::marker::Copy for D3DBLEND {}
 impl ::core::clone::Clone for D3DBLEND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DBLEND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DBLEND {
@@ -1638,6 +1663,11 @@ impl ::core::marker::Copy for D3DBLENDOP {}
 impl ::core::clone::Clone for D3DBLENDOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DBLENDOP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DBLENDOP {
@@ -1741,6 +1771,11 @@ impl ::core::marker::Copy for D3DBUSTYPE {}
 impl ::core::clone::Clone for D3DBUSTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DBUSTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DBUSTYPE {
@@ -2010,6 +2045,11 @@ impl ::core::clone::Clone for D3DCMPFUNC {
         *self
     }
 }
+impl ::core::default::Default for D3DCMPFUNC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DCMPFUNC {
     type Abi = Self;
 }
@@ -2137,6 +2177,11 @@ impl ::core::clone::Clone for D3DCOMPOSERECTSOP {
         *self
     }
 }
+impl ::core::default::Default for D3DCOMPOSERECTSOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DCOMPOSERECTSOP {
     type Abi = Self;
 }
@@ -2249,6 +2294,11 @@ impl ::core::clone::Clone for D3DCUBEMAP_FACES {
         *self
     }
 }
+impl ::core::default::Default for D3DCUBEMAP_FACES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DCUBEMAP_FACES {
     type Abi = Self;
 }
@@ -2273,6 +2323,11 @@ impl ::core::marker::Copy for D3DCULL {}
 impl ::core::clone::Clone for D3DCULL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DCULL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DCULL {
@@ -2333,6 +2388,11 @@ impl ::core::clone::Clone for D3DDEBUGMONITORTOKENS {
         *self
     }
 }
+impl ::core::default::Default for D3DDEBUGMONITORTOKENS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DDEBUGMONITORTOKENS {
     type Abi = Self;
 }
@@ -2363,6 +2423,11 @@ impl ::core::marker::Copy for D3DDECLMETHOD {}
 impl ::core::clone::Clone for D3DDECLMETHOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DDECLMETHOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DDECLMETHOD {
@@ -2419,6 +2484,11 @@ impl ::core::clone::Clone for D3DDECLTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DDECLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DDECLTYPE {
     type Abi = Self;
 }
@@ -2465,6 +2535,11 @@ impl ::core::clone::Clone for D3DDECLUSAGE {
         *self
     }
 }
+impl ::core::default::Default for D3DDECLUSAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DDECLUSAGE {
     type Abi = Self;
 }
@@ -2491,6 +2566,11 @@ impl ::core::marker::Copy for D3DDEGREETYPE {}
 impl ::core::clone::Clone for D3DDEGREETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DDEGREETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DDEGREETYPE {
@@ -2857,6 +2937,11 @@ impl ::core::clone::Clone for D3DDEVTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DDEVTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DDEVTYPE {
     type Abi = Self;
 }
@@ -3011,6 +3096,11 @@ impl ::core::clone::Clone for D3DDISPLAYROTATION {
         *self
     }
 }
+impl ::core::default::Default for D3DDISPLAYROTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DDISPLAYROTATION {
     type Abi = Self;
 }
@@ -3095,6 +3185,11 @@ impl ::core::clone::Clone for D3DFILLMODE {
         *self
     }
 }
+impl ::core::default::Default for D3DFILLMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DFILLMODE {
     type Abi = Self;
 }
@@ -3125,6 +3220,11 @@ impl ::core::marker::Copy for D3DFOGMODE {}
 impl ::core::clone::Clone for D3DFOGMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DFOGMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DFOGMODE {
@@ -3275,6 +3375,11 @@ impl ::core::marker::Copy for D3DFORMAT {}
 impl ::core::clone::Clone for D3DFORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DFORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DFORMAT {
@@ -3465,6 +3570,11 @@ impl ::core::clone::Clone for D3DLIGHTTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DLIGHTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DLIGHTTYPE {
     type Abi = Self;
 }
@@ -3612,6 +3722,11 @@ impl ::core::clone::Clone for D3DMATERIALCOLORSOURCE {
         *self
     }
 }
+impl ::core::default::Default for D3DMATERIALCOLORSOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DMATERIALCOLORSOURCE {
     type Abi = Self;
 }
@@ -3744,6 +3859,11 @@ impl ::core::clone::Clone for D3DMULTISAMPLE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DMULTISAMPLE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DMULTISAMPLE_TYPE {
     type Abi = Self;
 }
@@ -3782,6 +3902,11 @@ impl ::core::marker::Copy for D3DPATCHEDGESTYLE {}
 impl ::core::clone::Clone for D3DPATCHEDGESTYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DPATCHEDGESTYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DPATCHEDGESTYLE {
@@ -3946,6 +4071,11 @@ impl ::core::marker::Copy for D3DPOOL {}
 impl ::core::clone::Clone for D3DPOOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DPOOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DPOOL {
@@ -4220,6 +4350,11 @@ impl ::core::clone::Clone for D3DPRIMITIVETYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DPRIMITIVETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DPRIMITIVETYPE {
     type Abi = Self;
 }
@@ -4352,6 +4487,11 @@ impl ::core::marker::Copy for D3DQUERYTYPE {}
 impl ::core::clone::Clone for D3DQUERYTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DQUERYTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DQUERYTYPE {
@@ -4719,6 +4859,11 @@ impl ::core::clone::Clone for D3DRENDERSTATETYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DRENDERSTATETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DRENDERSTATETYPE {
     type Abi = Self;
 }
@@ -4813,6 +4958,11 @@ impl ::core::clone::Clone for D3DRESOURCETYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DRESOURCETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DRESOURCETYPE {
     type Abi = Self;
 }
@@ -4861,6 +5011,11 @@ impl ::core::clone::Clone for D3DSAMPLERSTATETYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DSAMPLERSTATETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSAMPLERSTATETYPE {
     type Abi = Self;
 }
@@ -4889,6 +5044,11 @@ impl ::core::clone::Clone for D3DSAMPLER_TEXTURE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DSAMPLER_TEXTURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSAMPLER_TEXTURE_TYPE {
     type Abi = Self;
 }
@@ -4911,6 +5071,11 @@ impl ::core::marker::Copy for D3DSCANLINEORDERING {}
 impl ::core::clone::Clone for D3DSCANLINEORDERING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSCANLINEORDERING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSCANLINEORDERING {
@@ -4943,6 +5108,11 @@ impl ::core::clone::Clone for D3DSHADEMODE {
         *self
     }
 }
+impl ::core::default::Default for D3DSHADEMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSHADEMODE {
     type Abi = Self;
 }
@@ -4967,6 +5137,11 @@ impl ::core::marker::Copy for D3DSHADER_ADDRESSMODE_TYPE {}
 impl ::core::clone::Clone for D3DSHADER_ADDRESSMODE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSHADER_ADDRESSMODE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSHADER_ADDRESSMODE_TYPE {
@@ -5001,6 +5176,11 @@ impl ::core::marker::Copy for D3DSHADER_COMPARISON {}
 impl ::core::clone::Clone for D3DSHADER_COMPARISON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSHADER_COMPARISON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSHADER_COMPARISON {
@@ -5195,6 +5375,11 @@ impl ::core::clone::Clone for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
     type Abi = Self;
 }
@@ -5219,6 +5404,11 @@ impl ::core::clone::Clone for D3DSHADER_MIN_PRECISION {
         *self
     }
 }
+impl ::core::default::Default for D3DSHADER_MIN_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSHADER_MIN_PRECISION {
     type Abi = Self;
 }
@@ -5239,6 +5429,11 @@ impl ::core::marker::Copy for D3DSHADER_MISCTYPE_OFFSETS {}
 impl ::core::clone::Clone for D3DSHADER_MISCTYPE_OFFSETS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSHADER_MISCTYPE_OFFSETS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSHADER_MISCTYPE_OFFSETS {
@@ -5305,6 +5500,11 @@ impl ::core::clone::Clone for D3DSHADER_PARAM_REGISTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DSHADER_PARAM_REGISTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSHADER_PARAM_REGISTER_TYPE {
     type Abi = Self;
 }
@@ -5351,6 +5551,11 @@ impl ::core::marker::Copy for D3DSHADER_PARAM_SRCMOD_TYPE {}
 impl ::core::clone::Clone for D3DSHADER_PARAM_SRCMOD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSHADER_PARAM_SRCMOD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSHADER_PARAM_SRCMOD_TYPE {
@@ -5449,6 +5654,11 @@ impl ::core::clone::Clone for D3DSTATEBLOCKTYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DSTATEBLOCKTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSTATEBLOCKTYPE {
     type Abi = Self;
 }
@@ -5485,6 +5695,11 @@ impl ::core::marker::Copy for D3DSTENCILOP {}
 impl ::core::clone::Clone for D3DSTENCILOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DSTENCILOP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DSTENCILOP {
@@ -5586,6 +5801,11 @@ impl ::core::clone::Clone for D3DSWAPEFFECT {
         *self
     }
 }
+impl ::core::default::Default for D3DSWAPEFFECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DSWAPEFFECT {
     type Abi = Self;
 }
@@ -5652,6 +5872,11 @@ impl ::core::clone::Clone for D3DTEXTUREADDRESS {
         *self
     }
 }
+impl ::core::default::Default for D3DTEXTUREADDRESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DTEXTUREADDRESS {
     type Abi = Self;
 }
@@ -5684,6 +5909,11 @@ impl ::core::marker::Copy for D3DTEXTUREFILTERTYPE {}
 impl ::core::clone::Clone for D3DTEXTUREFILTERTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DTEXTUREFILTERTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DTEXTUREFILTERTYPE {
@@ -5758,6 +5988,11 @@ impl ::core::clone::Clone for D3DTEXTUREOP {
         *self
     }
 }
+impl ::core::default::Default for D3DTEXTUREOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DTEXTUREOP {
     type Abi = Self;
 }
@@ -5814,6 +6049,11 @@ impl ::core::clone::Clone for D3DTEXTURESTAGESTATETYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DTEXTURESTAGESTATETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DTEXTURESTAGESTATETYPE {
     type Abi = Self;
 }
@@ -5844,6 +6084,11 @@ impl ::core::marker::Copy for D3DTEXTURETRANSFORMFLAGS {}
 impl ::core::clone::Clone for D3DTEXTURETRANSFORMFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DTEXTURETRANSFORMFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DTEXTURETRANSFORMFLAGS {
@@ -5884,6 +6129,11 @@ impl ::core::marker::Copy for D3DTRANSFORMSTATETYPE {}
 impl ::core::clone::Clone for D3DTRANSFORMSTATETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DTRANSFORMSTATETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DTRANSFORMSTATETYPE {
@@ -5997,6 +6247,11 @@ impl ::core::marker::Copy for D3DVERTEXBLENDFLAGS {}
 impl ::core::clone::Clone for D3DVERTEXBLENDFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DVERTEXBLENDFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DVERTEXBLENDFLAGS {
@@ -6221,6 +6476,11 @@ impl ::core::clone::Clone for D3DVS_ADDRESSMODE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DVS_ADDRESSMODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DVS_ADDRESSMODE_TYPE {
     type Abi = Self;
 }
@@ -6245,6 +6505,11 @@ impl ::core::marker::Copy for D3DVS_RASTOUT_OFFSETS {}
 impl ::core::clone::Clone for D3DVS_RASTOUT_OFFSETS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DVS_RASTOUT_OFFSETS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DVS_RASTOUT_OFFSETS {
@@ -6283,6 +6548,11 @@ impl ::core::marker::Copy for D3DZBUFFERTYPE {}
 impl ::core::clone::Clone for D3DZBUFFERTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DZBUFFERTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DZBUFFERTYPE {

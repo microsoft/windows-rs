@@ -16,6 +16,11 @@ impl ::core::clone::Clone for AlternateNormalizationFormat {
         *self
     }
 }
+impl ::core::default::Default for AlternateNormalizationFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
     type Abi = Self;
 }
@@ -1253,6 +1258,11 @@ impl ::core::clone::Clone for TextPredictionOptions {
         *self
     }
 }
+impl ::core::default::Default for TextPredictionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextPredictionOptions {
     type Abi = Self;
 }
@@ -1621,6 +1631,11 @@ impl ::core::clone::Clone for UnicodeGeneralCategory {
         *self
     }
 }
+impl ::core::default::Default for UnicodeGeneralCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
     type Abi = Self;
 }
@@ -1649,6 +1664,11 @@ impl ::core::marker::Copy for UnicodeNumericType {}
 impl ::core::clone::Clone for UnicodeNumericType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UnicodeNumericType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UnicodeNumericType {

@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AddContactResult {
         *self
     }
 }
+impl ::core::default::Default for AddContactResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddContactResult {
     type Abi = Self;
 }

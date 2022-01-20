@@ -20,6 +20,11 @@ impl ::core::clone::Clone for BinaryStringEncoding {
         *self
     }
 }
+impl ::core::default::Default for BinaryStringEncoding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BinaryStringEncoding {
     type Abi = Self;
 }

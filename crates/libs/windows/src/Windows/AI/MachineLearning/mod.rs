@@ -2392,6 +2392,11 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
         *self
     }
 }
+impl ::core::default::Default for LearningModelDeviceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
     type Abi = Self;
 }
@@ -2528,6 +2533,11 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
         *self
     }
 }
+impl ::core::default::Default for LearningModelFeatureKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
     type Abi = Self;
 }
@@ -2555,6 +2565,11 @@ impl ::core::marker::Copy for LearningModelPixelRange {}
 impl ::core::clone::Clone for LearningModelPixelRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LearningModelPixelRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LearningModelPixelRange {
@@ -5518,6 +5533,11 @@ impl ::core::marker::Copy for TensorKind {}
 impl ::core::clone::Clone for TensorKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TensorKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TensorKind {

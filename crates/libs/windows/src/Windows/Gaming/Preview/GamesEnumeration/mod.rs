@@ -102,6 +102,11 @@ impl ::core::clone::Clone for GameListCategory {
         *self
     }
 }
+impl ::core::default::Default for GameListCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameListCategory {
     type Abi = Self;
 }
@@ -415,6 +420,11 @@ impl ::core::marker::Copy for GameListEntryLaunchableState {}
 impl ::core::clone::Clone for GameListEntryLaunchableState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameListEntryLaunchableState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameListEntryLaunchableState {

@@ -108,6 +108,11 @@ impl ::core::clone::Clone for MessagingSyncPolicy {
         *self
     }
 }
+impl ::core::default::Default for MessagingSyncPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MessagingSyncPolicy {
     type Abi = Self;
 }

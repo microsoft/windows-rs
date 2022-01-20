@@ -59,6 +59,11 @@ impl ::core::clone::Clone for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     type Abi = Self;
 }
@@ -79,6 +84,11 @@ impl ::core::marker::Copy for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {}
 impl ::core::clone::Clone for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {

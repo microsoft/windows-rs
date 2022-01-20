@@ -289,6 +289,11 @@ impl ::core::clone::Clone for CastingConnectionErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for CastingConnectionErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CastingConnectionErrorStatus {
     type Abi = Self;
 }
@@ -318,6 +323,11 @@ impl ::core::marker::Copy for CastingConnectionState {}
 impl ::core::clone::Clone for CastingConnectionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CastingConnectionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CastingConnectionState {
@@ -845,6 +855,11 @@ impl ::core::marker::Copy for CastingPlaybackTypes {}
 impl ::core::clone::Clone for CastingPlaybackTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CastingPlaybackTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CastingPlaybackTypes {

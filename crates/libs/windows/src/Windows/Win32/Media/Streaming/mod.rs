@@ -667,6 +667,11 @@ impl ::core::clone::Clone for MF_MEDIASOURCE_STATUS_INFO {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIASOURCE_STATUS_INFO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIASOURCE_STATUS_INFO {
     type Abi = Self;
 }
@@ -689,6 +694,11 @@ impl ::core::marker::Copy for MF_TRANSFER_VIDEO_FRAME_FLAGS {}
 impl ::core::clone::Clone for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TRANSFER_VIDEO_FRAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TRANSFER_VIDEO_FRAME_FLAGS {

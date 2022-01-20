@@ -13,6 +13,11 @@ impl ::core::clone::Clone for BitmapCreateOptions {
         *self
     }
 }
+impl ::core::default::Default for BitmapCreateOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BitmapCreateOptions {
     type Abi = Self;
 }
@@ -605,6 +610,11 @@ impl ::core::marker::Copy for DecodePixelType {}
 impl ::core::clone::Clone for DecodePixelType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DecodePixelType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DecodePixelType {
@@ -2112,6 +2122,11 @@ impl ::core::marker::Copy for SvgImageSourceLoadStatus {}
 impl ::core::clone::Clone for SvgImageSourceLoadStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SvgImageSourceLoadStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SvgImageSourceLoadStatus {

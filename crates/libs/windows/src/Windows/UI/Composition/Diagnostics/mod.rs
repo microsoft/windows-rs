@@ -113,6 +113,11 @@ impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
         *self
     }
 }
+impl ::core::default::Default for CompositionDebugOverdrawContentKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionDebugOverdrawContentKinds {
     type Abi = Self;
 }

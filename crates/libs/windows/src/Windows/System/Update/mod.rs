@@ -120,6 +120,11 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
         *self
     }
 }
+impl ::core::default::Default for SystemUpdateAttentionRequiredReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
 }
@@ -290,6 +295,11 @@ impl ::core::marker::Copy for SystemUpdateItemState {}
 impl ::core::clone::Clone for SystemUpdateItemState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemUpdateItemState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemUpdateItemState {
@@ -606,6 +616,11 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
         *self
     }
 }
+impl ::core::default::Default for SystemUpdateManagerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SystemUpdateManagerState {
     type Abi = Self;
 }
@@ -632,6 +647,11 @@ impl ::core::marker::Copy for SystemUpdateStartInstallAction {}
 impl ::core::clone::Clone for SystemUpdateStartInstallAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemUpdateStartInstallAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemUpdateStartInstallAction {

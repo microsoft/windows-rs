@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AUTHENTICATEF {
         *self
     }
 }
+impl ::core::default::Default for AUTHENTICATEF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHENTICATEF {
     type Abi = Self;
 }
@@ -93,6 +98,11 @@ impl ::core::marker::Copy for BINDF {}
 impl ::core::clone::Clone for BINDF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BINDF {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BINDF {
@@ -175,6 +185,11 @@ impl ::core::clone::Clone for BINDF2 {
         *self
     }
 }
+impl ::core::default::Default for BINDF2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BINDF2 {
     type Abi = Self;
 }
@@ -197,6 +212,11 @@ impl ::core::marker::Copy for BINDHANDLETYPES {}
 impl ::core::clone::Clone for BINDHANDLETYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BINDHANDLETYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BINDHANDLETYPES {
@@ -245,6 +265,11 @@ impl ::core::marker::Copy for BINDINFO_OPTIONS {}
 impl ::core::clone::Clone for BINDINFO_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BINDINFO_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BINDINFO_OPTIONS {
@@ -423,6 +448,11 @@ impl ::core::clone::Clone for BINDSTATUS {
         *self
     }
 }
+impl ::core::default::Default for BINDSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BINDSTATUS {
     type Abi = Self;
 }
@@ -493,6 +523,11 @@ impl ::core::clone::Clone for BINDSTRING {
         *self
     }
 }
+impl ::core::default::Default for BINDSTRING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BINDSTRING {
     type Abi = Self;
 }
@@ -519,6 +554,11 @@ impl ::core::marker::Copy for BINDVERB {}
 impl ::core::clone::Clone for BINDVERB {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BINDVERB {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BINDVERB {
@@ -551,6 +591,11 @@ impl ::core::marker::Copy for BSCF {}
 impl ::core::clone::Clone for BSCF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BSCF {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BSCF {
@@ -591,6 +636,11 @@ impl ::core::marker::Copy for CIP_STATUS {}
 impl ::core::clone::Clone for CIP_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CIP_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CIP_STATUS {
@@ -1880,6 +1930,11 @@ impl ::core::marker::Copy for IEObjectType {}
 impl ::core::clone::Clone for IEObjectType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IEObjectType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IEObjectType {
@@ -4490,6 +4545,11 @@ impl ::core::clone::Clone for INET_ZONE_MANAGER_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for INET_ZONE_MANAGER_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INET_ZONE_MANAGER_CONSTANTS {
     type Abi = Self;
 }
@@ -4564,6 +4624,11 @@ impl ::core::marker::Copy for INTERNETFEATURELIST {}
 impl ::core::clone::Clone for INTERNETFEATURELIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERNETFEATURELIST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERNETFEATURELIST {
@@ -5649,6 +5714,11 @@ impl ::core::clone::Clone for MONIKERPROPERTY {
         *self
     }
 }
+impl ::core::default::Default for MONIKERPROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MONIKERPROPERTY {
     type Abi = Self;
 }
@@ -5704,6 +5774,11 @@ impl ::core::marker::Copy for OIBDG_FLAGS {}
 impl ::core::clone::Clone for OIBDG_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OIBDG_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OIBDG_FLAGS {
@@ -5777,6 +5852,11 @@ impl ::core::clone::Clone for PARSEACTION {
         *self
     }
 }
+impl ::core::default::Default for PARSEACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PARSEACTION {
     type Abi = Self;
 }
@@ -5823,6 +5903,11 @@ impl ::core::marker::Copy for PI_FLAGS {}
 impl ::core::clone::Clone for PI_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PI_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PI_FLAGS {
@@ -5960,6 +6045,11 @@ impl ::core::clone::Clone for PSUACTION {
         *self
     }
 }
+impl ::core::default::Default for PSUACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PSUACTION {
     type Abi = Self;
 }
@@ -6020,6 +6110,11 @@ impl ::core::clone::Clone for PUAF {
         *self
     }
 }
+impl ::core::default::Default for PUAF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PUAF {
     type Abi = Self;
 }
@@ -6040,6 +6135,11 @@ impl ::core::marker::Copy for PUAFOUT {}
 impl ::core::clone::Clone for PUAFOUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PUAFOUT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PUAFOUT {
@@ -6090,6 +6190,11 @@ impl ::core::marker::Copy for QUERYOPTION {}
 impl ::core::clone::Clone for QUERYOPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUERYOPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUERYOPTION {
@@ -6463,6 +6568,11 @@ impl ::core::marker::Copy for SZM_FLAGS {}
 impl ::core::clone::Clone for SZM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SZM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SZM_FLAGS {
@@ -7066,6 +7176,11 @@ impl ::core::clone::Clone for URLTEMPLATE {
         *self
     }
 }
+impl ::core::default::Default for URLTEMPLATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for URLTEMPLATE {
     type Abi = Self;
 }
@@ -7104,6 +7219,11 @@ impl ::core::clone::Clone for URLZONE {
         *self
     }
 }
+impl ::core::default::Default for URLZONE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for URLZONE {
     type Abi = Self;
 }
@@ -7126,6 +7246,11 @@ impl ::core::marker::Copy for URLZONEREG {}
 impl ::core::clone::Clone for URLZONEREG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for URLZONEREG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for URLZONEREG {
@@ -7152,6 +7277,11 @@ impl ::core::marker::Copy for URL_ENCODING {}
 impl ::core::clone::Clone for URL_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for URL_ENCODING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for URL_ENCODING {
@@ -7208,6 +7338,11 @@ impl ::core::marker::Copy for Uri_HOST_TYPE {}
 impl ::core::clone::Clone for Uri_HOST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Uri_HOST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Uri_HOST_TYPE {
@@ -7297,6 +7432,11 @@ impl ::core::marker::Copy for ZAFLAGS {}
 impl ::core::clone::Clone for ZAFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ZAFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ZAFLAGS {

@@ -2267,6 +2267,11 @@ impl ::core::clone::Clone for PropertyConstraint {
         *self
     }
 }
+impl ::core::default::Default for PropertyConstraint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PropertyConstraint {
     type Abi = Self;
 }
@@ -2291,6 +2296,11 @@ impl ::core::clone::Clone for QueryCategoryType {
         *self
     }
 }
+impl ::core::default::Default for QueryCategoryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QueryCategoryType {
     type Abi = Self;
 }
@@ -2313,6 +2323,11 @@ impl ::core::marker::Copy for QueryUpdateAction {}
 impl ::core::clone::Clone for QueryUpdateAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QueryUpdateAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QueryUpdateAction {
@@ -2347,6 +2362,11 @@ impl ::core::marker::Copy for SystemVisibilityFlags {}
 impl ::core::clone::Clone for SystemVisibilityFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemVisibilityFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemVisibilityFlags {

@@ -43,6 +43,11 @@ impl ::core::clone::Clone for OPERATION_END_PARAMETERS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for OPERATION_END_PARAMETERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS_FLAGS {
     type Abi = Self;
 }
@@ -89,6 +94,11 @@ impl ::core::marker::Copy for OPERATION_START_FLAGS {}
 impl ::core::clone::Clone for OPERATION_START_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPERATION_START_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPERATION_START_FLAGS {

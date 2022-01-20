@@ -653,6 +653,11 @@ impl ::core::clone::Clone for _reconcilef {
         *self
     }
 }
+impl ::core::default::Default for _reconcilef {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _reconcilef {
     type Abi = Self;
 }

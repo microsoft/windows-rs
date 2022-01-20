@@ -55,6 +55,11 @@ impl ::core::clone::Clone for ActivationKind {
         *self
     }
 }
+impl ::core::default::Default for ActivationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationKind {
     type Abi = Self;
 }
@@ -84,6 +89,11 @@ impl ::core::marker::Copy for ApplicationExecutionState {}
 impl ::core::clone::Clone for ApplicationExecutionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ApplicationExecutionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationExecutionState {

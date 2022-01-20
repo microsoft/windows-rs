@@ -4858,6 +4858,11 @@ impl ::core::clone::Clone for LogicalDirection {
         *self
     }
 }
+impl ::core::default::Default for LogicalDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LogicalDirection {
     type Abi = Self;
 }
@@ -7531,6 +7536,11 @@ impl ::core::marker::Copy for UnderlineStyle {}
 impl ::core::clone::Clone for UnderlineStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UnderlineStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UnderlineStyle {

@@ -94,6 +94,11 @@ impl ::core::clone::Clone for DMO_ENUM_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DMO_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
     type Abi = Self;
 }
@@ -241,6 +246,11 @@ impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
 impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DMO_REGISTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
@@ -889,6 +899,11 @@ impl ::core::clone::Clone for _DMO_INPLACE_PROCESS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_INPLACE_PROCESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_INPLACE_PROCESS_FLAGS {
     type Abi = Self;
 }
@@ -915,6 +930,11 @@ impl ::core::clone::Clone for _DMO_INPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_INPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -933,6 +953,11 @@ impl ::core::marker::Copy for _DMO_INPUT_STATUS_FLAGS {}
 impl ::core::clone::Clone for _DMO_INPUT_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DMO_INPUT_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DMO_INPUT_STATUS_FLAGS {
@@ -959,6 +984,11 @@ impl ::core::marker::Copy for _DMO_INPUT_STREAM_INFO_FLAGS {}
 impl ::core::clone::Clone for _DMO_INPUT_STREAM_INFO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DMO_INPUT_STREAM_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DMO_INPUT_STREAM_INFO_FLAGS {
@@ -989,6 +1019,11 @@ impl ::core::clone::Clone for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -1017,6 +1052,11 @@ impl ::core::clone::Clone for _DMO_OUTPUT_STREAM_INFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
 }
@@ -1037,6 +1077,11 @@ impl ::core::clone::Clone for _DMO_PROCESS_OUTPUT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_PROCESS_OUTPUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_PROCESS_OUTPUT_FLAGS {
     type Abi = Self;
 }
@@ -1055,6 +1100,11 @@ impl ::core::marker::Copy for _DMO_QUALITY_STATUS_FLAGS {}
 impl ::core::clone::Clone for _DMO_QUALITY_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DMO_QUALITY_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DMO_QUALITY_STATUS_FLAGS {
@@ -1079,6 +1129,11 @@ impl ::core::clone::Clone for _DMO_SET_TYPE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _DMO_SET_TYPE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DMO_SET_TYPE_FLAGS {
     type Abi = Self;
 }
@@ -1097,6 +1152,11 @@ impl ::core::marker::Copy for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {}
 impl ::core::clone::Clone for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {

@@ -65,6 +65,11 @@ impl ::core::clone::Clone for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
 }

@@ -232,6 +232,11 @@ impl ::core::clone::Clone for WCM_CONNECTION_COST {
         *self
     }
 }
+impl ::core::default::Default for WCM_CONNECTION_COST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST {
     type Abi = Self;
 }
@@ -287,6 +292,11 @@ impl ::core::marker::Copy for WCM_CONNECTION_COST_SOURCE {}
 impl ::core::clone::Clone for WCM_CONNECTION_COST_SOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCM_CONNECTION_COST_SOURCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_SOURCE {
@@ -363,6 +373,11 @@ impl ::core::marker::Copy for WCM_MEDIA_TYPE {}
 impl ::core::clone::Clone for WCM_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCM_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCM_MEDIA_TYPE {
@@ -497,6 +512,11 @@ impl ::core::marker::Copy for WCM_PROPERTY {}
 impl ::core::clone::Clone for WCM_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCM_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCM_PROPERTY {

@@ -245,6 +245,11 @@ impl ::core::clone::Clone for APO_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for APO_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APO_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -267,6 +272,11 @@ impl ::core::marker::Copy for APO_CONNECTION_BUFFER_TYPE {}
 impl ::core::clone::Clone for APO_CONNECTION_BUFFER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APO_CONNECTION_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APO_CONNECTION_BUFFER_TYPE {
@@ -398,6 +408,11 @@ impl ::core::clone::Clone for APO_FLAG {
         *self
     }
 }
+impl ::core::default::Default for APO_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APO_FLAG {
     type Abi = Self;
 }
@@ -426,6 +441,11 @@ impl ::core::marker::Copy for APO_LOG_LEVEL {}
 impl ::core::clone::Clone for APO_LOG_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APO_LOG_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APO_LOG_LEVEL {
@@ -566,6 +586,11 @@ impl ::core::marker::Copy for APO_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for APO_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APO_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_TYPE {
@@ -785,6 +810,11 @@ impl ::core::clone::Clone for AUDIO_FLOW_TYPE {
         *self
     }
 }
+impl ::core::default::Default for AUDIO_FLOW_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIO_FLOW_TYPE {
     type Abi = Self;
 }
@@ -931,6 +961,11 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT_STATE {
         *self
     }
 }
+impl ::core::default::Default for AUDIO_SYSTEMEFFECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECT_STATE {
     type Abi = Self;
 }
@@ -995,6 +1030,11 @@ impl ::core::marker::Copy for EAudioConstriction {}
 impl ::core::clone::Clone for EAudioConstriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EAudioConstriction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EAudioConstriction {

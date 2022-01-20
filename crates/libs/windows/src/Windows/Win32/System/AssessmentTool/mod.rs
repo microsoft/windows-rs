@@ -1077,6 +1077,11 @@ impl ::core::clone::Clone for WINSAT_ASSESSMENT_STATE {
         *self
     }
 }
+impl ::core::default::Default for WINSAT_ASSESSMENT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINSAT_ASSESSMENT_STATE {
     type Abi = Self;
 }
@@ -1105,6 +1110,11 @@ impl ::core::clone::Clone for WINSAT_ASSESSMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WINSAT_ASSESSMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINSAT_ASSESSMENT_TYPE {
     type Abi = Self;
 }
@@ -1125,6 +1135,11 @@ impl ::core::marker::Copy for WINSAT_BITMAP_SIZE {}
 impl ::core::clone::Clone for WINSAT_BITMAP_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINSAT_BITMAP_SIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINSAT_BITMAP_SIZE {
@@ -1151,6 +1166,11 @@ impl ::core::marker::Copy for WINSAT_OEM_DATA_TYPE {}
 impl ::core::clone::Clone for WINSAT_OEM_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINSAT_OEM_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINSAT_OEM_DATA_TYPE {

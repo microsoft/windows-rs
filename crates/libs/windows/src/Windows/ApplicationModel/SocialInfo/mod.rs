@@ -922,6 +922,12 @@ impl ::core::clone::Clone for SocialFeedItemStyle {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedItemStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
     type Abi = Self;
 }
@@ -956,6 +962,12 @@ impl ::core::marker::Copy for SocialFeedKind {}
 impl ::core::clone::Clone for SocialFeedKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1163,6 +1175,12 @@ impl ::core::clone::Clone for SocialFeedUpdateMode {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedUpdateMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
     type Abi = Self;
 }
@@ -1197,6 +1215,12 @@ impl ::core::marker::Copy for SocialItemBadgeStyle {}
 impl ::core::clone::Clone for SocialItemBadgeStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialItemBadgeStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

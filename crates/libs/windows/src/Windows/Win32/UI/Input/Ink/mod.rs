@@ -381,6 +381,11 @@ impl ::core::clone::Clone for INK_HIGH_CONTRAST_ADJUSTMENT {
         *self
     }
 }
+impl ::core::default::Default for INK_HIGH_CONTRAST_ADJUSTMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INK_HIGH_CONTRAST_ADJUSTMENT {
     type Abi = Self;
 }

@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ICS_TARGETTYPE {
         *self
     }
 }
+impl ::core::default::Default for ICS_TARGETTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ICS_TARGETTYPE {
     type Abi = Self;
 }
@@ -1155,6 +1160,11 @@ impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -1179,6 +1189,11 @@ impl ::core::marker::Copy for INET_FIREWALL_AC_CREATION_TYPE {}
 impl ::core::clone::Clone for INET_FIREWALL_AC_CREATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INET_FIREWALL_AC_CREATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CREATION_TYPE {
@@ -7143,6 +7158,11 @@ impl ::core::clone::Clone for NETCONMGR_ENUM_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for NETCONMGR_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETCONMGR_ENUM_FLAGS {
     type Abi = Self;
 }
@@ -7165,6 +7185,11 @@ impl ::core::marker::Copy for NETCONUI_CONNECT_FLAGS {}
 impl ::core::clone::Clone for NETCONUI_CONNECT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NETCONUI_CONNECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NETCONUI_CONNECT_FLAGS {
@@ -7227,6 +7252,11 @@ impl ::core::clone::Clone for NETCON_CHARACTERISTIC_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for NETCON_CHARACTERISTIC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETCON_CHARACTERISTIC_FLAGS {
     type Abi = Self;
 }
@@ -7265,6 +7295,11 @@ impl ::core::marker::Copy for NETCON_MEDIATYPE {}
 impl ::core::clone::Clone for NETCON_MEDIATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NETCON_MEDIATYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NETCON_MEDIATYPE {
@@ -7362,6 +7397,11 @@ impl ::core::clone::Clone for NETCON_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NETCON_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETCON_STATUS {
     type Abi = Self;
 }
@@ -7394,6 +7434,11 @@ impl ::core::clone::Clone for NETCON_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NETCON_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETCON_TYPE {
     type Abi = Self;
 }
@@ -7422,6 +7467,11 @@ impl ::core::clone::Clone for NETISO_ERROR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NETISO_ERROR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETISO_ERROR_TYPE {
     type Abi = Self;
 }
@@ -7442,6 +7492,11 @@ impl ::core::marker::Copy for NETISO_FLAG {}
 impl ::core::clone::Clone for NETISO_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NETISO_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NETISO_FLAG {
@@ -7472,6 +7527,11 @@ impl ::core::clone::Clone for NET_FW_ACTION {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_ACTION {
     type Abi = Self;
 }
@@ -7500,6 +7560,11 @@ impl ::core::clone::Clone for NET_FW_AUTHENTICATE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_AUTHENTICATE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_AUTHENTICATE_TYPE {
     type Abi = Self;
 }
@@ -7526,6 +7591,11 @@ impl ::core::clone::Clone for NET_FW_EDGE_TRAVERSAL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_EDGE_TRAVERSAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_EDGE_TRAVERSAL_TYPE {
     type Abi = Self;
 }
@@ -7548,6 +7618,11 @@ impl ::core::marker::Copy for NET_FW_IP_PROTOCOL {}
 impl ::core::clone::Clone for NET_FW_IP_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_FW_IP_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_FW_IP_PROTOCOL {
@@ -7576,6 +7651,11 @@ impl ::core::clone::Clone for NET_FW_IP_VERSION {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_IP_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_IP_VERSION {
     type Abi = Self;
 }
@@ -7598,6 +7678,11 @@ impl ::core::marker::Copy for NET_FW_MODIFY_STATE {}
 impl ::core::clone::Clone for NET_FW_MODIFY_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_FW_MODIFY_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_FW_MODIFY_STATE {
@@ -7626,6 +7711,11 @@ impl ::core::clone::Clone for NET_FW_POLICY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_POLICY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_POLICY_TYPE {
     type Abi = Self;
 }
@@ -7652,6 +7742,11 @@ impl ::core::clone::Clone for NET_FW_PROFILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_PROFILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_PROFILE_TYPE {
     type Abi = Self;
 }
@@ -7676,6 +7771,11 @@ impl ::core::marker::Copy for NET_FW_PROFILE_TYPE2 {}
 impl ::core::clone::Clone for NET_FW_PROFILE_TYPE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_FW_PROFILE_TYPE2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_FW_PROFILE_TYPE2 {
@@ -7706,6 +7806,11 @@ impl ::core::clone::Clone for NET_FW_RULE_CATEGORY {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_RULE_CATEGORY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_RULE_CATEGORY {
     type Abi = Self;
 }
@@ -7728,6 +7833,11 @@ impl ::core::marker::Copy for NET_FW_RULE_DIRECTION {}
 impl ::core::clone::Clone for NET_FW_RULE_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_FW_RULE_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_FW_RULE_DIRECTION {
@@ -7756,6 +7866,11 @@ impl ::core::clone::Clone for NET_FW_SCOPE {
         *self
     }
 }
+impl ::core::default::Default for NET_FW_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_FW_SCOPE {
     type Abi = Self;
 }
@@ -7782,6 +7897,11 @@ impl ::core::marker::Copy for NET_FW_SERVICE_TYPE {}
 impl ::core::clone::Clone for NET_FW_SERVICE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_FW_SERVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_FW_SERVICE_TYPE {
@@ -7957,6 +8077,11 @@ impl ::core::clone::Clone for SHARINGCONNECTIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for SHARINGCONNECTIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SHARINGCONNECTIONTYPE {
     type Abi = Self;
 }
@@ -7977,6 +8102,11 @@ impl ::core::marker::Copy for SHARINGCONNECTION_ENUM_FLAGS {}
 impl ::core::clone::Clone for SHARINGCONNECTION_ENUM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHARINGCONNECTION_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHARINGCONNECTION_ENUM_FLAGS {
@@ -8088,6 +8218,11 @@ impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     type Abi = Self;
 }
@@ -8106,6 +8241,11 @@ impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
 impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
@@ -8130,6 +8270,11 @@ impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {}
 impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {

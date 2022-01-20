@@ -341,6 +341,11 @@ impl ::core::clone::Clone for GraphicsCaptureAccessKind {
         *self
     }
 }
+impl ::core::default::Default for GraphicsCaptureAccessKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GraphicsCaptureAccessKind {
     type Abi = Self;
 }

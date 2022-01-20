@@ -43,6 +43,11 @@ impl ::core::clone::Clone for AUTHENTICATION_REQUIREMENTS {
         *self
     }
 }
+impl ::core::default::Default for AUTHENTICATION_REQUIREMENTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHENTICATION_REQUIREMENTS {
     type Abi = Self;
 }
@@ -359,6 +364,11 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_METHOD {
         *self
     }
 }
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_METHOD {
     type Abi = Self;
 }
@@ -389,6 +399,11 @@ impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
@@ -589,6 +604,11 @@ impl ::core::marker::Copy for BLUETOOTH_IO_CAPABILITY {}
 impl ::core::clone::Clone for BLUETOOTH_IO_CAPABILITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BLUETOOTH_IO_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BLUETOOTH_IO_CAPABILITY {
@@ -2652,6 +2672,11 @@ impl ::core::clone::Clone for IO_CAPABILITY {
         *self
     }
 }
+impl ::core::default::Default for IO_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IO_CAPABILITY {
     type Abi = Self;
 }
@@ -2734,6 +2759,11 @@ impl ::core::marker::Copy for NodeContainerType {}
 impl ::core::clone::Clone for NodeContainerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NodeContainerType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NodeContainerType {
@@ -3560,6 +3590,11 @@ impl ::core::clone::Clone for SDP_SPECIFICTYPE {
         *self
     }
 }
+impl ::core::default::Default for SDP_SPECIFICTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SDP_SPECIFICTYPE {
     type Abi = Self;
 }
@@ -3628,6 +3663,11 @@ impl ::core::marker::Copy for SDP_TYPE {}
 impl ::core::clone::Clone for SDP_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SDP_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SDP_TYPE {

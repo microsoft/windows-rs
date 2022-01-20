@@ -205,6 +205,11 @@ impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for BATTERY_CHARGING_SOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_TYPE {
     type Abi = Self;
 }
@@ -364,6 +369,11 @@ impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for BATTERY_QUERY_INFORMATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION_LEVEL {
     type Abi = Self;
 }
@@ -466,6 +476,11 @@ impl ::core::marker::Copy for BATTERY_SET_INFORMATION_LEVEL {}
 impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BATTERY_SET_INFORMATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION_LEVEL {
@@ -741,6 +756,11 @@ impl ::core::clone::Clone for DEVICE_POWER_STATE {
         *self
     }
 }
+impl ::core::default::Default for DEVICE_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_POWER_STATE {
     type Abi = Self;
 }
@@ -846,6 +866,11 @@ impl ::core::marker::Copy for EFFECTIVE_POWER_MODE {}
 impl ::core::clone::Clone for EFFECTIVE_POWER_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EFFECTIVE_POWER_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EFFECTIVE_POWER_MODE {
@@ -965,6 +990,11 @@ impl ::core::marker::Copy for EMI_MEASUREMENT_UNIT {}
 impl ::core::clone::Clone for EMI_MEASUREMENT_UNIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EMI_MEASUREMENT_UNIT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_UNIT {
@@ -1128,6 +1158,11 @@ impl ::core::marker::Copy for EXECUTION_STATE {}
 impl ::core::clone::Clone for EXECUTION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXECUTION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXECUTION_STATE {
@@ -1592,6 +1627,11 @@ impl ::core::clone::Clone for LATENCY_TIME {
         *self
     }
 }
+impl ::core::default::Default for LATENCY_TIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LATENCY_TIME {
     type Abi = Self;
 }
@@ -1778,6 +1818,11 @@ impl ::core::clone::Clone for POWER_ACTION {
         *self
     }
 }
+impl ::core::default::Default for POWER_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POWER_ACTION {
     type Abi = Self;
 }
@@ -1838,6 +1883,11 @@ impl ::core::marker::Copy for POWER_ACTION_POLICY_EVENT_CODE {}
 impl ::core::clone::Clone for POWER_ACTION_POLICY_EVENT_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POWER_ACTION_POLICY_EVENT_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY_EVENT_CODE {
@@ -1944,6 +1994,11 @@ impl ::core::marker::Copy for POWER_DATA_ACCESSOR {}
 impl ::core::clone::Clone for POWER_DATA_ACCESSOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POWER_DATA_ACCESSOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POWER_DATA_ACCESSOR {
@@ -2160,6 +2215,11 @@ impl ::core::clone::Clone for POWER_INFORMATION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for POWER_INFORMATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POWER_INFORMATION_LEVEL {
     type Abi = Self;
 }
@@ -2198,6 +2258,11 @@ impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
         *self
     }
 }
+impl ::core::default::Default for POWER_PLATFORM_ROLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE {
     type Abi = Self;
 }
@@ -2218,6 +2283,11 @@ impl ::core::marker::Copy for POWER_PLATFORM_ROLE_VERSION {}
 impl ::core::clone::Clone for POWER_PLATFORM_ROLE_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POWER_PLATFORM_ROLE_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE_VERSION {
@@ -2313,6 +2383,11 @@ impl ::core::clone::Clone for POWER_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for POWER_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POWER_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -2335,6 +2410,11 @@ impl ::core::marker::Copy for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
@@ -3742,6 +3822,11 @@ impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
         *self
     }
 }
+impl ::core::default::Default for SYSTEM_POWER_CONDITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYSTEM_POWER_CONDITION {
     type Abi = Self;
 }
@@ -3910,6 +3995,11 @@ impl ::core::marker::Copy for SYSTEM_POWER_STATE {}
 impl ::core::clone::Clone for SYSTEM_POWER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATE {
@@ -4239,6 +4329,11 @@ impl ::core::marker::Copy for USB_CHARGER_PORT {}
 impl ::core::clone::Clone for USB_CHARGER_PORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USB_CHARGER_PORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USB_CHARGER_PORT {

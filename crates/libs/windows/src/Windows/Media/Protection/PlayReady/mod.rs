@@ -3882,6 +3882,12 @@ impl ::core::clone::Clone for NDCertificateFeature {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDCertificateFeature {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificateFeature {
     type Abi = Self;
 }
@@ -3925,6 +3931,12 @@ impl ::core::marker::Copy for NDCertificatePlatformID {}
 impl ::core::clone::Clone for NDCertificatePlatformID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDCertificatePlatformID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3972,6 +3984,12 @@ impl ::core::marker::Copy for NDCertificateType {}
 impl ::core::clone::Clone for NDCertificateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDCertificateType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4222,6 +4240,12 @@ impl ::core::clone::Clone for NDClosedCaptionFormat {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDClosedCaptionFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDClosedCaptionFormat {
     type Abi = Self;
 }
@@ -4256,6 +4280,12 @@ impl ::core::marker::Copy for NDContentIDType {}
 impl ::core::clone::Clone for NDContentIDType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDContentIDType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4759,6 +4789,12 @@ impl ::core::clone::Clone for NDMediaStreamType {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDMediaStreamType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDMediaStreamType {
     type Abi = Self;
 }
@@ -4796,6 +4832,12 @@ impl ::core::clone::Clone for NDProximityDetectionType {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDProximityDetectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDProximityDetectionType {
     type Abi = Self;
 }
@@ -4829,6 +4871,12 @@ impl ::core::marker::Copy for NDStartAsyncOptions {}
 impl ::core::clone::Clone for NDStartAsyncOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for NDStartAsyncOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5529,6 +5577,11 @@ impl ::core::marker::Copy for PlayReadyDecryptorSetup {}
 impl ::core::clone::Clone for PlayReadyDecryptorSetup {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlayReadyDecryptorSetup {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlayReadyDecryptorSetup {
@@ -6478,6 +6531,11 @@ impl ::core::clone::Clone for PlayReadyEncryptionAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for PlayReadyEncryptionAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlayReadyEncryptionAlgorithm {
     type Abi = Self;
 }
@@ -6507,6 +6565,11 @@ impl ::core::clone::Clone for PlayReadyHardwareDRMFeatures {
         *self
     }
 }
+impl ::core::default::Default for PlayReadyHardwareDRMFeatures {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlayReadyHardwareDRMFeatures {
     type Abi = Self;
 }
@@ -6533,6 +6596,11 @@ impl ::core::marker::Copy for PlayReadyITADataFormat {}
 impl ::core::clone::Clone for PlayReadyITADataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlayReadyITADataFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlayReadyITADataFormat {

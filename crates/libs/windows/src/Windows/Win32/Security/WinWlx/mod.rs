@@ -1022,6 +1022,11 @@ impl ::core::clone::Clone for WLX_SHUTDOWN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WLX_SHUTDOWN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLX_SHUTDOWN_TYPE {
     type Abi = Self;
 }

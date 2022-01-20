@@ -201,6 +201,11 @@ impl ::core::clone::Clone for AutomationRemoteOperationStatus {
         *self
     }
 }
+impl ::core::default::Default for AutomationRemoteOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationStatus {
     type Abi = Self;
 }

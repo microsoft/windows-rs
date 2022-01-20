@@ -504,6 +504,11 @@ impl ::core::clone::Clone for SceneAlphaMode {
         *self
     }
 }
+impl ::core::default::Default for SceneAlphaMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SceneAlphaMode {
     type Abi = Self;
 }
@@ -535,6 +540,11 @@ impl ::core::marker::Copy for SceneAttributeSemantic {}
 impl ::core::clone::Clone for SceneAttributeSemantic {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SceneAttributeSemantic {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
@@ -1590,6 +1600,11 @@ impl ::core::marker::Copy for SceneComponentType {}
 impl ::core::clone::Clone for SceneComponentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SceneComponentType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SceneComponentType {
@@ -6686,6 +6701,11 @@ impl ::core::marker::Copy for SceneWrappingMode {}
 impl ::core::clone::Clone for SceneWrappingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SceneWrappingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SceneWrappingMode {

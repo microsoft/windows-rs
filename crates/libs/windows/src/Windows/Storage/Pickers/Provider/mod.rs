@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AddFileResult {
         *self
     }
 }
+impl ::core::default::Default for AddFileResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddFileResult {
     type Abi = Self;
 }
@@ -453,6 +458,11 @@ impl ::core::marker::Copy for FileSelectionMode {}
 impl ::core::clone::Clone for FileSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileSelectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileSelectionMode {
@@ -914,6 +924,11 @@ impl ::core::marker::Copy for SetFileNameResult {}
 impl ::core::clone::Clone for SetFileNameResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SetFileNameResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SetFileNameResult {

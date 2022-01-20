@@ -1139,6 +1139,11 @@ impl ::core::clone::Clone for AppInstallState {
         *self
     }
 }
+impl ::core::default::Default for AppInstallState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallState {
     type Abi = Self;
 }
@@ -1306,6 +1311,11 @@ impl ::core::clone::Clone for AppInstallType {
         *self
     }
 }
+impl ::core::default::Default for AppInstallType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallType {
     type Abi = Self;
 }
@@ -1334,6 +1344,11 @@ impl ::core::marker::Copy for AppInstallationToastNotificationMode {}
 impl ::core::clone::Clone for AppInstallationToastNotificationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppInstallationToastNotificationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppInstallationToastNotificationMode {
@@ -1485,6 +1500,11 @@ impl ::core::clone::Clone for AutoUpdateSetting {
         *self
     }
 }
+impl ::core::default::Default for AutoUpdateSetting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutoUpdateSetting {
     type Abi = Self;
 }
@@ -1594,6 +1614,11 @@ impl ::core::marker::Copy for GetEntitlementStatus {}
 impl ::core::clone::Clone for GetEntitlementStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GetEntitlementStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GetEntitlementStatus {

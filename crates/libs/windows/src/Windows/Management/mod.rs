@@ -265,6 +265,11 @@ impl ::core::clone::Clone for MdmAlertDataType {
         *self
     }
 }
+impl ::core::default::Default for MdmAlertDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MdmAlertDataType {
     type Abi = Self;
 }
@@ -294,6 +299,11 @@ impl ::core::marker::Copy for MdmAlertMark {}
 impl ::core::clone::Clone for MdmAlertMark {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MdmAlertMark {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MdmAlertMark {
@@ -501,6 +511,11 @@ impl ::core::marker::Copy for MdmSessionState {}
 impl ::core::clone::Clone for MdmSessionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MdmSessionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MdmSessionState {

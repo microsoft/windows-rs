@@ -3285,6 +3285,11 @@ impl ::core::clone::Clone for MapAnimationKind {
         *self
     }
 }
+impl ::core::default::Default for MapAnimationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapAnimationKind {
     type Abi = Self;
 }
@@ -3728,6 +3733,11 @@ impl ::core::clone::Clone for MapCameraChangeReason {
         *self
     }
 }
+impl ::core::default::Default for MapCameraChangeReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapCameraChangeReason {
     type Abi = Self;
 }
@@ -3754,6 +3764,11 @@ impl ::core::marker::Copy for MapColorScheme {}
 impl ::core::clone::Clone for MapColorScheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapColorScheme {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapColorScheme {
@@ -7288,6 +7303,11 @@ impl ::core::clone::Clone for MapElementCollisionBehavior {
         *self
     }
 }
+impl ::core::default::Default for MapElementCollisionBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapElementCollisionBehavior {
     type Abi = Self;
 }
@@ -8514,6 +8534,11 @@ impl ::core::clone::Clone for MapInteractionMode {
         *self
     }
 }
+impl ::core::default::Default for MapInteractionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapInteractionMode {
     type Abi = Self;
 }
@@ -8883,6 +8908,11 @@ impl ::core::clone::Clone for MapLoadingStatus {
         *self
     }
 }
+impl ::core::default::Default for MapLoadingStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapLoadingStatus {
     type Abi = Self;
 }
@@ -9046,6 +9076,11 @@ impl ::core::clone::Clone for MapModel3DShadingOption {
         *self
     }
 }
+impl ::core::default::Default for MapModel3DShadingOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapModel3DShadingOption {
     type Abi = Self;
 }
@@ -9072,6 +9107,11 @@ impl ::core::marker::Copy for MapPanInteractionMode {}
 impl ::core::clone::Clone for MapPanInteractionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapPanInteractionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapPanInteractionMode {
@@ -9515,6 +9555,11 @@ impl ::core::marker::Copy for MapProjection {}
 impl ::core::clone::Clone for MapProjection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapProjection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapProjection {
@@ -9989,6 +10034,11 @@ impl ::core::marker::Copy for MapStyle {}
 impl ::core::clone::Clone for MapStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapStyle {
@@ -10771,6 +10821,11 @@ impl ::core::clone::Clone for MapTileAnimationState {
         *self
     }
 }
+impl ::core::default::Default for MapTileAnimationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapTileAnimationState {
     type Abi = Self;
 }
@@ -11221,6 +11276,11 @@ impl ::core::marker::Copy for MapTileLayer {}
 impl ::core::clone::Clone for MapTileLayer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapTileLayer {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapTileLayer {
@@ -12060,6 +12120,11 @@ impl ::core::clone::Clone for MapVisibleRegionKind {
         *self
     }
 }
+impl ::core::default::Default for MapVisibleRegionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapVisibleRegionKind {
     type Abi = Self;
 }
@@ -12086,6 +12151,11 @@ impl ::core::marker::Copy for MapWatermarkMode {}
 impl ::core::clone::Clone for MapWatermarkMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapWatermarkMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapWatermarkMode {

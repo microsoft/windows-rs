@@ -2941,6 +2941,11 @@ impl ::core::clone::Clone for CM_NOTIFY_ACTION {
         *self
     }
 }
+impl ::core::default::Default for CM_NOTIFY_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_ACTION {
     type Abi = Self;
 }
@@ -3301,6 +3306,11 @@ impl ::core::marker::Copy for CM_NOTIFY_FILTER_TYPE {}
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CM_NOTIFY_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_TYPE {
@@ -4797,6 +4807,11 @@ impl ::core::marker::Copy for CONFIGRET {}
 impl ::core::clone::Clone for CONFIGRET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONFIGRET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONFIGRET {
@@ -7708,6 +7723,11 @@ impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OEM_SOURCE_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OEM_SOURCE_MEDIA_TYPE {
     type Abi = Self;
 }
@@ -7852,6 +7872,11 @@ impl ::core::clone::Clone for PNP_VETO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PNP_VETO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PNP_VETO_TYPE {
     type Abi = Self;
 }
@@ -7934,6 +7959,11 @@ impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     type Abi = Self;
 }
@@ -7982,6 +8012,11 @@ impl ::core::marker::Copy for SETUP_FILE_OPERATION {}
 impl ::core::clone::Clone for SETUP_FILE_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SETUP_FILE_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SETUP_FILE_OPERATION {
@@ -9530,6 +9565,11 @@ impl ::core::marker::Copy for SP_COPY_STYLE {}
 impl ::core::clone::Clone for SP_COPY_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SP_COPY_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SP_COPY_STYLE {
@@ -11773,6 +11813,11 @@ impl ::core::marker::Copy for SP_INF_STYLE {}
 impl ::core::clone::Clone for SP_INF_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SP_INF_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SP_INF_STYLE {
@@ -15815,6 +15860,11 @@ impl ::core::marker::Copy for SetupFileLogInfo {}
 impl ::core::clone::Clone for SetupFileLogInfo {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SetupFileLogInfo {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SetupFileLogInfo {

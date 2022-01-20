@@ -296,6 +296,11 @@ impl ::core::clone::Clone for D2D1_2DAFFINETRANSFORM_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_2DAFFINETRANSFORM_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_2DAFFINETRANSFORM_PROP {
     type Abi = Self;
 }
@@ -352,6 +357,11 @@ impl ::core::marker::Copy for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {}
 impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
@@ -418,6 +428,11 @@ impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_3DPERSPECTIVETRANSFORM_PROP {
     type Abi = Self;
 }
@@ -476,6 +491,11 @@ impl ::core::clone::Clone for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -530,6 +550,11 @@ impl ::core::clone::Clone for D2D1_3DTRANSFORM_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_3DTRANSFORM_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_3DTRANSFORM_PROP {
     type Abi = Self;
 }
@@ -580,6 +605,11 @@ impl ::core::marker::Copy for D2D1_ANTIALIAS_MODE {}
 impl ::core::clone::Clone for D2D1_ANTIALIAS_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_ANTIALIAS_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_ANTIALIAS_MODE {
@@ -678,6 +708,11 @@ impl ::core::clone::Clone for D2D1_ARC_SIZE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_ARC_SIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_ARC_SIZE {
     type Abi = Self;
 }
@@ -728,6 +763,11 @@ impl ::core::marker::Copy for D2D1_ARITHMETICCOMPOSITE_PROP {}
 impl ::core::clone::Clone for D2D1_ARITHMETICCOMPOSITE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_ARITHMETICCOMPOSITE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_ARITHMETICCOMPOSITE_PROP {
@@ -782,6 +822,11 @@ impl ::core::clone::Clone for D2D1_ATLAS_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_ATLAS_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_ATLAS_PROP {
     type Abi = Self;
 }
@@ -832,6 +877,11 @@ impl ::core::marker::Copy for D2D1_BITMAPSOURCE_ALPHA_MODE {}
 impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ALPHA_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_ALPHA_MODE {
@@ -890,6 +940,11 @@ impl ::core::marker::Copy for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {}
 impl ::core::clone::Clone for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
@@ -956,6 +1011,11 @@ impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ORIENTATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BITMAPSOURCE_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_ORIENTATION {
     type Abi = Self;
 }
@@ -1014,6 +1074,11 @@ impl ::core::marker::Copy for D2D1_BITMAPSOURCE_PROP {}
 impl ::core::clone::Clone for D2D1_BITMAPSOURCE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BITMAPSOURCE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_PROP {
@@ -1132,6 +1197,11 @@ impl ::core::clone::Clone for D2D1_BITMAP_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BITMAP_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -1188,6 +1258,11 @@ impl ::core::marker::Copy for D2D1_BITMAP_OPTIONS {}
 impl ::core::clone::Clone for D2D1_BITMAP_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BITMAP_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_OPTIONS {
@@ -1344,6 +1419,11 @@ impl ::core::clone::Clone for D2D1_BLEND {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BLEND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BLEND {
     type Abi = Self;
 }
@@ -1438,6 +1518,11 @@ impl ::core::clone::Clone for D2D1_BLEND_OPERATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BLEND_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BLEND_OPERATION {
     type Abi = Self;
 }
@@ -1486,6 +1571,11 @@ impl ::core::marker::Copy for D2D1_BLEND_PROP {}
 impl ::core::clone::Clone for D2D1_BLEND_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BLEND_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BLEND_PROP {
@@ -1542,6 +1632,11 @@ impl ::core::clone::Clone for D2D1_BORDER_EDGE_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BORDER_EDGE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BORDER_EDGE_MODE {
     type Abi = Self;
 }
@@ -1594,6 +1689,11 @@ impl ::core::clone::Clone for D2D1_BORDER_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BORDER_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BORDER_PROP {
     type Abi = Self;
 }
@@ -1644,6 +1744,11 @@ impl ::core::marker::Copy for D2D1_BRIGHTNESS_PROP {}
 impl ::core::clone::Clone for D2D1_BRIGHTNESS_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_BRIGHTNESS_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_BRIGHTNESS_PROP {
@@ -1745,6 +1850,11 @@ impl ::core::clone::Clone for D2D1_BUFFER_PRECISION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BUFFER_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BUFFER_PRECISION {
     type Abi = Self;
 }
@@ -1799,6 +1909,11 @@ impl ::core::marker::Copy for D2D1_CAP_STYLE {}
 impl ::core::clone::Clone for D2D1_CAP_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_CAP_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_CAP_STYLE {
@@ -1857,6 +1972,11 @@ impl ::core::clone::Clone for D2D1_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -1909,6 +2029,11 @@ impl ::core::marker::Copy for D2D1_CHANNEL_DEPTH {}
 impl ::core::clone::Clone for D2D1_CHANNEL_DEPTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_CHANNEL_DEPTH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_CHANNEL_DEPTH {
@@ -1967,6 +2092,11 @@ impl ::core::clone::Clone for D2D1_CHANNEL_SELECTOR {
         *self
     }
 }
+impl ::core::default::Default for D2D1_CHANNEL_SELECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CHANNEL_SELECTOR {
     type Abi = Self;
 }
@@ -2023,6 +2153,11 @@ impl ::core::clone::Clone for D2D1_CHROMAKEY_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_CHROMAKEY_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CHROMAKEY_PROP {
     type Abi = Self;
 }
@@ -2073,6 +2208,11 @@ impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_ALPHA_MODE {}
 impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_ALPHA_MODE {
@@ -2135,6 +2275,11 @@ impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COLORMANAGEMENT_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_PROP {
     type Abi = Self;
 }
@@ -2187,6 +2332,11 @@ impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_QUALITY {}
 impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_QUALITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLORMANAGEMENT_QUALITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_QUALITY {
@@ -2245,6 +2395,11 @@ impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
     type Abi = Self;
 }
@@ -2299,6 +2454,11 @@ impl ::core::clone::Clone for D2D1_COLORMATRIX_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COLORMATRIX_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_PROP {
     type Abi = Self;
 }
@@ -2349,6 +2509,11 @@ impl ::core::marker::Copy for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {}
 impl ::core::clone::Clone for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
@@ -2405,6 +2570,11 @@ impl ::core::clone::Clone for D2D1_COLOR_CONTEXT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COLOR_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COLOR_CONTEXT_TYPE {
     type Abi = Self;
 }
@@ -2455,6 +2625,11 @@ impl ::core::marker::Copy for D2D1_COLOR_INTERPOLATION_MODE {}
 impl ::core::clone::Clone for D2D1_COLOR_INTERPOLATION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLOR_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLOR_INTERPOLATION_MODE {
@@ -2509,6 +2684,11 @@ impl ::core::marker::Copy for D2D1_COLOR_SPACE {}
 impl ::core::clone::Clone for D2D1_COLOR_SPACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLOR_SPACE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLOR_SPACE {
@@ -2567,6 +2747,11 @@ impl ::core::clone::Clone for D2D1_COMBINE_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COMBINE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COMBINE_MODE {
     type Abi = Self;
 }
@@ -2619,6 +2804,11 @@ impl ::core::clone::Clone for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     type Abi = Self;
 }
@@ -2667,6 +2857,11 @@ impl ::core::marker::Copy for D2D1_COMPOSITE_PROP {}
 impl ::core::clone::Clone for D2D1_COMPOSITE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COMPOSITE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COMPOSITE_PROP {
@@ -2719,6 +2914,11 @@ impl ::core::marker::Copy for D2D1_CONTRAST_PROP {}
 impl ::core::clone::Clone for D2D1_CONTRAST_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_CONTRAST_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_CONTRAST_PROP {
@@ -2791,6 +2991,11 @@ impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_CONVOLVEMATRIX_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CONVOLVEMATRIX_PROP {
     type Abi = Self;
 }
@@ -2849,6 +3054,11 @@ impl ::core::marker::Copy for D2D1_CONVOLVEMATRIX_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_CONVOLVEMATRIX_SCALE_MODE {
@@ -2935,6 +3145,11 @@ impl ::core::clone::Clone for D2D1_CROP_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_CROP_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_CROP_PROP {
     type Abi = Self;
 }
@@ -2983,6 +3198,11 @@ impl ::core::marker::Copy for D2D1_CROSSFADE_PROP {}
 impl ::core::clone::Clone for D2D1_CROSSFADE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_CROSSFADE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_CROSSFADE_PROP {
@@ -3087,6 +3307,11 @@ impl ::core::clone::Clone for D2D1_DASH_STYLE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DASH_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DASH_STYLE {
     type Abi = Self;
 }
@@ -3137,6 +3362,11 @@ impl ::core::marker::Copy for D2D1_DC_INITIALIZE_MODE {}
 impl ::core::clone::Clone for D2D1_DC_INITIALIZE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DC_INITIALIZE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DC_INITIALIZE_MODE {
@@ -3195,6 +3425,11 @@ impl ::core::clone::Clone for D2D1_DEBUG_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DEBUG_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DEBUG_LEVEL {
     type Abi = Self;
 }
@@ -3247,6 +3482,11 @@ impl ::core::marker::Copy for D2D1_DEVICE_CONTEXT_OPTIONS {}
 impl ::core::clone::Clone for D2D1_DEVICE_CONTEXT_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DEVICE_CONTEXT_OPTIONS {
@@ -3303,6 +3543,11 @@ impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
     type Abi = Self;
 }
@@ -3357,6 +3602,11 @@ impl ::core::marker::Copy for D2D1_DIRECTIONALBLUR_PROP {}
 impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DIRECTIONALBLUR_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DIRECTIONALBLUR_PROP {
@@ -3425,6 +3675,11 @@ impl ::core::clone::Clone for D2D1_DISCRETETRANSFER_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DISCRETETRANSFER_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DISCRETETRANSFER_PROP {
     type Abi = Self;
 }
@@ -3477,6 +3732,11 @@ impl ::core::marker::Copy for D2D1_DISPLACEMENTMAP_PROP {}
 impl ::core::clone::Clone for D2D1_DISPLACEMENTMAP_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DISPLACEMENTMAP_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DISPLACEMENTMAP_PROP {
@@ -3541,6 +3801,11 @@ impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DISTANTDIFFUSE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DISTANTDIFFUSE_PROP {
     type Abi = Self;
 }
@@ -3599,6 +3864,11 @@ impl ::core::marker::Copy for D2D1_DISTANTDIFFUSE_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DISTANTDIFFUSE_SCALE_MODE {
@@ -3665,6 +3935,11 @@ impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DISTANTSPECULAR_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DISTANTSPECULAR_PROP {
     type Abi = Self;
 }
@@ -3723,6 +3998,11 @@ impl ::core::marker::Copy for D2D1_DISTANTSPECULAR_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DISTANTSPECULAR_SCALE_MODE {
@@ -3785,6 +4065,11 @@ impl ::core::clone::Clone for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -3837,6 +4122,11 @@ impl ::core::marker::Copy for D2D1_DPICOMPENSATION_PROP {}
 impl ::core::clone::Clone for D2D1_DPICOMPENSATION_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_DPICOMPENSATION_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_DPICOMPENSATION_PROP {
@@ -3983,6 +4273,11 @@ impl ::core::clone::Clone for D2D1_DRAW_TEXT_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_DRAW_TEXT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_DRAW_TEXT_OPTIONS {
     type Abi = Self;
 }
@@ -4033,6 +4328,11 @@ impl ::core::marker::Copy for D2D1_EDGEDETECTION_MODE {}
 impl ::core::clone::Clone for D2D1_EDGEDETECTION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_EDGEDETECTION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_EDGEDETECTION_MODE {
@@ -4091,6 +4391,11 @@ impl ::core::marker::Copy for D2D1_EDGEDETECTION_PROP {}
 impl ::core::clone::Clone for D2D1_EDGEDETECTION_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_EDGEDETECTION_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_EDGEDETECTION_PROP {
@@ -4223,6 +4528,11 @@ impl ::core::clone::Clone for D2D1_EMBOSS_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_EMBOSS_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_EMBOSS_PROP {
     type Abi = Self;
 }
@@ -4271,6 +4581,11 @@ impl ::core::marker::Copy for D2D1_EXPOSURE_PROP {}
 impl ::core::clone::Clone for D2D1_EXPOSURE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_EXPOSURE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_EXPOSURE_PROP {
@@ -4325,6 +4640,11 @@ impl ::core::marker::Copy for D2D1_EXTEND_MODE {}
 impl ::core::clone::Clone for D2D1_EXTEND_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_EXTEND_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_EXTEND_MODE {
@@ -4409,6 +4729,11 @@ impl ::core::clone::Clone for D2D1_FACTORY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_FACTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_FACTORY_TYPE {
     type Abi = Self;
 }
@@ -4459,6 +4784,11 @@ impl ::core::marker::Copy for D2D1_FEATURE {}
 impl ::core::clone::Clone for D2D1_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_FEATURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_FEATURE {
@@ -4591,6 +4921,11 @@ impl ::core::clone::Clone for D2D1_FEATURE_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for D2D1_FEATURE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_FEATURE_LEVEL {
     type Abi = Self;
 }
@@ -4657,6 +4992,11 @@ impl ::core::clone::Clone for D2D1_FILTER {
         *self
     }
 }
+impl ::core::default::Default for D2D1_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_FILTER {
     type Abi = Self;
 }
@@ -4705,6 +5045,11 @@ impl ::core::marker::Copy for D2D1_FLOOD_PROP {}
 impl ::core::clone::Clone for D2D1_FLOOD_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_FLOOD_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_FLOOD_PROP {
@@ -4759,6 +5104,11 @@ impl ::core::clone::Clone for D2D1_GAMMA {
         *self
     }
 }
+impl ::core::default::Default for D2D1_GAMMA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_GAMMA {
     type Abi = Self;
 }
@@ -4811,6 +5161,11 @@ impl ::core::marker::Copy for D2D1_GAMMA1 {}
 impl ::core::clone::Clone for D2D1_GAMMA1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_GAMMA1 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_GAMMA1 {
@@ -4895,6 +5250,11 @@ impl ::core::clone::Clone for D2D1_GAMMATRANSFER_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_GAMMATRANSFER_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_GAMMATRANSFER_PROP {
     type Abi = Self;
 }
@@ -4949,6 +5309,11 @@ impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_OPTIMIZATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_GAUSSIANBLUR_OPTIMIZATION {
     type Abi = Self;
 }
@@ -5001,6 +5366,11 @@ impl ::core::marker::Copy for D2D1_GAUSSIANBLUR_PROP {}
 impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_GAUSSIANBLUR_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_GAUSSIANBLUR_PROP {
@@ -5061,6 +5431,11 @@ impl ::core::clone::Clone for D2D1_GEOMETRY_RELATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_GEOMETRY_RELATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_GEOMETRY_RELATION {
     type Abi = Self;
 }
@@ -5111,6 +5486,11 @@ impl ::core::marker::Copy for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {}
 impl ::core::clone::Clone for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
@@ -5290,6 +5670,11 @@ impl ::core::clone::Clone for D2D1_HDRTONEMAP_DISPLAY_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_HDRTONEMAP_DISPLAY_MODE {
     type Abi = Self;
 }
@@ -5344,6 +5729,11 @@ impl ::core::clone::Clone for D2D1_HDRTONEMAP_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_HDRTONEMAP_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_HDRTONEMAP_PROP {
     type Abi = Self;
 }
@@ -5394,6 +5784,11 @@ impl ::core::marker::Copy for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {}
 impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
@@ -5454,6 +5849,11 @@ impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
     type Abi = Self;
 }
@@ -5508,6 +5908,11 @@ impl ::core::clone::Clone for D2D1_HISTOGRAM_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_HISTOGRAM_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_HISTOGRAM_PROP {
     type Abi = Self;
 }
@@ -5556,6 +5961,11 @@ impl ::core::marker::Copy for D2D1_HUEROTATION_PROP {}
 impl ::core::clone::Clone for D2D1_HUEROTATION_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_HUEROTATION_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_HUEROTATION_PROP {
@@ -5610,6 +6020,11 @@ impl ::core::clone::Clone for D2D1_HUETORGB_INPUT_COLOR_SPACE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_HUETORGB_INPUT_COLOR_SPACE {
     type Abi = Self;
 }
@@ -5658,6 +6073,11 @@ impl ::core::marker::Copy for D2D1_HUETORGB_PROP {}
 impl ::core::clone::Clone for D2D1_HUETORGB_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_HUETORGB_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_HUETORGB_PROP {
@@ -5793,6 +6213,11 @@ impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     type Abi = Self;
 }
@@ -5845,6 +6270,11 @@ impl ::core::marker::Copy for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {}
 impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
@@ -5929,6 +6359,11 @@ impl ::core::marker::Copy for D2D1_INK_NIB_SHAPE {}
 impl ::core::clone::Clone for D2D1_INK_NIB_SHAPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_INK_NIB_SHAPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_INK_NIB_SHAPE {
@@ -6135,6 +6570,11 @@ impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -6197,6 +6637,11 @@ impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE_DEFINITION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_INTERPOLATION_MODE_DEFINITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_INTERPOLATION_MODE_DEFINITION {
     type Abi = Self;
 }
@@ -6219,6 +6664,11 @@ impl ::core::marker::Copy for D2D1_LAYER_OPTIONS {}
 impl ::core::clone::Clone for D2D1_LAYER_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_LAYER_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_LAYER_OPTIONS {
@@ -6273,6 +6723,11 @@ impl ::core::marker::Copy for D2D1_LAYER_OPTIONS1 {}
 impl ::core::clone::Clone for D2D1_LAYER_OPTIONS1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_LAYER_OPTIONS1 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_LAYER_OPTIONS1 {
@@ -6449,6 +6904,11 @@ impl ::core::clone::Clone for D2D1_LINEARTRANSFER_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_LINEARTRANSFER_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_LINEARTRANSFER_PROP {
     type Abi = Self;
 }
@@ -6544,6 +7004,11 @@ impl ::core::clone::Clone for D2D1_LINE_JOIN {
         *self
     }
 }
+impl ::core::default::Default for D2D1_LINE_JOIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_LINE_JOIN {
     type Abi = Self;
 }
@@ -6594,6 +7059,11 @@ impl ::core::marker::Copy for D2D1_LOOKUPTABLE3D_PROP {}
 impl ::core::clone::Clone for D2D1_LOOKUPTABLE3D_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_LOOKUPTABLE3D_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_LOOKUPTABLE3D_PROP {
@@ -6683,6 +7153,11 @@ impl ::core::clone::Clone for D2D1_MAP_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_MAP_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_MAP_OPTIONS {
     type Abi = Self;
 }
@@ -6733,6 +7208,11 @@ impl ::core::marker::Copy for D2D1_MORPHOLOGY_MODE {}
 impl ::core::clone::Clone for D2D1_MORPHOLOGY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_MORPHOLOGY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_MORPHOLOGY_MODE {
@@ -6789,6 +7269,11 @@ impl ::core::clone::Clone for D2D1_MORPHOLOGY_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_MORPHOLOGY_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_MORPHOLOGY_PROP {
     type Abi = Self;
 }
@@ -6837,6 +7322,11 @@ impl ::core::marker::Copy for D2D1_OPACITYMETADATA_PROP {}
 impl ::core::clone::Clone for D2D1_OPACITYMETADATA_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_OPACITYMETADATA_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_OPACITYMETADATA_PROP {
@@ -6893,6 +7383,11 @@ impl ::core::clone::Clone for D2D1_OPACITY_MASK_CONTENT {
         *self
     }
 }
+impl ::core::default::Default for D2D1_OPACITY_MASK_CONTENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_OPACITY_MASK_CONTENT {
     type Abi = Self;
 }
@@ -6941,6 +7436,11 @@ impl ::core::marker::Copy for D2D1_OPACITY_PROP {}
 impl ::core::clone::Clone for D2D1_OPACITY_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_OPACITY_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_OPACITY_PROP {
@@ -7007,6 +7507,11 @@ impl ::core::clone::Clone for D2D1_ORIENTATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_ORIENTATION {
     type Abi = Self;
 }
@@ -7061,6 +7566,11 @@ impl ::core::clone::Clone for D2D1_PATCH_EDGE_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_PATCH_EDGE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_PATCH_EDGE_MODE {
     type Abi = Self;
 }
@@ -7111,6 +7621,11 @@ impl ::core::marker::Copy for D2D1_PIXEL_OPTIONS {}
 impl ::core::clone::Clone for D2D1_PIXEL_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PIXEL_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PIXEL_OPTIONS {
@@ -7173,6 +7688,11 @@ impl ::core::clone::Clone for D2D1_POINTDIFFUSE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_POINTDIFFUSE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_POINTDIFFUSE_PROP {
     type Abi = Self;
 }
@@ -7231,6 +7751,11 @@ impl ::core::marker::Copy for D2D1_POINTDIFFUSE_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_POINTDIFFUSE_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_POINTDIFFUSE_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_POINTDIFFUSE_SCALE_MODE {
@@ -7295,6 +7820,11 @@ impl ::core::clone::Clone for D2D1_POINTSPECULAR_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_POINTSPECULAR_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_POINTSPECULAR_PROP {
     type Abi = Self;
 }
@@ -7353,6 +7883,11 @@ impl ::core::marker::Copy for D2D1_POINTSPECULAR_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_POINTSPECULAR_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_POINTSPECULAR_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_POINTSPECULAR_SCALE_MODE {
@@ -7451,6 +7986,11 @@ impl ::core::clone::Clone for D2D1_POSTERIZE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_POSTERIZE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_POSTERIZE_PROP {
     type Abi = Self;
 }
@@ -7503,6 +8043,11 @@ impl ::core::marker::Copy for D2D1_PRESENT_OPTIONS {}
 impl ::core::clone::Clone for D2D1_PRESENT_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PRESENT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PRESENT_OPTIONS {
@@ -7561,6 +8106,11 @@ impl ::core::marker::Copy for D2D1_PRIMITIVE_BLEND {}
 impl ::core::clone::Clone for D2D1_PRIMITIVE_BLEND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PRIMITIVE_BLEND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PRIMITIVE_BLEND {
@@ -7649,6 +8199,11 @@ impl ::core::clone::Clone for D2D1_PRINT_FONT_SUBSET_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_PRINT_FONT_SUBSET_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_PRINT_FONT_SUBSET_MODE {
     type Abi = Self;
 }
@@ -7715,6 +8270,11 @@ impl ::core::marker::Copy for D2D1_PROPERTY {}
 impl ::core::clone::Clone for D2D1_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PROPERTY {
@@ -7841,6 +8401,11 @@ impl ::core::marker::Copy for D2D1_PROPERTY_TYPE {}
 impl ::core::clone::Clone for D2D1_PROPERTY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PROPERTY_TYPE {
@@ -8014,6 +8579,11 @@ impl ::core::clone::Clone for D2D1_RENDERING_PRIORITY {
         *self
     }
 }
+impl ::core::default::Default for D2D1_RENDERING_PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_RENDERING_PRIORITY {
     type Abi = Self;
 }
@@ -8111,6 +8681,11 @@ impl ::core::clone::Clone for D2D1_RENDER_TARGET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_RENDER_TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_TYPE {
     type Abi = Self;
 }
@@ -8163,6 +8738,11 @@ impl ::core::marker::Copy for D2D1_RENDER_TARGET_USAGE {}
 impl ::core::clone::Clone for D2D1_RENDER_TARGET_USAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_RENDER_TARGET_USAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_USAGE {
@@ -8252,6 +8832,11 @@ impl ::core::clone::Clone for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
     type Abi = Self;
 }
@@ -8300,6 +8885,11 @@ impl ::core::marker::Copy for D2D1_RGBTOHUE_PROP {}
 impl ::core::clone::Clone for D2D1_RGBTOHUE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_RGBTOHUE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_RGBTOHUE_PROP {
@@ -8392,6 +8982,11 @@ impl ::core::clone::Clone for D2D1_SATURATION_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SATURATION_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SATURATION_PROP {
     type Abi = Self;
 }
@@ -8452,6 +9047,11 @@ impl ::core::clone::Clone for D2D1_SCALE_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SCALE_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SCALE_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -8510,6 +9110,11 @@ impl ::core::clone::Clone for D2D1_SCALE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SCALE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SCALE_PROP {
     type Abi = Self;
 }
@@ -8562,6 +9167,11 @@ impl ::core::marker::Copy for D2D1_SEPIA_PROP {}
 impl ::core::clone::Clone for D2D1_SEPIA_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SEPIA_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SEPIA_PROP {
@@ -8618,6 +9228,11 @@ impl ::core::clone::Clone for D2D1_SHADOW_OPTIMIZATION {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SHADOW_OPTIMIZATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SHADOW_OPTIMIZATION {
     type Abi = Self;
 }
@@ -8672,6 +9287,11 @@ impl ::core::clone::Clone for D2D1_SHADOW_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SHADOW_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SHADOW_PROP {
     type Abi = Self;
 }
@@ -8722,6 +9342,11 @@ impl ::core::marker::Copy for D2D1_SHARPEN_PROP {}
 impl ::core::clone::Clone for D2D1_SHARPEN_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SHARPEN_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SHARPEN_PROP {
@@ -8832,6 +9457,11 @@ impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SPOTDIFFUSE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SPOTDIFFUSE_PROP {
     type Abi = Self;
 }
@@ -8890,6 +9520,11 @@ impl ::core::marker::Copy for D2D1_SPOTDIFFUSE_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SPOTDIFFUSE_SCALE_MODE {
@@ -8960,6 +9595,11 @@ impl ::core::clone::Clone for D2D1_SPOTSPECULAR_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SPOTSPECULAR_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SPOTSPECULAR_PROP {
     type Abi = Self;
 }
@@ -9020,6 +9660,11 @@ impl ::core::clone::Clone for D2D1_SPOTSPECULAR_SCALE_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SPOTSPECULAR_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SPOTSPECULAR_SCALE_MODE {
     type Abi = Self;
 }
@@ -9070,6 +9715,11 @@ impl ::core::marker::Copy for D2D1_SPRITE_OPTIONS {}
 impl ::core::clone::Clone for D2D1_SPRITE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SPRITE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SPRITE_OPTIONS {
@@ -9124,6 +9774,11 @@ impl ::core::marker::Copy for D2D1_STRAIGHTEN_PROP {}
 impl ::core::clone::Clone for D2D1_STRAIGHTEN_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_STRAIGHTEN_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_STRAIGHTEN_PROP {
@@ -9182,6 +9837,11 @@ impl ::core::marker::Copy for D2D1_STRAIGHTEN_SCALE_MODE {}
 impl ::core::clone::Clone for D2D1_STRAIGHTEN_SCALE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_STRAIGHTEN_SCALE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_STRAIGHTEN_SCALE_MODE {
@@ -9311,6 +9971,11 @@ impl ::core::clone::Clone for D2D1_STROKE_TRANSFORM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_STROKE_TRANSFORM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_STROKE_TRANSFORM_TYPE {
     type Abi = Self;
 }
@@ -9371,6 +10036,11 @@ impl ::core::marker::Copy for D2D1_SUBPROPERTY {}
 impl ::core::clone::Clone for D2D1_SUBPROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SUBPROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SUBPROPERTY {
@@ -9441,6 +10111,11 @@ impl ::core::clone::Clone for D2D1_SVG_ASPECT_ALIGN {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_ASPECT_ALIGN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_ASPECT_ALIGN {
     type Abi = Self;
 }
@@ -9491,6 +10166,11 @@ impl ::core::marker::Copy for D2D1_SVG_ASPECT_SCALING {}
 impl ::core::clone::Clone for D2D1_SVG_ASPECT_SCALING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_ASPECT_SCALING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_ASPECT_SCALING {
@@ -9569,6 +10249,11 @@ impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_POD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_ATTRIBUTE_POD_TYPE {
     type Abi = Self;
 }
@@ -9621,6 +10306,11 @@ impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
     type Abi = Self;
 }
@@ -9671,6 +10361,11 @@ impl ::core::marker::Copy for D2D1_SVG_DISPLAY {}
 impl ::core::clone::Clone for D2D1_SVG_DISPLAY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_DISPLAY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_DISPLAY {
@@ -9756,6 +10451,11 @@ impl ::core::clone::Clone for D2D1_SVG_LENGTH_UNITS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_LENGTH_UNITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_LENGTH_UNITS {
     type Abi = Self;
 }
@@ -9808,6 +10508,11 @@ impl ::core::marker::Copy for D2D1_SVG_LINE_CAP {}
 impl ::core::clone::Clone for D2D1_SVG_LINE_CAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_LINE_CAP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_LINE_CAP {
@@ -9864,6 +10569,11 @@ impl ::core::clone::Clone for D2D1_SVG_LINE_JOIN {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_LINE_JOIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_LINE_JOIN {
     type Abi = Self;
 }
@@ -9914,6 +10624,11 @@ impl ::core::marker::Copy for D2D1_SVG_OVERFLOW {}
 impl ::core::clone::Clone for D2D1_SVG_OVERFLOW {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_OVERFLOW {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_OVERFLOW {
@@ -9976,6 +10691,11 @@ impl ::core::marker::Copy for D2D1_SVG_PAINT_TYPE {}
 impl ::core::clone::Clone for D2D1_SVG_PAINT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_PAINT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_PAINT_TYPE {
@@ -10062,6 +10782,11 @@ impl ::core::marker::Copy for D2D1_SVG_PATH_COMMAND {}
 impl ::core::clone::Clone for D2D1_SVG_PATH_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SVG_PATH_COMMAND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SVG_PATH_COMMAND {
@@ -10156,6 +10881,11 @@ impl ::core::clone::Clone for D2D1_SVG_UNIT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_UNIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_UNIT_TYPE {
     type Abi = Self;
 }
@@ -10241,6 +10971,11 @@ impl ::core::clone::Clone for D2D1_SVG_VISIBILITY {
         *self
     }
 }
+impl ::core::default::Default for D2D1_SVG_VISIBILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_SVG_VISIBILITY {
     type Abi = Self;
 }
@@ -10291,6 +11026,11 @@ impl ::core::marker::Copy for D2D1_SWEEP_DIRECTION {}
 impl ::core::clone::Clone for D2D1_SWEEP_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_SWEEP_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_SWEEP_DIRECTION {
@@ -10359,6 +11099,11 @@ impl ::core::clone::Clone for D2D1_TABLETRANSFER_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_TABLETRANSFER_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_TABLETRANSFER_PROP {
     type Abi = Self;
 }
@@ -10409,6 +11154,11 @@ impl ::core::marker::Copy for D2D1_TEMPERATUREANDTINT_PROP {}
 impl ::core::clone::Clone for D2D1_TEMPERATUREANDTINT_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_TEMPERATUREANDTINT_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_TEMPERATUREANDTINT_PROP {
@@ -10467,6 +11217,11 @@ impl ::core::clone::Clone for D2D1_TEXT_ANTIALIAS_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_TEXT_ANTIALIAS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_TEXT_ANTIALIAS_MODE {
     type Abi = Self;
 }
@@ -10519,6 +11274,11 @@ impl ::core::clone::Clone for D2D1_THREADING_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_THREADING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_THREADING_MODE {
     type Abi = Self;
 }
@@ -10567,6 +11327,11 @@ impl ::core::marker::Copy for D2D1_TILE_PROP {}
 impl ::core::clone::Clone for D2D1_TILE_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_TILE_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_TILE_PROP {
@@ -10621,6 +11386,11 @@ impl ::core::clone::Clone for D2D1_TINT_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_TINT_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_TINT_PROP {
     type Abi = Self;
 }
@@ -10671,6 +11441,11 @@ impl ::core::marker::Copy for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {}
 impl ::core::clone::Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
@@ -10809,6 +11584,11 @@ impl ::core::clone::Clone for D2D1_TURBULENCE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_TURBULENCE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_PROP {
     type Abi = Self;
 }
@@ -10859,6 +11639,11 @@ impl ::core::marker::Copy for D2D1_UNIT_MODE {}
 impl ::core::clone::Clone for D2D1_UNIT_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_UNIT_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_UNIT_MODE {
@@ -10950,6 +11735,11 @@ impl ::core::clone::Clone for D2D1_VERTEX_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D2D1_VERTEX_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_VERTEX_OPTIONS {
     type Abi = Self;
 }
@@ -11033,6 +11823,11 @@ impl ::core::clone::Clone for D2D1_VERTEX_USAGE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_VERTEX_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_VERTEX_USAGE {
     type Abi = Self;
 }
@@ -11087,6 +11882,11 @@ impl ::core::clone::Clone for D2D1_VIGNETTE_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_VIGNETTE_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_VIGNETTE_PROP {
     type Abi = Self;
 }
@@ -11139,6 +11939,11 @@ impl ::core::clone::Clone for D2D1_WHITELEVELADJUSTMENT_PROP {
         *self
     }
 }
+impl ::core::default::Default for D2D1_WHITELEVELADJUSTMENT_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_WHITELEVELADJUSTMENT_PROP {
     type Abi = Self;
 }
@@ -11189,6 +11994,11 @@ impl ::core::marker::Copy for D2D1_WINDOW_STATE {}
 impl ::core::clone::Clone for D2D1_WINDOW_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_WINDOW_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_WINDOW_STATE {
@@ -11247,6 +12057,11 @@ impl ::core::marker::Copy for D2D1_YCBCR_CHROMA_SUBSAMPLING {}
 impl ::core::clone::Clone for D2D1_YCBCR_CHROMA_SUBSAMPLING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_YCBCR_CHROMA_SUBSAMPLING {
@@ -11309,6 +12124,11 @@ impl ::core::clone::Clone for D2D1_YCBCR_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_YCBCR_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_YCBCR_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -11361,6 +12181,11 @@ impl ::core::marker::Copy for D2D1_YCBCR_PROP {}
 impl ::core::clone::Clone for D2D1_YCBCR_PROP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_YCBCR_PROP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_YCBCR_PROP {

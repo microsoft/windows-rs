@@ -44,6 +44,11 @@ impl ::core::clone::Clone for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     type Abi = Self;
 }
@@ -139,6 +144,11 @@ impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DEDUP_SET_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEDUP_SET_PARAM_TYPE {
     type Abi = Self;
 }
@@ -195,6 +205,11 @@ impl ::core::clone::Clone for DedupChunkFlags {
         *self
     }
 }
+impl ::core::default::Default for DedupChunkFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DedupChunkFlags {
     type Abi = Self;
 }
@@ -217,6 +232,11 @@ impl ::core::clone::Clone for DedupChunkingAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for DedupChunkingAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DedupChunkingAlgorithm {
     type Abi = Self;
 }
@@ -237,6 +257,11 @@ impl ::core::marker::Copy for DedupCompressionAlgorithm {}
 impl ::core::clone::Clone for DedupCompressionAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DedupCompressionAlgorithm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DedupCompressionAlgorithm {
@@ -262,6 +287,11 @@ impl ::core::marker::Copy for DedupDataPortManagerOption {}
 impl ::core::clone::Clone for DedupDataPortManagerOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DedupDataPortManagerOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DedupDataPortManagerOption {
@@ -294,6 +324,11 @@ impl ::core::clone::Clone for DedupDataPortRequestStatus {
         *self
     }
 }
+impl ::core::default::Default for DedupDataPortRequestStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DedupDataPortRequestStatus {
     type Abi = Self;
 }
@@ -324,6 +359,11 @@ impl ::core::marker::Copy for DedupDataPortVolumeStatus {}
 impl ::core::clone::Clone for DedupDataPortVolumeStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DedupDataPortVolumeStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DedupDataPortVolumeStatus {
@@ -376,6 +416,11 @@ impl ::core::marker::Copy for DedupHashingAlgorithm {}
 impl ::core::clone::Clone for DedupHashingAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DedupHashingAlgorithm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DedupHashingAlgorithm {

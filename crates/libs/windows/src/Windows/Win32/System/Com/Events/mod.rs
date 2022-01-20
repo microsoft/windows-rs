@@ -67,6 +67,11 @@ impl ::core::clone::Clone for EOC_ChangeType {
         *self
     }
 }
+impl ::core::default::Default for EOC_ChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EOC_ChangeType {
     type Abi = Self;
 }

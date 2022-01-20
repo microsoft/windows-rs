@@ -511,6 +511,11 @@ impl ::core::clone::Clone for EasDisallowConvenienceLogonResult {
         *self
     }
 }
+impl ::core::default::Default for EasDisallowConvenienceLogonResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasDisallowConvenienceLogonResult {
     type Abi = Self;
 }
@@ -538,6 +543,11 @@ impl ::core::marker::Copy for EasEncryptionProviderType {}
 impl ::core::clone::Clone for EasEncryptionProviderType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EasEncryptionProviderType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EasEncryptionProviderType {
@@ -571,6 +581,11 @@ impl ::core::clone::Clone for EasMaxInactivityTimeLockResult {
         *self
     }
 }
+impl ::core::default::Default for EasMaxInactivityTimeLockResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasMaxInactivityTimeLockResult {
     type Abi = Self;
 }
@@ -600,6 +615,11 @@ impl ::core::marker::Copy for EasMaxPasswordFailedAttemptsResult {}
 impl ::core::clone::Clone for EasMaxPasswordFailedAttemptsResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EasMaxPasswordFailedAttemptsResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EasMaxPasswordFailedAttemptsResult {
@@ -643,6 +663,11 @@ impl ::core::clone::Clone for EasMinPasswordComplexCharactersResult {
         *self
     }
 }
+impl ::core::default::Default for EasMinPasswordComplexCharactersResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasMinPasswordComplexCharactersResult {
     type Abi = Self;
 }
@@ -684,6 +709,11 @@ impl ::core::clone::Clone for EasMinPasswordLengthResult {
         *self
     }
 }
+impl ::core::default::Default for EasMinPasswordLengthResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasMinPasswordLengthResult {
     type Abi = Self;
 }
@@ -719,6 +749,11 @@ impl ::core::clone::Clone for EasPasswordExpirationResult {
         *self
     }
 }
+impl ::core::default::Default for EasPasswordExpirationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EasPasswordExpirationResult {
     type Abi = Self;
 }
@@ -748,6 +783,11 @@ impl ::core::marker::Copy for EasPasswordHistoryResult {}
 impl ::core::clone::Clone for EasPasswordHistoryResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EasPasswordHistoryResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EasPasswordHistoryResult {
@@ -793,6 +833,11 @@ impl ::core::marker::Copy for EasRequireEncryptionResult {}
 impl ::core::clone::Clone for EasRequireEncryptionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EasRequireEncryptionResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EasRequireEncryptionResult {

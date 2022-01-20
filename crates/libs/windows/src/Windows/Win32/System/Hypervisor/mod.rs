@@ -299,6 +299,11 @@ impl ::core::clone::Clone for GUEST_OS_MICROSOFT_IDS {
         *self
     }
 }
+impl ::core::default::Default for GUEST_OS_MICROSOFT_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GUEST_OS_MICROSOFT_IDS {
     type Abi = Self;
 }
@@ -327,6 +332,11 @@ impl ::core::clone::Clone for GUEST_OS_OPENSOURCE_IDS {
         *self
     }
 }
+impl ::core::default::Default for GUEST_OS_OPENSOURCE_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GUEST_OS_OPENSOURCE_IDS {
     type Abi = Self;
 }
@@ -351,6 +361,11 @@ impl ::core::marker::Copy for GUEST_OS_VENDOR {}
 impl ::core::clone::Clone for GUEST_OS_VENDOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GUEST_OS_VENDOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GUEST_OS_VENDOR {
@@ -621,6 +636,11 @@ impl ::core::clone::Clone for HDV_DEVICE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HDV_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HDV_DEVICE_TYPE {
     type Abi = Self;
 }
@@ -651,6 +671,11 @@ impl ::core::clone::Clone for HDV_DOORBELL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for HDV_DOORBELL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HDV_DOORBELL_FLAGS {
     type Abi = Self;
 }
@@ -673,6 +698,11 @@ impl ::core::marker::Copy for HDV_MMIO_MAPPING_FLAGS {}
 impl ::core::clone::Clone for HDV_MMIO_MAPPING_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HDV_MMIO_MAPPING_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HDV_MMIO_MAPPING_FLAGS {
@@ -733,6 +763,11 @@ impl ::core::marker::Copy for HDV_PCI_BAR_SELECTOR {}
 impl ::core::clone::Clone for HDV_PCI_BAR_SELECTOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HDV_PCI_BAR_SELECTOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HDV_PCI_BAR_SELECTOR {
@@ -828,6 +863,11 @@ impl ::core::marker::Copy for HDV_PCI_INTERFACE_VERSION {}
 impl ::core::clone::Clone for HDV_PCI_INTERFACE_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HDV_PCI_INTERFACE_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HDV_PCI_INTERFACE_VERSION {
@@ -1305,6 +1345,11 @@ impl ::core::clone::Clone for PAGING_MODE {
         *self
     }
 }
+impl ::core::default::Default for PAGING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PAGING_MODE {
     type Abi = Self;
 }
@@ -1641,6 +1686,11 @@ impl ::core::clone::Clone for REGISTER_ID {
         *self
     }
 }
+impl ::core::default::Default for REGISTER_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REGISTER_ID {
     type Abi = Self;
 }
@@ -1828,6 +1878,11 @@ impl ::core::marker::Copy for VIRTUAL_PROCESSOR_ARCH {}
 impl ::core::clone::Clone for VIRTUAL_PROCESSOR_ARCH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_PROCESSOR_ARCH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_ARCH {
@@ -2233,6 +2288,11 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_VENDOR {
         *self
     }
 }
+impl ::core::default::Default for VIRTUAL_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_VENDOR {
     type Abi = Self;
 }
@@ -2370,6 +2430,11 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_CODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_CODE {
     type Abi = Self;
 }
@@ -2474,6 +2539,11 @@ impl ::core::clone::Clone for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     type Abi = Self;
 }
@@ -2530,6 +2600,11 @@ impl ::core::marker::Copy for WHV_CACHE_TYPE {}
 impl ::core::clone::Clone for WHV_CACHE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_CACHE_TYPE {
@@ -2630,6 +2705,11 @@ impl ::core::marker::Copy for WHV_CAPABILITY_CODE {}
 impl ::core::clone::Clone for WHV_CAPABILITY_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_CAPABILITY_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_CAPABILITY_CODE {
@@ -2777,6 +2857,11 @@ impl ::core::marker::Copy for WHV_CREATE_VPCI_DEVICE_FLAGS {}
 impl ::core::clone::Clone for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_CREATE_VPCI_DEVICE_FLAGS {
@@ -3068,6 +3153,11 @@ impl ::core::clone::Clone for WHV_EXCEPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_EXCEPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_EXCEPTION_TYPE {
     type Abi = Self;
 }
@@ -3270,6 +3360,11 @@ impl ::core::clone::Clone for WHV_INTERRUPT_DESTINATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_INTERRUPT_DESTINATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_DESTINATION_MODE {
     type Abi = Self;
 }
@@ -3290,6 +3385,11 @@ impl ::core::marker::Copy for WHV_INTERRUPT_TRIGGER_MODE {}
 impl ::core::clone::Clone for WHV_INTERRUPT_TRIGGER_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_INTERRUPT_TRIGGER_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TRIGGER_MODE {
@@ -3322,6 +3422,11 @@ impl ::core::clone::Clone for WHV_INTERRUPT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_INTERRUPT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TYPE {
     type Abi = Self;
 }
@@ -3348,6 +3453,11 @@ impl ::core::marker::Copy for WHV_MAP_GPA_RANGE_FLAGS {}
 impl ::core::clone::Clone for WHV_MAP_GPA_RANGE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_MAP_GPA_RANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_MAP_GPA_RANGE_FLAGS {
@@ -3490,6 +3600,11 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_MEMORY_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_TYPE {
     type Abi = Self;
 }
@@ -3543,6 +3658,11 @@ impl ::core::marker::Copy for WHV_MSR_ACTION {}
 impl ::core::clone::Clone for WHV_MSR_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_MSR_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_MSR_ACTION {
@@ -3683,6 +3803,11 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
     type Abi = Self;
 }
@@ -3705,6 +3830,11 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_NOTIFICATION_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_TYPE {
     type Abi = Self;
 }
@@ -3723,6 +3853,11 @@ impl ::core::marker::Copy for WHV_PARTITION_COUNTER_SET {}
 impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_PARTITION_COUNTER_SET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PARTITION_COUNTER_SET {
@@ -3930,6 +4065,11 @@ impl ::core::clone::Clone for WHV_PARTITION_PROPERTY_CODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_PARTITION_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY_CODE {
     type Abi = Self;
 }
@@ -3990,6 +4130,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_COUNTER_SET {}
 impl ::core::clone::Clone for WHV_PROCESSOR_COUNTER_SET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_PROCESSOR_COUNTER_SET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_COUNTER_SET {
@@ -4457,6 +4602,11 @@ impl ::core::marker::Copy for WHV_PROCESSOR_VENDOR {}
 impl ::core::clone::Clone for WHV_PROCESSOR_VENDOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_VENDOR {
@@ -4987,6 +5137,11 @@ impl ::core::clone::Clone for WHV_REGISTER_NAME {
         *self
     }
 }
+impl ::core::default::Default for WHV_REGISTER_NAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_REGISTER_NAME {
     type Abi = Self;
 }
@@ -5076,6 +5231,11 @@ impl ::core::marker::Copy for WHV_RUN_VP_CANCEL_REASON {}
 impl ::core::clone::Clone for WHV_RUN_VP_CANCEL_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_RUN_VP_CANCEL_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCEL_REASON {
@@ -5199,6 +5359,11 @@ impl ::core::marker::Copy for WHV_RUN_VP_EXIT_REASON {}
 impl ::core::clone::Clone for WHV_RUN_VP_EXIT_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_RUN_VP_EXIT_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_REASON {
@@ -5535,6 +5700,11 @@ impl ::core::clone::Clone for WHV_TRANSLATE_GVA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WHV_TRANSLATE_GVA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_FLAGS {
     type Abi = Self;
 }
@@ -5628,6 +5798,11 @@ impl ::core::marker::Copy for WHV_TRANSLATE_GVA_RESULT_CODE {}
 impl ::core::clone::Clone for WHV_TRANSLATE_GVA_RESULT_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_TRANSLATE_GVA_RESULT_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT_CODE {
@@ -5739,6 +5914,11 @@ impl ::core::marker::Copy for WHV_TRIGGER_TYPE {}
 impl ::core::clone::Clone for WHV_TRIGGER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_TRIGGER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_TRIGGER_TYPE {
@@ -5871,6 +6051,11 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
     type Abi = Self;
 }
@@ -5897,6 +6082,11 @@ impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {}
 impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
@@ -5975,6 +6165,11 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -5997,6 +6192,11 @@ impl ::core::marker::Copy for WHV_VPCI_DEVICE_PROPERTY_CODE {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_PROPERTY_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_VPCI_DEVICE_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_PROPERTY_CODE {
@@ -6061,6 +6261,11 @@ impl ::core::marker::Copy for WHV_VPCI_DEVICE_REGISTER_SPACE {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_REGISTER_SPACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_VPCI_DEVICE_REGISTER_SPACE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER_SPACE {
@@ -6155,6 +6360,11 @@ impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     type Abi = Self;
 }
@@ -6237,6 +6447,11 @@ impl ::core::marker::Copy for WHV_VPCI_MMIO_RANGE_FLAGS {}
 impl ::core::clone::Clone for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_VPCI_MMIO_RANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_RANGE_FLAGS {
@@ -6568,6 +6783,11 @@ impl ::core::clone::Clone for WHV_X64_APIC_WRITE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_X64_APIC_WRITE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_TYPE {
     type Abi = Self;
 }
@@ -6695,6 +6915,11 @@ impl ::core::marker::Copy for WHV_X64_CPUID_RESULT2_FLAGS {}
 impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_X64_CPUID_RESULT2_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2_FLAGS {
@@ -7154,6 +7379,11 @@ impl ::core::clone::Clone for WHV_X64_LOCAL_APIC_EMULATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for WHV_X64_LOCAL_APIC_EMULATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_LOCAL_APIC_EMULATION_MODE {
     type Abi = Self;
 }
@@ -7372,6 +7602,11 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WHV_X64_PENDING_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EVENT_TYPE {
     type Abi = Self;
 }
@@ -7566,6 +7801,11 @@ impl ::core::marker::Copy for WHV_X64_PENDING_INTERRUPTION_TYPE {}
 impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_TYPE {
@@ -7789,6 +8029,11 @@ impl ::core::marker::Copy for WHV_X64_UNSUPPORTED_FEATURE_CODE {}
 impl ::core::clone::Clone for WHV_X64_UNSUPPORTED_FEATURE_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WHV_X64_UNSUPPORTED_FEATURE_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CODE {

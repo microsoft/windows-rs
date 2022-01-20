@@ -19,6 +19,11 @@ impl ::core::clone::Clone for AudioRoutingEndpoint {
         *self
     }
 }
+impl ::core::default::Default for AudioRoutingEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
     type Abi = Self;
 }
@@ -168,6 +173,11 @@ impl ::core::marker::Copy for AvailableAudioRoutingEndpoints {}
 impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AvailableAudioRoutingEndpoints {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AvailableAudioRoutingEndpoints {

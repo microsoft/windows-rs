@@ -1827,6 +1827,11 @@ impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DUPLICATE_HANDLE_OPTIONS {
     type Abi = Self;
 }
@@ -3954,6 +3959,11 @@ impl ::core::clone::Clone for HANDLE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for HANDLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
     type Abi = Self;
 }
@@ -5260,6 +5270,11 @@ impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
 impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
@@ -20840,6 +20855,11 @@ impl ::core::marker::Copy for WIN32_ERROR {}
 impl ::core::clone::Clone for WIN32_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WIN32_ERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WIN32_ERROR {

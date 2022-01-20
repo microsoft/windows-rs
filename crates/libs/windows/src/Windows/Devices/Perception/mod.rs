@@ -4643,6 +4643,12 @@ impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for PerceptionFrameSourceAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PerceptionFrameSourceAccessStatus {
     type Abi = Self;
 }
@@ -4900,6 +4906,12 @@ impl ::core::marker::Copy for PerceptionFrameSourcePropertyChangeStatus {}
 impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for PerceptionFrameSourcePropertyChangeStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

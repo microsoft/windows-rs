@@ -1260,6 +1260,11 @@ impl ::core::clone::Clone for SpatialGestureSettings {
         *self
     }
 }
+impl ::core::default::Default for SpatialGestureSettings {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialGestureSettings {
     type Abi = Self;
 }
@@ -2224,6 +2229,11 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
         *self
     }
 }
+impl ::core::default::Default for SpatialInteractionPressKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialInteractionPressKind {
     type Abi = Self;
 }
@@ -2498,6 +2508,11 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
         *self
     }
 }
+impl ::core::default::Default for SpatialInteractionSourceHandedness {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
 }
@@ -2526,6 +2541,11 @@ impl ::core::marker::Copy for SpatialInteractionSourceKind {}
 impl ::core::clone::Clone for SpatialInteractionSourceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialInteractionSourceKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceKind {
@@ -2679,6 +2699,11 @@ impl ::core::marker::Copy for SpatialInteractionSourcePositionAccuracy {}
 impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialInteractionSourcePositionAccuracy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialInteractionSourcePositionAccuracy {

@@ -320,6 +320,11 @@ impl ::core::clone::Clone for GattCharacteristicProperties {
         *self
     }
 }
+impl ::core::default::Default for GattCharacteristicProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GattCharacteristicProperties {
     type Abi = Self;
 }
@@ -1060,6 +1065,11 @@ impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorVal
         *self
     }
 }
+impl ::core::default::Default for GattClientCharacteristicConfigurationDescriptorValue {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GattClientCharacteristicConfigurationDescriptorValue {
     type Abi = Self;
 }
@@ -1194,6 +1204,11 @@ impl ::core::marker::Copy for GattCommunicationStatus {}
 impl ::core::clone::Clone for GattCommunicationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GattCommunicationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GattCommunicationStatus {
@@ -2917,6 +2932,11 @@ impl ::core::clone::Clone for GattOpenStatus {
         *self
     }
 }
+impl ::core::default::Default for GattOpenStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GattOpenStatus {
     type Abi = Self;
 }
@@ -3283,6 +3303,11 @@ impl ::core::marker::Copy for GattProtectionLevel {}
 impl ::core::clone::Clone for GattProtectionLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GattProtectionLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GattProtectionLevel {
@@ -3968,6 +3993,11 @@ impl ::core::clone::Clone for GattRequestState {
         *self
     }
 }
+impl ::core::default::Default for GattRequestState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GattRequestState {
     type Abi = Self;
 }
@@ -4218,6 +4248,11 @@ impl ::core::marker::Copy for GattServiceProviderAdvertisementStatus {}
 impl ::core::clone::Clone for GattServiceProviderAdvertisementStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GattServiceProviderAdvertisementStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GattServiceProviderAdvertisementStatus {
@@ -4911,6 +4946,11 @@ impl ::core::clone::Clone for GattSessionStatus {
         *self
     }
 }
+impl ::core::default::Default for GattSessionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GattSessionStatus {
     type Abi = Self;
 }
@@ -5028,6 +5068,11 @@ impl ::core::marker::Copy for GattSharingMode {}
 impl ::core::clone::Clone for GattSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GattSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GattSharingMode {
@@ -5251,6 +5296,11 @@ impl ::core::marker::Copy for GattWriteOption {}
 impl ::core::clone::Clone for GattWriteOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GattWriteOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GattWriteOption {

@@ -1025,6 +1025,11 @@ impl ::core::clone::Clone for DFS_NAMESPACE_VERSION_ORIGIN {
         *self
     }
 }
+impl ::core::default::Default for DFS_NAMESPACE_VERSION_ORIGIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
     type Abi = Self;
 }
@@ -1345,6 +1350,11 @@ impl ::core::marker::Copy for DFS_TARGET_PRIORITY_CLASS {}
 impl ::core::clone::Clone for DFS_TARGET_PRIORITY_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DFS_TARGET_PRIORITY_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY_CLASS {

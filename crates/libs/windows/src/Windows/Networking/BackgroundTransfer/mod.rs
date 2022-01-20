@@ -399,6 +399,11 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
         *self
     }
 }
+impl ::core::default::Default for BackgroundTransferBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferBehavior {
     type Abi = Self;
 }
@@ -736,6 +741,11 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
         *self
     }
 }
+impl ::core::default::Default for BackgroundTransferCostPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
 }
@@ -928,6 +938,11 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
         *self
     }
 }
+impl ::core::default::Default for BackgroundTransferPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTransferPriority {
     type Abi = Self;
 }
@@ -1061,6 +1076,11 @@ impl ::core::marker::Copy for BackgroundTransferStatus {}
 impl ::core::clone::Clone for BackgroundTransferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BackgroundTransferStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTransferStatus {

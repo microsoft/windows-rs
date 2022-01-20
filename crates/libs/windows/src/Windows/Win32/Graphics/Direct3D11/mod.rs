@@ -45,6 +45,11 @@ impl ::core::clone::Clone for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
     type Abi = Self;
 }
@@ -114,6 +119,11 @@ impl ::core::clone::Clone for D3D11_ASYNC_GETDATA_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_ASYNC_GETDATA_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_ASYNC_GETDATA_FLAG {
     type Abi = Self;
 }
@@ -136,6 +146,11 @@ impl ::core::marker::Copy for D3D11_AUTHENTICATED_CHANNEL_TYPE {}
 impl ::core::clone::Clone for D3D11_AUTHENTICATED_CHANNEL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_AUTHENTICATED_CHANNEL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_CHANNEL_TYPE {
@@ -442,6 +457,11 @@ impl ::core::marker::Copy for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {}
 impl ::core::clone::Clone for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
@@ -1344,6 +1364,11 @@ impl ::core::clone::Clone for D3D11_BIND_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_BIND_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_BIND_FLAG {
     type Abi = Self;
 }
@@ -1422,6 +1447,11 @@ impl ::core::marker::Copy for D3D11_BLEND {}
 impl ::core::clone::Clone for D3D11_BLEND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_BLEND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_BLEND {
@@ -1532,6 +1562,11 @@ impl ::core::clone::Clone for D3D11_BLEND_OP {
         *self
     }
 }
+impl ::core::default::Default for D3D11_BLEND_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_BLEND_OP {
     type Abi = Self;
 }
@@ -1617,6 +1652,11 @@ impl ::core::marker::Copy for D3D11_BUFFEREX_SRV_FLAG {}
 impl ::core::clone::Clone for D3D11_BUFFEREX_SRV_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_BUFFEREX_SRV_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_BUFFEREX_SRV_FLAG {
@@ -1866,6 +1906,11 @@ impl ::core::clone::Clone for D3D11_BUFFER_UAV_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_BUFFER_UAV_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_BUFFER_UAV_FLAG {
     type Abi = Self;
 }
@@ -1906,6 +1951,11 @@ impl ::core::clone::Clone for D3D11_BUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_BUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_BUS_TYPE {
     type Abi = Self;
 }
@@ -1924,6 +1974,11 @@ impl ::core::marker::Copy for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {}
 impl ::core::clone::Clone for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
@@ -1993,6 +2048,11 @@ impl ::core::clone::Clone for D3D11_CLEAR_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_CLEAR_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_CLEAR_FLAG {
     type Abi = Self;
 }
@@ -2023,6 +2083,11 @@ impl ::core::marker::Copy for D3D11_COLOR_WRITE_ENABLE {}
 impl ::core::clone::Clone for D3D11_COLOR_WRITE_ENABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_COLOR_WRITE_ENABLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_COLOR_WRITE_ENABLE {
@@ -2131,6 +2196,11 @@ impl ::core::clone::Clone for D3D11_COMPARISON_FUNC {
         *self
     }
 }
+impl ::core::default::Default for D3D11_COMPARISON_FUNC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_COMPARISON_FUNC {
     type Abi = Self;
 }
@@ -2185,6 +2255,11 @@ impl ::core::clone::Clone for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
     type Abi = Self;
 }
@@ -2209,6 +2284,11 @@ impl ::core::marker::Copy for D3D11_CONSERVATIVE_RASTERIZATION_TIER {}
 impl ::core::clone::Clone for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
@@ -2261,6 +2341,11 @@ impl ::core::clone::Clone for D3D11_CONTENT_PROTECTION_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_CONTENT_PROTECTION_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_CONTENT_PROTECTION_CAPS {
     type Abi = Self;
 }
@@ -2289,6 +2374,11 @@ impl ::core::clone::Clone for D3D11_CONTEXT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_CONTEXT_TYPE {
     type Abi = Self;
 }
@@ -2311,6 +2401,11 @@ impl ::core::clone::Clone for D3D11_COPY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_COPY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_COPY_FLAGS {
     type Abi = Self;
 }
@@ -2329,6 +2424,11 @@ impl ::core::marker::Copy for D3D11_COUNTER {}
 impl ::core::clone::Clone for D3D11_COUNTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_COUNTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_COUNTER {
@@ -2420,6 +2520,11 @@ impl ::core::clone::Clone for D3D11_COUNTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_COUNTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_COUNTER_TYPE {
     type Abi = Self;
 }
@@ -2440,6 +2545,11 @@ impl ::core::marker::Copy for D3D11_CPU_ACCESS_FLAG {}
 impl ::core::clone::Clone for D3D11_CPU_ACCESS_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CPU_ACCESS_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CPU_ACCESS_FLAG {
@@ -2506,6 +2616,11 @@ impl ::core::clone::Clone for D3D11_CREATE_DEVICE_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_CREATE_DEVICE_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_CREATE_DEVICE_FLAG {
     type Abi = Self;
 }
@@ -2552,6 +2667,11 @@ impl ::core::marker::Copy for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {}
 impl ::core::clone::Clone for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
@@ -2604,6 +2724,11 @@ impl ::core::marker::Copy for D3D11_CRYPTO_SESSION_STATUS {}
 impl ::core::clone::Clone for D3D11_CRYPTO_SESSION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CRYPTO_SESSION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CRYPTO_SESSION_STATUS {
@@ -2747,6 +2872,11 @@ impl ::core::marker::Copy for D3D11_CULL_MODE {}
 impl ::core::clone::Clone for D3D11_CULL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_CULL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_CULL_MODE {
@@ -3028,6 +3158,11 @@ impl ::core::clone::Clone for D3D11_DEPTH_WRITE_MASK {
         *self
     }
 }
+impl ::core::default::Default for D3D11_DEPTH_WRITE_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_DEPTH_WRITE_MASK {
     type Abi = Self;
 }
@@ -3048,6 +3183,11 @@ impl ::core::marker::Copy for D3D11_DEVICE_CONTEXT_TYPE {}
 impl ::core::clone::Clone for D3D11_DEVICE_CONTEXT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_DEVICE_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_DEVICE_CONTEXT_TYPE {
@@ -3179,6 +3319,11 @@ impl ::core::clone::Clone for D3D11_DSV_DIMENSION {
         *self
     }
 }
+impl ::core::default::Default for D3D11_DSV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_DSV_DIMENSION {
     type Abi = Self;
 }
@@ -3199,6 +3344,11 @@ impl ::core::marker::Copy for D3D11_DSV_FLAG {}
 impl ::core::clone::Clone for D3D11_DSV_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_DSV_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_DSV_FLAG {
@@ -3339,6 +3489,11 @@ impl ::core::marker::Copy for D3D11_FEATURE {}
 impl ::core::clone::Clone for D3D11_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_FEATURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_FEATURE {
@@ -4224,6 +4379,11 @@ impl ::core::clone::Clone for D3D11_FEATURE_VIDEO {
         *self
     }
 }
+impl ::core::default::Default for D3D11_FEATURE_VIDEO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_FEATURE_VIDEO {
     type Abi = Self;
 }
@@ -4248,6 +4408,11 @@ impl ::core::marker::Copy for D3D11_FENCE_FLAG {}
 impl ::core::clone::Clone for D3D11_FENCE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_FENCE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_FENCE_FLAG {
@@ -4298,6 +4463,11 @@ impl ::core::marker::Copy for D3D11_FILL_MODE {}
 impl ::core::clone::Clone for D3D11_FILL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_FILL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_FILL_MODE {
@@ -4390,6 +4560,11 @@ impl ::core::clone::Clone for D3D11_FILTER {
         *self
     }
 }
+impl ::core::default::Default for D3D11_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_FILTER {
     type Abi = Self;
 }
@@ -4416,6 +4591,11 @@ impl ::core::clone::Clone for D3D11_FILTER_REDUCTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_FILTER_REDUCTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_FILTER_REDUCTION_TYPE {
     type Abi = Self;
 }
@@ -4440,6 +4620,11 @@ impl ::core::marker::Copy for D3D11_FILTER_TYPE {}
 impl ::core::clone::Clone for D3D11_FILTER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_FILTER_TYPE {
@@ -4542,6 +4727,11 @@ impl ::core::clone::Clone for D3D11_FORMAT_SUPPORT {
         *self
     }
 }
+impl ::core::default::Default for D3D11_FORMAT_SUPPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_FORMAT_SUPPORT {
     type Abi = Self;
 }
@@ -4582,6 +4772,11 @@ impl ::core::marker::Copy for D3D11_FORMAT_SUPPORT2 {}
 impl ::core::clone::Clone for D3D11_FORMAT_SUPPORT2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_FORMAT_SUPPORT2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_FORMAT_SUPPORT2 {
@@ -4988,6 +5183,11 @@ impl ::core::clone::Clone for D3D11_INPUT_CLASSIFICATION {
         *self
     }
 }
+impl ::core::default::Default for D3D11_INPUT_CLASSIFICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_INPUT_CLASSIFICATION {
     type Abi = Self;
 }
@@ -5234,6 +5434,11 @@ impl ::core::clone::Clone for D3D11_LOGIC_OP {
         *self
     }
 }
+impl ::core::default::Default for D3D11_LOGIC_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_LOGIC_OP {
     type Abi = Self;
 }
@@ -5264,6 +5469,11 @@ impl ::core::marker::Copy for D3D11_MAP {}
 impl ::core::clone::Clone for D3D11_MAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_MAP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_MAP {
@@ -5316,6 +5526,11 @@ impl ::core::marker::Copy for D3D11_MAP_FLAG {}
 impl ::core::clone::Clone for D3D11_MAP_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_MAP_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_MAP_FLAG {
@@ -5402,6 +5617,11 @@ impl ::core::marker::Copy for D3D11_MESSAGE_CATEGORY {}
 impl ::core::clone::Clone for D3D11_MESSAGE_CATEGORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_MESSAGE_CATEGORY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_MESSAGE_CATEGORY {
@@ -8094,6 +8314,11 @@ impl ::core::clone::Clone for D3D11_MESSAGE_ID {
         *self
     }
 }
+impl ::core::default::Default for D3D11_MESSAGE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_MESSAGE_ID {
     type Abi = Self;
 }
@@ -8120,6 +8345,11 @@ impl ::core::marker::Copy for D3D11_MESSAGE_SEVERITY {}
 impl ::core::clone::Clone for D3D11_MESSAGE_SEVERITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_MESSAGE_SEVERITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_MESSAGE_SEVERITY {
@@ -8406,6 +8636,11 @@ impl ::core::clone::Clone for D3D11_QUERY {
         *self
     }
 }
+impl ::core::default::Default for D3D11_QUERY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_QUERY {
     type Abi = Self;
 }
@@ -8611,6 +8846,11 @@ impl ::core::clone::Clone for D3D11_QUERY_MISC_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_QUERY_MISC_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_QUERY_MISC_FLAG {
     type Abi = Self;
 }
@@ -8629,6 +8869,11 @@ impl ::core::marker::Copy for D3D11_RAISE_FLAG {}
 impl ::core::clone::Clone for D3D11_RAISE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_RAISE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_RAISE_FLAG {
@@ -9131,6 +9376,11 @@ impl ::core::clone::Clone for D3D11_RESOURCE_DIMENSION {
         *self
     }
 }
+impl ::core::default::Default for D3D11_RESOURCE_DIMENSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_RESOURCE_DIMENSION {
     type Abi = Self;
 }
@@ -9187,6 +9437,11 @@ impl ::core::clone::Clone for D3D11_RESOURCE_MISC_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_RESOURCE_MISC_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_RESOURCE_MISC_FLAG {
     type Abi = Self;
 }
@@ -9239,6 +9494,11 @@ impl ::core::clone::Clone for D3D11_RLDO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_RLDO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_RLDO_FLAGS {
     type Abi = Self;
 }
@@ -9273,6 +9533,11 @@ impl ::core::marker::Copy for D3D11_RTV_DIMENSION {}
 impl ::core::clone::Clone for D3D11_RTV_DIMENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_RTV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_RTV_DIMENSION {
@@ -9382,6 +9647,11 @@ impl ::core::marker::Copy for D3D11_SHADER_CACHE_SUPPORT_FLAGS {}
 impl ::core::clone::Clone for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
@@ -9575,6 +9845,11 @@ impl ::core::marker::Copy for D3D11_SHADER_MIN_PRECISION_SUPPORT {}
 impl ::core::clone::Clone for D3D11_SHADER_MIN_PRECISION_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_SHADER_MIN_PRECISION_SUPPORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_SHADER_MIN_PRECISION_SUPPORT {
@@ -9838,6 +10113,11 @@ impl ::core::clone::Clone for D3D11_SHADER_TRACKING_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_SHADER_TRACKING_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACKING_OPTIONS {
     type Abi = Self;
 }
@@ -9872,6 +10152,11 @@ impl ::core::clone::Clone for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
     type Abi = Self;
 }
@@ -9900,6 +10185,11 @@ impl ::core::marker::Copy for D3D11_SHADER_TYPE {}
 impl ::core::clone::Clone for D3D11_SHADER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_SHADER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_SHADER_TYPE {
@@ -10025,6 +10315,11 @@ impl ::core::clone::Clone for D3D11_SHADER_VERSION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_SHADER_VERSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_SHADER_VERSION_TYPE {
     type Abi = Self;
 }
@@ -10049,6 +10344,11 @@ impl ::core::marker::Copy for D3D11_SHARED_RESOURCE_TIER {}
 impl ::core::clone::Clone for D3D11_SHARED_RESOURCE_TIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_SHARED_RESOURCE_TIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_SHARED_RESOURCE_TIER {
@@ -10210,6 +10510,11 @@ impl ::core::clone::Clone for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
     type Abi = Self;
 }
@@ -10252,6 +10557,11 @@ impl ::core::marker::Copy for D3D11_STENCIL_OP {}
 impl ::core::clone::Clone for D3D11_STENCIL_OP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_STENCIL_OP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_STENCIL_OP {
@@ -11761,6 +12071,11 @@ impl ::core::clone::Clone for D3D11_TEXTURECUBE_FACE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_TEXTURECUBE_FACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_TEXTURECUBE_FACE {
     type Abi = Self;
 }
@@ -11789,6 +12104,11 @@ impl ::core::clone::Clone for D3D11_TEXTURE_ADDRESS_MODE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_TEXTURE_ADDRESS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_TEXTURE_ADDRESS_MODE {
     type Abi = Self;
 }
@@ -11811,6 +12131,11 @@ impl ::core::marker::Copy for D3D11_TEXTURE_LAYOUT {}
 impl ::core::clone::Clone for D3D11_TEXTURE_LAYOUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_TEXTURE_LAYOUT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_TEXTURE_LAYOUT {
@@ -11837,6 +12162,11 @@ impl ::core::marker::Copy for D3D11_TILED_RESOURCES_TIER {}
 impl ::core::clone::Clone for D3D11_TILED_RESOURCES_TIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_TILED_RESOURCES_TIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_TILED_RESOURCES_TIER {
@@ -11896,6 +12226,11 @@ impl ::core::clone::Clone for D3D11_TILE_COPY_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3D11_TILE_COPY_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_TILE_COPY_FLAG {
     type Abi = Self;
 }
@@ -11914,6 +12249,11 @@ impl ::core::marker::Copy for D3D11_TILE_MAPPING_FLAG {}
 impl ::core::clone::Clone for D3D11_TILE_MAPPING_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_TILE_MAPPING_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_TILE_MAPPING_FLAG {
@@ -11938,6 +12278,11 @@ impl ::core::marker::Copy for D3D11_TILE_RANGE_FLAG {}
 impl ::core::clone::Clone for D3D11_TILE_RANGE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_TILE_RANGE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_TILE_RANGE_FLAG {
@@ -12050,6 +12395,11 @@ impl ::core::marker::Copy for D3D11_TRACE_GS_INPUT_PRIMITIVE {}
 impl ::core::clone::Clone for D3D11_TRACE_GS_INPUT_PRIMITIVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_TRACE_GS_INPUT_PRIMITIVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_TRACE_GS_INPUT_PRIMITIVE {
@@ -12212,6 +12562,11 @@ impl ::core::clone::Clone for D3D11_TRACE_REGISTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_TRACE_REGISTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_TRACE_REGISTER_TYPE {
     type Abi = Self;
 }
@@ -12371,6 +12726,11 @@ impl ::core::marker::Copy for D3D11_UAV_DIMENSION {}
 impl ::core::clone::Clone for D3D11_UAV_DIMENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_UAV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_UAV_DIMENSION {
@@ -12543,6 +12903,11 @@ impl ::core::clone::Clone for D3D11_USAGE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_USAGE {
     type Abi = Self;
 }
@@ -12563,6 +12928,11 @@ impl ::core::marker::Copy for D3D11_VDOV_DIMENSION {}
 impl ::core::clone::Clone for D3D11_VDOV_DIMENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VDOV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VDOV_DIMENSION {
@@ -12962,6 +13332,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_DECODER_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_DECODER_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -12988,6 +13363,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_DECODER_CAPS {}
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_DECODER_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_CAPS {
@@ -13163,6 +13543,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
     type Abi = Self;
 }
@@ -13195,6 +13580,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {}
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
@@ -13332,6 +13722,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_FRAME_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_FRAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_FRAME_FORMAT {
     type Abi = Self;
 }
@@ -13356,6 +13751,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
@@ -13392,6 +13792,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
     type Abi = Self;
 }
@@ -13416,6 +13821,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
@@ -13600,6 +14010,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
     type Abi = Self;
 }
@@ -13642,6 +14057,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
     type Abi = Self;
 }
@@ -13676,6 +14096,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FILTER {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FILTER {
     type Abi = Self;
 }
@@ -13708,6 +14133,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
@@ -13769,6 +14199,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
     type Abi = Self;
 }
@@ -13789,6 +14224,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
@@ -13881,6 +14321,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
     type Abi = Self;
 }
@@ -13905,6 +14350,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
     type Abi = Self;
 }
@@ -13927,6 +14377,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
@@ -14011,6 +14466,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
     type Abi = Self;
 }
@@ -14071,6 +14531,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ROTATION {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ROTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_ROTATION {
     type Abi = Self;
 }
@@ -14099,6 +14564,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
     type Abi = Self;
 }
@@ -14121,6 +14591,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
@@ -14155,6 +14630,11 @@ impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {}
 impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
@@ -14333,6 +14813,11 @@ impl ::core::clone::Clone for D3D11_VIDEO_USAGE {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VIDEO_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_USAGE {
     type Abi = Self;
 }
@@ -14398,6 +14883,11 @@ impl ::core::clone::Clone for D3D11_VPIV_DIMENSION {
         *self
     }
 }
+impl ::core::default::Default for D3D11_VPIV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D11_VPIV_DIMENSION {
     type Abi = Self;
 }
@@ -14420,6 +14910,11 @@ impl ::core::marker::Copy for D3D11_VPOV_DIMENSION {}
 impl ::core::clone::Clone for D3D11_VPOV_DIMENSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D11_VPOV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VPOV_DIMENSION {
@@ -14641,6 +15136,11 @@ impl ::core::clone::Clone for D3DX11_FFT_CREATE_FLAG {
         *self
     }
 }
+impl ::core::default::Default for D3DX11_FFT_CREATE_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DX11_FFT_CREATE_FLAG {
     type Abi = Self;
 }
@@ -14661,6 +15161,11 @@ impl ::core::marker::Copy for D3DX11_FFT_DATA_TYPE {}
 impl ::core::clone::Clone for D3DX11_FFT_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DX11_FFT_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DX11_FFT_DATA_TYPE {
@@ -14720,6 +15225,11 @@ impl ::core::clone::Clone for D3DX11_FFT_DIM_MASK {
         *self
     }
 }
+impl ::core::default::Default for D3DX11_FFT_DIM_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DX11_FFT_DIM_MASK {
     type Abi = Self;
 }
@@ -14750,6 +15260,11 @@ impl ::core::clone::Clone for D3DX11_SCAN_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3DX11_SCAN_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3DX11_SCAN_DATA_TYPE {
     type Abi = Self;
 }
@@ -14770,6 +15285,11 @@ impl ::core::marker::Copy for D3DX11_SCAN_DIRECTION {}
 impl ::core::clone::Clone for D3DX11_SCAN_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DX11_SCAN_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DX11_SCAN_DIRECTION {
@@ -14802,6 +15322,11 @@ impl ::core::marker::Copy for D3DX11_SCAN_OPCODE {}
 impl ::core::clone::Clone for D3DX11_SCAN_OPCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3DX11_SCAN_OPCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3DX11_SCAN_OPCODE {

@@ -434,6 +434,11 @@ impl ::core::clone::Clone for PwmPulsePolarity {
         *self
     }
 }
+impl ::core::default::Default for PwmPulsePolarity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PwmPulsePolarity {
     type Abi = Self;
 }

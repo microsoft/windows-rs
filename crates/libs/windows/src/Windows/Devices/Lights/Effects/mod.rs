@@ -1345,6 +1345,11 @@ impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
         *self
     }
 }
+impl ::core::default::Default for LampArrayEffectCompletionBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
     type Abi = Self;
 }
@@ -1650,6 +1655,11 @@ impl ::core::clone::Clone for LampArrayEffectStartMode {
         *self
     }
 }
+impl ::core::default::Default for LampArrayEffectStartMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
     type Abi = Self;
 }
@@ -1676,6 +1686,11 @@ impl ::core::marker::Copy for LampArrayRepetitionMode {}
 impl ::core::clone::Clone for LampArrayRepetitionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LampArrayRepetitionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {

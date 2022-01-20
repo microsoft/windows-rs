@@ -21,6 +21,11 @@ impl ::core::clone::Clone for WNV_CA_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WNV_CA_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WNV_CA_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -184,6 +189,11 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WNV_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_TYPE {
     type Abi = Self;
 }
@@ -304,6 +314,11 @@ impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
 impl ::core::clone::Clone for WNV_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WNV_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WNV_OBJECT_TYPE {

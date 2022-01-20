@@ -293,6 +293,11 @@ impl ::core::clone::Clone for ArcadeStickButtons {
         *self
     }
 }
+impl ::core::default::Default for ArcadeStickButtons {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ArcadeStickButtons {
     type Abi = Self;
 }
@@ -653,6 +658,11 @@ impl ::core::clone::Clone for FlightStickButtons {
         *self
     }
 }
+impl ::core::default::Default for FlightStickButtons {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FlightStickButtons {
     type Abi = Self;
 }
@@ -818,6 +828,11 @@ impl ::core::clone::Clone for GameControllerButtonLabel {
         *self
     }
 }
+impl ::core::default::Default for GameControllerButtonLabel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameControllerButtonLabel {
     type Abi = Self;
 }
@@ -845,6 +860,11 @@ impl ::core::marker::Copy for GameControllerSwitchKind {}
 impl ::core::clone::Clone for GameControllerSwitchKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameControllerSwitchKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameControllerSwitchKind {
@@ -880,6 +900,11 @@ impl ::core::marker::Copy for GameControllerSwitchPosition {}
 impl ::core::clone::Clone for GameControllerSwitchPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameControllerSwitchPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameControllerSwitchPosition {
@@ -1201,6 +1226,11 @@ impl ::core::marker::Copy for GamepadButtons {}
 impl ::core::clone::Clone for GamepadButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GamepadButtons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GamepadButtons {
@@ -2128,6 +2158,11 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
         *self
     }
 }
+impl ::core::default::Default for OptionalUINavigationButtons {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OptionalUINavigationButtons {
     type Abi = Self;
 }
@@ -2515,6 +2550,11 @@ impl ::core::marker::Copy for RacingWheelButtons {}
 impl ::core::clone::Clone for RacingWheelButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RacingWheelButtons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RacingWheelButtons {
@@ -2961,6 +3001,11 @@ impl ::core::marker::Copy for RequiredUINavigationButtons {}
 impl ::core::clone::Clone for RequiredUINavigationButtons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RequiredUINavigationButtons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RequiredUINavigationButtons {

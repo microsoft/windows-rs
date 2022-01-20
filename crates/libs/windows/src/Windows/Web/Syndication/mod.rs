@@ -2056,6 +2056,11 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for SyndicationErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
     type Abi = Self;
 }
@@ -2505,6 +2510,11 @@ impl ::core::marker::Copy for SyndicationFormat {}
 impl ::core::clone::Clone for SyndicationFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SyndicationFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SyndicationFormat {
@@ -4237,6 +4247,11 @@ impl ::core::marker::Copy for SyndicationTextType {}
 impl ::core::clone::Clone for SyndicationTextType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SyndicationTextType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SyndicationTextType {

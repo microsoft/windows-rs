@@ -19,6 +19,11 @@ impl ::core::clone::Clone for HANDLE_ACCESS_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for HANDLE_ACCESS_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE_ACCESS_OPTIONS {
     type Abi = Self;
 }
@@ -75,6 +80,11 @@ impl ::core::clone::Clone for HANDLE_CREATION_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for HANDLE_CREATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE_CREATION_OPTIONS {
     type Abi = Self;
 }
@@ -107,6 +117,11 @@ impl ::core::marker::Copy for HANDLE_OPTIONS {}
 impl ::core::clone::Clone for HANDLE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HANDLE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HANDLE_OPTIONS {
@@ -161,6 +176,11 @@ impl ::core::marker::Copy for HANDLE_SHARING_OPTIONS {}
 impl ::core::clone::Clone for HANDLE_SHARING_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HANDLE_SHARING_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HANDLE_SHARING_OPTIONS {

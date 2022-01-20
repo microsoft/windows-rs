@@ -47,6 +47,11 @@ impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
         *self
     }
 }
+impl ::core::default::Default for CIMTYPE_ENUMERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CIMTYPE_ENUMERATION {
     type Abi = Self;
 }
@@ -9382,6 +9387,11 @@ impl ::core::clone::Clone for MI_CallbackMode {
         *self
     }
 }
+impl ::core::default::Default for MI_CallbackMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MI_CallbackMode {
     type Abi = Self;
 }
@@ -9408,6 +9418,11 @@ impl ::core::marker::Copy for MI_CancellationReason {}
 impl ::core::clone::Clone for MI_CancellationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_CancellationReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_CancellationReason {
@@ -11673,6 +11688,11 @@ impl ::core::clone::Clone for MI_DestinationOptions_ImpersonationType {
         *self
     }
 }
+impl ::core::default::Default for MI_DestinationOptions_ImpersonationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MI_DestinationOptions_ImpersonationType {
     type Abi = Self;
 }
@@ -11753,6 +11773,11 @@ impl ::core::marker::Copy for MI_ErrorCategory {}
 impl ::core::clone::Clone for MI_ErrorCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_ErrorCategory {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_ErrorCategory {
@@ -12261,6 +12286,11 @@ impl ::core::clone::Clone for MI_LocaleType {
         *self
     }
 }
+impl ::core::default::Default for MI_LocaleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MI_LocaleType {
     type Abi = Self;
 }
@@ -12505,6 +12535,11 @@ impl ::core::marker::Copy for MI_OperationCallback_ResponseType {}
 impl ::core::clone::Clone for MI_OperationCallback_ResponseType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_OperationCallback_ResponseType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_OperationCallback_ResponseType {
@@ -12811,6 +12846,11 @@ impl ::core::clone::Clone for MI_PromptType {
         *self
     }
 }
+impl ::core::default::Default for MI_PromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MI_PromptType {
     type Abi = Self;
 }
@@ -12940,6 +12980,11 @@ impl ::core::marker::Copy for MI_ProviderArchitecture {}
 impl ::core::clone::Clone for MI_ProviderArchitecture {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_ProviderArchitecture {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_ProviderArchitecture {
@@ -13515,6 +13560,11 @@ impl ::core::marker::Copy for MI_Result {}
 impl ::core::clone::Clone for MI_Result {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_Result {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_Result {
@@ -14399,6 +14449,11 @@ impl ::core::clone::Clone for MI_SubscriptionDeliveryType {
         *self
     }
 }
+impl ::core::default::Default for MI_SubscriptionDeliveryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryType {
     type Abi = Self;
 }
@@ -14518,6 +14573,11 @@ impl ::core::marker::Copy for MI_Type {}
 impl ::core::clone::Clone for MI_Type {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MI_Type {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MI_Type {
@@ -15897,6 +15957,11 @@ impl ::core::clone::Clone for WBEMSTATUS {
         *self
     }
 }
+impl ::core::default::Default for WBEMSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEMSTATUS {
     type Abi = Self;
 }
@@ -15917,6 +15982,11 @@ impl ::core::marker::Copy for WBEMSTATUS_FORMAT {}
 impl ::core::clone::Clone for WBEMSTATUS_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEMSTATUS_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEMSTATUS_FORMAT {
@@ -15953,6 +16023,11 @@ impl ::core::clone::Clone for WBEM_BACKUP_RESTORE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WBEM_BACKUP_RESTORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_BACKUP_RESTORE_FLAGS {
     type Abi = Self;
 }
@@ -15975,6 +16050,11 @@ impl ::core::marker::Copy for WBEM_BATCH_TYPE {}
 impl ::core::clone::Clone for WBEM_BATCH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_BATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_BATCH_TYPE {
@@ -16011,6 +16091,11 @@ impl ::core::clone::Clone for WBEM_CHANGE_FLAG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_CHANGE_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_CHANGE_FLAG_TYPE {
     type Abi = Self;
 }
@@ -16043,6 +16128,11 @@ impl ::core::clone::Clone for WBEM_COMPARISON_FLAG {
         *self
     }
 }
+impl ::core::default::Default for WBEM_COMPARISON_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_COMPARISON_FLAG {
     type Abi = Self;
 }
@@ -16073,6 +16163,11 @@ impl ::core::marker::Copy for WBEM_COMPILER_OPTIONS {}
 impl ::core::clone::Clone for WBEM_COMPILER_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_COMPILER_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_COMPILER_OPTIONS {
@@ -16158,6 +16253,11 @@ impl ::core::clone::Clone for WBEM_CONDITION_FLAG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_CONDITION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_CONDITION_FLAG_TYPE {
     type Abi = Self;
 }
@@ -16180,6 +16280,11 @@ impl ::core::marker::Copy for WBEM_CONNECT_OPTIONS {}
 impl ::core::clone::Clone for WBEM_CONNECT_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_CONNECT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_CONNECT_OPTIONS {
@@ -16210,6 +16315,11 @@ impl ::core::marker::Copy for WBEM_EXTRA_RETURN_CODES {}
 impl ::core::clone::Clone for WBEM_EXTRA_RETURN_CODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_EXTRA_RETURN_CODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_EXTRA_RETURN_CODES {
@@ -16256,6 +16366,11 @@ impl ::core::marker::Copy for WBEM_FLAVOR_TYPE {}
 impl ::core::clone::Clone for WBEM_FLAVOR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_FLAVOR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_FLAVOR_TYPE {
@@ -16308,6 +16423,11 @@ impl ::core::clone::Clone for WBEM_GENERIC_FLAG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_GENERIC_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_GENERIC_FLAG_TYPE {
     type Abi = Self;
 }
@@ -16330,6 +16450,11 @@ impl ::core::clone::Clone for WBEM_GENUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_GENUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_GENUS_TYPE {
     type Abi = Self;
 }
@@ -16350,6 +16475,11 @@ impl ::core::marker::Copy for WBEM_GET_KEY_FLAGS {}
 impl ::core::clone::Clone for WBEM_GET_KEY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_GET_KEY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_GET_KEY_FLAGS {
@@ -16382,6 +16512,11 @@ impl ::core::clone::Clone for WBEM_GET_TEXT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WBEM_GET_TEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_GET_TEXT_FLAGS {
     type Abi = Self;
 }
@@ -16404,6 +16539,11 @@ impl ::core::clone::Clone for WBEM_INFORMATION_FLAG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_INFORMATION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_INFORMATION_FLAG_TYPE {
     type Abi = Self;
 }
@@ -16424,6 +16564,11 @@ impl ::core::marker::Copy for WBEM_LIMITATION_FLAG_TYPE {}
 impl ::core::clone::Clone for WBEM_LIMITATION_FLAG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_LIMITATION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_LIMITATION_FLAG_TYPE {
@@ -16454,6 +16599,11 @@ impl ::core::clone::Clone for WBEM_LIMITS {
         *self
     }
 }
+impl ::core::default::Default for WBEM_LIMITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_LIMITS {
     type Abi = Self;
 }
@@ -16472,6 +16622,11 @@ impl ::core::marker::Copy for WBEM_LOCKING {}
 impl ::core::clone::Clone for WBEM_LOCKING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_LOCKING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_LOCKING {
@@ -16498,6 +16653,11 @@ impl ::core::marker::Copy for WBEM_PATH_CREATE_FLAG {}
 impl ::core::clone::Clone for WBEM_PATH_CREATE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_PATH_CREATE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_PATH_CREATE_FLAG {
@@ -16554,6 +16714,11 @@ impl ::core::clone::Clone for WBEM_PATH_STATUS_FLAG {
         *self
     }
 }
+impl ::core::default::Default for WBEM_PATH_STATUS_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_PATH_STATUS_FLAG {
     type Abi = Self;
 }
@@ -16572,6 +16737,11 @@ impl ::core::marker::Copy for WBEM_PROVIDER_FLAGS {}
 impl ::core::clone::Clone for WBEM_PROVIDER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_PROVIDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_PROVIDER_FLAGS {
@@ -16598,6 +16768,11 @@ impl ::core::clone::Clone for WBEM_PROVIDER_REQUIREMENTS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_PROVIDER_REQUIREMENTS_TYPE {
     type Abi = Self;
 }
@@ -16622,6 +16797,11 @@ impl ::core::clone::Clone for WBEM_QUERY_FLAG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_QUERY_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_QUERY_FLAG_TYPE {
     type Abi = Self;
 }
@@ -16642,6 +16822,11 @@ impl ::core::marker::Copy for WBEM_REFRESHER_FLAGS {}
 impl ::core::clone::Clone for WBEM_REFRESHER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_REFRESHER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_REFRESHER_FLAGS {
@@ -16678,6 +16863,11 @@ impl ::core::clone::Clone for WBEM_SECURITY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WBEM_SECURITY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_SECURITY_FLAGS {
     type Abi = Self;
 }
@@ -16700,6 +16890,11 @@ impl ::core::marker::Copy for WBEM_SHUTDOWN_FLAGS {}
 impl ::core::clone::Clone for WBEM_SHUTDOWN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_SHUTDOWN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_SHUTDOWN_FLAGS {
@@ -16736,6 +16931,11 @@ impl ::core::clone::Clone for WBEM_STATUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_STATUS_TYPE {
     type Abi = Self;
 }
@@ -16754,6 +16954,11 @@ impl ::core::marker::Copy for WBEM_TEXT_FLAG_TYPE {}
 impl ::core::clone::Clone for WBEM_TEXT_FLAG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_TEXT_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_TEXT_FLAG_TYPE {
@@ -16778,6 +16983,11 @@ impl ::core::clone::Clone for WBEM_TIMEOUT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WBEM_TIMEOUT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WBEM_TIMEOUT_TYPE {
     type Abi = Self;
 }
@@ -16800,6 +17010,11 @@ impl ::core::marker::Copy for WBEM_UNSECAPP_FLAG_TYPE {}
 impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WBEM_UNSECAPP_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WBEM_UNSECAPP_FLAG_TYPE {
@@ -16829,6 +17044,11 @@ impl ::core::marker::Copy for WMIQ_ANALYSIS_TYPE {}
 impl ::core::clone::Clone for WMIQ_ANALYSIS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMIQ_ANALYSIS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMIQ_ANALYSIS_TYPE {
@@ -16871,6 +17091,11 @@ impl ::core::marker::Copy for WMIQ_ASSOCQ_FLAGS {}
 impl ::core::clone::Clone for WMIQ_ASSOCQ_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMIQ_ASSOCQ_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMIQ_ASSOCQ_FLAGS {
@@ -16973,6 +17198,11 @@ impl ::core::clone::Clone for WMIQ_LANGUAGE_FEATURES {
         *self
     }
 }
+impl ::core::default::Default for WMIQ_LANGUAGE_FEATURES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMIQ_LANGUAGE_FEATURES {
     type Abi = Self;
 }
@@ -17017,6 +17247,11 @@ impl ::core::marker::Copy for WMIQ_RPNQ_FEATURE {}
 impl ::core::clone::Clone for WMIQ_RPNQ_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMIQ_RPNQ_FEATURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMIQ_RPNQ_FEATURE {
@@ -17103,6 +17338,11 @@ impl ::core::clone::Clone for WMIQ_RPN_TOKEN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WMIQ_RPN_TOKEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMIQ_RPN_TOKEN_FLAGS {
     type Abi = Self;
 }
@@ -17147,6 +17387,11 @@ impl ::core::clone::Clone for WMI_OBJ_TEXT {
         *self
     }
 }
+impl ::core::default::Default for WMI_OBJ_TEXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMI_OBJ_TEXT {
     type Abi = Self;
 }
@@ -17179,6 +17424,11 @@ impl ::core::marker::Copy for WbemAuthenticationLevelEnum {}
 impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WbemAuthenticationLevelEnum {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WbemAuthenticationLevelEnum {
@@ -17214,6 +17464,11 @@ impl ::core::marker::Copy for WbemChangeFlagEnum {}
 impl ::core::clone::Clone for WbemChangeFlagEnum {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WbemChangeFlagEnum {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WbemChangeFlagEnum {
@@ -17266,6 +17521,11 @@ impl ::core::clone::Clone for WbemCimtypeEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemCimtypeEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemCimtypeEnum {
     type Abi = Self;
 }
@@ -17299,6 +17559,11 @@ impl ::core::clone::Clone for WbemComparisonFlagEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemComparisonFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemComparisonFlagEnum {
     type Abi = Self;
 }
@@ -17317,6 +17582,11 @@ impl ::core::marker::Copy for WbemConnectOptionsEnum {}
 impl ::core::clone::Clone for WbemConnectOptionsEnum {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WbemConnectOptionsEnum {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WbemConnectOptionsEnum {
@@ -17598,6 +17868,11 @@ impl ::core::clone::Clone for WbemErrorEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemErrorEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemErrorEnum {
     type Abi = Self;
 }
@@ -17646,6 +17921,11 @@ impl ::core::clone::Clone for WbemFlagEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemFlagEnum {
     type Abi = Self;
 }
@@ -17672,6 +17952,11 @@ impl ::core::clone::Clone for WbemImpersonationLevelEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemImpersonationLevelEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemImpersonationLevelEnum {
     type Abi = Self;
 }
@@ -17695,6 +17980,11 @@ impl ::core::marker::Copy for WbemObjectTextFormatEnum {}
 impl ::core::clone::Clone for WbemObjectTextFormatEnum {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WbemObjectTextFormatEnum {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WbemObjectTextFormatEnum {
@@ -17770,6 +18060,11 @@ impl ::core::clone::Clone for WbemPrivilegeEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemPrivilegeEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemPrivilegeEnum {
     type Abi = Self;
 }
@@ -17795,6 +18090,11 @@ impl ::core::clone::Clone for WbemQueryFlagEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemQueryFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemQueryFlagEnum {
     type Abi = Self;
 }
@@ -17817,6 +18117,11 @@ impl ::core::clone::Clone for WbemTextFlagEnum {
         *self
     }
 }
+impl ::core::default::Default for WbemTextFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WbemTextFlagEnum {
     type Abi = Self;
 }
@@ -17835,6 +18140,11 @@ impl ::core::marker::Copy for WbemTimeout {}
 impl ::core::clone::Clone for WbemTimeout {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WbemTimeout {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WbemTimeout {
@@ -17865,6 +18175,11 @@ impl ::core::marker::Copy for tag_WBEM_LOGIN_TYPE {}
 impl ::core::clone::Clone for tag_WBEM_LOGIN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for tag_WBEM_LOGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for tag_WBEM_LOGIN_TYPE {

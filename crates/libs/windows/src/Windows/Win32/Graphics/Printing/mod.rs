@@ -929,6 +929,11 @@ impl ::core::clone::Clone for BIDI_TYPE {
         *self
     }
 }
+impl ::core::default::Default for BIDI_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BIDI_TYPE {
     type Abi = Self;
 }
@@ -4561,6 +4566,11 @@ impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
         *self
     }
 }
+impl ::core::default::Default for EATTRIBUTE_DATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EATTRIBUTE_DATATYPE {
     type Abi = Self;
 }
@@ -4589,6 +4599,11 @@ impl ::core::marker::Copy for EBranchOfficeJobEventType {}
 impl ::core::clone::Clone for EBranchOfficeJobEventType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EBranchOfficeJobEventType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EBranchOfficeJobEventType {
@@ -4670,6 +4685,11 @@ impl ::core::clone::Clone for EPrintPropertyType {
         *self
     }
 }
+impl ::core::default::Default for EPrintPropertyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EPrintPropertyType {
     type Abi = Self;
 }
@@ -4690,6 +4710,11 @@ impl ::core::marker::Copy for EPrintXPSJobOperation {}
 impl ::core::clone::Clone for EPrintXPSJobOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EPrintXPSJobOperation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EPrintXPSJobOperation {
@@ -4728,6 +4753,11 @@ impl ::core::marker::Copy for EPrintXPSJobProgress {}
 impl ::core::clone::Clone for EPrintXPSJobProgress {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EPrintXPSJobProgress {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EPrintXPSJobProgress {
@@ -5109,6 +5139,11 @@ impl ::core::clone::Clone for EXpsCompressionOptions {
         *self
     }
 }
+impl ::core::default::Default for EXpsCompressionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXpsCompressionOptions {
     type Abi = Self;
 }
@@ -5129,6 +5164,11 @@ impl ::core::marker::Copy for EXpsFontOptions {}
 impl ::core::clone::Clone for EXpsFontOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXpsFontOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXpsFontOptions {
@@ -5157,6 +5197,11 @@ impl ::core::clone::Clone for EXpsFontRestriction {
         *self
     }
 }
+impl ::core::default::Default for EXpsFontRestriction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXpsFontRestriction {
     type Abi = Self;
 }
@@ -5179,6 +5224,11 @@ impl ::core::marker::Copy for EXpsJobConsumption {}
 impl ::core::clone::Clone for EXpsJobConsumption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXpsJobConsumption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXpsJobConsumption {
@@ -19581,6 +19631,11 @@ impl ::core::clone::Clone for MxdcImageTypeEnums {
         *self
     }
 }
+impl ::core::default::Default for MxdcImageTypeEnums {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcImageTypeEnums {
     type Abi = Self;
 }
@@ -19603,6 +19658,11 @@ impl ::core::marker::Copy for MxdcLandscapeRotationEnums {}
 impl ::core::clone::Clone for MxdcLandscapeRotationEnums {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MxdcLandscapeRotationEnums {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MxdcLandscapeRotationEnums {
@@ -19721,6 +19781,11 @@ impl ::core::clone::Clone for MxdcS0PageEnums {
         *self
     }
 }
+impl ::core::default::Default for MxdcS0PageEnums {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MxdcS0PageEnums {
     type Abi = Self;
 }
@@ -19828,6 +19893,11 @@ impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
         *self
     }
 }
+impl ::core::default::Default for NOTIFICATION_CALLBACK_COMMANDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NOTIFICATION_CALLBACK_COMMANDS {
     type Abi = Self;
 }
@@ -19893,6 +19963,11 @@ impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
 impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NOTIFICATION_CONFIG_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NOTIFICATION_CONFIG_FLAGS {
@@ -21238,6 +21313,11 @@ impl ::core::marker::Copy for PRINTER_ACCESS_RIGHTS {}
 impl ::core::clone::Clone for PRINTER_ACCESS_RIGHTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRINTER_ACCESS_RIGHTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRINTER_ACCESS_RIGHTS {
@@ -22851,6 +22931,11 @@ impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PRINTER_OPTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRINTER_OPTION_FLAGS {
     type Abi = Self;
 }
@@ -23533,6 +23618,11 @@ impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
         *self
     }
 }
+impl ::core::default::Default for PRINT_EXECUTION_CONTEXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRINT_EXECUTION_CONTEXT {
     type Abi = Self;
 }
@@ -24099,6 +24189,11 @@ impl ::core::clone::Clone for PageCountType {
         *self
     }
 }
+impl ::core::default::Default for PageCountType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PageCountType {
     type Abi = Self;
 }
@@ -24149,6 +24244,11 @@ impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
 impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintAsyncNotifyConversationStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintAsyncNotifyConversationStyle {
@@ -24217,6 +24317,11 @@ impl ::core::clone::Clone for PrintAsyncNotifyError {
         *self
     }
 }
+impl ::core::default::Default for PrintAsyncNotifyError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintAsyncNotifyError {
     type Abi = Self;
 }
@@ -24237,6 +24342,11 @@ impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
 impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintAsyncNotifyUserFilter {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintAsyncNotifyUserFilter {
@@ -24283,6 +24393,11 @@ impl ::core::marker::Copy for PrintJobStatus {}
 impl ::core::clone::Clone for PrintJobStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintJobStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintJobStatus {
@@ -24492,6 +24607,11 @@ impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
         *self
     }
 }
+impl ::core::default::Default for PrintSchemaConstrainedSetting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintSchemaConstrainedSetting {
     type Abi = Self;
 }
@@ -24516,6 +24636,11 @@ impl ::core::clone::Clone for PrintSchemaParameterDataType {
         *self
     }
 }
+impl ::core::default::Default for PrintSchemaParameterDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintSchemaParameterDataType {
     type Abi = Self;
 }
@@ -24536,6 +24661,11 @@ impl ::core::marker::Copy for PrintSchemaSelectionType {}
 impl ::core::clone::Clone for PrintSchemaSelectionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintSchemaSelectionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintSchemaSelectionType {
@@ -24939,6 +25069,11 @@ impl ::core::marker::Copy for SHIMOPTS {}
 impl ::core::clone::Clone for SHIMOPTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHIMOPTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHIMOPTS {
@@ -25774,6 +25909,11 @@ impl ::core::clone::Clone for UI_TYPE {
         *self
     }
 }
+impl ::core::default::Default for UI_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UI_TYPE {
     type Abi = Self;
 }
@@ -26209,6 +26349,11 @@ impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
         *self
     }
 }
+impl ::core::default::Default for XPSRAS_BACKGROUND_COLOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPSRAS_BACKGROUND_COLOR {
     type Abi = Self;
 }
@@ -26233,6 +26378,11 @@ impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for XPSRAS_PIXEL_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPSRAS_PIXEL_FORMAT {
     type Abi = Self;
 }
@@ -26253,6 +26403,11 @@ impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
 impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPSRAS_RENDERING_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPSRAS_RENDERING_MODE {

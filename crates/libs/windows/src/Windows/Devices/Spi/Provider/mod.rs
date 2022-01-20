@@ -515,6 +515,11 @@ impl ::core::clone::Clone for ProviderSpiMode {
         *self
     }
 }
+impl ::core::default::Default for ProviderSpiMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderSpiMode {
     type Abi = Self;
 }
@@ -541,6 +546,11 @@ impl ::core::marker::Copy for ProviderSpiSharingMode {}
 impl ::core::clone::Clone for ProviderSpiSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProviderSpiSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProviderSpiSharingMode {

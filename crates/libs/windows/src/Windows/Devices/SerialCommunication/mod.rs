@@ -675,6 +675,11 @@ impl ::core::clone::Clone for SerialError {
         *self
     }
 }
+impl ::core::default::Default for SerialError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SerialError {
     type Abi = Self;
 }
@@ -703,6 +708,11 @@ impl ::core::marker::Copy for SerialHandshake {}
 impl ::core::clone::Clone for SerialHandshake {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SerialHandshake {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SerialHandshake {
@@ -736,6 +746,11 @@ impl ::core::clone::Clone for SerialParity {
         *self
     }
 }
+impl ::core::default::Default for SerialParity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SerialParity {
     type Abi = Self;
 }
@@ -767,6 +782,11 @@ impl ::core::clone::Clone for SerialPinChange {
         *self
     }
 }
+impl ::core::default::Default for SerialPinChange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SerialPinChange {
     type Abi = Self;
 }
@@ -794,6 +814,11 @@ impl ::core::marker::Copy for SerialStopBitCount {}
 impl ::core::clone::Clone for SerialStopBitCount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SerialStopBitCount {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SerialStopBitCount {

@@ -491,6 +491,11 @@ impl ::core::clone::Clone for ProviderGpioPinDriveMode {
         *self
     }
 }
+impl ::core::default::Default for ProviderGpioPinDriveMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderGpioPinDriveMode {
     type Abi = Self;
 }
@@ -517,6 +522,11 @@ impl ::core::marker::Copy for ProviderGpioPinEdge {}
 impl ::core::clone::Clone for ProviderGpioPinEdge {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProviderGpioPinEdge {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProviderGpioPinEdge {
@@ -547,6 +557,11 @@ impl ::core::clone::Clone for ProviderGpioPinValue {
         *self
     }
 }
+impl ::core::default::Default for ProviderGpioPinValue {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderGpioPinValue {
     type Abi = Self;
 }
@@ -573,6 +588,11 @@ impl ::core::marker::Copy for ProviderGpioSharingMode {}
 impl ::core::clone::Clone for ProviderGpioSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProviderGpioSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProviderGpioSharingMode {

@@ -394,6 +394,11 @@ impl ::core::clone::Clone for CertificateChainPolicy {
         *self
     }
 }
+impl ::core::default::Default for CertificateChainPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CertificateChainPolicy {
     type Abi = Self;
 }
@@ -1743,6 +1748,11 @@ impl ::core::clone::Clone for ChainValidationResult {
         *self
     }
 }
+impl ::core::default::Default for ChainValidationResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChainValidationResult {
     type Abi = Self;
 }
@@ -2246,6 +2256,11 @@ impl ::core::clone::Clone for EnrollKeyUsages {
         *self
     }
 }
+impl ::core::default::Default for EnrollKeyUsages {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EnrollKeyUsages {
     type Abi = Self;
 }
@@ -2300,6 +2315,11 @@ impl ::core::marker::Copy for ExportOption {}
 impl ::core::clone::Clone for ExportOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExportOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExportOption {
@@ -3222,6 +3242,11 @@ impl ::core::clone::Clone for InstallOptions {
         *self
     }
 }
+impl ::core::default::Default for InstallOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InstallOptions {
     type Abi = Self;
 }
@@ -3407,6 +3432,11 @@ impl ::core::clone::Clone for KeyProtectionLevel {
         *self
     }
 }
+impl ::core::default::Default for KeyProtectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyProtectionLevel {
     type Abi = Self;
 }
@@ -3434,6 +3464,11 @@ impl ::core::marker::Copy for KeySize {}
 impl ::core::clone::Clone for KeySize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeySize {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeySize {
@@ -3681,6 +3716,11 @@ impl ::core::marker::Copy for SignatureValidationResult {}
 impl ::core::clone::Clone for SignatureValidationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SignatureValidationResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SignatureValidationResult {

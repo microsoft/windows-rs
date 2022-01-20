@@ -1001,6 +1001,11 @@ impl ::core::clone::Clone for AF_OP {
         *self
     }
 }
+impl ::core::default::Default for AF_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AF_OP {
     type Abi = Self;
 }
@@ -1195,6 +1200,11 @@ impl ::core::clone::Clone for BIND_FLAGS1 {
         *self
     }
 }
+impl ::core::default::Default for BIND_FLAGS1 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BIND_FLAGS1 {
     type Abi = Self;
 }
@@ -1245,6 +1255,11 @@ impl ::core::marker::Copy for COMPONENT_CHARACTERISTICS {}
 impl ::core::clone::Clone for COMPONENT_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMPONENT_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMPONENT_CHARACTERISTICS {
@@ -1326,6 +1341,11 @@ impl ::core::marker::Copy for DEFAULT_PAGES {}
 impl ::core::clone::Clone for DEFAULT_PAGES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEFAULT_PAGES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEFAULT_PAGES {
@@ -1534,6 +1554,11 @@ impl ::core::clone::Clone for DSREG_JOIN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DSREG_JOIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DSREG_JOIN_TYPE {
     type Abi = Self;
 }
@@ -1596,6 +1621,11 @@ impl ::core::marker::Copy for ENUM_BINDING_PATHS_FLAGS {}
 impl ::core::clone::Clone for ENUM_BINDING_PATHS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENUM_BINDING_PATHS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENUM_BINDING_PATHS_FLAGS {
@@ -2727,6 +2757,11 @@ impl ::core::marker::Copy for FORCE_LEVEL_FLAGS {}
 impl ::core::clone::Clone for FORCE_LEVEL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FORCE_LEVEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FORCE_LEVEL_FLAGS {
@@ -5722,6 +5757,11 @@ impl ::core::clone::Clone for MSA_INFO_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for MSA_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSA_INFO_LEVEL {
     type Abi = Self;
 }
@@ -5748,6 +5788,11 @@ impl ::core::marker::Copy for MSA_INFO_STATE {}
 impl ::core::clone::Clone for MSA_INFO_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSA_INFO_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSA_INFO_STATE {
@@ -5886,6 +5931,11 @@ impl ::core::clone::Clone for NCPNP_RECONFIG_LAYER {
         *self
     }
 }
+impl ::core::default::Default for NCPNP_RECONFIG_LAYER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NCPNP_RECONFIG_LAYER {
     type Abi = Self;
 }
@@ -5906,6 +5956,11 @@ impl ::core::marker::Copy for NCRP_FLAGS {}
 impl ::core::clone::Clone for NCRP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NCRP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NCRP_FLAGS {
@@ -7331,6 +7386,11 @@ impl ::core::clone::Clone for NETSETUP_JOIN_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NETSETUP_JOIN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETSETUP_JOIN_STATUS {
     type Abi = Self;
 }
@@ -7361,6 +7421,11 @@ impl ::core::clone::Clone for NETSETUP_NAME_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NETSETUP_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETSETUP_NAME_TYPE {
     type Abi = Self;
 }
@@ -7387,6 +7452,11 @@ impl ::core::marker::Copy for NETSETUP_PROVISION {}
 impl ::core::clone::Clone for NETSETUP_PROVISION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NETSETUP_PROVISION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NETSETUP_PROVISION {
@@ -7515,6 +7585,11 @@ impl ::core::clone::Clone for NETWORK_INSTALL_TIME {
         *self
     }
 }
+impl ::core::default::Default for NETWORK_INSTALL_TIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETWORK_INSTALL_TIME {
     type Abi = Self;
 }
@@ -7583,6 +7658,11 @@ impl ::core::clone::Clone for NETWORK_UPGRADE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NETWORK_UPGRADE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NETWORK_UPGRADE_TYPE {
     type Abi = Self;
 }
@@ -7607,6 +7687,11 @@ impl ::core::marker::Copy for NET_COMPUTER_NAME_TYPE {}
 impl ::core::clone::Clone for NET_COMPUTER_NAME_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_COMPUTER_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_COMPUTER_NAME_TYPE {
@@ -7794,6 +7879,11 @@ impl ::core::clone::Clone for NET_JOIN_DOMAIN_JOIN_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Abi = Self;
 }
@@ -7850,6 +7940,11 @@ impl ::core::clone::Clone for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     type Abi = Self;
 }
@@ -7868,6 +7963,11 @@ impl ::core::marker::Copy for NET_REQUEST_PROVISION_OPTIONS {}
 impl ::core::clone::Clone for NET_REQUEST_PROVISION_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_REQUEST_PROVISION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_REQUEST_PROVISION_OPTIONS {
@@ -7982,6 +8082,11 @@ impl ::core::clone::Clone for NET_SERVER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NET_SERVER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NET_SERVER_TYPE {
     type Abi = Self;
 }
@@ -8036,6 +8141,11 @@ impl ::core::marker::Copy for NET_USER_ENUM_FILTER_FLAGS {}
 impl ::core::clone::Clone for NET_USER_ENUM_FILTER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_USER_ENUM_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_USER_ENUM_FILTER_FLAGS {
@@ -8294,6 +8404,11 @@ impl ::core::marker::Copy for NET_VALIDATE_PASSWORD_TYPE {}
 impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NET_VALIDATE_PASSWORD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_TYPE {
@@ -10467,6 +10582,11 @@ impl ::core::marker::Copy for OBO_TOKEN_TYPE {}
 impl ::core::clone::Clone for OBO_TOKEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OBO_TOKEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OBO_TOKEN_TYPE {
@@ -15357,6 +15477,11 @@ impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
         *self
     }
 }
+impl ::core::default::Default for SERVER_INFO_HIDDEN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVER_INFO_HIDDEN {
     type Abi = Self;
 }
@@ -15405,6 +15530,11 @@ impl ::core::marker::Copy for SERVER_INFO_SECURITY {}
 impl ::core::clone::Clone for SERVER_INFO_SECURITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVER_INFO_SECURITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
@@ -16095,6 +16225,11 @@ impl ::core::clone::Clone for SUPPORTS_BINDING_INTERFACE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
     type Abi = Self;
 }
@@ -16582,6 +16717,11 @@ impl ::core::clone::Clone for TRANSPORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TRANSPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRANSPORT_TYPE {
     type Abi = Self;
 }
@@ -16922,6 +17062,11 @@ impl ::core::marker::Copy for USER_ACCOUNT_FLAGS {}
 impl ::core::clone::Clone for USER_ACCOUNT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USER_ACCOUNT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
@@ -18779,6 +18924,11 @@ impl ::core::clone::Clone for USER_MODALS_ROLES {
         *self
     }
 }
+impl ::core::default::Default for USER_MODALS_ROLES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USER_MODALS_ROLES {
     type Abi = Self;
 }
@@ -18874,6 +19024,11 @@ impl ::core::marker::Copy for USER_PRIV {}
 impl ::core::clone::Clone for USER_PRIV {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USER_PRIV {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USER_PRIV {
@@ -19214,6 +19369,11 @@ impl ::core::marker::Copy for USE_INFO_ASG_TYPE {}
 impl ::core::clone::Clone for USE_INFO_ASG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USE_INFO_ASG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
@@ -21256,6 +21416,11 @@ impl ::core::marker::Copy for tagRASCON_IPUI_FLAGS {}
 impl ::core::clone::Clone for tagRASCON_IPUI_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for tagRASCON_IPUI_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for tagRASCON_IPUI_FLAGS {

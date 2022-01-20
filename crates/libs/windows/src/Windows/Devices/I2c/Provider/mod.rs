@@ -358,6 +358,11 @@ impl ::core::clone::Clone for ProviderI2cBusSpeed {
         *self
     }
 }
+impl ::core::default::Default for ProviderI2cBusSpeed {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
     type Abi = Self;
 }
@@ -498,6 +503,11 @@ impl ::core::clone::Clone for ProviderI2cSharingMode {
         *self
     }
 }
+impl ::core::default::Default for ProviderI2cSharingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderI2cSharingMode {
     type Abi = Self;
 }
@@ -562,6 +572,11 @@ impl ::core::marker::Copy for ProviderI2cTransferStatus {}
 impl ::core::clone::Clone for ProviderI2cTransferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProviderI2cTransferStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {

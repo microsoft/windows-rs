@@ -14,6 +14,11 @@ impl ::core::clone::Clone for DELETE_OBJECT_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for DELETE_OBJECT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DELETE_OBJECT_OPTIONS {
     type Abi = Self;
 }
@@ -46,6 +51,11 @@ impl ::core::marker::Copy for DEVICE_RADIO_STATE {}
 impl ::core::clone::Clone for DEVICE_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEVICE_RADIO_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_RADIO_STATE {
@@ -3653,6 +3663,11 @@ impl ::core::clone::Clone for SMS_MESSAGE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for SMS_MESSAGE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SMS_MESSAGE_TYPES {
     type Abi = Self;
 }
@@ -3681,6 +3696,11 @@ impl ::core::marker::Copy for SYSTEM_RADIO_STATE {}
 impl ::core::clone::Clone for SYSTEM_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_RADIO_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_RADIO_STATE {
@@ -3809,6 +3829,11 @@ impl ::core::clone::Clone for WPD_BITRATE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for WPD_BITRATE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_BITRATE_TYPES {
     type Abi = Self;
 }
@@ -3833,6 +3858,11 @@ impl ::core::marker::Copy for WPD_CAPTURE_MODES {}
 impl ::core::clone::Clone for WPD_CAPTURE_MODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_CAPTURE_MODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_CAPTURE_MODES {
@@ -3940,6 +3970,11 @@ impl ::core::clone::Clone for WPD_COLOR_CORRECTED_STATUS_VALUES {
         *self
     }
 }
+impl ::core::default::Default for WPD_COLOR_CORRECTED_STATUS_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_COLOR_CORRECTED_STATUS_VALUES {
     type Abi = Self;
 }
@@ -4006,6 +4041,11 @@ impl ::core::marker::Copy for WPD_COMMAND_ACCESS_TYPES {}
 impl ::core::clone::Clone for WPD_COMMAND_ACCESS_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_COMMAND_ACCESS_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_COMMAND_ACCESS_TYPES {
@@ -4548,6 +4588,11 @@ impl ::core::clone::Clone for WPD_CROPPED_STATUS_VALUES {
         *self
     }
 }
+impl ::core::default::Default for WPD_CROPPED_STATUS_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_CROPPED_STATUS_VALUES {
     type Abi = Self;
 }
@@ -4631,6 +4676,11 @@ impl ::core::clone::Clone for WPD_DEVICE_TRANSPORTS {
         *self
     }
 }
+impl ::core::default::Default for WPD_DEVICE_TRANSPORTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_DEVICE_TRANSPORTS {
     type Abi = Self;
 }
@@ -4666,6 +4716,11 @@ impl ::core::clone::Clone for WPD_DEVICE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for WPD_DEVICE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_DEVICE_TYPES {
     type Abi = Self;
 }
@@ -4694,6 +4749,11 @@ impl ::core::marker::Copy for WPD_EFFECT_MODES {}
 impl ::core::clone::Clone for WPD_EFFECT_MODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_EFFECT_MODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_EFFECT_MODES {
@@ -4800,6 +4860,11 @@ impl ::core::clone::Clone for WPD_EXPOSURE_METERING_MODES {
         *self
     }
 }
+impl ::core::default::Default for WPD_EXPOSURE_METERING_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_EXPOSURE_METERING_MODES {
     type Abi = Self;
 }
@@ -4834,6 +4899,11 @@ impl ::core::clone::Clone for WPD_EXPOSURE_PROGRAM_MODES {
         *self
     }
 }
+impl ::core::default::Default for WPD_EXPOSURE_PROGRAM_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_EXPOSURE_PROGRAM_MODES {
     type Abi = Self;
 }
@@ -4866,6 +4936,11 @@ impl ::core::clone::Clone for WPD_FLASH_MODES {
         *self
     }
 }
+impl ::core::default::Default for WPD_FLASH_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_FLASH_MODES {
     type Abi = Self;
 }
@@ -4888,6 +4963,11 @@ impl ::core::marker::Copy for WPD_FOCUS_METERING_MODES {}
 impl ::core::clone::Clone for WPD_FOCUS_METERING_MODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_FOCUS_METERING_MODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_FOCUS_METERING_MODES {
@@ -4914,6 +4994,11 @@ impl ::core::marker::Copy for WPD_FOCUS_MODES {}
 impl ::core::clone::Clone for WPD_FOCUS_MODES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_FOCUS_MODES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_FOCUS_MODES {
@@ -5140,6 +5225,11 @@ impl ::core::clone::Clone for WPD_META_GENRES {
         *self
     }
 }
+impl ::core::default::Default for WPD_META_GENRES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_META_GENRES {
     type Abi = Self;
 }
@@ -5353,6 +5443,11 @@ impl ::core::clone::Clone for WPD_OPERATION_STATES {
         *self
     }
 }
+impl ::core::default::Default for WPD_OPERATION_STATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_OPERATION_STATES {
     type Abi = Self;
 }
@@ -5434,6 +5529,11 @@ impl ::core::clone::Clone for WPD_PARAMETER_USAGE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for WPD_PARAMETER_USAGE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_PARAMETER_USAGE_TYPES {
     type Abi = Self;
 }
@@ -5454,6 +5554,11 @@ impl ::core::marker::Copy for WPD_POWER_SOURCES {}
 impl ::core::clone::Clone for WPD_POWER_SOURCES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_POWER_SOURCES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_POWER_SOURCES {
@@ -5927,6 +6032,11 @@ impl ::core::clone::Clone for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
         *self
     }
 }
+impl ::core::default::Default for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     type Abi = Self;
 }
@@ -6013,6 +6123,11 @@ impl ::core::clone::Clone for WPD_SECTION_DATA_UNITS_VALUES {
         *self
     }
 }
+impl ::core::default::Default for WPD_SECTION_DATA_UNITS_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_SECTION_DATA_UNITS_VALUES {
     type Abi = Self;
 }
@@ -6032,6 +6147,11 @@ impl ::core::marker::Copy for WPD_SERVICE_INHERITANCE_TYPES {}
 impl ::core::clone::Clone for WPD_SERVICE_INHERITANCE_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_SERVICE_INHERITANCE_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_SERVICE_INHERITANCE_TYPES {
@@ -6063,6 +6183,11 @@ impl ::core::marker::Copy for WPD_SMS_ENCODING_TYPES {}
 impl ::core::clone::Clone for WPD_SMS_ENCODING_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_SMS_ENCODING_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_SMS_ENCODING_TYPES {
@@ -6193,6 +6318,11 @@ impl ::core::clone::Clone for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
         *self
     }
 }
+impl ::core::default::Default for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     type Abi = Self;
 }
@@ -6249,6 +6379,11 @@ impl ::core::clone::Clone for WPD_STORAGE_TYPE_VALUES {
         *self
     }
 }
+impl ::core::default::Default for WPD_STORAGE_TYPE_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_STORAGE_TYPE_VALUES {
     type Abi = Self;
 }
@@ -6275,6 +6410,11 @@ impl ::core::marker::Copy for WPD_STREAM_UNITS {}
 impl ::core::clone::Clone for WPD_STREAM_UNITS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPD_STREAM_UNITS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPD_STREAM_UNITS {
@@ -6361,6 +6501,11 @@ impl ::core::clone::Clone for WPD_VIDEO_SCAN_TYPES {
         *self
     }
 }
+impl ::core::default::Default for WPD_VIDEO_SCAN_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_VIDEO_SCAN_TYPES {
     type Abi = Self;
 }
@@ -6395,6 +6540,11 @@ impl ::core::clone::Clone for WPD_WHITE_BALANCE_SETTINGS {
         *self
     }
 }
+impl ::core::default::Default for WPD_WHITE_BALANCE_SETTINGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPD_WHITE_BALANCE_SETTINGS {
     type Abi = Self;
 }
@@ -6423,6 +6573,11 @@ impl ::core::clone::Clone for WpdAttributeForm {
         *self
     }
 }
+impl ::core::default::Default for WpdAttributeForm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WpdAttributeForm {
     type Abi = Self;
 }
@@ -6449,6 +6604,11 @@ impl ::core::marker::Copy for WpdParameterAttributeForm {}
 impl ::core::clone::Clone for WpdParameterAttributeForm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WpdParameterAttributeForm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WpdParameterAttributeForm {

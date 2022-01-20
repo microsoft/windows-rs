@@ -119,6 +119,11 @@ impl ::core::clone::Clone for ARC_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for ARC_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ARC_DIRECTION {
     type Abi = Self;
 }
@@ -462,6 +467,11 @@ impl ::core::marker::Copy for BACKGROUND_MODE {}
 impl ::core::clone::Clone for BACKGROUND_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BACKGROUND_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BACKGROUND_MODE {
@@ -1029,6 +1039,11 @@ impl ::core::clone::Clone for CDS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CDS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CDS_TYPE {
     type Abi = Self;
 }
@@ -1316,6 +1331,11 @@ impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
         *self
     }
 }
+impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
     type Abi = Self;
 }
@@ -1366,6 +1386,11 @@ impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
         *self
     }
 }
+impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
     type Abi = Self;
 }
@@ -1414,6 +1439,11 @@ impl ::core::marker::Copy for CREATE_POLYGON_RGN_MODE {}
 impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATE_POLYGON_RGN_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_POLYGON_RGN_MODE {
@@ -2429,6 +2459,11 @@ impl ::core::clone::Clone for DC_LAYOUT {
         *self
     }
 }
+impl ::core::default::Default for DC_LAYOUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DC_LAYOUT {
     type Abi = Self;
 }
@@ -2997,6 +3032,11 @@ impl ::core::clone::Clone for DFCS_STATE {
         *self
     }
 }
+impl ::core::default::Default for DFCS_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DFCS_STATE {
     type Abi = Self;
 }
@@ -3051,6 +3091,11 @@ impl ::core::marker::Copy for DFC_TYPE {}
 impl ::core::clone::Clone for DFC_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DFC_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DFC_TYPE {
@@ -3145,6 +3190,11 @@ impl ::core::clone::Clone for DIB_USAGE {
         *self
     }
 }
+impl ::core::default::Default for DIB_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIB_USAGE {
     type Abi = Self;
 }
@@ -3201,6 +3251,11 @@ impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPLAYCONFIG_COLOR_ENCODING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_COLOR_ENCODING {
@@ -3377,6 +3432,11 @@ impl ::core::marker::Copy for DISP_CHANGE {}
 impl ::core::clone::Clone for DISP_CHANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISP_CHANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISP_CHANGE {
@@ -3886,6 +3946,11 @@ impl ::core::clone::Clone for DRAWEDGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DRAWEDGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRAWEDGE_FLAGS {
     type Abi = Self;
 }
@@ -3959,6 +4024,11 @@ impl ::core::marker::Copy for DRAWSTATE_FLAGS {}
 impl ::core::clone::Clone for DRAWSTATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRAWSTATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRAWSTATE_FLAGS {
@@ -4055,6 +4125,11 @@ impl ::core::clone::Clone for DRAW_CAPTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DRAW_CAPTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRAW_CAPTION_FLAGS {
     type Abi = Self;
 }
@@ -4137,6 +4212,11 @@ impl ::core::marker::Copy for DRAW_EDGE_FLAGS {}
 impl ::core::clone::Clone for DRAW_EDGE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRAW_EDGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRAW_EDGE_FLAGS {
@@ -4231,6 +4311,11 @@ impl ::core::marker::Copy for DRAW_TEXT_FORMAT {}
 impl ::core::clone::Clone for DRAW_TEXT_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRAW_TEXT_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRAW_TEXT_FORMAT {
@@ -4549,6 +4634,11 @@ impl ::core::clone::Clone for EMBEDDED_FONT_PRIV_STATUS {
         *self
     }
 }
+impl ::core::default::Default for EMBEDDED_FONT_PRIV_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EMBEDDED_FONT_PRIV_STATUS {
     type Abi = Self;
 }
@@ -4597,6 +4687,11 @@ impl ::core::marker::Copy for EMBED_FONT_CHARSET {}
 impl ::core::clone::Clone for EMBED_FONT_CHARSET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EMBED_FONT_CHARSET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EMBED_FONT_CHARSET {
@@ -7917,6 +8012,11 @@ impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_MODE {
         *self
     }
 }
+impl ::core::default::Default for ENUM_DISPLAY_SETTINGS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENUM_DISPLAY_SETTINGS_MODE {
     type Abi = Self;
 }
@@ -8131,6 +8231,11 @@ impl ::core::clone::Clone for ETO_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for ETO_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ETO_OPTIONS {
     type Abi = Self;
 }
@@ -8341,6 +8446,11 @@ impl ::core::marker::Copy for EXT_FLOOD_FILL_TYPE {}
 impl ::core::clone::Clone for EXT_FLOOD_FILL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXT_FLOOD_FILL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXT_FLOOD_FILL_TYPE {
@@ -9016,6 +9126,11 @@ impl ::core::clone::Clone for FONT_CLIP_PRECISION {
         *self
     }
 }
+impl ::core::default::Default for FONT_CLIP_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FONT_CLIP_PRECISION {
     type Abi = Self;
 }
@@ -9070,6 +9185,11 @@ impl ::core::marker::Copy for FONT_LICENSE_PRIVS {}
 impl ::core::clone::Clone for FONT_LICENSE_PRIVS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FONT_LICENSE_PRIVS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FONT_LICENSE_PRIVS {
@@ -9138,6 +9258,11 @@ impl ::core::clone::Clone for FONT_OUTPUT_PRECISION {
         *self
     }
 }
+impl ::core::default::Default for FONT_OUTPUT_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FONT_OUTPUT_PRECISION {
     type Abi = Self;
 }
@@ -9194,6 +9319,11 @@ impl ::core::marker::Copy for FONT_PITCH_AND_FAMILY {}
 impl ::core::clone::Clone for FONT_PITCH_AND_FAMILY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FONT_PITCH_AND_FAMILY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FONT_PITCH_AND_FAMILY {
@@ -9254,6 +9384,11 @@ impl ::core::clone::Clone for FONT_QUALITY {
         *self
     }
 }
+impl ::core::default::Default for FONT_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FONT_QUALITY {
     type Abi = Self;
 }
@@ -9302,6 +9437,11 @@ impl ::core::marker::Copy for FONT_RESOURCE_CHARACTERISTICS {}
 impl ::core::clone::Clone for FONT_RESOURCE_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FONT_RESOURCE_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FONT_RESOURCE_CHARACTERISTICS {
@@ -9752,6 +9892,11 @@ impl ::core::clone::Clone for GET_CHARACTER_PLACEMENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_CHARACTER_PLACEMENT_FLAGS {
     type Abi = Self;
 }
@@ -9818,6 +9963,11 @@ impl ::core::marker::Copy for GET_DCX_FLAGS {}
 impl ::core::clone::Clone for GET_DCX_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_DCX_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_DCX_FLAGS {
@@ -9946,6 +10096,11 @@ impl ::core::clone::Clone for GET_DEVICE_CAPS_INDEX {
         *self
     }
 }
+impl ::core::default::Default for GET_DEVICE_CAPS_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_DEVICE_CAPS_INDEX {
     type Abi = Self;
 }
@@ -10008,6 +10163,11 @@ impl ::core::marker::Copy for GET_GLYPH_OUTLINE_FORMAT {}
 impl ::core::clone::Clone for GET_GLYPH_OUTLINE_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_GLYPH_OUTLINE_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_GLYPH_OUTLINE_FORMAT {
@@ -10096,6 +10256,11 @@ impl ::core::marker::Copy for GET_STOCK_OBJECT_FLAGS {}
 impl ::core::clone::Clone for GET_STOCK_OBJECT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_STOCK_OBJECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_STOCK_OBJECT_FLAGS {
@@ -10233,6 +10398,11 @@ impl ::core::clone::Clone for GRADIENT_FILL {
         *self
     }
 }
+impl ::core::default::Default for GRADIENT_FILL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GRADIENT_FILL {
     type Abi = Self;
 }
@@ -10346,6 +10516,11 @@ impl ::core::marker::Copy for GRAPHICS_MODE {}
 impl ::core::clone::Clone for GRAPHICS_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GRAPHICS_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GRAPHICS_MODE {
@@ -12203,6 +12378,11 @@ impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
         *self
     }
 }
+impl ::core::default::Default for HATCH_BRUSH_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HATCH_BRUSH_STYLE {
     type Abi = Self;
 }
@@ -12375,6 +12555,11 @@ impl ::core::marker::Copy for HDC_MAP_MODE {}
 impl ::core::clone::Clone for HDC_MAP_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HDC_MAP_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HDC_MAP_MODE {
@@ -13652,6 +13837,11 @@ impl ::core::clone::Clone for MODIFY_WORLD_TRANSFORM_MODE {
         *self
     }
 }
+impl ::core::default::Default for MODIFY_WORLD_TRANSFORM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MODIFY_WORLD_TRANSFORM_MODE {
     type Abi = Self;
 }
@@ -13824,6 +14014,11 @@ impl ::core::marker::Copy for MONITOR_FROM_FLAGS {}
 impl ::core::clone::Clone for MONITOR_FROM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MONITOR_FROM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MONITOR_FROM_FLAGS {
@@ -14216,6 +14411,11 @@ impl ::core::marker::Copy for OBJ_TYPE {}
 impl ::core::clone::Clone for OBJ_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OBJ_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OBJ_TYPE {
@@ -14956,6 +15156,11 @@ impl ::core::clone::Clone for PEN_STYLE {
         *self
     }
 }
+impl ::core::default::Default for PEN_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEN_STYLE {
     type Abi = Self;
 }
@@ -15617,6 +15822,11 @@ impl ::core::clone::Clone for R2_MODE {
         *self
     }
 }
+impl ::core::default::Default for R2_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for R2_MODE {
     type Abi = Self;
 }
@@ -15727,6 +15937,11 @@ impl ::core::marker::Copy for REDRAW_WINDOW_FLAGS {}
 impl ::core::clone::Clone for REDRAW_WINDOW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REDRAW_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REDRAW_WINDOW_FLAGS {
@@ -15939,6 +16154,11 @@ impl ::core::clone::Clone for RGN_COMBINE_MODE {
         *self
     }
 }
+impl ::core::default::Default for RGN_COMBINE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RGN_COMBINE_MODE {
     type Abi = Self;
 }
@@ -15991,6 +16211,11 @@ impl ::core::marker::Copy for ROP_CODE {}
 impl ::core::clone::Clone for ROP_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ROP_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ROP_CODE {
@@ -16368,6 +16593,11 @@ impl ::core::clone::Clone for SET_BOUNDS_RECT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SET_BOUNDS_RECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SET_BOUNDS_RECT_FLAGS {
     type Abi = Self;
 }
@@ -16464,6 +16694,11 @@ impl ::core::clone::Clone for STRETCH_BLT_MODE {
         *self
     }
 }
+impl ::core::default::Default for STRETCH_BLT_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STRETCH_BLT_MODE {
     type Abi = Self;
 }
@@ -16520,6 +16755,11 @@ impl ::core::marker::Copy for SYSTEM_PALETTE_USE {}
 impl ::core::clone::Clone for SYSTEM_PALETTE_USE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_PALETTE_USE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_PALETTE_USE {
@@ -17555,6 +17795,11 @@ impl ::core::clone::Clone for TEXT_ALIGN_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for TEXT_ALIGN_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TEXT_ALIGN_OPTIONS {
     type Abi = Self;
 }
@@ -17723,6 +17968,11 @@ impl ::core::marker::Copy for TTEMBED_FLAGS {}
 impl ::core::clone::Clone for TTEMBED_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TTEMBED_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TTEMBED_FLAGS {
@@ -17986,6 +18236,11 @@ impl ::core::marker::Copy for TTLOAD_EMBEDDED_FONT_STATUS {}
 impl ::core::clone::Clone for TTLOAD_EMBEDDED_FONT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TTLOAD_EMBEDDED_FONT_STATUS {

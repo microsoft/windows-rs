@@ -4775,6 +4775,11 @@ impl ::core::clone::Clone for WSManAuthenticationFlags {
         *self
     }
 }
+impl ::core::default::Default for WSManAuthenticationFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManAuthenticationFlags {
     type Abi = Self;
 }
@@ -4811,6 +4816,11 @@ impl ::core::marker::Copy for WSManCallbackFlags {}
 impl ::core::clone::Clone for WSManCallbackFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSManCallbackFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSManCallbackFlags {
@@ -4972,6 +4982,11 @@ impl ::core::clone::Clone for WSManDataType {
         *self
     }
 }
+impl ::core::default::Default for WSManDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManDataType {
     type Abi = Self;
 }
@@ -5035,6 +5050,11 @@ impl ::core::marker::Copy for WSManEnumFlags {}
 impl ::core::clone::Clone for WSManEnumFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSManEnumFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSManEnumFlags {
@@ -5271,6 +5291,11 @@ impl ::core::clone::Clone for WSManProxyAccessType {
         *self
     }
 }
+impl ::core::default::Default for WSManProxyAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManProxyAccessType {
     type Abi = Self;
 }
@@ -5297,6 +5322,11 @@ impl ::core::clone::Clone for WSManProxyAccessTypeFlags {
         *self
     }
 }
+impl ::core::default::Default for WSManProxyAccessTypeFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManProxyAccessTypeFlags {
     type Abi = Self;
 }
@@ -5319,6 +5349,11 @@ impl ::core::marker::Copy for WSManProxyAuthenticationFlags {}
 impl ::core::clone::Clone for WSManProxyAuthenticationFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSManProxyAuthenticationFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSManProxyAuthenticationFlags {
@@ -5463,6 +5498,11 @@ impl ::core::clone::Clone for WSManSessionFlags {
         *self
     }
 }
+impl ::core::default::Default for WSManSessionFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManSessionFlags {
     type Abi = Self;
 }
@@ -5527,6 +5567,11 @@ impl ::core::clone::Clone for WSManSessionOption {
         *self
     }
 }
+impl ::core::default::Default for WSManSessionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSManSessionOption {
     type Abi = Self;
 }
@@ -5568,6 +5613,11 @@ impl ::core::marker::Copy for WSManShellFlag {}
 impl ::core::clone::Clone for WSManShellFlag {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSManShellFlag {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSManShellFlag {

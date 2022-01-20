@@ -116,6 +116,11 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
         *self
     }
 }
+impl ::core::default::Default for AppServiceClosedStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
     type Abi = Self;
 }
@@ -375,6 +380,11 @@ impl ::core::marker::Copy for AppServiceConnectionStatus {}
 impl ::core::clone::Clone for AppServiceConnectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppServiceConnectionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
@@ -760,6 +770,11 @@ impl ::core::marker::Copy for AppServiceResponseStatus {}
 impl ::core::clone::Clone for AppServiceResponseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppServiceResponseStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
@@ -1260,6 +1275,11 @@ impl ::core::marker::Copy for StatelessAppServiceResponseStatus {}
 impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StatelessAppServiceResponseStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StatelessAppServiceResponseStatus {

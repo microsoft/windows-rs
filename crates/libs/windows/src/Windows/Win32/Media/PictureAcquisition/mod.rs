@@ -23,6 +23,11 @@ impl ::core::clone::Clone for DEVICE_SELECTION_DEVICE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DEVICE_SELECTION_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_SELECTION_DEVICE_TYPE {
     type Abi = Self;
 }
@@ -69,6 +74,11 @@ impl ::core::clone::Clone for ERROR_ADVISE_MESSAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ERROR_ADVISE_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ERROR_ADVISE_MESSAGE_TYPE {
     type Abi = Self;
 }
@@ -99,6 +109,11 @@ impl ::core::marker::Copy for ERROR_ADVISE_RESULT {}
 impl ::core::clone::Clone for ERROR_ADVISE_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ERROR_ADVISE_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ERROR_ADVISE_RESULT {
@@ -1471,6 +1486,11 @@ impl ::core::clone::Clone for PROGRESS_DIALOG_CHECKBOX_ID {
         *self
     }
 }
+impl ::core::default::Default for PROGRESS_DIALOG_CHECKBOX_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROGRESS_DIALOG_CHECKBOX_ID {
     type Abi = Self;
 }
@@ -1495,6 +1515,11 @@ impl ::core::marker::Copy for PROGRESS_DIALOG_IMAGE_TYPE {}
 impl ::core::clone::Clone for PROGRESS_DIALOG_IMAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROGRESS_DIALOG_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROGRESS_DIALOG_IMAGE_TYPE {
@@ -1525,6 +1550,11 @@ impl ::core::marker::Copy for USER_INPUT_STRING_TYPE {}
 impl ::core::clone::Clone for USER_INPUT_STRING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USER_INPUT_STRING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USER_INPUT_STRING_TYPE {

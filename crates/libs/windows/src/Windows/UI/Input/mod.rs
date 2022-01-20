@@ -275,6 +275,11 @@ impl ::core::clone::Clone for CrossSlidingState {
         *self
     }
 }
+impl ::core::default::Default for CrossSlidingState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CrossSlidingState {
     type Abi = Self;
 }
@@ -407,6 +412,11 @@ impl ::core::marker::Copy for DraggingState {}
 impl ::core::clone::Clone for DraggingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DraggingState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DraggingState {
@@ -645,6 +655,11 @@ impl ::core::clone::Clone for EdgeGestureKind {
         *self
     }
 }
+impl ::core::default::Default for EdgeGestureKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EdgeGestureKind {
     type Abi = Self;
 }
@@ -673,6 +688,11 @@ impl ::core::marker::Copy for GazeInputAccessStatus {}
 impl ::core::clone::Clone for GazeInputAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GazeInputAccessStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GazeInputAccessStatus {
@@ -1298,6 +1318,11 @@ impl ::core::clone::Clone for GestureSettings {
         *self
     }
 }
+impl ::core::default::Default for GestureSettings {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GestureSettings {
     type Abi = Self;
 }
@@ -1466,6 +1491,11 @@ impl ::core::marker::Copy for HoldingState {}
 impl ::core::clone::Clone for HoldingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HoldingState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HoldingState {
@@ -3284,6 +3314,11 @@ impl ::core::clone::Clone for InputActivationState {
         *self
     }
 }
+impl ::core::default::Default for InputActivationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InputActivationState {
     type Abi = Self;
 }
@@ -4605,6 +4640,11 @@ impl ::core::clone::Clone for PointerUpdateKind {
         *self
     }
 }
+impl ::core::default::Default for PointerUpdateKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PointerUpdateKind {
     type Abi = Self;
 }
@@ -5907,6 +5947,11 @@ impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
         *self
     }
 }
+impl ::core::default::Default for RadialControllerMenuKnownIcon {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RadialControllerMenuKnownIcon {
     type Abi = Self;
 }
@@ -6419,6 +6464,11 @@ impl ::core::marker::Copy for RadialControllerSystemMenuItemKind {}
 impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RadialControllerSystemMenuItemKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RadialControllerSystemMenuItemKind {

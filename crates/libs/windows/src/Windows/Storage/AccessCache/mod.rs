@@ -16,6 +16,11 @@ impl ::core::clone::Clone for AccessCacheOptions {
         *self
     }
 }
+impl ::core::default::Default for AccessCacheOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AccessCacheOptions {
     type Abi = Self;
 }
@@ -700,6 +705,11 @@ impl ::core::marker::Copy for RecentStorageItemVisibility {}
 impl ::core::clone::Clone for RecentStorageItemVisibility {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RecentStorageItemVisibility {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {

@@ -123,6 +123,11 @@ impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for CCM_COMMANDID_MASK_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CCM_COMMANDID_MASK_CONSTANTS {
     type Abi = Self;
 }
@@ -177,6 +182,11 @@ impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
         *self
     }
 }
+impl ::core::default::Default for CCM_INSERTIONALLOWED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CCM_INSERTIONALLOWED {
     type Abi = Self;
 }
@@ -225,6 +235,11 @@ impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
         *self
     }
 }
+impl ::core::default::Default for CCM_INSERTIONPOINTID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CCM_INSERTIONPOINTID {
     type Abi = Self;
 }
@@ -251,6 +266,11 @@ impl ::core::marker::Copy for CCM_SPECIAL {}
 impl ::core::clone::Clone for CCM_SPECIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CCM_SPECIAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CCM_SPECIAL {
@@ -799,6 +819,11 @@ impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
 impl ::core::clone::Clone for DATA_OBJECT_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DATA_OBJECT_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DATA_OBJECT_TYPES {
@@ -5692,6 +5717,11 @@ impl ::core::clone::Clone for IconIdentifier {
         *self
     }
 }
+impl ::core::default::Default for IconIdentifier {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IconIdentifier {
     type Abi = Self;
 }
@@ -5816,6 +5846,11 @@ impl ::core::clone::Clone for MMC_ACTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MMC_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_ACTION_TYPE {
     type Abi = Self;
 }
@@ -5842,6 +5877,11 @@ impl ::core::marker::Copy for MMC_BUTTON_STATE {}
 impl ::core::clone::Clone for MMC_BUTTON_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_BUTTON_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_BUTTON_STATE {
@@ -5953,6 +5993,11 @@ impl ::core::clone::Clone for MMC_CONSOLE_VERB {
         *self
     }
 }
+impl ::core::default::Default for MMC_CONSOLE_VERB {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_CONSOLE_VERB {
     type Abi = Self;
 }
@@ -5975,6 +6020,11 @@ impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
 impl ::core::clone::Clone for MMC_CONTROL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_CONTROL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_CONTROL_TYPE {
@@ -6125,6 +6175,11 @@ impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
         *self
     }
 }
+impl ::core::default::Default for MMC_FILTER_CHANGE_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_FILTER_CHANGE_CODE {
     type Abi = Self;
 }
@@ -6147,6 +6202,11 @@ impl ::core::marker::Copy for MMC_FILTER_TYPE {}
 impl ::core::clone::Clone for MMC_FILTER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_FILTER_TYPE {
@@ -6215,6 +6275,11 @@ impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
 impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_MENU_COMMAND_IDS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_MENU_COMMAND_IDS {
@@ -6309,6 +6374,11 @@ impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MMC_NOTIFY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_NOTIFY_TYPE {
     type Abi = Self;
 }
@@ -6345,6 +6415,11 @@ impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
 impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_PROPERTY_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_PROPERTY_ACTION {
@@ -6430,6 +6505,11 @@ impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
         *self
     }
 }
+impl ::core::default::Default for MMC_RESULT_VIEW_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_RESULT_VIEW_STYLE {
     type Abi = Self;
 }
@@ -6452,6 +6532,11 @@ impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
 impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_SCOPE_ITEM_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_SCOPE_ITEM_STATE {
@@ -6793,6 +6878,11 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MMC_TASK_DISPLAY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_TYPE {
     type Abi = Self;
 }
@@ -6835,6 +6925,11 @@ impl ::core::marker::Copy for MMC_VIEW_TYPE {}
 impl ::core::clone::Clone for MMC_VIEW_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MMC_VIEW_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MMC_VIEW_TYPE {
@@ -9665,6 +9760,11 @@ impl ::core::clone::Clone for _ColumnSortOrder {
         *self
     }
 }
+impl ::core::default::Default for _ColumnSortOrder {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _ColumnSortOrder {
     type Abi = Self;
 }
@@ -9689,6 +9789,11 @@ impl ::core::marker::Copy for _DocumentMode {}
 impl ::core::clone::Clone for _DocumentMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DocumentMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DocumentMode {
@@ -9839,6 +9944,11 @@ impl ::core::clone::Clone for _ExportListOptions {
         *self
     }
 }
+impl ::core::default::Default for _ExportListOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _ExportListOptions {
     type Abi = Self;
 }
@@ -9867,6 +9977,11 @@ impl ::core::clone::Clone for _ListViewMode {
         *self
     }
 }
+impl ::core::default::Default for _ListViewMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _ListViewMode {
     type Abi = Self;
 }
@@ -9893,6 +10008,11 @@ impl ::core::marker::Copy for _ViewOptions {}
 impl ::core::clone::Clone for _ViewOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _ViewOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _ViewOptions {

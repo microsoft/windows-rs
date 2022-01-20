@@ -422,6 +422,11 @@ impl ::core::clone::Clone for PrintDocumentPackageCompletion {
         *self
     }
 }
+impl ::core::default::Default for PrintDocumentPackageCompletion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintDocumentPackageCompletion {
     type Abi = Self;
 }
@@ -524,6 +529,11 @@ impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
 impl ::core::clone::Clone for XPS_JOB_COMPLETION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_JOB_COMPLETION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_JOB_COMPLETION {

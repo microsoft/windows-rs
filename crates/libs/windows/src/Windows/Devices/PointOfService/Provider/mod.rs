@@ -2313,6 +2313,11 @@ impl ::core::clone::Clone for BarcodeScannerTriggerState {
         *self
     }
 }
+impl ::core::default::Default for BarcodeScannerTriggerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeScannerTriggerState {
     type Abi = Self;
 }

@@ -523,6 +523,11 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectServiceAdvertisementStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceAdvertisementStatus {
     type Abi = Self;
 }
@@ -924,6 +929,11 @@ impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectServiceConfigurationMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceConfigurationMethod {
     type Abi = Self;
 }
@@ -955,6 +965,11 @@ impl ::core::clone::Clone for WiFiDirectServiceError {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectServiceError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceError {
     type Abi = Self;
 }
@@ -981,6 +996,11 @@ impl ::core::marker::Copy for WiFiDirectServiceIPProtocol {}
 impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiDirectServiceIPProtocol {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectServiceIPProtocol {
@@ -1494,6 +1514,11 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectServiceSessionErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionErrorStatus {
     type Abi = Self;
 }
@@ -1736,6 +1761,11 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectServiceSessionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionStatus {
     type Abi = Self;
 }
@@ -1763,6 +1793,11 @@ impl ::core::marker::Copy for WiFiDirectServiceStatus {}
 impl ::core::clone::Clone for WiFiDirectServiceStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiDirectServiceStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectServiceStatus {

@@ -87,6 +87,11 @@ impl ::core::clone::Clone for GESTURECONFIG_ID {
         *self
     }
 }
+impl ::core::default::Default for GESTURECONFIG_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GESTURECONFIG_ID {
     type Abi = Self;
 }
@@ -868,6 +873,11 @@ impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
         *self
     }
 }
+impl ::core::default::Default for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type Abi = Self;
 }
@@ -889,6 +899,11 @@ impl ::core::marker::Copy for REGISTER_TOUCH_WINDOW_FLAGS {}
 impl ::core::clone::Clone for REGISTER_TOUCH_WINDOW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REGISTER_TOUCH_WINDOW_FLAGS {
@@ -981,6 +996,11 @@ impl ::core::marker::Copy for TOUCHEVENTF_FLAGS {}
 impl ::core::clone::Clone for TOUCHEVENTF_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOUCHEVENTF_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOUCHEVENTF_FLAGS {
@@ -1080,6 +1100,11 @@ impl ::core::marker::Copy for TOUCHINPUTMASKF_MASK {}
 impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOUCHINPUTMASKF_MASK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOUCHINPUTMASKF_MASK {

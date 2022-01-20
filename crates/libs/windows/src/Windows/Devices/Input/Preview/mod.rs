@@ -16,6 +16,11 @@ impl ::core::clone::Clone for GazeDeviceConfigurationStatePreview {
         *self
     }
 }
+impl ::core::default::Default for GazeDeviceConfigurationStatePreview {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GazeDeviceConfigurationStatePreview {
     type Abi = Self;
 }

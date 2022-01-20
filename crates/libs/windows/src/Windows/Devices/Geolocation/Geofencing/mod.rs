@@ -333,6 +333,11 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
         *self
     }
 }
+impl ::core::default::Default for GeofenceMonitorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GeofenceMonitorStatus {
     type Abi = Self;
 }
@@ -359,6 +364,11 @@ impl ::core::marker::Copy for GeofenceRemovalReason {}
 impl ::core::clone::Clone for GeofenceRemovalReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GeofenceRemovalReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GeofenceRemovalReason {
@@ -389,6 +399,11 @@ impl ::core::marker::Copy for GeofenceState {}
 impl ::core::clone::Clone for GeofenceState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GeofenceState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GeofenceState {
@@ -669,6 +684,11 @@ impl ::core::marker::Copy for MonitoredGeofenceStates {}
 impl ::core::clone::Clone for MonitoredGeofenceStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MonitoredGeofenceStates {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {

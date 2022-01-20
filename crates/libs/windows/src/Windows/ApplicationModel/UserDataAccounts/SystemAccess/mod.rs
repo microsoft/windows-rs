@@ -14,6 +14,11 @@ impl ::core::clone::Clone for DeviceAccountAuthenticationType {
         *self
     }
 }
+impl ::core::default::Default for DeviceAccountAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountAuthenticationType {
     type Abi = Self;
 }
@@ -707,6 +712,11 @@ impl ::core::clone::Clone for DeviceAccountIconId {
         *self
     }
 }
+impl ::core::default::Default for DeviceAccountIconId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountIconId {
     type Abi = Self;
 }
@@ -740,6 +750,11 @@ impl ::core::clone::Clone for DeviceAccountMailAgeFilter {
         *self
     }
 }
+impl ::core::default::Default for DeviceAccountMailAgeFilter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccountMailAgeFilter {
     type Abi = Self;
 }
@@ -767,6 +782,11 @@ impl ::core::marker::Copy for DeviceAccountServerType {}
 impl ::core::clone::Clone for DeviceAccountServerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceAccountServerType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceAccountServerType {
@@ -800,6 +820,11 @@ impl ::core::marker::Copy for DeviceAccountSyncScheduleKind {}
 impl ::core::clone::Clone for DeviceAccountSyncScheduleKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceAccountSyncScheduleKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceAccountSyncScheduleKind {

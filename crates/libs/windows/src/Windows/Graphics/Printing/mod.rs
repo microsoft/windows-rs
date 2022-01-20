@@ -927,6 +927,11 @@ impl ::core::clone::Clone for PrintBinding {
         *self
     }
 }
+impl ::core::default::Default for PrintBinding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintBinding {
     type Abi = Self;
 }
@@ -958,6 +963,11 @@ impl ::core::clone::Clone for PrintBordering {
         *self
     }
 }
+impl ::core::default::Default for PrintBordering {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintBordering {
     type Abi = Self;
 }
@@ -987,6 +997,11 @@ impl ::core::marker::Copy for PrintCollation {}
 impl ::core::clone::Clone for PrintCollation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintCollation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintCollation {
@@ -1021,6 +1036,11 @@ impl ::core::clone::Clone for PrintColorMode {
         *self
     }
 }
+impl ::core::default::Default for PrintColorMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintColorMode {
     type Abi = Self;
 }
@@ -1051,6 +1071,11 @@ impl ::core::marker::Copy for PrintDuplex {}
 impl ::core::clone::Clone for PrintDuplex {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintDuplex {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintDuplex {
@@ -1085,6 +1110,11 @@ impl ::core::marker::Copy for PrintHolePunch {}
 impl ::core::clone::Clone for PrintHolePunch {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintHolePunch {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintHolePunch {
@@ -1406,6 +1436,11 @@ impl ::core::clone::Clone for PrintMediaSize {
         *self
     }
 }
+impl ::core::default::Default for PrintMediaSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintMediaSize {
     type Abi = Self;
 }
@@ -1464,6 +1499,11 @@ impl ::core::clone::Clone for PrintMediaType {
         *self
     }
 }
+impl ::core::default::Default for PrintMediaType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintMediaType {
     type Abi = Self;
 }
@@ -1495,6 +1535,11 @@ impl ::core::marker::Copy for PrintOrientation {}
 impl ::core::clone::Clone for PrintOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintOrientation {
@@ -1949,6 +1994,11 @@ impl ::core::clone::Clone for PrintQuality {
         *self
     }
 }
+impl ::core::default::Default for PrintQuality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintQuality {
     type Abi = Self;
 }
@@ -1986,6 +2036,11 @@ impl ::core::marker::Copy for PrintStaple {}
 impl ::core::clone::Clone for PrintStaple {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintStaple {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintStaple {
@@ -2294,6 +2349,11 @@ impl ::core::marker::Copy for PrintTaskCompletion {}
 impl ::core::clone::Clone for PrintTaskCompletion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintTaskCompletion {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintTaskCompletion {

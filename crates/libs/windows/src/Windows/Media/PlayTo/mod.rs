@@ -872,6 +872,12 @@ impl ::core::clone::Clone for PlayToConnectionError {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for PlayToConnectionError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionError {
     type Abi = Self;
 }
@@ -1016,6 +1022,12 @@ impl ::core::marker::Copy for PlayToConnectionState {}
 impl ::core::clone::Clone for PlayToConnectionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for PlayToConnectionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

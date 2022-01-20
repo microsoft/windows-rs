@@ -1148,6 +1148,11 @@ impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
         *self
     }
 }
+impl ::core::default::Default for PrintWorkflowJobAbortReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
     type Abi = Self;
 }
@@ -2019,6 +2024,11 @@ impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
         *self
     }
 }
+impl ::core::default::Default for PrintWorkflowPdlConversionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
     type Abi = Self;
 }
@@ -2714,6 +2724,11 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
         *self
     }
 }
+impl ::core::default::Default for PrintWorkflowPrinterJobStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
     type Abi = Self;
 }
@@ -2743,6 +2758,11 @@ impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
 impl ::core::clone::Clone for PrintWorkflowSessionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowSessionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
@@ -3229,6 +3249,11 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
         *self
     }
 }
+impl ::core::default::Default for PrintWorkflowSubmittedStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
     type Abi = Self;
 }
@@ -3596,6 +3621,11 @@ impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
 impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowUICompletionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {

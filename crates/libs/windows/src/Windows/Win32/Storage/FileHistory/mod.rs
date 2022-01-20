@@ -65,6 +65,11 @@ impl ::core::clone::Clone for FH_BACKUP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for FH_BACKUP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FH_BACKUP_STATUS {
     type Abi = Self;
 }
@@ -99,6 +104,11 @@ impl ::core::clone::Clone for FH_DEVICE_VALIDATION_RESULT {
         *self
     }
 }
+impl ::core::default::Default for FH_DEVICE_VALIDATION_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FH_DEVICE_VALIDATION_RESULT {
     type Abi = Self;
 }
@@ -125,6 +135,11 @@ impl ::core::clone::Clone for FH_LOCAL_POLICY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FH_LOCAL_POLICY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FH_LOCAL_POLICY_TYPE {
     type Abi = Self;
 }
@@ -147,6 +162,11 @@ impl ::core::marker::Copy for FH_PROTECTED_ITEM_CATEGORY {}
 impl ::core::clone::Clone for FH_PROTECTED_ITEM_CATEGORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FH_PROTECTED_ITEM_CATEGORY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FH_PROTECTED_ITEM_CATEGORY {
@@ -173,6 +193,11 @@ impl ::core::marker::Copy for FH_RETENTION_TYPES {}
 impl ::core::clone::Clone for FH_RETENTION_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FH_RETENTION_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FH_RETENTION_TYPES {
@@ -239,6 +264,11 @@ impl ::core::clone::Clone for FH_TARGET_DRIVE_TYPES {
         *self
     }
 }
+impl ::core::default::Default for FH_TARGET_DRIVE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FH_TARGET_DRIVE_TYPES {
     type Abi = Self;
 }
@@ -263,6 +293,11 @@ impl ::core::marker::Copy for FH_TARGET_PROPERTY_TYPE {}
 impl ::core::clone::Clone for FH_TARGET_PROPERTY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FH_TARGET_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FH_TARGET_PROPERTY_TYPE {
@@ -291,6 +326,11 @@ impl ::core::marker::Copy for FhBackupStopReason {}
 impl ::core::clone::Clone for FhBackupStopReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FhBackupStopReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FhBackupStopReason {

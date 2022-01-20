@@ -794,6 +794,11 @@ impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatu
         *self
     }
 }
+impl ::core::default::Default for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
     type Abi = Self;
 }

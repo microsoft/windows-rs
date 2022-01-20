@@ -213,6 +213,11 @@ impl ::core::clone::Clone for AdvancedPhotoMode {
         *self
     }
 }
+impl ::core::default::Default for AdvancedPhotoMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdvancedPhotoMode {
     type Abi = Self;
 }
@@ -715,6 +720,11 @@ impl ::core::clone::Clone for AudioDeviceRole {
         *self
     }
 }
+impl ::core::default::Default for AudioDeviceRole {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioDeviceRole {
     type Abi = Self;
 }
@@ -742,6 +752,11 @@ impl ::core::marker::Copy for AutoFocusRange {}
 impl ::core::clone::Clone for AutoFocusRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutoFocusRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutoFocusRange {
@@ -1170,6 +1185,11 @@ impl ::core::clone::Clone for CameraOcclusionKind {
         *self
     }
 }
+impl ::core::default::Default for CameraOcclusionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraOcclusionKind {
     type Abi = Self;
 }
@@ -1370,6 +1390,11 @@ impl ::core::clone::Clone for CameraStreamState {
         *self
     }
 }
+impl ::core::default::Default for CameraStreamState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraStreamState {
     type Abi = Self;
 }
@@ -1409,6 +1434,11 @@ impl ::core::clone::Clone for CaptureSceneMode {
         *self
     }
 }
+impl ::core::default::Default for CaptureSceneMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CaptureSceneMode {
     type Abi = Self;
 }
@@ -1436,6 +1466,11 @@ impl ::core::marker::Copy for CaptureUse {}
 impl ::core::clone::Clone for CaptureUse {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CaptureUse {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CaptureUse {
@@ -1470,6 +1505,11 @@ impl ::core::marker::Copy for ColorTemperaturePreset {}
 impl ::core::clone::Clone for ColorTemperaturePreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ColorTemperaturePreset {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ColorTemperaturePreset {
@@ -2258,6 +2298,11 @@ impl ::core::marker::Copy for DigitalWindowMode {}
 impl ::core::clone::Clone for DigitalWindowMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DigitalWindowMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DigitalWindowMode {
@@ -3059,6 +3104,11 @@ impl ::core::clone::Clone for FocusMode {
         *self
     }
 }
+impl ::core::default::Default for FocusMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FocusMode {
     type Abi = Self;
 }
@@ -3089,6 +3139,11 @@ impl ::core::marker::Copy for FocusPreset {}
 impl ::core::clone::Clone for FocusPreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FocusPreset {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FocusPreset {
@@ -3383,6 +3438,11 @@ impl ::core::marker::Copy for HdrVideoMode {}
 impl ::core::clone::Clone for HdrVideoMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdrVideoMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdrVideoMode {
@@ -5068,6 +5128,11 @@ impl ::core::clone::Clone for InfraredTorchMode {
         *self
     }
 }
+impl ::core::default::Default for InfraredTorchMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InfraredTorchMode {
     type Abi = Self;
 }
@@ -5272,6 +5337,12 @@ impl ::core::marker::Copy for IsoSpeedPreset {}
 impl ::core::clone::Clone for IsoSpeedPreset {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for IsoSpeedPreset {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5792,6 +5863,11 @@ impl ::core::clone::Clone for ManualFocusDistance {
         *self
     }
 }
+impl ::core::default::Default for ManualFocusDistance {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ManualFocusDistance {
     type Abi = Self;
 }
@@ -5821,6 +5897,11 @@ impl ::core::marker::Copy for MediaCaptureFocusState {}
 impl ::core::clone::Clone for MediaCaptureFocusState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaCaptureFocusState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaCaptureFocusState {
@@ -5856,6 +5937,11 @@ impl ::core::clone::Clone for MediaCaptureOptimization {
         *self
     }
 }
+impl ::core::default::Default for MediaCaptureOptimization {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureOptimization {
     type Abi = Self;
 }
@@ -5882,6 +5968,11 @@ impl ::core::marker::Copy for MediaCapturePauseBehavior {}
 impl ::core::clone::Clone for MediaCapturePauseBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaCapturePauseBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaCapturePauseBehavior {
@@ -6405,6 +6496,11 @@ impl ::core::marker::Copy for OpticalImageStabilizationMode {}
 impl ::core::clone::Clone for OpticalImageStabilizationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OpticalImageStabilizationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OpticalImageStabilizationMode {
@@ -6967,6 +7063,11 @@ impl ::core::clone::Clone for RegionOfInterestType {
         *self
     }
 }
+impl ::core::default::Default for RegionOfInterestType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RegionOfInterestType {
     type Abi = Self;
 }
@@ -7222,6 +7323,11 @@ impl ::core::clone::Clone for SendCommandStatus {
         *self
     }
 }
+impl ::core::default::Default for SendCommandStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SendCommandStatus {
     type Abi = Self;
 }
@@ -7262,6 +7368,11 @@ impl ::core::marker::Copy for TelephonyKey {}
 impl ::core::clone::Clone for TelephonyKey {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TelephonyKey {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TelephonyKey {
@@ -7991,6 +8102,11 @@ impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
         *self
     }
 }
+impl ::core::default::Default for VideoDeviceControllerGetDevicePropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VideoDeviceControllerGetDevicePropertyStatus {
     type Abi = Self;
 }
@@ -8021,6 +8137,11 @@ impl ::core::marker::Copy for VideoDeviceControllerSetDevicePropertyStatus {}
 impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoDeviceControllerSetDevicePropertyStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoDeviceControllerSetDevicePropertyStatus {
@@ -8153,6 +8274,11 @@ impl ::core::marker::Copy for VideoTemporalDenoisingMode {}
 impl ::core::clone::Clone for VideoTemporalDenoisingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoTemporalDenoisingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoTemporalDenoisingMode {
@@ -8563,6 +8689,11 @@ impl ::core::marker::Copy for ZoomTransitionMode {}
 impl ::core::clone::Clone for ZoomTransitionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ZoomTransitionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ZoomTransitionMode {

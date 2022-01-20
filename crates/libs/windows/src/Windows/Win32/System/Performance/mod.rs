@@ -32,6 +32,11 @@ impl ::core::clone::Clone for AutoPathFormat {
         *self
     }
 }
+impl ::core::default::Default for AutoPathFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutoPathFormat {
     type Abi = Self;
 }
@@ -75,6 +80,11 @@ impl ::core::clone::Clone for ClockType {
         *self
     }
 }
+impl ::core::default::Default for ClockType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ClockType {
     type Abi = Self;
 }
@@ -103,6 +113,11 @@ impl ::core::marker::Copy for CommitMode {}
 impl ::core::clone::Clone for CommitMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CommitMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CommitMode {
@@ -686,6 +701,11 @@ impl ::core::clone::Clone for DataCollectorSetStatus {
         *self
     }
 }
+impl ::core::default::Default for DataCollectorSetStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataCollectorSetStatus {
     type Abi = Self;
 }
@@ -712,6 +732,11 @@ impl ::core::marker::Copy for DataCollectorType {}
 impl ::core::clone::Clone for DataCollectorType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DataCollectorType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DataCollectorType {
@@ -742,6 +767,11 @@ impl ::core::clone::Clone for DataManagerSteps {
         *self
     }
 }
+impl ::core::default::Default for DataManagerSteps {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataManagerSteps {
     type Abi = Self;
 }
@@ -766,6 +796,11 @@ impl ::core::marker::Copy for DataSourceTypeConstants {}
 impl ::core::clone::Clone for DataSourceTypeConstants {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DataSourceTypeConstants {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DataSourceTypeConstants {
@@ -796,6 +831,11 @@ impl ::core::clone::Clone for DisplayTypeConstants {
         *self
     }
 }
+impl ::core::default::Default for DisplayTypeConstants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayTypeConstants {
     type Abi = Self;
 }
@@ -820,6 +860,11 @@ impl ::core::marker::Copy for FileFormat {}
 impl ::core::clone::Clone for FileFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileFormat {
@@ -848,6 +893,11 @@ impl ::core::marker::Copy for FolderActionSteps {}
 impl ::core::clone::Clone for FolderActionSteps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FolderActionSteps {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FolderActionSteps {
@@ -8492,6 +8542,11 @@ impl ::core::clone::Clone for PDH_DLL_VERSION {
         *self
     }
 }
+impl ::core::default::Default for PDH_DLL_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PDH_DLL_VERSION {
     type Abi = Self;
 }
@@ -8550,6 +8605,11 @@ impl ::core::marker::Copy for PDH_FMT {}
 impl ::core::clone::Clone for PDH_FMT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PDH_FMT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PDH_FMT {
@@ -8761,6 +8821,11 @@ impl ::core::marker::Copy for PDH_LOG {}
 impl ::core::clone::Clone for PDH_LOG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PDH_LOG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PDH_LOG {
@@ -9185,6 +9250,11 @@ impl ::core::clone::Clone for PDH_LOG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PDH_LOG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PDH_LOG_TYPE {
     type Abi = Self;
 }
@@ -9277,6 +9347,11 @@ impl ::core::marker::Copy for PDH_PATH_FLAGS {}
 impl ::core::clone::Clone for PDH_PATH_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PDH_PATH_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PDH_PATH_FLAGS {
@@ -9510,6 +9585,11 @@ impl ::core::marker::Copy for PDH_SELECT_DATA_SOURCE_FLAGS {}
 impl ::core::clone::Clone for PDH_SELECT_DATA_SOURCE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PDH_SELECT_DATA_SOURCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PDH_SELECT_DATA_SOURCE_FLAGS {
@@ -9799,6 +9879,11 @@ impl ::core::marker::Copy for PERF_COUNTER_AGGREGATE_FUNC {}
 impl ::core::clone::Clone for PERF_COUNTER_AGGREGATE_FUNC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PERF_COUNTER_AGGREGATE_FUNC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PERF_COUNTER_AGGREGATE_FUNC {
@@ -10362,6 +10447,11 @@ impl ::core::marker::Copy for PERF_DETAIL {}
 impl ::core::clone::Clone for PERF_DETAIL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PERF_DETAIL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PERF_DETAIL {
@@ -12375,6 +12465,11 @@ impl ::core::clone::Clone for PerfCounterDataType {
         *self
     }
 }
+impl ::core::default::Default for PerfCounterDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PerfCounterDataType {
     type Abi = Self;
 }
@@ -12688,6 +12783,11 @@ impl ::core::clone::Clone for PerfRegInfoType {
         *self
     }
 }
+impl ::core::default::Default for PerfRegInfoType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PerfRegInfoType {
     type Abi = Self;
 }
@@ -12842,6 +12942,11 @@ impl ::core::clone::Clone for REAL_TIME_DATA_SOURCE_ID_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REAL_TIME_DATA_SOURCE_ID_FLAGS {
     type Abi = Self;
 }
@@ -12898,6 +13003,11 @@ impl ::core::clone::Clone for ReportValueTypeConstants {
         *self
     }
 }
+impl ::core::default::Default for ReportValueTypeConstants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ReportValueTypeConstants {
     type Abi = Self;
 }
@@ -12918,6 +13028,11 @@ impl ::core::marker::Copy for ResourcePolicy {}
 impl ::core::clone::Clone for ResourcePolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ResourcePolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ResourcePolicy {
@@ -12995,6 +13110,11 @@ impl ::core::clone::Clone for StreamMode {
         *self
     }
 }
+impl ::core::default::Default for StreamMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StreamMode {
     type Abi = Self;
 }
@@ -13019,6 +13139,11 @@ impl ::core::marker::Copy for SysmonBatchReason {}
 impl ::core::clone::Clone for SysmonBatchReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SysmonBatchReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SysmonBatchReason {
@@ -13047,6 +13172,11 @@ impl ::core::marker::Copy for SysmonDataType {}
 impl ::core::clone::Clone for SysmonDataType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SysmonDataType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SysmonDataType {
@@ -13079,6 +13209,11 @@ impl ::core::marker::Copy for SysmonFileType {}
 impl ::core::clone::Clone for SysmonFileType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SysmonFileType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SysmonFileType {
@@ -13175,6 +13310,11 @@ impl ::core::clone::Clone for ValueMapType {
         *self
     }
 }
+impl ::core::default::Default for ValueMapType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ValueMapType {
     type Abi = Self;
 }
@@ -13217,6 +13357,11 @@ impl ::core::marker::Copy for WeekDays {}
 impl ::core::clone::Clone for WeekDays {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WeekDays {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WeekDays {

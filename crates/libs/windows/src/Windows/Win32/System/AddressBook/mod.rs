@@ -1325,6 +1325,11 @@ impl ::core::clone::Clone for Gender {
         *self
     }
 }
+impl ::core::default::Default for Gender {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Gender {
     type Abi = Self;
 }

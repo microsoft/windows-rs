@@ -39,6 +39,11 @@ impl ::core::clone::Clone for BaseValueSource {
         *self
     }
 }
+impl ::core::default::Default for BaseValueSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BaseValueSource {
     type Abi = Self;
 }
@@ -1018,6 +1023,11 @@ impl ::core::clone::Clone for MetadataBit {
         *self
     }
 }
+impl ::core::default::Default for MetadataBit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MetadataBit {
     type Abi = Self;
 }
@@ -1168,6 +1178,11 @@ impl ::core::clone::Clone for RenderTargetBitmapOptions {
         *self
     }
 }
+impl ::core::default::Default for RenderTargetBitmapOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RenderTargetBitmapOptions {
     type Abi = Self;
 }
@@ -1188,6 +1203,11 @@ impl ::core::marker::Copy for ResourceType {}
 impl ::core::clone::Clone for ResourceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ResourceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ResourceType {
@@ -1300,6 +1320,11 @@ impl ::core::clone::Clone for VisualElementState {
         *self
     }
 }
+impl ::core::default::Default for VisualElementState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VisualElementState {
     type Abi = Self;
 }
@@ -1320,6 +1345,11 @@ impl ::core::marker::Copy for VisualMutationType {}
 impl ::core::clone::Clone for VisualMutationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VisualMutationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VisualMutationType {

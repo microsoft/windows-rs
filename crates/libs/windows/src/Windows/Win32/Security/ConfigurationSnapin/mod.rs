@@ -382,6 +382,11 @@ impl ::core::clone::Clone for SCESVC_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SCESVC_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
 }
@@ -406,6 +411,11 @@ impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
 impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCE_LOG_ERR_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCE_LOG_ERR_LEVEL {

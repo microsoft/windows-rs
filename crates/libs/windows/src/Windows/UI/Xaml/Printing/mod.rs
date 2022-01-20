@@ -638,6 +638,11 @@ impl ::core::clone::Clone for PreviewPageCountType {
         *self
     }
 }
+impl ::core::default::Default for PreviewPageCountType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PreviewPageCountType {
     type Abi = Self;
 }

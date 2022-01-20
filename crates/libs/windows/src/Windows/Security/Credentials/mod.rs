@@ -628,6 +628,11 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
         *self
     }
 }
+impl ::core::default::Default for KeyCredentialAttestationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
 }
@@ -654,6 +659,11 @@ impl ::core::marker::Copy for KeyCredentialCreationOption {}
 impl ::core::clone::Clone for KeyCredentialCreationOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeyCredentialCreationOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
@@ -918,6 +928,11 @@ impl ::core::marker::Copy for KeyCredentialStatus {}
 impl ::core::clone::Clone for KeyCredentialStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeyCredentialStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeyCredentialStatus {
@@ -1695,6 +1710,11 @@ impl ::core::clone::Clone for WebAccountPictureSize {
         *self
     }
 }
+impl ::core::default::Default for WebAccountPictureSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
 }
@@ -1866,6 +1886,11 @@ impl ::core::marker::Copy for WebAccountState {}
 impl ::core::clone::Clone for WebAccountState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebAccountState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountState {

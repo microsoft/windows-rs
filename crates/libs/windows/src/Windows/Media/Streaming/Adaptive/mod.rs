@@ -769,6 +769,11 @@ impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for AdaptiveMediaSourceCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceCreationStatus {
     type Abi = Self;
 }
@@ -980,6 +985,11 @@ impl ::core::marker::Copy for AdaptiveMediaSourceDiagnosticType {}
 impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AdaptiveMediaSourceDiagnosticType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDiagnosticType {
@@ -1198,6 +1208,11 @@ impl ::core::marker::Copy for AdaptiveMediaSourceDownloadBitrateChangedReason {}
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDownloadBitrateChangedReason {
@@ -2171,6 +2186,11 @@ impl ::core::marker::Copy for AdaptiveMediaSourceResourceType {}
 impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AdaptiveMediaSourceResourceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceResourceType {

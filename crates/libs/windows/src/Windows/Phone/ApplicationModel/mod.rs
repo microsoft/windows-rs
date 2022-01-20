@@ -32,6 +32,11 @@ impl ::core::clone::Clone for ApplicationProfileModes {
         *self
     }
 }
+impl ::core::default::Default for ApplicationProfileModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationProfileModes {
     type Abi = Self;
 }

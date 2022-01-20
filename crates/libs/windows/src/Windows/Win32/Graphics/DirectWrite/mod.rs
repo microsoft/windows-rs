@@ -15,6 +15,11 @@ impl ::core::clone::Clone for DWRITE_AUTOMATIC_FONT_AXES {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_AUTOMATIC_FONT_AXES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_AUTOMATIC_FONT_AXES {
     type Abi = Self;
 }
@@ -79,6 +84,11 @@ impl ::core::clone::Clone for DWRITE_BASELINE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_BASELINE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_BASELINE {
     type Abi = Self;
 }
@@ -103,6 +113,11 @@ impl ::core::marker::Copy for DWRITE_BREAK_CONDITION {}
 impl ::core::clone::Clone for DWRITE_BREAK_CONDITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_BREAK_CONDITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_BREAK_CONDITION {
@@ -312,6 +327,11 @@ impl ::core::clone::Clone for DWRITE_CONTAINER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_CONTAINER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_CONTAINER_TYPE {
     type Abi = Self;
 }
@@ -342,6 +362,11 @@ impl ::core::marker::Copy for DWRITE_FACTORY_TYPE {}
 impl ::core::clone::Clone for DWRITE_FACTORY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FACTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FACTORY_TYPE {
@@ -401,6 +426,11 @@ impl ::core::clone::Clone for DWRITE_FLOW_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FLOW_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FLOW_DIRECTION {
     type Abi = Self;
 }
@@ -423,6 +453,11 @@ impl ::core::marker::Copy for DWRITE_FONT_AXIS_ATTRIBUTES {}
 impl ::core::clone::Clone for DWRITE_FONT_AXIS_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_AXIS_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_ATTRIBUTES {
@@ -511,6 +546,11 @@ impl ::core::marker::Copy for DWRITE_FONT_AXIS_TAG {}
 impl ::core::clone::Clone for DWRITE_FONT_AXIS_TAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_AXIS_TAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_TAG {
@@ -608,6 +648,11 @@ impl ::core::clone::Clone for DWRITE_FONT_FACE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_FACE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FACE_TYPE {
     type Abi = Self;
 }
@@ -628,6 +673,11 @@ impl ::core::marker::Copy for DWRITE_FONT_FAMILY_MODEL {}
 impl ::core::clone::Clone for DWRITE_FONT_FAMILY_MODEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_FAMILY_MODEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FAMILY_MODEL {
@@ -841,6 +891,11 @@ impl ::core::clone::Clone for DWRITE_FONT_FEATURE_TAG {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_FEATURE_TAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FEATURE_TAG {
     type Abi = Self;
 }
@@ -905,6 +960,11 @@ impl ::core::clone::Clone for DWRITE_FONT_FILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_FILE_TYPE {
     type Abi = Self;
 }
@@ -927,6 +987,11 @@ impl ::core::marker::Copy for DWRITE_FONT_LINE_GAP_USAGE {}
 impl ::core::clone::Clone for DWRITE_FONT_LINE_GAP_USAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_LINE_GAP_USAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_LINE_GAP_USAGE {
@@ -1141,6 +1206,11 @@ impl ::core::clone::Clone for DWRITE_FONT_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_PROPERTY_ID {
     type Abi = Self;
 }
@@ -1163,6 +1233,11 @@ impl ::core::marker::Copy for DWRITE_FONT_SIMULATIONS {}
 impl ::core::clone::Clone for DWRITE_FONT_SIMULATIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_SIMULATIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_SIMULATIONS {
@@ -1221,6 +1296,11 @@ impl ::core::clone::Clone for DWRITE_FONT_SOURCE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_SOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_SOURCE_TYPE {
     type Abi = Self;
 }
@@ -1261,6 +1341,11 @@ impl ::core::clone::Clone for DWRITE_FONT_STRETCH {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_FONT_STRETCH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_FONT_STRETCH {
     type Abi = Self;
 }
@@ -1283,6 +1368,11 @@ impl ::core::marker::Copy for DWRITE_FONT_STYLE {}
 impl ::core::clone::Clone for DWRITE_FONT_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_STYLE {
@@ -1335,6 +1425,11 @@ impl ::core::marker::Copy for DWRITE_FONT_WEIGHT {}
 impl ::core::clone::Clone for DWRITE_FONT_WEIGHT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_FONT_WEIGHT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_FONT_WEIGHT {
@@ -1417,6 +1512,11 @@ impl ::core::marker::Copy for DWRITE_GLYPH_IMAGE_FORMATS {}
 impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_FORMATS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_GLYPH_IMAGE_FORMATS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_IMAGE_FORMATS {
@@ -1540,6 +1640,11 @@ impl ::core::clone::Clone for DWRITE_GLYPH_ORIENTATION_ANGLE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_GLYPH_ORIENTATION_ANGLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_ORIENTATION_ANGLE {
     type Abi = Self;
 }
@@ -1658,6 +1763,11 @@ impl ::core::clone::Clone for DWRITE_GRID_FIT_MODE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_GRID_FIT_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_GRID_FIT_MODE {
     type Abi = Self;
 }
@@ -1770,6 +1880,11 @@ impl ::core::marker::Copy for DWRITE_INFORMATIONAL_STRING_ID {}
 impl ::core::clone::Clone for DWRITE_INFORMATIONAL_STRING_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_INFORMATIONAL_STRING_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_INFORMATIONAL_STRING_ID {
@@ -2017,6 +2132,11 @@ impl ::core::clone::Clone for DWRITE_LINE_SPACING_METHOD {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_LINE_SPACING_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_LINE_SPACING_METHOD {
     type Abi = Self;
 }
@@ -2039,6 +2159,11 @@ impl ::core::marker::Copy for DWRITE_LOCALITY {}
 impl ::core::clone::Clone for DWRITE_LOCALITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_LOCALITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_LOCALITY {
@@ -2100,6 +2225,11 @@ impl ::core::clone::Clone for DWRITE_MEASURING_MODE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_MEASURING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_MEASURING_MODE {
     type Abi = Self;
 }
@@ -2128,6 +2258,11 @@ impl ::core::clone::Clone for DWRITE_NUMBER_SUBSTITUTION_METHOD {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_NUMBER_SUBSTITUTION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_NUMBER_SUBSTITUTION_METHOD {
     type Abi = Self;
 }
@@ -2150,6 +2285,11 @@ impl ::core::clone::Clone for DWRITE_OPTICAL_ALIGNMENT {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_OPTICAL_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_OPTICAL_ALIGNMENT {
     type Abi = Self;
 }
@@ -2170,6 +2310,11 @@ impl ::core::marker::Copy for DWRITE_OUTLINE_THRESHOLD {}
 impl ::core::clone::Clone for DWRITE_OUTLINE_THRESHOLD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_OUTLINE_THRESHOLD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_OUTLINE_THRESHOLD {
@@ -2447,6 +2592,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_ARM_STYLE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_ARM_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_ARM_STYLE {
     type Abi = Self;
 }
@@ -2485,6 +2635,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_ASPECT {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_ASPECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_ASPECT {
     type Abi = Self;
 }
@@ -2517,6 +2672,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_ASPECT_RATIO {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_ASPECT_RATIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_ASPECT_RATIO {
     type Abi = Self;
 }
@@ -2545,6 +2705,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_CHARACTER_RANGES {}
 impl ::core::clone::Clone for DWRITE_PANOSE_CHARACTER_RANGES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_CHARACTER_RANGES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_CHARACTER_RANGES {
@@ -2593,6 +2758,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_CONTRAST {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_CONTRAST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_CONTRAST {
     type Abi = Self;
 }
@@ -2635,6 +2805,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_DECORATIVE_CLASS {}
 impl ::core::clone::Clone for DWRITE_PANOSE_DECORATIVE_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_DECORATIVE_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_DECORATIVE_CLASS {
@@ -2687,6 +2862,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
     type Abi = Self;
 }
@@ -2717,6 +2897,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_FAMILY {}
 impl ::core::clone::Clone for DWRITE_PANOSE_FAMILY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_FAMILY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_FAMILY {
@@ -2751,6 +2936,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_FILL {}
 impl ::core::clone::Clone for DWRITE_PANOSE_FILL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_FILL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_FILL {
@@ -2797,6 +2987,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_FINIALS {}
 impl ::core::clone::Clone for DWRITE_PANOSE_FINIALS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_FINIALS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_FINIALS {
@@ -2849,6 +3044,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_LETTERFORM {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_LETTERFORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_LETTERFORM {
     type Abi = Self;
 }
@@ -2883,6 +3083,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_LINING {}
 impl ::core::clone::Clone for DWRITE_PANOSE_LINING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_LINING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_LINING {
@@ -2931,6 +3136,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_MIDLINE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_MIDLINE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_MIDLINE {
     type Abi = Self;
 }
@@ -2967,6 +3177,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_PROPORTION {}
 impl ::core::clone::Clone for DWRITE_PANOSE_PROPORTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_PROPORTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_PROPORTION {
@@ -3015,6 +3230,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_SCRIPT_FORM {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_SCRIPT_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SCRIPT_FORM {
     type Abi = Self;
 }
@@ -3053,6 +3273,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_SCRIPT_TOPOLOGY {}
 impl ::core::clone::Clone for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
@@ -3111,6 +3336,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_SERIF_STYLE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_SERIF_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SERIF_STYLE {
     type Abi = Self;
 }
@@ -3135,6 +3365,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_SPACING {}
 impl ::core::clone::Clone for DWRITE_PANOSE_SPACING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_SPACING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SPACING {
@@ -3177,6 +3412,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_STROKE_VARIATION {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_STROKE_VARIATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_STROKE_VARIATION {
     type Abi = Self;
 }
@@ -3213,6 +3453,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {}
 impl ::core::clone::Clone for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
@@ -3259,6 +3504,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_SYMBOL_KIND {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_SYMBOL_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_SYMBOL_KIND {
     type Abi = Self;
 }
@@ -3295,6 +3545,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_TOOL_KIND {}
 impl ::core::clone::Clone for DWRITE_PANOSE_TOOL_KIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_TOOL_KIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_TOOL_KIND {
@@ -3341,6 +3596,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_WEIGHT {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_WEIGHT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_WEIGHT {
     type Abi = Self;
 }
@@ -3371,6 +3631,11 @@ impl ::core::marker::Copy for DWRITE_PANOSE_XASCENT {}
 impl ::core::clone::Clone for DWRITE_PANOSE_XASCENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PANOSE_XASCENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_XASCENT {
@@ -3411,6 +3676,11 @@ impl ::core::clone::Clone for DWRITE_PANOSE_XHEIGHT {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PANOSE_XHEIGHT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE_XHEIGHT {
     type Abi = Self;
 }
@@ -3433,6 +3703,11 @@ impl ::core::marker::Copy for DWRITE_PARAGRAPH_ALIGNMENT {}
 impl ::core::clone::Clone for DWRITE_PARAGRAPH_ALIGNMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_PARAGRAPH_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_PARAGRAPH_ALIGNMENT {
@@ -3459,6 +3734,11 @@ impl ::core::clone::Clone for DWRITE_PIXEL_GEOMETRY {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_PIXEL_GEOMETRY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_PIXEL_GEOMETRY {
     type Abi = Self;
 }
@@ -3483,6 +3763,11 @@ impl ::core::marker::Copy for DWRITE_READING_DIRECTION {}
 impl ::core::clone::Clone for DWRITE_READING_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_READING_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_READING_DIRECTION {
@@ -3525,6 +3810,11 @@ impl ::core::clone::Clone for DWRITE_RENDERING_MODE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_RENDERING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_RENDERING_MODE {
     type Abi = Self;
 }
@@ -3557,6 +3847,11 @@ impl ::core::marker::Copy for DWRITE_RENDERING_MODE1 {}
 impl ::core::clone::Clone for DWRITE_RENDERING_MODE1 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_RENDERING_MODE1 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_RENDERING_MODE1 {
@@ -3644,6 +3939,11 @@ impl ::core::marker::Copy for DWRITE_SCRIPT_SHAPES {}
 impl ::core::clone::Clone for DWRITE_SCRIPT_SHAPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_SCRIPT_SHAPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_SHAPES {
@@ -3800,6 +4100,11 @@ impl ::core::clone::Clone for DWRITE_TEXTURE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_TEXTURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXTURE_TYPE {
     type Abi = Self;
 }
@@ -3826,6 +4131,11 @@ impl ::core::clone::Clone for DWRITE_TEXT_ALIGNMENT {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_TEXT_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_ALIGNMENT {
     type Abi = Self;
 }
@@ -3846,6 +4156,11 @@ impl ::core::marker::Copy for DWRITE_TEXT_ANTIALIAS_MODE {}
 impl ::core::clone::Clone for DWRITE_TEXT_ANTIALIAS_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_TEXT_ANTIALIAS_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_TEXT_ANTIALIAS_MODE {
@@ -4004,6 +4319,11 @@ impl ::core::clone::Clone for DWRITE_TRIMMING_GRANULARITY {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_TRIMMING_GRANULARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_TRIMMING_GRANULARITY {
     type Abi = Self;
 }
@@ -4133,6 +4453,11 @@ impl ::core::clone::Clone for DWRITE_VERTICAL_GLYPH_ORIENTATION {
         *self
     }
 }
+impl ::core::default::Default for DWRITE_VERTICAL_GLYPH_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWRITE_VERTICAL_GLYPH_ORIENTATION {
     type Abi = Self;
 }
@@ -4159,6 +4484,11 @@ impl ::core::marker::Copy for DWRITE_WORD_WRAPPING {}
 impl ::core::clone::Clone for DWRITE_WORD_WRAPPING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWRITE_WORD_WRAPPING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWRITE_WORD_WRAPPING {

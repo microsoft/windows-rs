@@ -127,6 +127,11 @@ impl ::core::clone::Clone for BMFORMAT {
         *self
     }
 }
+impl ::core::default::Default for BMFORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BMFORMAT {
     type Abi = Self;
 }
@@ -660,6 +665,11 @@ impl ::core::clone::Clone for COLORDATATYPE {
         *self
     }
 }
+impl ::core::default::Default for COLORDATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORDATATYPE {
     type Abi = Self;
 }
@@ -848,6 +858,11 @@ impl ::core::clone::Clone for COLORPROFILESUBTYPE {
         *self
     }
 }
+impl ::core::default::Default for COLORPROFILESUBTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORPROFILESUBTYPE {
     type Abi = Self;
 }
@@ -872,6 +887,11 @@ impl ::core::marker::Copy for COLORPROFILETYPE {}
 impl ::core::clone::Clone for COLORPROFILETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COLORPROFILETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COLORPROFILETYPE {
@@ -916,6 +936,11 @@ impl ::core::clone::Clone for COLORTYPE {
         *self
     }
 }
+impl ::core::default::Default for COLORTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORTYPE {
     type Abi = Self;
 }
@@ -938,6 +963,11 @@ impl ::core::marker::Copy for COLOR_MATCH_TO_TARGET_ACTION {}
 impl ::core::clone::Clone for COLOR_MATCH_TO_TARGET_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COLOR_MATCH_TO_TARGET_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COLOR_MATCH_TO_TARGET_ACTION {
@@ -2263,6 +2293,11 @@ impl ::core::clone::Clone for ICM_COMMAND {
         *self
     }
 }
+impl ::core::default::Default for ICM_COMMAND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ICM_COMMAND {
     type Abi = Self;
 }
@@ -3452,6 +3487,11 @@ impl ::core::clone::Clone for WCS_DEVICE_CAPABILITIES_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WCS_DEVICE_CAPABILITIES_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
     type Abi = Self;
 }
@@ -3555,6 +3595,11 @@ impl ::core::marker::Copy for WCS_PROFILE_MANAGEMENT_SCOPE {}
 impl ::core::clone::Clone for WCS_PROFILE_MANAGEMENT_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WCS_PROFILE_MANAGEMENT_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {

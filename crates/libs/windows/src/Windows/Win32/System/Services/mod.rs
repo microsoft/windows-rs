@@ -263,6 +263,11 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATE {
         *self
     }
 }
+impl ::core::default::Default for ENUM_SERVICE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATE {
     type Abi = Self;
 }
@@ -491,6 +496,11 @@ impl ::core::marker::Copy for ENUM_SERVICE_TYPE {}
 impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENUM_SERVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_TYPE {
@@ -1317,6 +1327,11 @@ impl ::core::clone::Clone for SC_ACTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SC_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SC_ACTION_TYPE {
     type Abi = Self;
 }
@@ -1335,6 +1350,11 @@ impl ::core::marker::Copy for SC_ENUM_TYPE {}
 impl ::core::clone::Clone for SC_ENUM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SC_ENUM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SC_ENUM_TYPE {
@@ -1359,6 +1379,11 @@ impl ::core::marker::Copy for SC_EVENT_TYPE {}
 impl ::core::clone::Clone for SC_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SC_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SC_EVENT_TYPE {
@@ -1393,6 +1418,11 @@ impl ::core::marker::Copy for SC_STATUS_TYPE {}
 impl ::core::clone::Clone for SC_STATUS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SC_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SC_STATUS_TYPE {
@@ -1463,6 +1493,11 @@ impl ::core::marker::Copy for SERVICE_CONFIG {}
 impl ::core::clone::Clone for SERVICE_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_CONFIG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_CONFIG {
@@ -1831,6 +1866,11 @@ impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_DIRECTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_DIRECTORY_TYPE {
     type Abi = Self;
 }
@@ -1859,6 +1899,11 @@ impl ::core::marker::Copy for SERVICE_ERROR {}
 impl ::core::clone::Clone for SERVICE_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_ERROR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_ERROR {
@@ -2092,6 +2137,11 @@ impl ::core::marker::Copy for SERVICE_NOTIFY {}
 impl ::core::clone::Clone for SERVICE_NOTIFY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_NOTIFY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
@@ -2351,6 +2401,11 @@ impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_REGISTRY_STATE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_REGISTRY_STATE_TYPE {
     type Abi = Self;
 }
@@ -2449,6 +2504,11 @@ impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_RUNS_IN_PROCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_RUNS_IN_PROCESS {
     type Abi = Self;
 }
@@ -2497,6 +2557,11 @@ impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
     type Abi = Self;
 }
@@ -2515,6 +2580,11 @@ impl ::core::marker::Copy for SERVICE_SHARED_REGISTRY_STATE_TYPE {}
 impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
@@ -2621,6 +2691,11 @@ impl ::core::clone::Clone for SERVICE_START_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_START_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_START_TYPE {
     type Abi = Self;
 }
@@ -2715,6 +2790,11 @@ impl ::core::marker::Copy for SERVICE_STATUS_CURRENT_STATE {}
 impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_STATUS_CURRENT_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_STATUS_CURRENT_STATE {
@@ -3070,6 +3150,11 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_TRIGGER_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_ACTION {
     type Abi = Self;
 }
@@ -3220,6 +3305,11 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type Abi = Self;
 }
@@ -3278,6 +3368,11 @@ impl ::core::marker::Copy for SERVICE_TRIGGER_TYPE {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVICE_TRIGGER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_TYPE {

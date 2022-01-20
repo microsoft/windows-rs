@@ -648,6 +648,11 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
         *self
     }
 }
+impl ::core::default::Default for AnimationControllerProgressBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
 }
@@ -674,6 +679,11 @@ impl ::core::marker::Copy for AnimationDelayBehavior {}
 impl ::core::clone::Clone for AnimationDelayBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AnimationDelayBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AnimationDelayBehavior {
@@ -706,6 +716,11 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
+impl ::core::default::Default for AnimationDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -732,6 +747,11 @@ impl ::core::marker::Copy for AnimationIterationBehavior {}
 impl ::core::clone::Clone for AnimationIterationBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AnimationIterationBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AnimationIterationBehavior {
@@ -762,6 +782,11 @@ impl ::core::marker::Copy for AnimationPropertyAccessMode {}
 impl ::core::clone::Clone for AnimationPropertyAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AnimationPropertyAccessMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AnimationPropertyAccessMode {
@@ -1060,6 +1085,11 @@ impl ::core::marker::Copy for AnimationStopBehavior {}
 impl ::core::clone::Clone for AnimationStopBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AnimationStopBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AnimationStopBehavior {
@@ -5493,6 +5523,11 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
         *self
     }
 }
+impl ::core::default::Default for CompositionBackfaceVisibility {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
 }
@@ -5764,6 +5799,11 @@ impl ::core::clone::Clone for CompositionBatchTypes {
         *self
     }
 }
+impl ::core::default::Default for CompositionBatchTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBatchTypes {
     type Abi = Self;
 }
@@ -5828,6 +5868,11 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
         *self
     }
 }
+impl ::core::default::Default for CompositionBitmapInterpolationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
 }
@@ -5855,6 +5900,11 @@ impl ::core::marker::Copy for CompositionBorderMode {}
 impl ::core::clone::Clone for CompositionBorderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionBorderMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionBorderMode {
@@ -7361,6 +7411,11 @@ impl ::core::clone::Clone for CompositionColorSpace {
         *self
     }
 }
+impl ::core::default::Default for CompositionColorSpace {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionColorSpace {
     type Abi = Self;
 }
@@ -7660,6 +7715,11 @@ impl ::core::marker::Copy for CompositionCompositeMode {}
 impl ::core::clone::Clone for CompositionCompositeMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionCompositeMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionCompositeMode {
@@ -8373,6 +8433,11 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
         *self
     }
 }
+impl ::core::default::Default for CompositionDropShadowSourcePolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
 }
@@ -8723,6 +8788,11 @@ impl ::core::marker::Copy for CompositionEasingFunctionMode {}
 impl ::core::clone::Clone for CompositionEasingFunctionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionEasingFunctionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionEasingFunctionMode {
@@ -9290,6 +9360,11 @@ impl ::core::marker::Copy for CompositionEffectFactoryLoadStatus {}
 impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionEffectFactoryLoadStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionEffectFactoryLoadStatus {
@@ -10435,6 +10510,11 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
         *self
     }
 }
+impl ::core::default::Default for CompositionGetValueStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionGetValueStatus {
     type Abi = Self;
 }
@@ -10870,6 +10950,11 @@ impl ::core::marker::Copy for CompositionGradientExtendMode {}
 impl ::core::clone::Clone for CompositionGradientExtendMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionGradientExtendMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionGradientExtendMode {
@@ -12259,6 +12344,11 @@ impl ::core::marker::Copy for CompositionMappingMode {}
 impl ::core::clone::Clone for CompositionMappingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionMappingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionMappingMode {
@@ -18727,6 +18817,11 @@ impl ::core::clone::Clone for CompositionStretch {
         *self
     }
 }
+impl ::core::default::Default for CompositionStretch {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionStretch {
     type Abi = Self;
 }
@@ -18755,6 +18850,11 @@ impl ::core::marker::Copy for CompositionStrokeCap {}
 impl ::core::clone::Clone for CompositionStrokeCap {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionStrokeCap {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionStrokeCap {
@@ -19216,6 +19316,11 @@ impl ::core::marker::Copy for CompositionStrokeLineJoin {}
 impl ::core::clone::Clone for CompositionStrokeLineJoin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CompositionStrokeLineJoin {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CompositionStrokeLineJoin {

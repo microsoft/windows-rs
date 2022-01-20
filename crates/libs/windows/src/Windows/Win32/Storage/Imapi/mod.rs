@@ -880,6 +880,11 @@ impl ::core::clone::Clone for DISC_RECORDER_STATE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DISC_RECORDER_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISC_RECORDER_STATE_FLAGS {
     type Abi = Self;
 }
@@ -1397,6 +1402,11 @@ impl ::core::clone::Clone for EmulationType {
         *self
     }
 }
+impl ::core::default::Default for EmulationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EmulationType {
     type Abi = Self;
 }
@@ -1430,6 +1440,11 @@ impl ::core::clone::Clone for FsiFileSystems {
         *self
     }
 }
+impl ::core::default::Default for FsiFileSystems {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FsiFileSystems {
     type Abi = Self;
 }
@@ -1452,6 +1467,11 @@ impl ::core::marker::Copy for FsiItemType {}
 impl ::core::clone::Clone for FsiItemType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FsiItemType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FsiItemType {
@@ -8484,6 +8504,11 @@ impl ::core::clone::Clone for IMAPI_BURN_VERIFICATION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_BURN_VERIFICATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_BURN_VERIFICATION_LEVEL {
     type Abi = Self;
 }
@@ -8522,6 +8547,11 @@ impl ::core::clone::Clone for IMAPI_CD_SECTOR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_CD_SECTOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_CD_SECTOR_TYPE {
     type Abi = Self;
 }
@@ -8544,6 +8574,11 @@ impl ::core::marker::Copy for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {}
 impl ::core::clone::Clone for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
@@ -8738,6 +8773,11 @@ impl ::core::clone::Clone for IMAPI_FEATURE_PAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_FEATURE_PAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_FEATURE_PAGE_TYPE {
     type Abi = Self;
 }
@@ -8784,6 +8824,11 @@ impl ::core::clone::Clone for IMAPI_FORMAT2_DATA_MEDIA_STATE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_FORMAT2_DATA_MEDIA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_FORMAT2_DATA_MEDIA_STATE {
     type Abi = Self;
 }
@@ -8818,6 +8863,11 @@ impl ::core::clone::Clone for IMAPI_FORMAT2_DATA_WRITE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_FORMAT2_DATA_WRITE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_FORMAT2_DATA_WRITE_ACTION {
     type Abi = Self;
 }
@@ -8840,6 +8890,11 @@ impl ::core::marker::Copy for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {}
 impl ::core::clone::Clone for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
@@ -8868,6 +8923,11 @@ impl ::core::clone::Clone for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
     type Abi = Self;
 }
@@ -8894,6 +8954,11 @@ impl ::core::marker::Copy for IMAPI_FORMAT2_TAO_WRITE_ACTION {}
 impl ::core::clone::Clone for IMAPI_FORMAT2_TAO_WRITE_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_FORMAT2_TAO_WRITE_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_FORMAT2_TAO_WRITE_ACTION {
@@ -8956,6 +9021,11 @@ impl ::core::clone::Clone for IMAPI_MEDIA_PHYSICAL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_MEDIA_PHYSICAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_MEDIA_PHYSICAL_TYPE {
     type Abi = Self;
 }
@@ -8986,6 +9056,11 @@ impl ::core::clone::Clone for IMAPI_MEDIA_WRITE_PROTECT_STATE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_MEDIA_WRITE_PROTECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_MEDIA_WRITE_PROTECT_STATE {
     type Abi = Self;
 }
@@ -9010,6 +9085,11 @@ impl ::core::marker::Copy for IMAPI_MODE_PAGE_REQUEST_TYPE {}
 impl ::core::clone::Clone for IMAPI_MODE_PAGE_REQUEST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_MODE_PAGE_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_MODE_PAGE_REQUEST_TYPE {
@@ -9044,6 +9124,11 @@ impl ::core::marker::Copy for IMAPI_MODE_PAGE_TYPE {}
 impl ::core::clone::Clone for IMAPI_MODE_PAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_MODE_PAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_MODE_PAGE_TYPE {
@@ -9126,6 +9211,11 @@ impl ::core::clone::Clone for IMAPI_PROFILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IMAPI_PROFILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAPI_PROFILE_TYPE {
     type Abi = Self;
 }
@@ -9148,6 +9238,11 @@ impl ::core::marker::Copy for IMAPI_READ_TRACK_ADDRESS_TYPE {}
 impl ::core::clone::Clone for IMAPI_READ_TRACK_ADDRESS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMAPI_READ_TRACK_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMAPI_READ_TRACK_ADDRESS_TYPE {
@@ -9188,6 +9283,11 @@ impl ::core::clone::Clone for IMMPID_CPV_ENUM {
         *self
     }
 }
+impl ::core::default::Default for IMMPID_CPV_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMMPID_CPV_ENUM {
     type Abi = Self;
 }
@@ -9220,6 +9320,11 @@ impl ::core::marker::Copy for IMMPID_MPV_ENUM {}
 impl ::core::clone::Clone for IMMPID_MPV_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMMPID_MPV_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMMPID_MPV_ENUM {
@@ -9358,6 +9463,11 @@ impl ::core::clone::Clone for IMMPID_MP_ENUM {
         *self
     }
 }
+impl ::core::default::Default for IMMPID_MP_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMMPID_MP_ENUM {
     type Abi = Self;
 }
@@ -9398,6 +9508,11 @@ impl ::core::clone::Clone for IMMPID_NMP_ENUM {
         *self
     }
 }
+impl ::core::default::Default for IMMPID_NMP_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMMPID_NMP_ENUM {
     type Abi = Self;
 }
@@ -9422,6 +9537,11 @@ impl ::core::marker::Copy for IMMPID_RPV_ENUM {}
 impl ::core::clone::Clone for IMMPID_RPV_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMMPID_RPV_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMMPID_RPV_ENUM {
@@ -9486,6 +9606,11 @@ impl ::core::marker::Copy for IMMPID_RP_ENUM {}
 impl ::core::clone::Clone for IMMPID_RP_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMMPID_RP_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMMPID_RP_ENUM {
@@ -12098,6 +12223,11 @@ impl ::core::clone::Clone for MEDIA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MEDIA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MEDIA_FLAGS {
     type Abi = Self;
 }
@@ -12126,6 +12256,11 @@ impl ::core::marker::Copy for MEDIA_TYPES {}
 impl ::core::clone::Clone for MEDIA_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MEDIA_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MEDIA_TYPES {
@@ -12253,6 +12388,11 @@ impl ::core::clone::Clone for PlatformId {
         *self
     }
 }
+impl ::core::default::Default for PlatformId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlatformId {
     type Abi = Self;
 }
@@ -12275,6 +12415,11 @@ impl ::core::marker::Copy for RECORDER_TYPES {}
 impl ::core::clone::Clone for RECORDER_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RECORDER_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RECORDER_TYPES {

@@ -730,6 +730,11 @@ impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
         *self
     }
 }
+impl ::core::default::Default for MiracastReceiverApplySettingsStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
     type Abi = Self;
 }
@@ -758,6 +763,11 @@ impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
 impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverAuthorizationMethod {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
@@ -1306,6 +1316,11 @@ impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
         *self
     }
 }
+impl ::core::default::Default for MiracastReceiverDisconnectReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
     type Abi = Self;
 }
@@ -1545,6 +1560,11 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
         *self
     }
 }
+impl ::core::default::Default for MiracastReceiverGameControllerDeviceUsageMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
     type Abi = Self;
 }
@@ -1781,6 +1801,11 @@ impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
 impl ::core::clone::Clone for MiracastReceiverListeningStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverListeningStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
@@ -2200,6 +2225,11 @@ impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
 impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MiracastReceiverSessionStartStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
@@ -2702,6 +2732,11 @@ impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
         *self
     }
 }
+impl ::core::default::Default for MiracastReceiverWiFiStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
     type Abi = Self;
 }
@@ -2855,6 +2890,11 @@ impl ::core::marker::Copy for MiracastTransmitterAuthorizationStatus {}
 impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MiracastTransmitterAuthorizationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MiracastTransmitterAuthorizationStatus {

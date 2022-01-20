@@ -457,6 +457,11 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability 
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectAdvertisementListenStateDiscoverability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementListenStateDiscoverability {
     type Abi = Self;
 }
@@ -608,6 +613,11 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectAdvertisementPublisherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectAdvertisementPublisherStatus {
     type Abi = Self;
 }
@@ -724,6 +734,11 @@ impl ::core::marker::Copy for WiFiDirectConfigurationMethod {}
 impl ::core::clone::Clone for WiFiDirectConfigurationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiDirectConfigurationMethod {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectConfigurationMethod {
@@ -1198,6 +1213,11 @@ impl ::core::clone::Clone for WiFiDirectConnectionStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectConnectionStatus {
     type Abi = Self;
 }
@@ -1411,6 +1431,11 @@ impl ::core::clone::Clone for WiFiDirectDeviceSelectorType {
         *self
     }
 }
+impl ::core::default::Default for WiFiDirectDeviceSelectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiDirectDeviceSelectorType {
     type Abi = Self;
 }
@@ -1438,6 +1463,11 @@ impl ::core::marker::Copy for WiFiDirectError {}
 impl ::core::clone::Clone for WiFiDirectError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiDirectError {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectError {
@@ -1724,6 +1754,11 @@ impl ::core::marker::Copy for WiFiDirectPairingProcedure {}
 impl ::core::clone::Clone for WiFiDirectPairingProcedure {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiDirectPairingProcedure {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiDirectPairingProcedure {

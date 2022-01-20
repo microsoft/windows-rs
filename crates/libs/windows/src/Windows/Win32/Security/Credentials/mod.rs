@@ -385,6 +385,11 @@ impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CREDSPP_SUBMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREDSPP_SUBMIT_TYPE {
     type Abi = Self;
 }
@@ -499,6 +504,11 @@ impl ::core::clone::Clone for CREDUIWIN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CREDUIWIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREDUIWIN_FLAGS {
     type Abi = Self;
 }
@@ -579,6 +589,11 @@ impl ::core::marker::Copy for CREDUI_FLAGS {}
 impl ::core::clone::Clone for CREDUI_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREDUI_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREDUI_FLAGS {
@@ -723,6 +738,11 @@ impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRED_ENUMERATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
     type Abi = Self;
 }
@@ -789,6 +809,11 @@ impl ::core::clone::Clone for CRED_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRED_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRED_FLAGS {
     type Abi = Self;
 }
@@ -847,6 +872,11 @@ impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CRED_MARSHAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRED_MARSHAL_TYPE {
     type Abi = Self;
 }
@@ -883,6 +913,11 @@ impl ::core::marker::Copy for CRED_PACK_FLAGS {}
 impl ::core::clone::Clone for CRED_PACK_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRED_PACK_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
@@ -937,6 +972,11 @@ impl ::core::marker::Copy for CRED_PERSIST {}
 impl ::core::clone::Clone for CRED_PERSIST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRED_PERSIST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRED_PERSIST {
@@ -995,6 +1035,11 @@ impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CRED_PROTECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRED_PROTECTION_TYPE {
     type Abi = Self;
 }
@@ -1047,6 +1092,11 @@ impl ::core::marker::Copy for CRED_TYPE {}
 impl ::core::clone::Clone for CRED_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRED_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRED_TYPE {
@@ -1941,6 +1991,11 @@ impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
         *self
     }
 }
+impl ::core::default::Default for KeyCredentialManagerOperationErrorStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
     type Abi = Self;
 }
@@ -1991,6 +2046,11 @@ impl ::core::marker::Copy for KeyCredentialManagerOperationType {}
 impl ::core::clone::Clone for KeyCredentialManagerOperationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeyCredentialManagerOperationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationType {
@@ -2612,6 +2672,11 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
         *self
     }
 }
+impl ::core::default::Default for READER_SEL_REQUEST_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_MATCH_TYPE {
     type Abi = Self;
 }
@@ -2914,6 +2979,11 @@ impl ::core::clone::Clone for SCARD_SCOPE {
         *self
     }
 }
+impl ::core::default::Default for SCARD_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCARD_SCOPE {
     type Abi = Self;
 }
@@ -2990,6 +3060,11 @@ impl ::core::marker::Copy for SCARD_STATE {}
 impl ::core::clone::Clone for SCARD_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCARD_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCARD_STATE {

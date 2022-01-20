@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CachedFileOptions {
         *self
     }
 }
+impl ::core::default::Default for CachedFileOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CachedFileOptions {
     type Abi = Self;
 }
@@ -69,6 +74,11 @@ impl ::core::marker::Copy for CachedFileTarget {}
 impl ::core::clone::Clone for CachedFileTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CachedFileTarget {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CachedFileTarget {
@@ -544,6 +554,11 @@ impl ::core::marker::Copy for FileUpdateStatus {}
 impl ::core::clone::Clone for FileUpdateStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileUpdateStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileUpdateStatus {
@@ -1467,6 +1482,11 @@ impl ::core::clone::Clone for ReadActivationMode {
         *self
     }
 }
+impl ::core::default::Default for ReadActivationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ReadActivationMode {
     type Abi = Self;
 }
@@ -2085,6 +2105,11 @@ impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
         *self
     }
 }
+impl ::core::default::Default for StorageProviderHardlinkPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
     type Abi = Self;
 }
@@ -2143,6 +2168,11 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicy {
         *self
     }
 }
+impl ::core::default::Default for StorageProviderHydrationPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
     type Abi = Self;
 }
@@ -2172,6 +2202,11 @@ impl ::core::marker::Copy for StorageProviderHydrationPolicyModifier {}
 impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageProviderHydrationPolicyModifier {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
@@ -2238,6 +2273,11 @@ impl ::core::marker::Copy for StorageProviderInSyncPolicy {}
 impl ::core::clone::Clone for StorageProviderInSyncPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageProviderInSyncPolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
@@ -2541,6 +2581,11 @@ impl ::core::clone::Clone for StorageProviderPopulationPolicy {
         *self
     }
 }
+impl ::core::default::Default for StorageProviderPopulationPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
     type Abi = Self;
 }
@@ -2567,6 +2612,11 @@ impl ::core::marker::Copy for StorageProviderProtectionMode {}
 impl ::core::clone::Clone for StorageProviderProtectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageProviderProtectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
@@ -2599,6 +2649,11 @@ impl ::core::marker::Copy for StorageProviderState {}
 impl ::core::clone::Clone for StorageProviderState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorageProviderState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorageProviderState {
@@ -3112,6 +3167,11 @@ impl ::core::clone::Clone for StorageProviderUriSourceStatus {
         *self
     }
 }
+impl ::core::default::Default for StorageProviderUriSourceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorageProviderUriSourceStatus {
     type Abi = Self;
 }
@@ -3142,6 +3202,11 @@ impl ::core::clone::Clone for UIStatus {
         *self
     }
 }
+impl ::core::default::Default for UIStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UIStatus {
     type Abi = Self;
 }
@@ -3169,6 +3234,11 @@ impl ::core::marker::Copy for WriteActivationMode {}
 impl ::core::clone::Clone for WriteActivationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WriteActivationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WriteActivationMode {

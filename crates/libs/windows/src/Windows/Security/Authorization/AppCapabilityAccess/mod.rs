@@ -246,6 +246,11 @@ impl ::core::clone::Clone for AppCapabilityAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for AppCapabilityAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppCapabilityAccessStatus {
     type Abi = Self;
 }

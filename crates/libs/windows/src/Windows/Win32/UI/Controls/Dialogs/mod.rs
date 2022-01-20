@@ -559,6 +559,11 @@ impl ::core::clone::Clone for CHOOSEFONT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CHOOSEFONT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHOOSEFONT_FLAGS {
     type Abi = Self;
 }
@@ -615,6 +620,11 @@ impl ::core::marker::Copy for CHOOSEFONT_FONT_TYPE {}
 impl ::core::clone::Clone for CHOOSEFONT_FONT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHOOSEFONT_FONT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHOOSEFONT_FONT_TYPE {
@@ -795,6 +805,11 @@ impl ::core::marker::Copy for COMMON_DLG_ERRORS {}
 impl ::core::clone::Clone for COMMON_DLG_ERRORS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMMON_DLG_ERRORS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMMON_DLG_ERRORS {
@@ -1263,6 +1278,11 @@ impl ::core::marker::Copy for FINDREPLACE_FLAGS {}
 impl ::core::clone::Clone for FINDREPLACE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FINDREPLACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FINDREPLACE_FLAGS {
@@ -2633,6 +2653,11 @@ impl ::core::clone::Clone for OPEN_FILENAME_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for OPEN_FILENAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS {
     type Abi = Self;
 }
@@ -2681,6 +2706,11 @@ impl ::core::marker::Copy for OPEN_FILENAME_FLAGS_EX {}
 impl ::core::clone::Clone for OPEN_FILENAME_FLAGS_EX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPEN_FILENAME_FLAGS_EX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS_EX {
@@ -3017,6 +3047,11 @@ impl ::core::marker::Copy for PAGESETUPDLG_FLAGS {}
 impl ::core::clone::Clone for PAGESETUPDLG_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PAGESETUPDLG_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PAGESETUPDLG_FLAGS {
@@ -3618,6 +3653,11 @@ impl ::core::marker::Copy for PRINTDLGEX_FLAGS {}
 impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRINTDLGEX_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {

@@ -114,6 +114,11 @@ impl ::core::clone::Clone for DiagnosticActionState {
         *self
     }
 }
+impl ::core::default::Default for DiagnosticActionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DiagnosticActionState {
     type Abi = Self;
 }

@@ -116,6 +116,11 @@ impl ::core::clone::Clone for CALLFRAME_COPY {
         *self
     }
 }
+impl ::core::default::Default for CALLFRAME_COPY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLFRAME_COPY {
     type Abi = Self;
 }
@@ -146,6 +151,11 @@ impl ::core::marker::Copy for CALLFRAME_FREE {}
 impl ::core::clone::Clone for CALLFRAME_FREE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_FREE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALLFRAME_FREE {
@@ -220,6 +230,11 @@ impl ::core::clone::Clone for CALLFRAME_NULL {
         *self
     }
 }
+impl ::core::default::Default for CALLFRAME_NULL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLFRAME_NULL {
     type Abi = Self;
 }
@@ -242,6 +257,11 @@ impl ::core::marker::Copy for CALLFRAME_WALK {}
 impl ::core::clone::Clone for CALLFRAME_WALK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALLFRAME_WALK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALLFRAME_WALK {

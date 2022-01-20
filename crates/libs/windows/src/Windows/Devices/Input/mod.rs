@@ -1698,6 +1698,11 @@ impl ::core::clone::Clone for PointerDeviceType {
         *self
     }
 }
+impl ::core::default::Default for PointerDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PointerDeviceType {
     type Abi = Self;
 }

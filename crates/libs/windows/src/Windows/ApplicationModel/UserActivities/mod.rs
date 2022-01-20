@@ -1627,6 +1627,11 @@ impl ::core::clone::Clone for UserActivityState {
         *self
     }
 }
+impl ::core::default::Default for UserActivityState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserActivityState {
     type Abi = Self;
 }

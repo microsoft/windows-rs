@@ -342,6 +342,11 @@ impl ::core::clone::Clone for SecurityAppKind {
         *self
     }
 }
+impl ::core::default::Default for SecurityAppKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppKind {
     type Abi = Self;
 }
@@ -470,6 +475,11 @@ impl ::core::clone::Clone for SecurityAppState {
         *self
     }
 }
+impl ::core::default::Default for SecurityAppState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppState {
     type Abi = Self;
 }
@@ -500,6 +510,11 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
         *self
     }
 }
+impl ::core::default::Default for SecurityAppSubstatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
     type Abi = Self;
 }
@@ -527,6 +542,11 @@ impl ::core::marker::Copy for ShareWindowCommand {}
 impl ::core::clone::Clone for ShareWindowCommand {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ShareWindowCommand {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ShareWindowCommand {

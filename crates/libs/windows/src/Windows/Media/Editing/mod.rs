@@ -1469,6 +1469,11 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
         *self
     }
 }
+impl ::core::default::Default for MediaTrimmingPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaTrimmingPreference {
     type Abi = Self;
 }
@@ -1495,6 +1500,11 @@ impl ::core::marker::Copy for VideoFramePrecision {}
 impl ::core::clone::Clone for VideoFramePrecision {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoFramePrecision {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoFramePrecision {

@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ARP_HARDWARE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ARP_HARDWARE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ARP_HARDWARE_TYPE {
     type Abi = Self;
 }
@@ -70,6 +75,11 @@ impl ::core::clone::Clone for ARP_OPCODE {
         *self
     }
 }
+impl ::core::default::Default for ARP_OPCODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ARP_OPCODE {
     type Abi = Self;
 }
@@ -96,6 +106,11 @@ impl ::core::marker::Copy for DL_ADDRESS_TYPE {}
 impl ::core::clone::Clone for DL_ADDRESS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DL_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DL_ADDRESS_TYPE {
@@ -697,6 +712,11 @@ impl ::core::clone::Clone for FALLBACK_INDEX {
         *self
     }
 }
+impl ::core::default::Default for FALLBACK_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FALLBACK_INDEX {
     type Abi = Self;
 }
@@ -793,6 +813,11 @@ impl ::core::marker::Copy for FWPM_APPC_NETWORK_CAPABILITY_TYPE {}
 impl ::core::clone::Clone for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
@@ -1015,6 +1040,11 @@ impl ::core::marker::Copy for FWPM_CHANGE_TYPE {}
 impl ::core::clone::Clone for FWPM_CHANGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_CHANGE_TYPE {
@@ -1396,6 +1426,11 @@ impl ::core::clone::Clone for FWPM_CONNECTION_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWPM_CONNECTION_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_CONNECTION_EVENT_TYPE {
     type Abi = Self;
 }
@@ -1501,6 +1536,11 @@ impl ::core::clone::Clone for FWPM_ENGINE_OPTION {
         *self
     }
 }
+impl ::core::default::Default for FWPM_ENGINE_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_ENGINE_OPTION {
     type Abi = Self;
 }
@@ -1565,6 +1605,11 @@ impl ::core::marker::Copy for FWPM_FIELD_TYPE {}
 impl ::core::clone::Clone for FWPM_FIELD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_FIELD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_FIELD_TYPE {
@@ -1792,6 +1837,11 @@ impl ::core::marker::Copy for FWPM_FILTER_FLAGS {}
 impl ::core::clone::Clone for FWPM_FILTER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_FILTER_FLAGS {
@@ -4279,6 +4329,11 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWPM_NET_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_TYPE {
     type Abi = Self;
 }
@@ -4830,6 +4885,11 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_TYPE {
     type Abi = Self;
 }
@@ -4930,6 +4990,11 @@ impl ::core::marker::Copy for FWPM_SERVICE_STATE {}
 impl ::core::clone::Clone for FWPM_SERVICE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_SERVICE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_SERVICE_STATE {
@@ -5292,6 +5357,11 @@ impl ::core::clone::Clone for FWPM_SUBSCRIPTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for FWPM_SUBSCRIPTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_SUBSCRIPTION_FLAGS {
     type Abi = Self;
 }
@@ -5411,6 +5481,11 @@ impl ::core::marker::Copy for FWPM_SYSTEM_PORT_TYPE {}
 impl ::core::clone::Clone for FWPM_SYSTEM_PORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWPM_SYSTEM_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORT_TYPE {
@@ -5631,6 +5706,11 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWPM_VSWITCH_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT_TYPE {
     type Abi = Self;
 }
@@ -5805,6 +5885,11 @@ impl ::core::clone::Clone for FWP_AF {
         *self
     }
 }
+impl ::core::default::Default for FWP_AF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWP_AF {
     type Abi = Self;
 }
@@ -5956,6 +6041,11 @@ impl ::core::marker::Copy for FWP_CLASSIFY_OPTION_TYPE {}
 impl ::core::clone::Clone for FWP_CLASSIFY_OPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWP_CLASSIFY_OPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWP_CLASSIFY_OPTION_TYPE {
@@ -6201,6 +6291,11 @@ impl ::core::clone::Clone for FWP_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWP_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWP_DATA_TYPE {
     type Abi = Self;
 }
@@ -6225,6 +6320,11 @@ impl ::core::clone::Clone for FWP_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for FWP_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWP_DIRECTION {
     type Abi = Self;
 }
@@ -6247,6 +6347,11 @@ impl ::core::marker::Copy for FWP_ETHER_ENCAP_METHOD {}
 impl ::core::clone::Clone for FWP_ETHER_ENCAP_METHOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWP_ETHER_ENCAP_METHOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWP_ETHER_ENCAP_METHOD {
@@ -6285,6 +6390,11 @@ impl ::core::clone::Clone for FWP_FILTER_ENUM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FWP_FILTER_ENUM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FWP_FILTER_ENUM_TYPE {
     type Abi = Self;
 }
@@ -6309,6 +6419,11 @@ impl ::core::marker::Copy for FWP_IP_VERSION {}
 impl ::core::clone::Clone for FWP_IP_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWP_IP_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWP_IP_VERSION {
@@ -6355,6 +6470,11 @@ impl ::core::marker::Copy for FWP_MATCH_TYPE {}
 impl ::core::clone::Clone for FWP_MATCH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWP_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWP_MATCH_TYPE {
@@ -6615,6 +6735,11 @@ impl ::core::marker::Copy for FWP_VSWITCH_NETWORK_TYPE {}
 impl ::core::clone::Clone for FWP_VSWITCH_NETWORK_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FWP_VSWITCH_NETWORK_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FWP_VSWITCH_NETWORK_TYPE {
@@ -8633,6 +8758,11 @@ impl ::core::clone::Clone for ICMP4_TIME_EXCEED_CODE {
         *self
     }
 }
+impl ::core::default::Default for ICMP4_TIME_EXCEED_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ICMP4_TIME_EXCEED_CODE {
     type Abi = Self;
 }
@@ -8677,6 +8807,11 @@ impl ::core::marker::Copy for ICMP4_UNREACH_CODE {}
 impl ::core::clone::Clone for ICMP4_UNREACH_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ICMP4_UNREACH_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ICMP4_UNREACH_CODE {
@@ -9338,6 +9473,11 @@ impl ::core::clone::Clone for IGMP_MAX_RESP_CODE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IGMP_MAX_RESP_CODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IGMP_MAX_RESP_CODE_TYPE {
     type Abi = Self;
 }
@@ -9368,6 +9508,11 @@ impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {}
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
@@ -9627,6 +9772,11 @@ impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD_TYPE {}
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD_TYPE {
@@ -10394,6 +10544,11 @@ impl ::core::clone::Clone for IKEEXT_CERT_AUTH {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_CERT_AUTH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_AUTH {
     type Abi = Self;
 }
@@ -10454,6 +10609,11 @@ impl ::core::clone::Clone for IKEEXT_CERT_CONFIG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_CERT_CONFIG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_CONFIG_TYPE {
     type Abi = Self;
 }
@@ -10488,6 +10648,11 @@ impl ::core::marker::Copy for IKEEXT_CERT_CRITERIA_NAME_TYPE {}
 impl ::core::clone::Clone for IKEEXT_CERT_CRITERIA_NAME_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_CERT_CRITERIA_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_CRITERIA_NAME_TYPE {
@@ -10563,6 +10728,11 @@ impl ::core::marker::Copy for IKEEXT_CERT_FLAGS {}
 impl ::core::clone::Clone for IKEEXT_CERT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_CERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_FLAGS {
@@ -10729,6 +10899,11 @@ impl ::core::marker::Copy for IKEEXT_CIPHER_TYPE {}
 impl ::core::clone::Clone for IKEEXT_CIPHER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_CIPHER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_CIPHER_TYPE {
@@ -11286,6 +11461,11 @@ impl ::core::clone::Clone for IKEEXT_DH_GROUP {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_DH_GROUP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_DH_GROUP {
     type Abi = Self;
 }
@@ -11336,6 +11516,11 @@ impl ::core::marker::Copy for IKEEXT_EAP_AUTHENTICATION_FLAGS {}
 impl ::core::clone::Clone for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_EAP_AUTHENTICATION_FLAGS {
@@ -11518,6 +11703,11 @@ impl ::core::clone::Clone for IKEEXT_EM_SA_STATE {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_EM_SA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_EM_SA_STATE {
     type Abi = Self;
 }
@@ -11574,6 +11764,11 @@ impl ::core::marker::Copy for IKEEXT_INTEGRITY_TYPE {}
 impl ::core::clone::Clone for IKEEXT_INTEGRITY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_INTEGRITY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_INTEGRITY_TYPE {
@@ -11903,6 +12098,11 @@ impl ::core::clone::Clone for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
@@ -12029,6 +12229,11 @@ impl ::core::clone::Clone for IKEEXT_KEY_MODULE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_KEY_MODULE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_KEY_MODULE_TYPE {
     type Abi = Self;
 }
@@ -12059,6 +12264,11 @@ impl ::core::marker::Copy for IKEEXT_MM_SA_STATE {}
 impl ::core::clone::Clone for IKEEXT_MM_SA_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_MM_SA_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_MM_SA_STATE {
@@ -12316,6 +12526,11 @@ impl ::core::clone::Clone for IKEEXT_POLICY_FLAG {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_POLICY_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_POLICY_FLAG {
     type Abi = Self;
 }
@@ -12435,6 +12650,11 @@ impl ::core::clone::Clone for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
@@ -12525,6 +12745,11 @@ impl ::core::clone::Clone for IKEEXT_QM_SA_STATE {
         *self
     }
 }
+impl ::core::default::Default for IKEEXT_QM_SA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEEXT_QM_SA_STATE {
     type Abi = Self;
 }
@@ -12573,6 +12798,11 @@ impl ::core::marker::Copy for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {}
 impl ::core::clone::Clone for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
@@ -12880,6 +13110,11 @@ impl ::core::marker::Copy for IKEEXT_SA_ROLE {}
 impl ::core::clone::Clone for IKEEXT_SA_ROLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IKEEXT_SA_ROLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IKEEXT_SA_ROLE {
@@ -13388,6 +13623,11 @@ impl ::core::clone::Clone for IPSEC_AUTH_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_AUTH_TYPE {
     type Abi = Self;
 }
@@ -13498,6 +13738,11 @@ impl ::core::clone::Clone for IPSEC_CIPHER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_CIPHER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TYPE {
     type Abi = Self;
 }
@@ -13528,6 +13773,11 @@ impl ::core::marker::Copy for IPSEC_DOSP_FLAGS {}
 impl ::core::clone::Clone for IPSEC_DOSP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_DOSP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_DOSP_FLAGS {
@@ -13823,6 +14073,11 @@ impl ::core::marker::Copy for IPSEC_FAILURE_POINT {}
 impl ::core::clone::Clone for IPSEC_FAILURE_POINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_FAILURE_POINT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_FAILURE_POINT {
@@ -14202,6 +14457,11 @@ impl ::core::clone::Clone for IPSEC_PFS_GROUP {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_PFS_GROUP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_PFS_GROUP {
     type Abi = Self;
 }
@@ -14244,6 +14504,11 @@ impl ::core::marker::Copy for IPSEC_POLICY_FLAG {}
 impl ::core::clone::Clone for IPSEC_POLICY_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_POLICY_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_POLICY_FLAG {
@@ -14625,6 +14890,11 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_SA_BUNDLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE_FLAGS {
     type Abi = Self;
 }
@@ -14878,6 +15148,11 @@ impl ::core::marker::Copy for IPSEC_SA_CONTEXT_EVENT_TYPE0 {}
 impl ::core::clone::Clone for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
@@ -15334,6 +15609,11 @@ impl ::core::clone::Clone for IPSEC_TOKEN_MODE {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_TOKEN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN_MODE {
     type Abi = Self;
 }
@@ -15358,6 +15638,11 @@ impl ::core::clone::Clone for IPSEC_TOKEN_PRINCIPAL {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_TOKEN_PRINCIPAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN_PRINCIPAL {
     type Abi = Self;
 }
@@ -15380,6 +15665,11 @@ impl ::core::marker::Copy for IPSEC_TOKEN_TYPE {}
 impl ::core::clone::Clone for IPSEC_TOKEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_TOKEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN_TYPE {
@@ -15813,6 +16103,11 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IPSEC_TRAFFIC_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_TYPE {
     type Abi = Self;
 }
@@ -15841,6 +16136,11 @@ impl ::core::marker::Copy for IPSEC_TRANSFORM_TYPE {}
 impl ::core::clone::Clone for IPSEC_TRANSFORM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IPSEC_TRANSFORM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IPSEC_TRANSFORM_TYPE {
@@ -16907,6 +17207,11 @@ impl ::core::clone::Clone for IPV4_OPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IPV4_OPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPV4_OPTION_TYPE {
     type Abi = Self;
 }
@@ -17431,6 +17736,11 @@ impl ::core::clone::Clone for IPV6_OPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IPV6_OPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IPV6_OPTION_TYPE {
     type Abi = Self;
 }
@@ -17547,6 +17857,11 @@ impl ::core::marker::Copy for IP_OPTION_TIMESTAMP_FLAGS {}
 impl ::core::clone::Clone for IP_OPTION_TIMESTAMP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IP_OPTION_TIMESTAMP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IP_OPTION_TIMESTAMP_FLAGS {
@@ -18656,6 +18971,11 @@ impl ::core::clone::Clone for MLD_MAX_RESP_CODE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MLD_MAX_RESP_CODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MLD_MAX_RESP_CODE_TYPE {
     type Abi = Self;
 }
@@ -18704,6 +19024,11 @@ impl ::core::marker::Copy for ND_OPTION_TYPE {}
 impl ::core::clone::Clone for ND_OPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ND_OPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ND_OPTION_TYPE {
@@ -18819,6 +19144,11 @@ impl ::core::clone::Clone for NPI_MODULEID_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NPI_MODULEID_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NPI_MODULEID_TYPE {
     type Abi = Self;
 }
@@ -18927,6 +19257,11 @@ impl ::core::marker::Copy for TUNNEL_SUB_TYPE {}
 impl ::core::clone::Clone for TUNNEL_SUB_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TUNNEL_SUB_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TUNNEL_SUB_TYPE {

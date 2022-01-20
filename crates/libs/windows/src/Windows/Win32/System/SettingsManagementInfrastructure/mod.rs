@@ -1231,6 +1231,11 @@ impl ::core::clone::Clone for WcmDataType {
         *self
     }
 }
+impl ::core::default::Default for WcmDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WcmDataType {
     type Abi = Self;
 }
@@ -1251,6 +1256,11 @@ impl ::core::marker::Copy for WcmNamespaceAccess {}
 impl ::core::clone::Clone for WcmNamespaceAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WcmNamespaceAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WcmNamespaceAccess {
@@ -1275,6 +1285,11 @@ impl ::core::marker::Copy for WcmNamespaceEnumerationFlags {}
 impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WcmNamespaceEnumerationFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WcmNamespaceEnumerationFlags {
@@ -1303,6 +1318,11 @@ impl ::core::clone::Clone for WcmRestrictionFacets {
         *self
     }
 }
+impl ::core::default::Default for WcmRestrictionFacets {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WcmRestrictionFacets {
     type Abi = Self;
 }
@@ -1327,6 +1347,11 @@ impl ::core::clone::Clone for WcmSettingType {
         *self
     }
 }
+impl ::core::default::Default for WcmSettingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WcmSettingType {
     type Abi = Self;
 }
@@ -1347,6 +1372,11 @@ impl ::core::marker::Copy for WcmTargetMode {}
 impl ::core::clone::Clone for WcmTargetMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WcmTargetMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WcmTargetMode {
@@ -1375,6 +1405,11 @@ impl ::core::marker::Copy for WcmUserStatus {}
 impl ::core::clone::Clone for WcmUserStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WcmUserStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WcmUserStatus {

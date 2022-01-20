@@ -91,6 +91,11 @@ impl ::core::clone::Clone for PowerSavingMode {
         *self
     }
 }
+impl ::core::default::Default for PowerSavingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PowerSavingMode {
     type Abi = Self;
 }

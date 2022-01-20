@@ -65,6 +65,11 @@ impl ::core::clone::Clone for EAPHOST_AUTH_STATUS {
         *self
     }
 }
+impl ::core::default::Default for EAPHOST_AUTH_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EAPHOST_AUTH_STATUS {
     type Abi = Self;
 }
@@ -449,6 +454,11 @@ impl ::core::clone::Clone for EAP_ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EAP_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -525,6 +535,11 @@ impl ::core::marker::Copy for EAP_AUTHENTICATOR_SEND_TIMEOUT {}
 impl ::core::clone::Clone for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EAP_AUTHENTICATOR_SEND_TIMEOUT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EAP_AUTHENTICATOR_SEND_TIMEOUT {
@@ -651,6 +666,11 @@ impl ::core::marker::Copy for EAP_CONFIG_INPUT_FIELD_TYPE {}
 impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EAP_CONFIG_INPUT_FIELD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_TYPE {
@@ -939,6 +959,11 @@ impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EAP_INTERACTIVE_UI_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_INTERACTIVE_UI_DATA_TYPE {
     type Abi = Self;
 }
@@ -985,6 +1010,11 @@ impl ::core::marker::Copy for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {}
 impl ::core::clone::Clone for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
@@ -1344,6 +1374,11 @@ impl ::core::clone::Clone for EAP_METHOD_PROPERTY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EAP_METHOD_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_TYPE {
     type Abi = Self;
 }
@@ -1501,6 +1536,11 @@ impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE_TYPE {}
 impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_TYPE {
@@ -1741,6 +1781,11 @@ impl ::core::clone::Clone for EapCode {
         *self
     }
 }
+impl ::core::default::Default for EapCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EapCode {
     type Abi = Self;
 }
@@ -1802,6 +1847,11 @@ impl ::core::clone::Clone for EapCredentialType {
         *self
     }
 }
+impl ::core::default::Default for EapCredentialType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EapCredentialType {
     type Abi = Self;
 }
@@ -1860,6 +1910,11 @@ impl ::core::marker::Copy for EapHostPeerAuthParams {}
 impl ::core::clone::Clone for EapHostPeerAuthParams {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EapHostPeerAuthParams {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EapHostPeerAuthParams {
@@ -2349,6 +2404,11 @@ impl ::core::clone::Clone for EapHostPeerMethodResultReason {
         *self
     }
 }
+impl ::core::default::Default for EapHostPeerMethodResultReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EapHostPeerMethodResultReason {
     type Abi = Self;
 }
@@ -2454,6 +2514,11 @@ impl ::core::marker::Copy for EapHostPeerResponseAction {}
 impl ::core::clone::Clone for EapHostPeerResponseAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EapHostPeerResponseAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EapHostPeerResponseAction {
@@ -2602,6 +2667,11 @@ impl ::core::clone::Clone for EapPeerMethodResponseAction {
         *self
     }
 }
+impl ::core::default::Default for EapPeerMethodResponseAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EapPeerMethodResponseAction {
     type Abi = Self;
 }
@@ -2686,6 +2756,11 @@ impl ::core::marker::Copy for EapPeerMethodResultReason {}
 impl ::core::clone::Clone for EapPeerMethodResultReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EapPeerMethodResultReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EapPeerMethodResultReason {
@@ -3417,6 +3492,11 @@ impl ::core::clone::Clone for ISOLATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for ISOLATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ISOLATION_STATE {
     type Abi = Self;
 }
@@ -3594,6 +3674,11 @@ impl ::core::marker::Copy for PPP_EAP_ACTION {}
 impl ::core::clone::Clone for PPP_EAP_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PPP_EAP_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PPP_EAP_ACTION {
@@ -4052,6 +4137,11 @@ impl ::core::marker::Copy for RAS_AUTH_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for RAS_AUTH_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAS_AUTH_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAS_AUTH_ATTRIBUTE_TYPE {

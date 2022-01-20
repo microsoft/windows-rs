@@ -253,6 +253,11 @@ impl ::core::clone::Clone for ProviderAdcChannelMode {
         *self
     }
 }
+impl ::core::default::Default for ProviderAdcChannelMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProviderAdcChannelMode {
     type Abi = Self;
 }

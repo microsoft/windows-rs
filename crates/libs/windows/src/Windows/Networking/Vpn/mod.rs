@@ -2179,6 +2179,11 @@ impl ::core::clone::Clone for VpnAppIdType {
         *self
     }
 }
+impl ::core::default::Default for VpnAppIdType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnAppIdType {
     type Abi = Self;
 }
@@ -2207,6 +2212,11 @@ impl ::core::marker::Copy for VpnAuthenticationMethod {}
 impl ::core::clone::Clone for VpnAuthenticationMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnAuthenticationMethod {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
@@ -2697,6 +2707,11 @@ impl ::core::clone::Clone for VpnChannelActivityEventType {
         *self
     }
 }
+impl ::core::default::Default for VpnChannelActivityEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
     type Abi = Self;
 }
@@ -2914,6 +2929,11 @@ impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
         *self
     }
 }
+impl ::core::default::Default for VpnChannelRequestCredentialsOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
     type Abi = Self;
 }
@@ -3103,6 +3123,11 @@ impl ::core::marker::Copy for VpnCredentialType {}
 impl ::core::clone::Clone for VpnCredentialType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnCredentialType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnCredentialType {
@@ -4578,6 +4603,11 @@ impl ::core::clone::Clone for VpnDataPathType {
         *self
     }
 }
+impl ::core::default::Default for VpnDataPathType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnDataPathType {
     type Abi = Self;
 }
@@ -4848,6 +4878,11 @@ impl ::core::marker::Copy for VpnDomainNameType {}
 impl ::core::clone::Clone for VpnDomainNameType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnDomainNameType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnDomainNameType {
@@ -5148,6 +5183,11 @@ impl ::core::clone::Clone for VpnIPProtocol {
         *self
     }
 }
+impl ::core::default::Default for VpnIPProtocol {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnIPProtocol {
     type Abi = Self;
 }
@@ -5429,6 +5469,11 @@ impl ::core::clone::Clone for VpnManagementConnectionStatus {
         *self
     }
 }
+impl ::core::default::Default for VpnManagementConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
     type Abi = Self;
 }
@@ -5472,6 +5517,11 @@ impl ::core::marker::Copy for VpnManagementErrorStatus {}
 impl ::core::clone::Clone for VpnManagementErrorStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnManagementErrorStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
@@ -6014,6 +6064,11 @@ impl ::core::clone::Clone for VpnNativeProtocolType {
         *self
     }
 }
+impl ::core::default::Default for VpnNativeProtocolType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
     type Abi = Self;
 }
@@ -6357,6 +6412,11 @@ impl ::core::marker::Copy for VpnPacketBufferStatus {}
 impl ::core::clone::Clone for VpnPacketBufferStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnPacketBufferStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
@@ -6981,6 +7041,11 @@ impl ::core::marker::Copy for VpnRoutingPolicyType {}
 impl ::core::clone::Clone for VpnRoutingPolicyType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VpnRoutingPolicyType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {

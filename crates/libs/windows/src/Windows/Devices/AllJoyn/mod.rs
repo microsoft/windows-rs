@@ -811,6 +811,12 @@ impl ::core::clone::Clone for AllJoynAuthenticationMechanism {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for AllJoynAuthenticationMechanism {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynAuthenticationMechanism {
     type Abi = Self;
 }
@@ -1155,6 +1161,12 @@ impl ::core::marker::Copy for AllJoynBusAttachmentState {}
 impl ::core::clone::Clone for AllJoynBusAttachmentState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for AllJoynBusAttachmentState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2947,6 +2959,12 @@ impl ::core::clone::Clone for AllJoynSessionLostReason {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for AllJoynSessionLostReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynSessionLostReason {
     type Abi = Self;
 }
@@ -3372,6 +3390,12 @@ impl ::core::marker::Copy for AllJoynTrafficType {}
 impl ::core::clone::Clone for AllJoynTrafficType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for AllJoynTrafficType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

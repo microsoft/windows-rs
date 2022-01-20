@@ -13,6 +13,11 @@ impl ::core::clone::Clone for COMPARTMENT_ID {
         *self
     }
 }
+impl ::core::default::Default for COMPARTMENT_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMPARTMENT_ID {
     type Abi = Self;
 }
@@ -75,6 +80,11 @@ impl ::core::clone::Clone for EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EVENT_TYPE {
     type Abi = Self;
 }
@@ -99,6 +109,11 @@ impl ::core::marker::Copy for EXCEPTION_DISPOSITION {}
 impl ::core::clone::Clone for EXCEPTION_DISPOSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXCEPTION_DISPOSITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXCEPTION_DISPOSITION {
@@ -356,6 +371,11 @@ impl ::core::marker::Copy for NT_PRODUCT_TYPE {}
 impl ::core::clone::Clone for NT_PRODUCT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NT_PRODUCT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NT_PRODUCT_TYPE {
@@ -1393,6 +1413,11 @@ impl ::core::clone::Clone for SUITE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SUITE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SUITE_TYPE {
     type Abi = Self;
 }
@@ -1413,6 +1438,11 @@ impl ::core::marker::Copy for TIMER_TYPE {}
 impl ::core::clone::Clone for TIMER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TIMER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TIMER_TYPE {
@@ -1441,6 +1471,11 @@ impl ::core::marker::Copy for WAIT_TYPE {}
 impl ::core::clone::Clone for WAIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WAIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WAIT_TYPE {

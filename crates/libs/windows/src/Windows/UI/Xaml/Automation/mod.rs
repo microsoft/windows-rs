@@ -153,6 +153,11 @@ impl ::core::clone::Clone for AnnotationType {
         *self
     }
 }
+impl ::core::default::Default for AnnotationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AnnotationType {
     type Abi = Self;
 }
@@ -180,6 +185,11 @@ impl ::core::marker::Copy for AutomationActiveEnd {}
 impl ::core::clone::Clone for AutomationActiveEnd {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationActiveEnd {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationActiveEnd {
@@ -214,6 +224,11 @@ impl ::core::marker::Copy for AutomationAnimationStyle {}
 impl ::core::clone::Clone for AutomationAnimationStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationAnimationStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationAnimationStyle {
@@ -413,6 +428,11 @@ impl ::core::clone::Clone for AutomationBulletStyle {
         *self
     }
 }
+impl ::core::default::Default for AutomationBulletStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationBulletStyle {
     type Abi = Self;
 }
@@ -439,6 +459,11 @@ impl ::core::marker::Copy for AutomationCaretBidiMode {}
 impl ::core::clone::Clone for AutomationCaretBidiMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationCaretBidiMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationCaretBidiMode {
@@ -468,6 +493,11 @@ impl ::core::marker::Copy for AutomationCaretPosition {}
 impl ::core::clone::Clone for AutomationCaretPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationCaretPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationCaretPosition {
@@ -886,6 +916,11 @@ impl ::core::clone::Clone for AutomationFlowDirections {
         *self
     }
 }
+impl ::core::default::Default for AutomationFlowDirections {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationFlowDirections {
     type Abi = Self;
 }
@@ -915,6 +950,11 @@ impl ::core::marker::Copy for AutomationOutlineStyles {}
 impl ::core::clone::Clone for AutomationOutlineStyles {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationOutlineStyles {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationOutlineStyles {
@@ -1665,6 +1705,11 @@ impl ::core::clone::Clone for AutomationStyleId {
         *self
     }
 }
+impl ::core::default::Default for AutomationStyleId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationStyleId {
     type Abi = Self;
 }
@@ -1710,6 +1755,11 @@ impl ::core::clone::Clone for AutomationTextDecorationLineStyle {
         *self
     }
 }
+impl ::core::default::Default for AutomationTextDecorationLineStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomationTextDecorationLineStyle {
     type Abi = Self;
 }
@@ -1738,6 +1788,11 @@ impl ::core::marker::Copy for AutomationTextEditChangeType {}
 impl ::core::clone::Clone for AutomationTextEditChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomationTextEditChangeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomationTextEditChangeType {
@@ -1855,6 +1910,11 @@ impl ::core::marker::Copy for DockPosition {}
 impl ::core::clone::Clone for DockPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DockPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DockPosition {
@@ -2168,6 +2228,11 @@ impl ::core::marker::Copy for ExpandCollapseState {}
 impl ::core::clone::Clone for ExpandCollapseState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExpandCollapseState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExpandCollapseState {
@@ -3639,6 +3704,11 @@ impl ::core::clone::Clone for RowOrColumnMajor {
         *self
     }
 }
+impl ::core::default::Default for RowOrColumnMajor {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RowOrColumnMajor {
     type Abi = Self;
 }
@@ -3668,6 +3738,11 @@ impl ::core::marker::Copy for ScrollAmount {}
 impl ::core::clone::Clone for ScrollAmount {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ScrollAmount {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ScrollAmount {
@@ -4229,6 +4304,11 @@ impl ::core::clone::Clone for SupportedTextSelection {
         *self
     }
 }
+impl ::core::default::Default for SupportedTextSelection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SupportedTextSelection {
     type Abi = Self;
 }
@@ -4259,6 +4339,11 @@ impl ::core::marker::Copy for SynchronizedInputType {}
 impl ::core::clone::Clone for SynchronizedInputType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SynchronizedInputType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SynchronizedInputType {
@@ -4564,6 +4649,11 @@ impl ::core::marker::Copy for ToggleState {}
 impl ::core::clone::Clone for ToggleState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ToggleState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ToggleState {
@@ -4894,6 +4984,11 @@ impl ::core::clone::Clone for WindowInteractionState {
         *self
     }
 }
+impl ::core::default::Default for WindowInteractionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WindowInteractionState {
     type Abi = Self;
 }
@@ -5043,6 +5138,11 @@ impl ::core::clone::Clone for WindowVisualState {
         *self
     }
 }
+impl ::core::default::Default for WindowVisualState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WindowVisualState {
     type Abi = Self;
 }
@@ -5072,6 +5172,11 @@ impl ::core::marker::Copy for ZoomUnit {}
 impl ::core::clone::Clone for ZoomUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ZoomUnit {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ZoomUnit {

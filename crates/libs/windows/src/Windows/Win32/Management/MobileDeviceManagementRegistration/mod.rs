@@ -364,6 +364,11 @@ impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for REGISTRATION_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REGISTRATION_INFORMATION_CLASS {
     type Abi = Self;
 }

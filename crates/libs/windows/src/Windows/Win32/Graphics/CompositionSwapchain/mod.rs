@@ -60,6 +60,11 @@ impl ::core::clone::Clone for CompositionFrameInstanceKind {
         *self
     }
 }
+impl ::core::default::Default for CompositionFrameInstanceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
     type Abi = Self;
 }
@@ -901,6 +906,11 @@ impl ::core::clone::Clone for PresentStatisticsKind {
         *self
     }
 }
+impl ::core::default::Default for PresentStatisticsKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PresentStatisticsKind {
     type Abi = Self;
 }
@@ -923,6 +933,11 @@ impl ::core::marker::Copy for PresentStatus {}
 impl ::core::clone::Clone for PresentStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PresentStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PresentStatus {

@@ -750,6 +750,11 @@ impl ::core::clone::Clone for IKEV2_ID_PAYLOAD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IKEV2_ID_PAYLOAD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKEV2_ID_PAYLOAD_TYPE {
     type Abi = Self;
 }
@@ -1243,6 +1248,11 @@ impl ::core::clone::Clone for MGM_ENUM_TYPES {
         *self
     }
 }
+impl ::core::default::Default for MGM_ENUM_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MGM_ENUM_TYPES {
     type Abi = Self;
 }
@@ -1458,6 +1468,11 @@ impl ::core::marker::Copy for MPRAPI_OBJECT_TYPE {}
 impl ::core::clone::Clone for MPRAPI_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MPRAPI_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MPRAPI_OBJECT_TYPE {
@@ -1823,6 +1838,11 @@ impl ::core::marker::Copy for MPR_ET {}
 impl ::core::clone::Clone for MPR_ET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MPR_ET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MPR_ET {
@@ -2354,6 +2374,11 @@ impl ::core::clone::Clone for MPR_INTERFACE_DIAL_MODE {
         *self
     }
 }
+impl ::core::default::Default for MPR_INTERFACE_DIAL_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MPR_INTERFACE_DIAL_MODE {
     type Abi = Self;
 }
@@ -2825,6 +2850,11 @@ impl ::core::clone::Clone for MPR_VPN_TS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MPR_VPN_TS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MPR_VPN_TS_TYPE {
     type Abi = Self;
 }
@@ -2851,6 +2881,11 @@ impl ::core::marker::Copy for MPR_VS {}
 impl ::core::clone::Clone for MPR_VS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MPR_VS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MPR_VS {
@@ -5221,6 +5256,11 @@ impl ::core::clone::Clone for PPP_LCP {
         *self
     }
 }
+impl ::core::default::Default for PPP_LCP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PPP_LCP {
     type Abi = Self;
 }
@@ -5341,6 +5381,11 @@ impl ::core::marker::Copy for PPP_LCP_INFO_AUTH_DATA {}
 impl ::core::clone::Clone for PPP_LCP_INFO_AUTH_DATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PPP_LCP_INFO_AUTH_DATA {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PPP_LCP_INFO_AUTH_DATA {
@@ -5871,6 +5916,11 @@ impl ::core::clone::Clone for RASAPIVERSION {
         *self
     }
 }
+impl ::core::default::Default for RASAPIVERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RASAPIVERSION {
     type Abi = Self;
 }
@@ -6157,6 +6207,11 @@ impl ::core::clone::Clone for RASCONNSTATE {
         *self
     }
 }
+impl ::core::default::Default for RASCONNSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RASCONNSTATE {
     type Abi = Self;
 }
@@ -6261,6 +6316,11 @@ impl ::core::marker::Copy for RASCONNSUBSTATE {}
 impl ::core::clone::Clone for RASCONNSUBSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RASCONNSUBSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RASCONNSUBSTATE {
@@ -7217,6 +7277,11 @@ impl ::core::clone::Clone for RASENTRY_DIAL_MODE {
         *self
     }
 }
+impl ::core::default::Default for RASENTRY_DIAL_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RASENTRY_DIAL_MODE {
     type Abi = Self;
 }
@@ -7459,6 +7524,11 @@ impl ::core::marker::Copy for RASIKEV_PROJECTION_INFO_FLAGS {}
 impl ::core::clone::Clone for RASIKEV_PROJECTION_INFO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RASIKEV_PROJECTION_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RASIKEV_PROJECTION_INFO_FLAGS {
@@ -8264,6 +8334,11 @@ impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
         *self
     }
 }
+impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     type Abi = Self;
 }
@@ -8316,6 +8391,11 @@ impl ::core::marker::Copy for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {}
 impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
@@ -8388,6 +8468,11 @@ impl ::core::clone::Clone for RASPROJECTION {
         *self
     }
 }
+impl ::core::default::Default for RASPROJECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RASPROJECTION {
     type Abi = Self;
 }
@@ -8408,6 +8493,11 @@ impl ::core::marker::Copy for RASPROJECTION_INFO_TYPE {}
 impl ::core::clone::Clone for RASPROJECTION_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RASPROJECTION_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RASPROJECTION_INFO_TYPE {
@@ -8952,6 +9042,11 @@ impl ::core::clone::Clone for RAS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RAS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RAS_FLAGS {
     type Abi = Self;
 }
@@ -9002,6 +9097,11 @@ impl ::core::marker::Copy for RAS_HARDWARE_CONDITION {}
 impl ::core::clone::Clone for RAS_HARDWARE_CONDITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAS_HARDWARE_CONDITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAS_HARDWARE_CONDITION {
@@ -9274,6 +9374,11 @@ impl ::core::clone::Clone for RAS_PORT_CONDITION {
         *self
     }
 }
+impl ::core::default::Default for RAS_PORT_CONDITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RAS_PORT_CONDITION {
     type Abi = Self;
 }
@@ -9365,6 +9470,11 @@ impl ::core::marker::Copy for RAS_QUARANTINE_STATE {}
 impl ::core::clone::Clone for RAS_QUARANTINE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAS_QUARANTINE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAS_QUARANTINE_STATE {
@@ -9633,6 +9743,11 @@ impl ::core::clone::Clone for ROUTER_CONNECTION_STATE {
         *self
     }
 }
+impl ::core::default::Default for ROUTER_CONNECTION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ROUTER_CONNECTION_STATE {
     type Abi = Self;
 }
@@ -9829,6 +9944,11 @@ impl ::core::marker::Copy for ROUTER_INTERFACE_TYPE {}
 impl ::core::clone::Clone for ROUTER_INTERFACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ROUTER_INTERFACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ROUTER_INTERFACE_TYPE {
@@ -10236,6 +10356,11 @@ impl ::core::marker::Copy for RTM_EVENT_TYPE {}
 impl ::core::clone::Clone for RTM_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTM_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTM_EVENT_TYPE {
@@ -12789,6 +12914,11 @@ impl ::core::marker::Copy for SECURITY_MESSAGE_MSG_ID {}
 impl ::core::clone::Clone for SECURITY_MESSAGE_MSG_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SECURITY_MESSAGE_MSG_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SECURITY_MESSAGE_MSG_ID {

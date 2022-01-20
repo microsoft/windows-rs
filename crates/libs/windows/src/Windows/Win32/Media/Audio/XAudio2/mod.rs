@@ -431,6 +431,11 @@ impl ::core::clone::Clone for HrtfDirectivityType {
         *self
     }
 }
+impl ::core::default::Default for HrtfDirectivityType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HrtfDirectivityType {
     type Abi = Self;
 }
@@ -487,6 +492,11 @@ impl ::core::clone::Clone for HrtfDistanceDecayType {
         *self
     }
 }
+impl ::core::default::Default for HrtfDistanceDecayType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HrtfDistanceDecayType {
     type Abi = Self;
 }
@@ -511,6 +521,11 @@ impl ::core::marker::Copy for HrtfEnvironment {}
 impl ::core::clone::Clone for HrtfEnvironment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HrtfEnvironment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HrtfEnvironment {
@@ -1782,6 +1797,11 @@ impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for XAPO_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XAPO_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -2382,6 +2402,11 @@ impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
 impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XAUDIO2_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_FILTER_TYPE {

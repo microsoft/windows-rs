@@ -19,6 +19,11 @@ impl ::core::clone::Clone for ATTENDEE_DISCONNECT_REASON {
         *self
     }
 }
+impl ::core::default::Default for ATTENDEE_DISCONNECT_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTENDEE_DISCONNECT_REASON {
     type Abi = Self;
 }
@@ -39,6 +44,11 @@ impl ::core::marker::Copy for CHANNEL_ACCESS_ENUM {}
 impl ::core::clone::Clone for CHANNEL_ACCESS_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHANNEL_ACCESS_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHANNEL_ACCESS_ENUM {
@@ -65,6 +75,11 @@ impl ::core::clone::Clone for CHANNEL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CHANNEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHANNEL_FLAGS {
     type Abi = Self;
 }
@@ -87,6 +102,11 @@ impl ::core::marker::Copy for CHANNEL_PRIORITY {}
 impl ::core::clone::Clone for CHANNEL_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHANNEL_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHANNEL_PRIORITY {
@@ -121,6 +141,11 @@ impl ::core::marker::Copy for CTRL_LEVEL {}
 impl ::core::clone::Clone for CTRL_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CTRL_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CTRL_LEVEL {
@@ -3808,6 +3833,11 @@ impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RDPENCOMAPI_ATTENDEE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RDPENCOMAPI_ATTENDEE_FLAGS {
     type Abi = Self;
 }
@@ -3841,6 +3871,11 @@ impl ::core::clone::Clone for RDPSRAPI_APP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RDPSRAPI_APP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RDPSRAPI_APP_FLAGS {
     type Abi = Self;
 }
@@ -3861,6 +3896,11 @@ impl ::core::marker::Copy for RDPSRAPI_KBD_CODE_TYPE {}
 impl ::core::clone::Clone for RDPSRAPI_KBD_CODE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RDPSRAPI_KBD_CODE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RDPSRAPI_KBD_CODE_TYPE {
@@ -3887,6 +3927,11 @@ impl ::core::marker::Copy for RDPSRAPI_KBD_SYNC_FLAG {}
 impl ::core::clone::Clone for RDPSRAPI_KBD_SYNC_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RDPSRAPI_KBD_SYNC_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RDPSRAPI_KBD_SYNC_FLAG {
@@ -3919,6 +3964,11 @@ impl ::core::clone::Clone for RDPSRAPI_MOUSE_BUTTON_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RDPSRAPI_MOUSE_BUTTON_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RDPSRAPI_MOUSE_BUTTON_TYPE {
     type Abi = Self;
 }
@@ -3937,6 +3987,11 @@ impl ::core::marker::Copy for RDPSRAPI_WND_FLAGS {}
 impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RDPSRAPI_WND_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RDPSRAPI_WND_FLAGS {
@@ -4081,6 +4136,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {}
 impl ::core::clone::Clone for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {

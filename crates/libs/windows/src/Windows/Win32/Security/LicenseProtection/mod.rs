@@ -19,6 +19,11 @@ impl ::core::clone::Clone for LicenseProtectionStatus {
         *self
     }
 }
+impl ::core::default::Default for LicenseProtectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LicenseProtectionStatus {
     type Abi = Self;
 }

@@ -495,6 +495,11 @@ impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY_ACTION {
         *self
     }
 }
+impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type Abi = Self;
 }
@@ -519,6 +524,11 @@ impl ::core::marker::Copy for WINBIO_ASYNC_NOTIFICATION_METHOD {}
 impl ::core::clone::Clone for WINBIO_ASYNC_NOTIFICATION_METHOD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
@@ -1833,6 +1843,11 @@ impl ::core::clone::Clone for WINBIO_COMPONENT {
         *self
     }
 }
+impl ::core::default::Default for WINBIO_COMPONENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_COMPONENT {
     type Abi = Self;
 }
@@ -1885,6 +1900,11 @@ impl ::core::clone::Clone for WINBIO_CREDENTIAL_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for WINBIO_CREDENTIAL_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_FORMAT {
     type Abi = Self;
 }
@@ -1907,6 +1927,11 @@ impl ::core::clone::Clone for WINBIO_CREDENTIAL_STATE {
         *self
     }
 }
+impl ::core::default::Default for WINBIO_CREDENTIAL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_STATE {
     type Abi = Self;
 }
@@ -1927,6 +1952,11 @@ impl ::core::marker::Copy for WINBIO_CREDENTIAL_TYPE {}
 impl ::core::clone::Clone for WINBIO_CREDENTIAL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINBIO_CREDENTIAL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_TYPE {
@@ -4051,6 +4081,11 @@ impl ::core::clone::Clone for WINBIO_POLICY_SOURCE {
         *self
     }
 }
+impl ::core::default::Default for WINBIO_POLICY_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINBIO_POLICY_SOURCE {
     type Abi = Self;
 }
@@ -4071,6 +4106,11 @@ impl ::core::marker::Copy for WINBIO_POOL {}
 impl ::core::clone::Clone for WINBIO_POOL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINBIO_POOL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_POOL {
@@ -4731,6 +4771,11 @@ impl ::core::marker::Copy for WINBIO_SETTING_SOURCE {}
 impl ::core::clone::Clone for WINBIO_SETTING_SOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINBIO_SETTING_SOURCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINBIO_SETTING_SOURCE {

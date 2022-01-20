@@ -18,6 +18,11 @@ impl ::core::clone::Clone for AltitudeReferenceSystem {
         *self
     }
 }
+impl ::core::default::Default for AltitudeReferenceSystem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AltitudeReferenceSystem {
     type Abi = Self;
 }
@@ -877,6 +882,11 @@ impl ::core::clone::Clone for GeolocationAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for GeolocationAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GeolocationAccessStatus {
     type Abi = Self;
 }
@@ -1561,6 +1571,11 @@ impl ::core::marker::Copy for GeoshapeType {}
 impl ::core::clone::Clone for GeoshapeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GeoshapeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GeoshapeType {
@@ -2666,6 +2681,11 @@ impl ::core::clone::Clone for PositionAccuracy {
         *self
     }
 }
+impl ::core::default::Default for PositionAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PositionAccuracy {
     type Abi = Self;
 }
@@ -2780,6 +2800,11 @@ impl ::core::clone::Clone for PositionSource {
         *self
     }
 }
+impl ::core::default::Default for PositionSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PositionSource {
     type Abi = Self;
 }
@@ -2810,6 +2835,11 @@ impl ::core::marker::Copy for PositionStatus {}
 impl ::core::clone::Clone for PositionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PositionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PositionStatus {
@@ -3010,6 +3040,11 @@ impl ::core::clone::Clone for VisitMonitoringScope {
         *self
     }
 }
+impl ::core::default::Default for VisitMonitoringScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VisitMonitoringScope {
     type Abi = Self;
 }
@@ -3038,6 +3073,11 @@ impl ::core::marker::Copy for VisitStateChange {}
 impl ::core::clone::Clone for VisitStateChange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VisitStateChange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VisitStateChange {

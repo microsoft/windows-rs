@@ -20,6 +20,11 @@ impl ::core::clone::Clone for DragDropModifiers {
         *self
     }
 }
+impl ::core::default::Default for DragDropModifiers {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DragDropModifiers {
     type Abi = Self;
 }

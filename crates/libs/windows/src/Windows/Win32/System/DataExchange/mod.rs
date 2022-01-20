@@ -208,6 +208,11 @@ impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for CONVINFO_CONVERSATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONVINFO_CONVERSATION_STATE {
     type Abi = Self;
 }
@@ -270,6 +275,11 @@ impl ::core::marker::Copy for CONVINFO_STATUS {}
 impl ::core::clone::Clone for CONVINFO_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONVINFO_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONVINFO_STATUS {
@@ -651,6 +661,11 @@ impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DDE_CLIENT_TRANSACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DDE_CLIENT_TRANSACTION_TYPE {
     type Abi = Self;
 }
@@ -703,6 +718,11 @@ impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
 impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DDE_ENABLE_CALLBACK_CMD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
@@ -813,6 +833,11 @@ impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
         *self
     }
 }
+impl ::core::default::Default for DDE_INITIALIZE_COMMAND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
     type Abi = Self;
 }
@@ -865,6 +890,11 @@ impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
 impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DDE_NAME_SERVICE_CMD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {

@@ -1161,6 +1161,11 @@ impl ::core::clone::Clone for FocusInputDeviceKind {
         *self
     }
 }
+impl ::core::default::Default for FocusInputDeviceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FocusInputDeviceKind {
     type Abi = Self;
 }
@@ -1706,6 +1711,11 @@ impl ::core::marker::Copy for FocusNavigationDirection {}
 impl ::core::clone::Clone for FocusNavigationDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FocusNavigationDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FocusNavigationDirection {
@@ -4068,6 +4078,11 @@ impl ::core::clone::Clone for InputScopeNameValue {
         *self
     }
 }
+impl ::core::default::Default for InputScopeNameValue {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InputScopeNameValue {
     type Abi = Self;
 }
@@ -4318,6 +4333,11 @@ impl ::core::marker::Copy for KeyTipPlacementMode {}
 impl ::core::clone::Clone for KeyTipPlacementMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeyTipPlacementMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeyTipPlacementMode {
@@ -4667,6 +4687,11 @@ impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
         *self
     }
 }
+impl ::core::default::Default for KeyboardAcceleratorPlacementMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KeyboardAcceleratorPlacementMode {
     type Abi = Self;
 }
@@ -4694,6 +4719,11 @@ impl ::core::marker::Copy for KeyboardNavigationMode {}
 impl ::core::clone::Clone for KeyboardNavigationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KeyboardNavigationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KeyboardNavigationMode {
@@ -5694,6 +5724,11 @@ impl ::core::marker::Copy for ManipulationModes {}
 impl ::core::clone::Clone for ManipulationModes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ManipulationModes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ManipulationModes {
@@ -7325,6 +7360,11 @@ impl ::core::clone::Clone for StandardUICommandKind {
         *self
     }
 }
+impl ::core::default::Default for StandardUICommandKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StandardUICommandKind {
     type Abi = Self;
 }
@@ -7563,6 +7603,11 @@ impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
         *self
     }
 }
+impl ::core::default::Default for XYFocusKeyboardNavigationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XYFocusKeyboardNavigationMode {
     type Abi = Self;
 }
@@ -7591,6 +7636,11 @@ impl ::core::marker::Copy for XYFocusNavigationStrategy {}
 impl ::core::clone::Clone for XYFocusNavigationStrategy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XYFocusNavigationStrategy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategy {
@@ -7622,6 +7672,11 @@ impl ::core::marker::Copy for XYFocusNavigationStrategyOverride {}
 impl ::core::clone::Clone for XYFocusNavigationStrategyOverride {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XYFocusNavigationStrategyOverride {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategyOverride {

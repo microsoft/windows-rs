@@ -17,6 +17,11 @@ impl ::core::clone::Clone for DWMFLIP3DWINDOWPOLICY {
         *self
     }
 }
+impl ::core::default::Default for DWMFLIP3DWINDOWPOLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWMFLIP3DWINDOWPOLICY {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::clone::Clone for DWMNCRENDERINGPOLICY {
         *self
     }
 }
+impl ::core::default::Default for DWMNCRENDERINGPOLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWMNCRENDERINGPOLICY {
     type Abi = Self;
 }
@@ -63,6 +73,11 @@ impl ::core::marker::Copy for DWMTRANSITION_OWNEDWINDOW_TARGET {}
 impl ::core::clone::Clone for DWMTRANSITION_OWNEDWINDOW_TARGET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
@@ -133,6 +148,11 @@ impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
 impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWMWINDOWATTRIBUTE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWMWINDOWATTRIBUTE {
@@ -259,6 +279,11 @@ impl ::core::clone::Clone for DWM_SHOWCONTACT {
         *self
     }
 }
+impl ::core::default::Default for DWM_SHOWCONTACT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWM_SHOWCONTACT {
     type Abi = Self;
 }
@@ -313,6 +338,11 @@ impl ::core::clone::Clone for DWM_SOURCE_FRAME_SAMPLING {
         *self
     }
 }
+impl ::core::default::Default for DWM_SOURCE_FRAME_SAMPLING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DWM_SOURCE_FRAME_SAMPLING {
     type Abi = Self;
 }
@@ -351,6 +381,11 @@ impl ::core::marker::Copy for DWM_TAB_WINDOW_REQUIREMENTS {}
 impl ::core::clone::Clone for DWM_TAB_WINDOW_REQUIREMENTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
@@ -516,6 +551,11 @@ impl ::core::marker::Copy for DWM_WINDOW_CORNER_PREFERENCE {}
 impl ::core::clone::Clone for DWM_WINDOW_CORNER_PREFERENCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DWM_WINDOW_CORNER_PREFERENCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DWM_WINDOW_CORNER_PREFERENCE {
@@ -1022,6 +1062,11 @@ impl ::core::marker::Copy for GESTURE_TYPE {}
 impl ::core::clone::Clone for GESTURE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GESTURE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GESTURE_TYPE {

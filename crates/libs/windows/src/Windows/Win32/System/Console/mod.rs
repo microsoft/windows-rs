@@ -339,6 +339,11 @@ impl ::core::clone::Clone for CONSOLE_MODE {
         *self
     }
 }
+impl ::core::default::Default for CONSOLE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONSOLE_MODE {
     type Abi = Self;
 }
@@ -1846,6 +1851,11 @@ impl ::core::marker::Copy for STD_HANDLE {}
 impl ::core::clone::Clone for STD_HANDLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STD_HANDLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STD_HANDLE {

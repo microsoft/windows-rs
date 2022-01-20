@@ -79,6 +79,11 @@ impl ::core::clone::Clone for WalletItemAppAssociation {
         *self
     }
 }
+impl ::core::default::Default for WalletItemAppAssociation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WalletItemAppAssociation {
     type Abi = Self;
 }

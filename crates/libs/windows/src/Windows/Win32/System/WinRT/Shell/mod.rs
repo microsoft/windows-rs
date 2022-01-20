@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CreateProcessMethod {
         *self
     }
 }
+impl ::core::default::Default for CreateProcessMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CreateProcessMethod {
     type Abi = Self;
 }

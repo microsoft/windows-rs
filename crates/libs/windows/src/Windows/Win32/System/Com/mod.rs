@@ -37,6 +37,11 @@ impl ::core::clone::Clone for ADVF {
         *self
     }
 }
+impl ::core::default::Default for ADVF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADVF {
     type Abi = Self;
 }
@@ -95,6 +100,11 @@ impl ::core::clone::Clone for APTTYPE {
         *self
     }
 }
+impl ::core::default::Default for APTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APTTYPE {
     type Abi = Self;
 }
@@ -127,6 +137,11 @@ impl ::core::marker::Copy for APTTYPEQUALIFIER {}
 impl ::core::clone::Clone for APTTYPEQUALIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APTTYPEQUALIFIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APTTYPEQUALIFIER {
@@ -184,6 +199,11 @@ impl ::core::marker::Copy for ApplicationType {}
 impl ::core::clone::Clone for ApplicationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ApplicationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationType {
@@ -841,6 +861,11 @@ impl ::core::clone::Clone for BINDINFOF {
         *self
     }
 }
+impl ::core::default::Default for BINDINFOF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BINDINFOF {
     type Abi = Self;
 }
@@ -893,6 +918,11 @@ impl ::core::marker::Copy for BIND_FLAGS {}
 impl ::core::clone::Clone for BIND_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BIND_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BIND_FLAGS {
@@ -1156,6 +1186,11 @@ impl ::core::clone::Clone for CALLCONV {
         *self
     }
 }
+impl ::core::default::Default for CALLCONV {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLCONV {
     type Abi = Self;
 }
@@ -1182,6 +1217,11 @@ impl ::core::marker::Copy for CALLTYPE {}
 impl ::core::clone::Clone for CALLTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALLTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALLTYPE {
@@ -1290,6 +1330,11 @@ impl ::core::marker::Copy for CLSCTX {}
 impl ::core::clone::Clone for CLSCTX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CLSCTX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CLSCTX {
@@ -1474,6 +1519,11 @@ impl ::core::clone::Clone for COINIT {
         *self
     }
 }
+impl ::core::default::Default for COINIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COINIT {
     type Abi = Self;
 }
@@ -1522,6 +1572,11 @@ impl ::core::clone::Clone for COINITBASE {
         *self
     }
 }
+impl ::core::default::Default for COINITBASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COINITBASE {
     type Abi = Self;
 }
@@ -1546,6 +1601,11 @@ impl ::core::marker::Copy for COMSD {}
 impl ::core::clone::Clone for COMSD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMSD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMSD {
@@ -1663,6 +1723,11 @@ impl ::core::clone::Clone for COWAIT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for COWAIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COWAIT_FLAGS {
     type Abi = Self;
 }
@@ -1751,6 +1816,11 @@ impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
 impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CO_MARSHALING_CONTEXT_ATTRIBUTES {
@@ -1912,6 +1982,11 @@ impl ::core::marker::Copy for CWMO_FLAGS {}
 impl ::core::clone::Clone for CWMO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CWMO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CWMO_FLAGS {
@@ -3388,6 +3463,11 @@ impl ::core::clone::Clone for DATADIR {
         *self
     }
 }
+impl ::core::default::Default for DATADIR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DATADIR {
     type Abi = Self;
 }
@@ -3424,6 +3504,11 @@ impl ::core::clone::Clone for DCOM_CALL_STATE {
         *self
     }
 }
+impl ::core::default::Default for DCOM_CALL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DCOM_CALL_STATE {
     type Abi = Self;
 }
@@ -3452,6 +3537,11 @@ impl ::core::marker::Copy for DESCKIND {}
 impl ::core::clone::Clone for DESCKIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DESCKIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DESCKIND {
@@ -3521,6 +3611,11 @@ impl ::core::marker::Copy for DVASPECT {}
 impl ::core::clone::Clone for DVASPECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DVASPECT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DVASPECT {
@@ -3719,6 +3814,11 @@ impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
         *self
     }
 }
+impl ::core::default::Default for EOLE_AUTHENTICATION_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EOLE_AUTHENTICATION_CAPABILITIES {
     type Abi = Self;
 }
@@ -3795,6 +3895,11 @@ impl ::core::marker::Copy for EXTCONN {}
 impl ::core::clone::Clone for EXTCONN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EXTCONN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EXTCONN {
@@ -3998,6 +4103,11 @@ impl ::core::clone::Clone for FUNCKIND {
         *self
     }
 }
+impl ::core::default::Default for FUNCKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FUNCKIND {
     type Abi = Self;
 }
@@ -4091,6 +4201,11 @@ impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
         *self
     }
 }
+impl ::core::default::Default for GLOBALOPT_EH_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GLOBALOPT_EH_VALUES {
     type Abi = Self;
 }
@@ -4123,6 +4238,11 @@ impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
 impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_PROPERTIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GLOBALOPT_PROPERTIES {
@@ -4165,6 +4285,11 @@ impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for GLOBALOPT_RO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GLOBALOPT_RO_FLAGS {
     type Abi = Self;
 }
@@ -4185,6 +4310,11 @@ impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
 impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_RPCTP_VALUES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GLOBALOPT_RPCTP_VALUES {
@@ -4209,6 +4339,11 @@ impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
 impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
@@ -8557,6 +8692,11 @@ impl ::core::marker::Copy for INVOKEKIND {}
 impl ::core::clone::Clone for INVOKEKIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INVOKEKIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INVOKEKIND {
@@ -13213,6 +13353,11 @@ impl ::core::clone::Clone for MEMCTX {
         *self
     }
 }
+impl ::core::default::Default for MEMCTX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MEMCTX {
     type Abi = Self;
 }
@@ -13237,6 +13382,11 @@ impl ::core::marker::Copy for MKREDUCE {}
 impl ::core::clone::Clone for MKREDUCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MKREDUCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MKREDUCE {
@@ -13277,6 +13427,11 @@ impl ::core::clone::Clone for MKSYS {
         *self
     }
 }
+impl ::core::default::Default for MKSYS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MKSYS {
     type Abi = Self;
 }
@@ -13305,6 +13460,11 @@ impl ::core::marker::Copy for MSHCTX {}
 impl ::core::clone::Clone for MSHCTX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSHCTX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSHCTX {
@@ -13339,6 +13499,11 @@ impl ::core::marker::Copy for MSHLFLAGS {}
 impl ::core::clone::Clone for MSHLFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSHLFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSHLFLAGS {
@@ -13471,6 +13636,11 @@ impl ::core::clone::Clone for PENDINGMSG {
         *self
     }
 }
+impl ::core::default::Default for PENDINGMSG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PENDINGMSG {
     type Abi = Self;
 }
@@ -13491,6 +13661,11 @@ impl ::core::marker::Copy for PENDINGTYPE {}
 impl ::core::clone::Clone for PENDINGTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PENDINGTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PENDINGTYPE {
@@ -13575,6 +13750,11 @@ impl ::core::clone::Clone for REGCLS {
         *self
     }
 }
+impl ::core::default::Default for REGCLS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REGCLS {
     type Abi = Self;
 }
@@ -13643,6 +13823,11 @@ impl ::core::clone::Clone for RPCOPT_PROPERTIES {
         *self
     }
 }
+impl ::core::default::Default for RPCOPT_PROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPCOPT_PROPERTIES {
     type Abi = Self;
 }
@@ -13665,6 +13850,11 @@ impl ::core::marker::Copy for RPCOPT_SERVER_LOCALITY_VALUES {}
 impl ::core::clone::Clone for RPCOPT_SERVER_LOCALITY_VALUES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPCOPT_SERVER_LOCALITY_VALUES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPCOPT_SERVER_LOCALITY_VALUES {
@@ -13697,6 +13887,11 @@ impl ::core::marker::Copy for RPC_C_AUTHN_LEVEL {}
 impl ::core::clone::Clone for RPC_C_AUTHN_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_C_AUTHN_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_C_AUTHN_LEVEL {
@@ -13753,6 +13948,11 @@ impl ::core::marker::Copy for RPC_C_IMP_LEVEL {}
 impl ::core::clone::Clone for RPC_C_IMP_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_C_IMP_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_C_IMP_LEVEL {
@@ -13941,6 +14141,11 @@ impl ::core::marker::Copy for SERVERCALL {}
 impl ::core::clone::Clone for SERVERCALL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVERCALL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVERCALL {
@@ -14252,6 +14457,11 @@ impl ::core::clone::Clone for STGTY {
         *self
     }
 }
+impl ::core::default::Default for STGTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STGTY {
     type Abi = Self;
 }
@@ -14282,6 +14492,11 @@ impl ::core::marker::Copy for STREAM_SEEK {}
 impl ::core::clone::Clone for STREAM_SEEK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STREAM_SEEK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STREAM_SEEK {
@@ -14338,6 +14553,11 @@ impl ::core::clone::Clone for SYSKIND {
         *self
     }
 }
+impl ::core::default::Default for SYSKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYSKIND {
     type Abi = Self;
 }
@@ -14372,6 +14592,11 @@ impl ::core::marker::Copy for ShutdownType {}
 impl ::core::clone::Clone for ShutdownType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ShutdownType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ShutdownType {
@@ -14484,6 +14709,11 @@ impl ::core::clone::Clone for THDTYPE {
         *self
     }
 }
+impl ::core::default::Default for THDTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for THDTYPE {
     type Abi = Self;
 }
@@ -14551,6 +14781,11 @@ impl ::core::marker::Copy for TYMED {}
 impl ::core::clone::Clone for TYMED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TYMED {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TYMED {
@@ -14705,6 +14940,11 @@ impl ::core::clone::Clone for TYPEKIND {
         *self
     }
 }
+impl ::core::default::Default for TYPEKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TYPEKIND {
     type Abi = Self;
 }
@@ -14735,6 +14975,11 @@ impl ::core::marker::Copy for TYSPEC {}
 impl ::core::clone::Clone for TYSPEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TYSPEC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TYSPEC {
@@ -14789,6 +15034,11 @@ impl ::core::marker::Copy for URI_CREATE_FLAGS {}
 impl ::core::clone::Clone for URI_CREATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for URI_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for URI_CREATE_FLAGS {
@@ -14881,6 +15131,11 @@ impl ::core::marker::Copy for Uri_PROPERTY {}
 impl ::core::clone::Clone for Uri_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Uri_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Uri_PROPERTY {
@@ -15184,6 +15439,11 @@ impl ::core::marker::Copy for VARKIND {}
 impl ::core::clone::Clone for VARKIND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VARKIND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VARKIND {

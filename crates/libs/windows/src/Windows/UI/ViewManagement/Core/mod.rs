@@ -782,6 +782,11 @@ impl ::core::clone::Clone for CoreInputViewKind {
         *self
     }
 }
+impl ::core::default::Default for CoreInputViewKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreInputViewKind {
     type Abi = Self;
 }
@@ -899,6 +904,11 @@ impl ::core::marker::Copy for CoreInputViewOcclusionKind {}
 impl ::core::clone::Clone for CoreInputViewOcclusionKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreInputViewOcclusionKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreInputViewOcclusionKind {
@@ -1221,6 +1231,11 @@ impl ::core::marker::Copy for CoreInputViewXYFocusTransferDirection {}
 impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreInputViewXYFocusTransferDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreInputViewXYFocusTransferDirection {

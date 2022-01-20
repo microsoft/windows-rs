@@ -1118,6 +1118,12 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SettingsEdgeLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
     type Abi = Self;
 }
@@ -1477,6 +1483,11 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
+impl ::core::default::Default for SupportedWebAccountActions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
     type Abi = Self;
 }
@@ -1534,6 +1545,11 @@ impl ::core::marker::Copy for WebAccountAction {}
 impl ::core::clone::Clone for WebAccountAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebAccountAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebAccountAction {

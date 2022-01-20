@@ -679,6 +679,11 @@ impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
         *self
     }
 }
+impl ::core::default::Default for HttpDiagnosticRequestInitiator {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpDiagnosticRequestInitiator {
     type Abi = Self;
 }

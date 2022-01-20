@@ -185,6 +185,11 @@ impl ::core::clone::Clone for PlaylistFormat {
         *self
     }
 }
+impl ::core::default::Default for PlaylistFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlaylistFormat {
     type Abi = Self;
 }

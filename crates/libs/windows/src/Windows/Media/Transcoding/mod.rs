@@ -303,6 +303,11 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for MediaVideoProcessingAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
 }
@@ -429,6 +434,11 @@ impl ::core::marker::Copy for TranscodeFailureReason {}
 impl ::core::clone::Clone for TranscodeFailureReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TranscodeFailureReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TranscodeFailureReason {

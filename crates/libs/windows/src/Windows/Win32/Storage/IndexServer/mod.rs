@@ -45,6 +45,11 @@ impl ::core::clone::Clone for CHUNKSTATE {
         *self
     }
 }
+impl ::core::default::Default for CHUNKSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHUNKSTATE {
     type Abi = Self;
 }
@@ -71,6 +76,11 @@ impl ::core::marker::Copy for CHUNK_BREAKTYPE {}
 impl ::core::clone::Clone for CHUNK_BREAKTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CHUNK_BREAKTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CHUNK_BREAKTYPE {
@@ -469,6 +479,11 @@ impl ::core::clone::Clone for DBKINDENUM {
         *self
     }
 }
+impl ::core::default::Default for DBKINDENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DBKINDENUM {
     type Abi = Self;
 }
@@ -644,6 +659,11 @@ impl ::core::clone::Clone for IFILTER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for IFILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IFILTER_FLAGS {
     type Abi = Self;
 }
@@ -686,6 +706,11 @@ impl ::core::marker::Copy for IFILTER_INIT {}
 impl ::core::clone::Clone for IFILTER_INIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IFILTER_INIT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IFILTER_INIT {
@@ -1062,6 +1087,11 @@ impl ::core::marker::Copy for WORDREP_BREAK_TYPE {}
 impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WORDREP_BREAK_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WORDREP_BREAK_TYPE {

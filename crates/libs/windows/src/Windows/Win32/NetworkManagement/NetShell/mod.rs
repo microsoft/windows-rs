@@ -195,6 +195,11 @@ impl ::core::clone::Clone for NS_CMD_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for NS_CMD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
     type Abi = Self;
 }
@@ -340,6 +345,11 @@ impl ::core::clone::Clone for NS_EVENTS {
         *self
     }
 }
+impl ::core::default::Default for NS_EVENTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NS_EVENTS {
     type Abi = Self;
 }
@@ -453,6 +463,11 @@ impl ::core::clone::Clone for NS_MODE_CHANGE {
         *self
     }
 }
+impl ::core::default::Default for NS_MODE_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
     type Abi = Self;
 }
@@ -477,6 +492,11 @@ impl ::core::marker::Copy for NS_REQS {}
 impl ::core::clone::Clone for NS_REQS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NS_REQS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NS_REQS {

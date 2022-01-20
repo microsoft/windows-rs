@@ -14,6 +14,11 @@ impl ::core::clone::Clone for AEC_INPUT_STREAM {
         *self
     }
 }
+impl ::core::default::Default for AEC_INPUT_STREAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AEC_INPUT_STREAM {
     type Abi = Self;
 }
@@ -48,6 +53,11 @@ impl ::core::clone::Clone for AEC_SYSTEM_MODE {
         *self
     }
 }
+impl ::core::default::Default for AEC_SYSTEM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AEC_SYSTEM_MODE {
     type Abi = Self;
 }
@@ -72,6 +82,11 @@ impl ::core::marker::Copy for AEC_VAD_MODE {}
 impl ::core::clone::Clone for AEC_VAD_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AEC_VAD_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AEC_VAD_MODE {
@@ -248,6 +263,11 @@ impl ::core::clone::Clone for ASF_SELECTION_STATUS {
         *self
     }
 }
+impl ::core::default::Default for ASF_SELECTION_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ASF_SELECTION_STATUS {
     type Abi = Self;
 }
@@ -268,6 +288,11 @@ impl ::core::marker::Copy for ASF_STATUSFLAGS {}
 impl ::core::clone::Clone for ASF_STATUSFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ASF_STATUSFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ASF_STATUSFLAGS {
@@ -880,6 +905,11 @@ impl ::core::marker::Copy for D3D12_BITSTREAM_ENCRYPTION_TYPE {}
 impl ::core::clone::Clone for D3D12_BITSTREAM_ENCRYPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_BITSTREAM_ENCRYPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_BITSTREAM_ENCRYPTION_TYPE {
@@ -2571,6 +2601,11 @@ impl ::core::clone::Clone for D3D12_FEATURE_VIDEO {
         *self
     }
 }
+impl ::core::default::Default for D3D12_FEATURE_VIDEO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_VIDEO {
     type Abi = Self;
 }
@@ -2822,6 +2857,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
     type Abi = Self;
 }
@@ -2918,6 +2958,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
@@ -3066,6 +3111,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     type Abi = Self;
 }
@@ -3158,6 +3208,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
     type Abi = Self;
 }
@@ -3190,6 +3245,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
@@ -3478,6 +3538,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_DECODE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_STATUS {
     type Abi = Self;
 }
@@ -3498,6 +3563,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
@@ -3554,6 +3624,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_TIER {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_DECODE_TIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_TIER {
     type Abi = Self;
 }
@@ -3574,6 +3649,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC {
@@ -3684,6 +3764,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIREC
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
     type Abi = Self;
 }
@@ -3710,6 +3795,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
@@ -3772,6 +3862,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICE
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
     type Abi = Self;
 }
@@ -3804,6 +3899,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICE
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
@@ -3904,6 +4004,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZ
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
     type Abi = Self;
 }
@@ -3936,6 +4041,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
@@ -3990,6 +4100,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZ
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
@@ -4109,6 +4224,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H2
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type Abi = Self;
 }
@@ -4217,6 +4337,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HE
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
@@ -4554,6 +4679,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type Abi = Self;
 }
@@ -4639,6 +4769,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FLAGS {
     type Abi = Self;
 }
@@ -4693,6 +4828,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
@@ -4753,6 +4893,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
     type Abi = Self;
 }
@@ -4777,6 +4922,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
@@ -4828,6 +4978,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_HEAP_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
@@ -4911,6 +5066,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type Abi = Self;
 }
@@ -4969,6 +5129,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_H264 {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVELS_H264 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVELS_H264 {
     type Abi = Self;
 }
@@ -5011,6 +5176,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVELS_HEVC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
@@ -5120,6 +5290,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MO
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
@@ -5360,6 +5535,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H26
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type Abi = Self;
 }
@@ -5548,6 +5728,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEV
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type Abi = Self;
 }
@@ -5631,6 +5816,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
@@ -5904,6 +6094,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_H264 {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_H264 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PROFILE_H264 {
     type Abi = Self;
 }
@@ -5924,6 +6119,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_HEVC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
@@ -6115,6 +6315,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type Abi = Self;
 }
@@ -6169,6 +6374,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
@@ -6510,6 +6720,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type Abi = Self;
 }
@@ -6702,6 +6917,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     type Abi = Self;
 }
@@ -6752,6 +6972,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_TIER_HEVC {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_TIER_HEVC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_TIER_HEVC {
     type Abi = Self;
 }
@@ -6788,6 +7013,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
@@ -6953,6 +7183,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     type Abi = Self;
 }
@@ -7053,6 +7288,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
     type Abi = Self;
 }
@@ -7093,6 +7333,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
     type Abi = Self;
 }
@@ -7115,6 +7360,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_FIELD_TYPE {}
 impl ::core::clone::Clone for D3D12_VIDEO_FIELD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_FIELD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_FIELD_TYPE {
@@ -7178,6 +7428,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
     type Abi = Self;
 }
@@ -7204,6 +7459,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_FRAME_STEREO_FORMAT {}
 impl ::core::clone::Clone for D3D12_VIDEO_FRAME_STEREO_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_FRAME_STEREO_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_FRAME_STEREO_FORMAT {
@@ -7352,6 +7612,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
     type Abi = Self;
 }
@@ -7374,6 +7639,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLA
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
@@ -7424,6 +7694,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
     type Abi = Self;
 }
@@ -7444,6 +7719,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
@@ -7581,6 +7861,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
     type Abi = Self;
 }
@@ -7617,6 +7902,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
@@ -7669,6 +7959,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
@@ -7733,6 +8028,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     type Abi = Self;
 }
@@ -7795,6 +8095,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FILTER {
     type Abi = Self;
 }
@@ -7829,6 +8134,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
@@ -8124,6 +8434,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     type Abi = Self;
 }
@@ -8255,6 +8570,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ORIENTATION {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ORIENTATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_ORIENTATION {
@@ -8440,6 +8760,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type Abi = Self;
 }
@@ -8528,6 +8853,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
@@ -8651,6 +8981,11 @@ impl ::core::marker::Copy for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {}
 impl ::core::clone::Clone for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
@@ -9075,6 +9410,11 @@ impl ::core::clone::Clone for DXVA2_BufferfType {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_BufferfType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_BufferfType {
     type Abi = Self;
 }
@@ -9289,6 +9629,11 @@ impl ::core::clone::Clone for DXVA2_DeinterlaceTech {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_DeinterlaceTech {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_DeinterlaceTech {
     type Abi = Self;
 }
@@ -9313,6 +9658,11 @@ impl ::core::marker::Copy for DXVA2_DestData {}
 impl ::core::clone::Clone for DXVA2_DestData {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_DestData {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_DestData {
@@ -9341,6 +9691,11 @@ impl ::core::marker::Copy for DXVA2_DetailFilterTech {}
 impl ::core::clone::Clone for DXVA2_DetailFilterTech {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_DetailFilterTech {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_DetailFilterTech {
@@ -9472,6 +9827,11 @@ impl ::core::marker::Copy for DXVA2_FilterType {}
 impl ::core::clone::Clone for DXVA2_FilterType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_FilterType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_FilterType {
@@ -9680,6 +10040,11 @@ impl ::core::clone::Clone for DXVA2_NoiseFilterTech {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_NoiseFilterTech {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_NoiseFilterTech {
     type Abi = Self;
 }
@@ -9712,6 +10077,11 @@ impl ::core::clone::Clone for DXVA2_NominalRange {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_NominalRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_NominalRange {
     type Abi = Self;
 }
@@ -9740,6 +10110,11 @@ impl ::core::marker::Copy for DXVA2_ProcAmp {}
 impl ::core::clone::Clone for DXVA2_ProcAmp {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_ProcAmp {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_ProcAmp {
@@ -9796,6 +10171,11 @@ impl ::core::clone::Clone for DXVA2_SampleData {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_SampleData {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_SampleData {
     type Abi = Self;
 }
@@ -9830,6 +10210,11 @@ impl ::core::clone::Clone for DXVA2_SampleFormat {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_SampleFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_SampleFormat {
     type Abi = Self;
 }
@@ -9852,6 +10237,11 @@ impl ::core::marker::Copy for DXVA2_SurfaceType {}
 impl ::core::clone::Clone for DXVA2_SurfaceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_SurfaceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_SurfaceType {
@@ -9878,6 +10268,11 @@ impl ::core::marker::Copy for DXVA2_VPDev {}
 impl ::core::clone::Clone for DXVA2_VPDev {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_VPDev {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_VPDev {
@@ -9944,6 +10339,11 @@ impl ::core::marker::Copy for DXVA2_VideoChromaSubSampling {}
 impl ::core::clone::Clone for DXVA2_VideoChromaSubSampling {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_VideoChromaSubSampling {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_VideoChromaSubSampling {
@@ -10015,6 +10415,11 @@ impl ::core::clone::Clone for DXVA2_VideoLighting {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_VideoLighting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_VideoLighting {
     type Abi = Self;
 }
@@ -10051,6 +10456,11 @@ impl ::core::marker::Copy for DXVA2_VideoPrimaries {}
 impl ::core::clone::Clone for DXVA2_VideoPrimaries {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_VideoPrimaries {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_VideoPrimaries {
@@ -10108,6 +10518,11 @@ impl ::core::marker::Copy for DXVA2_VideoProcess {}
 impl ::core::clone::Clone for DXVA2_VideoProcess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_VideoProcess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_VideoProcess {
@@ -10236,6 +10651,11 @@ impl ::core::clone::Clone for DXVA2_VideoRenderTargetType {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_VideoRenderTargetType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_VideoRenderTargetType {
     type Abi = Self;
 }
@@ -10322,6 +10742,11 @@ impl ::core::clone::Clone for DXVA2_VideoTransferFunction {
         *self
     }
 }
+impl ::core::default::Default for DXVA2_VideoTransferFunction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA2_VideoTransferFunction {
     type Abi = Self;
 }
@@ -10348,6 +10773,11 @@ impl ::core::marker::Copy for DXVA2_VideoTransferMatrix {}
 impl ::core::clone::Clone for DXVA2_VideoTransferMatrix {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA2_VideoTransferMatrix {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA2_VideoTransferMatrix {
@@ -10781,6 +11211,11 @@ impl ::core::clone::Clone for DXVAHD_ALPHA_FILL_MODE {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_ALPHA_FILL_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_ALPHA_FILL_MODE {
     type Abi = Self;
 }
@@ -10809,6 +11244,11 @@ impl ::core::marker::Copy for DXVAHD_BLT_STATE {}
 impl ::core::clone::Clone for DXVAHD_BLT_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_BLT_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE {
@@ -11277,6 +11717,11 @@ impl ::core::clone::Clone for DXVAHD_DEVICE_CAPS {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_DEVICE_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_DEVICE_CAPS {
     type Abi = Self;
 }
@@ -11303,6 +11748,11 @@ impl ::core::clone::Clone for DXVAHD_DEVICE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_DEVICE_TYPE {
     type Abi = Self;
 }
@@ -11325,6 +11775,11 @@ impl ::core::marker::Copy for DXVAHD_DEVICE_USAGE {}
 impl ::core::clone::Clone for DXVAHD_DEVICE_USAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_DEVICE_USAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_DEVICE_USAGE {
@@ -11351,6 +11806,11 @@ impl ::core::marker::Copy for DXVAHD_FEATURE_CAPS {}
 impl ::core::clone::Clone for DXVAHD_FEATURE_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_FEATURE_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_FEATURE_CAPS {
@@ -11385,6 +11845,11 @@ impl ::core::clone::Clone for DXVAHD_FILTER {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_FILTER {
     type Abi = Self;
 }
@@ -11415,6 +11880,11 @@ impl ::core::marker::Copy for DXVAHD_FILTER_CAPS {}
 impl ::core::clone::Clone for DXVAHD_FILTER_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_FILTER_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_FILTER_CAPS {
@@ -11474,6 +11944,11 @@ impl ::core::clone::Clone for DXVAHD_FRAME_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_FRAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_FRAME_FORMAT {
     type Abi = Self;
 }
@@ -11498,6 +11973,11 @@ impl ::core::marker::Copy for DXVAHD_INPUT_FORMAT_CAPS {}
 impl ::core::clone::Clone for DXVAHD_INPUT_FORMAT_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_INPUT_FORMAT_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_INPUT_FORMAT_CAPS {
@@ -11538,6 +12018,11 @@ impl ::core::clone::Clone for DXVAHD_ITELECINE_CAPS {
         *self
     }
 }
+impl ::core::default::Default for DXVAHD_ITELECINE_CAPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVAHD_ITELECINE_CAPS {
     type Abi = Self;
 }
@@ -11560,6 +12045,11 @@ impl ::core::marker::Copy for DXVAHD_OUTPUT_RATE {}
 impl ::core::clone::Clone for DXVAHD_OUTPUT_RATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_OUTPUT_RATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_OUTPUT_RATE {
@@ -11590,6 +12080,11 @@ impl ::core::marker::Copy for DXVAHD_PROCESSOR_CAPS {}
 impl ::core::clone::Clone for DXVAHD_PROCESSOR_CAPS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_PROCESSOR_CAPS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_PROCESSOR_CAPS {
@@ -11727,6 +12222,11 @@ impl ::core::marker::Copy for DXVAHD_STREAM_STATE {}
 impl ::core::clone::Clone for DXVAHD_STREAM_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_STREAM_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE {
@@ -12281,6 +12781,11 @@ impl ::core::marker::Copy for DXVAHD_SURFACE_TYPE {}
 impl ::core::clone::Clone for DXVAHD_SURFACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVAHD_SURFACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVAHD_SURFACE_TYPE {
@@ -12954,6 +13459,11 @@ impl ::core::clone::Clone for DXVA_DeinterlaceTech {
         *self
     }
 }
+impl ::core::default::Default for DXVA_DeinterlaceTech {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_DeinterlaceTech {
     type Abi = Self;
 }
@@ -12980,6 +13490,11 @@ impl ::core::marker::Copy for DXVA_DestinationFlags {}
 impl ::core::clone::Clone for DXVA_DestinationFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_DestinationFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_DestinationFlags {
@@ -13075,6 +13590,11 @@ impl ::core::marker::Copy for DXVA_NominalRange {}
 impl ::core::clone::Clone for DXVA_NominalRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_NominalRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_NominalRange {
@@ -13252,6 +13772,11 @@ impl ::core::clone::Clone for DXVA_ProcAmpControlProp {
         *self
     }
 }
+impl ::core::default::Default for DXVA_ProcAmpControlProp {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_ProcAmpControlProp {
     type Abi = Self;
 }
@@ -13320,6 +13845,11 @@ impl ::core::clone::Clone for DXVA_SampleFlags {
         *self
     }
 }
+impl ::core::default::Default for DXVA_SampleFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_SampleFlags {
     type Abi = Self;
 }
@@ -13354,6 +13884,11 @@ impl ::core::marker::Copy for DXVA_SampleFormat {}
 impl ::core::clone::Clone for DXVA_SampleFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_SampleFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_SampleFormat {
@@ -13394,6 +13929,11 @@ impl ::core::marker::Copy for DXVA_VideoChromaSubsampling {}
 impl ::core::clone::Clone for DXVA_VideoChromaSubsampling {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_VideoChromaSubsampling {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_VideoChromaSubsampling {
@@ -13472,6 +14012,11 @@ impl ::core::clone::Clone for DXVA_VideoLighting {
         *self
     }
 }
+impl ::core::default::Default for DXVA_VideoLighting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_VideoLighting {
     type Abi = Self;
 }
@@ -13512,6 +14057,11 @@ impl ::core::clone::Clone for DXVA_VideoPrimaries {
         *self
     }
 }
+impl ::core::default::Default for DXVA_VideoPrimaries {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_VideoPrimaries {
     type Abi = Self;
 }
@@ -13548,6 +14098,11 @@ impl ::core::marker::Copy for DXVA_VideoProcessCaps {}
 impl ::core::clone::Clone for DXVA_VideoProcessCaps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_VideoProcessCaps {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_VideoProcessCaps {
@@ -13817,6 +14372,11 @@ impl ::core::clone::Clone for DXVA_VideoTransferFunction {
         *self
     }
 }
+impl ::core::default::Default for DXVA_VideoTransferFunction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXVA_VideoTransferFunction {
     type Abi = Self;
 }
@@ -13845,6 +14405,11 @@ impl ::core::marker::Copy for DXVA_VideoTransferMatrix {}
 impl ::core::clone::Clone for DXVA_VideoTransferMatrix {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXVA_VideoTransferMatrix {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXVA_VideoTransferMatrix {
@@ -13876,6 +14441,11 @@ impl ::core::marker::Copy for DeviceStreamState {}
 impl ::core::clone::Clone for DeviceStreamState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceStreamState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceStreamState {
@@ -13936,6 +14506,11 @@ impl ::core::clone::Clone for EAllocationType {
         *self
     }
 }
+impl ::core::default::Default for EAllocationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EAllocationType {
     type Abi = Self;
 }
@@ -13956,6 +14531,11 @@ impl ::core::marker::Copy for EVRFilterConfigPrefs {}
 impl ::core::clone::Clone for EVRFilterConfigPrefs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EVRFilterConfigPrefs {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EVRFilterConfigPrefs {
@@ -13992,6 +14572,11 @@ impl ::core::clone::Clone for FILE_ACCESSMODE {
         *self
     }
 }
+impl ::core::default::Default for FILE_ACCESSMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FILE_ACCESSMODE {
     type Abi = Self;
 }
@@ -14018,6 +14603,11 @@ impl ::core::marker::Copy for FILE_OPENMODE {}
 impl ::core::clone::Clone for FILE_OPENMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILE_OPENMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILE_OPENMODE {
@@ -50353,6 +50943,11 @@ impl ::core::clone::Clone for KSMETHOD_OPMVIDEOOUTPUT {
         *self
     }
 }
+impl ::core::default::Default for KSMETHOD_OPMVIDEOOUTPUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KSMETHOD_OPMVIDEOOUTPUT {
     type Abi = Self;
 }
@@ -50500,6 +51095,11 @@ impl ::core::clone::Clone for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     type Abi = Self;
 }
@@ -50557,6 +51157,11 @@ impl ::core::clone::Clone for MF2DBuffer_LockFlags {
         *self
     }
 }
+impl ::core::default::Default for MF2DBuffer_LockFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF2DBuffer_LockFlags {
     type Abi = Self;
 }
@@ -50577,6 +51182,11 @@ impl ::core::marker::Copy for MF3DVideoOutputType {}
 impl ::core::clone::Clone for MF3DVideoOutputType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF3DVideoOutputType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF3DVideoOutputType {
@@ -50662,6 +51272,11 @@ impl ::core::clone::Clone for MFASF_INDEXER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFASF_INDEXER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFASF_INDEXER_FLAGS {
     type Abi = Self;
 }
@@ -50684,6 +51299,11 @@ impl ::core::marker::Copy for MFASF_MULTIPLEXERFLAGS {}
 impl ::core::clone::Clone for MFASF_MULTIPLEXERFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFASF_MULTIPLEXERFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFASF_MULTIPLEXERFLAGS {
@@ -50712,6 +51332,11 @@ impl ::core::clone::Clone for MFASF_SPLITTERFLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFASF_SPLITTERFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFASF_SPLITTERFLAGS {
     type Abi = Self;
 }
@@ -50732,6 +51357,11 @@ impl ::core::marker::Copy for MFASF_STREAMSELECTOR_FLAGS {}
 impl ::core::clone::Clone for MFASF_STREAMSELECTOR_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFASF_STREAMSELECTOR_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFASF_STREAMSELECTOR_FLAGS {
@@ -50878,6 +51508,11 @@ impl ::core::clone::Clone for MFASYNC_WORKQUEUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MFASYNC_WORKQUEUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFASYNC_WORKQUEUE_TYPE {
     type Abi = Self;
 }
@@ -50997,6 +51632,11 @@ impl ::core::marker::Copy for MFAudioConstriction {}
 impl ::core::clone::Clone for MFAudioConstriction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFAudioConstriction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFAudioConstriction {
@@ -51163,6 +51803,11 @@ impl ::core::clone::Clone for MFBYTESTREAM_SEEK_ORIGIN {
         *self
     }
 }
+impl ::core::default::Default for MFBYTESTREAM_SEEK_ORIGIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFBYTESTREAM_SEEK_ORIGIN {
     type Abi = Self;
 }
@@ -51255,6 +51900,11 @@ impl ::core::clone::Clone for MFCLOCK_CHARACTERISTICS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFCLOCK_CHARACTERISTICS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFCLOCK_CHARACTERISTICS_FLAGS {
     type Abi = Self;
 }
@@ -51318,6 +51968,11 @@ impl ::core::clone::Clone for MFCLOCK_RELATIONAL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFCLOCK_RELATIONAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFCLOCK_RELATIONAL_FLAGS {
     type Abi = Self;
 }
@@ -51342,6 +51997,11 @@ impl ::core::marker::Copy for MFCLOCK_STATE {}
 impl ::core::clone::Clone for MFCLOCK_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFCLOCK_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFCLOCK_STATE {
@@ -51735,6 +52395,11 @@ impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModelType {
         *self
     }
 }
+impl ::core::default::Default for MFCameraIntrinsic_DistortionModelType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModelType {
     type Abi = Self;
 }
@@ -51788,6 +52453,11 @@ impl ::core::marker::Copy for MFCameraOcclusionState {}
 impl ::core::clone::Clone for MFCameraOcclusionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFCameraOcclusionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFCameraOcclusionState {
@@ -53803,6 +54473,11 @@ impl ::core::clone::Clone for MFDepthMeasurement {
         *self
     }
 }
+impl ::core::default::Default for MFDepthMeasurement {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFDepthMeasurement {
     type Abi = Self;
 }
@@ -54009,6 +54684,11 @@ impl ::core::marker::Copy for MFFrameSourceTypes {}
 impl ::core::clone::Clone for MFFrameSourceTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFFrameSourceTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFFrameSourceTypes {
@@ -54728,6 +55408,11 @@ impl ::core::clone::Clone for MFMEDIASOURCE_CHARACTERISTICS {
         *self
     }
 }
+impl ::core::default::Default for MFMEDIASOURCE_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFMEDIASOURCE_CHARACTERISTICS {
     type Abi = Self;
 }
@@ -54903,6 +55588,11 @@ impl ::core::clone::Clone for MFNETSOURCE_CACHE_STATE {
         *self
     }
 }
+impl ::core::default::Default for MFNETSOURCE_CACHE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFNETSOURCE_CACHE_STATE {
     type Abi = Self;
 }
@@ -54957,6 +55647,11 @@ impl ::core::marker::Copy for MFNETSOURCE_PROTOCOL_TYPE {}
 impl ::core::clone::Clone for MFNETSOURCE_PROTOCOL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFNETSOURCE_PROTOCOL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFNETSOURCE_PROTOCOL_TYPE {
@@ -55049,6 +55744,11 @@ impl ::core::clone::Clone for MFNETSOURCE_STATISTICS_IDS {
         *self
     }
 }
+impl ::core::default::Default for MFNETSOURCE_STATISTICS_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFNETSOURCE_STATISTICS_IDS {
     type Abi = Self;
 }
@@ -55073,6 +55773,11 @@ impl ::core::marker::Copy for MFNETSOURCE_TRANSPORT_TYPE {}
 impl ::core::clone::Clone for MFNETSOURCE_TRANSPORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFNETSOURCE_TRANSPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFNETSOURCE_TRANSPORT_TYPE {
@@ -55102,6 +55807,11 @@ impl ::core::clone::Clone for MFNET_PROXYSETTINGS {
         *self
     }
 }
+impl ::core::default::Default for MFNET_PROXYSETTINGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFNET_PROXYSETTINGS {
     type Abi = Self;
 }
@@ -55125,6 +55835,11 @@ impl ::core::marker::Copy for MFNetAuthenticationFlags {}
 impl ::core::clone::Clone for MFNetAuthenticationFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFNetAuthenticationFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFNetAuthenticationFlags {
@@ -55196,6 +55911,11 @@ impl ::core::clone::Clone for MFNetCredentialOptions {
         *self
     }
 }
+impl ::core::default::Default for MFNetCredentialOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFNetCredentialOptions {
     type Abi = Self;
 }
@@ -55216,6 +55936,11 @@ impl ::core::marker::Copy for MFNetCredentialRequirements {}
 impl ::core::clone::Clone for MFNetCredentialRequirements {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFNetCredentialRequirements {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFNetCredentialRequirements {
@@ -55252,6 +55977,11 @@ impl ::core::marker::Copy for MFNominalRange {}
 impl ::core::clone::Clone for MFNominalRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFNominalRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFNominalRange {
@@ -55325,6 +56055,11 @@ impl ::core::clone::Clone for MFPMPSESSION_CREATION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFPMPSESSION_CREATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFPMPSESSION_CREATION_FLAGS {
     type Abi = Self;
 }
@@ -55359,6 +56094,11 @@ impl ::core::marker::Copy for MFPOLICYMANAGER_ACTION {}
 impl ::core::clone::Clone for MFPOLICYMANAGER_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFPOLICYMANAGER_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFPOLICYMANAGER_ACTION {
@@ -55475,6 +56215,11 @@ impl ::core::marker::Copy for MFP_CREATION_OPTIONS {}
 impl ::core::clone::Clone for MFP_CREATION_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFP_CREATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFP_CREATION_OPTIONS {
@@ -55601,6 +56346,11 @@ impl ::core::marker::Copy for MFP_EVENT_TYPE {}
 impl ::core::clone::Clone for MFP_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFP_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFP_EVENT_TYPE {
@@ -55778,6 +56528,11 @@ impl ::core::marker::Copy for MFP_MEDIAPLAYER_STATE {}
 impl ::core::clone::Clone for MFP_MEDIAPLAYER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFP_MEDIAPLAYER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFP_MEDIAPLAYER_STATE {
@@ -56227,6 +56982,11 @@ impl ::core::clone::Clone for MFRATE_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for MFRATE_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFRATE_DIRECTION {
     type Abi = Self;
 }
@@ -56432,6 +57192,11 @@ impl ::core::clone::Clone for MFSESSION_GETFULLTOPOLOGY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFSESSION_GETFULLTOPOLOGY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSESSION_GETFULLTOPOLOGY_FLAGS {
     type Abi = Self;
 }
@@ -56456,6 +57221,11 @@ impl ::core::clone::Clone for MFSESSION_SETTOPOLOGY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFSESSION_SETTOPOLOGY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSESSION_SETTOPOLOGY_FLAGS {
     type Abi = Self;
 }
@@ -56476,6 +57246,11 @@ impl ::core::marker::Copy for MFSHUTDOWN_STATUS {}
 impl ::core::clone::Clone for MFSHUTDOWN_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFSHUTDOWN_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFSHUTDOWN_STATUS {
@@ -56504,6 +57279,11 @@ impl ::core::marker::Copy for MFSINK_WMDRMACTION {}
 impl ::core::clone::Clone for MFSINK_WMDRMACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFSINK_WMDRMACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFSINK_WMDRMACTION {
@@ -56538,6 +57318,11 @@ impl ::core::clone::Clone for MFSTREAMSINK_MARKER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MFSTREAMSINK_MARKER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSTREAMSINK_MARKER_TYPE {
     type Abi = Self;
 }
@@ -56562,6 +57347,11 @@ impl ::core::clone::Clone for MFSampleAllocatorUsage {
         *self
     }
 }
+impl ::core::default::Default for MFSampleAllocatorUsage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSampleAllocatorUsage {
     type Abi = Self;
 }
@@ -56584,6 +57374,11 @@ impl ::core::marker::Copy for MFSampleEncryptionProtectionScheme {}
 impl ::core::clone::Clone for MFSampleEncryptionProtectionScheme {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFSampleEncryptionProtectionScheme {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFSampleEncryptionProtectionScheme {
@@ -56713,6 +57508,11 @@ impl ::core::clone::Clone for MFSensorDeviceMode {
         *self
     }
 }
+impl ::core::default::Default for MFSensorDeviceMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSensorDeviceMode {
     type Abi = Self;
 }
@@ -56741,6 +57541,11 @@ impl ::core::clone::Clone for MFSensorDeviceType {
         *self
     }
 }
+impl ::core::default::Default for MFSensorDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSensorDeviceType {
     type Abi = Self;
 }
@@ -56765,6 +57570,11 @@ impl ::core::clone::Clone for MFSensorStreamType {
         *self
     }
 }
+impl ::core::default::Default for MFSensorStreamType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFSensorStreamType {
     type Abi = Self;
 }
@@ -56783,6 +57593,11 @@ impl ::core::marker::Copy for MFSequencerTopologyFlags {}
 impl ::core::clone::Clone for MFSequencerTopologyFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFSequencerTopologyFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFSequencerTopologyFlags {
@@ -56894,6 +57709,11 @@ impl ::core::clone::Clone for MFStandardVideoFormat {
         *self
     }
 }
+impl ::core::default::Default for MFStandardVideoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFStandardVideoFormat {
     type Abi = Self;
 }
@@ -56999,6 +57819,11 @@ impl ::core::clone::Clone for MFTIMER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MFTIMER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFTIMER_FLAGS {
     type Abi = Self;
 }
@@ -57023,6 +57848,11 @@ impl ::core::clone::Clone for MFTOPOLOGY_DXVA_MODE {
         *self
     }
 }
+impl ::core::default::Default for MFTOPOLOGY_DXVA_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFTOPOLOGY_DXVA_MODE {
     type Abi = Self;
 }
@@ -57045,6 +57875,11 @@ impl ::core::marker::Copy for MFTOPOLOGY_HARDWARE_MODE {}
 impl ::core::clone::Clone for MFTOPOLOGY_HARDWARE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFTOPOLOGY_HARDWARE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFTOPOLOGY_HARDWARE_MODE {
@@ -57214,6 +58049,11 @@ impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_REASON {
         *self
     }
 }
+impl ::core::default::Default for MFT_AUDIO_DECODER_DEGRADATION_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFT_AUDIO_DECODER_DEGRADATION_REASON {
     type Abi = Self;
 }
@@ -57238,6 +58078,11 @@ impl ::core::marker::Copy for MFT_AUDIO_DECODER_DEGRADATION_TYPE {}
 impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
@@ -57280,6 +58125,11 @@ impl ::core::marker::Copy for MFT_DRAIN_TYPE {}
 impl ::core::clone::Clone for MFT_DRAIN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFT_DRAIN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFT_DRAIN_TYPE {
@@ -57375,6 +58225,11 @@ impl ::core::marker::Copy for MFT_MESSAGE_TYPE {}
 impl ::core::clone::Clone for MFT_MESSAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFT_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFT_MESSAGE_TYPE {
@@ -57730,6 +58585,11 @@ impl ::core::clone::Clone for MFVP_MESSAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MFVP_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVP_MESSAGE_TYPE {
     type Abi = Self;
 }
@@ -57770,6 +58630,11 @@ impl ::core::clone::Clone for MFVideo3DFormat {
         *self
     }
 }
+impl ::core::default::Default for MFVideo3DFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideo3DFormat {
     type Abi = Self;
 }
@@ -57790,6 +58655,11 @@ impl ::core::marker::Copy for MFVideo3DSampleFormat {}
 impl ::core::clone::Clone for MFVideo3DSampleFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideo3DSampleFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideo3DSampleFormat {
@@ -57885,6 +58755,11 @@ impl ::core::marker::Copy for MFVideoAlphaBitmapFlags {}
 impl ::core::clone::Clone for MFVideoAlphaBitmapFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoAlphaBitmapFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoAlphaBitmapFlags {
@@ -57998,6 +58873,11 @@ impl ::core::clone::Clone for MFVideoAspectRatioMode {
         *self
     }
 }
+impl ::core::default::Default for MFVideoAspectRatioMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoAspectRatioMode {
     type Abi = Self;
 }
@@ -58036,6 +58916,11 @@ impl ::core::marker::Copy for MFVideoChromaSubsampling {}
 impl ::core::clone::Clone for MFVideoChromaSubsampling {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoChromaSubsampling {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoChromaSubsampling {
@@ -58094,6 +58979,11 @@ impl ::core::clone::Clone for MFVideoDRMFlags {
         *self
     }
 }
+impl ::core::default::Default for MFVideoDRMFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoDRMFlags {
     type Abi = Self;
 }
@@ -58114,6 +59004,11 @@ impl ::core::marker::Copy for MFVideoDSPMode {}
 impl ::core::clone::Clone for MFVideoDSPMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoDSPMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoDSPMode {
@@ -58172,6 +59067,11 @@ impl ::core::marker::Copy for MFVideoFlags {}
 impl ::core::clone::Clone for MFVideoFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoFlags {
@@ -58351,6 +59251,11 @@ impl ::core::clone::Clone for MFVideoInterlaceMode {
         *self
     }
 }
+impl ::core::default::Default for MFVideoInterlaceMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoInterlaceMode {
     type Abi = Self;
 }
@@ -58383,6 +59288,11 @@ impl ::core::clone::Clone for MFVideoLighting {
         *self
     }
 }
+impl ::core::default::Default for MFVideoLighting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoLighting {
     type Abi = Self;
 }
@@ -58411,6 +59321,11 @@ impl ::core::marker::Copy for MFVideoMixPrefs {}
 impl ::core::clone::Clone for MFVideoMixPrefs {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoMixPrefs {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoMixPrefs {
@@ -58470,6 +59385,11 @@ impl ::core::clone::Clone for MFVideoPadFlags {
         *self
     }
 }
+impl ::core::default::Default for MFVideoPadFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoPadFlags {
     type Abi = Self;
 }
@@ -58518,6 +59438,11 @@ impl ::core::clone::Clone for MFVideoPrimaries {
         *self
     }
 }
+impl ::core::default::Default for MFVideoPrimaries {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoPrimaries {
     type Abi = Self;
 }
@@ -58556,6 +59481,11 @@ impl ::core::clone::Clone for MFVideoRenderPrefs {
         *self
     }
 }
+impl ::core::default::Default for MFVideoRenderPrefs {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoRenderPrefs {
     type Abi = Self;
 }
@@ -58580,6 +59510,11 @@ impl ::core::marker::Copy for MFVideoRotationFormat {}
 impl ::core::clone::Clone for MFVideoRotationFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoRotationFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoRotationFormat {
@@ -58608,6 +59543,11 @@ impl ::core::clone::Clone for MFVideoSphericalFormat {
         *self
     }
 }
+impl ::core::default::Default for MFVideoSphericalFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoSphericalFormat {
     type Abi = Self;
 }
@@ -58628,6 +59568,11 @@ impl ::core::marker::Copy for MFVideoSphericalProjectionMode {}
 impl ::core::clone::Clone for MFVideoSphericalProjectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoSphericalProjectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoSphericalProjectionMode {
@@ -58652,6 +59597,11 @@ impl ::core::marker::Copy for MFVideoSrcContentHintFlags {}
 impl ::core::clone::Clone for MFVideoSrcContentHintFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFVideoSrcContentHintFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFVideoSrcContentHintFlags {
@@ -58739,6 +59689,11 @@ impl ::core::clone::Clone for MFVideoTransferFunction {
         *self
     }
 }
+impl ::core::default::Default for MFVideoTransferFunction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoTransferFunction {
     type Abi = Self;
 }
@@ -58773,6 +59728,11 @@ impl ::core::clone::Clone for MFVideoTransferMatrix {
         *self
     }
 }
+impl ::core::default::Default for MFVideoTransferMatrix {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MFVideoTransferMatrix {
     type Abi = Self;
 }
@@ -58793,6 +59753,11 @@ impl ::core::marker::Copy for MFWaveFormatExConvertFlags {}
 impl ::core::clone::Clone for MFWaveFormatExConvertFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MFWaveFormatExConvertFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MFWaveFormatExConvertFlags {
@@ -58859,6 +59824,11 @@ impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_MIXER {
         *self
     }
 }
+impl ::core::default::Default for MF_ACTIVATE_CUSTOM_MIXER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_ACTIVATE_CUSTOM_MIXER {
     type Abi = Self;
 }
@@ -58877,6 +59847,11 @@ impl ::core::marker::Copy for MF_ACTIVATE_CUSTOM_PRESENTER {}
 impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_PRESENTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_ACTIVATE_CUSTOM_PRESENTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_ACTIVATE_CUSTOM_PRESENTER {
@@ -58921,6 +59896,11 @@ impl ::core::clone::Clone for MF_ATTRIBUTES_MATCH_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_ATTRIBUTES_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_ATTRIBUTES_MATCH_TYPE {
     type Abi = Self;
 }
@@ -58939,6 +59919,11 @@ impl ::core::marker::Copy for MF_ATTRIBUTE_SERIALIZE_OPTIONS {}
 impl ::core::clone::Clone for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
@@ -58971,6 +59956,11 @@ impl ::core::marker::Copy for MF_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for MF_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_ATTRIBUTE_TYPE {
@@ -59008,6 +59998,11 @@ impl ::core::marker::Copy for MF_AUVRHP_ROOMMODEL {}
 impl ::core::clone::Clone for MF_AUVRHP_ROOMMODEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_AUVRHP_ROOMMODEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_AUVRHP_ROOMMODEL {
@@ -59078,6 +60073,11 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
         *self
     }
 }
+impl ::core::default::Default for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     type Abi = Self;
 }
@@ -59102,6 +60102,11 @@ impl ::core::marker::Copy for MF_CAPTURE_ENGINE_DEVICE_TYPE {}
 impl ::core::clone::Clone for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_CAPTURE_ENGINE_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_DEVICE_TYPE {
@@ -59150,6 +60155,11 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     type Abi = Self;
 }
@@ -59186,6 +60196,11 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SINK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_CAPTURE_ENGINE_SINK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_SINK_TYPE {
     type Abi = Self;
 }
@@ -59214,6 +60229,11 @@ impl ::core::marker::Copy for MF_CAPTURE_ENGINE_SOURCE {}
 impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_CAPTURE_ENGINE_SOURCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_SOURCE {
@@ -59274,6 +60294,11 @@ impl ::core::marker::Copy for MF_CAPTURE_ENGINE_STREAM_CATEGORY {}
 impl ::core::clone::Clone for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
@@ -59351,6 +60376,11 @@ impl ::core::clone::Clone for MF_CONNECT_METHOD {
         *self
     }
 }
+impl ::core::default::Default for MF_CONNECT_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_CONNECT_METHOD {
     type Abi = Self;
 }
@@ -59378,6 +60408,11 @@ impl ::core::clone::Clone for MF_CROSS_ORIGIN_POLICY {
         *self
     }
 }
+impl ::core::default::Default for MF_CROSS_ORIGIN_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_CROSS_ORIGIN_POLICY {
     type Abi = Self;
 }
@@ -59398,6 +60433,11 @@ impl ::core::marker::Copy for MF_CUSTOM_DECODE_UNIT_TYPE {}
 impl ::core::clone::Clone for MF_CUSTOM_DECODE_UNIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_CUSTOM_DECODE_UNIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_CUSTOM_DECODE_UNIT_TYPE {
@@ -59725,6 +60765,11 @@ impl ::core::marker::Copy for MF_EVENT_TYPE {}
 impl ::core::clone::Clone for MF_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_EVENT_TYPE {
@@ -60427,6 +61472,11 @@ impl ::core::clone::Clone for MF_FILE_ACCESSMODE {
         *self
     }
 }
+impl ::core::default::Default for MF_FILE_ACCESSMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_FILE_ACCESSMODE {
     type Abi = Self;
 }
@@ -60449,6 +61499,11 @@ impl ::core::marker::Copy for MF_FILE_FLAGS {}
 impl ::core::clone::Clone for MF_FILE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_FILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_FILE_FLAGS {
@@ -60477,6 +61532,11 @@ impl ::core::marker::Copy for MF_FILE_OPENMODE {}
 impl ::core::clone::Clone for MF_FILE_OPENMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_FILE_OPENMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_FILE_OPENMODE {
@@ -60576,6 +61636,11 @@ impl ::core::clone::Clone for MF_HDCP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for MF_HDCP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_HDCP_STATUS {
     type Abi = Self;
 }
@@ -60666,6 +61731,11 @@ impl ::core::clone::Clone for MF_MEDIAKEYSESSION_MESSAGETYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIAKEYSESSION_MESSAGETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIAKEYSESSION_MESSAGETYPE {
     type Abi = Self;
 }
@@ -60692,6 +61762,11 @@ impl ::core::clone::Clone for MF_MEDIAKEYSESSION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIAKEYSESSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIAKEYSESSION_TYPE {
     type Abi = Self;
 }
@@ -60714,6 +61789,11 @@ impl ::core::marker::Copy for MF_MEDIAKEYS_REQUIREMENT {}
 impl ::core::clone::Clone for MF_MEDIAKEYS_REQUIREMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIAKEYS_REQUIREMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIAKEYS_REQUIREMENT {
@@ -60748,6 +61828,11 @@ impl ::core::marker::Copy for MF_MEDIAKEY_STATUS {}
 impl ::core::clone::Clone for MF_MEDIAKEY_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIAKEY_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIAKEY_STATUS {
@@ -60795,6 +61880,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_CANPLAY {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_CANPLAY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_CANPLAY {
     type Abi = Self;
 }
@@ -60832,6 +61922,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_CREATEFLAGS {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_CREATEFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_CREATEFLAGS {
     type Abi = Self;
 }
@@ -60862,6 +61957,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_ERR {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_ERR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_ERR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_ERR {
@@ -60960,6 +62060,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_EVENT {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_EVENT {
     type Abi = Self;
 }
@@ -60981,6 +62086,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_EXTENSION_TYPE {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_EXTENSION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_EXTENSION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_EXTENSION_TYPE {
@@ -61005,6 +62115,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
@@ -61037,6 +62152,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_KEYERR {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_KEYERR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_KEYERR {
     type Abi = Self;
 }
@@ -61063,6 +62183,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_NETWORK {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_NETWORK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_NETWORK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_NETWORK {
@@ -61096,6 +62221,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_OPM_STATUS {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_OPM_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_OPM_STATUS {
     type Abi = Self;
 }
@@ -61126,6 +62256,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_PRELOAD {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_PRELOAD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_PRELOAD {
     type Abi = Self;
 }
@@ -61148,6 +62283,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_PROTECTION_FLAGS {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
@@ -61178,6 +62318,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_READY {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_READY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_READY {
     type Abi = Self;
 }
@@ -61202,6 +62347,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
     type Abi = Self;
 }
@@ -61222,6 +62372,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_SEEK_MODE {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_SEEK_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_SEEK_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_SEEK_MODE {
@@ -61259,6 +62414,11 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_STATISTIC {
         *self
     }
 }
+impl ::core::default::Default for MF_MEDIA_ENGINE_STATISTIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_STATISTIC {
     type Abi = Self;
 }
@@ -61281,6 +62441,11 @@ impl ::core::marker::Copy for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {}
 impl ::core::clone::Clone for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
@@ -61310,6 +62475,11 @@ impl ::core::marker::Copy for MF_MEDIA_SHARING_ENGINE_EVENT {}
 impl ::core::clone::Clone for MF_MEDIA_SHARING_ENGINE_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MEDIA_SHARING_ENGINE_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MEDIA_SHARING_ENGINE_EVENT {
@@ -61355,6 +62525,11 @@ impl ::core::clone::Clone for MF_MSE_APPEND_MODE {
         *self
     }
 }
+impl ::core::default::Default for MF_MSE_APPEND_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MSE_APPEND_MODE {
     type Abi = Self;
 }
@@ -61383,6 +62558,11 @@ impl ::core::clone::Clone for MF_MSE_ERROR {
         *self
     }
 }
+impl ::core::default::Default for MF_MSE_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MSE_ERROR {
     type Abi = Self;
 }
@@ -61404,6 +62584,11 @@ impl ::core::marker::Copy for MF_MSE_OPUS_SUPPORT_TYPE {}
 impl ::core::clone::Clone for MF_MSE_OPUS_SUPPORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MSE_OPUS_SUPPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MSE_OPUS_SUPPORT_TYPE {
@@ -61430,6 +62615,11 @@ impl ::core::clone::Clone for MF_MSE_READY {
         *self
     }
 }
+impl ::core::default::Default for MF_MSE_READY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_MSE_READY {
     type Abi = Self;
 }
@@ -61453,6 +62643,11 @@ impl ::core::marker::Copy for MF_MSE_VP9_SUPPORT_TYPE {}
 impl ::core::clone::Clone for MF_MSE_VP9_SUPPORT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MSE_VP9_SUPPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MSE_VP9_SUPPORT_TYPE {
@@ -61512,6 +62707,11 @@ impl ::core::marker::Copy for MF_MT_D3D_RESOURCE_VERSION_ENUM {}
 impl ::core::clone::Clone for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_MT_D3D_RESOURCE_VERSION_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_MT_D3D_RESOURCE_VERSION_ENUM {
@@ -61639,6 +62839,11 @@ impl ::core::clone::Clone for MF_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -61665,6 +62870,11 @@ impl ::core::marker::Copy for MF_OPM_ACP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for MF_OPM_ACP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_OPM_ACP_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_OPM_ACP_PROTECTION_LEVEL {
@@ -61695,6 +62905,11 @@ impl ::core::marker::Copy for MF_OPM_CGMSA_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for MF_OPM_CGMSA_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_OPM_CGMSA_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_OPM_CGMSA_PROTECTION_LEVEL {
@@ -61768,6 +62983,11 @@ impl ::core::clone::Clone for MF_PLUGIN_CONTROL_POLICY {
         *self
     }
 }
+impl ::core::default::Default for MF_PLUGIN_CONTROL_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_PLUGIN_CONTROL_POLICY {
     type Abi = Self;
 }
@@ -61799,6 +63019,11 @@ impl ::core::clone::Clone for MF_Plugin_Type {
         *self
     }
 }
+impl ::core::default::Default for MF_Plugin_Type {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_Plugin_Type {
     type Abi = Self;
 }
@@ -61817,6 +63042,11 @@ impl ::core::marker::Copy for MF_QUALITY_ADVISE_FLAGS {}
 impl ::core::clone::Clone for MF_QUALITY_ADVISE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_QUALITY_ADVISE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_QUALITY_ADVISE_FLAGS {
@@ -61851,6 +63081,11 @@ impl ::core::clone::Clone for MF_QUALITY_DROP_MODE {
         *self
     }
 }
+impl ::core::default::Default for MF_QUALITY_DROP_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_QUALITY_DROP_MODE {
     type Abi = Self;
 }
@@ -61881,6 +63116,11 @@ impl ::core::marker::Copy for MF_QUALITY_LEVEL {}
 impl ::core::clone::Clone for MF_QUALITY_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_QUALITY_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_QUALITY_LEVEL {
@@ -61969,6 +63209,11 @@ impl ::core::marker::Copy for MF_RESOLUTION_FLAGS {}
 impl ::core::clone::Clone for MF_RESOLUTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_RESOLUTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_RESOLUTION_FLAGS {
@@ -62071,6 +63316,11 @@ impl ::core::clone::Clone for MF_SERVICE_LOOKUP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_SERVICE_LOOKUP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_SERVICE_LOOKUP_TYPE {
     type Abi = Self;
 }
@@ -62107,6 +63357,11 @@ impl ::core::clone::Clone for MF_SHARING_ENGINE_EVENT {
         *self
     }
 }
+impl ::core::default::Default for MF_SHARING_ENGINE_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_SHARING_ENGINE_EVENT {
     type Abi = Self;
 }
@@ -62137,6 +63392,11 @@ impl ::core::marker::Copy for MF_SINK_WRITER_CONSTANTS {}
 impl ::core::clone::Clone for MF_SINK_WRITER_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_SINK_WRITER_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_SINK_WRITER_CONSTANTS {
@@ -62264,6 +63524,11 @@ impl ::core::clone::Clone for MF_SOURCE_READER_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for MF_SOURCE_READER_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_SOURCE_READER_CONSTANTS {
     type Abi = Self;
 }
@@ -62284,6 +63549,11 @@ impl ::core::clone::Clone for MF_SOURCE_READER_CONTROL_FLAG {
         *self
     }
 }
+impl ::core::default::Default for MF_SOURCE_READER_CONTROL_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_SOURCE_READER_CONTROL_FLAG {
     type Abi = Self;
 }
@@ -62302,6 +63572,11 @@ impl ::core::marker::Copy for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {}
 impl ::core::clone::Clone for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
@@ -62344,6 +63619,11 @@ impl ::core::clone::Clone for MF_SOURCE_READER_FLAG {
         *self
     }
 }
+impl ::core::default::Default for MF_SOURCE_READER_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_SOURCE_READER_FLAG {
     type Abi = Self;
 }
@@ -62373,6 +63653,11 @@ impl ::core::marker::Copy for MF_STREAM_STATE {}
 impl ::core::clone::Clone for MF_STREAM_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_STREAM_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_STREAM_STATE {
@@ -62430,6 +63715,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_ALIGNMENT {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_ALIGNMENT {
     type Abi = Self;
 }
@@ -62452,6 +63742,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_BOUTEN_POSITION {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_POSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_BOUTEN_POSITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_BOUTEN_POSITION {
@@ -62488,6 +63783,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_BOUTEN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_BOUTEN_TYPE {
     type Abi = Self;
 }
@@ -62510,6 +63810,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_CUE_EVENT {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_CUE_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_CUE_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_CUE_EVENT {
@@ -62538,6 +63843,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_DECORATION {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_DECORATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_DECORATION {
     type Abi = Self;
 }
@@ -62560,6 +63870,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
@@ -62590,6 +63905,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_ERROR_CODE {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_ERROR_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_ERROR_CODE {
     type Abi = Self;
 }
@@ -62612,6 +63932,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_FONT_STYLE {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_FONT_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_FONT_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_FONT_STYLE {
@@ -62644,6 +63969,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_ALIGN {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_RUBY_ALIGN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_RUBY_ALIGN {
     type Abi = Self;
 }
@@ -62666,6 +63996,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_POSITION {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_POSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_RUBY_POSITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_RUBY_POSITION {
@@ -62696,6 +64031,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_RESERVE {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_RUBY_RESERVE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_RUBY_RESERVE {
     type Abi = Self;
 }
@@ -62716,6 +64056,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_SCROLL_MODE {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_SCROLL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_SCROLL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_SCROLL_MODE {
@@ -62744,6 +64089,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_KIND {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_TRACK_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_TRACK_KIND {
     type Abi = Self;
 }
@@ -62770,6 +64120,11 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_READY_STATE {
         *self
     }
 }
+impl ::core::default::Default for MF_TIMED_TEXT_TRACK_READY_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_TRACK_READY_STATE {
     type Abi = Self;
 }
@@ -62790,6 +64145,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_UNIT_TYPE {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_UNIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_UNIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_UNIT_TYPE {
@@ -62822,6 +64182,11 @@ impl ::core::marker::Copy for MF_TIMED_TEXT_WRITING_MODE {}
 impl ::core::clone::Clone for MF_TIMED_TEXT_WRITING_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TIMED_TEXT_WRITING_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TIMED_TEXT_WRITING_MODE {
@@ -62861,6 +64226,11 @@ impl ::core::clone::Clone for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     type Abi = Self;
 }
@@ -62889,6 +64259,11 @@ impl ::core::marker::Copy for MF_TOPOLOGY_TYPE {}
 impl ::core::clone::Clone for MF_TOPOLOGY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TOPOLOGY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TOPOLOGY_TYPE {
@@ -62923,6 +64298,11 @@ impl ::core::clone::Clone for MF_TOPONODE_DRAIN_MODE {
         *self
     }
 }
+impl ::core::default::Default for MF_TOPONODE_DRAIN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TOPONODE_DRAIN_MODE {
     type Abi = Self;
 }
@@ -62949,6 +64329,11 @@ impl ::core::marker::Copy for MF_TOPONODE_FLUSH_MODE {}
 impl ::core::clone::Clone for MF_TOPONODE_FLUSH_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TOPONODE_FLUSH_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TOPONODE_FLUSH_MODE {
@@ -63000,6 +64385,11 @@ impl ::core::clone::Clone for MF_TOPOSTATUS {
         *self
     }
 }
+impl ::core::default::Default for MF_TOPOSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TOPOSTATUS {
     type Abi = Self;
 }
@@ -63021,6 +64411,11 @@ impl ::core::marker::Copy for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {}
 impl ::core::clone::Clone for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
@@ -63088,6 +64483,11 @@ impl ::core::clone::Clone for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     type Abi = Self;
 }
@@ -63120,6 +64520,11 @@ impl ::core::clone::Clone for MF_URL_TRUST_STATUS {
         *self
     }
 }
+impl ::core::default::Default for MF_URL_TRUST_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_URL_TRUST_STATUS {
     type Abi = Self;
 }
@@ -63149,6 +64554,11 @@ impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
     type Abi = Self;
 }
@@ -63173,6 +64583,11 @@ impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_MIRROR {
         *self
     }
 }
+impl ::core::default::Default for MF_VIDEO_PROCESSOR_MIRROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MF_VIDEO_PROCESSOR_MIRROR {
     type Abi = Self;
 }
@@ -63193,6 +64608,11 @@ impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_ROTATION {}
 impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ROTATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MF_VIDEO_PROCESSOR_ROTATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MF_VIDEO_PROCESSOR_ROTATION {
@@ -63277,6 +64697,11 @@ impl ::core::marker::Copy for MIC_ARRAY_MODE {}
 impl ::core::clone::Clone for MIC_ARRAY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIC_ARRAY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIC_ARRAY_MODE {
@@ -63603,6 +65028,11 @@ impl ::core::clone::Clone for OPM_ACP_PROTECTION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for OPM_ACP_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_ACP_PROTECTION_LEVEL {
     type Abi = Self;
 }
@@ -63684,6 +65114,11 @@ impl ::core::clone::Clone for OPM_BUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OPM_BUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_BUS_TYPE {
     type Abi = Self;
 }
@@ -63712,6 +65147,11 @@ impl ::core::marker::Copy for OPM_CGMSA {}
 impl ::core::clone::Clone for OPM_CGMSA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_CGMSA {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_CGMSA {
@@ -63827,6 +65267,11 @@ impl ::core::clone::Clone for OPM_DPCP_PROTECTION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for OPM_DPCP_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_DPCP_PROTECTION_LEVEL {
     type Abi = Self;
 }
@@ -63847,6 +65292,11 @@ impl ::core::marker::Copy for OPM_DVI_CHARACTERISTIC {}
 impl ::core::clone::Clone for OPM_DVI_CHARACTERISTIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_DVI_CHARACTERISTIC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_DVI_CHARACTERISTIC {
@@ -63996,6 +65446,11 @@ impl ::core::clone::Clone for OPM_HDCP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for OPM_HDCP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_HDCP_FLAGS {
     type Abi = Self;
 }
@@ -64078,6 +65533,11 @@ impl ::core::clone::Clone for OPM_HDCP_PROTECTION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for OPM_HDCP_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_HDCP_PROTECTION_LEVEL {
     type Abi = Self;
 }
@@ -64100,6 +65560,11 @@ impl ::core::clone::Clone for OPM_HDCP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for OPM_HDCP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_HDCP_STATUS {
     type Abi = Self;
 }
@@ -64120,6 +65585,11 @@ impl ::core::marker::Copy for OPM_HDCP_TYPE {}
 impl ::core::clone::Clone for OPM_HDCP_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_HDCP_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_HDCP_TYPE {
@@ -64156,6 +65626,11 @@ impl ::core::marker::Copy for OPM_IMAGE_ASPECT_RATIO_EN300294 {}
 impl ::core::clone::Clone for OPM_IMAGE_ASPECT_RATIO_EN300294 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_IMAGE_ASPECT_RATIO_EN300294 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_IMAGE_ASPECT_RATIO_EN300294 {
@@ -64208,6 +65683,11 @@ impl ::core::marker::Copy for OPM_OUTPUT_HARDWARE_PROTECTION {}
 impl ::core::clone::Clone for OPM_OUTPUT_HARDWARE_PROTECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_OUTPUT_HARDWARE_PROTECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_OUTPUT_HARDWARE_PROTECTION {
@@ -64289,6 +65769,11 @@ impl ::core::clone::Clone for OPM_PROTECTION_STANDARD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OPM_PROTECTION_STANDARD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_PROTECTION_STANDARD_TYPE {
     type Abi = Self;
 }
@@ -64349,6 +65834,11 @@ impl ::core::marker::Copy for OPM_PROTECTION_TYPE {}
 impl ::core::clone::Clone for OPM_PROTECTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_PROTECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_PROTECTION_TYPE {
@@ -64556,6 +66046,11 @@ impl ::core::clone::Clone for OPM_STATUS {
         *self
     }
 }
+impl ::core::default::Default for OPM_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_STATUS {
     type Abi = Self;
 }
@@ -64594,6 +66089,11 @@ impl ::core::clone::Clone for OPM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for OPM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_TYPE {
     type Abi = Self;
 }
@@ -64620,6 +66120,11 @@ impl ::core::clone::Clone for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     type Abi = Self;
 }
@@ -64642,6 +66147,11 @@ impl ::core::marker::Copy for OPM_VIDEO_OUTPUT_SEMANTICS {}
 impl ::core::clone::Clone for OPM_VIDEO_OUTPUT_SEMANTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OPM_VIDEO_OUTPUT_SEMANTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OPM_VIDEO_OUTPUT_SEMANTICS {
@@ -64725,6 +66235,11 @@ impl ::core::clone::Clone for PLAYTO_SOURCE_CREATEFLAGS {
         *self
     }
 }
+impl ::core::default::Default for PLAYTO_SOURCE_CREATEFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PLAYTO_SOURCE_CREATEFLAGS {
     type Abi = Self;
 }
@@ -64779,6 +66294,11 @@ impl ::core::marker::Copy for PM_CONNECTOR_TYPE {}
 impl ::core::clone::Clone for PM_CONNECTOR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_CONNECTOR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_CONNECTOR_TYPE {
@@ -64850,6 +66370,11 @@ impl ::core::clone::Clone for SAMPLE_PROTECTION_VERSION {
         *self
     }
 }
+impl ::core::default::Default for SAMPLE_PROTECTION_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SAMPLE_PROTECTION_VERSION {
     type Abi = Self;
 }
@@ -64870,6 +66395,11 @@ impl ::core::marker::Copy for SEEK_ORIGIN {}
 impl ::core::clone::Clone for SEEK_ORIGIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SEEK_ORIGIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SEEK_ORIGIN {
@@ -65046,6 +66576,11 @@ impl ::core::clone::Clone for TOC_POS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TOC_POS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TOC_POS_TYPE {
     type Abi = Self;
 }
@@ -65082,6 +66617,11 @@ impl ::core::clone::Clone for WMT_PROP_DATATYPE {
         *self
     }
 }
+impl ::core::default::Default for WMT_PROP_DATATYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMT_PROP_DATATYPE {
     type Abi = Self;
 }
@@ -65104,6 +66644,11 @@ impl ::core::marker::Copy for WMV_DYNAMIC_FLAGS {}
 impl ::core::clone::Clone for WMV_DYNAMIC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMV_DYNAMIC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMV_DYNAMIC_FLAGS {
@@ -65146,6 +66691,11 @@ impl ::core::clone::Clone for _MFP_CREDENTIAL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFP_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFP_CREDENTIAL_FLAGS {
     type Abi = Self;
 }
@@ -65170,6 +66720,11 @@ impl ::core::marker::Copy for _MFP_MEDIAITEM_CHARACTERISTICS {}
 impl ::core::clone::Clone for _MFP_MEDIAITEM_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _MFP_MEDIAITEM_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _MFP_MEDIAITEM_CHARACTERISTICS {
@@ -65214,6 +66769,11 @@ impl ::core::clone::Clone for _MFT_ENUM_FLAG {
         *self
     }
 }
+impl ::core::default::Default for _MFT_ENUM_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_ENUM_FLAG {
     type Abi = Self;
 }
@@ -65234,6 +66794,11 @@ impl ::core::clone::Clone for _MFT_INPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_INPUT_DATA_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_INPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -65252,6 +66817,11 @@ impl ::core::marker::Copy for _MFT_INPUT_STATUS_FLAGS {}
 impl ::core::clone::Clone for _MFT_INPUT_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _MFT_INPUT_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _MFT_INPUT_STATUS_FLAGS {
@@ -65288,6 +66858,11 @@ impl ::core::clone::Clone for _MFT_INPUT_STREAM_INFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_INPUT_STREAM_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_INPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
 }
@@ -65314,6 +66889,11 @@ impl ::core::clone::Clone for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
 }
@@ -65332,6 +66912,11 @@ impl ::core::marker::Copy for _MFT_OUTPUT_STATUS_FLAGS {}
 impl ::core::clone::Clone for _MFT_OUTPUT_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _MFT_OUTPUT_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _MFT_OUTPUT_STATUS_FLAGS {
@@ -65370,6 +66955,11 @@ impl ::core::clone::Clone for _MFT_OUTPUT_STREAM_INFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_OUTPUT_STREAM_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_OUTPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
 }
@@ -65392,6 +66982,11 @@ impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_PROCESS_OUTPUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_PROCESS_OUTPUT_FLAGS {
     type Abi = Self;
 }
@@ -65410,6 +67005,11 @@ impl ::core::marker::Copy for _MFT_PROCESS_OUTPUT_STATUS {}
 impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _MFT_PROCESS_OUTPUT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _MFT_PROCESS_OUTPUT_STATUS {
@@ -65432,6 +67032,11 @@ impl ::core::clone::Clone for _MFT_SET_TYPE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for _MFT_SET_TYPE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _MFT_SET_TYPE_FLAGS {
     type Abi = Self;
 }
@@ -65450,6 +67055,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
 impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
@@ -65474,6 +67084,11 @@ impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
         *self
     }
 }
+impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
     type Abi = Self;
 }
@@ -65494,6 +67109,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
 impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
@@ -65550,6 +67170,11 @@ impl ::core::clone::Clone for eAVAudioChannelConfig {
         *self
     }
 }
+impl ::core::default::Default for eAVAudioChannelConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVAudioChannelConfig {
     type Abi = Self;
 }
@@ -65572,6 +67197,11 @@ impl ::core::marker::Copy for eAVDDSurroundMode {}
 impl ::core::clone::Clone for eAVDDSurroundMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDDSurroundMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDDSurroundMode {
@@ -65598,6 +67228,11 @@ impl ::core::clone::Clone for eAVDSPLoudnessEqualization {
         *self
     }
 }
+impl ::core::default::Default for eAVDSPLoudnessEqualization {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDSPLoudnessEqualization {
     type Abi = Self;
 }
@@ -65622,6 +67257,11 @@ impl ::core::clone::Clone for eAVDSPSpeakerFill {
         *self
     }
 }
+impl ::core::default::Default for eAVDSPSpeakerFill {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDSPSpeakerFill {
     type Abi = Self;
 }
@@ -65642,6 +67282,11 @@ impl ::core::marker::Copy for eAVDecAACDownmixMode {}
 impl ::core::clone::Clone for eAVDecAACDownmixMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecAACDownmixMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecAACDownmixMode {
@@ -65666,6 +67311,11 @@ impl ::core::marker::Copy for eAVDecAudioDualMono {}
 impl ::core::clone::Clone for eAVDecAudioDualMono {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecAudioDualMono {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecAudioDualMono {
@@ -65694,6 +67344,11 @@ impl ::core::clone::Clone for eAVDecAudioDualMonoReproMode {
         *self
     }
 }
+impl ::core::default::Default for eAVDecAudioDualMonoReproMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecAudioDualMonoReproMode {
     type Abi = Self;
 }
@@ -65716,6 +67371,11 @@ impl ::core::marker::Copy for eAVDecDDMatrixDecodingMode {}
 impl ::core::clone::Clone for eAVDecDDMatrixDecodingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecDDMatrixDecodingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecDDMatrixDecodingMode {
@@ -65752,6 +67412,11 @@ impl ::core::clone::Clone for eAVDecDDOperationalMode {
         *self
     }
 }
+impl ::core::default::Default for eAVDecDDOperationalMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecDDOperationalMode {
     type Abi = Self;
 }
@@ -65776,6 +67441,11 @@ impl ::core::clone::Clone for eAVDecDDStereoDownMixMode {
         *self
     }
 }
+impl ::core::default::Default for eAVDecDDStereoDownMixMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecDDStereoDownMixMode {
     type Abi = Self;
 }
@@ -65796,6 +67466,11 @@ impl ::core::marker::Copy for eAVDecHEAACDynamicRangeControl {}
 impl ::core::clone::Clone for eAVDecHEAACDynamicRangeControl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecHEAACDynamicRangeControl {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecHEAACDynamicRangeControl {
@@ -65822,6 +67497,11 @@ impl ::core::clone::Clone for eAVDecVideoCodecType {
         *self
     }
 }
+impl ::core::default::Default for eAVDecVideoCodecType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecVideoCodecType {
     type Abi = Self;
 }
@@ -65844,6 +67524,11 @@ impl ::core::marker::Copy for eAVDecVideoDXVABusEncryption {}
 impl ::core::clone::Clone for eAVDecVideoDXVABusEncryption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecVideoDXVABusEncryption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecVideoDXVABusEncryption {
@@ -65874,6 +67559,11 @@ impl ::core::clone::Clone for eAVDecVideoDXVAMode {
         *self
     }
 }
+impl ::core::default::Default for eAVDecVideoDXVAMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecVideoDXVAMode {
     type Abi = Self;
 }
@@ -65898,6 +67588,11 @@ impl ::core::marker::Copy for eAVDecVideoH264ErrorConcealment {}
 impl ::core::clone::Clone for eAVDecVideoH264ErrorConcealment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecVideoH264ErrorConcealment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecVideoH264ErrorConcealment {
@@ -65926,6 +67621,11 @@ impl ::core::clone::Clone for eAVDecVideoInputScanType {
         *self
     }
 }
+impl ::core::default::Default for eAVDecVideoInputScanType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecVideoInputScanType {
     type Abi = Self;
 }
@@ -65946,6 +67646,11 @@ impl ::core::marker::Copy for eAVDecVideoMPEG2ErrorConcealment {}
 impl ::core::clone::Clone for eAVDecVideoMPEG2ErrorConcealment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecVideoMPEG2ErrorConcealment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecVideoMPEG2ErrorConcealment {
@@ -65970,6 +67675,11 @@ impl ::core::marker::Copy for eAVDecVideoSWPowerLevel {}
 impl ::core::clone::Clone for eAVDecVideoSWPowerLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVDecVideoSWPowerLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVDecVideoSWPowerLevel {
@@ -65998,6 +67708,11 @@ impl ::core::clone::Clone for eAVDecVideoSoftwareDeinterlaceMode {
         *self
     }
 }
+impl ::core::default::Default for eAVDecVideoSoftwareDeinterlaceMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVDecVideoSoftwareDeinterlaceMode {
     type Abi = Self;
 }
@@ -66020,6 +67735,11 @@ impl ::core::marker::Copy for eAVEncAdaptiveMode {}
 impl ::core::clone::Clone for eAVEncAdaptiveMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncAdaptiveMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncAdaptiveMode {
@@ -66046,6 +67766,11 @@ impl ::core::clone::Clone for eAVEncAudioDualMono {
         *self
     }
 }
+impl ::core::default::Default for eAVEncAudioDualMono {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncAudioDualMono {
     type Abi = Self;
 }
@@ -66070,6 +67795,11 @@ impl ::core::clone::Clone for eAVEncAudioInputContent {
         *self
     }
 }
+impl ::core::default::Default for eAVEncAudioInputContent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncAudioInputContent {
     type Abi = Self;
 }
@@ -66092,6 +67822,11 @@ impl ::core::marker::Copy for eAVEncChromaEncodeMode {}
 impl ::core::clone::Clone for eAVEncChromaEncodeMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncChromaEncodeMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncChromaEncodeMode {
@@ -66126,6 +67861,11 @@ impl ::core::clone::Clone for eAVEncCommonRateControlMode {
         *self
     }
 }
+impl ::core::default::Default for eAVEncCommonRateControlMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncCommonRateControlMode {
     type Abi = Self;
 }
@@ -66148,6 +67888,11 @@ impl ::core::clone::Clone for eAVEncCommonStreamEndHandling {
         *self
     }
 }
+impl ::core::default::Default for eAVEncCommonStreamEndHandling {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncCommonStreamEndHandling {
     type Abi = Self;
 }
@@ -66168,6 +67913,11 @@ impl ::core::marker::Copy for eAVEncDDAtoDConverterType {}
 impl ::core::clone::Clone for eAVEncDDAtoDConverterType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncDDAtoDConverterType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncDDAtoDConverterType {
@@ -66200,6 +67950,11 @@ impl ::core::clone::Clone for eAVEncDDDynamicRangeCompressionControl {
         *self
     }
 }
+impl ::core::default::Default for eAVEncDDDynamicRangeCompressionControl {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncDDDynamicRangeCompressionControl {
     type Abi = Self;
 }
@@ -66224,6 +67979,11 @@ impl ::core::clone::Clone for eAVEncDDHeadphoneMode {
         *self
     }
 }
+impl ::core::default::Default for eAVEncDDHeadphoneMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncDDHeadphoneMode {
     type Abi = Self;
 }
@@ -66244,6 +68004,11 @@ impl ::core::marker::Copy for eAVEncDDPreferredStereoDownMixMode {}
 impl ::core::clone::Clone for eAVEncDDPreferredStereoDownMixMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncDDPreferredStereoDownMixMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncDDPreferredStereoDownMixMode {
@@ -66268,6 +68033,11 @@ impl ::core::marker::Copy for eAVEncDDProductionRoomType {}
 impl ::core::clone::Clone for eAVEncDDProductionRoomType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncDDProductionRoomType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncDDProductionRoomType {
@@ -66304,6 +68074,11 @@ impl ::core::clone::Clone for eAVEncDDService {
         *self
     }
 }
+impl ::core::default::Default for eAVEncDDService {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncDDService {
     type Abi = Self;
 }
@@ -66328,6 +68103,11 @@ impl ::core::clone::Clone for eAVEncDDSurroundExMode {
         *self
     }
 }
+impl ::core::default::Default for eAVEncDDSurroundExMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncDDSurroundExMode {
     type Abi = Self;
 }
@@ -66350,6 +68130,11 @@ impl ::core::marker::Copy for eAVEncH263PictureType {}
 impl ::core::clone::Clone for eAVEncH263PictureType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncH263PictureType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncH263PictureType {
@@ -66384,6 +68169,11 @@ impl ::core::marker::Copy for eAVEncH263VLevel {}
 impl ::core::clone::Clone for eAVEncH263VLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncH263VLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncH263VLevel {
@@ -66422,6 +68212,11 @@ impl ::core::clone::Clone for eAVEncH263VProfile {
         *self
     }
 }
+impl ::core::default::Default for eAVEncH263VProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncH263VProfile {
     type Abi = Self;
 }
@@ -66444,6 +68239,11 @@ impl ::core::marker::Copy for eAVEncH264PictureType {}
 impl ::core::clone::Clone for eAVEncH264PictureType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncH264PictureType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncH264PictureType {
@@ -66498,6 +68298,11 @@ impl ::core::clone::Clone for eAVEncH264VLevel {
         *self
     }
 }
+impl ::core::default::Default for eAVEncH264VLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncH264VLevel {
     type Abi = Self;
 }
@@ -66550,6 +68355,11 @@ impl ::core::clone::Clone for eAVEncH264VProfile {
         *self
     }
 }
+impl ::core::default::Default for eAVEncH264VProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncH264VProfile {
     type Abi = Self;
 }
@@ -66592,6 +68402,11 @@ impl ::core::marker::Copy for eAVEncH265VLevel {}
 impl ::core::clone::Clone for eAVEncH265VLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncH265VLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncH265VLevel {
@@ -66658,6 +68473,11 @@ impl ::core::clone::Clone for eAVEncH265VProfile {
         *self
     }
 }
+impl ::core::default::Default for eAVEncH265VProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncH265VProfile {
     type Abi = Self;
 }
@@ -66690,6 +68510,11 @@ impl ::core::clone::Clone for eAVEncInputVideoSystem {
         *self
     }
 }
+impl ::core::default::Default for eAVEncInputVideoSystem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncInputVideoSystem {
     type Abi = Self;
 }
@@ -66718,6 +68543,11 @@ impl ::core::clone::Clone for eAVEncMPACodingMode {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPACodingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPACodingMode {
     type Abi = Self;
 }
@@ -66744,6 +68574,11 @@ impl ::core::clone::Clone for eAVEncMPAEmphasisType {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPAEmphasisType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPAEmphasisType {
     type Abi = Self;
 }
@@ -66768,6 +68603,11 @@ impl ::core::clone::Clone for eAVEncMPALayer {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPALayer {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPALayer {
     type Abi = Self;
 }
@@ -66788,6 +68628,11 @@ impl ::core::marker::Copy for eAVEncMPVFrameFieldMode {}
 impl ::core::clone::Clone for eAVEncMPVFrameFieldMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncMPVFrameFieldMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncMPVFrameFieldMode {
@@ -66814,6 +68659,11 @@ impl ::core::clone::Clone for eAVEncMPVIntraVLCTable {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPVIntraVLCTable {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPVIntraVLCTable {
     type Abi = Self;
 }
@@ -66838,6 +68688,11 @@ impl ::core::marker::Copy for eAVEncMPVLevel {}
 impl ::core::clone::Clone for eAVEncMPVLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncMPVLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncMPVLevel {
@@ -66868,6 +68723,11 @@ impl ::core::clone::Clone for eAVEncMPVProfile {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPVProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPVProfile {
     type Abi = Self;
 }
@@ -66892,6 +68752,11 @@ impl ::core::clone::Clone for eAVEncMPVQScaleType {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPVQScaleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPVQScaleType {
     type Abi = Self;
 }
@@ -66914,6 +68779,11 @@ impl ::core::marker::Copy for eAVEncMPVScanPattern {}
 impl ::core::clone::Clone for eAVEncMPVScanPattern {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncMPVScanPattern {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncMPVScanPattern {
@@ -66942,6 +68812,11 @@ impl ::core::clone::Clone for eAVEncMPVSceneDetection {
         *self
     }
 }
+impl ::core::default::Default for eAVEncMPVSceneDetection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncMPVSceneDetection {
     type Abi = Self;
 }
@@ -66964,6 +68839,11 @@ impl ::core::marker::Copy for eAVEncMuxOutput {}
 impl ::core::clone::Clone for eAVEncMuxOutput {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncMuxOutput {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncMuxOutput {
@@ -66990,6 +68870,11 @@ impl ::core::marker::Copy for eAVEncVP9VProfile {}
 impl ::core::clone::Clone for eAVEncVP9VProfile {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVP9VProfile {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVP9VProfile {
@@ -67020,6 +68905,11 @@ impl ::core::clone::Clone for eAVEncVideoChromaResolution {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoChromaResolution {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoChromaResolution {
     type Abi = Self;
 }
@@ -67046,6 +68936,11 @@ impl ::core::marker::Copy for eAVEncVideoChromaSubsampling {}
 impl ::core::clone::Clone for eAVEncVideoChromaSubsampling {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVideoChromaSubsampling {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVideoChromaSubsampling {
@@ -67078,6 +68973,11 @@ impl ::core::clone::Clone for eAVEncVideoColorLighting {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoColorLighting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoColorLighting {
     type Abi = Self;
 }
@@ -67102,6 +69002,11 @@ impl ::core::marker::Copy for eAVEncVideoColorNominalRange {}
 impl ::core::clone::Clone for eAVEncVideoColorNominalRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVideoColorNominalRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVideoColorNominalRange {
@@ -67140,6 +69045,11 @@ impl ::core::clone::Clone for eAVEncVideoColorPrimaries {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoColorPrimaries {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoColorPrimaries {
     type Abi = Self;
 }
@@ -67176,6 +69086,11 @@ impl ::core::clone::Clone for eAVEncVideoColorTransferFunction {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoColorTransferFunction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoColorTransferFunction {
     type Abi = Self;
 }
@@ -67202,6 +69117,11 @@ impl ::core::clone::Clone for eAVEncVideoColorTransferMatrix {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoColorTransferMatrix {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoColorTransferMatrix {
     type Abi = Self;
 }
@@ -67222,6 +69142,11 @@ impl ::core::marker::Copy for eAVEncVideoContentType {}
 impl ::core::clone::Clone for eAVEncVideoContentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVideoContentType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVideoContentType {
@@ -67248,6 +69173,11 @@ impl ::core::clone::Clone for eAVEncVideoFilmContent {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoFilmContent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoFilmContent {
     type Abi = Self;
 }
@@ -67270,6 +69200,11 @@ impl ::core::marker::Copy for eAVEncVideoOutputFrameRateConversion {}
 impl ::core::clone::Clone for eAVEncVideoOutputFrameRateConversion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVideoOutputFrameRateConversion {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVideoOutputFrameRateConversion {
@@ -67298,6 +69233,11 @@ impl ::core::clone::Clone for eAVEncVideoOutputScanType {
         *self
     }
 }
+impl ::core::default::Default for eAVEncVideoOutputScanType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVEncVideoOutputScanType {
     type Abi = Self;
 }
@@ -67320,6 +69260,11 @@ impl ::core::marker::Copy for eAVEncVideoSourceScanType {}
 impl ::core::clone::Clone for eAVEncVideoSourceScanType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVEncVideoSourceScanType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVEncVideoSourceScanType {
@@ -67346,6 +69291,11 @@ impl ::core::marker::Copy for eAVFastDecodeMode {}
 impl ::core::clone::Clone for eAVFastDecodeMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eAVFastDecodeMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eAVFastDecodeMode {
@@ -67380,6 +69330,11 @@ impl ::core::clone::Clone for eAVScenarioInfo {
         *self
     }
 }
+impl ::core::default::Default for eAVScenarioInfo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for eAVScenarioInfo {
     type Abi = Self;
 }
@@ -67400,6 +69355,11 @@ impl ::core::marker::Copy for eVideoEncoderDisplayContentType {}
 impl ::core::clone::Clone for eVideoEncoderDisplayContentType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for eVideoEncoderDisplayContentType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for eVideoEncoderDisplayContentType {

@@ -15,6 +15,11 @@ impl ::core::clone::Clone for ALT_BREAKS {
         *self
     }
 }
+impl ::core::default::Default for ALT_BREAKS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ALT_BREAKS {
     type Abi = Self;
 }
@@ -102,6 +107,11 @@ impl ::core::clone::Clone for AppearanceConstants {
         *self
     }
 }
+impl ::core::default::Default for AppearanceConstants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppearanceConstants {
     type Abi = Self;
 }
@@ -124,6 +134,11 @@ impl ::core::marker::Copy for BorderStyleConstants {}
 impl ::core::clone::Clone for BorderStyleConstants {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BorderStyleConstants {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BorderStyleConstants {
@@ -187,6 +202,11 @@ impl ::core::clone::Clone for CONFIDENCE_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for CONFIDENCE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONFIDENCE_LEVEL {
     type Abi = Self;
 }
@@ -213,6 +233,11 @@ impl ::core::clone::Clone for CorrectionMode {
         *self
     }
 }
+impl ::core::default::Default for CorrectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CorrectionMode {
     type Abi = Self;
 }
@@ -235,6 +260,11 @@ impl ::core::marker::Copy for CorrectionPosition {}
 impl ::core::clone::Clone for CorrectionPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CorrectionPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CorrectionPosition {
@@ -333,6 +363,11 @@ impl ::core::clone::Clone for DISPID_Ink {
         *self
     }
 }
+impl ::core::default::Default for DISPID_Ink {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_Ink {
     type Abi = Self;
 }
@@ -427,6 +462,11 @@ impl ::core::marker::Copy for DISPID_InkCollector {}
 impl ::core::clone::Clone for DISPID_InkCollector {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkCollector {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkCollector {
@@ -529,6 +569,11 @@ impl ::core::clone::Clone for DISPID_InkCollectorEvent {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkCollectorEvent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkCollectorEvent {
     type Abi = Self;
 }
@@ -559,6 +604,11 @@ impl ::core::clone::Clone for DISPID_InkCursor {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkCursor {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkCursor {
     type Abi = Self;
 }
@@ -581,6 +631,11 @@ impl ::core::marker::Copy for DISPID_InkCursorButton {}
 impl ::core::clone::Clone for DISPID_InkCursorButton {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkCursorButton {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkCursorButton {
@@ -607,6 +662,11 @@ impl ::core::clone::Clone for DISPID_InkCursorButtons {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkCursorButtons {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkCursorButtons {
     type Abi = Self;
 }
@@ -629,6 +689,11 @@ impl ::core::marker::Copy for DISPID_InkCursors {}
 impl ::core::clone::Clone for DISPID_InkCursors {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkCursors {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkCursors {
@@ -661,6 +726,11 @@ impl ::core::clone::Clone for DISPID_InkCustomStrokes {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkCustomStrokes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkCustomStrokes {
     type Abi = Self;
 }
@@ -687,6 +757,11 @@ impl ::core::clone::Clone for DISPID_InkDivider {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkDivider {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkDivider {
     type Abi = Self;
 }
@@ -707,6 +782,11 @@ impl ::core::marker::Copy for DISPID_InkDivisionResult {}
 impl ::core::clone::Clone for DISPID_InkDivisionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkDivisionResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkDivisionResult {
@@ -735,6 +815,11 @@ impl ::core::clone::Clone for DISPID_InkDivisionUnit {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkDivisionUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkDivisionUnit {
     type Abi = Self;
 }
@@ -757,6 +842,11 @@ impl ::core::marker::Copy for DISPID_InkDivisionUnits {}
 impl ::core::clone::Clone for DISPID_InkDivisionUnits {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkDivisionUnits {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkDivisionUnits {
@@ -797,6 +887,11 @@ impl ::core::marker::Copy for DISPID_InkDrawingAttributes {}
 impl ::core::clone::Clone for DISPID_InkDrawingAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkDrawingAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkDrawingAttributes {
@@ -889,6 +984,11 @@ impl ::core::clone::Clone for DISPID_InkEdit {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkEdit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkEdit {
     type Abi = Self;
 }
@@ -935,6 +1035,11 @@ impl ::core::clone::Clone for DISPID_InkEditEvents {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkEditEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkEditEvents {
     type Abi = Self;
 }
@@ -955,6 +1060,11 @@ impl ::core::marker::Copy for DISPID_InkEvent {}
 impl ::core::clone::Clone for DISPID_InkEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkEvent {
@@ -989,6 +1099,11 @@ impl ::core::clone::Clone for DISPID_InkExtendedProperties {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkExtendedProperties {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkExtendedProperties {
     type Abi = Self;
 }
@@ -1009,6 +1124,11 @@ impl ::core::marker::Copy for DISPID_InkExtendedProperty {}
 impl ::core::clone::Clone for DISPID_InkExtendedProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkExtendedProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkExtendedProperty {
@@ -1033,6 +1153,11 @@ impl ::core::marker::Copy for DISPID_InkGesture {}
 impl ::core::clone::Clone for DISPID_InkGesture {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkGesture {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkGesture {
@@ -1081,6 +1206,11 @@ impl ::core::marker::Copy for DISPID_InkRecoAlternate {}
 impl ::core::clone::Clone for DISPID_InkRecoAlternate {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecoAlternate {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecoAlternate {
@@ -1135,6 +1265,11 @@ impl ::core::clone::Clone for DISPID_InkRecoContext {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkRecoContext {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkRecoContext {
     type Abi = Self;
 }
@@ -1153,6 +1288,11 @@ impl ::core::marker::Copy for DISPID_InkRecoContext2 {}
 impl ::core::clone::Clone for DISPID_InkRecoContext2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecoContext2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecoContext2 {
@@ -1181,6 +1321,11 @@ impl ::core::clone::Clone for DISPID_InkRecognitionAlternates {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkRecognitionAlternates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkRecognitionAlternates {
     type Abi = Self;
 }
@@ -1201,6 +1346,11 @@ impl ::core::marker::Copy for DISPID_InkRecognitionEvent {}
 impl ::core::clone::Clone for DISPID_InkRecognitionEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecognitionEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecognitionEvent {
@@ -1233,6 +1383,11 @@ impl ::core::marker::Copy for DISPID_InkRecognitionResult {}
 impl ::core::clone::Clone for DISPID_InkRecognitionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecognitionResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecognitionResult {
@@ -1269,6 +1424,11 @@ impl ::core::clone::Clone for DISPID_InkRecognizer {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkRecognizer {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkRecognizer {
     type Abi = Self;
 }
@@ -1289,6 +1449,11 @@ impl ::core::marker::Copy for DISPID_InkRecognizer2 {}
 impl ::core::clone::Clone for DISPID_InkRecognizer2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecognizer2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecognizer2 {
@@ -1321,6 +1486,11 @@ impl ::core::clone::Clone for DISPID_InkRecognizerGuide {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkRecognizerGuide {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkRecognizerGuide {
     type Abi = Self;
 }
@@ -1345,6 +1515,11 @@ impl ::core::marker::Copy for DISPID_InkRecognizers {}
 impl ::core::clone::Clone for DISPID_InkRecognizers {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRecognizers {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRecognizers {
@@ -1377,6 +1552,11 @@ impl ::core::marker::Copy for DISPID_InkRectangle {}
 impl ::core::clone::Clone for DISPID_InkRectangle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRectangle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRectangle {
@@ -1425,6 +1605,11 @@ impl ::core::marker::Copy for DISPID_InkRenderer {}
 impl ::core::clone::Clone for DISPID_InkRenderer {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkRenderer {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkRenderer {
@@ -1511,6 +1696,11 @@ impl ::core::clone::Clone for DISPID_InkStrokeDisp {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkStrokeDisp {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkStrokeDisp {
     type Abi = Self;
 }
@@ -1571,6 +1761,11 @@ impl ::core::clone::Clone for DISPID_InkStrokes {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkStrokes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkStrokes {
     type Abi = Self;
 }
@@ -1601,6 +1796,11 @@ impl ::core::clone::Clone for DISPID_InkTablet {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkTablet {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkTablet {
     type Abi = Self;
 }
@@ -1619,6 +1819,11 @@ impl ::core::marker::Copy for DISPID_InkTablet2 {}
 impl ::core::clone::Clone for DISPID_InkTablet2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkTablet2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkTablet2 {
@@ -1641,6 +1846,11 @@ impl ::core::marker::Copy for DISPID_InkTablet3 {}
 impl ::core::clone::Clone for DISPID_InkTablet3 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkTablet3 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkTablet3 {
@@ -1669,6 +1879,11 @@ impl ::core::marker::Copy for DISPID_InkTablets {}
 impl ::core::clone::Clone for DISPID_InkTablets {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkTablets {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkTablets {
@@ -1719,6 +1934,11 @@ impl ::core::clone::Clone for DISPID_InkTransform {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkTransform {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkTransform {
     type Abi = Self;
 }
@@ -1743,6 +1963,11 @@ impl ::core::clone::Clone for DISPID_InkWordList {
         *self
     }
 }
+impl ::core::default::Default for DISPID_InkWordList {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_InkWordList {
     type Abi = Self;
 }
@@ -1761,6 +1986,11 @@ impl ::core::marker::Copy for DISPID_InkWordList2 {}
 impl ::core::clone::Clone for DISPID_InkWordList2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_InkWordList2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_InkWordList2 {
@@ -1787,6 +2017,11 @@ impl ::core::marker::Copy for DISPID_MathInputControlEvents {}
 impl ::core::clone::Clone for DISPID_MathInputControlEvents {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_MathInputControlEvents {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_MathInputControlEvents {
@@ -1841,6 +2076,11 @@ impl ::core::clone::Clone for DISPID_PenInputPanel {
         *self
     }
 }
+impl ::core::default::Default for DISPID_PenInputPanel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_PenInputPanel {
     type Abi = Self;
 }
@@ -1867,6 +2107,11 @@ impl ::core::clone::Clone for DISPID_PenInputPanelEvents {
         *self
     }
 }
+impl ::core::default::Default for DISPID_PenInputPanelEvents {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPID_PenInputPanelEvents {
     type Abi = Self;
 }
@@ -1887,6 +2132,11 @@ impl ::core::marker::Copy for DISPID_StrokeEvent {}
 impl ::core::clone::Clone for DISPID_StrokeEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPID_StrokeEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPID_StrokeEvent {
@@ -2072,6 +2322,11 @@ impl ::core::clone::Clone for EventMask {
         *self
     }
 }
+impl ::core::default::Default for EventMask {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EventMask {
     type Abi = Self;
 }
@@ -2100,6 +2355,11 @@ impl ::core::marker::Copy for FLICKACTION_COMMANDCODE {}
 impl ::core::clone::Clone for FLICKACTION_COMMANDCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FLICKACTION_COMMANDCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FLICKACTION_COMMANDCODE {
@@ -2140,6 +2400,11 @@ impl ::core::clone::Clone for FLICKDIRECTION {
         *self
     }
 }
+impl ::core::default::Default for FLICKDIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FLICKDIRECTION {
     type Abi = Self;
 }
@@ -2168,6 +2433,11 @@ impl ::core::marker::Copy for FLICKMODE {}
 impl ::core::clone::Clone for FLICKMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FLICKMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FLICKMODE {
@@ -13883,6 +14153,11 @@ impl ::core::clone::Clone for InPlaceDirection {
         *self
     }
 }
+impl ::core::default::Default for InPlaceDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InPlaceDirection {
     type Abi = Self;
 }
@@ -13905,6 +14180,11 @@ impl ::core::marker::Copy for InPlaceState {}
 impl ::core::clone::Clone for InPlaceState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InPlaceState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InPlaceState {
@@ -14014,6 +14294,11 @@ impl ::core::clone::Clone for InkApplicationGesture {
         *self
     }
 }
+impl ::core::default::Default for InkApplicationGesture {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkApplicationGesture {
     type Abi = Self;
 }
@@ -14040,6 +14325,11 @@ impl ::core::marker::Copy for InkBoundingBoxMode {}
 impl ::core::clone::Clone for InkBoundingBoxMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkBoundingBoxMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkBoundingBoxMode {
@@ -14080,6 +14370,11 @@ impl ::core::clone::Clone for InkClipboardFormats {
         *self
     }
 }
+impl ::core::default::Default for InkClipboardFormats {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkClipboardFormats {
     type Abi = Self;
 }
@@ -14108,6 +14403,11 @@ impl ::core::clone::Clone for InkClipboardModes {
         *self
     }
 }
+impl ::core::default::Default for InkClipboardModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkClipboardModes {
     type Abi = Self;
 }
@@ -14130,6 +14430,11 @@ impl ::core::marker::Copy for InkCollectionMode {}
 impl ::core::clone::Clone for InkCollectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkCollectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkCollectionMode {
@@ -14191,6 +14496,11 @@ impl ::core::clone::Clone for InkCollectorEventInterest {
         *self
     }
 }
+impl ::core::default::Default for InkCollectorEventInterest {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkCollectorEventInterest {
     type Abi = Self;
 }
@@ -14215,6 +14525,11 @@ impl ::core::clone::Clone for InkCursorButtonState {
         *self
     }
 }
+impl ::core::default::Default for InkCursorButtonState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkCursorButtonState {
     type Abi = Self;
 }
@@ -14236,6 +14551,11 @@ impl ::core::marker::Copy for InkDisplayMode {}
 impl ::core::clone::Clone for InkDisplayMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkDisplayMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkDisplayMode {
@@ -14265,6 +14585,11 @@ impl ::core::clone::Clone for InkDivisionType {
         *self
     }
 }
+impl ::core::default::Default for InkDivisionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkDivisionType {
     type Abi = Self;
 }
@@ -14291,6 +14616,11 @@ impl ::core::clone::Clone for InkEditStatus {
         *self
     }
 }
+impl ::core::default::Default for InkEditStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkEditStatus {
     type Abi = Self;
 }
@@ -14315,6 +14645,11 @@ impl ::core::clone::Clone for InkExtractFlags {
         *self
     }
 }
+impl ::core::default::Default for InkExtractFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkExtractFlags {
     type Abi = Self;
 }
@@ -14335,6 +14670,11 @@ impl ::core::marker::Copy for InkInsertMode {}
 impl ::core::clone::Clone for InkInsertMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkInsertMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkInsertMode {
@@ -14365,6 +14705,11 @@ impl ::core::clone::Clone for InkMode {
         *self
     }
 }
+impl ::core::default::Default for InkMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkMode {
     type Abi = Self;
 }
@@ -14387,6 +14732,11 @@ impl ::core::marker::Copy for InkMouseButton {}
 impl ::core::clone::Clone for InkMouseButton {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkMouseButton {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkMouseButton {
@@ -14439,6 +14789,11 @@ impl ::core::clone::Clone for InkMousePointer {
         *self
     }
 }
+impl ::core::default::Default for InkMousePointer {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkMousePointer {
     type Abi = Self;
 }
@@ -14460,6 +14815,11 @@ impl ::core::marker::Copy for InkOverlayAttachMode {}
 impl ::core::clone::Clone for InkOverlayAttachMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkOverlayAttachMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkOverlayAttachMode {
@@ -14486,6 +14846,11 @@ impl ::core::clone::Clone for InkOverlayEditingMode {
         *self
     }
 }
+impl ::core::default::Default for InkOverlayEditingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkOverlayEditingMode {
     type Abi = Self;
 }
@@ -14506,6 +14871,11 @@ impl ::core::marker::Copy for InkOverlayEraserMode {}
 impl ::core::clone::Clone for InkOverlayEraserMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkOverlayEraserMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkOverlayEraserMode {
@@ -14530,6 +14900,11 @@ impl ::core::clone::Clone for InkPenTip {
         *self
     }
 }
+impl ::core::default::Default for InkPenTip {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkPenTip {
     type Abi = Self;
 }
@@ -14552,6 +14927,11 @@ impl ::core::marker::Copy for InkPersistenceCompressionMode {}
 impl ::core::clone::Clone for InkPersistenceCompressionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkPersistenceCompressionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkPersistenceCompressionMode {
@@ -14580,6 +14960,11 @@ impl ::core::clone::Clone for InkPersistenceFormat {
         *self
     }
 }
+impl ::core::default::Default for InkPersistenceFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkPersistenceFormat {
     type Abi = Self;
 }
@@ -14605,6 +14990,11 @@ impl ::core::marker::Copy for InkPictureSizeMode {}
 impl ::core::clone::Clone for InkPictureSizeMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkPictureSizeMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkPictureSizeMode {
@@ -14655,6 +15045,11 @@ impl ::core::marker::Copy for InkRasterOperation {}
 impl ::core::clone::Clone for InkRasterOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRasterOperation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRasterOperation {
@@ -14723,6 +15118,11 @@ impl ::core::clone::Clone for InkRecognitionAlternatesSelection {
         *self
     }
 }
+impl ::core::default::Default for InkRecognitionAlternatesSelection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkRecognitionAlternatesSelection {
     type Abi = Self;
 }
@@ -14745,6 +15145,11 @@ impl ::core::marker::Copy for InkRecognitionConfidence {}
 impl ::core::clone::Clone for InkRecognitionConfidence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRecognitionConfidence {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognitionConfidence {
@@ -14781,6 +15186,11 @@ impl ::core::marker::Copy for InkRecognitionModes {}
 impl ::core::clone::Clone for InkRecognitionModes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRecognitionModes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognitionModes {
@@ -14821,6 +15231,11 @@ impl ::core::marker::Copy for InkRecognitionStatus {}
 impl ::core::clone::Clone for InkRecognitionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRecognitionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognitionStatus {
@@ -14885,6 +15300,11 @@ impl ::core::clone::Clone for InkRecognizerCapabilities {
         *self
     }
 }
+impl ::core::default::Default for InkRecognizerCapabilities {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkRecognizerCapabilities {
     type Abi = Self;
 }
@@ -14907,6 +15327,11 @@ impl ::core::marker::Copy for InkRecognizerCharacterAutoCompletionMode {}
 impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRecognizerCharacterAutoCompletionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognizerCharacterAutoCompletionMode {
@@ -14936,6 +15361,11 @@ impl ::core::clone::Clone for InkSelectionConstants {
         *self
     }
 }
+impl ::core::default::Default for InkSelectionConstants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkSelectionConstants {
     type Abi = Self;
 }
@@ -14958,6 +15388,11 @@ impl ::core::marker::Copy for InkShiftKeyModifierFlags {}
 impl ::core::clone::Clone for InkShiftKeyModifierFlags {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkShiftKeyModifierFlags {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkShiftKeyModifierFlags {
@@ -14999,6 +15434,11 @@ impl ::core::clone::Clone for InkSystemGesture {
         *self
     }
 }
+impl ::core::default::Default for InkSystemGesture {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkSystemGesture {
     type Abi = Self;
 }
@@ -15026,6 +15466,11 @@ impl ::core::marker::Copy for InteractionMode {}
 impl ::core::clone::Clone for InteractionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InteractionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InteractionMode {
@@ -15071,6 +15516,11 @@ impl ::core::marker::Copy for KEYMODIFIER {}
 impl ::core::clone::Clone for KEYMODIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for KEYMODIFIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for KEYMODIFIER {
@@ -15136,6 +15586,11 @@ impl ::core::marker::Copy for LINE_METRICS {}
 impl ::core::clone::Clone for LINE_METRICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LINE_METRICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LINE_METRICS {
@@ -15247,6 +15702,11 @@ impl ::core::clone::Clone for MICUIELEMENT {
         *self
     }
 }
+impl ::core::default::Default for MICUIELEMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MICUIELEMENT {
     type Abi = Self;
 }
@@ -15271,6 +15731,11 @@ impl ::core::marker::Copy for MICUIELEMENTSTATE {}
 impl ::core::clone::Clone for MICUIELEMENTSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MICUIELEMENTSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MICUIELEMENTSTATE {
@@ -15313,6 +15778,11 @@ impl ::core::marker::Copy for MouseButton {}
 impl ::core::clone::Clone for MouseButton {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MouseButton {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MouseButton {
@@ -15467,6 +15937,11 @@ impl ::core::clone::Clone for PROPERTY_UNITS {
         *self
     }
 }
+impl ::core::default::Default for PROPERTY_UNITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROPERTY_UNITS {
     type Abi = Self;
 }
@@ -15493,6 +15968,11 @@ impl ::core::clone::Clone for PanelInputArea {
         *self
     }
 }
+impl ::core::default::Default for PanelInputArea {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PanelInputArea {
     type Abi = Self;
 }
@@ -15517,6 +15997,11 @@ impl ::core::marker::Copy for PanelType {}
 impl ::core::clone::Clone for PanelType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PanelType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PanelType {
@@ -15924,6 +16409,11 @@ impl ::core::clone::Clone for RealTimeStylusDataInterest {
         *self
     }
 }
+impl ::core::default::Default for RealTimeStylusDataInterest {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RealTimeStylusDataInterest {
     type Abi = Self;
 }
@@ -15954,6 +16444,11 @@ impl ::core::clone::Clone for RealTimeStylusLockType {
         *self
     }
 }
+impl ::core::default::Default for RealTimeStylusLockType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RealTimeStylusLockType {
     type Abi = Self;
 }
@@ -15976,6 +16471,11 @@ impl ::core::marker::Copy for SCROLLDIRECTION {}
 impl ::core::clone::Clone for SCROLLDIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCROLLDIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCROLLDIRECTION {
@@ -16070,6 +16570,11 @@ impl ::core::clone::Clone for ScrollBarsConstants {
         *self
     }
 }
+impl ::core::default::Default for ScrollBarsConstants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ScrollBarsConstants {
     type Abi = Self;
 }
@@ -16092,6 +16597,11 @@ impl ::core::marker::Copy for SelAlignmentConstants {}
 impl ::core::clone::Clone for SelAlignmentConstants {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SelAlignmentConstants {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SelAlignmentConstants {
@@ -16130,6 +16640,11 @@ impl ::core::marker::Copy for SelectionHitResult {}
 impl ::core::clone::Clone for SelectionHitResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SelectionHitResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SelectionHitResult {
@@ -16284,6 +16799,11 @@ impl ::core::clone::Clone for StylusQueue {
         *self
     }
 }
+impl ::core::default::Default for StylusQueue {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StylusQueue {
     type Abi = Self;
 }
@@ -16332,6 +16852,11 @@ impl ::core::clone::Clone for TabletDeviceKind {
         *self
     }
 }
+impl ::core::default::Default for TabletDeviceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TabletDeviceKind {
     type Abi = Self;
 }
@@ -16356,6 +16881,11 @@ impl ::core::marker::Copy for TabletHardwareCapabilities {}
 impl ::core::clone::Clone for TabletHardwareCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TabletHardwareCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TabletHardwareCapabilities {
@@ -16392,6 +16922,11 @@ impl ::core::clone::Clone for TabletPropertyMetricUnit {
         *self
     }
 }
+impl ::core::default::Default for TabletPropertyMetricUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TabletPropertyMetricUnit {
     type Abi = Self;
 }
@@ -16420,6 +16955,11 @@ impl ::core::marker::Copy for VisualState {}
 impl ::core::clone::Clone for VisualState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VisualState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VisualState {
@@ -17428,6 +17968,11 @@ impl ::core::clone::Clone for enumGetCandidateFlags {
         *self
     }
 }
+impl ::core::default::Default for enumGetCandidateFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for enumGetCandidateFlags {
     type Abi = Self;
 }
@@ -17452,6 +17997,11 @@ impl ::core::clone::Clone for enumINKMETRIC_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for enumINKMETRIC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for enumINKMETRIC_FLAGS {
     type Abi = Self;
 }
@@ -17472,6 +18022,11 @@ impl ::core::marker::Copy for enumRECO_TYPE {}
 impl ::core::clone::Clone for enumRECO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for enumRECO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for enumRECO_TYPE {

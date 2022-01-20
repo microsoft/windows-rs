@@ -460,6 +460,11 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
         *self
     }
 }
+impl ::core::default::Default for HttpCacheReadBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCacheReadBehavior {
     type Abi = Self;
 }
@@ -488,6 +493,11 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
         *self
     }
 }
+impl ::core::default::Default for HttpCacheWriteBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
 }
@@ -514,6 +524,11 @@ impl ::core::marker::Copy for HttpCookieUsageBehavior {}
 impl ::core::clone::Clone for HttpCookieUsageBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HttpCookieUsageBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HttpCookieUsageBehavior {

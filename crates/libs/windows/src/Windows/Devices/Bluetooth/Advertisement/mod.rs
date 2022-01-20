@@ -693,6 +693,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
         *self
     }
 }
+impl ::core::default::Default for BluetoothLEAdvertisementFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementFlags {
     type Abi = Self;
 }
@@ -938,6 +943,11 @@ impl ::core::marker::Copy for BluetoothLEAdvertisementPublisherStatus {}
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothLEAdvertisementPublisherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementPublisherStatus {
@@ -1241,6 +1251,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementType {
         *self
     }
 }
+impl ::core::default::Default for BluetoothLEAdvertisementType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementType {
     type Abi = Self;
 }
@@ -1500,6 +1515,11 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for BluetoothLEAdvertisementWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementWatcherStatus {
     type Abi = Self;
 }
@@ -1729,6 +1749,11 @@ impl ::core::marker::Copy for BluetoothLEScanningMode {}
 impl ::core::clone::Clone for BluetoothLEScanningMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BluetoothLEScanningMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BluetoothLEScanningMode {

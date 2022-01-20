@@ -266,6 +266,11 @@ impl ::core::clone::Clone for ContactChangeType {
         *self
     }
 }
+impl ::core::default::Default for ContactChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactChangeType {
     type Abi = Self;
 }
@@ -739,6 +744,11 @@ impl ::core::clone::Clone for ContactQueryResultOrdering {
         *self
     }
 }
+impl ::core::default::Default for ContactQueryResultOrdering {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactQueryResultOrdering {
     type Abi = Self;
 }
@@ -957,6 +967,11 @@ impl ::core::clone::Clone for ContactStoreApplicationAccessMode {
         *self
     }
 }
+impl ::core::default::Default for ContactStoreApplicationAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContactStoreApplicationAccessMode {
     type Abi = Self;
 }
@@ -983,6 +998,11 @@ impl ::core::marker::Copy for ContactStoreSystemAccessMode {}
 impl ::core::clone::Clone for ContactStoreSystemAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ContactStoreSystemAccessMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ContactStoreSystemAccessMode {
@@ -2181,6 +2201,11 @@ impl ::core::marker::Copy for VCardFormat {}
 impl ::core::clone::Clone for VCardFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VCardFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VCardFormat {

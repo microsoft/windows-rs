@@ -8737,6 +8737,11 @@ impl ::core::clone::Clone for RTC_ACE_SCOPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_ACE_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_ACE_SCOPE {
     type Abi = Self;
 }
@@ -8763,6 +8768,11 @@ impl ::core::clone::Clone for RTC_ANSWER_MODE {
         *self
     }
 }
+impl ::core::default::Default for RTC_ANSWER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_ANSWER_MODE {
     type Abi = Self;
 }
@@ -8783,6 +8793,11 @@ impl ::core::marker::Copy for RTC_AUDIO_DEVICE {}
 impl ::core::clone::Clone for RTC_AUDIO_DEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_AUDIO_DEVICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_AUDIO_DEVICE {
@@ -8815,6 +8830,11 @@ impl ::core::clone::Clone for RTC_BUDDY_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_BUDDY_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_BUDDY_EVENT_TYPE {
     type Abi = Self;
 }
@@ -8841,6 +8861,11 @@ impl ::core::clone::Clone for RTC_BUDDY_SUBSCRIPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_BUDDY_SUBSCRIPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_BUDDY_SUBSCRIPTION_TYPE {
     type Abi = Self;
 }
@@ -8865,6 +8890,11 @@ impl ::core::marker::Copy for RTC_CLIENT_EVENT_TYPE {}
 impl ::core::clone::Clone for RTC_CLIENT_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_CLIENT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_CLIENT_EVENT_TYPE {
@@ -8917,6 +8947,11 @@ impl ::core::marker::Copy for RTC_DTMF {}
 impl ::core::clone::Clone for RTC_DTMF {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_DTMF {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_DTMF {
@@ -8979,6 +9014,11 @@ impl ::core::marker::Copy for RTC_EVENT {}
 impl ::core::clone::Clone for RTC_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_EVENT {
@@ -9385,6 +9425,11 @@ impl ::core::clone::Clone for RTC_GROUP_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_GROUP_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_GROUP_EVENT_TYPE {
     type Abi = Self;
 }
@@ -9407,6 +9452,11 @@ impl ::core::marker::Copy for RTC_LISTEN_MODE {}
 impl ::core::clone::Clone for RTC_LISTEN_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_LISTEN_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_LISTEN_MODE {
@@ -9441,6 +9491,11 @@ impl ::core::clone::Clone for RTC_MEDIA_EVENT_REASON {
         *self
     }
 }
+impl ::core::default::Default for RTC_MEDIA_EVENT_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_MEDIA_EVENT_REASON {
     type Abi = Self;
 }
@@ -9465,6 +9520,11 @@ impl ::core::clone::Clone for RTC_MEDIA_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_MEDIA_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_MEDIA_EVENT_TYPE {
     type Abi = Self;
 }
@@ -9485,6 +9545,11 @@ impl ::core::marker::Copy for RTC_MESSAGING_EVENT_TYPE {}
 impl ::core::clone::Clone for RTC_MESSAGING_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_MESSAGING_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_MESSAGING_EVENT_TYPE {
@@ -9509,6 +9574,11 @@ impl ::core::clone::Clone for RTC_MESSAGING_USER_STATUS {
         *self
     }
 }
+impl ::core::default::Default for RTC_MESSAGING_USER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_MESSAGING_USER_STATUS {
     type Abi = Self;
 }
@@ -9529,6 +9599,11 @@ impl ::core::marker::Copy for RTC_OFFER_WATCHER_MODE {}
 impl ::core::clone::Clone for RTC_OFFER_WATCHER_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_OFFER_WATCHER_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_OFFER_WATCHER_MODE {
@@ -9567,6 +9642,11 @@ impl ::core::clone::Clone for RTC_PARTICIPANT_STATE {
         *self
     }
 }
+impl ::core::default::Default for RTC_PARTICIPANT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_PARTICIPANT_STATE {
     type Abi = Self;
 }
@@ -9595,6 +9675,11 @@ impl ::core::clone::Clone for RTC_PORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_PORT_TYPE {
     type Abi = Self;
 }
@@ -9621,6 +9706,11 @@ impl ::core::marker::Copy for RTC_PRESENCE_PROPERTY {}
 impl ::core::clone::Clone for RTC_PRESENCE_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_PRESENCE_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_PRESENCE_PROPERTY {
@@ -9657,6 +9747,11 @@ impl ::core::clone::Clone for RTC_PRESENCE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for RTC_PRESENCE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_PRESENCE_STATUS {
     type Abi = Self;
 }
@@ -9679,6 +9774,11 @@ impl ::core::clone::Clone for RTC_PRIVACY_MODE {
         *self
     }
 }
+impl ::core::default::Default for RTC_PRIVACY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_PRIVACY_MODE {
     type Abi = Self;
 }
@@ -9699,6 +9799,11 @@ impl ::core::marker::Copy for RTC_PROFILE_EVENT_TYPE {}
 impl ::core::clone::Clone for RTC_PROFILE_EVENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_PROFILE_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_PROFILE_EVENT_TYPE {
@@ -9727,6 +9832,11 @@ impl ::core::marker::Copy for RTC_PROVIDER_URI {}
 impl ::core::clone::Clone for RTC_PROVIDER_URI {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_PROVIDER_URI {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_PROVIDER_URI {
@@ -9765,6 +9875,11 @@ impl ::core::clone::Clone for RTC_REGISTRATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for RTC_REGISTRATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_REGISTRATION_STATE {
     type Abi = Self;
 }
@@ -9789,6 +9904,11 @@ impl ::core::clone::Clone for RTC_REINVITE_STATE {
         *self
     }
 }
+impl ::core::default::Default for RTC_REINVITE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_REINVITE_STATE {
     type Abi = Self;
 }
@@ -9811,6 +9931,11 @@ impl ::core::marker::Copy for RTC_RING_TYPE {}
 impl ::core::clone::Clone for RTC_RING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_RING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_RING_TYPE {
@@ -9841,6 +9966,11 @@ impl ::core::clone::Clone for RTC_ROAMING_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_ROAMING_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_ROAMING_EVENT_TYPE {
     type Abi = Self;
 }
@@ -9865,6 +9995,11 @@ impl ::core::clone::Clone for RTC_SECURITY_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for RTC_SECURITY_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_SECURITY_LEVEL {
     type Abi = Self;
 }
@@ -9885,6 +10020,11 @@ impl ::core::marker::Copy for RTC_SECURITY_TYPE {}
 impl ::core::clone::Clone for RTC_SECURITY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_SECURITY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_SECURITY_TYPE {
@@ -9915,6 +10055,11 @@ impl ::core::marker::Copy for RTC_SESSION_REFER_STATUS {}
 impl ::core::clone::Clone for RTC_SESSION_REFER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_SESSION_REFER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_SESSION_REFER_STATUS {
@@ -9951,6 +10096,11 @@ impl ::core::clone::Clone for RTC_SESSION_STATE {
         *self
     }
 }
+impl ::core::default::Default for RTC_SESSION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_SESSION_STATE {
     type Abi = Self;
 }
@@ -9981,6 +10131,11 @@ impl ::core::clone::Clone for RTC_SESSION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_SESSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_SESSION_TYPE {
     type Abi = Self;
 }
@@ -10003,6 +10158,11 @@ impl ::core::marker::Copy for RTC_T120_APPLET {}
 impl ::core::clone::Clone for RTC_T120_APPLET {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_T120_APPLET {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_T120_APPLET {
@@ -10037,6 +10197,11 @@ impl ::core::marker::Copy for RTC_TERMINATE_REASON {}
 impl ::core::clone::Clone for RTC_TERMINATE_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_TERMINATE_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_TERMINATE_REASON {
@@ -10077,6 +10242,11 @@ impl ::core::clone::Clone for RTC_USER_SEARCH_COLUMN {
         *self
     }
 }
+impl ::core::default::Default for RTC_USER_SEARCH_COLUMN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_USER_SEARCH_COLUMN {
     type Abi = Self;
 }
@@ -10099,6 +10269,11 @@ impl ::core::clone::Clone for RTC_USER_SEARCH_PREFERENCE {
         *self
     }
 }
+impl ::core::default::Default for RTC_USER_SEARCH_PREFERENCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_USER_SEARCH_PREFERENCE {
     type Abi = Self;
 }
@@ -10119,6 +10294,11 @@ impl ::core::marker::Copy for RTC_VIDEO_DEVICE {}
 impl ::core::clone::Clone for RTC_VIDEO_DEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_VIDEO_DEVICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_VIDEO_DEVICE {
@@ -10149,6 +10329,11 @@ impl ::core::clone::Clone for RTC_WATCHER_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RTC_WATCHER_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RTC_WATCHER_EVENT_TYPE {
     type Abi = Self;
 }
@@ -10169,6 +10354,11 @@ impl ::core::marker::Copy for RTC_WATCHER_MATCH_MODE {}
 impl ::core::clone::Clone for RTC_WATCHER_MATCH_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_WATCHER_MATCH_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_WATCHER_MATCH_MODE {
@@ -10199,6 +10389,11 @@ impl ::core::marker::Copy for RTC_WATCHER_STATE {}
 impl ::core::clone::Clone for RTC_WATCHER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RTC_WATCHER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RTC_WATCHER_STATE {

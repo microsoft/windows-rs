@@ -399,6 +399,11 @@ impl ::core::clone::Clone for DesignerAppViewState {
         *self
     }
 }
+impl ::core::default::Default for DesignerAppViewState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DesignerAppViewState {
     type Abi = Self;
 }
@@ -1673,6 +1678,11 @@ impl ::core::marker::Copy for XamlSourceFocusNavigationReason {}
 impl ::core::clone::Clone for XamlSourceFocusNavigationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XamlSourceFocusNavigationReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XamlSourceFocusNavigationReason {

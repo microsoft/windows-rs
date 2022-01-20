@@ -300,6 +300,11 @@ impl ::core::clone::Clone for CRYPTCAT_OPEN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPTCAT_OPEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTCAT_OPEN_FLAGS {
     type Abi = Self;
 }
@@ -348,6 +353,11 @@ impl ::core::marker::Copy for CRYPTCAT_VERSION {}
 impl ::core::clone::Clone for CRYPTCAT_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTCAT_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTCAT_VERSION {

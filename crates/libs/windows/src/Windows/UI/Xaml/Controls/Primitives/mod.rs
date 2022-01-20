@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
+impl ::core::default::Default for AnimationDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
@@ -3286,6 +3291,11 @@ impl ::core::clone::Clone for ComponentResourceLocation {
         *self
     }
 }
+impl ::core::default::Default for ComponentResourceLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ComponentResourceLocation {
     type Abi = Self;
 }
@@ -3945,6 +3955,11 @@ impl ::core::clone::Clone for EdgeTransitionLocation {
         *self
     }
 }
+impl ::core::default::Default for EdgeTransitionLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EdgeTransitionLocation {
     type Abi = Self;
 }
@@ -4538,6 +4553,11 @@ impl ::core::clone::Clone for FlyoutPlacementMode {
         *self
     }
 }
+impl ::core::default::Default for FlyoutPlacementMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FlyoutPlacementMode {
     type Abi = Self;
 }
@@ -4566,6 +4586,11 @@ impl ::core::marker::Copy for FlyoutShowMode {}
 impl ::core::clone::Clone for FlyoutShowMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FlyoutShowMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FlyoutShowMode {
@@ -4743,6 +4768,11 @@ impl ::core::marker::Copy for GeneratorDirection {}
 impl ::core::clone::Clone for GeneratorDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GeneratorDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GeneratorDirection {
@@ -5697,6 +5727,11 @@ impl ::core::marker::Copy for GroupHeaderPlacement {}
 impl ::core::clone::Clone for GroupHeaderPlacement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GroupHeaderPlacement {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GroupHeaderPlacement {
@@ -10979,6 +11014,11 @@ impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
         *self
     }
 }
+impl ::core::default::Default for ListViewItemPresenterCheckMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ListViewItemPresenterCheckMode {
     type Abi = Self;
 }
@@ -11005,6 +11045,11 @@ impl ::core::marker::Copy for ListViewItemPresenterSelectionIndicatorMode {}
 impl ::core::clone::Clone for ListViewItemPresenterSelectionIndicatorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ListViewItemPresenterSelectionIndicatorMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ListViewItemPresenterSelectionIndicatorMode {
@@ -13926,6 +13971,11 @@ impl ::core::clone::Clone for PlacementMode {
         *self
     }
 }
+impl ::core::default::Default for PlacementMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlacementMode {
     type Abi = Self;
 }
@@ -14438,6 +14488,11 @@ impl ::core::marker::Copy for PopupPlacementMode {}
 impl ::core::clone::Clone for PopupPlacementMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PopupPlacementMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PopupPlacementMode {
@@ -16056,6 +16111,11 @@ impl ::core::clone::Clone for ScrollEventType {
         *self
     }
 }
+impl ::core::default::Default for ScrollEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ScrollEventType {
     type Abi = Self;
 }
@@ -16083,6 +16143,11 @@ impl ::core::marker::Copy for ScrollingIndicatorMode {}
 impl ::core::clone::Clone for ScrollingIndicatorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ScrollingIndicatorMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ScrollingIndicatorMode {
@@ -16885,6 +16950,11 @@ impl ::core::clone::Clone for SliderSnapsTo {
         *self
     }
 }
+impl ::core::default::Default for SliderSnapsTo {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SliderSnapsTo {
     type Abi = Self;
 }
@@ -16912,6 +16982,11 @@ impl ::core::marker::Copy for SnapPointsAlignment {}
 impl ::core::clone::Clone for SnapPointsAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SnapPointsAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SnapPointsAlignment {
@@ -17585,6 +17660,11 @@ impl ::core::marker::Copy for TickPlacement {}
 impl ::core::clone::Clone for TickPlacement {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TickPlacement {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TickPlacement {

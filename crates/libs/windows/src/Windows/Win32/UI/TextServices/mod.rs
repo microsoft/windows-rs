@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
     type Abi = Self;
 }
@@ -96,6 +101,11 @@ impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
 impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
@@ -2164,6 +2174,11 @@ impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
 impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
@@ -14034,6 +14049,11 @@ impl ::core::clone::Clone for InputScope {
         *self
     }
 }
+impl ::core::default::Default for InputScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InputScope {
     type Abi = Self;
 }
@@ -14054,6 +14074,11 @@ impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
 impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LANG_BAR_ITEM_ICON_MODE_FLAGS {
@@ -14108,6 +14133,11 @@ impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for TEXT_STORE_CHANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TEXT_STORE_CHANGE_FLAGS {
     type Abi = Self;
 }
@@ -14158,6 +14188,11 @@ impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for TEXT_STORE_LOCK_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TEXT_STORE_LOCK_FLAGS {
     type Abi = Self;
 }
@@ -14206,6 +14241,11 @@ impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TEXT_STORE_TEXT_CHANGE_FLAGS {
@@ -14280,6 +14320,11 @@ impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
 impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
@@ -14364,6 +14409,11 @@ impl ::core::clone::Clone for TF_DA_ATTR_INFO {
         *self
     }
 }
+impl ::core::default::Default for TF_DA_ATTR_INFO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TF_DA_ATTR_INFO {
     type Abi = Self;
 }
@@ -14440,6 +14490,11 @@ impl ::core::clone::Clone for TF_DA_COLORTYPE {
         *self
     }
 }
+impl ::core::default::Default for TF_DA_COLORTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TF_DA_COLORTYPE {
     type Abi = Self;
 }
@@ -14466,6 +14521,11 @@ impl ::core::marker::Copy for TF_DA_LINESTYLE {}
 impl ::core::clone::Clone for TF_DA_LINESTYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TF_DA_LINESTYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TF_DA_LINESTYLE {
@@ -15298,6 +15358,11 @@ impl ::core::clone::Clone for TKBLayoutType {
         *self
     }
 }
+impl ::core::default::Default for TKBLayoutType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TKBLayoutType {
     type Abi = Self;
 }
@@ -15771,6 +15836,11 @@ impl ::core::clone::Clone for TfActiveSelEnd {
         *self
     }
 }
+impl ::core::default::Default for TfActiveSelEnd {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TfActiveSelEnd {
     type Abi = Self;
 }
@@ -15791,6 +15861,11 @@ impl ::core::marker::Copy for TfAnchor {}
 impl ::core::clone::Clone for TfAnchor {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TfAnchor {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TfAnchor {
@@ -15817,6 +15892,11 @@ impl ::core::clone::Clone for TfCandidateResult {
         *self
     }
 }
+impl ::core::default::Default for TfCandidateResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TfCandidateResult {
     type Abi = Self;
 }
@@ -15839,6 +15919,11 @@ impl ::core::clone::Clone for TfGravity {
         *self
     }
 }
+impl ::core::default::Default for TfGravity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TfGravity {
     type Abi = Self;
 }
@@ -15859,6 +15944,11 @@ impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
 impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TfIntegratableCandidateListSelectionStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TfIntegratableCandidateListSelectionStyle {
@@ -15885,6 +15975,11 @@ impl ::core::clone::Clone for TfLBBalloonStyle {
         *self
     }
 }
+impl ::core::default::Default for TfLBBalloonStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TfLBBalloonStyle {
     type Abi = Self;
 }
@@ -15905,6 +16000,11 @@ impl ::core::marker::Copy for TfLBIClick {}
 impl ::core::clone::Clone for TfLBIClick {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TfLBIClick {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TfLBIClick {
@@ -15929,6 +16029,11 @@ impl ::core::marker::Copy for TfLayoutCode {}
 impl ::core::clone::Clone for TfLayoutCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TfLayoutCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TfLayoutCode {
@@ -15961,6 +16066,11 @@ impl ::core::clone::Clone for TfSapiObject {
         *self
     }
 }
+impl ::core::default::Default for TfSapiObject {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TfSapiObject {
     type Abi = Self;
 }
@@ -15981,6 +16091,11 @@ impl ::core::marker::Copy for TfShiftDir {}
 impl ::core::clone::Clone for TfShiftDir {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TfShiftDir {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TfShiftDir {
@@ -16007,6 +16122,11 @@ impl ::core::clone::Clone for TsActiveSelEnd {
         *self
     }
 }
+impl ::core::default::Default for TsActiveSelEnd {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TsActiveSelEnd {
     type Abi = Self;
 }
@@ -16027,6 +16147,11 @@ impl ::core::marker::Copy for TsGravity {}
 impl ::core::clone::Clone for TsGravity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TsGravity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TsGravity {
@@ -16053,6 +16178,11 @@ impl ::core::clone::Clone for TsLayoutCode {
         *self
     }
 }
+impl ::core::default::Default for TsLayoutCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TsLayoutCode {
     type Abi = Self;
 }
@@ -16077,6 +16207,11 @@ impl ::core::clone::Clone for TsRunType {
         *self
     }
 }
+impl ::core::default::Default for TsRunType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TsRunType {
     type Abi = Self;
 }
@@ -16097,6 +16232,11 @@ impl ::core::marker::Copy for TsShiftDir {}
 impl ::core::clone::Clone for TsShiftDir {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TsShiftDir {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TsShiftDir {

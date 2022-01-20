@@ -3212,6 +3212,11 @@ impl ::core::clone::Clone for VSS_ALTERNATE_WRITER_STATE {
         *self
     }
 }
+impl ::core::default::Default for VSS_ALTERNATE_WRITER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_ALTERNATE_WRITER_STATE {
     type Abi = Self;
 }
@@ -3240,6 +3245,11 @@ impl ::core::marker::Copy for VSS_APPLICATION_LEVEL {}
 impl ::core::clone::Clone for VSS_APPLICATION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_APPLICATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_APPLICATION_LEVEL {
@@ -3296,6 +3306,11 @@ impl ::core::clone::Clone for VSS_BACKUP_SCHEMA {
         *self
     }
 }
+impl ::core::default::Default for VSS_BACKUP_SCHEMA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_BACKUP_SCHEMA {
     type Abi = Self;
 }
@@ -3328,6 +3343,11 @@ impl ::core::clone::Clone for VSS_BACKUP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VSS_BACKUP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_BACKUP_TYPE {
     type Abi = Self;
 }
@@ -3352,6 +3372,11 @@ impl ::core::clone::Clone for VSS_COMPONENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for VSS_COMPONENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_COMPONENT_FLAGS {
     type Abi = Self;
 }
@@ -3374,6 +3399,11 @@ impl ::core::marker::Copy for VSS_COMPONENT_TYPE {}
 impl ::core::clone::Clone for VSS_COMPONENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_COMPONENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_COMPONENT_TYPE {
@@ -3623,6 +3653,11 @@ impl ::core::clone::Clone for VSS_FILE_RESTORE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VSS_FILE_RESTORE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_FILE_RESTORE_STATUS {
     type Abi = Self;
 }
@@ -3663,6 +3698,11 @@ impl ::core::clone::Clone for VSS_FILE_SPEC_BACKUP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VSS_FILE_SPEC_BACKUP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_FILE_SPEC_BACKUP_TYPE {
     type Abi = Self;
 }
@@ -3695,6 +3735,11 @@ impl ::core::marker::Copy for VSS_HARDWARE_OPTIONS {}
 impl ::core::clone::Clone for VSS_HARDWARE_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_HARDWARE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_HARDWARE_OPTIONS {
@@ -3747,6 +3792,11 @@ impl ::core::marker::Copy for VSS_MGMT_OBJECT_TYPE {}
 impl ::core::clone::Clone for VSS_MGMT_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_MGMT_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_TYPE {
@@ -3832,6 +3882,11 @@ impl ::core::clone::Clone for VSS_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VSS_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -3910,6 +3965,11 @@ impl ::core::clone::Clone for VSS_PROTECTION_FAULT {
         *self
     }
 }
+impl ::core::default::Default for VSS_PROTECTION_FAULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_PROTECTION_FAULT {
     type Abi = Self;
 }
@@ -3930,6 +3990,11 @@ impl ::core::marker::Copy for VSS_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for VSS_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_PROTECTION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_PROTECTION_LEVEL {
@@ -3968,6 +4033,11 @@ impl ::core::marker::Copy for VSS_PROVIDER_CAPABILITIES {}
 impl ::core::clone::Clone for VSS_PROVIDER_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_PROVIDER_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_PROVIDER_CAPABILITIES {
@@ -4033,6 +4103,11 @@ impl ::core::clone::Clone for VSS_PROVIDER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VSS_PROVIDER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_PROVIDER_TYPE {
     type Abi = Self;
 }
@@ -4053,6 +4128,11 @@ impl ::core::marker::Copy for VSS_RECOVERY_OPTIONS {}
 impl ::core::clone::Clone for VSS_RECOVERY_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_RECOVERY_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_RECOVERY_OPTIONS {
@@ -4091,6 +4171,11 @@ impl ::core::clone::Clone for VSS_RESTOREMETHOD_ENUM {
         *self
     }
 }
+impl ::core::default::Default for VSS_RESTOREMETHOD_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_RESTOREMETHOD_ENUM {
     type Abi = Self;
 }
@@ -4119,6 +4204,11 @@ impl ::core::clone::Clone for VSS_RESTORE_TARGET {
         *self
     }
 }
+impl ::core::default::Default for VSS_RESTORE_TARGET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_RESTORE_TARGET {
     type Abi = Self;
 }
@@ -4143,6 +4233,11 @@ impl ::core::marker::Copy for VSS_RESTORE_TYPE {}
 impl ::core::clone::Clone for VSS_RESTORE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_RESTORE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_RESTORE_TYPE {
@@ -4171,6 +4266,11 @@ impl ::core::clone::Clone for VSS_ROLLFORWARD_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VSS_ROLLFORWARD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_ROLLFORWARD_TYPE {
     type Abi = Self;
 }
@@ -4191,6 +4291,11 @@ impl ::core::marker::Copy for VSS_SNAPSHOT_COMPATIBILITY {}
 impl ::core::clone::Clone for VSS_SNAPSHOT_COMPATIBILITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_SNAPSHOT_COMPATIBILITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_COMPATIBILITY {
@@ -4223,6 +4328,11 @@ impl ::core::marker::Copy for VSS_SNAPSHOT_CONTEXT {}
 impl ::core::clone::Clone for VSS_SNAPSHOT_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_SNAPSHOT_CONTEXT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_CONTEXT {
@@ -4327,6 +4437,11 @@ impl ::core::clone::Clone for VSS_SNAPSHOT_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for VSS_SNAPSHOT_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROPERTY_ID {
     type Abi = Self;
 }
@@ -4379,6 +4494,11 @@ impl ::core::clone::Clone for VSS_SNAPSHOT_STATE {
         *self
     }
 }
+impl ::core::default::Default for VSS_SNAPSHOT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_STATE {
     type Abi = Self;
 }
@@ -4403,6 +4523,11 @@ impl ::core::marker::Copy for VSS_SOURCE_TYPE {}
 impl ::core::clone::Clone for VSS_SOURCE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_SOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SOURCE_TYPE {
@@ -4431,6 +4556,11 @@ impl ::core::marker::Copy for VSS_SUBSCRIBE_MASK {}
 impl ::core::clone::Clone for VSS_SUBSCRIBE_MASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_SUBSCRIBE_MASK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_SUBSCRIBE_MASK {
@@ -4467,6 +4597,11 @@ impl ::core::marker::Copy for VSS_USAGE_TYPE {}
 impl ::core::clone::Clone for VSS_USAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_USAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_USAGE_TYPE {
@@ -4599,6 +4734,11 @@ impl ::core::clone::Clone for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
         *self
     }
 }
+impl ::core::default::Default for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
     type Abi = Self;
 }
@@ -4623,6 +4763,11 @@ impl ::core::marker::Copy for VSS_WRITERRESTORE_ENUM {}
 impl ::core::clone::Clone for VSS_WRITERRESTORE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_WRITERRESTORE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_WRITERRESTORE_ENUM {
@@ -4675,6 +4820,11 @@ impl ::core::marker::Copy for VSS_WRITER_STATE {}
 impl ::core::clone::Clone for VSS_WRITER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VSS_WRITER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VSS_WRITER_STATE {

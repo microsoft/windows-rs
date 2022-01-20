@@ -2340,6 +2340,11 @@ impl ::core::clone::Clone for DayOfWeek {
         *self
     }
 }
+impl ::core::default::Default for DayOfWeek {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DayOfWeek {
     type Abi = Self;
 }
@@ -3609,6 +3614,11 @@ impl ::core::marker::Copy for LanguageLayoutDirection {}
 impl ::core::clone::Clone for LanguageLayoutDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LanguageLayoutDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LanguageLayoutDirection {

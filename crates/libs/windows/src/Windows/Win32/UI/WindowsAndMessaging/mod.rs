@@ -105,6 +105,11 @@ impl ::core::clone::Clone for ANIMATE_WINDOW_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ANIMATE_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ANIMATE_WINDOW_FLAGS {
     type Abi = Self;
 }
@@ -503,6 +508,11 @@ impl ::core::clone::Clone for CASCADE_WINDOWS_HOW {
         *self
     }
 }
+impl ::core::default::Default for CASCADE_WINDOWS_HOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CASCADE_WINDOWS_HOW {
     type Abi = Self;
 }
@@ -833,6 +843,11 @@ impl ::core::clone::Clone for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Abi = Self;
 }
@@ -1099,6 +1114,11 @@ impl ::core::clone::Clone for CURSORINFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CURSORINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CURSORINFO_FLAGS {
     type Abi = Self;
 }
@@ -1276,6 +1296,11 @@ impl ::core::marker::Copy for CWP_FLAGS {}
 impl ::core::clone::Clone for CWP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CWP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CWP_FLAGS {
@@ -2285,6 +2310,11 @@ impl ::core::clone::Clone for DI_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DI_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DI_FLAGS {
     type Abi = Self;
 }
@@ -2985,6 +3015,11 @@ impl ::core::clone::Clone for EDIT_CONTROL_FEATURE {
         *self
     }
 }
+impl ::core::default::Default for EDIT_CONTROL_FEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EDIT_CONTROL_FEATURE {
     type Abi = Self;
 }
@@ -3554,6 +3589,11 @@ impl ::core::clone::Clone for FLASHWINFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for FLASHWINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FLASHWINFO_FLAGS {
     type Abi = Self;
 }
@@ -3604,6 +3644,11 @@ impl ::core::marker::Copy for FOREGROUND_WINDOW_LOCK_CODE {}
 impl ::core::clone::Clone for FOREGROUND_WINDOW_LOCK_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FOREGROUND_WINDOW_LOCK_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FOREGROUND_WINDOW_LOCK_CODE {
@@ -3754,6 +3799,11 @@ impl ::core::clone::Clone for GDI_IMAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GDI_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GDI_IMAGE_TYPE {
     type Abi = Self;
 }
@@ -3820,6 +3870,11 @@ impl ::core::marker::Copy for GET_ANCESTOR_FLAGS {}
 impl ::core::clone::Clone for GET_ANCESTOR_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_ANCESTOR_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_ANCESTOR_FLAGS {
@@ -3904,6 +3959,11 @@ impl ::core::clone::Clone for GET_CLASS_LONG_INDEX {
         *self
     }
 }
+impl ::core::default::Default for GET_CLASS_LONG_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_CLASS_LONG_INDEX {
     type Abi = Self;
 }
@@ -3924,6 +3984,11 @@ impl ::core::marker::Copy for GET_MENU_DEFAULT_ITEM_FLAGS {}
 impl ::core::clone::Clone for GET_MENU_DEFAULT_ITEM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_MENU_DEFAULT_ITEM_FLAGS {
@@ -3984,6 +4049,11 @@ impl ::core::marker::Copy for GET_WINDOW_CMD {}
 impl ::core::clone::Clone for GET_WINDOW_CMD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_WINDOW_CMD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_WINDOW_CMD {
@@ -4096,6 +4166,11 @@ impl ::core::marker::Copy for GUITHREADINFO_FLAGS {}
 impl ::core::clone::Clone for GUITHREADINFO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GUITHREADINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GUITHREADINFO_FLAGS {
@@ -5528,6 +5603,11 @@ impl ::core::clone::Clone for HANDEDNESS {
         *self
     }
 }
+impl ::core::default::Default for HANDEDNESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HANDEDNESS {
     type Abi = Self;
 }
@@ -6343,6 +6423,11 @@ impl ::core::clone::Clone for IMAGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for IMAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMAGE_FLAGS {
     type Abi = Self;
 }
@@ -6934,6 +7019,11 @@ impl ::core::clone::Clone for KBDLLHOOKSTRUCT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for KBDLLHOOKSTRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT_FLAGS {
     type Abi = Self;
 }
@@ -7011,6 +7101,11 @@ impl ::core::marker::Copy for LAYERED_WINDOW_ATTRIBUTES_FLAGS {}
 impl ::core::clone::Clone for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
@@ -7745,6 +7840,11 @@ impl ::core::clone::Clone for MENUGETOBJECTINFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MENUGETOBJECTINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO_FLAGS {
     type Abi = Self;
 }
@@ -7847,6 +7947,11 @@ impl ::core::clone::Clone for MENUINFO_MASK {
         *self
     }
 }
+impl ::core::default::Default for MENUINFO_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MENUINFO_MASK {
     type Abi = Self;
 }
@@ -7903,6 +8008,11 @@ impl ::core::marker::Copy for MENUINFO_STYLE {}
 impl ::core::clone::Clone for MENUINFO_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MENUINFO_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MENUINFO_STYLE {
@@ -8168,6 +8278,11 @@ impl ::core::clone::Clone for MENU_ITEM_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for MENU_ITEM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MENU_ITEM_FLAGS {
     type Abi = Self;
 }
@@ -8232,6 +8347,11 @@ impl ::core::clone::Clone for MENU_ITEM_MASK {
         *self
     }
 }
+impl ::core::default::Default for MENU_ITEM_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MENU_ITEM_MASK {
     type Abi = Self;
 }
@@ -8292,6 +8412,11 @@ impl ::core::marker::Copy for MENU_ITEM_STATE {}
 impl ::core::clone::Clone for MENU_ITEM_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MENU_ITEM_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MENU_ITEM_STATE {
@@ -8356,6 +8481,11 @@ impl ::core::marker::Copy for MENU_ITEM_TYPE {}
 impl ::core::clone::Clone for MENU_ITEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MENU_ITEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MENU_ITEM_TYPE {
@@ -8428,6 +8558,11 @@ impl ::core::marker::Copy for MESSAGEBOX_RESULT {}
 impl ::core::clone::Clone for MESSAGEBOX_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MESSAGEBOX_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MESSAGEBOX_RESULT {
@@ -8520,6 +8655,11 @@ impl ::core::marker::Copy for MESSAGEBOX_STYLE {}
 impl ::core::clone::Clone for MESSAGEBOX_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MESSAGEBOX_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MESSAGEBOX_STYLE {
@@ -8705,6 +8845,11 @@ impl ::core::marker::Copy for MINIMIZEDMETRICS_ARRANGE {}
 impl ::core::clone::Clone for MINIMIZEDMETRICS_ARRANGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MINIMIZEDMETRICS_ARRANGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS_ARRANGE {
@@ -8915,6 +9060,11 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
         *self
     }
 }
+impl ::core::default::Default for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Abi = Self;
 }
@@ -9115,6 +9265,11 @@ impl ::core::clone::Clone for MSGFLTINFO_STATUS {
         *self
     }
 }
+impl ::core::default::Default for MSGFLTINFO_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSGFLTINFO_STATUS {
     type Abi = Self;
 }
@@ -9181,6 +9336,11 @@ impl ::core::marker::Copy for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {}
 impl ::core::clone::Clone for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
@@ -9664,6 +9824,11 @@ impl ::core::clone::Clone for MrmDumpType {
         *self
     }
 }
+impl ::core::default::Default for MrmDumpType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MrmDumpType {
     type Abi = Self;
 }
@@ -9793,6 +9958,11 @@ impl ::core::clone::Clone for MrmIndexerFlags {
         *self
     }
 }
+impl ::core::default::Default for MrmIndexerFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MrmIndexerFlags {
     type Abi = Self;
 }
@@ -9817,6 +9987,11 @@ impl ::core::clone::Clone for MrmPackagingMode {
         *self
     }
 }
+impl ::core::default::Default for MrmPackagingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MrmPackagingMode {
     type Abi = Self;
 }
@@ -9839,6 +10014,11 @@ impl ::core::marker::Copy for MrmPackagingOptions {}
 impl ::core::clone::Clone for MrmPackagingOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MrmPackagingOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MrmPackagingOptions {
@@ -9878,6 +10058,11 @@ impl ::core::marker::Copy for MrmPlatformVersion {}
 impl ::core::clone::Clone for MrmPlatformVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MrmPlatformVersion {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MrmPlatformVersion {
@@ -9974,6 +10159,11 @@ impl ::core::marker::Copy for MrmResourceIndexerMessageSeverity {}
 impl ::core::clone::Clone for MrmResourceIndexerMessageSeverity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MrmResourceIndexerMessageSeverity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MrmResourceIndexerMessageSeverity {
@@ -10255,6 +10445,11 @@ impl ::core::marker::Copy for OBJECT_IDENTIFIER {}
 impl ::core::clone::Clone for OBJECT_IDENTIFIER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OBJECT_IDENTIFIER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OBJECT_IDENTIFIER {
@@ -10546,6 +10741,11 @@ impl ::core::clone::Clone for PEEK_MESSAGE_REMOVE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEEK_MESSAGE_REMOVE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEEK_MESSAGE_REMOVE_TYPE {
     type Abi = Self;
 }
@@ -10642,6 +10842,11 @@ impl ::core::marker::Copy for POINTER_INPUT_TYPE {}
 impl ::core::clone::Clone for POINTER_INPUT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POINTER_INPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POINTER_INPUT_TYPE {
@@ -10906,6 +11111,11 @@ impl ::core::marker::Copy for QUEUE_STATUS_FLAGS {}
 impl ::core::clone::Clone for QUEUE_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QUEUE_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QUEUE_STATUS_FLAGS {
@@ -11426,6 +11636,11 @@ impl ::core::clone::Clone for SCROLLBAR_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for SCROLLBAR_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCROLLBAR_CONSTANTS {
     type Abi = Self;
 }
@@ -11518,6 +11733,11 @@ impl ::core::marker::Copy for SCROLLINFO_MASK {}
 impl ::core::clone::Clone for SCROLLINFO_MASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCROLLINFO_MASK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCROLLINFO_MASK {
@@ -11621,6 +11841,11 @@ impl ::core::clone::Clone for SEND_MESSAGE_TIMEOUT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Abi = Self;
 }
@@ -11697,6 +11922,11 @@ impl ::core::marker::Copy for SET_WINDOW_POS_FLAGS {}
 impl ::core::clone::Clone for SET_WINDOW_POS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SET_WINDOW_POS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SET_WINDOW_POS_FLAGS {
@@ -11836,6 +12066,11 @@ impl ::core::marker::Copy for SHOW_WINDOW_CMD {}
 impl ::core::clone::Clone for SHOW_WINDOW_CMD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHOW_WINDOW_CMD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHOW_WINDOW_CMD {
@@ -12165,6 +12400,11 @@ impl ::core::clone::Clone for SYSTEM_CURSOR_ID {
         *self
     }
 }
+impl ::core::default::Default for SYSTEM_CURSOR_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYSTEM_CURSOR_ID {
     type Abi = Self;
 }
@@ -12399,6 +12639,11 @@ impl ::core::marker::Copy for SYSTEM_METRICS_INDEX {}
 impl ::core::clone::Clone for SYSTEM_METRICS_INDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_METRICS_INDEX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_METRICS_INDEX {
@@ -12929,6 +13174,11 @@ impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_ACTION {
         *self
     }
 }
+impl ::core::default::Default for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_ACTION {
     type Abi = Self;
 }
@@ -12979,6 +13229,11 @@ impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {}
 impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
@@ -13097,6 +13352,11 @@ impl ::core::marker::Copy for SYS_COLOR_INDEX {}
 impl ::core::clone::Clone for SYS_COLOR_INDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYS_COLOR_INDEX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
@@ -14186,6 +14446,11 @@ impl ::core::clone::Clone for TILE_WINDOWS_HOW {
         *self
     }
 }
+impl ::core::default::Default for TILE_WINDOWS_HOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TILE_WINDOWS_HOW {
     type Abi = Self;
 }
@@ -14451,6 +14716,11 @@ impl ::core::clone::Clone for TRACK_POPUP_MENU_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for TRACK_POPUP_MENU_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRACK_POPUP_MENU_FLAGS {
     type Abi = Self;
 }
@@ -14704,6 +14974,11 @@ impl ::core::marker::Copy for UPDATE_LAYERED_WINDOW_FLAGS {}
 impl ::core::clone::Clone for UPDATE_LAYERED_WINDOW_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UPDATE_LAYERED_WINDOW_FLAGS {
@@ -14962,6 +15237,11 @@ impl ::core::clone::Clone for WINDOWPLACEMENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WINDOWPLACEMENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINDOWPLACEMENT_FLAGS {
     type Abi = Self;
 }
@@ -15082,6 +15362,11 @@ impl ::core::clone::Clone for WINDOWS_HOOK_ID {
         *self
     }
 }
+impl ::core::default::Default for WINDOWS_HOOK_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINDOWS_HOOK_ID {
     type Abi = Self;
 }
@@ -15104,6 +15389,11 @@ impl ::core::marker::Copy for WINDOW_DISPLAY_AFFINITY {}
 impl ::core::clone::Clone for WINDOW_DISPLAY_AFFINITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINDOW_DISPLAY_AFFINITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINDOW_DISPLAY_AFFINITY {
@@ -15206,6 +15496,11 @@ impl ::core::clone::Clone for WINDOW_EX_STYLE {
         *self
     }
 }
+impl ::core::default::Default for WINDOW_EX_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINDOW_EX_STYLE {
     type Abi = Self;
 }
@@ -15276,6 +15571,11 @@ impl ::core::clone::Clone for WINDOW_LONG_PTR_INDEX {
         *self
     }
 }
+impl ::core::default::Default for WINDOW_LONG_PTR_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINDOW_LONG_PTR_INDEX {
     type Abi = Self;
 }
@@ -15298,6 +15598,11 @@ impl ::core::marker::Copy for WINDOW_MESSAGE_FILTER_ACTION {}
 impl ::core::clone::Clone for WINDOW_MESSAGE_FILTER_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINDOW_MESSAGE_FILTER_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINDOW_MESSAGE_FILTER_ACTION {
@@ -15400,6 +15705,11 @@ impl ::core::marker::Copy for WINDOW_STYLE {}
 impl ::core::clone::Clone for WINDOW_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINDOW_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINDOW_STYLE {
@@ -16232,6 +16542,11 @@ impl ::core::marker::Copy for WNDCLASS_STYLES {}
 impl ::core::clone::Clone for WNDCLASS_STYLES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WNDCLASS_STYLES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WNDCLASS_STYLES {

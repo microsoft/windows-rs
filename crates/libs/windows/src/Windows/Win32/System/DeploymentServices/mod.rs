@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CPU_ARCHITECTURE {
         *self
     }
 }
+impl ::core::default::Default for CPU_ARCHITECTURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CPU_ARCHITECTURE {
     type Abi = Self;
 }
@@ -4742,6 +4747,11 @@ impl ::core::clone::Clone for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
         *self
     }
 }
+impl ::core::default::Default for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
     type Abi = Self;
 }
@@ -5696,6 +5706,11 @@ impl ::core::clone::Clone for TRANSPORTCLIENT_CALLBACK_ID {
         *self
     }
 }
+impl ::core::default::Default for TRANSPORTCLIENT_CALLBACK_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRANSPORTCLIENT_CALLBACK_ID {
     type Abi = Self;
 }
@@ -5770,6 +5785,11 @@ impl ::core::marker::Copy for TRANSPORTPROVIDER_CALLBACK_ID {}
 impl ::core::clone::Clone for TRANSPORTPROVIDER_CALLBACK_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRANSPORTPROVIDER_CALLBACK_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRANSPORTPROVIDER_CALLBACK_ID {
@@ -5980,6 +6000,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
     type Abi = Self;
 }
@@ -6002,6 +6027,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_DISCONNECT_TYPE {}
 impl ::core::clone::Clone for WDSTRANSPORT_DISCONNECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_DISCONNECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_DISCONNECT_TYPE {
@@ -6028,6 +6058,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_FEATURE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_FEATURE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_FEATURE_FLAGS {
     type Abi = Self;
 }
@@ -6050,6 +6085,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {}
 impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
@@ -6076,6 +6116,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_IP_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_IP_ADDRESS_TYPE {
     type Abi = Self;
 }
@@ -6100,6 +6145,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_NAMESPACE_TYPE {}
 impl ::core::clone::Clone for WDSTRANSPORT_NAMESPACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_NAMESPACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_NAMESPACE_TYPE {
@@ -6130,6 +6180,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
     type Abi = Self;
 }
@@ -6150,6 +6205,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_PROTOCOL_FLAGS {}
 impl ::core::clone::Clone for WDSTRANSPORT_PROTOCOL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_PROTOCOL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_PROTOCOL_FLAGS {
@@ -6174,6 +6234,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_SERVICE_NOTIFICATION {}
 impl ::core::clone::Clone for WDSTRANSPORT_SERVICE_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_SERVICE_NOTIFICATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_SERVICE_NOTIFICATION {
@@ -6202,6 +6267,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
     type Abi = Self;
 }
@@ -6224,6 +6294,11 @@ impl ::core::clone::Clone for WDSTRANSPORT_TFTP_CAPABILITY {
         *self
     }
 }
+impl ::core::default::Default for WDSTRANSPORT_TFTP_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_TFTP_CAPABILITY {
     type Abi = Self;
 }
@@ -6244,6 +6319,11 @@ impl ::core::marker::Copy for WDSTRANSPORT_UDP_PORT_POLICY {}
 impl ::core::clone::Clone for WDSTRANSPORT_UDP_PORT_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDSTRANSPORT_UDP_PORT_POLICY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDSTRANSPORT_UDP_PORT_POLICY {
@@ -6310,6 +6390,11 @@ impl ::core::clone::Clone for WDS_CLI_FIRMWARE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WDS_CLI_FIRMWARE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WDS_CLI_FIRMWARE_TYPE {
     type Abi = Self;
 }
@@ -6332,6 +6417,11 @@ impl ::core::marker::Copy for WDS_CLI_IMAGE_PARAM_TYPE {}
 impl ::core::clone::Clone for WDS_CLI_IMAGE_PARAM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDS_CLI_IMAGE_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDS_CLI_IMAGE_PARAM_TYPE {
@@ -6358,6 +6448,11 @@ impl ::core::marker::Copy for WDS_CLI_IMAGE_TYPE {}
 impl ::core::clone::Clone for WDS_CLI_IMAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDS_CLI_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDS_CLI_IMAGE_TYPE {
@@ -6546,6 +6641,11 @@ impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {}
 impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {

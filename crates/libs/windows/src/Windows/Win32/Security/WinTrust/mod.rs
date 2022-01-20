@@ -1967,6 +1967,11 @@ impl ::core::clone::Clone for WINTRUST_DATA_PROVIDER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_PROVIDER_FLAGS {
     type Abi = Self;
 }
@@ -2015,6 +2020,11 @@ impl ::core::marker::Copy for WINTRUST_DATA_REVOCATION_CHECKS {}
 impl ::core::clone::Clone for WINTRUST_DATA_REVOCATION_CHECKS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_REVOCATION_CHECKS {
@@ -2073,6 +2083,11 @@ impl ::core::clone::Clone for WINTRUST_DATA_STATE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for WINTRUST_DATA_STATE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_STATE_ACTION {
     type Abi = Self;
 }
@@ -2127,6 +2142,11 @@ impl ::core::clone::Clone for WINTRUST_DATA_UICHOICE {
         *self
     }
 }
+impl ::core::default::Default for WINTRUST_DATA_UICHOICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_UICHOICE {
     type Abi = Self;
 }
@@ -2175,6 +2195,11 @@ impl ::core::marker::Copy for WINTRUST_DATA_UICONTEXT {}
 impl ::core::clone::Clone for WINTRUST_DATA_UICONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_UICONTEXT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_UICONTEXT {
@@ -2231,6 +2256,11 @@ impl ::core::marker::Copy for WINTRUST_DATA_UNION_CHOICE {}
 impl ::core::clone::Clone for WINTRUST_DATA_UNION_CHOICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_UNION_CHOICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_UNION_CHOICE {
@@ -2324,6 +2354,11 @@ impl ::core::clone::Clone for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     type Abi = Self;
 }
@@ -2394,6 +2429,11 @@ impl ::core::marker::Copy for WINTRUST_POLICY_FLAGS {}
 impl ::core::clone::Clone for WINTRUST_POLICY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINTRUST_POLICY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINTRUST_POLICY_FLAGS {
@@ -2529,6 +2569,11 @@ impl ::core::marker::Copy for WINTRUST_SIGNATURE_SETTINGS_FLAGS {}
 impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINTRUST_SIGNATURE_SETTINGS_FLAGS {

@@ -192,6 +192,11 @@ impl ::core::clone::Clone for WebErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for WebErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebErrorStatus {
     type Abi = Self;
 }

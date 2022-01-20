@@ -15,6 +15,11 @@ impl ::core::clone::Clone for APPSTATE {
         *self
     }
 }
+impl ::core::default::Default for APPSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPSTATE {
     type Abi = Self;
 }
@@ -239,6 +244,11 @@ impl ::core::clone::Clone for GPMBackupType {
         *self
     }
 }
+impl ::core::default::Default for GPMBackupType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPMBackupType {
     type Abi = Self;
 }
@@ -266,6 +276,11 @@ impl ::core::marker::Copy for GPMDestinationOption {}
 impl ::core::clone::Clone for GPMDestinationOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMDestinationOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMDestinationOption {
@@ -299,6 +314,11 @@ impl ::core::marker::Copy for GPMEntryType {}
 impl ::core::clone::Clone for GPMEntryType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMEntryType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMEntryType {
@@ -365,6 +385,11 @@ impl ::core::clone::Clone for GPMPermissionType {
         *self
     }
 }
+impl ::core::default::Default for GPMPermissionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPMPermissionType {
     type Abi = Self;
 }
@@ -388,6 +413,11 @@ impl ::core::marker::Copy for GPMRSOPMode {}
 impl ::core::clone::Clone for GPMRSOPMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMRSOPMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMRSOPMode {
@@ -420,6 +450,11 @@ impl ::core::clone::Clone for GPMReportType {
         *self
     }
 }
+impl ::core::default::Default for GPMReportType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPMReportType {
     type Abi = Self;
 }
@@ -440,6 +475,11 @@ impl ::core::marker::Copy for GPMReportingOptions {}
 impl ::core::clone::Clone for GPMReportingOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMReportingOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMReportingOptions {
@@ -469,6 +509,11 @@ impl ::core::clone::Clone for GPMSOMType {
         *self
     }
 }
+impl ::core::default::Default for GPMSOMType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPMSOMType {
     type Abi = Self;
 }
@@ -494,6 +539,11 @@ impl ::core::marker::Copy for GPMSearchOperation {}
 impl ::core::clone::Clone for GPMSearchOperation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMSearchOperation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMSearchOperation {
@@ -544,6 +594,11 @@ impl ::core::clone::Clone for GPMSearchProperty {
         *self
     }
 }
+impl ::core::default::Default for GPMSearchProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPMSearchProperty {
     type Abi = Self;
 }
@@ -569,6 +624,11 @@ impl ::core::marker::Copy for GPMStarterGPOType {}
 impl ::core::clone::Clone for GPMStarterGPOType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GPMStarterGPOType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GPMStarterGPOType {
@@ -703,6 +763,11 @@ impl ::core::clone::Clone for GPO_LINK {
         *self
     }
 }
+impl ::core::default::Default for GPO_LINK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GPO_LINK {
     type Abi = Self;
 }
@@ -751,6 +816,11 @@ impl ::core::marker::Copy for GROUP_POLICY_HINT_TYPE {}
 impl ::core::clone::Clone for GROUP_POLICY_HINT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GROUP_POLICY_HINT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GROUP_POLICY_HINT_TYPE {
@@ -907,6 +977,11 @@ impl ::core::marker::Copy for GROUP_POLICY_OBJECT_TYPE {}
 impl ::core::clone::Clone for GROUP_POLICY_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GROUP_POLICY_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GROUP_POLICY_OBJECT_TYPE {
@@ -9671,6 +9746,11 @@ impl ::core::clone::Clone for INSTALLSPECTYPE {
         *self
     }
 }
+impl ::core::default::Default for INSTALLSPECTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLSPECTYPE {
     type Abi = Self;
 }
@@ -10236,6 +10316,11 @@ impl ::core::marker::Copy for SETTINGSTATUS {}
 impl ::core::clone::Clone for SETTINGSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SETTINGSTATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SETTINGSTATUS {

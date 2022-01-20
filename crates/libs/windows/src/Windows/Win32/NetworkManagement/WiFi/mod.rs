@@ -15,6 +15,11 @@ impl ::core::clone::Clone for CH_DESCRIPTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CH_DESCRIPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CH_DESCRIPTION_TYPE {
     type Abi = Self;
 }
@@ -200,6 +205,11 @@ impl ::core::clone::Clone for DOT11_AC_PARAM {
         *self
     }
 }
+impl ::core::default::Default for DOT11_AC_PARAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_AC_PARAM {
     type Abi = Self;
 }
@@ -268,6 +278,11 @@ impl ::core::clone::Clone for DOT11_ADHOC_AUTH_ALGORITHM {
         *self
     }
 }
+impl ::core::default::Default for DOT11_ADHOC_AUTH_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_ADHOC_AUTH_ALGORITHM {
     type Abi = Self;
 }
@@ -294,6 +309,11 @@ impl ::core::clone::Clone for DOT11_ADHOC_CIPHER_ALGORITHM {
         *self
     }
 }
+impl ::core::default::Default for DOT11_ADHOC_CIPHER_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_ADHOC_CIPHER_ALGORITHM {
     type Abi = Self;
 }
@@ -316,6 +336,11 @@ impl ::core::marker::Copy for DOT11_ADHOC_CONNECT_FAIL_REASON {}
 impl ::core::clone::Clone for DOT11_ADHOC_CONNECT_FAIL_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_ADHOC_CONNECT_FAIL_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_ADHOC_CONNECT_FAIL_REASON {
@@ -344,6 +369,11 @@ impl ::core::marker::Copy for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {}
 impl ::core::clone::Clone for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
@@ -421,6 +451,11 @@ impl ::core::marker::Copy for DOT11_ANQP_QUERY_RESULT {}
 impl ::core::clone::Clone for DOT11_ANQP_QUERY_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_ANQP_QUERY_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_ANQP_QUERY_RESULT {
@@ -762,6 +797,11 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_ASSOCIATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_ASSOCIATION_STATE {
     type Abi = Self;
 }
@@ -814,6 +854,11 @@ impl ::core::marker::Copy for DOT11_AUTH_ALGORITHM {}
 impl ::core::clone::Clone for DOT11_AUTH_ALGORITHM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_AUTH_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_AUTH_ALGORITHM {
@@ -1043,6 +1088,11 @@ impl ::core::marker::Copy for DOT11_BAND {}
 impl ::core::clone::Clone for DOT11_BAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_BAND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_BAND {
@@ -1284,6 +1334,11 @@ impl ::core::clone::Clone for DOT11_BSS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_BSS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_BSS_TYPE {
     type Abi = Self;
 }
@@ -1481,6 +1536,11 @@ impl ::core::marker::Copy for DOT11_CIPHER_ALGORITHM {}
 impl ::core::clone::Clone for DOT11_CIPHER_ALGORITHM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_CIPHER_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_CIPHER_ALGORITHM {
@@ -2121,6 +2181,11 @@ impl ::core::clone::Clone for DOT11_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for DOT11_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_DIRECTION {
     type Abi = Self;
 }
@@ -2312,6 +2377,11 @@ impl ::core::clone::Clone for DOT11_DIVERSITY_SUPPORT {
         *self
     }
 }
+impl ::core::default::Default for DOT11_DIVERSITY_SUPPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_DIVERSITY_SUPPORT {
     type Abi = Self;
 }
@@ -2334,6 +2404,11 @@ impl ::core::marker::Copy for DOT11_DS_INFO {}
 impl ::core::clone::Clone for DOT11_DS_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_DS_INFO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_DS_INFO {
@@ -3058,6 +3133,11 @@ impl ::core::marker::Copy for DOT11_HOP_ALGO_ADOPTED {}
 impl ::core::clone::Clone for DOT11_HOP_ALGO_ADOPTED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_HOP_ALGO_ADOPTED {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_HOP_ALGO_ADOPTED {
@@ -3790,6 +3870,11 @@ impl ::core::clone::Clone for DOT11_KEY_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for DOT11_KEY_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_KEY_DIRECTION {
     type Abi = Self;
 }
@@ -4108,6 +4193,11 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_MANUFACTURING_CALLBACK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_CALLBACK_TYPE {
     type Abi = Self;
 }
@@ -4327,6 +4417,11 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_MANUFACTURING_SELF_TEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_SELF_TEST_TYPE {
     type Abi = Self;
 }
@@ -4499,6 +4594,11 @@ impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_TYPE {}
 impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_MANUFACTURING_TEST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_MANUFACTURING_TEST_TYPE {
@@ -4929,6 +5029,11 @@ impl ::core::marker::Copy for DOT11_OFFLOAD_TYPE {}
 impl ::core::clone::Clone for DOT11_OFFLOAD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_OFFLOAD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_OFFLOAD_TYPE {
@@ -5616,6 +5721,11 @@ impl ::core::clone::Clone for DOT11_PHY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_PHY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_PHY_TYPE {
     type Abi = Self;
 }
@@ -6013,6 +6123,11 @@ impl ::core::clone::Clone for DOT11_POWER_MODE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_POWER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_POWER_MODE {
     type Abi = Self;
 }
@@ -6041,6 +6156,11 @@ impl ::core::marker::Copy for DOT11_POWER_MODE_REASON {}
 impl ::core::clone::Clone for DOT11_POWER_MODE_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_POWER_MODE_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_POWER_MODE_REASON {
@@ -6356,6 +6476,11 @@ impl ::core::marker::Copy for DOT11_RADIO_STATE {}
 impl ::core::clone::Clone for DOT11_RADIO_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_RADIO_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_RADIO_STATE {
@@ -7100,6 +7225,11 @@ impl ::core::clone::Clone for DOT11_RESET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_RESET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_RESET_TYPE {
     type Abi = Self;
 }
@@ -7370,6 +7500,11 @@ impl ::core::marker::Copy for DOT11_SCAN_TYPE {}
 impl ::core::clone::Clone for DOT11_SCAN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_SCAN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_SCAN_TYPE {
@@ -8435,6 +8570,11 @@ impl ::core::clone::Clone for DOT11_TEMP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_TEMP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_TEMP_TYPE {
     type Abi = Self;
 }
@@ -8530,6 +8670,11 @@ impl ::core::marker::Copy for DOT11_UPDATE_IE_OP {}
 impl ::core::clone::Clone for DOT11_UPDATE_IE_OP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_UPDATE_IE_OP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_UPDATE_IE_OP {
@@ -9516,6 +9661,11 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_WFD_DISCOVER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_WFD_DISCOVER_TYPE {
     type Abi = Self;
 }
@@ -9856,6 +10006,11 @@ impl ::core::clone::Clone for DOT11_WFD_SCAN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DOT11_WFD_SCAN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_WFD_SCAN_TYPE {
     type Abi = Self;
 }
@@ -10168,6 +10323,11 @@ impl ::core::clone::Clone for DOT11_WPS_CONFIG_METHOD {
         *self
     }
 }
+impl ::core::default::Default for DOT11_WPS_CONFIG_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11_WPS_CONFIG_METHOD {
     type Abi = Self;
 }
@@ -10237,6 +10397,11 @@ impl ::core::marker::Copy for DOT11_WPS_DEVICE_PASSWORD_ID {}
 impl ::core::clone::Clone for DOT11_WPS_DEVICE_PASSWORD_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_WPS_DEVICE_PASSWORD_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_WPS_DEVICE_PASSWORD_ID {
@@ -11581,6 +11746,11 @@ impl ::core::clone::Clone for ONEX_AUTH_IDENTITY {
         *self
     }
 }
+impl ::core::default::Default for ONEX_AUTH_IDENTITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ONEX_AUTH_IDENTITY {
     type Abi = Self;
 }
@@ -11677,6 +11847,11 @@ impl ::core::clone::Clone for ONEX_AUTH_RESTART_REASON {
         *self
     }
 }
+impl ::core::default::Default for ONEX_AUTH_RESTART_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ONEX_AUTH_RESTART_REASON {
     type Abi = Self;
 }
@@ -11705,6 +11880,11 @@ impl ::core::marker::Copy for ONEX_AUTH_STATUS {}
 impl ::core::clone::Clone for ONEX_AUTH_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ONEX_AUTH_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ONEX_AUTH_STATUS {
@@ -11777,6 +11957,11 @@ impl ::core::clone::Clone for ONEX_EAP_METHOD_BACKEND_SUPPORT {
         *self
     }
 }
+impl ::core::default::Default for ONEX_EAP_METHOD_BACKEND_SUPPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ONEX_EAP_METHOD_BACKEND_SUPPORT {
     type Abi = Self;
 }
@@ -11803,6 +11988,11 @@ impl ::core::marker::Copy for ONEX_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for ONEX_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ONEX_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ONEX_NOTIFICATION_TYPE {
@@ -11865,6 +12055,11 @@ impl ::core::marker::Copy for ONEX_REASON_CODE {}
 impl ::core::clone::Clone for ONEX_REASON_CODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ONEX_REASON_CODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ONEX_REASON_CODE {
@@ -12222,6 +12417,11 @@ impl ::core::clone::Clone for WFD_ROLE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WFD_ROLE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WFD_ROLE_TYPE {
     type Abi = Self;
 }
@@ -12242,6 +12442,11 @@ impl ::core::marker::Copy for WLAN_ADHOC_NETWORK_STATE {}
 impl ::core::clone::Clone for WLAN_ADHOC_NETWORK_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_ADHOC_NETWORK_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_ADHOC_NETWORK_STATE {
@@ -12350,6 +12555,11 @@ impl ::core::marker::Copy for WLAN_AUTOCONF_OPCODE {}
 impl ::core::clone::Clone for WLAN_AUTOCONF_OPCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_AUTOCONF_OPCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_AUTOCONF_OPCODE {
@@ -12786,6 +12996,11 @@ impl ::core::clone::Clone for WLAN_CONNECTION_MODE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_CONNECTION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_CONNECTION_MODE {
     type Abi = Self;
 }
@@ -12851,6 +13066,11 @@ impl ::core::marker::Copy for WLAN_CONNECTION_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_CONNECTION_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_CONNECTION_NOTIFICATION_FLAGS {
@@ -13097,6 +13317,11 @@ impl ::core::clone::Clone for WLAN_FILTER_LIST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_FILTER_LIST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_FILTER_LIST_TYPE {
     type Abi = Self;
 }
@@ -13184,6 +13409,11 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
     type Abi = Self;
 }
@@ -13210,6 +13440,11 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_OPCODE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_HOSTED_NETWORK_OPCODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_OPCODE {
     type Abi = Self;
 }
@@ -13230,6 +13465,11 @@ impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {}
 impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
@@ -13370,6 +13610,11 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_REASON {
         *self
     }
 }
+impl ::core::default::Default for WLAN_HOSTED_NETWORK_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_REASON {
     type Abi = Self;
 }
@@ -13423,6 +13668,11 @@ impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATE {}
 impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_HOSTED_NETWORK_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_HOSTED_NETWORK_STATE {
@@ -13513,6 +13763,11 @@ impl ::core::marker::Copy for WLAN_IHV_CONTROL_TYPE {}
 impl ::core::clone::Clone for WLAN_IHV_CONTROL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_IHV_CONTROL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_IHV_CONTROL_TYPE {
@@ -13656,6 +13911,11 @@ impl ::core::clone::Clone for WLAN_INTERFACE_STATE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_INTERFACE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_INTERFACE_STATE {
     type Abi = Self;
 }
@@ -13678,6 +13938,11 @@ impl ::core::marker::Copy for WLAN_INTERFACE_TYPE {}
 impl ::core::clone::Clone for WLAN_INTERFACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_INTERFACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_INTERFACE_TYPE {
@@ -13752,6 +14017,11 @@ impl ::core::marker::Copy for WLAN_INTF_OPCODE {}
 impl ::core::clone::Clone for WLAN_INTF_OPCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_INTF_OPCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_INTF_OPCODE {
@@ -13936,6 +14206,11 @@ impl ::core::clone::Clone for WLAN_NOTIFICATION_ACM {
         *self
     }
 }
+impl ::core::default::Default for WLAN_NOTIFICATION_ACM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_ACM {
     type Abi = Self;
 }
@@ -13992,6 +14267,11 @@ impl ::core::clone::Clone for WLAN_NOTIFICATION_MSM {
         *self
     }
 }
+impl ::core::default::Default for WLAN_NOTIFICATION_MSM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_MSM {
     type Abi = Self;
 }
@@ -14012,6 +14292,11 @@ impl ::core::marker::Copy for WLAN_NOTIFICATION_SECURITY {}
 impl ::core::clone::Clone for WLAN_NOTIFICATION_SECURITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_NOTIFICATION_SECURITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_SECURITY {
@@ -14058,6 +14343,11 @@ impl ::core::clone::Clone for WLAN_OPCODE_VALUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WLAN_OPCODE_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_OPCODE_VALUE_TYPE {
     type Abi = Self;
 }
@@ -14084,6 +14374,11 @@ impl ::core::marker::Copy for WLAN_OPERATIONAL_STATE {}
 impl ::core::clone::Clone for WLAN_OPERATIONAL_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_OPERATIONAL_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_OPERATIONAL_STATE {
@@ -14210,6 +14505,11 @@ impl ::core::marker::Copy for WLAN_POWER_SETTING {}
 impl ::core::clone::Clone for WLAN_POWER_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_POWER_SETTING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_POWER_SETTING {
@@ -14805,6 +15105,11 @@ impl ::core::clone::Clone for WLAN_SECURABLE_OBJECT {
         *self
     }
 }
+impl ::core::default::Default for WLAN_SECURABLE_OBJECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WLAN_SECURABLE_OBJECT {
     type Abi = Self;
 }
@@ -14864,6 +15169,11 @@ impl ::core::marker::Copy for WLAN_SET_EAPHOST_FLAGS {}
 impl ::core::clone::Clone for WLAN_SET_EAPHOST_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WLAN_SET_EAPHOST_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WLAN_SET_EAPHOST_FLAGS {
@@ -14956,6 +15266,11 @@ impl ::core::marker::Copy for WL_DISPLAY_PAGES {}
 impl ::core::clone::Clone for WL_DISPLAY_PAGES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WL_DISPLAY_PAGES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WL_DISPLAY_PAGES {

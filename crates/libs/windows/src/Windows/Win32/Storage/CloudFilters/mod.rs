@@ -18,6 +18,11 @@ impl ::core::clone::Clone for CF_CALLBACK_CANCEL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_CANCEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_CANCEL_FLAGS {
     type Abi = Self;
 }
@@ -66,6 +71,11 @@ impl ::core::marker::Copy for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
@@ -120,6 +130,11 @@ impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Abi = Self;
 }
@@ -168,6 +183,11 @@ impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATE_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
@@ -226,6 +246,11 @@ impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATION_REASON {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATION_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
 }
@@ -244,6 +269,11 @@ impl ::core::marker::Copy for CF_CALLBACK_DELETE_COMPLETION_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
@@ -298,6 +328,11 @@ impl ::core::clone::Clone for CF_CALLBACK_DELETE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_DELETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
     type Abi = Self;
 }
@@ -350,6 +385,11 @@ impl ::core::clone::Clone for CF_CALLBACK_FETCH_DATA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Abi = Self;
 }
@@ -396,6 +436,11 @@ impl ::core::marker::Copy for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
@@ -524,6 +569,11 @@ impl ::core::marker::Copy for CF_CALLBACK_OPEN_COMPLETION_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
@@ -1224,6 +1274,11 @@ impl ::core::clone::Clone for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type Abi = Self;
 }
@@ -1276,6 +1331,11 @@ impl ::core::marker::Copy for CF_CALLBACK_RENAME_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_RENAME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_RENAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
@@ -1352,6 +1412,11 @@ impl ::core::clone::Clone for CF_CALLBACK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CF_CALLBACK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
 }
@@ -1372,6 +1437,11 @@ impl ::core::marker::Copy for CF_CALLBACK_VALIDATE_DATA_FLAGS {}
 impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
@@ -1462,6 +1532,11 @@ impl ::core::clone::Clone for CF_CONNECT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CONNECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
     type Abi = Self;
 }
@@ -1520,6 +1595,11 @@ impl ::core::clone::Clone for CF_CONVERT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CONVERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CONVERT_FLAGS {
     type Abi = Self;
 }
@@ -1570,6 +1650,11 @@ impl ::core::clone::Clone for CF_CREATE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
     type Abi = Self;
 }
@@ -1618,6 +1703,11 @@ impl ::core::marker::Copy for CF_DEHYDRATE_FLAGS {}
 impl ::core::clone::Clone for CF_DEHYDRATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_DEHYDRATE_FLAGS {
@@ -1740,6 +1830,11 @@ impl ::core::clone::Clone for CF_HARDLINK_POLICY {
         *self
     }
 }
+impl ::core::default::Default for CF_HARDLINK_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_HARDLINK_POLICY {
     type Abi = Self;
 }
@@ -1786,6 +1881,11 @@ impl ::core::marker::Copy for CF_HYDRATE_FLAGS {}
 impl ::core::clone::Clone for CF_HYDRATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_HYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
@@ -1875,6 +1975,11 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER {
         *self
     }
 }
+impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
     type Abi = Self;
 }
@@ -1959,6 +2064,11 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY {
         *self
     }
 }
+impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
     type Abi = Self;
 }
@@ -2037,6 +2147,11 @@ impl ::core::clone::Clone for CF_INSYNC_POLICY {
         *self
     }
 }
+impl ::core::default::Default for CF_INSYNC_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_INSYNC_POLICY {
     type Abi = Self;
 }
@@ -2087,6 +2202,11 @@ impl ::core::clone::Clone for CF_IN_SYNC_STATE {
         *self
     }
 }
+impl ::core::default::Default for CF_IN_SYNC_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
     type Abi = Self;
 }
@@ -2119,6 +2239,11 @@ impl ::core::marker::Copy for CF_OPEN_FILE_FLAGS {}
 impl ::core::clone::Clone for CF_OPEN_FILE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_OPEN_FILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_OPEN_FILE_FLAGS {
@@ -2169,6 +2294,11 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_DATA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_OPERATION_ACK_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
     type Abi = Self;
 }
@@ -2215,6 +2345,11 @@ impl ::core::marker::Copy for CF_OPERATION_ACK_DEHYDRATE_FLAGS {}
 impl ::core::clone::Clone for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
@@ -2265,6 +2400,11 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_DELETE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
     type Abi = Self;
 }
@@ -2311,6 +2451,11 @@ impl ::core::marker::Copy for CF_OPERATION_ACK_RENAME_FLAGS {}
 impl ::core::clone::Clone for CF_OPERATION_ACK_RENAME_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
@@ -2807,6 +2952,11 @@ impl ::core::clone::Clone for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Abi = Self;
 }
@@ -2855,6 +3005,11 @@ impl ::core::clone::Clone for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Abi = Self;
 }
@@ -2901,6 +3056,11 @@ impl ::core::marker::Copy for CF_OPERATION_TRANSFER_DATA_FLAGS {}
 impl ::core::clone::Clone for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
@@ -2953,6 +3113,11 @@ impl ::core::marker::Copy for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {}
 impl ::core::clone::Clone for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
@@ -3017,6 +3182,11 @@ impl ::core::clone::Clone for CF_OPERATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CF_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
 }
@@ -3043,6 +3213,11 @@ impl ::core::marker::Copy for CF_PIN_STATE {}
 impl ::core::clone::Clone for CF_PIN_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_PIN_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_PIN_STATE {
@@ -3106,6 +3281,11 @@ impl ::core::marker::Copy for CF_PLACEHOLDER_CREATE_FLAGS {}
 impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
@@ -3202,6 +3382,11 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_INFO_CLASS {
         *self
     }
 }
+impl ::core::default::Default for CF_PLACEHOLDER_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
 }
@@ -3228,6 +3413,11 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_MANAGEMENT_POLICY {
         *self
     }
 }
+impl ::core::default::Default for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type Abi = Self;
 }
@@ -3252,6 +3442,11 @@ impl ::core::marker::Copy for CF_PLACEHOLDER_RANGE_INFO_CLASS {}
 impl ::core::clone::Clone for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
@@ -3336,6 +3531,11 @@ impl ::core::marker::Copy for CF_PLACEHOLDER_STATE {}
 impl ::core::clone::Clone for CF_PLACEHOLDER_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STATE {
@@ -3449,6 +3649,11 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER {
         *self
     }
 }
+impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
     type Abi = Self;
 }
@@ -3529,6 +3734,11 @@ impl ::core::marker::Copy for CF_POPULATION_POLICY_PRIMARY {}
 impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
@@ -3631,6 +3841,11 @@ impl ::core::clone::Clone for CF_REGISTER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_REGISTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_REGISTER_FLAGS {
     type Abi = Self;
 }
@@ -3681,6 +3896,11 @@ impl ::core::clone::Clone for CF_REVERT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CF_REVERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CF_REVERT_FLAGS {
     type Abi = Self;
 }
@@ -3727,6 +3947,11 @@ impl ::core::marker::Copy for CF_SET_IN_SYNC_FLAGS {}
 impl ::core::clone::Clone for CF_SET_IN_SYNC_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_SET_IN_SYNC_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
@@ -3781,6 +4006,11 @@ impl ::core::marker::Copy for CF_SET_PIN_FLAGS {}
 impl ::core::clone::Clone for CF_SET_PIN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_SET_PIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
@@ -3884,6 +4114,11 @@ impl ::core::marker::Copy for CF_SYNC_PROVIDER_STATUS {}
 impl ::core::clone::Clone for CF_SYNC_PROVIDER_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_SYNC_PROVIDER_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
@@ -4011,6 +4246,11 @@ impl ::core::marker::Copy for CF_SYNC_ROOT_INFO_CLASS {}
 impl ::core::clone::Clone for CF_SYNC_ROOT_INFO_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_SYNC_ROOT_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
@@ -4170,6 +4410,11 @@ impl ::core::marker::Copy for CF_UPDATE_FLAGS {}
 impl ::core::clone::Clone for CF_UPDATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CF_UPDATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {

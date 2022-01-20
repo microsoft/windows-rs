@@ -1278,6 +1278,11 @@ impl ::core::clone::Clone for XAML_REFERENCETRACKER_DISCONNECT {
         *self
     }
 }
+impl ::core::default::Default for XAML_REFERENCETRACKER_DISCONNECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XAML_REFERENCETRACKER_DISCONNECT {
     type Abi = Self;
 }

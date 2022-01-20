@@ -19,6 +19,12 @@ impl ::core::clone::Clone for AccountPictureKind {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for AccountPictureKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
 }
@@ -1260,6 +1266,12 @@ impl ::core::clone::Clone for SetAccountPictureResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SetAccountPictureResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
 }
@@ -1290,6 +1302,11 @@ impl ::core::marker::Copy for SetImageFeedResult {}
 impl ::core::clone::Clone for SetImageFeedResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SetImageFeedResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SetImageFeedResult {

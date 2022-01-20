@@ -1411,6 +1411,11 @@ impl ::core::clone::Clone for StoreCanLicenseStatus {
         *self
     }
 }
+impl ::core::default::Default for StoreCanLicenseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
     type Abi = Self;
 }
@@ -1685,6 +1690,11 @@ impl ::core::marker::Copy for StoreConsumableStatus {}
 impl ::core::clone::Clone for StoreConsumableStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreConsumableStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreConsumableStatus {
@@ -2148,6 +2158,11 @@ impl ::core::marker::Copy for StoreDurationUnit {}
 impl ::core::clone::Clone for StoreDurationUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreDurationUnit {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreDurationUnit {
@@ -2835,6 +2850,11 @@ impl ::core::marker::Copy for StorePackageUpdateState {}
 impl ::core::clone::Clone for StorePackageUpdateState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorePackageUpdateState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorePackageUpdateState {
@@ -3844,6 +3864,11 @@ impl ::core::clone::Clone for StorePurchaseStatus {
         *self
     }
 }
+impl ::core::default::Default for StorePurchaseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StorePurchaseStatus {
     type Abi = Self;
 }
@@ -4128,6 +4153,11 @@ impl ::core::clone::Clone for StoreQueueItemExtendedState {
         *self
     }
 }
+impl ::core::default::Default for StoreQueueItemExtendedState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
     type Abi = Self;
 }
@@ -4155,6 +4185,11 @@ impl ::core::marker::Copy for StoreQueueItemKind {}
 impl ::core::clone::Clone for StoreQueueItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreQueueItemKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreQueueItemKind {
@@ -4186,6 +4221,11 @@ impl ::core::marker::Copy for StoreQueueItemState {}
 impl ::core::clone::Clone for StoreQueueItemState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreQueueItemState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreQueueItemState {
@@ -4426,6 +4466,11 @@ impl ::core::marker::Copy for StoreRateAndReviewStatus {}
 impl ::core::clone::Clone for StoreRateAndReviewStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreRateAndReviewStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
@@ -5009,6 +5054,11 @@ impl ::core::marker::Copy for StoreUninstallStorePackageStatus {}
 impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreUninstallStorePackageStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {

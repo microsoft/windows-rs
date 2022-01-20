@@ -693,6 +693,11 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
         *self
     }
 }
+impl ::core::default::Default for XboxLiveEndpointPairCreationBehaviors {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
     type Abi = Self;
 }
@@ -861,6 +866,11 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for XboxLiveEndpointPairCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
     type Abi = Self;
 }
@@ -892,6 +902,11 @@ impl ::core::marker::Copy for XboxLiveEndpointPairState {}
 impl ::core::clone::Clone for XboxLiveEndpointPairState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XboxLiveEndpointPairState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
@@ -1294,6 +1309,11 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
         *self
     }
 }
+impl ::core::default::Default for XboxLiveNetworkAccessKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
     type Abi = Self;
 }
@@ -1604,6 +1624,11 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
         *self
     }
 }
+impl ::core::default::Default for XboxLiveQualityOfServiceMeasurementStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
     type Abi = Self;
 }
@@ -1637,6 +1662,11 @@ impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
 impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XboxLiveQualityOfServiceMetric {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
@@ -1869,6 +1899,11 @@ impl ::core::marker::Copy for XboxLiveSocketKind {}
 impl ::core::clone::Clone for XboxLiveSocketKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XboxLiveSocketKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XboxLiveSocketKind {

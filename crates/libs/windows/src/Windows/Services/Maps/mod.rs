@@ -896,6 +896,11 @@ impl ::core::clone::Clone for ManeuverWarningKind {
         *self
     }
 }
+impl ::core::default::Default for ManeuverWarningKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ManeuverWarningKind {
     type Abi = Self;
 }
@@ -925,6 +930,11 @@ impl ::core::marker::Copy for ManeuverWarningSeverity {}
 impl ::core::clone::Clone for ManeuverWarningSeverity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ManeuverWarningSeverity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
@@ -1262,6 +1272,11 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
         *self
     }
 }
+impl ::core::default::Default for MapLocationDesiredAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
     type Abi = Self;
 }
@@ -1434,6 +1449,11 @@ impl ::core::clone::Clone for MapLocationFinderStatus {
         *self
     }
 }
+impl ::core::default::Default for MapLocationFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
     type Abi = Self;
 }
@@ -1481,6 +1501,11 @@ impl ::core::marker::Copy for MapManeuverNotices {}
 impl ::core::clone::Clone for MapManeuverNotices {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapManeuverNotices {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapManeuverNotices {
@@ -2086,6 +2111,11 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
         *self
     }
 }
+impl ::core::default::Default for MapRouteFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
     type Abi = Self;
 }
@@ -2426,6 +2456,11 @@ impl ::core::clone::Clone for MapRouteManeuverKind {
         *self
     }
 }
+impl ::core::default::Default for MapRouteManeuverKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
     type Abi = Self;
 }
@@ -2454,6 +2489,11 @@ impl ::core::marker::Copy for MapRouteOptimization {}
 impl ::core::clone::Clone for MapRouteOptimization {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapRouteOptimization {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapRouteOptimization {
@@ -2487,6 +2527,11 @@ impl ::core::marker::Copy for MapRouteRestrictions {}
 impl ::core::clone::Clone for MapRouteRestrictions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapRouteRestrictions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapRouteRestrictions {
@@ -2606,6 +2651,11 @@ impl ::core::marker::Copy for MapServiceDataUsagePreference {}
 impl ::core::clone::Clone for MapServiceDataUsagePreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MapServiceDataUsagePreference {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
@@ -2932,6 +2982,11 @@ impl ::core::clone::Clone for TrafficCongestion {
         *self
     }
 }
+impl ::core::default::Default for TrafficCongestion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TrafficCongestion {
     type Abi = Self;
 }
@@ -2958,6 +3013,11 @@ impl ::core::marker::Copy for WaypointKind {}
 impl ::core::clone::Clone for WaypointKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WaypointKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WaypointKind {

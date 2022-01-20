@@ -224,6 +224,11 @@ impl ::core::clone::Clone for RadioAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for RadioAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RadioAccessStatus {
     type Abi = Self;
 }
@@ -255,6 +260,11 @@ impl ::core::clone::Clone for RadioKind {
         *self
     }
 }
+impl ::core::default::Default for RadioKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RadioKind {
     type Abi = Self;
 }
@@ -283,6 +293,11 @@ impl ::core::marker::Copy for RadioState {}
 impl ::core::clone::Clone for RadioState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RadioState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RadioState {

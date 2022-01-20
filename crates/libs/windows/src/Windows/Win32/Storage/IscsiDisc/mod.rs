@@ -1400,6 +1400,11 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_METHOD {
         *self
     }
 }
+impl ::core::default::Default for IKE_AUTHENTICATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_METHOD {
     type Abi = Self;
 }
@@ -1544,6 +1549,11 @@ impl ::core::marker::Copy for ISCSI_AUTH_TYPES {}
 impl ::core::clone::Clone for ISCSI_AUTH_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ISCSI_AUTH_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_AUTH_TYPES {
@@ -1780,6 +1790,11 @@ impl ::core::marker::Copy for ISCSI_DIGEST_TYPES {}
 impl ::core::clone::Clone for ISCSI_DIGEST_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ISCSI_DIGEST_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ISCSI_DIGEST_TYPES {
@@ -2988,6 +3003,11 @@ impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_LEVEL {
         *self
     }
 }
+impl ::core::default::Default for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
 }
@@ -3012,6 +3032,11 @@ impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {}
 impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
@@ -3264,6 +3289,11 @@ impl ::core::clone::Clone for NVCACHE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NVCACHE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NVCACHE_STATUS {
     type Abi = Self;
 }
@@ -3288,6 +3318,11 @@ impl ::core::marker::Copy for NVCACHE_TYPE {}
 impl ::core::clone::Clone for NVCACHE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NVCACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NVCACHE_TYPE {
@@ -3454,6 +3489,11 @@ impl ::core::marker::Copy for NV_SEP_WRITE_CACHE_TYPE {}
 impl ::core::clone::Clone for NV_SEP_WRITE_CACHE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NV_SEP_WRITE_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NV_SEP_WRITE_CACHE_TYPE {
@@ -5516,6 +5556,11 @@ impl ::core::clone::Clone for TARGETPROTOCOLTYPE {
         *self
     }
 }
+impl ::core::default::Default for TARGETPROTOCOLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TARGETPROTOCOLTYPE {
     type Abi = Self;
 }
@@ -5548,6 +5593,11 @@ impl ::core::marker::Copy for TARGET_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TARGET_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TARGET_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TARGET_INFORMATION_CLASS {

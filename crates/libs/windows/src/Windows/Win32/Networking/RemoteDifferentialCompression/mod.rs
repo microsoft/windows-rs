@@ -45,6 +45,11 @@ impl ::core::clone::Clone for GeneratorParametersType {
         *self
     }
 }
+impl ::core::default::Default for GeneratorParametersType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GeneratorParametersType {
     type Abi = Self;
 }
@@ -1429,6 +1434,11 @@ impl ::core::clone::Clone for RDC_ErrorCode {
         *self
     }
 }
+impl ::core::default::Default for RDC_ErrorCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RDC_ErrorCode {
     type Abi = Self;
 }
@@ -1486,6 +1496,11 @@ impl ::core::clone::Clone for RdcCreatedTables {
         *self
     }
 }
+impl ::core::default::Default for RdcCreatedTables {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RdcCreatedTables {
     type Abi = Self;
 }
@@ -1513,6 +1528,11 @@ impl ::core::marker::Copy for RdcMappingAccessMode {}
 impl ::core::clone::Clone for RdcMappingAccessMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RdcMappingAccessMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RdcMappingAccessMode {
@@ -1603,6 +1623,11 @@ impl ::core::marker::Copy for RdcNeedType {}
 impl ::core::clone::Clone for RdcNeedType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RdcNeedType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RdcNeedType {

@@ -13,6 +13,11 @@ impl ::core::clone::Clone for APPLICATIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for APPLICATIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APPLICATIONTYPE {
     type Abi = Self;
 }
@@ -35,6 +40,11 @@ impl ::core::marker::Copy for AUTHENTICATION_LEVEL {}
 impl ::core::clone::Clone for AUTHENTICATION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHENTICATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHENTICATION_LEVEL {
@@ -124,6 +134,11 @@ impl ::core::marker::Copy for DTC_STATUS_ {}
 impl ::core::clone::Clone for DTC_STATUS_ {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DTC_STATUS_ {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DTC_STATUS_ {
@@ -2952,6 +2967,11 @@ impl ::core::clone::Clone for ISOFLAG {
         *self
     }
 }
+impl ::core::default::Default for ISOFLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ISOFLAG {
     type Abi = Self;
 }
@@ -2986,6 +3006,11 @@ impl ::core::marker::Copy for ISOLATIONLEVEL {}
 impl ::core::clone::Clone for ISOLATIONLEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ISOLATIONLEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ISOLATIONLEVEL {
@@ -5348,6 +5373,11 @@ impl ::core::clone::Clone for TX_MISC_CONSTANTS {
         *self
     }
 }
+impl ::core::default::Default for TX_MISC_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TX_MISC_CONSTANTS {
     type Abi = Self;
 }
@@ -5366,6 +5396,11 @@ impl ::core::marker::Copy for XACTCONST {}
 impl ::core::clone::Clone for XACTCONST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACTCONST {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACTCONST {
@@ -5392,6 +5427,11 @@ impl ::core::marker::Copy for XACTHEURISTIC {}
 impl ::core::clone::Clone for XACTHEURISTIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACTHEURISTIC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACTHEURISTIC {
@@ -5445,6 +5485,11 @@ impl ::core::marker::Copy for XACTRM {}
 impl ::core::clone::Clone for XACTRM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACTRM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACTRM {
@@ -5509,6 +5554,11 @@ impl ::core::marker::Copy for XACTSTAT {}
 impl ::core::clone::Clone for XACTSTAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACTSTAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACTSTAT {
@@ -5584,6 +5634,11 @@ impl ::core::marker::Copy for XACTTC {}
 impl ::core::clone::Clone for XACTTC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACTTC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACTTC {
@@ -5684,6 +5739,11 @@ impl ::core::marker::Copy for XACT_DTC_CONSTANTS {}
 impl ::core::clone::Clone for XACT_DTC_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XACT_DTC_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XACT_DTC_CONSTANTS {
@@ -5805,6 +5865,11 @@ impl ::core::clone::Clone for _DtcLu_CompareState {
         *self
     }
 }
+impl ::core::default::Default for _DtcLu_CompareState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DtcLu_CompareState {
     type Abi = Self;
 }
@@ -5827,6 +5892,11 @@ impl ::core::clone::Clone for _DtcLu_CompareStates_Confirmation {
         *self
     }
 }
+impl ::core::default::Default for _DtcLu_CompareStates_Confirmation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Confirmation {
     type Abi = Self;
 }
@@ -5845,6 +5915,11 @@ impl ::core::marker::Copy for _DtcLu_CompareStates_Error {}
 impl ::core::clone::Clone for _DtcLu_CompareStates_Error {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DtcLu_CompareStates_Error {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Error {
@@ -5867,6 +5942,11 @@ impl ::core::marker::Copy for _DtcLu_CompareStates_Response {}
 impl ::core::clone::Clone for _DtcLu_CompareStates_Response {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DtcLu_CompareStates_Response {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Response {
@@ -5893,6 +5973,11 @@ impl ::core::clone::Clone for _DtcLu_LocalRecovery_Work {
         *self
     }
 }
+impl ::core::default::Default for _DtcLu_LocalRecovery_Work {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DtcLu_LocalRecovery_Work {
     type Abi = Self;
 }
@@ -5913,6 +5998,11 @@ impl ::core::marker::Copy for _DtcLu_Xln {}
 impl ::core::clone::Clone for _DtcLu_Xln {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DtcLu_Xln {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DtcLu_Xln {
@@ -5941,6 +6031,11 @@ impl ::core::clone::Clone for _DtcLu_Xln_Confirmation {
         *self
     }
 }
+impl ::core::default::Default for _DtcLu_Xln_Confirmation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _DtcLu_Xln_Confirmation {
     type Abi = Self;
 }
@@ -5963,6 +6058,11 @@ impl ::core::marker::Copy for _DtcLu_Xln_Error {}
 impl ::core::clone::Clone for _DtcLu_Xln_Error {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DtcLu_Xln_Error {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DtcLu_Xln_Error {
@@ -5989,6 +6089,11 @@ impl ::core::marker::Copy for _DtcLu_Xln_Response {}
 impl ::core::clone::Clone for _DtcLu_Xln_Response {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for _DtcLu_Xln_Response {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for _DtcLu_Xln_Response {

@@ -32,6 +32,12 @@ impl ::core::clone::Clone for FeatureElementKindPreview {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for FeatureElementKindPreview {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for FeatureElementKindPreview {
     type Abi = Self;
 }
@@ -1273,6 +1279,12 @@ impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for LearningModelDeviceKindPreview {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
 }
@@ -1415,6 +1427,12 @@ impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
 impl ::core::clone::Clone for LearningModelFeatureKindPreview {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for LearningModelFeatureKindPreview {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

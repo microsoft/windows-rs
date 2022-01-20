@@ -3971,6 +3971,11 @@ impl ::core::clone::Clone for WIAVIDEO_STATE {
         *self
     }
 }
+impl ::core::default::Default for WIAVIDEO_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WIAVIDEO_STATE {
     type Abi = Self;
 }

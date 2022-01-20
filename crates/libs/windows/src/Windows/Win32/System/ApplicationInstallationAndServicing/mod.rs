@@ -109,6 +109,11 @@ impl ::core::clone::Clone for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
     type Abi = Self;
 }
@@ -135,6 +140,11 @@ impl ::core::marker::Copy for ACTCTX_REQUESTED_RUN_LEVEL {}
 impl ::core::clone::Clone for ACTCTX_REQUESTED_RUN_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ACTCTX_REQUESTED_RUN_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ACTCTX_REQUESTED_RUN_LEVEL {
@@ -453,6 +463,11 @@ impl ::core::clone::Clone for ADVERTISEFLAGS {
         *self
     }
 }
+impl ::core::default::Default for ADVERTISEFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADVERTISEFLAGS {
     type Abi = Self;
 }
@@ -489,6 +504,11 @@ impl ::core::marker::Copy for ASM_BIND_FLAGS {}
 impl ::core::clone::Clone for ASM_BIND_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ASM_BIND_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ASM_BIND_FLAGS {
@@ -557,6 +577,11 @@ impl ::core::clone::Clone for ASM_CMP_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ASM_CMP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ASM_CMP_FLAGS {
     type Abi = Self;
 }
@@ -587,6 +612,11 @@ impl ::core::marker::Copy for ASM_DISPLAY_FLAGS {}
 impl ::core::clone::Clone for ASM_DISPLAY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ASM_DISPLAY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ASM_DISPLAY_FLAGS {
@@ -647,6 +677,11 @@ impl ::core::marker::Copy for ASM_NAME {}
 impl ::core::clone::Clone for ASM_NAME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ASM_NAME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ASM_NAME {
@@ -1001,6 +1036,11 @@ impl ::core::marker::Copy for CREATE_ASM_NAME_OBJ_FLAGS {}
 impl ::core::clone::Clone for CREATE_ASM_NAME_OBJ_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CREATE_ASM_NAME_OBJ_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CREATE_ASM_NAME_OBJ_FLAGS {
@@ -2088,6 +2128,11 @@ impl ::core::marker::Copy for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {}
 impl ::core::clone::Clone for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
@@ -3695,6 +3740,11 @@ impl ::core::clone::Clone for INSTALLFEATUREATTRIBUTE {
         *self
     }
 }
+impl ::core::default::Default for INSTALLFEATUREATTRIBUTE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLFEATUREATTRIBUTE {
     type Abi = Self;
 }
@@ -3719,6 +3769,11 @@ impl ::core::clone::Clone for INSTALLLEVEL {
         *self
     }
 }
+impl ::core::default::Default for INSTALLLEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLLEVEL {
     type Abi = Self;
 }
@@ -3739,6 +3794,11 @@ impl ::core::marker::Copy for INSTALLLOGATTRIBUTES {}
 impl ::core::clone::Clone for INSTALLLOGATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSTALLLOGATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSTALLLOGATTRIBUTES {
@@ -3797,6 +3857,11 @@ impl ::core::clone::Clone for INSTALLMESSAGE {
         *self
     }
 }
+impl ::core::default::Default for INSTALLMESSAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLMESSAGE {
     type Abi = Self;
 }
@@ -3825,6 +3890,11 @@ impl ::core::marker::Copy for INSTALLMODE {}
 impl ::core::clone::Clone for INSTALLMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSTALLMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSTALLMODE {
@@ -3891,6 +3961,11 @@ impl ::core::clone::Clone for INSTALLOGMODE {
         *self
     }
 }
+impl ::core::default::Default for INSTALLOGMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLOGMODE {
     type Abi = Self;
 }
@@ -3937,6 +4012,11 @@ impl ::core::clone::Clone for INSTALLSTATE {
         *self
     }
 }
+impl ::core::default::Default for INSTALLSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INSTALLSTATE {
     type Abi = Self;
 }
@@ -3959,6 +4039,11 @@ impl ::core::marker::Copy for INSTALLTYPE {}
 impl ::core::clone::Clone for INSTALLTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSTALLTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSTALLTYPE {
@@ -3999,6 +4084,11 @@ impl ::core::marker::Copy for INSTALLUILEVEL {}
 impl ::core::clone::Clone for INSTALLUILEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSTALLUILEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSTALLUILEVEL {
@@ -7256,6 +7346,11 @@ impl ::core::clone::Clone for MSIADVERTISEOPTIONFLAGS {
         *self
     }
 }
+impl ::core::default::Default for MSIADVERTISEOPTIONFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIADVERTISEOPTIONFLAGS {
     type Abi = Self;
 }
@@ -7282,6 +7377,11 @@ impl ::core::clone::Clone for MSIARCHITECTUREFLAGS {
         *self
     }
 }
+impl ::core::default::Default for MSIARCHITECTUREFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIARCHITECTUREFLAGS {
     type Abi = Self;
 }
@@ -7302,6 +7402,11 @@ impl ::core::marker::Copy for MSIASSEMBLYINFO {}
 impl ::core::clone::Clone for MSIASSEMBLYINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSIASSEMBLYINFO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSIASSEMBLYINFO {
@@ -7354,6 +7459,11 @@ impl ::core::clone::Clone for MSICODE {
         *self
     }
 }
+impl ::core::default::Default for MSICODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSICODE {
     type Abi = Self;
 }
@@ -7374,6 +7484,11 @@ impl ::core::marker::Copy for MSICOLINFO {}
 impl ::core::clone::Clone for MSICOLINFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSICOLINFO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSICOLINFO {
@@ -7402,6 +7517,11 @@ impl ::core::clone::Clone for MSICONDITION {
         *self
     }
 }
+impl ::core::default::Default for MSICONDITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSICONDITION {
     type Abi = Self;
 }
@@ -7426,6 +7546,11 @@ impl ::core::marker::Copy for MSICOSTTREE {}
 impl ::core::clone::Clone for MSICOSTTREE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSICOSTTREE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSICOSTTREE {
@@ -7512,6 +7637,11 @@ impl ::core::clone::Clone for MSIDBERROR {
         *self
     }
 }
+impl ::core::default::Default for MSIDBERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIDBERROR {
     type Abi = Self;
 }
@@ -7534,6 +7664,11 @@ impl ::core::marker::Copy for MSIDBSTATE {}
 impl ::core::clone::Clone for MSIDBSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSIDBSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSIDBSTATE {
@@ -7633,6 +7768,11 @@ impl ::core::clone::Clone for MSIINSTALLCONTEXT {
         *self
     }
 }
+impl ::core::default::Default for MSIINSTALLCONTEXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIINSTALLCONTEXT {
     type Abi = Self;
 }
@@ -7677,6 +7817,11 @@ impl ::core::clone::Clone for MSIMODIFY {
         *self
     }
 }
+impl ::core::default::Default for MSIMODIFY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIMODIFY {
     type Abi = Self;
 }
@@ -7695,6 +7840,11 @@ impl ::core::marker::Copy for MSIOPENPACKAGEFLAGS {}
 impl ::core::clone::Clone for MSIOPENPACKAGEFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSIOPENPACKAGEFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSIOPENPACKAGEFLAGS {
@@ -7719,6 +7869,11 @@ impl ::core::marker::Copy for MSIPATCHDATATYPE {}
 impl ::core::clone::Clone for MSIPATCHDATATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSIPATCHDATATYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSIPATCHDATATYPE {
@@ -7833,6 +7988,11 @@ impl ::core::clone::Clone for MSIPATCHSTATE {
         *self
     }
 }
+impl ::core::default::Default for MSIPATCHSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIPATCHSTATE {
     type Abi = Self;
 }
@@ -7889,6 +8049,11 @@ impl ::core::clone::Clone for MSIRUNMODE {
         *self
     }
 }
+impl ::core::default::Default for MSIRUNMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSIRUNMODE {
     type Abi = Self;
 }
@@ -7915,6 +8080,11 @@ impl ::core::clone::Clone for MSISOURCETYPE {
         *self
     }
 }
+impl ::core::default::Default for MSISOURCETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSISOURCETYPE {
     type Abi = Self;
 }
@@ -7937,6 +8107,11 @@ impl ::core::clone::Clone for MSITRANSACTION {
         *self
     }
 }
+impl ::core::default::Default for MSITRANSACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSITRANSACTION {
     type Abi = Self;
 }
@@ -7957,6 +8132,11 @@ impl ::core::marker::Copy for MSITRANSACTIONSTATE {}
 impl ::core::clone::Clone for MSITRANSACTIONSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSITRANSACTIONSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSITRANSACTIONSTATE {
@@ -8021,6 +8201,11 @@ impl ::core::clone::Clone for MSITRANSFORM_ERROR {
         *self
     }
 }
+impl ::core::default::Default for MSITRANSFORM_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSITRANSFORM_ERROR {
     type Abi = Self;
 }
@@ -8061,6 +8246,11 @@ impl ::core::marker::Copy for MSITRANSFORM_VALIDATE {}
 impl ::core::clone::Clone for MSITRANSFORM_VALIDATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSITRANSFORM_VALIDATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSITRANSFORM_VALIDATE {
@@ -12047,6 +12237,11 @@ impl ::core::clone::Clone for PACKMAN_RUNTIME {
         *self
     }
 }
+impl ::core::default::Default for PACKMAN_RUNTIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PACKMAN_RUNTIME {
     type Abi = Self;
 }
@@ -12582,6 +12777,11 @@ impl ::core::clone::Clone for PM_ACTIVATION_POLICY {
         *self
     }
 }
+impl ::core::default::Default for PM_ACTIVATION_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_ACTIVATION_POLICY {
     type Abi = Self;
 }
@@ -12604,6 +12804,11 @@ impl ::core::marker::Copy for PM_APPLICATION_HUBTYPE {}
 impl ::core::clone::Clone for PM_APPLICATION_HUBTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_APPLICATION_HUBTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_APPLICATION_HUBTYPE {
@@ -12634,6 +12839,11 @@ impl ::core::marker::Copy for PM_APPLICATION_INSTALL_TYPE {}
 impl ::core::clone::Clone for PM_APPLICATION_INSTALL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_APPLICATION_INSTALL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_APPLICATION_INSTALL_TYPE {
@@ -12680,6 +12890,11 @@ impl ::core::clone::Clone for PM_APPLICATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for PM_APPLICATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_APPLICATION_STATE {
     type Abi = Self;
 }
@@ -12702,6 +12917,11 @@ impl ::core::marker::Copy for PM_APP_GENRE {}
 impl ::core::clone::Clone for PM_APP_GENRE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_APP_GENRE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_APP_GENRE {
@@ -12814,6 +13034,11 @@ impl ::core::clone::Clone for PM_ENUM_APP_FILTER {
         *self
     }
 }
+impl ::core::default::Default for PM_ENUM_APP_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_ENUM_APP_FILTER {
     type Abi = Self;
 }
@@ -12844,6 +13069,11 @@ impl ::core::clone::Clone for PM_ENUM_BSA_FILTER {
         *self
     }
 }
+impl ::core::default::Default for PM_ENUM_BSA_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_ENUM_BSA_FILTER {
     type Abi = Self;
 }
@@ -12866,6 +13096,11 @@ impl ::core::marker::Copy for PM_ENUM_BW_FILTER {}
 impl ::core::clone::Clone for PM_ENUM_BW_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_ENUM_BW_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_ENUM_BW_FILTER {
@@ -12906,6 +13141,11 @@ impl ::core::marker::Copy for PM_ENUM_EXTENSION_FILTER {}
 impl ::core::clone::Clone for PM_ENUM_EXTENSION_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_ENUM_EXTENSION_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_ENUM_EXTENSION_FILTER {
@@ -13015,6 +13255,11 @@ impl ::core::clone::Clone for PM_ENUM_TASK_FILTER {
         *self
     }
 }
+impl ::core::default::Default for PM_ENUM_TASK_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_ENUM_TASK_FILTER {
     type Abi = Self;
 }
@@ -13041,6 +13286,11 @@ impl ::core::marker::Copy for PM_ENUM_TILE_FILTER {}
 impl ::core::clone::Clone for PM_ENUM_TILE_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_ENUM_TILE_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_ENUM_TILE_FILTER {
@@ -13197,6 +13447,11 @@ impl ::core::clone::Clone for PM_LIVETILE_RECURRENCE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PM_LIVETILE_RECURRENCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_LIVETILE_RECURRENCE_TYPE {
     type Abi = Self;
 }
@@ -13221,6 +13476,11 @@ impl ::core::marker::Copy for PM_LOGO_SIZE {}
 impl ::core::clone::Clone for PM_LOGO_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_LOGO_SIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_LOGO_SIZE {
@@ -13385,6 +13645,11 @@ impl ::core::clone::Clone for PM_STARTTILE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PM_STARTTILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_STARTTILE_TYPE {
     type Abi = Self;
 }
@@ -13419,6 +13684,11 @@ impl ::core::clone::Clone for PM_TASK_TRANSITION {
         *self
     }
 }
+impl ::core::default::Default for PM_TASK_TRANSITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_TASK_TRANSITION {
     type Abi = Self;
 }
@@ -13447,6 +13717,11 @@ impl ::core::marker::Copy for PM_TASK_TYPE {}
 impl ::core::clone::Clone for PM_TASK_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_TASK_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_TASK_TYPE {
@@ -13485,6 +13760,11 @@ impl ::core::clone::Clone for PM_TILE_HUBTYPE {
         *self
     }
 }
+impl ::core::default::Default for PM_TILE_HUBTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PM_TILE_HUBTYPE {
     type Abi = Self;
 }
@@ -13513,6 +13793,11 @@ impl ::core::marker::Copy for PM_TILE_SIZE {}
 impl ::core::clone::Clone for PM_TILE_SIZE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PM_TILE_SIZE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PM_TILE_SIZE {
@@ -13670,6 +13955,11 @@ impl ::core::clone::Clone for QUERYASMINFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for QUERYASMINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QUERYASMINFO_FLAGS {
     type Abi = Self;
 }
@@ -13768,6 +14058,11 @@ impl ::core::clone::Clone for REINSTALLMODE {
         *self
     }
 }
+impl ::core::default::Default for REINSTALLMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REINSTALLMODE {
     type Abi = Self;
 }
@@ -13792,6 +14087,11 @@ impl ::core::marker::Copy for RESULTTYPES {}
 impl ::core::clone::Clone for RESULTTYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RESULTTYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RESULTTYPES {
@@ -13843,6 +14143,11 @@ impl ::core::marker::Copy for SCRIPTFLAGS {}
 impl ::core::clone::Clone for SCRIPTFLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCRIPTFLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCRIPTFLAGS {
@@ -13903,6 +14208,11 @@ impl ::core::marker::Copy for STATUSTYPES {}
 impl ::core::clone::Clone for STATUSTYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STATUSTYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STATUSTYPES {
@@ -14107,6 +14417,11 @@ impl ::core::clone::Clone for TILE_TEMPLATE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TILE_TEMPLATE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TILE_TEMPLATE_TYPE {
     type Abi = Self;
 }
@@ -14271,6 +14586,11 @@ impl ::core::clone::Clone for USERINFOSTATE {
         *self
     }
 }
+impl ::core::default::Default for USERINFOSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for USERINFOSTATE {
     type Abi = Self;
 }
@@ -14375,6 +14695,11 @@ impl ::core::clone::Clone for msidbAssemblyAttributes {
         *self
     }
 }
+impl ::core::default::Default for msidbAssemblyAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbAssemblyAttributes {
     type Abi = Self;
 }
@@ -14393,6 +14718,11 @@ impl ::core::marker::Copy for msidbClassAttributes {}
 impl ::core::clone::Clone for msidbClassAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbClassAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbClassAttributes {
@@ -14437,6 +14767,11 @@ impl ::core::marker::Copy for msidbComponentAttributes {}
 impl ::core::clone::Clone for msidbComponentAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbComponentAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbComponentAttributes {
@@ -14529,6 +14864,11 @@ impl ::core::clone::Clone for msidbControlAttributes {
         *self
     }
 }
+impl ::core::default::Default for msidbControlAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbControlAttributes {
     type Abi = Self;
 }
@@ -14593,6 +14933,11 @@ impl ::core::clone::Clone for msidbCustomActionType {
         *self
     }
 }
+impl ::core::default::Default for msidbCustomActionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbCustomActionType {
     type Abi = Self;
 }
@@ -14635,6 +14980,11 @@ impl ::core::clone::Clone for msidbDialogAttributes {
         *self
     }
 }
+impl ::core::default::Default for msidbDialogAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbDialogAttributes {
     type Abi = Self;
 }
@@ -14655,6 +15005,11 @@ impl ::core::marker::Copy for msidbEmbeddedUIAttributes {}
 impl ::core::clone::Clone for msidbEmbeddedUIAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbEmbeddedUIAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbEmbeddedUIAttributes {
@@ -14687,6 +15042,11 @@ impl ::core::marker::Copy for msidbFeatureAttributes {}
 impl ::core::clone::Clone for msidbFeatureAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbFeatureAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbFeatureAttributes {
@@ -14735,6 +15095,11 @@ impl ::core::clone::Clone for msidbFileAttributes {
         *self
     }
 }
+impl ::core::default::Default for msidbFileAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbFileAttributes {
     type Abi = Self;
 }
@@ -14763,6 +15128,11 @@ impl ::core::clone::Clone for msidbIniFileAction {
         *self
     }
 }
+impl ::core::default::Default for msidbIniFileAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbIniFileAction {
     type Abi = Self;
 }
@@ -14789,6 +15159,11 @@ impl ::core::clone::Clone for msidbLocatorType {
         *self
     }
 }
+impl ::core::default::Default for msidbLocatorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbLocatorType {
     type Abi = Self;
 }
@@ -14807,6 +15182,11 @@ impl ::core::marker::Copy for msidbMoveFileOptions {}
 impl ::core::clone::Clone for msidbMoveFileOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbMoveFileOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbMoveFileOptions {
@@ -14831,6 +15211,11 @@ impl ::core::clone::Clone for msidbODBCDataSourceRegistration {
         *self
     }
 }
+impl ::core::default::Default for msidbODBCDataSourceRegistration {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbODBCDataSourceRegistration {
     type Abi = Self;
 }
@@ -14849,6 +15234,11 @@ impl ::core::marker::Copy for msidbPatchAttributes {}
 impl ::core::clone::Clone for msidbPatchAttributes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbPatchAttributes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbPatchAttributes {
@@ -14877,6 +15267,11 @@ impl ::core::clone::Clone for msidbRegistryRoot {
         *self
     }
 }
+impl ::core::default::Default for msidbRegistryRoot {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbRegistryRoot {
     type Abi = Self;
 }
@@ -14901,6 +15296,11 @@ impl ::core::clone::Clone for msidbRemoveFileInstallMode {
         *self
     }
 }
+impl ::core::default::Default for msidbRemoveFileInstallMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbRemoveFileInstallMode {
     type Abi = Self;
 }
@@ -14923,6 +15323,11 @@ impl ::core::marker::Copy for msidbServiceConfigEvent {}
 impl ::core::clone::Clone for msidbServiceConfigEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbServiceConfigEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbServiceConfigEvent {
@@ -14955,6 +15360,11 @@ impl ::core::clone::Clone for msidbServiceControlEvent {
         *self
     }
 }
+impl ::core::default::Default for msidbServiceControlEvent {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbServiceControlEvent {
     type Abi = Self;
 }
@@ -14973,6 +15383,11 @@ impl ::core::marker::Copy for msidbServiceInstallErrorControl {}
 impl ::core::clone::Clone for msidbServiceInstallErrorControl {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbServiceInstallErrorControl {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbServiceInstallErrorControl {
@@ -15001,6 +15416,11 @@ impl ::core::clone::Clone for msidbSumInfoSourceType {
         *self
     }
 }
+impl ::core::default::Default for msidbSumInfoSourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbSumInfoSourceType {
     type Abi = Self;
 }
@@ -15025,6 +15445,11 @@ impl ::core::marker::Copy for msidbTextStyleStyleBits {}
 impl ::core::clone::Clone for msidbTextStyleStyleBits {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msidbTextStyleStyleBits {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msidbTextStyleStyleBits {
@@ -15057,6 +15482,11 @@ impl ::core::clone::Clone for msidbUpgradeAttributes {
         *self
     }
 }
+impl ::core::default::Default for msidbUpgradeAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msidbUpgradeAttributes {
     type Abi = Self;
 }
@@ -15079,6 +15509,11 @@ impl ::core::marker::Copy for msifiFastInstallBits {}
 impl ::core::clone::Clone for msifiFastInstallBits {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msifiFastInstallBits {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msifiFastInstallBits {
@@ -15109,6 +15544,11 @@ impl ::core::clone::Clone for msirbRebootReason {
         *self
     }
 }
+impl ::core::default::Default for msirbRebootReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for msirbRebootReason {
     type Abi = Self;
 }
@@ -15129,6 +15569,11 @@ impl ::core::marker::Copy for msirbRebootType {}
 impl ::core::clone::Clone for msirbRebootType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msirbRebootType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msirbRebootType {
@@ -15163,6 +15608,11 @@ impl ::core::marker::Copy for msmErrorType {}
 impl ::core::clone::Clone for msmErrorType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for msmErrorType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for msmErrorType {

@@ -757,6 +757,11 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
         *self
     }
 }
+impl ::core::default::Default for BarcodeScannerStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeScannerStatus {
     type Abi = Self;
 }
@@ -1719,6 +1724,11 @@ impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
         *self
     }
 }
+impl ::core::default::Default for BarcodeSymbologyDecodeLengthKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
 }
@@ -2649,6 +2659,11 @@ impl ::core::marker::Copy for CashDrawerStatusKind {}
 impl ::core::clone::Clone for CashDrawerStatusKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CashDrawerStatusKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CashDrawerStatusKind {
@@ -10342,6 +10357,11 @@ impl ::core::clone::Clone for LineDisplayCursorType {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayCursorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayCursorType {
     type Abi = Self;
 }
@@ -10471,6 +10491,11 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayDescriptorState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayDescriptorState {
     type Abi = Self;
 }
@@ -10498,6 +10523,11 @@ impl ::core::marker::Copy for LineDisplayHorizontalAlignment {}
 impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LineDisplayHorizontalAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayHorizontalAlignment {
@@ -10663,6 +10693,11 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayMarqueeFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
 }
@@ -10694,6 +10729,11 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayPowerStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayPowerStatus {
     type Abi = Self;
 }
@@ -10722,6 +10762,11 @@ impl ::core::marker::Copy for LineDisplayScrollDirection {}
 impl ::core::clone::Clone for LineDisplayScrollDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LineDisplayScrollDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayScrollDirection {
@@ -11022,6 +11067,11 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayTextAttribute {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttribute {
     type Abi = Self;
 }
@@ -11051,6 +11101,11 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
         *self
     }
 }
+impl ::core::default::Default for LineDisplayTextAttributeGranularity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
 }
@@ -11078,6 +11133,11 @@ impl ::core::marker::Copy for LineDisplayVerticalAlignment {}
 impl ::core::clone::Clone for LineDisplayVerticalAlignment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LineDisplayVerticalAlignment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LineDisplayVerticalAlignment {
@@ -11823,6 +11883,11 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
         *self
     }
 }
+impl ::core::default::Default for MagneticStripeReaderAuthenticationLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
 }
@@ -11849,6 +11914,11 @@ impl ::core::marker::Copy for MagneticStripeReaderAuthenticationProtocol {}
 impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MagneticStripeReaderAuthenticationProtocol {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationProtocol {
@@ -12379,6 +12449,11 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
         *self
     }
 }
+impl ::core::default::Default for MagneticStripeReaderErrorReportingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
 }
@@ -12554,6 +12629,11 @@ impl ::core::marker::Copy for MagneticStripeReaderStatus {}
 impl ::core::clone::Clone for MagneticStripeReaderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MagneticStripeReaderStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderStatus {
@@ -12777,6 +12857,11 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
         *self
     }
 }
+impl ::core::default::Default for MagneticStripeReaderTrackErrorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
 }
@@ -12806,6 +12891,11 @@ impl ::core::marker::Copy for MagneticStripeReaderTrackIds {}
 impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MagneticStripeReaderTrackIds {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackIds {
@@ -12917,6 +13007,11 @@ impl ::core::marker::Copy for PosConnectionTypes {}
 impl ::core::clone::Clone for PosConnectionTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosConnectionTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosConnectionTypes {
@@ -13222,6 +13317,11 @@ impl ::core::clone::Clone for PosPrinterAlignment {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterAlignment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterAlignment {
     type Abi = Self;
 }
@@ -13249,6 +13349,11 @@ impl ::core::marker::Copy for PosPrinterBarcodeTextPosition {}
 impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterBarcodeTextPosition {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterBarcodeTextPosition {
@@ -13435,6 +13540,11 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterCartridgeSensors {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
 }
@@ -13534,6 +13644,11 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterColorCapabilities {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
 }
@@ -13597,6 +13712,11 @@ impl ::core::marker::Copy for PosPrinterColorCartridge {}
 impl ::core::clone::Clone for PosPrinterColorCartridge {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterColorCartridge {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterColorCartridge {
@@ -13725,6 +13845,11 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterLineDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterLineDirection {
     type Abi = Self;
 }
@@ -13753,6 +13878,11 @@ impl ::core::marker::Copy for PosPrinterLineStyle {}
 impl ::core::clone::Clone for PosPrinterLineStyle {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterLineStyle {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterLineStyle {
@@ -13785,6 +13915,11 @@ impl ::core::clone::Clone for PosPrinterMapMode {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterMapMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterMapMode {
     type Abi = Self;
 }
@@ -13814,6 +13949,11 @@ impl ::core::marker::Copy for PosPrinterMarkFeedCapabilities {}
 impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterMarkFeedCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedCapabilities {
@@ -13872,6 +14012,11 @@ impl ::core::marker::Copy for PosPrinterMarkFeedKind {}
 impl ::core::clone::Clone for PosPrinterMarkFeedKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterMarkFeedKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedKind {
@@ -14152,6 +14297,11 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterPrintSide {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterPrintSide {
     type Abi = Self;
 }
@@ -14254,6 +14404,11 @@ impl ::core::clone::Clone for PosPrinterRotation {
         *self
     }
 }
+impl ::core::default::Default for PosPrinterRotation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PosPrinterRotation {
     type Abi = Self;
 }
@@ -14281,6 +14436,11 @@ impl ::core::marker::Copy for PosPrinterRuledLineCapabilities {}
 impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterRuledLineCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
@@ -14429,6 +14589,11 @@ impl ::core::marker::Copy for PosPrinterStatusKind {}
 impl ::core::clone::Clone for PosPrinterStatusKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PosPrinterStatusKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PosPrinterStatusKind {
@@ -15931,6 +16096,11 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
         *self
     }
 }
+impl ::core::default::Default for UnifiedPosErrorReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorReason {
     type Abi = Self;
 }
@@ -15963,6 +16133,11 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
         *self
     }
 }
+impl ::core::default::Default for UnifiedPosErrorSeverity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
 }
@@ -15993,6 +16168,11 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
         *self
     }
 }
+impl ::core::default::Default for UnifiedPosHealthCheckLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
 }
@@ -16020,6 +16200,11 @@ impl ::core::marker::Copy for UnifiedPosPowerReportingType {}
 impl ::core::clone::Clone for UnifiedPosPowerReportingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UnifiedPosPowerReportingType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UnifiedPosPowerReportingType {

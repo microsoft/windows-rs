@@ -461,6 +461,11 @@ impl ::core::clone::Clone for PhotoImportAccessMode {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
     type Abi = Self;
 }
@@ -489,6 +494,11 @@ impl ::core::marker::Copy for PhotoImportConnectionTransport {}
 impl ::core::clone::Clone for PhotoImportConnectionTransport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoImportConnectionTransport {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
@@ -520,6 +530,11 @@ impl ::core::clone::Clone for PhotoImportContentType {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportContentType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportContentType {
     type Abi = Self;
 }
@@ -548,6 +563,11 @@ impl ::core::marker::Copy for PhotoImportContentTypeFilter {}
 impl ::core::clone::Clone for PhotoImportContentTypeFilter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoImportContentTypeFilter {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
@@ -1280,6 +1300,11 @@ impl ::core::clone::Clone for PhotoImportImportMode {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportImportMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportImportMode {
     type Abi = Self;
 }
@@ -1578,6 +1603,11 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportItemSelectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
     type Abi = Self;
 }
@@ -1757,6 +1787,11 @@ impl ::core::marker::Copy for PhotoImportPowerSource {}
 impl ::core::clone::Clone for PhotoImportPowerSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoImportPowerSource {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
@@ -2456,6 +2491,11 @@ impl ::core::clone::Clone for PhotoImportSourceType {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportSourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportSourceType {
     type Abi = Self;
 }
@@ -2484,6 +2524,11 @@ impl ::core::marker::Copy for PhotoImportStage {}
 impl ::core::clone::Clone for PhotoImportStage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoImportStage {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportStage {
@@ -2649,6 +2694,11 @@ impl ::core::clone::Clone for PhotoImportStorageMediumType {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportStorageMediumType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
     type Abi = Self;
 }
@@ -2679,6 +2729,11 @@ impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
         *self
     }
 }
+impl ::core::default::Default for PhotoImportSubfolderCreationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
     type Abi = Self;
 }
@@ -2706,6 +2761,11 @@ impl ::core::marker::Copy for PhotoImportSubfolderDateFormat {}
 impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoImportSubfolderDateFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {

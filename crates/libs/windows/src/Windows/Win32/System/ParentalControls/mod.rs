@@ -828,6 +828,11 @@ impl ::core::clone::Clone for WPCFLAG_IM_FEATURE {
         *self
     }
 }
+impl ::core::default::Default for WPCFLAG_IM_FEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPCFLAG_IM_FEATURE {
     type Abi = Self;
 }
@@ -850,6 +855,11 @@ impl ::core::marker::Copy for WPCFLAG_IM_LEAVE {}
 impl ::core::clone::Clone for WPCFLAG_IM_LEAVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPCFLAG_IM_LEAVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPCFLAG_IM_LEAVE {
@@ -924,6 +934,11 @@ impl ::core::clone::Clone for WPCFLAG_ISBLOCKED {
         *self
     }
 }
+impl ::core::default::Default for WPCFLAG_ISBLOCKED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPCFLAG_ISBLOCKED {
     type Abi = Self;
 }
@@ -952,6 +967,11 @@ impl ::core::clone::Clone for WPCFLAG_LOGOFF_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WPCFLAG_LOGOFF_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPCFLAG_LOGOFF_TYPE {
     type Abi = Self;
 }
@@ -970,6 +990,11 @@ impl ::core::marker::Copy for WPCFLAG_OVERRIDE {}
 impl ::core::clone::Clone for WPCFLAG_OVERRIDE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPCFLAG_OVERRIDE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPCFLAG_OVERRIDE {
@@ -1006,6 +1031,11 @@ impl ::core::clone::Clone for WPCFLAG_RESTRICTION {
         *self
     }
 }
+impl ::core::default::Default for WPCFLAG_RESTRICTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPCFLAG_RESTRICTION {
     type Abi = Self;
 }
@@ -1028,6 +1058,11 @@ impl ::core::clone::Clone for WPCFLAG_VISIBILITY {
         *self
     }
 }
+impl ::core::default::Default for WPCFLAG_VISIBILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPCFLAG_VISIBILITY {
     type Abi = Self;
 }
@@ -1048,6 +1083,11 @@ impl ::core::marker::Copy for WPCFLAG_WEB_SETTING {}
 impl ::core::clone::Clone for WPCFLAG_WEB_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPCFLAG_WEB_SETTING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPCFLAG_WEB_SETTING {
@@ -1129,6 +1169,11 @@ impl ::core::clone::Clone for WPC_ARGS_APPLICATIONEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_APPLICATIONEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_APPLICATIONEVENT {
     type Abi = Self;
 }
@@ -1155,6 +1200,11 @@ impl ::core::clone::Clone for WPC_ARGS_APPOVERRIDEEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_APPOVERRIDEEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_APPOVERRIDEEVENT {
     type Abi = Self;
 }
@@ -1177,6 +1227,11 @@ impl ::core::marker::Copy for WPC_ARGS_COMPUTERUSAGEEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_COMPUTERUSAGEEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_COMPUTERUSAGEEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_COMPUTERUSAGEEVENT {
@@ -1211,6 +1266,11 @@ impl ::core::marker::Copy for WPC_ARGS_CONTENTUSAGEEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_CONTENTUSAGEEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_CONTENTUSAGEEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONTENTUSAGEEVENT {
@@ -1249,6 +1309,11 @@ impl ::core::marker::Copy for WPC_ARGS_CONVERSATIONINITEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONINITEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_CONVERSATIONINITEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONINITEVENT {
@@ -1291,6 +1356,11 @@ impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONJOINEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_CONVERSATIONJOINEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONJOINEVENT {
     type Abi = Self;
 }
@@ -1331,6 +1401,11 @@ impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONLEAVEEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_CONVERSATIONLEAVEEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type Abi = Self;
 }
@@ -1369,6 +1444,11 @@ impl ::core::clone::Clone for WPC_ARGS_CUSTOMEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_CUSTOMEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CUSTOMEVENT {
     type Abi = Self;
 }
@@ -1403,6 +1483,11 @@ impl ::core::marker::Copy for WPC_ARGS_EMAILCONTACTEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_EMAILCONTACTEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_EMAILCONTACTEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILCONTACTEVENT {
@@ -1447,6 +1532,11 @@ impl ::core::clone::Clone for WPC_ARGS_EMAILRECEIEVEDEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_EMAILRECEIEVEDEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type Abi = Self;
 }
@@ -1487,6 +1577,11 @@ impl ::core::clone::Clone for WPC_ARGS_EMAILSENTEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_EMAILSENTEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILSENTEVENT {
     type Abi = Self;
 }
@@ -1515,6 +1610,11 @@ impl ::core::marker::Copy for WPC_ARGS_FILEDOWNLOADEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_FILEDOWNLOADEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_FILEDOWNLOADEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_FILEDOWNLOADEVENT {
@@ -1557,6 +1657,11 @@ impl ::core::clone::Clone for WPC_ARGS_GAMESTARTEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_GAMESTARTEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_GAMESTARTEVENT {
     type Abi = Self;
 }
@@ -1591,6 +1696,11 @@ impl ::core::marker::Copy for WPC_ARGS_IMCONTACTEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_IMCONTACTEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_IMCONTACTEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_IMCONTACTEVENT {
@@ -1635,6 +1745,11 @@ impl ::core::clone::Clone for WPC_ARGS_IMFEATUREEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_IMFEATUREEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_IMFEATUREEVENT {
     type Abi = Self;
 }
@@ -1671,6 +1786,11 @@ impl ::core::marker::Copy for WPC_ARGS_MEDIADOWNLOADEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_MEDIADOWNLOADEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_MEDIADOWNLOADEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_MEDIADOWNLOADEVENT {
@@ -1711,6 +1831,11 @@ impl ::core::clone::Clone for WPC_ARGS_MEDIAPLAYBACKEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_MEDIAPLAYBACKEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type Abi = Self;
 }
@@ -1737,6 +1862,11 @@ impl ::core::marker::Copy for WPC_ARGS_SAFERAPPBLOCKED {}
 impl ::core::clone::Clone for WPC_ARGS_SAFERAPPBLOCKED {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_SAFERAPPBLOCKED {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_SAFERAPPBLOCKED {
@@ -1773,6 +1903,11 @@ impl ::core::clone::Clone for WPC_ARGS_SETTINGSCHANGEEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_SETTINGSCHANGEEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_SETTINGSCHANGEEVENT {
     type Abi = Self;
 }
@@ -1807,6 +1942,11 @@ impl ::core::clone::Clone for WPC_ARGS_URLVISITEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_URLVISITEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_URLVISITEVENT {
     type Abi = Self;
 }
@@ -1831,6 +1971,11 @@ impl ::core::marker::Copy for WPC_ARGS_WEBOVERRIDEEVENT {}
 impl ::core::clone::Clone for WPC_ARGS_WEBOVERRIDEEVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_ARGS_WEBOVERRIDEEVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_ARGS_WEBOVERRIDEEVENT {
@@ -1871,6 +2016,11 @@ impl ::core::clone::Clone for WPC_ARGS_WEBSITEVISITEVENT {
         *self
     }
 }
+impl ::core::default::Default for WPC_ARGS_WEBSITEVISITEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WPC_ARGS_WEBSITEVISITEVENT {
     type Abi = Self;
 }
@@ -1893,6 +2043,11 @@ impl ::core::marker::Copy for WPC_MEDIA_EXPLICIT {}
 impl ::core::clone::Clone for WPC_MEDIA_EXPLICIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_MEDIA_EXPLICIT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_MEDIA_EXPLICIT {
@@ -1927,6 +2082,11 @@ impl ::core::marker::Copy for WPC_MEDIA_TYPE {}
 impl ::core::clone::Clone for WPC_MEDIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_MEDIA_TYPE {
@@ -2021,6 +2181,11 @@ impl ::core::marker::Copy for WPC_SETTINGS {}
 impl ::core::clone::Clone for WPC_SETTINGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPC_SETTINGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPC_SETTINGS {

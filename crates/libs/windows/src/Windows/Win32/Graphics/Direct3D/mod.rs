@@ -161,6 +161,11 @@ impl ::core::clone::Clone for D3D_CBUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D_CBUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_CBUFFER_TYPE {
     type Abi = Self;
 }
@@ -197,6 +202,11 @@ impl ::core::marker::Copy for D3D_DRIVER_TYPE {}
 impl ::core::clone::Clone for D3D_DRIVER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_DRIVER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_DRIVER_TYPE {
@@ -237,6 +247,11 @@ impl ::core::marker::Copy for D3D_FEATURE_LEVEL {}
 impl ::core::clone::Clone for D3D_FEATURE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_FEATURE_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_FEATURE_LEVEL {
@@ -297,6 +312,11 @@ impl ::core::clone::Clone for D3D_INCLUDE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D_INCLUDE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_INCLUDE_TYPE {
     type Abi = Self;
 }
@@ -331,6 +351,11 @@ impl ::core::clone::Clone for D3D_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for D3D_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -363,6 +388,11 @@ impl ::core::marker::Copy for D3D_MIN_PRECISION {}
 impl ::core::clone::Clone for D3D_MIN_PRECISION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_MIN_PRECISION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_MIN_PRECISION {
@@ -491,6 +521,11 @@ impl ::core::clone::Clone for D3D_NAME {
         *self
     }
 }
+impl ::core::default::Default for D3D_NAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_NAME {
     type Abi = Self;
 }
@@ -515,6 +550,11 @@ impl ::core::marker::Copy for D3D_PARAMETER_FLAGS {}
 impl ::core::clone::Clone for D3D_PARAMETER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_PARAMETER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_PARAMETER_FLAGS {
@@ -697,6 +737,11 @@ impl ::core::marker::Copy for D3D_PRIMITIVE {}
 impl ::core::clone::Clone for D3D_PRIMITIVE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_PRIMITIVE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_PRIMITIVE {
@@ -905,6 +950,11 @@ impl ::core::clone::Clone for D3D_PRIMITIVE_TOPOLOGY {
         *self
     }
 }
+impl ::core::default::Default for D3D_PRIMITIVE_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_PRIMITIVE_TOPOLOGY {
     type Abi = Self;
 }
@@ -937,6 +987,11 @@ impl ::core::marker::Copy for D3D_REGISTER_COMPONENT_TYPE {}
 impl ::core::clone::Clone for D3D_REGISTER_COMPONENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_REGISTER_COMPONENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_REGISTER_COMPONENT_TYPE {
@@ -1001,6 +1056,11 @@ impl ::core::clone::Clone for D3D_RESOURCE_RETURN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D_RESOURCE_RETURN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_RESOURCE_RETURN_TYPE {
     type Abi = Self;
 }
@@ -1023,6 +1083,11 @@ impl ::core::marker::Copy for D3D_SHADER_CBUFFER_FLAGS {}
 impl ::core::clone::Clone for D3D_SHADER_CBUFFER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_SHADER_CBUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_SHADER_CBUFFER_FLAGS {
@@ -1125,6 +1190,11 @@ impl ::core::clone::Clone for D3D_SHADER_INPUT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for D3D_SHADER_INPUT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_FLAGS {
     type Abi = Self;
 }
@@ -1193,6 +1263,11 @@ impl ::core::marker::Copy for D3D_SHADER_INPUT_TYPE {}
 impl ::core::clone::Clone for D3D_SHADER_INPUT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_SHADER_INPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_TYPE {
@@ -1286,6 +1361,11 @@ impl ::core::clone::Clone for D3D_SHADER_VARIABLE_CLASS {
         *self
     }
 }
+impl ::core::default::Default for D3D_SHADER_VARIABLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_CLASS {
     type Abi = Self;
 }
@@ -1320,6 +1400,11 @@ impl ::core::marker::Copy for D3D_SHADER_VARIABLE_FLAGS {}
 impl ::core::clone::Clone for D3D_SHADER_VARIABLE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_SHADER_VARIABLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_FLAGS {
@@ -1572,6 +1657,11 @@ impl ::core::clone::Clone for D3D_SHADER_VARIABLE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for D3D_SHADER_VARIABLE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_TYPE {
     type Abi = Self;
 }
@@ -1680,6 +1770,11 @@ impl ::core::clone::Clone for D3D_SRV_DIMENSION {
         *self
     }
 }
+impl ::core::default::Default for D3D_SRV_DIMENSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_SRV_DIMENSION {
     type Abi = Self;
 }
@@ -1712,6 +1807,11 @@ impl ::core::marker::Copy for D3D_TESSELLATOR_DOMAIN {}
 impl ::core::clone::Clone for D3D_TESSELLATOR_DOMAIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_TESSELLATOR_DOMAIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_DOMAIN {
@@ -1752,6 +1852,11 @@ impl ::core::clone::Clone for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
         *self
     }
 }
+impl ::core::default::Default for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
     type Abi = Self;
 }
@@ -1788,6 +1893,11 @@ impl ::core::marker::Copy for D3D_TESSELLATOR_PARTITIONING {}
 impl ::core::clone::Clone for D3D_TESSELLATOR_PARTITIONING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D3D_TESSELLATOR_PARTITIONING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_PARTITIONING {

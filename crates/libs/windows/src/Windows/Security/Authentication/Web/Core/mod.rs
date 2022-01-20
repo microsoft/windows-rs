@@ -113,6 +113,11 @@ impl ::core::clone::Clone for FindAllWebAccountsStatus {
         *self
     }
 }
+impl ::core::default::Default for FindAllWebAccountsStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
     type Abi = Self;
 }
@@ -1150,6 +1155,11 @@ impl ::core::clone::Clone for WebTokenRequestPromptType {
         *self
     }
 }
+impl ::core::default::Default for WebTokenRequestPromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
     type Abi = Self;
 }
@@ -1287,6 +1297,11 @@ impl ::core::marker::Copy for WebTokenRequestStatus {}
 impl ::core::clone::Clone for WebTokenRequestStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebTokenRequestStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebTokenRequestStatus {

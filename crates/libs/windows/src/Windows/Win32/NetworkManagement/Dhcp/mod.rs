@@ -854,6 +854,11 @@ impl ::core::clone::Clone for DHCPV6_STATELESS_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCPV6_STATELESS_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAM_TYPE {
     type Abi = Self;
 }
@@ -2515,6 +2520,11 @@ impl ::core::clone::Clone for DHCP_FAILOVER_MODE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_FAILOVER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_FAILOVER_MODE {
     type Abi = Self;
 }
@@ -2640,6 +2650,11 @@ impl ::core::marker::Copy for DHCP_FAILOVER_SERVER {}
 impl ::core::clone::Clone for DHCP_FAILOVER_SERVER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_FAILOVER_SERVER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_FAILOVER_SERVER {
@@ -2818,6 +2833,11 @@ impl ::core::clone::Clone for DHCP_FILTER_LIST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_FILTER_LIST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_FILTER_LIST_TYPE {
     type Abi = Self;
 }
@@ -2885,6 +2905,11 @@ impl ::core::marker::Copy for DHCP_FORCE_FLAG {}
 impl ::core::clone::Clone for DHCP_FORCE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_FORCE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_FORCE_FLAG {
@@ -3755,6 +3780,11 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_OPTION_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_TYPE {
     type Abi = Self;
 }
@@ -3946,6 +3976,11 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE {
     type Abi = Self;
 }
@@ -3972,6 +4007,11 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE6 {
         *self
     }
 }
+impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE6 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE6 {
     type Abi = Self;
 }
@@ -3994,6 +4034,11 @@ impl ::core::marker::Copy for DHCP_OPTION_TYPE {}
 impl ::core::clone::Clone for DHCP_OPTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_OPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_OPTION_TYPE {
@@ -4349,6 +4394,11 @@ impl ::core::clone::Clone for DHCP_POLICY_FIELDS_TO_UPDATE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_POLICY_FIELDS_TO_UPDATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_POLICY_FIELDS_TO_UPDATE {
     type Abi = Self;
 }
@@ -4375,6 +4425,11 @@ impl ::core::marker::Copy for DHCP_POL_ATTR_TYPE {}
 impl ::core::clone::Clone for DHCP_POL_ATTR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_POL_ATTR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_POL_ATTR_TYPE {
@@ -4405,6 +4460,11 @@ impl ::core::marker::Copy for DHCP_POL_COMPARATOR {}
 impl ::core::clone::Clone for DHCP_POL_COMPARATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_POL_COMPARATOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_POL_COMPARATOR {
@@ -4575,6 +4635,11 @@ impl ::core::clone::Clone for DHCP_POL_LOGIC_OPER {
         *self
     }
 }
+impl ::core::default::Default for DHCP_POL_LOGIC_OPER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_POL_LOGIC_OPER {
     type Abi = Self;
 }
@@ -4714,6 +4779,11 @@ impl ::core::clone::Clone for DHCP_PROPERTY_ID {
         *self
     }
 }
+impl ::core::default::Default for DHCP_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ID {
     type Abi = Self;
 }
@@ -4740,6 +4810,11 @@ impl ::core::marker::Copy for DHCP_PROPERTY_TYPE {}
 impl ::core::clone::Clone for DHCP_PROPERTY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY_TYPE {
@@ -4863,6 +4938,11 @@ impl ::core::marker::Copy for DHCP_SCAN_FLAG {}
 impl ::core::clone::Clone for DHCP_SCAN_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_SCAN_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SCAN_FLAG {
@@ -5018,6 +5098,11 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE {
     type Abi = Self;
 }
@@ -5040,6 +5125,11 @@ impl ::core::marker::Copy for DHCP_SEARCH_INFO_TYPE_V6 {}
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE_V6 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE_V6 {
@@ -6010,6 +6100,11 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE {
     type Abi = Self;
 }
@@ -6032,6 +6127,11 @@ impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_TYPE_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE_V6 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE_V6 {
@@ -6203,6 +6303,11 @@ impl ::core::marker::Copy for DHCP_SUBNET_STATE {}
 impl ::core::clone::Clone for DHCP_SUBNET_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DHCP_SUBNET_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_STATE {
@@ -9761,6 +9866,11 @@ impl ::core::clone::Clone for FSM_STATE {
         *self
     }
 }
+impl ::core::default::Default for FSM_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FSM_STATE {
     type Abi = Self;
 }
@@ -9961,6 +10071,11 @@ impl ::core::marker::Copy for QuarantineStatus {}
 impl ::core::clone::Clone for QuarantineStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QuarantineStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QuarantineStatus {
@@ -10184,6 +10299,11 @@ impl ::core::marker::Copy for StatusCode {}
 impl ::core::clone::Clone for StatusCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StatusCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StatusCode {

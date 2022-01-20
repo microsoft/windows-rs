@@ -19,6 +19,11 @@ impl ::core::clone::Clone for D2D1_ALPHA_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_ALPHA_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_ALPHA_MODE {
     type Abi = Self;
 }
@@ -151,6 +156,11 @@ impl ::core::clone::Clone for D2D1_BLEND_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BLEND_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BLEND_MODE {
     type Abi = Self;
 }
@@ -203,6 +213,11 @@ impl ::core::clone::Clone for D2D1_BORDER_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_BORDER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_BORDER_MODE {
     type Abi = Self;
 }
@@ -253,6 +268,11 @@ impl ::core::marker::Copy for D2D1_COLORMATRIX_ALPHA_MODE {}
 impl ::core::clone::Clone for D2D1_COLORMATRIX_ALPHA_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_COLORMATRIX_ALPHA_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
@@ -362,6 +382,11 @@ impl ::core::clone::Clone for D2D1_COMPOSITE_MODE {
         *self
     }
 }
+impl ::core::default::Default for D2D1_COMPOSITE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_COMPOSITE_MODE {
     type Abi = Self;
 }
@@ -412,6 +437,11 @@ impl ::core::marker::Copy for D2D1_FIGURE_BEGIN {}
 impl ::core::clone::Clone for D2D1_FIGURE_BEGIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_FIGURE_BEGIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_FIGURE_BEGIN {
@@ -466,6 +496,11 @@ impl ::core::clone::Clone for D2D1_FIGURE_END {
         *self
     }
 }
+impl ::core::default::Default for D2D1_FIGURE_END {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for D2D1_FIGURE_END {
     type Abi = Self;
 }
@@ -516,6 +551,11 @@ impl ::core::marker::Copy for D2D1_FILL_MODE {}
 impl ::core::clone::Clone for D2D1_FILL_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_FILL_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_FILL_MODE {
@@ -570,6 +610,11 @@ impl ::core::marker::Copy for D2D1_PATH_SEGMENT {}
 impl ::core::clone::Clone for D2D1_PATH_SEGMENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_PATH_SEGMENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PATH_SEGMENT {
@@ -661,6 +706,11 @@ impl ::core::marker::Copy for D2D1_TURBULENCE_NOISE {}
 impl ::core::clone::Clone for D2D1_TURBULENCE_NOISE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for D2D1_TURBULENCE_NOISE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_NOISE {

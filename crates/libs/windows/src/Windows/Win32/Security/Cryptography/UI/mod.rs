@@ -177,6 +177,11 @@ impl ::core::clone::Clone for CERT_SELECT_STRUCT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_SELECT_STRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_SELECT_STRUCT_FLAGS {
     type Abi = Self;
 }
@@ -519,6 +524,11 @@ impl ::core::marker::Copy for CERT_VIEWPROPERTIES_STRUCT_FLAGS {}
 impl ::core::clone::Clone for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
@@ -888,6 +898,11 @@ impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     type Abi = Self;
 }
@@ -1104,6 +1119,11 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
         *self
     }
 }
+impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
     type Abi = Self;
 }
@@ -1156,6 +1176,11 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN {
@@ -1557,6 +1582,11 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
         *self
     }
 }
+impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
     type Abi = Self;
 }
@@ -1605,6 +1635,11 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
@@ -1699,6 +1734,11 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
@@ -1800,6 +1840,11 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_FORMAT {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_FORMAT {
@@ -1932,6 +1977,11 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_SUBJECT {
         *self
     }
 }
+impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_SUBJECT {
     type Abi = Self;
 }
@@ -2000,6 +2050,11 @@ impl ::core::marker::Copy for CRYPTUI_WIZ_FLAGS {}
 impl ::core::clone::Clone for CRYPTUI_WIZ_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPTUI_WIZ_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_FLAGS {
@@ -2130,6 +2185,11 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
         *self
     }
 }
+impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
     type Abi = Self;
 }
@@ -2224,6 +2284,11 @@ impl ::core::marker::Copy for CTL_MODIFY_REQUEST_OPERATION {}
 impl ::core::clone::Clone for CTL_MODIFY_REQUEST_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CTL_MODIFY_REQUEST_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CTL_MODIFY_REQUEST_OPERATION {

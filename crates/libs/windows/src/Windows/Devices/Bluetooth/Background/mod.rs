@@ -14,6 +14,11 @@ impl ::core::clone::Clone for BluetoothEventTriggeringMode {
         *self
     }
 }
+impl ::core::default::Default for BluetoothEventTriggeringMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BluetoothEventTriggeringMode {
     type Abi = Self;
 }

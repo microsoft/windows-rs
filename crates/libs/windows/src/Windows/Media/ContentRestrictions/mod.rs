@@ -15,6 +15,11 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
         *self
     }
 }
+impl ::core::default::Default for ContentAccessRestrictionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
     type Abi = Self;
 }
@@ -257,6 +262,11 @@ impl ::core::marker::Copy for RatedContentCategory {}
 impl ::core::clone::Clone for RatedContentCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RatedContentCategory {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RatedContentCategory {

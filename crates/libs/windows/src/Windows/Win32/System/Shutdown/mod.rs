@@ -66,6 +66,11 @@ impl ::core::clone::Clone for EXIT_WINDOWS_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for EXIT_WINDOWS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXIT_WINDOWS_FLAGS {
     type Abi = Self;
 }
@@ -284,6 +289,11 @@ impl ::core::clone::Clone for SHUTDOWN_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SHUTDOWN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SHUTDOWN_FLAGS {
     type Abi = Self;
 }
@@ -430,6 +440,11 @@ impl ::core::marker::Copy for SHUTDOWN_REASON {}
 impl ::core::clone::Clone for SHUTDOWN_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHUTDOWN_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHUTDOWN_REASON {

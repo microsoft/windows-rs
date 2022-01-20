@@ -1062,6 +1062,11 @@ impl ::core::clone::Clone for AMBISONICS_CHANNEL_ORDERING {
         *self
     }
 }
+impl ::core::default::Default for AMBISONICS_CHANNEL_ORDERING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AMBISONICS_CHANNEL_ORDERING {
     type Abi = Self;
 }
@@ -1082,6 +1087,11 @@ impl ::core::marker::Copy for AMBISONICS_NORMALIZATION {}
 impl ::core::clone::Clone for AMBISONICS_NORMALIZATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AMBISONICS_NORMALIZATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AMBISONICS_NORMALIZATION {
@@ -1141,6 +1151,11 @@ impl ::core::marker::Copy for AMBISONICS_TYPE {}
 impl ::core::clone::Clone for AMBISONICS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AMBISONICS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AMBISONICS_TYPE {
@@ -1247,6 +1262,11 @@ impl ::core::clone::Clone for AUDCLNT_SHAREMODE {
         *self
     }
 }
+impl ::core::default::Default for AUDCLNT_SHAREMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDCLNT_SHAREMODE {
     type Abi = Self;
 }
@@ -1285,6 +1305,11 @@ impl ::core::marker::Copy for AUDCLNT_STREAMOPTIONS {}
 impl ::core::clone::Clone for AUDCLNT_STREAMOPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUDCLNT_STREAMOPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUDCLNT_STREAMOPTIONS {
@@ -1394,6 +1419,11 @@ impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for AUDIOCLIENT_ACTIVATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIOCLIENT_ACTIVATION_TYPE {
     type Abi = Self;
 }
@@ -1447,6 +1477,11 @@ impl ::core::marker::Copy for AUDIO_DUCKING_OPTIONS {}
 impl ::core::clone::Clone for AUDIO_DUCKING_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUDIO_DUCKING_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_DUCKING_OPTIONS {
@@ -1539,6 +1574,11 @@ impl ::core::clone::Clone for AUDIO_EFFECT_STATE {
         *self
     }
 }
+impl ::core::default::Default for AUDIO_EFFECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIO_EFFECT_STATE {
     type Abi = Self;
 }
@@ -1583,6 +1623,11 @@ impl ::core::marker::Copy for AUDIO_STREAM_CATEGORY {}
 impl ::core::clone::Clone for AUDIO_STREAM_CATEGORY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUDIO_STREAM_CATEGORY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUDIO_STREAM_CATEGORY {
@@ -1966,6 +2011,11 @@ impl ::core::clone::Clone for AudioObjectType {
         *self
     }
 }
+impl ::core::default::Default for AudioObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioObjectType {
     type Abi = Self;
 }
@@ -2024,6 +2074,11 @@ impl ::core::clone::Clone for AudioSessionDisconnectReason {
         *self
     }
 }
+impl ::core::default::Default for AudioSessionDisconnectReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioSessionDisconnectReason {
     type Abi = Self;
 }
@@ -2048,6 +2103,11 @@ impl ::core::clone::Clone for AudioSessionState {
         *self
     }
 }
+impl ::core::default::Default for AudioSessionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioSessionState {
     type Abi = Self;
 }
@@ -2070,6 +2130,11 @@ impl ::core::marker::Copy for AudioStateMonitorSoundLevel {}
 impl ::core::clone::Clone for AudioStateMonitorSoundLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioStateMonitorSoundLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioStateMonitorSoundLevel {
@@ -2111,6 +2176,11 @@ impl ::core::marker::Copy for ConnectorType {}
 impl ::core::clone::Clone for ConnectorType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ConnectorType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ConnectorType {
@@ -2311,6 +2381,11 @@ impl ::core::clone::Clone for DataFlow {
         *self
     }
 }
+impl ::core::default::Default for DataFlow {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataFlow {
     type Abi = Self;
 }
@@ -2365,6 +2440,11 @@ impl ::core::clone::Clone for EDataFlow {
         *self
     }
 }
+impl ::core::default::Default for EDataFlow {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EDataFlow {
     type Abi = Self;
 }
@@ -2401,6 +2481,11 @@ impl ::core::marker::Copy for ERole {}
 impl ::core::clone::Clone for ERole {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ERole {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ERole {
@@ -2444,6 +2529,11 @@ impl ::core::marker::Copy for EndpointFormFactor {}
 impl ::core::clone::Clone for EndpointFormFactor {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EndpointFormFactor {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EndpointFormFactor {
@@ -9502,6 +9592,11 @@ impl ::core::clone::Clone for MIDI_WAVE_OPEN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MIDI_WAVE_OPEN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIDI_WAVE_OPEN_TYPE {
     type Abi = Self;
 }
@@ -10637,6 +10732,11 @@ impl ::core::clone::Clone for MIXERLINE_COMPONENTTYPE {
         *self
     }
 }
+impl ::core::default::Default for MIXERLINE_COMPONENTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIXERLINE_COMPONENTTYPE {
     type Abi = Self;
 }
@@ -10866,6 +10966,11 @@ impl ::core::clone::Clone for PROCESS_LOOPBACK_MODE {
         *self
     }
 }
+impl ::core::default::Default for PROCESS_LOOPBACK_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROCESS_LOOPBACK_MODE {
     type Abi = Self;
 }
@@ -10886,6 +10991,11 @@ impl ::core::marker::Copy for PartType {}
 impl ::core::clone::Clone for PartType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PartType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PartType {
@@ -10976,6 +11086,11 @@ impl ::core::marker::Copy for SPATIAL_AUDIO_STREAM_OPTIONS {}
 impl ::core::clone::Clone for SPATIAL_AUDIO_STREAM_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SPATIAL_AUDIO_STREAM_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SPATIAL_AUDIO_STREAM_OPTIONS {
@@ -11291,6 +11406,11 @@ impl ::core::clone::Clone for SpatialAudioHrtfDirectivityType {
         *self
     }
 }
+impl ::core::default::Default for SpatialAudioHrtfDirectivityType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDirectivityType {
     type Abi = Self;
 }
@@ -11369,6 +11489,11 @@ impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecayType {
         *self
     }
 }
+impl ::core::default::Default for SpatialAudioHrtfDistanceDecayType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfDistanceDecayType {
     type Abi = Self;
 }
@@ -11397,6 +11522,11 @@ impl ::core::clone::Clone for SpatialAudioHrtfEnvironmentType {
         *self
     }
 }
+impl ::core::default::Default for SpatialAudioHrtfEnvironmentType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfEnvironmentType {
     type Abi = Self;
 }
@@ -11421,6 +11551,11 @@ impl ::core::marker::Copy for SpatialAudioMetadataCopyMode {}
 impl ::core::clone::Clone for SpatialAudioMetadataCopyMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialAudioMetadataCopyMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioMetadataCopyMode {
@@ -11473,6 +11608,11 @@ impl ::core::marker::Copy for SpatialAudioMetadataWriterOverflowMode {}
 impl ::core::clone::Clone for SpatialAudioMetadataWriterOverflowMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialAudioMetadataWriterOverflowMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioMetadataWriterOverflowMode {
@@ -12229,6 +12369,11 @@ impl ::core::clone::Clone for _AUDCLNT_BUFFERFLAGS {
         *self
     }
 }
+impl ::core::default::Default for _AUDCLNT_BUFFERFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for _AUDCLNT_BUFFERFLAGS {
     type Abi = Self;
 }
@@ -12253,6 +12398,11 @@ impl ::core::marker::Copy for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {}
 impl ::core::clone::Clone for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {

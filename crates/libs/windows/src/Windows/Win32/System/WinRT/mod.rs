@@ -51,6 +51,11 @@ impl ::core::clone::Clone for ACTIVATIONTYPE {
         *self
     }
 }
+impl ::core::default::Default for ACTIVATIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
     type Abi = Self;
 }
@@ -107,6 +112,11 @@ impl ::core::clone::Clone for AgileReferenceOptions {
         *self
     }
 }
+impl ::core::default::Default for AgileReferenceOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AgileReferenceOptions {
     type Abi = Self;
 }
@@ -127,6 +137,11 @@ impl ::core::marker::Copy for BSOS_OPTIONS {}
 impl ::core::clone::Clone for BSOS_OPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BSOS_OPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
@@ -161,6 +176,11 @@ impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
         *self
     }
 }
+impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
     type Abi = Self;
 }
@@ -187,6 +207,11 @@ impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
 impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CASTING_CONNECTION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
@@ -297,6 +322,11 @@ impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
         *self
     }
 }
+impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type Abi = Self;
 }
@@ -317,6 +347,11 @@ impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
 impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
@@ -3260,6 +3295,11 @@ impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RO_ERROR_REPORTING_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RO_ERROR_REPORTING_FLAGS {
     type Abi = Self;
 }
@@ -3308,6 +3348,11 @@ impl ::core::marker::Copy for RO_INIT_TYPE {}
 impl ::core::clone::Clone for RO_INIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RO_INIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RO_INIT_TYPE {
@@ -3831,6 +3876,11 @@ impl ::core::marker::Copy for TrustLevel {}
 impl ::core::clone::Clone for TrustLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TrustLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TrustLevel {

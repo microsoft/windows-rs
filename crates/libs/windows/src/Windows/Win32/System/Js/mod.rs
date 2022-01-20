@@ -526,6 +526,11 @@ impl ::core::clone::Clone for JsErrorCode {
         *self
     }
 }
+impl ::core::default::Default for JsErrorCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JsErrorCode {
     type Abi = Self;
 }
@@ -989,6 +994,11 @@ impl ::core::clone::Clone for JsMemoryEventType {
         *self
     }
 }
+impl ::core::default::Default for JsMemoryEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JsMemoryEventType {
     type Abi = Self;
 }
@@ -1138,6 +1148,11 @@ impl ::core::clone::Clone for JsRuntimeAttributes {
         *self
     }
 }
+impl ::core::default::Default for JsRuntimeAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
     type Abi = Self;
 }
@@ -1160,6 +1175,11 @@ impl ::core::marker::Copy for JsRuntimeVersion {}
 impl ::core::clone::Clone for JsRuntimeVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JsRuntimeVersion {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JsRuntimeVersion {
@@ -1443,6 +1463,11 @@ impl ::core::marker::Copy for JsValueType {}
 impl ::core::clone::Clone for JsValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JsValueType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JsValueType {

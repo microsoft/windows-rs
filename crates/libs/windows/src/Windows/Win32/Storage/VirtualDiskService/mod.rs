@@ -3095,6 +3095,11 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_ASYNC_OUTPUT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_TYPE {
     type Abi = Self;
 }
@@ -3201,6 +3206,11 @@ impl ::core::clone::Clone for VDS_CONTROLLER_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_CONTROLLER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_CONTROLLER_STATUS {
     type Abi = Self;
 }
@@ -3299,6 +3309,11 @@ impl ::core::marker::Copy for VDS_DRIVE_FLAG {}
 impl ::core::clone::Clone for VDS_DRIVE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_DRIVE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_DRIVE_FLAG {
@@ -3500,6 +3515,11 @@ impl ::core::marker::Copy for VDS_DRIVE_STATUS {}
 impl ::core::clone::Clone for VDS_DRIVE_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_DRIVE_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_DRIVE_STATUS {
@@ -4270,6 +4290,11 @@ impl ::core::clone::Clone for VDS_FILE_SYSTEM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_FILE_SYSTEM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_FILE_SYSTEM_TYPE {
     type Abi = Self;
 }
@@ -4336,6 +4361,11 @@ impl ::core::clone::Clone for VDS_HBAPORT_SPEED_FLAG {
         *self
     }
 }
+impl ::core::default::Default for VDS_HBAPORT_SPEED_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_HBAPORT_SPEED_FLAG {
     type Abi = Self;
 }
@@ -4368,6 +4398,11 @@ impl ::core::marker::Copy for VDS_HBAPORT_STATUS {}
 impl ::core::clone::Clone for VDS_HBAPORT_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_HBAPORT_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_HBAPORT_STATUS {
@@ -4410,6 +4445,11 @@ impl ::core::clone::Clone for VDS_HBAPORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_HBAPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_HBAPORT_TYPE {
     type Abi = Self;
 }
@@ -4450,6 +4490,11 @@ impl ::core::marker::Copy for VDS_HEALTH {}
 impl ::core::clone::Clone for VDS_HEALTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_HEALTH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_HEALTH {
@@ -4688,6 +4733,11 @@ impl ::core::clone::Clone for VDS_HWPROVIDER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_HWPROVIDER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_HWPROVIDER_TYPE {
     type Abi = Self;
 }
@@ -4752,6 +4802,11 @@ impl ::core::clone::Clone for VDS_INTERCONNECT_ADDRESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_INTERCONNECT_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_INTERCONNECT_ADDRESS_TYPE {
     type Abi = Self;
 }
@@ -4776,6 +4831,11 @@ impl ::core::marker::Copy for VDS_INTERCONNECT_FLAG {}
 impl ::core::clone::Clone for VDS_INTERCONNECT_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_INTERCONNECT_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_INTERCONNECT_FLAG {
@@ -4840,6 +4900,11 @@ impl ::core::clone::Clone for VDS_IPADDRESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_IPADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_IPADDRESS_TYPE {
     type Abi = Self;
 }
@@ -4862,6 +4927,11 @@ impl ::core::marker::Copy for VDS_ISCSI_AUTH_TYPE {}
 impl ::core::clone::Clone for VDS_ISCSI_AUTH_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_ISCSI_AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ISCSI_AUTH_TYPE {
@@ -4967,6 +5037,11 @@ impl ::core::clone::Clone for VDS_ISCSI_IPSEC_FLAG {
         *self
     }
 }
+impl ::core::default::Default for VDS_ISCSI_IPSEC_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ISCSI_IPSEC_FLAG {
     type Abi = Self;
 }
@@ -5020,6 +5095,11 @@ impl ::core::clone::Clone for VDS_ISCSI_LOGIN_FLAG {
         *self
     }
 }
+impl ::core::default::Default for VDS_ISCSI_LOGIN_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_ISCSI_LOGIN_FLAG {
     type Abi = Self;
 }
@@ -5042,6 +5122,11 @@ impl ::core::marker::Copy for VDS_ISCSI_LOGIN_TYPE {}
 impl ::core::clone::Clone for VDS_ISCSI_LOGIN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_ISCSI_LOGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ISCSI_LOGIN_TYPE {
@@ -5133,6 +5218,11 @@ impl ::core::marker::Copy for VDS_ISCSI_PORTAL_STATUS {}
 impl ::core::clone::Clone for VDS_ISCSI_PORTAL_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_ISCSI_PORTAL_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTAL_STATUS {
@@ -5241,6 +5331,11 @@ impl ::core::clone::Clone for VDS_LOADBALANCE_POLICY_ENUM {
         *self
     }
 }
+impl ::core::default::Default for VDS_LOADBALANCE_POLICY_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_LOADBALANCE_POLICY_ENUM {
     type Abi = Self;
 }
@@ -5275,6 +5370,11 @@ impl ::core::marker::Copy for VDS_LUN_FLAG {}
 impl ::core::clone::Clone for VDS_LUN_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_LUN_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_LUN_FLAG {
@@ -5392,6 +5492,11 @@ impl ::core::clone::Clone for VDS_LUN_PLEX_FLAG {
         *self
     }
 }
+impl ::core::default::Default for VDS_LUN_PLEX_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_FLAG {
     type Abi = Self;
 }
@@ -5458,6 +5563,11 @@ impl ::core::clone::Clone for VDS_LUN_PLEX_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_LUN_PLEX_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_STATUS {
     type Abi = Self;
 }
@@ -5510,6 +5620,11 @@ impl ::core::marker::Copy for VDS_LUN_PLEX_TYPE {}
 impl ::core::clone::Clone for VDS_LUN_PLEX_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_LUN_PLEX_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_TYPE {
@@ -5588,6 +5703,11 @@ impl ::core::clone::Clone for VDS_LUN_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_LUN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_LUN_STATUS {
     type Abi = Self;
 }
@@ -5656,6 +5776,11 @@ impl ::core::clone::Clone for VDS_LUN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_LUN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_LUN_TYPE {
     type Abi = Self;
 }
@@ -5682,6 +5807,11 @@ impl ::core::marker::Copy for VDS_MAINTENANCE_OPERATION {}
 impl ::core::clone::Clone for VDS_MAINTENANCE_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_MAINTENANCE_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_MAINTENANCE_OPERATION {
@@ -5741,6 +5871,11 @@ impl ::core::clone::Clone for VDS_NF_CONTROLLER {
         *self
     }
 }
+impl ::core::default::Default for VDS_NF_CONTROLLER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_NF_CONTROLLER {
     type Abi = Self;
 }
@@ -5791,6 +5926,11 @@ impl ::core::marker::Copy for VDS_NF_DISK {}
 impl ::core::clone::Clone for VDS_NF_DISK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_NF_DISK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_NF_DISK {
@@ -5847,6 +5987,11 @@ impl ::core::clone::Clone for VDS_NF_DRIVE {
         *self
     }
 }
+impl ::core::default::Default for VDS_NF_DRIVE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_NF_DRIVE {
     type Abi = Self;
 }
@@ -5899,6 +6044,11 @@ impl ::core::marker::Copy for VDS_NF_FILE_SYSTEM {}
 impl ::core::clone::Clone for VDS_NF_FILE_SYSTEM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_NF_FILE_SYSTEM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_NF_FILE_SYSTEM {
@@ -5955,6 +6105,11 @@ impl ::core::clone::Clone for VDS_NF_LUN {
         *self
     }
 }
+impl ::core::default::Default for VDS_NF_LUN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_NF_LUN {
     type Abi = Self;
 }
@@ -6007,6 +6162,11 @@ impl ::core::marker::Copy for VDS_NF_PACK {}
 impl ::core::clone::Clone for VDS_NF_PACK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_NF_PACK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_NF_PACK {
@@ -6067,6 +6227,11 @@ impl ::core::marker::Copy for VDS_NF_PORT {}
 impl ::core::clone::Clone for VDS_NF_PORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_NF_PORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_NF_PORT {
@@ -6249,6 +6414,11 @@ impl ::core::clone::Clone for VDS_NOTIFICATION_TARGET_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_NOTIFICATION_TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_NOTIFICATION_TARGET_TYPE {
     type Abi = Self;
 }
@@ -6311,6 +6481,11 @@ impl ::core::marker::Copy for VDS_OBJECT_TYPE {}
 impl ::core::clone::Clone for VDS_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_OBJECT_TYPE {
@@ -6579,6 +6754,11 @@ impl ::core::marker::Copy for VDS_PATH_STATUS {}
 impl ::core::clone::Clone for VDS_PATH_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_PATH_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PATH_STATUS {
@@ -6954,6 +7134,11 @@ impl ::core::clone::Clone for VDS_PORT_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_PORT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PORT_STATUS {
     type Abi = Self;
 }
@@ -6992,6 +7177,11 @@ impl ::core::clone::Clone for VDS_PROVIDER_FLAG {
         *self
     }
 }
+impl ::core::default::Default for VDS_PROVIDER_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PROVIDER_FLAG {
     type Abi = Self;
 }
@@ -7022,6 +7212,11 @@ impl ::core::marker::Copy for VDS_PROVIDER_LBSUPPORT_FLAG {}
 impl ::core::clone::Clone for VDS_PROVIDER_LBSUPPORT_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_PROVIDER_LBSUPPORT_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_PROVIDER_LBSUPPORT_FLAG {
@@ -7097,6 +7292,11 @@ impl ::core::clone::Clone for VDS_PROVIDER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_PROVIDER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_PROVIDER_TYPE {
     type Abi = Self;
 }
@@ -7153,6 +7353,11 @@ impl ::core::clone::Clone for VDS_RAID_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_RAID_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_RAID_TYPE {
     type Abi = Self;
 }
@@ -7179,6 +7384,11 @@ impl ::core::marker::Copy for VDS_RECOVER_ACTION {}
 impl ::core::clone::Clone for VDS_RECOVER_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_RECOVER_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_RECOVER_ACTION {
@@ -7274,6 +7484,11 @@ impl ::core::clone::Clone for VDS_STORAGE_BUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VDS_STORAGE_BUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_STORAGE_BUS_TYPE {
     type Abi = Self;
 }
@@ -7365,6 +7580,11 @@ impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER_CODE_SET {
         *self
     }
 }
+impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_CODE_SET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
 }
@@ -7399,6 +7619,11 @@ impl ::core::marker::Copy for VDS_STORAGE_IDENTIFIER_TYPE {}
 impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER_TYPE {
@@ -7513,6 +7738,11 @@ impl ::core::clone::Clone for VDS_STORAGE_POOL_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_STORAGE_POOL_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_STATUS {
     type Abi = Self;
 }
@@ -7535,6 +7765,11 @@ impl ::core::marker::Copy for VDS_STORAGE_POOL_TYPE {}
 impl ::core::clone::Clone for VDS_STORAGE_POOL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_STORAGE_POOL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_TYPE {
@@ -7601,6 +7836,11 @@ impl ::core::marker::Copy for VDS_SUB_SYSTEM_FLAG {}
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_SUB_SYSTEM_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_FLAG {
@@ -7788,6 +8028,11 @@ impl ::core::clone::Clone for VDS_SUB_SYSTEM_STATUS {
         *self
     }
 }
+impl ::core::default::Default for VDS_SUB_SYSTEM_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_STATUS {
     type Abi = Self;
 }
@@ -7836,6 +8081,11 @@ impl ::core::marker::Copy for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {}
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
@@ -7967,6 +8217,11 @@ impl ::core::clone::Clone for VDS_TRANSITION_STATE {
         *self
     }
 }
+impl ::core::default::Default for VDS_TRANSITION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VDS_TRANSITION_STATE {
     type Abi = Self;
 }
@@ -7993,6 +8248,11 @@ impl ::core::marker::Copy for VDS_VERSION_SUPPORT_FLAG {}
 impl ::core::clone::Clone for VDS_VERSION_SUPPORT_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VDS_VERSION_SUPPORT_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VDS_VERSION_SUPPORT_FLAG {

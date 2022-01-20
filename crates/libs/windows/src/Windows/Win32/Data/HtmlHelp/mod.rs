@@ -765,6 +765,11 @@ impl ::core::clone::Clone for HH_GPROPID {
         *self
     }
 }
+impl ::core::default::Default for HH_GPROPID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HH_GPROPID {
     type Abi = Self;
 }
@@ -2056,6 +2061,11 @@ impl ::core::clone::Clone for PRIORITY {
         *self
     }
 }
+impl ::core::default::Default for PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRIORITY {
     type Abi = Self;
 }
@@ -2151,6 +2161,11 @@ impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
 impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WORD_WHEEL_OPEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WORD_WHEEL_OPEN_FLAGS {

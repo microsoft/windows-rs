@@ -642,6 +642,11 @@ impl ::core::clone::Clone for SECURITY_INFO_PAGE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SECURITY_INFO_PAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECURITY_INFO_PAGE_FLAGS {
     type Abi = Self;
 }
@@ -992,6 +997,11 @@ impl ::core::clone::Clone for SI_OBJECT_INFO_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for SI_OBJECT_INFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SI_OBJECT_INFO_FLAGS {
     type Abi = Self;
 }
@@ -1056,6 +1066,11 @@ impl ::core::clone::Clone for SI_PAGE_ACTIVATED {
         *self
     }
 }
+impl ::core::default::Default for SI_PAGE_ACTIVATED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SI_PAGE_ACTIVATED {
     type Abi = Self;
 }
@@ -1088,6 +1103,11 @@ impl ::core::marker::Copy for SI_PAGE_TYPE {}
 impl ::core::clone::Clone for SI_PAGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SI_PAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SI_PAGE_TYPE {

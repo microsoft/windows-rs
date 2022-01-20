@@ -194,6 +194,11 @@ impl ::core::clone::Clone for JOBOBJECTINFOCLASS {
         *self
     }
 }
+impl ::core::default::Default for JOBOBJECTINFOCLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECTINFOCLASS {
     type Abi = Self;
 }
@@ -607,6 +612,11 @@ impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {}
 impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
@@ -1310,6 +1320,11 @@ impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE {
         *self
     }
 }
+impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     type Abi = Self;
 }
@@ -1332,6 +1347,11 @@ impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {}
 impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
@@ -1404,6 +1424,11 @@ impl ::core::clone::Clone for JOB_OBJECT_CPU_RATE_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JOB_OBJECT_CPU_RATE_CONTROL {
     type Abi = Self;
 }
@@ -1458,6 +1483,11 @@ impl ::core::marker::Copy for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {}
 impl ::core::clone::Clone for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
@@ -1532,6 +1562,11 @@ impl ::core::clone::Clone for JOB_OBJECT_LIMIT {
         *self
     }
 }
+impl ::core::default::Default for JOB_OBJECT_LIMIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JOB_OBJECT_LIMIT {
     type Abi = Self;
 }
@@ -1586,6 +1621,11 @@ impl ::core::clone::Clone for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Abi = Self;
 }
@@ -1612,6 +1652,11 @@ impl ::core::marker::Copy for JOB_OBJECT_SECURITY {}
 impl ::core::clone::Clone for JOB_OBJECT_SECURITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_SECURITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOB_OBJECT_SECURITY {
@@ -1662,6 +1707,11 @@ impl ::core::marker::Copy for JOB_OBJECT_TERMINATE_AT_END_ACTION {}
 impl ::core::clone::Clone for JOB_OBJECT_TERMINATE_AT_END_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOB_OBJECT_TERMINATE_AT_END_ACTION {
@@ -1726,6 +1776,11 @@ impl ::core::marker::Copy for JOB_OBJECT_UILIMIT {}
 impl ::core::clone::Clone for JOB_OBJECT_UILIMIT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JOB_OBJECT_UILIMIT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JOB_OBJECT_UILIMIT {

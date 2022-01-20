@@ -566,6 +566,11 @@ impl ::core::clone::Clone for AsyncStatus {
         *self
     }
 }
+impl ::core::default::Default for AsyncStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AsyncStatus {
     type Abi = Self;
 }
@@ -3968,6 +3973,11 @@ impl ::core::marker::Copy for PropertyType {}
 impl ::core::clone::Clone for PropertyType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PropertyType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PropertyType {

@@ -329,6 +329,11 @@ impl ::core::clone::Clone for IndexedResourceType {
         *self
     }
 }
+impl ::core::default::Default for IndexedResourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IndexedResourceType {
     type Abi = Self;
 }

@@ -132,6 +132,11 @@ impl ::core::clone::Clone for DEVPROP_OPERATOR {
         *self
     }
 }
+impl ::core::default::Default for DEVPROP_OPERATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVPROP_OPERATOR {
     type Abi = Self;
 }
@@ -243,6 +248,11 @@ impl ::core::clone::Clone for DEV_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DEV_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEV_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -269,6 +279,11 @@ impl ::core::marker::Copy for DEV_QUERY_FLAGS {}
 impl ::core::clone::Clone for DEV_QUERY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEV_QUERY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEV_QUERY_FLAGS {
@@ -336,6 +351,11 @@ impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION {}
 impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEV_QUERY_RESULT_ACTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION {
@@ -428,6 +448,11 @@ impl ::core::marker::Copy for DEV_QUERY_STATE {}
 impl ::core::clone::Clone for DEV_QUERY_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DEV_QUERY_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DEV_QUERY_STATE {

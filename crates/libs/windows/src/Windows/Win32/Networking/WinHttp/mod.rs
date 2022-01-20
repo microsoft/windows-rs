@@ -266,6 +266,11 @@ impl ::core::clone::Clone for INTERNET_PORT {
         *self
     }
 }
+impl ::core::default::Default for INTERNET_PORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_PORT {
     type Abi = Self;
 }
@@ -406,6 +411,11 @@ impl ::core::marker::Copy for WINHTTP_ACCESS_TYPE {}
 impl ::core::clone::Clone for WINHTTP_ACCESS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINHTTP_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_ACCESS_TYPE {
@@ -906,6 +916,11 @@ impl ::core::clone::Clone for WINHTTP_CREDS_AUTHSCHEME {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_CREDS_AUTHSCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_CREDS_AUTHSCHEME {
     type Abi = Self;
 }
@@ -1337,6 +1352,11 @@ impl ::core::clone::Clone for WINHTTP_INTERNET_SCHEME {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_INTERNET_SCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_INTERNET_SCHEME {
     type Abi = Self;
 }
@@ -1473,6 +1493,11 @@ impl ::core::marker::Copy for WINHTTP_OPEN_REQUEST_FLAGS {}
 impl ::core::clone::Clone for WINHTTP_OPEN_REQUEST_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINHTTP_OPEN_REQUEST_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_OPEN_REQUEST_FLAGS {
@@ -2332,6 +2357,11 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_STAT_ENTRY {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_REQUEST_STAT_ENTRY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STAT_ENTRY {
     type Abi = Self;
 }
@@ -2510,6 +2540,11 @@ impl ::core::clone::Clone for WINHTTP_REQUEST_TIME_ENTRY {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_REQUEST_TIME_ENTRY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIME_ENTRY {
     type Abi = Self;
 }
@@ -2642,6 +2677,11 @@ impl ::core::clone::Clone for WINHTTP_SECURE_DNS_SETTING {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_SECURE_DNS_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_SECURE_DNS_SETTING {
     type Abi = Self;
 }
@@ -2705,6 +2745,11 @@ impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -2747,6 +2792,11 @@ impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
 }
@@ -2775,6 +2825,11 @@ impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_OPERATION {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINHTTP_WEB_SOCKET_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_OPERATION {
@@ -2830,6 +2885,11 @@ impl ::core::marker::Copy for WIN_HTTP_CREATE_URL_FLAGS {}
 impl ::core::clone::Clone for WIN_HTTP_CREATE_URL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WIN_HTTP_CREATE_URL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WIN_HTTP_CREATE_URL_FLAGS {

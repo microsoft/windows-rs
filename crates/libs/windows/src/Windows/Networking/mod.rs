@@ -31,6 +31,11 @@ impl ::core::clone::Clone for DomainNameType {
         *self
     }
 }
+impl ::core::default::Default for DomainNameType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DomainNameType {
     type Abi = Self;
 }
@@ -377,6 +382,11 @@ impl ::core::clone::Clone for HostNameSortOptions {
         *self
     }
 }
+impl ::core::default::Default for HostNameSortOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HostNameSortOptions {
     type Abi = Self;
 }
@@ -433,6 +443,11 @@ impl ::core::marker::Copy for HostNameType {}
 impl ::core::clone::Clone for HostNameType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HostNameType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HostNameType {

@@ -14,6 +14,11 @@ impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
         *self
     }
 }
+impl ::core::default::Default for GuidanceAudioMeasurementSystem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
     type Abi = Self;
 }
@@ -44,6 +49,11 @@ impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
 impl ::core::clone::Clone for GuidanceAudioNotificationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GuidanceAudioNotificationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
@@ -175,6 +185,11 @@ impl ::core::marker::Copy for GuidanceAudioNotifications {}
 impl ::core::clone::Clone for GuidanceAudioNotifications {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GuidanceAudioNotifications {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
@@ -329,6 +344,11 @@ impl ::core::marker::Copy for GuidanceLaneMarkers {}
 impl ::core::clone::Clone for GuidanceLaneMarkers {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GuidanceLaneMarkers {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
@@ -603,6 +623,11 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
         *self
     }
 }
+impl ::core::default::Default for GuidanceManeuverKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
     type Abi = Self;
 }
@@ -745,6 +770,11 @@ impl ::core::marker::Copy for GuidanceMode {}
 impl ::core::clone::Clone for GuidanceMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GuidanceMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GuidanceMode {

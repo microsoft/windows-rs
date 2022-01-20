@@ -1130,6 +1130,11 @@ impl ::core::clone::Clone for DOMNodeType {
         *self
     }
 }
+impl ::core::default::Default for DOMNodeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOMNodeType {
     type Abi = Self;
 }
@@ -20120,6 +20125,11 @@ impl ::core::clone::Clone for SCHEMACONTENTTYPE {
         *self
     }
 }
+impl ::core::default::Default for SCHEMACONTENTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCHEMACONTENTTYPE {
     type Abi = Self;
 }
@@ -20154,6 +20164,11 @@ impl ::core::clone::Clone for SCHEMADERIVATIONMETHOD {
         *self
     }
 }
+impl ::core::default::Default for SCHEMADERIVATIONMETHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCHEMADERIVATIONMETHOD {
     type Abi = Self;
 }
@@ -20178,6 +20193,11 @@ impl ::core::marker::Copy for SCHEMAPROCESSCONTENTS {}
 impl ::core::clone::Clone for SCHEMAPROCESSCONTENTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCHEMAPROCESSCONTENTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCHEMAPROCESSCONTENTS {
@@ -20206,6 +20226,11 @@ impl ::core::clone::Clone for SCHEMATYPEVARIETY {
         *self
     }
 }
+impl ::core::default::Default for SCHEMATYPEVARIETY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCHEMATYPEVARIETY {
     type Abi = Self;
 }
@@ -20228,6 +20253,11 @@ impl ::core::marker::Copy for SCHEMAUSE {}
 impl ::core::clone::Clone for SCHEMAUSE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SCHEMAUSE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SCHEMAUSE {
@@ -20256,6 +20286,11 @@ impl ::core::clone::Clone for SCHEMAWHITESPACE {
         *self
     }
 }
+impl ::core::default::Default for SCHEMAWHITESPACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SCHEMAWHITESPACE {
     type Abi = Self;
 }
@@ -20282,6 +20317,11 @@ impl ::core::marker::Copy for SERVERXMLHTTP_OPTION {}
 impl ::core::clone::Clone for SERVERXMLHTTP_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SERVERXMLHTTP_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SERVERXMLHTTP_OPTION {
@@ -20448,6 +20488,11 @@ impl ::core::clone::Clone for SOMITEMTYPE {
         *self
     }
 }
+impl ::core::default::Default for SOMITEMTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SOMITEMTYPE {
     type Abi = Self;
 }
@@ -20472,6 +20517,11 @@ impl ::core::marker::Copy for SXH_PROXY_SETTING {}
 impl ::core::clone::Clone for SXH_PROXY_SETTING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SXH_PROXY_SETTING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SXH_PROXY_SETTING {
@@ -20502,6 +20552,11 @@ impl ::core::clone::Clone for SXH_SERVER_CERT_OPTION {
         *self
     }
 }
+impl ::core::default::Default for SXH_SERVER_CERT_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SXH_SERVER_CERT_OPTION {
     type Abi = Self;
 }
@@ -20525,6 +20580,11 @@ impl ::core::marker::Copy for XHR_AUTH {}
 impl ::core::clone::Clone for XHR_AUTH {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XHR_AUTH {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XHR_AUTH {
@@ -20586,6 +20646,11 @@ impl ::core::clone::Clone for XHR_CERT_ERROR_FLAG {
         *self
     }
 }
+impl ::core::default::Default for XHR_CERT_ERROR_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XHR_CERT_ERROR_FLAG {
     type Abi = Self;
 }
@@ -20640,6 +20705,11 @@ impl ::core::marker::Copy for XHR_CERT_IGNORE_FLAG {}
 impl ::core::clone::Clone for XHR_CERT_IGNORE_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XHR_CERT_IGNORE_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XHR_CERT_IGNORE_FLAG {
@@ -20755,6 +20825,11 @@ impl ::core::clone::Clone for XHR_COOKIE_FLAG {
         *self
     }
 }
+impl ::core::default::Default for XHR_COOKIE_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XHR_COOKIE_FLAG {
     type Abi = Self;
 }
@@ -20785,6 +20860,11 @@ impl ::core::clone::Clone for XHR_COOKIE_STATE {
         *self
     }
 }
+impl ::core::default::Default for XHR_COOKIE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XHR_COOKIE_STATE {
     type Abi = Self;
 }
@@ -20807,6 +20887,11 @@ impl ::core::marker::Copy for XHR_CRED_PROMPT {}
 impl ::core::clone::Clone for XHR_CRED_PROMPT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XHR_CRED_PROMPT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XHR_CRED_PROMPT {
@@ -20849,6 +20934,11 @@ impl ::core::marker::Copy for XHR_PROPERTY {}
 impl ::core::clone::Clone for XHR_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XHR_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XHR_PROPERTY {
@@ -20995,6 +21085,11 @@ impl ::core::marker::Copy for XMLEMEM_TYPE {}
 impl ::core::clone::Clone for XMLEMEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XMLEMEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XMLEMEM_TYPE {

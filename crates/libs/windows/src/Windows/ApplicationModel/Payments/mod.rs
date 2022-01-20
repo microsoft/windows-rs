@@ -932,6 +932,11 @@ impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
         *self
     }
 }
+impl ::core::default::Default for PaymentCanMakePaymentResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
     type Abi = Self;
 }
@@ -1847,6 +1852,11 @@ impl ::core::clone::Clone for PaymentOptionPresence {
         *self
     }
 }
+impl ::core::default::Default for PaymentOptionPresence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentOptionPresence {
     type Abi = Self;
 }
@@ -2174,6 +2184,11 @@ impl ::core::marker::Copy for PaymentRequestChangeKind {}
 impl ::core::clone::Clone for PaymentRequestChangeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PaymentRequestChangeKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
@@ -2516,6 +2531,11 @@ impl ::core::clone::Clone for PaymentRequestCompletionStatus {
         *self
     }
 }
+impl ::core::default::Default for PaymentRequestCompletionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
     type Abi = Self;
 }
@@ -2543,6 +2563,11 @@ impl ::core::marker::Copy for PaymentRequestStatus {}
 impl ::core::clone::Clone for PaymentRequestStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PaymentRequestStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PaymentRequestStatus {
@@ -2942,6 +2967,11 @@ impl ::core::marker::Copy for PaymentShippingType {}
 impl ::core::clone::Clone for PaymentShippingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PaymentShippingType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PaymentShippingType {

@@ -871,6 +871,11 @@ impl ::core::clone::Clone for SECURITY_PRODUCT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SECURITY_PRODUCT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SECURITY_PRODUCT_TYPE {
     type Abi = Self;
 }
@@ -899,6 +904,11 @@ impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_STATE {
         *self
     }
 }
+impl ::core::default::Default for WSC_SECURITY_PRODUCT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSC_SECURITY_PRODUCT_STATE {
     type Abi = Self;
 }
@@ -923,6 +933,11 @@ impl ::core::marker::Copy for WSC_SECURITY_PRODUCT_SUBSTATUS {}
 impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_SUBSTATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSC_SECURITY_PRODUCT_SUBSTATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSC_SECURITY_PRODUCT_SUBSTATUS {
@@ -961,6 +976,11 @@ impl ::core::clone::Clone for WSC_SECURITY_PROVIDER {
         *self
     }
 }
+impl ::core::default::Default for WSC_SECURITY_PROVIDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSC_SECURITY_PROVIDER {
     type Abi = Self;
 }
@@ -987,6 +1007,11 @@ impl ::core::clone::Clone for WSC_SECURITY_PROVIDER_HEALTH {
         *self
     }
 }
+impl ::core::default::Default for WSC_SECURITY_PROVIDER_HEALTH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSC_SECURITY_PROVIDER_HEALTH {
     type Abi = Self;
 }
@@ -1007,6 +1032,11 @@ impl ::core::marker::Copy for WSC_SECURITY_SIGNATURE_STATUS {}
 impl ::core::clone::Clone for WSC_SECURITY_SIGNATURE_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSC_SECURITY_SIGNATURE_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSC_SECURITY_SIGNATURE_STATUS {

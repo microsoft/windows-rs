@@ -1531,6 +1531,11 @@ impl ::core::clone::Clone for JET_ERRCAT {
         *self
     }
 }
+impl ::core::default::Default for JET_ERRCAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JET_ERRCAT {
     type Abi = Self;
 }
@@ -1608,6 +1613,11 @@ impl ::core::marker::Copy for JET_INDEXCHECKING {}
 impl ::core::clone::Clone for JET_INDEXCHECKING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JET_INDEXCHECKING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JET_INDEXCHECKING {
@@ -3673,6 +3683,11 @@ impl ::core::marker::Copy for JET_RELOP {}
 impl ::core::clone::Clone for JET_RELOP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JET_RELOP {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JET_RELOP {

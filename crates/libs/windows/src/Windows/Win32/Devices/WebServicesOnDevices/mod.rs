@@ -15,6 +15,11 @@ impl ::core::clone::Clone for DeviceDiscoveryMechanism {
         *self
     }
 }
+impl ::core::default::Default for DeviceDiscoveryMechanism {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceDiscoveryMechanism {
     type Abi = Self;
 }
@@ -3956,6 +3961,11 @@ impl ::core::clone::Clone for WSDEventType {
         *self
     }
 }
+impl ::core::default::Default for WSDEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSDEventType {
     type Abi = Self;
 }
@@ -4050,6 +4060,11 @@ impl ::core::marker::Copy for WSDUdpMessageType {}
 impl ::core::clone::Clone for WSDUdpMessageType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSDUdpMessageType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSDUdpMessageType {
@@ -4582,6 +4597,11 @@ impl ::core::clone::Clone for WSDXML_OP {
         *self
     }
 }
+impl ::core::default::Default for WSDXML_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSDXML_OP {
     type Abi = Self;
 }
@@ -4885,6 +4905,11 @@ impl ::core::marker::Copy for WSD_CONFIG_PARAM_TYPE {}
 impl ::core::clone::Clone for WSD_CONFIG_PARAM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSD_CONFIG_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSD_CONFIG_PARAM_TYPE {
@@ -5934,6 +5959,11 @@ impl ::core::marker::Copy for WSD_PROTOCOL_TYPE {}
 impl ::core::clone::Clone for WSD_PROTOCOL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WSD_PROTOCOL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WSD_PROTOCOL_TYPE {

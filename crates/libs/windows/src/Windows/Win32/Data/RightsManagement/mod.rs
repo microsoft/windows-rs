@@ -15,6 +15,11 @@ impl ::core::clone::Clone for DRMATTESTTYPE {
         *self
     }
 }
+impl ::core::default::Default for DRMATTESTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRMATTESTTYPE {
     type Abi = Self;
 }
@@ -580,6 +585,11 @@ impl ::core::clone::Clone for DRMENCODINGTYPE {
         *self
     }
 }
+impl ::core::default::Default for DRMENCODINGTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRMENCODINGTYPE {
     type Abi = Self;
 }
@@ -646,6 +656,11 @@ impl ::core::marker::Copy for DRMGLOBALOPTIONS {}
 impl ::core::clone::Clone for DRMGLOBALOPTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRMGLOBALOPTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRMGLOBALOPTIONS {
@@ -1363,6 +1378,11 @@ impl ::core::clone::Clone for DRMSECURITYPROVIDERTYPE {
         *self
     }
 }
+impl ::core::default::Default for DRMSECURITYPROVIDERTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRMSECURITYPROVIDERTYPE {
     type Abi = Self;
 }
@@ -1383,6 +1403,11 @@ impl ::core::marker::Copy for DRMSPECTYPE {}
 impl ::core::clone::Clone for DRMSPECTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRMSPECTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRMSPECTYPE {
@@ -1520,6 +1545,11 @@ impl ::core::marker::Copy for DRMTIMETYPE {}
 impl ::core::clone::Clone for DRMTIMETYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRMTIMETYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRMTIMETYPE {
@@ -1671,6 +1701,11 @@ impl ::core::clone::Clone for DRM_DISTRIBUTION_POINT_INFO {
         *self
     }
 }
+impl ::core::default::Default for DRM_DISTRIBUTION_POINT_INFO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_DISTRIBUTION_POINT_INFO {
     type Abi = Self;
 }
@@ -1812,6 +1847,11 @@ impl ::core::clone::Clone for DRM_STATUS_MSG {
         *self
     }
 }
+impl ::core::default::Default for DRM_STATUS_MSG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DRM_STATUS_MSG {
     type Abi = Self;
 }
@@ -1836,6 +1876,11 @@ impl ::core::marker::Copy for DRM_USAGEPOLICY_TYPE {}
 impl ::core::clone::Clone for DRM_USAGEPOLICY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DRM_USAGEPOLICY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DRM_USAGEPOLICY_TYPE {

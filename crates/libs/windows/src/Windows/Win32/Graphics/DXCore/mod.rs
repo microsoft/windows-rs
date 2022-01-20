@@ -82,6 +82,11 @@ impl ::core::clone::Clone for DXCoreAdapterPreference {
         *self
     }
 }
+impl ::core::default::Default for DXCoreAdapterPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreAdapterPreference {
     type Abi = Self;
 }
@@ -158,6 +163,11 @@ impl ::core::clone::Clone for DXCoreAdapterProperty {
         *self
     }
 }
+impl ::core::default::Default for DXCoreAdapterProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreAdapterProperty {
     type Abi = Self;
 }
@@ -206,6 +216,11 @@ impl ::core::marker::Copy for DXCoreAdapterState {}
 impl ::core::clone::Clone for DXCoreAdapterState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXCoreAdapterState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreAdapterState {
@@ -344,6 +359,11 @@ impl ::core::clone::Clone for DXCoreNotificationType {
         *self
     }
 }
+impl ::core::default::Default for DXCoreNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXCoreNotificationType {
     type Abi = Self;
 }
@@ -392,6 +412,11 @@ impl ::core::marker::Copy for DXCoreSegmentGroup {}
 impl ::core::clone::Clone for DXCoreSegmentGroup {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXCoreSegmentGroup {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXCoreSegmentGroup {

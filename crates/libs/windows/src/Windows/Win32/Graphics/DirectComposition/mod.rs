@@ -19,6 +19,11 @@ impl ::core::clone::Clone for COMPOSITION_FRAME_ID_TYPE {
         *self
     }
 }
+impl ::core::default::Default for COMPOSITION_FRAME_ID_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMPOSITION_FRAME_ID_TYPE {
     type Abi = Self;
 }
@@ -186,6 +191,11 @@ impl ::core::clone::Clone for DCOMPOSITION_BACKFACE_VISIBILITY {
         *self
     }
 }
+impl ::core::default::Default for DCOMPOSITION_BACKFACE_VISIBILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DCOMPOSITION_BACKFACE_VISIBILITY {
     type Abi = Self;
 }
@@ -210,6 +220,11 @@ impl ::core::clone::Clone for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -232,6 +247,11 @@ impl ::core::marker::Copy for DCOMPOSITION_BORDER_MODE {}
 impl ::core::clone::Clone for DCOMPOSITION_BORDER_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DCOMPOSITION_BORDER_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DCOMPOSITION_BORDER_MODE {
@@ -260,6 +280,11 @@ impl ::core::clone::Clone for DCOMPOSITION_COMPOSITE_MODE {
         *self
     }
 }
+impl ::core::default::Default for DCOMPOSITION_COMPOSITE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DCOMPOSITION_COMPOSITE_MODE {
     type Abi = Self;
 }
@@ -284,6 +309,11 @@ impl ::core::marker::Copy for DCOMPOSITION_DEPTH_MODE {}
 impl ::core::clone::Clone for DCOMPOSITION_DEPTH_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DCOMPOSITION_DEPTH_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DCOMPOSITION_DEPTH_MODE {
@@ -352,6 +382,11 @@ impl ::core::marker::Copy for DCOMPOSITION_OPACITY_MODE {}
 impl ::core::clone::Clone for DCOMPOSITION_OPACITY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DCOMPOSITION_OPACITY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DCOMPOSITION_OPACITY_MODE {

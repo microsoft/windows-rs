@@ -372,6 +372,11 @@ impl ::core::clone::Clone for CoreDragUIContentMode {
         *self
     }
 }
+impl ::core::default::Default for CoreDragUIContentMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreDragUIContentMode {
     type Abi = Self;
 }

@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AutoLoadedDisplayPropertyKind {
         *self
     }
 }
+impl ::core::default::Default for AutoLoadedDisplayPropertyKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutoLoadedDisplayPropertyKind {
     type Abi = Self;
 }
@@ -212,6 +217,11 @@ impl ::core::marker::Copy for FailedMediaStreamKind {}
 impl ::core::clone::Clone for FailedMediaStreamKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FailedMediaStreamKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FailedMediaStreamKind {
@@ -2384,6 +2394,11 @@ impl ::core::clone::Clone for MediaBreakInsertionMethod {
         *self
     }
 }
+impl ::core::default::Default for MediaBreakInsertionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaBreakInsertionMethod {
     type Abi = Self;
 }
@@ -2973,6 +2988,11 @@ impl ::core::marker::Copy for MediaCommandEnablingRule {}
 impl ::core::clone::Clone for MediaCommandEnablingRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaCommandEnablingRule {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaCommandEnablingRule {
@@ -5121,6 +5141,11 @@ impl ::core::clone::Clone for MediaPlaybackItemChangedReason {
         *self
     }
 }
+impl ::core::default::Default for MediaPlaybackItemChangedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackItemChangedReason {
     type Abi = Self;
 }
@@ -5240,6 +5265,11 @@ impl ::core::marker::Copy for MediaPlaybackItemErrorCode {}
 impl ::core::clone::Clone for MediaPlaybackItemErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackItemErrorCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackItemErrorCode {
@@ -6388,6 +6418,11 @@ impl ::core::clone::Clone for MediaPlaybackSessionVideoConstrictionReason {
         *self
     }
 }
+impl ::core::default::Default for MediaPlaybackSessionVideoConstrictionReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlaybackSessionVideoConstrictionReason {
     type Abi = Self;
 }
@@ -6559,6 +6594,11 @@ impl ::core::marker::Copy for MediaPlaybackState {}
 impl ::core::clone::Clone for MediaPlaybackState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPlaybackState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlaybackState {
@@ -7869,6 +7909,11 @@ impl ::core::clone::Clone for MediaPlayerAudioCategory {
         *self
     }
 }
+impl ::core::default::Default for MediaPlayerAudioCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaPlayerAudioCategory {
     type Abi = Self;
 }
@@ -7896,6 +7941,11 @@ impl ::core::marker::Copy for MediaPlayerAudioDeviceType {}
 impl ::core::clone::Clone for MediaPlayerAudioDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPlayerAudioDeviceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlayerAudioDeviceType {
@@ -8009,6 +8059,11 @@ impl ::core::marker::Copy for MediaPlayerError {}
 impl ::core::clone::Clone for MediaPlayerError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaPlayerError {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaPlayerError {
@@ -8223,6 +8278,12 @@ impl ::core::marker::Copy for MediaPlayerState {}
 impl ::core::clone::Clone for MediaPlayerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for MediaPlayerState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -8730,6 +8791,11 @@ impl ::core::clone::Clone for SphericalVideoProjectionMode {
         *self
     }
 }
+impl ::core::default::Default for SphericalVideoProjectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SphericalVideoProjectionMode {
     type Abi = Self;
 }
@@ -8756,6 +8822,11 @@ impl ::core::marker::Copy for StereoscopicVideoRenderMode {}
 impl ::core::clone::Clone for StereoscopicVideoRenderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StereoscopicVideoRenderMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StereoscopicVideoRenderMode {
@@ -8884,6 +8955,11 @@ impl ::core::marker::Copy for TimedMetadataTrackPresentationMode {}
 impl ::core::clone::Clone for TimedMetadataTrackPresentationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TimedMetadataTrackPresentationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TimedMetadataTrackPresentationMode {

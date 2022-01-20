@@ -183,6 +183,11 @@ impl ::core::clone::Clone for UpdateAssessmentStatus {
         *self
     }
 }
+impl ::core::default::Default for UpdateAssessmentStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UpdateAssessmentStatus {
     type Abi = Self;
 }
@@ -207,6 +212,11 @@ impl ::core::marker::Copy for UpdateImpactLevel {}
 impl ::core::clone::Clone for UpdateImpactLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UpdateImpactLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UpdateImpactLevel {

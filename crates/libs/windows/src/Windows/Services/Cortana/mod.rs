@@ -342,6 +342,12 @@ impl ::core::clone::Clone for CortanaPermission {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for CortanaPermission {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermission {
     type Abi = Self;
 }
@@ -376,6 +382,12 @@ impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
 impl ::core::clone::Clone for CortanaPermissionsChangeResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for CortanaPermissionsChangeResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

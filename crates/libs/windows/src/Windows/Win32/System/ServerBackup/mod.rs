@@ -317,6 +317,11 @@ impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     type Abi = Self;
 }

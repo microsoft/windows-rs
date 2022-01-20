@@ -308,6 +308,11 @@ impl ::core::clone::Clone for DXGI_ADAPTER_FLAG {
         *self
     }
 }
+impl ::core::default::Default for DXGI_ADAPTER_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_FLAG {
     type Abi = Self;
 }
@@ -370,6 +375,11 @@ impl ::core::clone::Clone for DXGI_ADAPTER_FLAG3 {
         *self
     }
 }
+impl ::core::default::Default for DXGI_ADAPTER_FLAG3 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_ADAPTER_FLAG3 {
     type Abi = Self;
 }
@@ -426,6 +436,11 @@ impl ::core::clone::Clone for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
         *self
     }
 }
+impl ::core::default::Default for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     type Abi = Self;
 }
@@ -458,6 +473,11 @@ impl ::core::marker::Copy for DXGI_DEBUG_RLO_FLAGS {}
 impl ::core::clone::Clone for DXGI_DEBUG_RLO_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_DEBUG_RLO_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_DEBUG_RLO_FLAGS {
@@ -641,6 +661,11 @@ impl ::core::clone::Clone for DXGI_FEATURE {
         *self
     }
 }
+impl ::core::default::Default for DXGI_FEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_FEATURE {
     type Abi = Self;
 }
@@ -665,6 +690,11 @@ impl ::core::marker::Copy for DXGI_FRAME_PRESENTATION_MODE {}
 impl ::core::clone::Clone for DXGI_FRAME_PRESENTATION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_FRAME_PRESENTATION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_FRAME_PRESENTATION_MODE {
@@ -761,6 +791,11 @@ impl ::core::clone::Clone for DXGI_GPU_PREFERENCE {
         *self
     }
 }
+impl ::core::default::Default for DXGI_GPU_PREFERENCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_GPU_PREFERENCE {
     type Abi = Self;
 }
@@ -789,6 +824,11 @@ impl ::core::clone::Clone for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
         *self
     }
 }
+impl ::core::default::Default for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
     type Abi = Self;
 }
@@ -811,6 +851,11 @@ impl ::core::marker::Copy for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {}
 impl ::core::clone::Clone for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
@@ -930,6 +975,11 @@ impl ::core::marker::Copy for DXGI_HDR_METADATA_TYPE {}
 impl ::core::clone::Clone for DXGI_HDR_METADATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_HDR_METADATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_TYPE {
@@ -1075,6 +1125,11 @@ impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
         *self
     }
 }
+impl ::core::default::Default for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
     type Abi = Self;
 }
@@ -1103,6 +1158,11 @@ impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {}
 impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
@@ -1201,6 +1261,11 @@ impl ::core::clone::Clone for DXGI_MEMORY_SEGMENT_GROUP {
         *self
     }
 }
+impl ::core::default::Default for DXGI_MEMORY_SEGMENT_GROUP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_MEMORY_SEGMENT_GROUP {
     type Abi = Self;
 }
@@ -1267,6 +1332,11 @@ impl ::core::marker::Copy for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {}
 impl ::core::clone::Clone for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -1957,6 +2027,11 @@ impl ::core::clone::Clone for DXGI_Message_Id {
         *self
     }
 }
+impl ::core::default::Default for DXGI_Message_Id {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_Message_Id {
     type Abi = Self;
 }
@@ -1975,6 +2050,11 @@ impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_FLAGS {}
 impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_OFFER_RESOURCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_OFFER_RESOURCE_FLAGS {
@@ -1999,6 +2079,11 @@ impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_PRIORITY {}
 impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_OFFER_RESOURCE_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_OFFER_RESOURCE_PRIORITY {
@@ -2059,6 +2144,11 @@ impl ::core::marker::Copy for DXGI_OUTDUPL_FLAG {}
 impl ::core::clone::Clone for DXGI_OUTDUPL_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_OUTDUPL_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_FLAG {
@@ -2259,6 +2349,11 @@ impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
     type Abi = Self;
 }
@@ -2387,6 +2482,11 @@ impl ::core::clone::Clone for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
         *self
     }
 }
+impl ::core::default::Default for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     type Abi = Self;
 }
@@ -2407,6 +2507,11 @@ impl ::core::marker::Copy for DXGI_OVERLAY_SUPPORT_FLAG {}
 impl ::core::clone::Clone for DXGI_OVERLAY_SUPPORT_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_OVERLAY_SUPPORT_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_OVERLAY_SUPPORT_FLAG {
@@ -2525,6 +2630,11 @@ impl ::core::clone::Clone for DXGI_RECLAIM_RESOURCE_RESULTS {
         *self
     }
 }
+impl ::core::default::Default for DXGI_RECLAIM_RESOURCE_RESULTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_RECLAIM_RESOURCE_RESULTS {
     type Abi = Self;
 }
@@ -2547,6 +2657,11 @@ impl ::core::marker::Copy for DXGI_RESIDENCY {}
 impl ::core::clone::Clone for DXGI_RESIDENCY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_RESIDENCY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_RESIDENCY {
@@ -2575,6 +2690,11 @@ impl ::core::marker::Copy for DXGI_RESOURCE_PRIORITY {}
 impl ::core::clone::Clone for DXGI_RESOURCE_PRIORITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_RESOURCE_PRIORITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_RESOURCE_PRIORITY {
@@ -2660,6 +2780,11 @@ impl ::core::marker::Copy for DXGI_SCALING {}
 impl ::core::clone::Clone for DXGI_SCALING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_SCALING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_SCALING {
@@ -2765,6 +2890,11 @@ impl ::core::marker::Copy for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {}
 impl ::core::clone::Clone for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
@@ -2904,6 +3034,11 @@ impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FLAG {
         *self
     }
 }
+impl ::core::default::Default for DXGI_SWAP_CHAIN_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_FLAG {
     type Abi = Self;
 }
@@ -2969,6 +3104,11 @@ impl ::core::marker::Copy for DXGI_SWAP_EFFECT {}
 impl ::core::clone::Clone for DXGI_SWAP_EFFECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_SWAP_EFFECT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_SWAP_EFFECT {

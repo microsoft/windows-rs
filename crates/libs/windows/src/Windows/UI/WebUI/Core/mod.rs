@@ -974,6 +974,11 @@ impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
         *self
     }
 }
+impl ::core::default::Default for WebUICommandBarClosedDisplayMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebUICommandBarClosedDisplayMode {
     type Abi = Self;
 }

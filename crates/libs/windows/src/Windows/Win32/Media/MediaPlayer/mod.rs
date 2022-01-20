@@ -974,6 +974,11 @@ impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_ACTION {
     type Abi = Self;
 }
@@ -994,6 +999,11 @@ impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
 impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_STATUS {
@@ -1046,6 +1056,11 @@ impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_DOWNLOAD_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_ERROR {
     type Abi = Self;
 }
@@ -1074,6 +1089,11 @@ impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_DOWNLOAD_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_STATUS {
     type Abi = Self;
 }
@@ -1098,6 +1118,11 @@ impl ::core::clone::Clone for FEEDS_ERROR_CODE {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_ERROR_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_ERROR_CODE {
     type Abi = Self;
 }
@@ -1118,6 +1143,11 @@ impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
 impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
@@ -1142,6 +1172,11 @@ impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_EVENTS_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_EVENTS_MASK {
     type Abi = Self;
 }
@@ -1164,6 +1199,11 @@ impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
 impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEEDS_EVENTS_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEEDS_EVENTS_SCOPE {
@@ -1192,6 +1232,11 @@ impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_SYNC_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_SYNC_SETTING {
     type Abi = Self;
 }
@@ -1216,6 +1261,11 @@ impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_XML_FILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_XML_FILTER_FLAGS {
     type Abi = Self;
 }
@@ -1236,6 +1286,11 @@ impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
 impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_INCLUDE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEEDS_XML_INCLUDE_FLAGS {
@@ -1262,6 +1317,11 @@ impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
         *self
     }
 }
+impl ::core::default::Default for FEEDS_XML_SORT_ORDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_ORDER {
     type Abi = Self;
 }
@@ -1284,6 +1344,11 @@ impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
 impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FEEDS_XML_SORT_PROPERTY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_PROPERTY {
@@ -19359,6 +19424,11 @@ impl ::core::clone::Clone for PlayerState {
         *self
     }
 }
+impl ::core::default::Default for PlayerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlayerState {
     type Abi = Self;
 }
@@ -19438,6 +19508,11 @@ impl ::core::clone::Clone for WMPAccountType {
         *self
     }
 }
+impl ::core::default::Default for WMPAccountType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPAccountType {
     type Abi = Self;
 }
@@ -19458,6 +19533,11 @@ impl ::core::marker::Copy for WMPBurnFormat {}
 impl ::core::clone::Clone for WMPBurnFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPBurnFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPBurnFormat {
@@ -19496,6 +19576,11 @@ impl ::core::marker::Copy for WMPBurnState {}
 impl ::core::clone::Clone for WMPBurnState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPBurnState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPBurnState {
@@ -19544,6 +19629,11 @@ impl ::core::marker::Copy for WMPCallbackNotification {}
 impl ::core::clone::Clone for WMPCallbackNotification {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPCallbackNotification {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPCallbackNotification {
@@ -19616,6 +19706,11 @@ impl ::core::clone::Clone for WMPDeviceStatus {
         *self
     }
 }
+impl ::core::default::Default for WMPDeviceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPDeviceStatus {
     type Abi = Self;
 }
@@ -19640,6 +19735,11 @@ impl ::core::marker::Copy for WMPFolderScanState {}
 impl ::core::clone::Clone for WMPFolderScanState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPFolderScanState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPFolderScanState {
@@ -19681,6 +19781,11 @@ impl ::core::marker::Copy for WMPLibraryType {}
 impl ::core::clone::Clone for WMPLibraryType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPLibraryType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPLibraryType {
@@ -19747,6 +19852,11 @@ impl ::core::clone::Clone for WMPOpenState {
         *self
     }
 }
+impl ::core::default::Default for WMPOpenState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPOpenState {
     type Abi = Self;
 }
@@ -19771,6 +19881,11 @@ impl ::core::marker::Copy for WMPPartnerNotification {}
 impl ::core::clone::Clone for WMPPartnerNotification {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPPartnerNotification {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPPartnerNotification {
@@ -19817,6 +19932,11 @@ impl ::core::clone::Clone for WMPPlayState {
         *self
     }
 }
+impl ::core::default::Default for WMPPlayState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPPlayState {
     type Abi = Self;
 }
@@ -19859,6 +19979,11 @@ impl ::core::clone::Clone for WMPPlaylistChangeEventType {
         *self
     }
 }
+impl ::core::default::Default for WMPPlaylistChangeEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPPlaylistChangeEventType {
     type Abi = Self;
 }
@@ -19877,6 +20002,11 @@ impl ::core::marker::Copy for WMPPlugin_Caps {}
 impl ::core::clone::Clone for WMPPlugin_Caps {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPPlugin_Caps {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPPlugin_Caps {
@@ -19904,6 +20034,11 @@ impl ::core::clone::Clone for WMPRipState {
         *self
     }
 }
+impl ::core::default::Default for WMPRipState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPRipState {
     type Abi = Self;
 }
@@ -19926,6 +20061,11 @@ impl ::core::marker::Copy for WMPServices_StreamState {}
 impl ::core::clone::Clone for WMPServices_StreamState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPServices_StreamState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPServices_StreamState {
@@ -19952,6 +20092,11 @@ impl ::core::marker::Copy for WMPStreamingType {}
 impl ::core::clone::Clone for WMPStreamingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPStreamingType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPStreamingType {
@@ -19986,6 +20131,11 @@ impl ::core::clone::Clone for WMPStringCollectionChangeEventType {
         *self
     }
 }
+impl ::core::default::Default for WMPStringCollectionChangeEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPStringCollectionChangeEventType {
     type Abi = Self;
 }
@@ -20014,6 +20164,11 @@ impl ::core::clone::Clone for WMPSubscriptionDownloadState {
         *self
     }
 }
+impl ::core::default::Default for WMPSubscriptionDownloadState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPSubscriptionDownloadState {
     type Abi = Self;
 }
@@ -20038,6 +20193,11 @@ impl ::core::marker::Copy for WMPSubscriptionServiceEvent {}
 impl ::core::clone::Clone for WMPSubscriptionServiceEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPSubscriptionServiceEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPSubscriptionServiceEvent {
@@ -20068,6 +20228,11 @@ impl ::core::clone::Clone for WMPSyncState {
         *self
     }
 }
+impl ::core::default::Default for WMPSyncState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPSyncState {
     type Abi = Self;
 }
@@ -20094,6 +20259,11 @@ impl ::core::clone::Clone for WMPTaskType {
         *self
     }
 }
+impl ::core::default::Default for WMPTaskType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPTaskType {
     type Abi = Self;
 }
@@ -20118,6 +20288,11 @@ impl ::core::clone::Clone for WMPTemplateSize {
         *self
     }
 }
+impl ::core::default::Default for WMPTemplateSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMPTemplateSize {
     type Abi = Self;
 }
@@ -20140,6 +20315,11 @@ impl ::core::marker::Copy for WMPTransactionType {}
 impl ::core::clone::Clone for WMPTransactionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMPTransactionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMPTransactionType {

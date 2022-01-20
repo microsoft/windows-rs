@@ -16,6 +16,11 @@ impl ::core::clone::Clone for ExtendedExecutionReason {
         *self
     }
 }
+impl ::core::default::Default for ExtendedExecutionReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ExtendedExecutionReason {
     type Abi = Self;
 }
@@ -42,6 +47,11 @@ impl ::core::marker::Copy for ExtendedExecutionResult {}
 impl ::core::clone::Clone for ExtendedExecutionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExtendedExecutionResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExtendedExecutionResult {
@@ -151,6 +161,11 @@ impl ::core::marker::Copy for ExtendedExecutionRevokedReason {}
 impl ::core::clone::Clone for ExtendedExecutionRevokedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExtendedExecutionRevokedReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExtendedExecutionRevokedReason {

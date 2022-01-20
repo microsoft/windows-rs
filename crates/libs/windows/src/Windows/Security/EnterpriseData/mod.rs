@@ -256,6 +256,11 @@ impl ::core::clone::Clone for DataProtectionStatus {
         *self
     }
 }
+impl ::core::default::Default for DataProtectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DataProtectionStatus {
     type Abi = Self;
 }
@@ -284,6 +289,11 @@ impl ::core::marker::Copy for EnforcementLevel {}
 impl ::core::clone::Clone for EnforcementLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnforcementLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnforcementLevel {
@@ -545,6 +555,11 @@ impl ::core::marker::Copy for FileProtectionStatus {}
 impl ::core::clone::Clone for FileProtectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FileProtectionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FileProtectionStatus {
@@ -1849,6 +1864,11 @@ impl ::core::clone::Clone for ProtectedImportExportStatus {
         *self
     }
 }
+impl ::core::default::Default for ProtectedImportExportStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProtectedImportExportStatus {
     type Abi = Self;
 }
@@ -1877,6 +1897,11 @@ impl ::core::marker::Copy for ProtectionPolicyAuditAction {}
 impl ::core::clone::Clone for ProtectionPolicyAuditAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProtectionPolicyAuditAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyAuditAction {
@@ -2050,6 +2075,11 @@ impl ::core::marker::Copy for ProtectionPolicyEvaluationResult {}
 impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProtectionPolicyEvaluationResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyEvaluationResult {
@@ -2480,6 +2510,11 @@ impl ::core::marker::Copy for ProtectionPolicyRequestAccessBehavior {}
 impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProtectionPolicyRequestAccessBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProtectionPolicyRequestAccessBehavior {

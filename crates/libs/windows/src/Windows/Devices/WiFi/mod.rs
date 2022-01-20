@@ -184,6 +184,11 @@ impl ::core::clone::Clone for WiFiAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiAccessStatus {
     type Abi = Self;
 }
@@ -577,6 +582,11 @@ impl ::core::clone::Clone for WiFiConnectionMethod {
         *self
     }
 }
+impl ::core::default::Default for WiFiConnectionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiConnectionMethod {
     type Abi = Self;
 }
@@ -691,6 +701,11 @@ impl ::core::clone::Clone for WiFiConnectionStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiConnectionStatus {
     type Abi = Self;
 }
@@ -718,6 +733,11 @@ impl ::core::marker::Copy for WiFiNetworkKind {}
 impl ::core::clone::Clone for WiFiNetworkKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiNetworkKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiNetworkKind {
@@ -848,6 +868,11 @@ impl ::core::clone::Clone for WiFiPhyKind {
         *self
     }
 }
+impl ::core::default::Default for WiFiPhyKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiPhyKind {
     type Abi = Self;
 }
@@ -874,6 +899,11 @@ impl ::core::marker::Copy for WiFiReconnectionKind {}
 impl ::core::clone::Clone for WiFiReconnectionKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiReconnectionKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiReconnectionKind {
@@ -995,6 +1025,11 @@ impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
         *self
     }
 }
+impl ::core::default::Default for WiFiWpsConfigurationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WiFiWpsConfigurationStatus {
     type Abi = Self;
 }
@@ -1025,6 +1060,11 @@ impl ::core::marker::Copy for WiFiWpsKind {}
 impl ::core::clone::Clone for WiFiWpsKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WiFiWpsKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WiFiWpsKind {

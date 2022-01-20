@@ -566,6 +566,11 @@ impl ::core::clone::Clone for ResourceCandidateKind {
         *self
     }
 }
+impl ::core::default::Default for ResourceCandidateKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ResourceCandidateKind {
     type Abi = Self;
 }
@@ -2693,6 +2698,11 @@ impl ::core::marker::Copy for ResourceQualifierPersistence {}
 impl ::core::clone::Clone for ResourceQualifierPersistence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ResourceQualifierPersistence {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {

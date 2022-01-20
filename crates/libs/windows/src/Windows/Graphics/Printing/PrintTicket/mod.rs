@@ -600,6 +600,11 @@ impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
         *self
     }
 }
+impl ::core::default::Default for PrintTicketFeatureSelectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
     type Abi = Self;
 }
@@ -767,6 +772,11 @@ impl ::core::marker::Copy for PrintTicketParameterDataType {}
 impl ::core::clone::Clone for PrintTicketParameterDataType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintTicketParameterDataType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
@@ -1134,6 +1144,11 @@ impl ::core::marker::Copy for PrintTicketValueType {}
 impl ::core::clone::Clone for PrintTicketValueType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PrintTicketValueType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PrintTicketValueType {

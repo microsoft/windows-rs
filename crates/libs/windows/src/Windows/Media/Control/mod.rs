@@ -982,6 +982,11 @@ impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackS
         *self
     }
 }
+impl ::core::default::Default for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type Abi = Self;
 }

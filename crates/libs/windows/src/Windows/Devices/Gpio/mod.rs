@@ -229,6 +229,11 @@ impl ::core::clone::Clone for GpioChangePolarity {
         *self
     }
 }
+impl ::core::default::Default for GpioChangePolarity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GpioChangePolarity {
     type Abi = Self;
 }
@@ -673,6 +678,11 @@ impl ::core::clone::Clone for GpioOpenStatus {
         *self
     }
 }
+impl ::core::default::Default for GpioOpenStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GpioOpenStatus {
     type Abi = Self;
 }
@@ -892,6 +902,11 @@ impl ::core::clone::Clone for GpioPinDriveMode {
         *self
     }
 }
+impl ::core::default::Default for GpioPinDriveMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GpioPinDriveMode {
     type Abi = Self;
 }
@@ -920,6 +935,11 @@ impl ::core::clone::Clone for GpioPinEdge {
         *self
     }
 }
+impl ::core::default::Default for GpioPinEdge {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GpioPinEdge {
     type Abi = Self;
 }
@@ -946,6 +966,11 @@ impl ::core::marker::Copy for GpioPinValue {}
 impl ::core::clone::Clone for GpioPinValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GpioPinValue {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GpioPinValue {
@@ -1055,6 +1080,11 @@ impl ::core::marker::Copy for GpioSharingMode {}
 impl ::core::clone::Clone for GpioSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GpioSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GpioSharingMode {

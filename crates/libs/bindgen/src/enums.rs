@@ -109,6 +109,17 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     if !gen.sys {
         tokens.combine(&quote! {
             #features
+            impl ::core::default::Default for #ident {
+                fn default() -> Self {
+                    Self(0)
+                }
+            }
+        });
+    }
+
+    if !gen.sys {
+        tokens.combine(&quote! {
+            #features
             unsafe impl ::windows::core::Abi for #ident {
                 type Abi = Self;
             }

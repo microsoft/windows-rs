@@ -762,6 +762,11 @@ impl ::core::clone::Clone for UserDataTaskDaysOfWeek {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskDaysOfWeek {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskDaysOfWeek {
     type Abi = Self;
 }
@@ -818,6 +823,11 @@ impl ::core::clone::Clone for UserDataTaskDetailsKind {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskDetailsKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskDetailsKind {
     type Abi = Self;
 }
@@ -845,6 +855,11 @@ impl ::core::marker::Copy for UserDataTaskKind {}
 impl ::core::clone::Clone for UserDataTaskKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskKind {
@@ -1207,6 +1222,11 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppReadAccess {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskListOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppReadAccess {
     type Abi = Self;
 }
@@ -1233,6 +1253,11 @@ impl ::core::marker::Copy for UserDataTaskListOtherAppWriteAccess {}
 impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskListOtherAppWriteAccess {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppWriteAccess {
@@ -1407,6 +1432,11 @@ impl ::core::clone::Clone for UserDataTaskListSyncStatus {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskListSyncStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskListSyncStatus {
     type Abi = Self;
 }
@@ -1547,6 +1577,11 @@ impl ::core::clone::Clone for UserDataTaskPriority {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskPriority {
     type Abi = Self;
 }
@@ -1574,6 +1609,11 @@ impl ::core::marker::Copy for UserDataTaskQueryKind {}
 impl ::core::clone::Clone for UserDataTaskQueryKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskQueryKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskQueryKind {
@@ -1707,6 +1747,11 @@ impl ::core::marker::Copy for UserDataTaskQuerySortProperty {}
 impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskQuerySortProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskQuerySortProperty {
@@ -2019,6 +2064,11 @@ impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskRecurrenceUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskRecurrenceUnit {
     type Abi = Self;
 }
@@ -2185,6 +2235,11 @@ impl ::core::clone::Clone for UserDataTaskRegenerationUnit {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskRegenerationUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskRegenerationUnit {
     type Abi = Self;
 }
@@ -2211,6 +2266,11 @@ impl ::core::marker::Copy for UserDataTaskSensitivity {}
 impl ::core::clone::Clone for UserDataTaskSensitivity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskSensitivity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskSensitivity {
@@ -2350,6 +2410,11 @@ impl ::core::clone::Clone for UserDataTaskStoreAccessType {
         *self
     }
 }
+impl ::core::default::Default for UserDataTaskStoreAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataTaskStoreAccessType {
     type Abi = Self;
 }
@@ -2379,6 +2444,11 @@ impl ::core::marker::Copy for UserDataTaskWeekOfMonth {}
 impl ::core::clone::Clone for UserDataTaskWeekOfMonth {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataTaskWeekOfMonth {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataTaskWeekOfMonth {

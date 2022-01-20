@@ -75,6 +75,11 @@ impl ::core::clone::Clone for HARDWARE_COUNTER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HARDWARE_COUNTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_TYPE {
     type Abi = Self;
 }

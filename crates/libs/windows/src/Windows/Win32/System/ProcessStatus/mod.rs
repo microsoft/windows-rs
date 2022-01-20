@@ -51,6 +51,11 @@ impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
     type Abi = Self;
 }

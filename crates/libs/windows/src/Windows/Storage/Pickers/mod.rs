@@ -1645,6 +1645,11 @@ impl ::core::clone::Clone for PickerLocationId {
         *self
     }
 }
+impl ::core::default::Default for PickerLocationId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PickerLocationId {
     type Abi = Self;
 }
@@ -1671,6 +1676,11 @@ impl ::core::marker::Copy for PickerViewMode {}
 impl ::core::clone::Clone for PickerViewMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PickerViewMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PickerViewMode {

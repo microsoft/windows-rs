@@ -266,6 +266,11 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
         *self
     }
 }
+impl ::core::default::Default for ControlChannelTriggerResetReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
 }
@@ -292,6 +297,11 @@ impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
 impl ::core::clone::Clone for ControlChannelTriggerResourceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ControlChannelTriggerResourceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
@@ -325,6 +335,11 @@ impl ::core::marker::Copy for ControlChannelTriggerStatus {}
 impl ::core::clone::Clone for ControlChannelTriggerStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ControlChannelTriggerStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
@@ -3792,6 +3807,11 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
         *self
     }
 }
+impl ::core::default::Default for MessageWebSocketReceiveMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
 }
@@ -4455,6 +4475,11 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
         *self
     }
 }
+impl ::core::default::Default for SocketActivityConnectedStandbyAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
 }
@@ -4722,6 +4747,11 @@ impl ::core::clone::Clone for SocketActivityKind {
         *self
     }
 }
+impl ::core::default::Default for SocketActivityKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityKind {
     type Abi = Self;
 }
@@ -4842,6 +4872,11 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
         *self
     }
 }
+impl ::core::default::Default for SocketActivityTriggerReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
     type Abi = Self;
 }
@@ -4918,6 +4953,11 @@ impl ::core::clone::Clone for SocketErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for SocketErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SocketErrorStatus {
     type Abi = Self;
 }
@@ -4944,6 +4984,11 @@ impl ::core::marker::Copy for SocketMessageType {}
 impl ::core::clone::Clone for SocketMessageType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SocketMessageType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SocketMessageType {
@@ -4982,6 +5027,11 @@ impl ::core::clone::Clone for SocketProtectionLevel {
         *self
     }
 }
+impl ::core::default::Default for SocketProtectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SocketProtectionLevel {
     type Abi = Self;
 }
@@ -5008,6 +5058,11 @@ impl ::core::marker::Copy for SocketQualityOfService {}
 impl ::core::clone::Clone for SocketQualityOfService {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SocketQualityOfService {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SocketQualityOfService {
@@ -5037,6 +5092,11 @@ impl ::core::marker::Copy for SocketSslErrorSeverity {}
 impl ::core::clone::Clone for SocketSslErrorSeverity {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SocketSslErrorSeverity {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {

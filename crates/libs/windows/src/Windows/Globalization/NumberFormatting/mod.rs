@@ -504,6 +504,11 @@ impl ::core::clone::Clone for CurrencyFormatterMode {
         *self
     }
 }
+impl ::core::default::Default for CurrencyFormatterMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CurrencyFormatterMode {
     type Abi = Self;
 }
@@ -3279,6 +3284,11 @@ impl ::core::marker::Copy for RoundingAlgorithm {}
 impl ::core::clone::Clone for RoundingAlgorithm {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RoundingAlgorithm {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RoundingAlgorithm {

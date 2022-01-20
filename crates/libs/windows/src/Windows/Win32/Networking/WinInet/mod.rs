@@ -105,6 +105,11 @@ impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
         *self
     }
 }
+impl ::core::default::Default for APP_CACHE_FINALIZE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for APP_CACHE_FINALIZE_STATE {
     type Abi = Self;
 }
@@ -210,6 +215,11 @@ impl ::core::marker::Copy for APP_CACHE_STATE {}
 impl ::core::clone::Clone for APP_CACHE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for APP_CACHE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for APP_CACHE_STATE {
@@ -683,6 +693,11 @@ impl ::core::marker::Copy for CACHE_CONFIG {}
 impl ::core::clone::Clone for CACHE_CONFIG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CACHE_CONFIG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CACHE_CONFIG {
@@ -1586,6 +1601,11 @@ impl ::core::clone::Clone for FORTCMD {
         *self
     }
 }
+impl ::core::default::Default for FORTCMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FORTCMD {
     type Abi = Self;
 }
@@ -1606,6 +1626,11 @@ impl ::core::marker::Copy for FORTSTAT {}
 impl ::core::clone::Clone for FORTSTAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FORTSTAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FORTSTAT {
@@ -1634,6 +1659,11 @@ impl ::core::marker::Copy for FTP_FLAGS {}
 impl ::core::clone::Clone for FTP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FTP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FTP_FLAGS {
@@ -3004,6 +3034,11 @@ impl ::core::clone::Clone for GOPHER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for GOPHER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GOPHER_TYPE {
     type Abi = Self;
 }
@@ -3525,6 +3560,11 @@ impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
         *self
     }
 }
+impl ::core::default::Default for HTTP_ADDREQ_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_ADDREQ_FLAG {
     type Abi = Self;
 }
@@ -3603,6 +3643,11 @@ impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_POLICY_EXTENSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_POLICY_EXTENSION_TYPE {
     type Abi = Self;
 }
@@ -3621,6 +3666,11 @@ impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
 impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_POLICY_EXTENSION_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_POLICY_EXTENSION_VERSION {
@@ -3753,6 +3803,11 @@ impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
 impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_PUSH_WAIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_PUSH_WAIT_TYPE {
@@ -4061,6 +4116,11 @@ impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
 }
@@ -4103,6 +4163,11 @@ impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
 }
@@ -4131,6 +4196,11 @@ impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
 impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_WEB_SOCKET_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_OPERATION {
@@ -4831,6 +4901,11 @@ impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for INTERNET_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_ACCESS_TYPE {
     type Abi = Self;
 }
@@ -4961,6 +5036,11 @@ impl ::core::marker::Copy for INTERNET_AUTODIAL {}
 impl ::core::clone::Clone for INTERNET_AUTODIAL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERNET_AUTODIAL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_AUTODIAL {
@@ -5933,6 +6013,11 @@ impl ::core::clone::Clone for INTERNET_CONNECTION {
         *self
     }
 }
+impl ::core::default::Default for INTERNET_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_CONNECTION {
     type Abi = Self;
 }
@@ -6089,6 +6174,11 @@ impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
 impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERNET_COOKIE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_COOKIE_FLAGS {
@@ -6958,6 +7048,11 @@ impl ::core::clone::Clone for INTERNET_PER_CONN {
         *self
     }
 }
+impl ::core::default::Default for INTERNET_PER_CONN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN {
     type Abi = Self;
 }
@@ -7347,6 +7442,11 @@ impl ::core::clone::Clone for INTERNET_SCHEME {
         *self
     }
 }
+impl ::core::default::Default for INTERNET_SCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERNET_SCHEME {
     type Abi = Self;
 }
@@ -7511,6 +7611,11 @@ impl ::core::marker::Copy for INTERNET_STATE {}
 impl ::core::clone::Clone for INTERNET_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERNET_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_STATE {
@@ -8273,6 +8378,11 @@ impl ::core::marker::Copy for InternetCookieState {}
 impl ::core::clone::Clone for InternetCookieState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InternetCookieState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InternetCookieState {
@@ -9728,6 +9838,11 @@ impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROXY_AUTO_DETECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROXY_AUTO_DETECT_TYPE {
     type Abi = Self;
 }
@@ -9898,6 +10013,11 @@ impl ::core::marker::Copy for REQUEST_TIMES {}
 impl ::core::clone::Clone for REQUEST_TIMES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REQUEST_TIMES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REQUEST_TIMES {
@@ -10387,6 +10507,11 @@ impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
 impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for URL_CACHE_LIMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for URL_CACHE_LIMIT_TYPE {
@@ -10994,6 +11119,11 @@ impl ::core::clone::Clone for WININET_SYNC_MODE {
         *self
     }
 }
+impl ::core::default::Default for WININET_SYNC_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WININET_SYNC_MODE {
     type Abi = Self;
 }
@@ -11014,6 +11144,11 @@ impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
 impl ::core::clone::Clone for WPAD_CACHE_DELETE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WPAD_CACHE_DELETE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WPAD_CACHE_DELETE {

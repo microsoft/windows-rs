@@ -569,6 +569,11 @@ impl ::core::clone::Clone for AccelerometerReadingType {
         *self
     }
 }
+impl ::core::default::Default for AccelerometerReadingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AccelerometerReadingType {
     type Abi = Self;
 }
@@ -1122,6 +1127,11 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
         *self
     }
 }
+impl ::core::default::Default for ActivitySensorReadingConfidence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
     type Abi = Self;
 }
@@ -1236,6 +1246,11 @@ impl ::core::marker::Copy for ActivityType {}
 impl ::core::clone::Clone for ActivityType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ActivityType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ActivityType {
@@ -6975,6 +6990,11 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
+impl ::core::default::Default for MagnetometerAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
 }
@@ -8259,6 +8279,11 @@ impl ::core::clone::Clone for PedometerStepKind {
         *self
     }
 }
+impl ::core::default::Default for PedometerStepKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PedometerStepKind {
     type Abi = Self;
 }
@@ -8950,6 +8975,11 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
         *self
     }
 }
+impl ::core::default::Default for SensorOptimizationGoal {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
     type Abi = Self;
 }
@@ -9081,6 +9111,11 @@ impl ::core::marker::Copy for SensorReadingType {}
 impl ::core::clone::Clone for SensorReadingType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SensorReadingType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SensorReadingType {
@@ -9268,6 +9303,11 @@ impl ::core::clone::Clone for SensorType {
         *self
     }
 }
+impl ::core::default::Default for SensorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SensorType {
     type Abi = Self;
 }
@@ -9298,6 +9338,11 @@ impl ::core::marker::Copy for SimpleOrientation {}
 impl ::core::clone::Clone for SimpleOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SimpleOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SimpleOrientation {

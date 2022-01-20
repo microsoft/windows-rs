@@ -282,6 +282,11 @@ impl ::core::clone::Clone for SceneLightingEffectReflectanceModel {
         *self
     }
 }
+impl ::core::default::Default for SceneLightingEffectReflectanceModel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SceneLightingEffectReflectanceModel {
     type Abi = Self;
 }

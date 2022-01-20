@@ -25,6 +25,11 @@ impl ::core::clone::Clone for ACCESS_MODE {
         *self
     }
 }
+impl ::core::default::Default for ACCESS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACCESS_MODE {
     type Abi = Self;
 }
@@ -213,6 +218,11 @@ impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
@@ -1102,6 +1112,11 @@ impl ::core::clone::Clone for AUDIT_PARAM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for AUDIT_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUDIT_PARAM_TYPE {
     type Abi = Self;
 }
@@ -1126,6 +1141,11 @@ impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_ACCESS_CHECK_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_FLAGS {
@@ -1327,6 +1347,11 @@ impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
@@ -1575,6 +1600,11 @@ impl ::core::clone::Clone for AUTHZ_CONTEXT_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_CONTEXT_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -1597,6 +1627,11 @@ impl ::core::marker::Copy for AUTHZ_GENERATE_RESULTS {}
 impl ::core::clone::Clone for AUTHZ_GENERATE_RESULTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_GENERATE_RESULTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_GENERATE_RESULTS {
@@ -1649,6 +1684,11 @@ impl ::core::marker::Copy for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
 impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
@@ -1798,6 +1838,11 @@ impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_FLAGS {
@@ -2001,6 +2046,11 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     type Abi = Self;
 }
@@ -2125,6 +2175,11 @@ impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
@@ -2276,6 +2331,11 @@ impl ::core::marker::Copy for AUTHZ_SID_OPERATION {}
 impl ::core::clone::Clone for AUTHZ_SID_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AUTHZ_SID_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AUTHZ_SID_OPERATION {
@@ -2567,6 +2627,11 @@ impl ::core::marker::Copy for AZ_PROP_CONSTANTS {}
 impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AZ_PROP_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AZ_PROP_CONSTANTS {
@@ -13732,6 +13797,11 @@ impl ::core::clone::Clone for MULTIPLE_TRUSTEE_OPERATION {
         *self
     }
 }
+impl ::core::default::Default for MULTIPLE_TRUSTEE_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MULTIPLE_TRUSTEE_OPERATION {
     type Abi = Self;
 }
@@ -13895,6 +13965,11 @@ impl ::core::clone::Clone for PROG_INVOKE_SETTING {
         *self
     }
 }
+impl ::core::default::Default for PROG_INVOKE_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROG_INVOKE_SETTING {
     type Abi = Self;
 }
@@ -13945,6 +14020,11 @@ impl ::core::marker::Copy for SE_OBJECT_TYPE {}
 impl ::core::clone::Clone for SE_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SE_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SE_OBJECT_TYPE {
@@ -14044,6 +14124,11 @@ impl ::core::marker::Copy for TREE_SEC_INFO {}
 impl ::core::clone::Clone for TREE_SEC_INFO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TREE_SEC_INFO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TREE_SEC_INFO {
@@ -14236,6 +14321,11 @@ impl ::core::clone::Clone for TRUSTEE_FORM {
         *self
     }
 }
+impl ::core::default::Default for TRUSTEE_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TRUSTEE_FORM {
     type Abi = Self;
 }
@@ -14270,6 +14360,11 @@ impl ::core::marker::Copy for TRUSTEE_TYPE {}
 impl ::core::clone::Clone for TRUSTEE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRUSTEE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRUSTEE_TYPE {

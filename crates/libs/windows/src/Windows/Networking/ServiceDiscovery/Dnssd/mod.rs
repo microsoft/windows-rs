@@ -154,6 +154,11 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
         *self
     }
 }
+impl ::core::default::Default for DnssdRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DnssdRegistrationStatus {
     type Abi = Self;
 }
@@ -755,6 +760,11 @@ impl ::core::marker::Copy for DnssdServiceWatcherStatus {}
 impl ::core::clone::Clone for DnssdServiceWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DnssdServiceWatcherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DnssdServiceWatcherStatus {

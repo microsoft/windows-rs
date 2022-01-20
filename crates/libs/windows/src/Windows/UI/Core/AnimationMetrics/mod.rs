@@ -175,6 +175,11 @@ impl ::core::clone::Clone for AnimationEffect {
         *self
     }
 }
+impl ::core::default::Default for AnimationEffect {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AnimationEffect {
     type Abi = Self;
 }
@@ -219,6 +224,11 @@ impl ::core::marker::Copy for AnimationEffectTarget {}
 impl ::core::clone::Clone for AnimationEffectTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AnimationEffectTarget {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AnimationEffectTarget {
@@ -759,6 +769,11 @@ impl ::core::marker::Copy for PropertyAnimationType {}
 impl ::core::clone::Clone for PropertyAnimationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PropertyAnimationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PropertyAnimationType {

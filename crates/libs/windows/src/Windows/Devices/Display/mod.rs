@@ -293,6 +293,11 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
         *self
     }
 }
+impl ::core::default::Default for DisplayMonitorConnectionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
 }
@@ -319,6 +324,11 @@ impl ::core::marker::Copy for DisplayMonitorDescriptorKind {}
 impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DisplayMonitorDescriptorKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DisplayMonitorDescriptorKind {
@@ -355,6 +365,11 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
         *self
     }
 }
+impl ::core::default::Default for DisplayMonitorPhysicalConnectorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
 }
@@ -382,6 +397,11 @@ impl ::core::marker::Copy for DisplayMonitorUsageKind {}
 impl ::core::clone::Clone for DisplayMonitorUsageKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DisplayMonitorUsageKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DisplayMonitorUsageKind {

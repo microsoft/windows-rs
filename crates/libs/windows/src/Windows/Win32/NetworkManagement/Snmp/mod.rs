@@ -302,6 +302,11 @@ impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
         *self
     }
 }
+impl ::core::default::Default for SNMP_API_TRANSLATE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
     type Abi = Self;
 }
@@ -402,6 +407,11 @@ impl ::core::clone::Clone for SNMP_ERROR {
         *self
     }
 }
+impl ::core::default::Default for SNMP_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_ERROR {
     type Abi = Self;
 }
@@ -486,6 +496,11 @@ impl ::core::clone::Clone for SNMP_ERROR_STATUS {
         *self
     }
 }
+impl ::core::default::Default for SNMP_ERROR_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
     type Abi = Self;
 }
@@ -542,6 +557,11 @@ impl ::core::marker::Copy for SNMP_EXTENSION_REQUEST_TYPE {}
 impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SNMP_EXTENSION_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
@@ -604,6 +624,11 @@ impl ::core::clone::Clone for SNMP_GENERICTRAP {
         *self
     }
 }
+impl ::core::default::Default for SNMP_GENERICTRAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
     type Abi = Self;
 }
@@ -660,6 +685,11 @@ impl ::core::marker::Copy for SNMP_LOG {}
 impl ::core::clone::Clone for SNMP_LOG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SNMP_LOG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SNMP_LOG {
@@ -736,6 +766,11 @@ impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SNMP_OUTPUT_LOG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
     type Abi = Self;
 }
@@ -802,6 +837,11 @@ impl ::core::clone::Clone for SNMP_PDU_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SNMP_PDU_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
     type Abi = Self;
 }
@@ -850,6 +890,11 @@ impl ::core::marker::Copy for SNMP_STATUS {}
 impl ::core::clone::Clone for SNMP_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SNMP_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SNMP_STATUS {

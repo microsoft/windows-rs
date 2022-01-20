@@ -515,6 +515,11 @@ impl ::core::clone::Clone for DdqAccessLevel {
         *self
     }
 }
+impl ::core::default::Default for DdqAccessLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DdqAccessLevel {
     type Abi = Self;
 }

@@ -20,6 +20,11 @@ impl ::core::clone::Clone for HandwritingLineHeight {
         *self
     }
 }
+impl ::core::default::Default for HandwritingLineHeight {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HandwritingLineHeight {
     type Abi = Self;
 }
@@ -1797,6 +1802,11 @@ impl ::core::clone::Clone for InkDrawingAttributesKind {
         *self
     }
 }
+impl ::core::default::Default for InkDrawingAttributesKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
     type Abi = Self;
 }
@@ -1910,6 +1920,11 @@ impl ::core::marker::Copy for InkHighContrastAdjustment {}
 impl ::core::clone::Clone for InkHighContrastAdjustment {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkHighContrastAdjustment {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
@@ -2152,6 +2167,11 @@ impl ::core::clone::Clone for InkInputProcessingMode {
         *self
     }
 }
+impl ::core::default::Default for InkInputProcessingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkInputProcessingMode {
     type Abi = Self;
 }
@@ -2178,6 +2198,11 @@ impl ::core::marker::Copy for InkInputRightDragAction {}
 impl ::core::clone::Clone for InkInputRightDragAction {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkInputRightDragAction {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkInputRightDragAction {
@@ -2517,6 +2542,11 @@ impl ::core::clone::Clone for InkManipulationMode {
         *self
     }
 }
+impl ::core::default::Default for InkManipulationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkManipulationMode {
     type Abi = Self;
 }
@@ -2657,6 +2687,11 @@ impl ::core::marker::Copy for InkPersistenceFormat {}
 impl ::core::clone::Clone for InkPersistenceFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkPersistenceFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkPersistenceFormat {
@@ -3040,6 +3075,11 @@ impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
 impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkPresenterPredefinedConfiguration {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
@@ -3552,6 +3592,11 @@ impl ::core::clone::Clone for InkPresenterStencilKind {
         *self
     }
 }
+impl ::core::default::Default for InkPresenterStencilKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
     type Abi = Self;
 }
@@ -3679,6 +3724,11 @@ impl ::core::marker::Copy for InkRecognitionTarget {}
 impl ::core::clone::Clone for InkRecognitionTarget {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InkRecognitionTarget {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InkRecognitionTarget {
@@ -5329,6 +5379,11 @@ impl ::core::clone::Clone for PenHandedness {
         *self
     }
 }
+impl ::core::default::Default for PenHandedness {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PenHandedness {
     type Abi = Self;
 }
@@ -5355,6 +5410,11 @@ impl ::core::marker::Copy for PenTipShape {}
 impl ::core::clone::Clone for PenTipShape {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PenTipShape {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PenTipShape {

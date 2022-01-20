@@ -543,6 +543,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorAuthenticationMessage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationMessage {
     type Abi = Self;
 }
@@ -689,6 +695,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationScenari
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorAuthenticationScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationScenario {
     type Abi = Self;
 }
@@ -729,6 +741,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStage {
 impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorAuthenticationStage {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -991,6 +1009,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStatus 
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationStatus {
     type Abi = Self;
 }
@@ -1030,6 +1054,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorDeviceCapabilities {}
 impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorDeviceCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1097,6 +1127,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceFindScope {
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorDeviceFindScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceFindScope {
     type Abi = Self;
 }
@@ -1130,6 +1166,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorDevicePresence {}
 impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresence {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorDevicePresence {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1170,6 +1212,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type Abi = Self;
 }
@@ -1207,6 +1255,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitor
     }
 }
 #[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type Abi = Self;
 }
@@ -1241,6 +1295,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorFinishAuthenticationS
 impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1731,6 +1791,12 @@ impl ::core::marker::Copy for SecondaryAuthenticationFactorRegistrationStatus {}
 impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SecondaryAuthenticationFactorRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]

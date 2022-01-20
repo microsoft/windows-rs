@@ -172,6 +172,11 @@ impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
         *self
     }
 }
+impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
     type Abi = Self;
 }

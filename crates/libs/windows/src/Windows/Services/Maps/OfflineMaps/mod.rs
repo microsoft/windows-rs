@@ -345,6 +345,11 @@ impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
         *self
     }
 }
+impl ::core::default::Default for OfflineMapPackageQueryStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
     type Abi = Self;
 }
@@ -456,6 +461,11 @@ impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
         *self
     }
 }
+impl ::core::default::Default for OfflineMapPackageStartDownloadStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OfflineMapPackageStartDownloadStatus {
     type Abi = Self;
 }
@@ -484,6 +494,11 @@ impl ::core::marker::Copy for OfflineMapPackageStatus {}
 impl ::core::clone::Clone for OfflineMapPackageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OfflineMapPackageStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OfflineMapPackageStatus {

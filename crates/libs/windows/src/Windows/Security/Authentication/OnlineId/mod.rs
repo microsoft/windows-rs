@@ -14,6 +14,11 @@ impl ::core::clone::Clone for CredentialPromptType {
         *self
     }
 }
+impl ::core::default::Default for CredentialPromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CredentialPromptType {
     type Abi = Self;
 }
@@ -861,6 +866,11 @@ impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
 impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OnlineIdSystemTicketStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {

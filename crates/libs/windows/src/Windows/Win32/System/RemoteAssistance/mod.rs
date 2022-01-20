@@ -282,6 +282,11 @@ impl ::core::clone::Clone for RENDEZVOUS_SESSION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RENDEZVOUS_SESSION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RENDEZVOUS_SESSION_FLAGS {
     type Abi = Self;
 }
@@ -314,6 +319,11 @@ impl ::core::marker::Copy for RENDEZVOUS_SESSION_STATE {}
 impl ::core::clone::Clone for RENDEZVOUS_SESSION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RENDEZVOUS_SESSION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RENDEZVOUS_SESSION_STATE {

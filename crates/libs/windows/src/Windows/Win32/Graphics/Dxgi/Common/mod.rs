@@ -19,6 +19,11 @@ impl ::core::clone::Clone for DXGI_ALPHA_MODE {
         *self
     }
 }
+impl ::core::default::Default for DXGI_ALPHA_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_ALPHA_MODE {
     type Abi = Self;
 }
@@ -117,6 +122,11 @@ impl ::core::marker::Copy for DXGI_COLOR_SPACE_TYPE {}
 impl ::core::clone::Clone for DXGI_COLOR_SPACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_COLOR_SPACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_COLOR_SPACE_TYPE {
@@ -391,6 +401,11 @@ impl ::core::clone::Clone for DXGI_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for DXGI_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_FORMAT {
     type Abi = Self;
 }
@@ -650,6 +665,11 @@ impl ::core::clone::Clone for DXGI_MODE_ROTATION {
         *self
     }
 }
+impl ::core::default::Default for DXGI_MODE_ROTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
     type Abi = Self;
 }
@@ -672,6 +692,11 @@ impl ::core::marker::Copy for DXGI_MODE_SCALING {}
 impl ::core::clone::Clone for DXGI_MODE_SCALING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_MODE_SCALING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
@@ -698,6 +723,11 @@ impl ::core::marker::Copy for DXGI_MODE_SCANLINE_ORDER {}
 impl ::core::clone::Clone for DXGI_MODE_SCANLINE_ORDER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DXGI_MODE_SCANLINE_ORDER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {

@@ -75,6 +75,11 @@ impl ::core::clone::Clone for ServiceDeviceType {
         *self
     }
 }
+impl ::core::default::Default for ServiceDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ServiceDeviceType {
     type Abi = Self;
 }

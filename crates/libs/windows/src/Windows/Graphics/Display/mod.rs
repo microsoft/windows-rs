@@ -181,6 +181,11 @@ impl ::core::clone::Clone for AdvancedColorKind {
         *self
     }
 }
+impl ::core::default::Default for AdvancedColorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AdvancedColorKind {
     type Abi = Self;
 }
@@ -614,6 +619,11 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
         *self
     }
 }
+impl ::core::default::Default for DisplayBrightnessOverrideOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideOptions {
     type Abi = Self;
 }
@@ -671,6 +681,11 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
         *self
     }
 }
+impl ::core::default::Default for DisplayBrightnessOverrideScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideScenario {
     type Abi = Self;
 }
@@ -701,6 +716,11 @@ impl ::core::clone::Clone for DisplayBrightnessScenario {
         *self
     }
 }
+impl ::core::default::Default for DisplayBrightnessScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayBrightnessScenario {
     type Abi = Self;
 }
@@ -726,6 +746,11 @@ impl ::core::marker::Copy for DisplayColorOverrideScenario {}
 impl ::core::clone::Clone for DisplayColorOverrideScenario {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DisplayColorOverrideScenario {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DisplayColorOverrideScenario {
@@ -1418,6 +1443,11 @@ impl ::core::clone::Clone for DisplayOrientations {
         *self
     }
 }
+impl ::core::default::Default for DisplayOrientations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DisplayOrientations {
     type Abi = Self;
 }
@@ -1792,6 +1822,11 @@ impl ::core::marker::Copy for HdrMetadataFormat {}
 impl ::core::clone::Clone for HdrMetadataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdrMetadataFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdrMetadataFormat {
@@ -2368,6 +2403,11 @@ impl ::core::marker::Copy for ResolutionScale {}
 impl ::core::clone::Clone for ResolutionScale {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ResolutionScale {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ResolutionScale {

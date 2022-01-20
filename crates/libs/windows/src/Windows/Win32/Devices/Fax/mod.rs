@@ -41,6 +41,11 @@ impl ::core::clone::Clone for FAXROUTE_ENABLE {
         *self
     }
 }
+impl ::core::default::Default for FAXROUTE_ENABLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAXROUTE_ENABLE {
     type Abi = Self;
 }
@@ -81,6 +86,11 @@ impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_ACCESS_RIGHTS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ACCESS_RIGHTS_ENUM {
     type Abi = Self;
 }
@@ -119,6 +129,11 @@ impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM_2 {
         *self
     }
 }
+impl ::core::default::Default for FAX_ACCESS_RIGHTS_ENUM_2 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ACCESS_RIGHTS_ENUM_2 {
     type Abi = Self;
 }
@@ -147,6 +162,11 @@ impl ::core::marker::Copy for FAX_ACCOUNT_EVENTS_TYPE_ENUM {}
 impl ::core::clone::Clone for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
@@ -577,6 +597,11 @@ impl ::core::clone::Clone for FAX_COVERPAGE_TYPE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_COVERPAGE_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_COVERPAGE_TYPE_ENUM {
     type Abi = Self;
 }
@@ -599,6 +624,11 @@ impl ::core::marker::Copy for FAX_DEVICE_RECEIVE_MODE_ENUM {}
 impl ::core::clone::Clone for FAX_DEVICE_RECEIVE_MODE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_DEVICE_RECEIVE_MODE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_DEVICE_RECEIVE_MODE_ENUM {
@@ -827,6 +857,11 @@ impl ::core::clone::Clone for FAX_ENUM_DELIVERY_REPORT_TYPES {
         *self
     }
 }
+impl ::core::default::Default for FAX_ENUM_DELIVERY_REPORT_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ENUM_DELIVERY_REPORT_TYPES {
     type Abi = Self;
 }
@@ -847,6 +882,11 @@ impl ::core::marker::Copy for FAX_ENUM_DEVICE_ID_SOURCE {}
 impl ::core::clone::Clone for FAX_ENUM_DEVICE_ID_SOURCE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_ENUM_DEVICE_ID_SOURCE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_ENUM_DEVICE_ID_SOURCE {
@@ -875,6 +915,11 @@ impl ::core::clone::Clone for FAX_ENUM_JOB_COMMANDS {
         *self
     }
 }
+impl ::core::default::Default for FAX_ENUM_JOB_COMMANDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ENUM_JOB_COMMANDS {
     type Abi = Self;
 }
@@ -897,6 +942,11 @@ impl ::core::marker::Copy for FAX_ENUM_JOB_SEND_ATTRIBUTES {}
 impl ::core::clone::Clone for FAX_ENUM_JOB_SEND_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_ENUM_JOB_SEND_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_ENUM_JOB_SEND_ATTRIBUTES {
@@ -925,6 +975,11 @@ impl ::core::clone::Clone for FAX_ENUM_LOG_CATEGORIES {
         *self
     }
 }
+impl ::core::default::Default for FAX_ENUM_LOG_CATEGORIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ENUM_LOG_CATEGORIES {
     type Abi = Self;
 }
@@ -951,6 +1006,11 @@ impl ::core::clone::Clone for FAX_ENUM_LOG_LEVELS {
         *self
     }
 }
+impl ::core::default::Default for FAX_ENUM_LOG_LEVELS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ENUM_LOG_LEVELS {
     type Abi = Self;
 }
@@ -971,6 +1031,11 @@ impl ::core::marker::Copy for FAX_ENUM_PORT_OPEN_TYPE {}
 impl ::core::clone::Clone for FAX_ENUM_PORT_OPEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_ENUM_PORT_OPEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_ENUM_PORT_OPEN_TYPE {
@@ -1227,6 +1292,11 @@ impl ::core::clone::Clone for FAX_GROUP_STATUS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_GROUP_STATUS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_GROUP_STATUS_ENUM {
     type Abi = Self;
 }
@@ -1443,6 +1513,11 @@ impl ::core::clone::Clone for FAX_JOB_EXTENDED_STATUS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_JOB_EXTENDED_STATUS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_JOB_EXTENDED_STATUS_ENUM {
     type Abi = Self;
 }
@@ -1475,6 +1550,11 @@ impl ::core::marker::Copy for FAX_JOB_OPERATIONS_ENUM {}
 impl ::core::clone::Clone for FAX_JOB_OPERATIONS_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_JOB_OPERATIONS_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_JOB_OPERATIONS_ENUM {
@@ -1655,6 +1735,11 @@ impl ::core::clone::Clone for FAX_JOB_STATUS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_JOB_STATUS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_JOB_STATUS_ENUM {
     type Abi = Self;
 }
@@ -1679,6 +1764,11 @@ impl ::core::marker::Copy for FAX_JOB_TYPE_ENUM {}
 impl ::core::clone::Clone for FAX_JOB_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_JOB_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_JOB_TYPE_ENUM {
@@ -1785,6 +1875,11 @@ impl ::core::marker::Copy for FAX_LOG_LEVEL_ENUM {}
 impl ::core::clone::Clone for FAX_LOG_LEVEL_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_LOG_LEVEL_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_LOG_LEVEL_ENUM {
@@ -2027,6 +2122,11 @@ impl ::core::clone::Clone for FAX_PRIORITY_TYPE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_PRIORITY_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_PRIORITY_TYPE_ENUM {
     type Abi = Self;
 }
@@ -2059,6 +2159,11 @@ impl ::core::clone::Clone for FAX_PROVIDER_STATUS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_PROVIDER_STATUS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_PROVIDER_STATUS_ENUM {
     type Abi = Self;
 }
@@ -2081,6 +2186,11 @@ impl ::core::marker::Copy for FAX_RECEIPT_TYPE_ENUM {}
 impl ::core::clone::Clone for FAX_RECEIPT_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_RECEIPT_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_RECEIPT_TYPE_ENUM {
@@ -2348,6 +2458,11 @@ impl ::core::clone::Clone for FAX_ROUTING_RULE_CODE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_ROUTING_RULE_CODE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_ROUTING_RULE_CODE_ENUM {
     type Abi = Self;
 }
@@ -2376,6 +2491,11 @@ impl ::core::clone::Clone for FAX_RULE_STATUS_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_RULE_STATUS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_RULE_STATUS_ENUM {
     type Abi = Self;
 }
@@ -2398,6 +2518,11 @@ impl ::core::marker::Copy for FAX_SCHEDULE_TYPE_ENUM {}
 impl ::core::clone::Clone for FAX_SCHEDULE_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_SCHEDULE_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_SCHEDULE_TYPE_ENUM {
@@ -2472,6 +2597,11 @@ impl ::core::clone::Clone for FAX_SERVER_APIVERSION_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_SERVER_APIVERSION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_SERVER_APIVERSION_ENUM {
     type Abi = Self;
 }
@@ -2512,6 +2642,11 @@ impl ::core::clone::Clone for FAX_SERVER_EVENTS_TYPE_ENUM {
         *self
     }
 }
+impl ::core::default::Default for FAX_SERVER_EVENTS_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FAX_SERVER_EVENTS_TYPE_ENUM {
     type Abi = Self;
 }
@@ -2534,6 +2669,11 @@ impl ::core::marker::Copy for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {}
 impl ::core::clone::Clone for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
@@ -15896,6 +16036,11 @@ impl ::core::clone::Clone for STI_DEVICE_MJ_TYPE {
         *self
     }
 }
+impl ::core::default::Default for STI_DEVICE_MJ_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STI_DEVICE_MJ_TYPE {
     type Abi = Self;
 }
@@ -16219,6 +16364,11 @@ impl ::core::marker::Copy for SendToMode {}
 impl ::core::clone::Clone for SendToMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SendToMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SendToMode {

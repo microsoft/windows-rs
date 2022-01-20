@@ -19,6 +19,11 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
         *self
     }
 }
+impl ::core::default::Default for DeliveryOptimizationDownloadMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
     type Abi = Self;
 }
@@ -45,6 +50,11 @@ impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
 impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeliveryOptimizationDownloadModeSource {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
@@ -764,6 +774,11 @@ impl ::core::clone::Clone for StoreLogOptions {
         *self
     }
 }
+impl ::core::default::Default for StoreLogOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StoreLogOptions {
     type Abi = Self;
 }
@@ -962,6 +977,11 @@ impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
 impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StorePreviewProductPurchaseStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
@@ -1249,6 +1269,11 @@ impl ::core::marker::Copy for StoreSystemFeature {}
 impl ::core::clone::Clone for StoreSystemFeature {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StoreSystemFeature {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StoreSystemFeature {

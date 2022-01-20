@@ -82,6 +82,11 @@ impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
         *self
     }
 }
+impl ::core::default::Default for DEVICE_SCALE_FACTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_SCALE_FACTOR {
     type Abi = Self;
 }
@@ -319,6 +324,11 @@ impl ::core::clone::Clone for PERCEIVED {
         *self
     }
 }
+impl ::core::default::Default for PERCEIVED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PERCEIVED {
     type Abi = Self;
 }
@@ -389,6 +399,11 @@ impl ::core::marker::Copy for SHCOLSTATE {}
 impl ::core::clone::Clone for SHCOLSTATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SHCOLSTATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SHCOLSTATE {
@@ -540,6 +555,11 @@ impl ::core::marker::Copy for STRRET_TYPE {}
 impl ::core::clone::Clone for STRRET_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for STRRET_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for STRRET_TYPE {

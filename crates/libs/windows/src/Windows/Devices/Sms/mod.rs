@@ -14,6 +14,11 @@ impl ::core::clone::Clone for CellularClass {
         *self
     }
 }
+impl ::core::default::Default for CellularClass {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CellularClass {
     type Abi = Self;
 }
@@ -3638,6 +3643,11 @@ impl ::core::clone::Clone for SmsBroadcastType {
         *self
     }
 }
+impl ::core::default::Default for SmsBroadcastType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmsBroadcastType {
     type Abi = Self;
 }
@@ -3667,6 +3677,11 @@ impl ::core::marker::Copy for SmsDataFormat {}
 impl ::core::clone::Clone for SmsDataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmsDataFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmsDataFormat {
@@ -4267,6 +4282,11 @@ impl ::core::clone::Clone for SmsDeviceStatus {
         *self
     }
 }
+impl ::core::default::Default for SmsDeviceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmsDeviceStatus {
     type Abi = Self;
 }
@@ -4437,6 +4457,11 @@ impl ::core::clone::Clone for SmsEncoding {
         *self
     }
 }
+impl ::core::default::Default for SmsEncoding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmsEncoding {
     type Abi = Self;
 }
@@ -4465,6 +4490,11 @@ impl ::core::marker::Copy for SmsFilterActionType {}
 impl ::core::clone::Clone for SmsFilterActionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmsFilterActionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmsFilterActionType {
@@ -4805,6 +4835,11 @@ impl ::core::clone::Clone for SmsGeographicalScope {
         *self
     }
 }
+impl ::core::default::Default for SmsGeographicalScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmsGeographicalScope {
     type Abi = Self;
 }
@@ -4834,6 +4869,11 @@ impl ::core::marker::Copy for SmsMessageClass {}
 impl ::core::clone::Clone for SmsMessageClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmsMessageClass {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmsMessageClass {
@@ -4869,6 +4909,12 @@ impl ::core::marker::Copy for SmsMessageFilter {}
 impl ::core::clone::Clone for SmsMessageFilter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SmsMessageFilter {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5365,6 +5411,11 @@ impl ::core::clone::Clone for SmsMessageType {
         *self
     }
 }
+impl ::core::default::Default for SmsMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmsMessageType {
     type Abi = Self;
 }
@@ -5401,6 +5452,11 @@ impl ::core::marker::Copy for SmsModemErrorCode {}
 impl ::core::clone::Clone for SmsModemErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmsModemErrorCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmsModemErrorCode {

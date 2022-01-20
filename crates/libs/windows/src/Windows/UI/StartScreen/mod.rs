@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ForegroundText {
         *self
     }
 }
+impl ::core::default::Default for ForegroundText {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ForegroundText {
     type Abi = Self;
 }
@@ -894,6 +899,11 @@ impl ::core::clone::Clone for JumpListItemKind {
         *self
     }
 }
+impl ::core::default::Default for JumpListItemKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for JumpListItemKind {
     type Abi = Self;
 }
@@ -921,6 +931,11 @@ impl ::core::marker::Copy for JumpListSystemGroupKind {}
 impl ::core::clone::Clone for JumpListSystemGroupKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JumpListSystemGroupKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JumpListSystemGroupKind {
@@ -1924,6 +1939,11 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
         *self
     }
 }
+impl ::core::default::Default for TileMixedRealityModelActivationBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TileMixedRealityModelActivationBehavior {
     type Abi = Self;
 }
@@ -1952,6 +1972,11 @@ impl ::core::marker::Copy for TileOptions {}
 impl ::core::clone::Clone for TileOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TileOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TileOptions {
@@ -2014,6 +2039,11 @@ impl ::core::marker::Copy for TileSize {}
 impl ::core::clone::Clone for TileSize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TileSize {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TileSize {

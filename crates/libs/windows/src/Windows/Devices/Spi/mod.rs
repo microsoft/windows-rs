@@ -768,6 +768,11 @@ impl ::core::clone::Clone for SpiMode {
         *self
     }
 }
+impl ::core::default::Default for SpiMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpiMode {
     type Abi = Self;
 }
@@ -794,6 +799,11 @@ impl ::core::marker::Copy for SpiSharingMode {}
 impl ::core::clone::Clone for SpiSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpiSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpiSharingMode {

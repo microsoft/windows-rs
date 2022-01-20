@@ -613,6 +613,11 @@ impl ::core::clone::Clone for HttpCompletionOption {
         *self
     }
 }
+impl ::core::default::Default for HttpCompletionOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpCompletionOption {
     type Abi = Self;
 }
@@ -2787,6 +2792,11 @@ impl ::core::clone::Clone for HttpProgressStage {
         *self
     }
 }
+impl ::core::default::Default for HttpProgressStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpProgressStage {
     type Abi = Self;
 }
@@ -3477,6 +3487,11 @@ impl ::core::clone::Clone for HttpResponseMessageSource {
         *self
     }
 }
+impl ::core::default::Default for HttpResponseMessageSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
     type Abi = Self;
 }
@@ -3559,6 +3574,11 @@ impl ::core::marker::Copy for HttpStatusCode {}
 impl ::core::clone::Clone for HttpStatusCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HttpStatusCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HttpStatusCode {
@@ -4222,6 +4242,11 @@ impl ::core::marker::Copy for HttpVersion {}
 impl ::core::clone::Clone for HttpVersion {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HttpVersion {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HttpVersion {

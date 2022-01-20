@@ -832,6 +832,11 @@ impl ::core::clone::Clone for GameSaveErrorStatus {
         *self
     }
 }
+impl ::core::default::Default for GameSaveErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameSaveErrorStatus {
     type Abi = Self;
 }

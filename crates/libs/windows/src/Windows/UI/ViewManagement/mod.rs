@@ -701,6 +701,11 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
         *self
     }
 }
+impl ::core::default::Default for ApplicationViewBoundsMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
     type Abi = Self;
 }
@@ -818,6 +823,11 @@ impl ::core::clone::Clone for ApplicationViewMode {
         *self
     }
 }
+impl ::core::default::Default for ApplicationViewMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewMode {
     type Abi = Self;
 }
@@ -844,6 +854,11 @@ impl ::core::marker::Copy for ApplicationViewOrientation {}
 impl ::core::clone::Clone for ApplicationViewOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ApplicationViewOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
@@ -968,6 +983,12 @@ impl ::core::marker::Copy for ApplicationViewState {}
 impl ::core::clone::Clone for ApplicationViewState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for ApplicationViewState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1103,6 +1124,11 @@ impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
 impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ApplicationViewSwitchingOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
@@ -1520,6 +1546,11 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
         *self
     }
 }
+impl ::core::default::Default for ApplicationViewWindowingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
     type Abi = Self;
 }
@@ -1548,6 +1579,11 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
         *self
     }
 }
+impl ::core::default::Default for FullScreenSystemOverlayMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
     type Abi = Self;
 }
@@ -1574,6 +1610,11 @@ impl ::core::marker::Copy for HandPreference {}
 impl ::core::clone::Clone for HandPreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HandPreference {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HandPreference {
@@ -3362,6 +3403,11 @@ impl ::core::clone::Clone for UIColorType {
         *self
     }
 }
+impl ::core::default::Default for UIColorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UIColorType {
     type Abi = Self;
 }
@@ -3412,6 +3458,11 @@ impl ::core::marker::Copy for UIElementType {}
 impl ::core::clone::Clone for UIElementType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UIElementType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UIElementType {
@@ -4061,6 +4112,11 @@ impl ::core::clone::Clone for UserInteractionMode {
         *self
     }
 }
+impl ::core::default::Default for UserInteractionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserInteractionMode {
     type Abi = Self;
 }
@@ -4203,6 +4259,11 @@ impl ::core::marker::Copy for ViewSizePreference {}
 impl ::core::clone::Clone for ViewSizePreference {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ViewSizePreference {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ViewSizePreference {

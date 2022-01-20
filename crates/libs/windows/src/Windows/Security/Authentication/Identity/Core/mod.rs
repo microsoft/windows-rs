@@ -338,6 +338,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
         *self
     }
 }
+impl ::core::default::Default for MicrosoftAccountMultiFactorAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
     type Abi = Self;
 }
@@ -583,6 +588,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
         *self
     }
 }
+impl ::core::default::Default for MicrosoftAccountMultiFactorServiceResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
     type Abi = Self;
 }
@@ -612,6 +622,11 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
         *self
     }
 }
+impl ::core::default::Default for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type Abi = Self;
 }
@@ -638,6 +653,11 @@ impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionAuthenticationSt
 impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {

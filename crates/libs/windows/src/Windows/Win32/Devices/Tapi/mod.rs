@@ -13,6 +13,11 @@ impl ::core::clone::Clone for ACDGROUP_EVENT {
         *self
     }
 }
+impl ::core::default::Default for ACDGROUP_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACDGROUP_EVENT {
     type Abi = Self;
 }
@@ -33,6 +38,11 @@ impl ::core::marker::Copy for ACDQUEUE_EVENT {}
 impl ::core::clone::Clone for ACDQUEUE_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ACDQUEUE_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ACDQUEUE_EVENT {
@@ -149,6 +159,11 @@ impl ::core::clone::Clone for ADDRESS_CAPABILITY {
         *self
     }
 }
+impl ::core::default::Default for ADDRESS_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADDRESS_CAPABILITY {
     type Abi = Self;
 }
@@ -177,6 +192,11 @@ impl ::core::marker::Copy for ADDRESS_CAPABILITY_STRING {}
 impl ::core::clone::Clone for ADDRESS_CAPABILITY_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ADDRESS_CAPABILITY_STRING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ADDRESS_CAPABILITY_STRING {
@@ -217,6 +237,11 @@ impl ::core::clone::Clone for ADDRESS_EVENT {
         *self
     }
 }
+impl ::core::default::Default for ADDRESS_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADDRESS_EVENT {
     type Abi = Self;
 }
@@ -239,6 +264,11 @@ impl ::core::clone::Clone for ADDRESS_STATE {
         *self
     }
 }
+impl ::core::default::Default for ADDRESS_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ADDRESS_STATE {
     type Abi = Self;
 }
@@ -259,6 +289,11 @@ impl ::core::marker::Copy for AGENTHANDLER_EVENT {}
 impl ::core::clone::Clone for AGENTHANDLER_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AGENTHANDLER_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AGENTHANDLER_EVENT {
@@ -291,6 +326,11 @@ impl ::core::clone::Clone for AGENT_EVENT {
         *self
     }
 }
+impl ::core::default::Default for AGENT_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AGENT_EVENT {
     type Abi = Self;
 }
@@ -321,6 +361,11 @@ impl ::core::clone::Clone for AGENT_SESSION_EVENT {
         *self
     }
 }
+impl ::core::default::Default for AGENT_SESSION_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AGENT_SESSION_EVENT {
     type Abi = Self;
 }
@@ -347,6 +392,11 @@ impl ::core::marker::Copy for AGENT_SESSION_STATE {}
 impl ::core::clone::Clone for AGENT_SESSION_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AGENT_SESSION_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AGENT_SESSION_STATE {
@@ -379,6 +429,11 @@ impl ::core::clone::Clone for AGENT_STATE {
         *self
     }
 }
+impl ::core::default::Default for AGENT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AGENT_STATE {
     type Abi = Self;
 }
@@ -409,6 +464,11 @@ impl ::core::clone::Clone for CALLHUB_EVENT {
         *self
     }
 }
+impl ::core::default::Default for CALLHUB_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLHUB_EVENT {
     type Abi = Self;
 }
@@ -429,6 +489,11 @@ impl ::core::marker::Copy for CALLHUB_STATE {}
 impl ::core::clone::Clone for CALLHUB_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALLHUB_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALLHUB_STATE {
@@ -505,6 +570,11 @@ impl ::core::clone::Clone for CALLINFOCHANGE_CAUSE {
         *self
     }
 }
+impl ::core::default::Default for CALLINFOCHANGE_CAUSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLINFOCHANGE_CAUSE {
     type Abi = Self;
 }
@@ -533,6 +603,11 @@ impl ::core::marker::Copy for CALLINFO_BUFFER {}
 impl ::core::clone::Clone for CALLINFO_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALLINFO_BUFFER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALLINFO_BUFFER {
@@ -603,6 +678,11 @@ impl ::core::clone::Clone for CALLINFO_LONG {
         *self
     }
 }
+impl ::core::default::Default for CALLINFO_LONG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLINFO_LONG {
     type Abi = Self;
 }
@@ -649,6 +729,11 @@ impl ::core::clone::Clone for CALLINFO_STRING {
         *self
     }
 }
+impl ::core::default::Default for CALLINFO_STRING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALLINFO_STRING {
     type Abi = Self;
 }
@@ -679,6 +764,11 @@ impl ::core::marker::Copy for CALL_MEDIA_EVENT {}
 impl ::core::clone::Clone for CALL_MEDIA_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALL_MEDIA_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALL_MEDIA_EVENT {
@@ -715,6 +805,11 @@ impl ::core::clone::Clone for CALL_MEDIA_EVENT_CAUSE {
         *self
     }
 }
+impl ::core::default::Default for CALL_MEDIA_EVENT_CAUSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALL_MEDIA_EVENT_CAUSE {
     type Abi = Self;
 }
@@ -739,6 +834,11 @@ impl ::core::clone::Clone for CALL_NOTIFICATION_EVENT {
         *self
     }
 }
+impl ::core::default::Default for CALL_NOTIFICATION_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALL_NOTIFICATION_EVENT {
     type Abi = Self;
 }
@@ -759,6 +859,11 @@ impl ::core::marker::Copy for CALL_PRIVILEGE {}
 impl ::core::clone::Clone for CALL_PRIVILEGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALL_PRIVILEGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALL_PRIVILEGE {
@@ -793,6 +898,11 @@ impl ::core::marker::Copy for CALL_STATE {}
 impl ::core::clone::Clone for CALL_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CALL_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CALL_STATE {
@@ -831,6 +941,11 @@ impl ::core::clone::Clone for CALL_STATE_EVENT_CAUSE {
         *self
     }
 }
+impl ::core::default::Default for CALL_STATE_EVENT_CAUSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CALL_STATE_EVENT_CAUSE {
     type Abi = Self;
 }
@@ -853,6 +968,11 @@ impl ::core::clone::Clone for DIRECTORY_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DIRECTORY_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DIRECTORY_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -873,6 +993,11 @@ impl ::core::marker::Copy for DIRECTORY_TYPE {}
 impl ::core::clone::Clone for DIRECTORY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIRECTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIRECTORY_TYPE {
@@ -899,6 +1024,11 @@ impl ::core::clone::Clone for DISCONNECT_CODE {
         *self
     }
 }
+impl ::core::default::Default for DISCONNECT_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISCONNECT_CODE {
     type Abi = Self;
 }
@@ -922,6 +1052,11 @@ impl ::core::marker::Copy for FINISH_MODE {}
 impl ::core::clone::Clone for FINISH_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FINISH_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FINISH_MODE {
@@ -950,6 +1085,11 @@ impl ::core::clone::Clone for FT_STATE_EVENT_CAUSE {
         *self
     }
 }
+impl ::core::default::Default for FT_STATE_EVENT_CAUSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FT_STATE_EVENT_CAUSE {
     type Abi = Self;
 }
@@ -972,6 +1112,11 @@ impl ::core::marker::Copy for FULLDUPLEX_SUPPORT {}
 impl ::core::clone::Clone for FULLDUPLEX_SUPPORT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FULLDUPLEX_SUPPORT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FULLDUPLEX_SUPPORT {
@@ -21879,6 +22024,11 @@ impl ::core::clone::Clone for MSP_ADDRESS_EVENT {
         *self
     }
 }
+impl ::core::default::Default for MSP_ADDRESS_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSP_ADDRESS_EVENT {
     type Abi = Self;
 }
@@ -21907,6 +22057,11 @@ impl ::core::marker::Copy for MSP_CALL_EVENT {}
 impl ::core::clone::Clone for MSP_CALL_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSP_CALL_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSP_CALL_EVENT {
@@ -21943,6 +22098,11 @@ impl ::core::clone::Clone for MSP_CALL_EVENT_CAUSE {
         *self
     }
 }
+impl ::core::default::Default for MSP_CALL_EVENT_CAUSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSP_CALL_EVENT_CAUSE {
     type Abi = Self;
 }
@@ -21975,6 +22135,11 @@ impl ::core::marker::Copy for MSP_EVENT {}
 impl ::core::clone::Clone for MSP_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MSP_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MSP_EVENT {
@@ -22699,6 +22864,11 @@ impl ::core::clone::Clone for PHONECAPS_BUFFER {
         *self
     }
 }
+impl ::core::default::Default for PHONECAPS_BUFFER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONECAPS_BUFFER {
     type Abi = Self;
 }
@@ -22735,6 +22905,11 @@ impl ::core::clone::Clone for PHONECAPS_LONG {
         *self
     }
 }
+impl ::core::default::Default for PHONECAPS_LONG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONECAPS_LONG {
     type Abi = Self;
 }
@@ -22757,6 +22932,11 @@ impl ::core::marker::Copy for PHONECAPS_STRING {}
 impl ::core::clone::Clone for PHONECAPS_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PHONECAPS_STRING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PHONECAPS_STRING {
@@ -23279,6 +23459,11 @@ impl ::core::clone::Clone for PHONE_BUTTON_FUNCTION {
         *self
     }
 }
+impl ::core::default::Default for PHONE_BUTTON_FUNCTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONE_BUTTON_FUNCTION {
     type Abi = Self;
 }
@@ -23309,6 +23494,11 @@ impl ::core::clone::Clone for PHONE_BUTTON_MODE {
         *self
     }
 }
+impl ::core::default::Default for PHONE_BUTTON_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONE_BUTTON_MODE {
     type Abi = Self;
 }
@@ -23333,6 +23523,11 @@ impl ::core::marker::Copy for PHONE_BUTTON_STATE {}
 impl ::core::clone::Clone for PHONE_BUTTON_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PHONE_BUTTON_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PHONE_BUTTON_STATE {
@@ -23385,6 +23580,11 @@ impl ::core::clone::Clone for PHONE_EVENT {
         *self
     }
 }
+impl ::core::default::Default for PHONE_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONE_EVENT {
     type Abi = Self;
 }
@@ -23407,6 +23607,11 @@ impl ::core::marker::Copy for PHONE_HOOK_SWITCH_DEVICE {}
 impl ::core::clone::Clone for PHONE_HOOK_SWITCH_DEVICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PHONE_HOOK_SWITCH_DEVICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PHONE_HOOK_SWITCH_DEVICE {
@@ -23433,6 +23638,11 @@ impl ::core::marker::Copy for PHONE_HOOK_SWITCH_STATE {}
 impl ::core::clone::Clone for PHONE_HOOK_SWITCH_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PHONE_HOOK_SWITCH_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PHONE_HOOK_SWITCH_STATE {
@@ -23469,6 +23679,11 @@ impl ::core::clone::Clone for PHONE_LAMP_MODE {
         *self
     }
 }
+impl ::core::default::Default for PHONE_LAMP_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONE_LAMP_MODE {
     type Abi = Self;
 }
@@ -23489,6 +23704,11 @@ impl ::core::marker::Copy for PHONE_PRIVILEGE {}
 impl ::core::clone::Clone for PHONE_PRIVILEGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PHONE_PRIVILEGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PHONE_PRIVILEGE {
@@ -23559,6 +23779,11 @@ impl ::core::clone::Clone for PHONE_TONE {
         *self
     }
 }
+impl ::core::default::Default for PHONE_TONE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PHONE_TONE {
     type Abi = Self;
 }
@@ -23599,6 +23824,11 @@ impl ::core::clone::Clone for QOS_EVENT {
         *self
     }
 }
+impl ::core::default::Default for QOS_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QOS_EVENT {
     type Abi = Self;
 }
@@ -23621,6 +23851,11 @@ impl ::core::marker::Copy for QOS_SERVICE_LEVEL {}
 impl ::core::clone::Clone for QOS_SERVICE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QOS_SERVICE_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QOS_SERVICE_LEVEL {
@@ -23657,6 +23892,11 @@ impl ::core::marker::Copy for RND_ADVERTISING_SCOPE {}
 impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RND_ADVERTISING_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RND_ADVERTISING_SCOPE {
@@ -23848,6 +24088,11 @@ impl ::core::clone::Clone for TAPIOBJECT_EVENT {
         *self
     }
 }
+impl ::core::default::Default for TAPIOBJECT_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TAPIOBJECT_EVENT {
     type Abi = Self;
 }
@@ -23985,6 +24230,11 @@ impl ::core::marker::Copy for TAPI_EVENT {}
 impl ::core::clone::Clone for TAPI_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TAPI_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TAPI_EVENT {
@@ -24195,6 +24445,11 @@ impl ::core::clone::Clone for TAPI_GATHERTERM {
         *self
     }
 }
+impl ::core::default::Default for TAPI_GATHERTERM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TAPI_GATHERTERM {
     type Abi = Self;
 }
@@ -24227,6 +24482,11 @@ impl ::core::clone::Clone for TAPI_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TAPI_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TAPI_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -24253,6 +24513,11 @@ impl ::core::marker::Copy for TAPI_TONEMODE {}
 impl ::core::clone::Clone for TAPI_TONEMODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TAPI_TONEMODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TAPI_TONEMODE {
@@ -24283,6 +24548,11 @@ impl ::core::clone::Clone for TERMINAL_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for TERMINAL_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TERMINAL_DIRECTION {
     type Abi = Self;
 }
@@ -24309,6 +24579,11 @@ impl ::core::clone::Clone for TERMINAL_MEDIA_STATE {
         *self
     }
 }
+impl ::core::default::Default for TERMINAL_MEDIA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TERMINAL_MEDIA_STATE {
     type Abi = Self;
 }
@@ -24331,6 +24606,11 @@ impl ::core::clone::Clone for TERMINAL_STATE {
         *self
     }
 }
+impl ::core::default::Default for TERMINAL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TERMINAL_STATE {
     type Abi = Self;
 }
@@ -24351,6 +24631,11 @@ impl ::core::marker::Copy for TERMINAL_TYPE {}
 impl ::core::clone::Clone for TERMINAL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TERMINAL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TERMINAL_TYPE {

@@ -143,6 +143,11 @@ impl ::core::clone::Clone for DeviceAccessMode {
         *self
     }
 }
+impl ::core::default::Default for DeviceAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeviceAccessMode {
     type Abi = Self;
 }
@@ -169,6 +174,11 @@ impl ::core::marker::Copy for DeviceSharingMode {}
 impl ::core::clone::Clone for DeviceSharingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceSharingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceSharingMode {
@@ -390,6 +400,11 @@ impl ::core::clone::Clone for IOControlAccessMode {
         *self
     }
 }
+impl ::core::default::Default for IOControlAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IOControlAccessMode {
     type Abi = Self;
 }
@@ -418,6 +433,11 @@ impl ::core::marker::Copy for IOControlBufferingMethod {}
 impl ::core::clone::Clone for IOControlBufferingMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IOControlBufferingMethod {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IOControlBufferingMethod {

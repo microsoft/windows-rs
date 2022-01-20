@@ -786,6 +786,11 @@ impl ::core::clone::Clone for FTP_ACCESS {
         *self
     }
 }
+impl ::core::default::Default for FTP_ACCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FTP_ACCESS {
     type Abi = Self;
 }
@@ -810,6 +815,11 @@ impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
 impl ::core::clone::Clone for FTP_PROCESS_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FTP_PROCESS_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FTP_PROCESS_STATUS {
@@ -2236,6 +2246,11 @@ impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
 impl ::core::clone::Clone for HTTP_TRACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HTTP_TRACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HTTP_TRACE_TYPE {
@@ -5286,6 +5301,11 @@ impl ::core::clone::Clone for METADATATYPES {
         *self
     }
 }
+impl ::core::default::Default for METADATATYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for METADATATYPES {
     type Abi = Self;
 }
@@ -5730,6 +5750,11 @@ impl ::core::clone::Clone for SF_PROPERTY_IIS {
         *self
     }
 }
+impl ::core::default::Default for SF_PROPERTY_IIS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SF_PROPERTY_IIS {
     type Abi = Self;
 }
@@ -5766,6 +5791,11 @@ impl ::core::clone::Clone for SF_REQ_TYPE {
         *self
     }
 }
+impl ::core::default::Default for SF_REQ_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SF_REQ_TYPE {
     type Abi = Self;
 }
@@ -5794,6 +5824,11 @@ impl ::core::marker::Copy for SF_STATUS_TYPE {}
 impl ::core::clone::Clone for SF_STATUS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SF_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SF_STATUS_TYPE {

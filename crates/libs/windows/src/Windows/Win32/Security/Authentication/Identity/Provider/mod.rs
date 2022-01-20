@@ -15,6 +15,11 @@ impl ::core::clone::Clone for ACCOUNT_STATE {
         *self
     }
 }
+impl ::core::default::Default for ACCOUNT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACCOUNT_STATE {
     type Abi = Self;
 }
@@ -932,6 +937,11 @@ impl ::core::clone::Clone for IDENTITY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for IDENTITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IDENTITY_TYPE {
     type Abi = Self;
 }
@@ -962,6 +972,11 @@ impl ::core::marker::Copy for IDENTITY_URL {}
 impl ::core::clone::Clone for IDENTITY_URL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IDENTITY_URL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IDENTITY_URL {
@@ -1399,6 +1414,11 @@ impl ::core::marker::Copy for IdentityUpdateEvent {}
 impl ::core::clone::Clone for IdentityUpdateEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IdentityUpdateEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IdentityUpdateEvent {

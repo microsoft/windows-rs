@@ -13,6 +13,11 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
         *self
     }
 }
+impl ::core::default::Default for TextPatternRangeEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
@@ -44,6 +49,11 @@ impl ::core::marker::Copy for TextUnit {}
 impl ::core::clone::Clone for TextUnit {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TextUnit {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TextUnit {

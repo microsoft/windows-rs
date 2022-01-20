@@ -16,6 +16,11 @@ impl ::core::clone::Clone for SpeechRecognitionUIStatus {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionUIStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionUIStatus {
     type Abi = Self;
 }

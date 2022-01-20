@@ -6560,6 +6560,11 @@ impl ::core::clone::Clone for WMDMMessage {
         *self
     }
 }
+impl ::core::default::Default for WMDMMessage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMDMMessage {
     type Abi = Self;
 }
@@ -6714,6 +6719,11 @@ impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
         *self
     }
 }
+impl ::core::default::Default for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     type Abi = Self;
 }
@@ -6810,6 +6820,11 @@ impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
 impl ::core::clone::Clone for WMDM_FIND_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMDM_FIND_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMDM_FIND_SCOPE {
@@ -7018,6 +7033,11 @@ impl ::core::marker::Copy for WMDM_FORMATCODE {}
 impl ::core::clone::Clone for WMDM_FORMATCODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMDM_FORMATCODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMDM_FORMATCODE {
@@ -7354,6 +7374,11 @@ impl ::core::clone::Clone for WMDM_SESSION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WMDM_SESSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMDM_SESSION_TYPE {
     type Abi = Self;
 }
@@ -7454,6 +7479,11 @@ impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
         *self
     }
 }
+impl ::core::default::Default for WMDM_STORAGE_ENUM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WMDM_STORAGE_ENUM_MODE {
     type Abi = Self;
 }
@@ -7492,6 +7522,11 @@ impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
 impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WMDM_TAG_DATATYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WMDM_TAG_DATATYPE {

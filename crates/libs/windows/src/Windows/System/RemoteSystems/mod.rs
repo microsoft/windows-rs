@@ -1479,6 +1479,11 @@ impl ::core::clone::Clone for RemoteSystemAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
     type Abi = Self;
 }
@@ -1834,6 +1839,11 @@ impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
 impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemAuthorizationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
@@ -2213,6 +2223,11 @@ impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
 impl ::core::clone::Clone for RemoteSystemDiscoveryType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemDiscoveryType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
@@ -2621,6 +2636,11 @@ impl ::core::marker::Copy for RemoteSystemPlatform {}
 impl ::core::clone::Clone for RemoteSystemPlatform {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemPlatform {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
@@ -3201,6 +3221,11 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemSessionCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
     type Abi = Self;
 }
@@ -3309,6 +3334,11 @@ impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
 impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionDisconnectedReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
@@ -3970,6 +4000,11 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemSessionJoinStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
     type Abi = Self;
 }
@@ -4138,6 +4173,11 @@ impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
 impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionMessageChannelReliability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
@@ -4653,6 +4693,11 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemSessionParticipantWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
     type Abi = Self;
 }
@@ -5073,6 +5118,11 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemSessionWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
     type Abi = Self;
 }
@@ -5103,6 +5153,11 @@ impl ::core::clone::Clone for RemoteSystemStatus {
         *self
     }
 }
+impl ::core::default::Default for RemoteSystemStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RemoteSystemStatus {
     type Abi = Self;
 }
@@ -5129,6 +5184,11 @@ impl ::core::marker::Copy for RemoteSystemStatusType {}
 impl ::core::clone::Clone for RemoteSystemStatusType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemStatusType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
@@ -5520,6 +5580,11 @@ impl ::core::marker::Copy for RemoteSystemWatcherError {}
 impl ::core::clone::Clone for RemoteSystemWatcherError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteSystemWatcherError {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {

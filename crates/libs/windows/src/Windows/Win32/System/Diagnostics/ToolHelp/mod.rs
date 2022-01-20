@@ -23,6 +23,11 @@ impl ::core::clone::Clone for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Abi = Self;
 }
@@ -134,6 +139,11 @@ impl ::core::marker::Copy for HEAPENTRY32_FLAGS {}
 impl ::core::clone::Clone for HEAPENTRY32_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HEAPENTRY32_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HEAPENTRY32_FLAGS {

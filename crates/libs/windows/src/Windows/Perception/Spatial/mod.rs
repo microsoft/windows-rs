@@ -789,6 +789,11 @@ impl ::core::clone::Clone for SpatialAnchorExportPurpose {
         *self
     }
 }
+impl ::core::default::Default for SpatialAnchorExportPurpose {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
     type Abi = Self;
 }
@@ -2287,6 +2292,11 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for SpatialEntityWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
     type Abi = Self;
 }
@@ -2316,6 +2326,11 @@ impl ::core::marker::Copy for SpatialLocatability {}
 impl ::core::clone::Clone for SpatialLocatability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialLocatability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialLocatability {
@@ -2903,6 +2918,11 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
         *self
     }
 }
+impl ::core::default::Default for SpatialLookDirectionRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
     type Abi = Self;
 }
@@ -2929,6 +2949,11 @@ impl ::core::marker::Copy for SpatialMovementRange {}
 impl ::core::clone::Clone for SpatialMovementRange {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialMovementRange {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialMovementRange {
@@ -2959,6 +2984,11 @@ impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
 impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialPerceptionAccessStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {

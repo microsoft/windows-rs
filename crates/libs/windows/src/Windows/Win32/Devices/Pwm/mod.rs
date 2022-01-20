@@ -335,6 +335,11 @@ impl ::core::clone::Clone for PWM_POLARITY {
         *self
     }
 }
+impl ::core::default::Default for PWM_POLARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PWM_POLARITY {
     type Abi = Self;
 }

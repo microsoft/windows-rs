@@ -17,6 +17,11 @@ impl ::core::clone::Clone for WSL_DISTRIBUTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for WSL_DISTRIBUTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WSL_DISTRIBUTION_FLAGS {
     type Abi = Self;
 }

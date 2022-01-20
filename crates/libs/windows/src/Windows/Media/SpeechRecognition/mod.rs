@@ -769,6 +769,11 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
         *self
     }
 }
+impl ::core::default::Default for SpeechContinuousRecognitionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
 }
@@ -1051,6 +1056,11 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionAudioProblem {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
 }
@@ -1162,6 +1172,11 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionConfidence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
 }
@@ -1189,6 +1204,11 @@ impl ::core::marker::Copy for SpeechRecognitionConstraintProbability {}
 impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionConstraintProbability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
@@ -1219,6 +1239,11 @@ impl ::core::marker::Copy for SpeechRecognitionConstraintType {}
 impl ::core::clone::Clone for SpeechRecognitionConstraintType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionConstraintType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
@@ -2002,6 +2027,11 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
 }
@@ -2029,6 +2059,11 @@ impl ::core::marker::Copy for SpeechRecognitionScenario {}
 impl ::core::clone::Clone for SpeechRecognitionScenario {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRecognitionScenario {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
@@ -2761,6 +2796,11 @@ impl ::core::marker::Copy for SpeechRecognizerState {}
 impl ::core::clone::Clone for SpeechRecognizerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpeechRecognizerState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {

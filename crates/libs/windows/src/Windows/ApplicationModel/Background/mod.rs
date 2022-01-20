@@ -156,6 +156,11 @@ impl ::core::clone::Clone for AlarmAccessStatus {
         *self
     }
 }
+impl ::core::default::Default for AlarmAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
 }
@@ -688,6 +693,11 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
         *self
     }
 }
+impl ::core::default::Default for ApplicationTriggerResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
 }
@@ -818,6 +828,11 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
         *self
     }
 }
+impl ::core::default::Default for BackgroundAccessRequestKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
 }
@@ -850,6 +865,11 @@ impl ::core::marker::Copy for BackgroundAccessStatus {}
 impl ::core::clone::Clone for BackgroundAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BackgroundAccessStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
@@ -1222,6 +1242,11 @@ impl ::core::marker::Copy for BackgroundTaskCancellationReason {}
 impl ::core::clone::Clone for BackgroundTaskCancellationReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BackgroundTaskCancellationReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
@@ -2033,6 +2058,11 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
         *self
     }
 }
+impl ::core::default::Default for BackgroundTaskThrottleCounter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
 }
@@ -2079,6 +2109,11 @@ impl ::core::marker::Copy for BackgroundWorkCostValue {}
 impl ::core::clone::Clone for BackgroundWorkCostValue {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BackgroundWorkCostValue {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
@@ -3407,6 +3442,11 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
         *self
     }
 }
+impl ::core::default::Default for CustomSystemEventTriggerRecurrence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
 }
@@ -3838,6 +3878,11 @@ impl ::core::marker::Copy for DeviceTriggerResult {}
 impl ::core::clone::Clone for DeviceTriggerResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DeviceTriggerResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
@@ -7379,6 +7424,11 @@ impl ::core::clone::Clone for LocationTriggerType {
         *self
     }
 }
+impl ::core::default::Default for LocationTriggerType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
 }
@@ -7646,6 +7696,11 @@ impl ::core::marker::Copy for MediaProcessingTriggerResult {}
 impl ::core::clone::Clone for MediaProcessingTriggerResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaProcessingTriggerResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
@@ -10011,6 +10066,11 @@ impl ::core::clone::Clone for SystemConditionType {
         *self
     }
 }
+impl ::core::default::Default for SystemConditionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
 }
@@ -10172,6 +10232,11 @@ impl ::core::marker::Copy for SystemTriggerType {}
 impl ::core::clone::Clone for SystemTriggerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SystemTriggerType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SystemTriggerType {

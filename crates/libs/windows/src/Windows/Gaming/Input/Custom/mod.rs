@@ -223,6 +223,11 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
         *self
     }
 }
+impl ::core::default::Default for GipFirmwareUpdateStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
 }
@@ -404,6 +409,11 @@ impl ::core::marker::Copy for GipMessageClass {}
 impl ::core::clone::Clone for GipMessageClass {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GipMessageClass {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GipMessageClass {
@@ -1336,6 +1346,11 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
         *self
     }
 }
+impl ::core::default::Default for XusbDeviceSubtype {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XusbDeviceSubtype {
     type Abi = Self;
 }
@@ -1362,6 +1377,11 @@ impl ::core::marker::Copy for XusbDeviceType {}
 impl ::core::clone::Clone for XusbDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XusbDeviceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XusbDeviceType {

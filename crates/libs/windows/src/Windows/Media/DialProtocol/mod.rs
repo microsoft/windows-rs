@@ -123,6 +123,11 @@ impl ::core::clone::Clone for DialAppLaunchResult {
         *self
     }
 }
+impl ::core::default::Default for DialAppLaunchResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DialAppLaunchResult {
     type Abi = Self;
 }
@@ -151,6 +156,11 @@ impl ::core::marker::Copy for DialAppState {}
 impl ::core::clone::Clone for DialAppState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DialAppState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DialAppState {
@@ -270,6 +280,11 @@ impl ::core::marker::Copy for DialAppStopResult {}
 impl ::core::clone::Clone for DialAppStopResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DialAppStopResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DialAppStopResult {
@@ -436,6 +451,11 @@ impl ::core::marker::Copy for DialDeviceDisplayStatus {}
 impl ::core::clone::Clone for DialDeviceDisplayStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DialDeviceDisplayStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {

@@ -155,6 +155,11 @@ impl ::core::clone::Clone for HandJointKind {
         *self
     }
 }
+impl ::core::default::Default for HandJointKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HandJointKind {
     type Abi = Self;
 }
@@ -845,6 +850,11 @@ impl ::core::marker::Copy for JointPoseAccuracy {}
 impl ::core::clone::Clone for JointPoseAccuracy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for JointPoseAccuracy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for JointPoseAccuracy {

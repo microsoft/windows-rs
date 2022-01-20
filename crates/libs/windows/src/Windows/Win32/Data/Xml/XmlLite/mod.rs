@@ -109,6 +109,11 @@ impl ::core::clone::Clone for DtdProcessing {
         *self
     }
 }
+impl ::core::default::Default for DtdProcessing {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DtdProcessing {
     type Abi = Self;
 }
@@ -954,6 +959,11 @@ impl ::core::clone::Clone for XmlConformanceLevel {
         *self
     }
 }
+impl ::core::default::Default for XmlConformanceLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XmlConformanceLevel {
     type Abi = Self;
 }
@@ -1142,6 +1152,11 @@ impl ::core::clone::Clone for XmlError {
         *self
     }
 }
+impl ::core::default::Default for XmlError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XmlError {
     type Abi = Self;
 }
@@ -1184,6 +1199,11 @@ impl ::core::clone::Clone for XmlNodeType {
         *self
     }
 }
+impl ::core::default::Default for XmlNodeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XmlNodeType {
     type Abi = Self;
 }
@@ -1210,6 +1230,11 @@ impl ::core::marker::Copy for XmlReadState {}
 impl ::core::clone::Clone for XmlReadState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XmlReadState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XmlReadState {
@@ -1248,6 +1273,11 @@ impl ::core::clone::Clone for XmlReaderProperty {
         *self
     }
 }
+impl ::core::default::Default for XmlReaderProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XmlReaderProperty {
     type Abi = Self;
 }
@@ -1272,6 +1302,11 @@ impl ::core::marker::Copy for XmlStandalone {}
 impl ::core::clone::Clone for XmlStandalone {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XmlStandalone {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XmlStandalone {
@@ -1304,6 +1339,11 @@ impl ::core::marker::Copy for XmlWriterProperty {}
 impl ::core::clone::Clone for XmlWriterProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XmlWriterProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XmlWriterProperty {

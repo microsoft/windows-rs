@@ -1452,6 +1452,11 @@ impl ::core::clone::Clone for MLOperatorAttributeType {
         *self
     }
 }
+impl ::core::default::Default for MLOperatorAttributeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorAttributeType {
     type Abi = Self;
 }
@@ -1554,6 +1559,11 @@ impl ::core::clone::Clone for MLOperatorEdgeType {
         *self
     }
 }
+impl ::core::default::Default for MLOperatorEdgeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorEdgeType {
     type Abi = Self;
 }
@@ -1643,6 +1653,11 @@ impl ::core::marker::Copy for MLOperatorExecutionType {}
 impl ::core::clone::Clone for MLOperatorExecutionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MLOperatorExecutionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
@@ -1753,6 +1768,11 @@ impl ::core::clone::Clone for MLOperatorKernelOptions {
         *self
     }
 }
+impl ::core::default::Default for MLOperatorKernelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorKernelOptions {
     type Abi = Self;
 }
@@ -1802,6 +1822,11 @@ impl ::core::marker::Copy for MLOperatorParameterOptions {}
 impl ::core::clone::Clone for MLOperatorParameterOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MLOperatorParameterOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorParameterOptions {
@@ -1984,6 +2009,11 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
         *self
     }
 }
+impl ::core::default::Default for MLOperatorSchemaEdgeTypeFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
     type Abi = Self;
 }
@@ -2057,6 +2087,11 @@ impl ::core::marker::Copy for MLOperatorTensorDataType {}
 impl ::core::clone::Clone for MLOperatorTensorDataType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MLOperatorTensorDataType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
@@ -2183,6 +2218,11 @@ impl ::core::clone::Clone for WINML_BINDING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WINML_BINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_BINDING_TYPE {
     type Abi = Self;
 }
@@ -2209,6 +2249,11 @@ impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
 impl ::core::clone::Clone for WINML_FEATURE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINML_FEATURE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINML_FEATURE_TYPE {
@@ -2513,6 +2558,11 @@ impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
         *self
     }
 }
+impl ::core::default::Default for WINML_RUNTIME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WINML_RUNTIME_TYPE {
     type Abi = Self;
 }
@@ -2694,6 +2744,11 @@ impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
 impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WINML_TENSOR_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WINML_TENSOR_DATA_TYPE {

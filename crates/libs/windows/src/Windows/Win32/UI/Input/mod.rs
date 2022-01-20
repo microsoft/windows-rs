@@ -203,6 +203,11 @@ impl ::core::clone::Clone for INPUT_MESSAGE_DEVICE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for INPUT_MESSAGE_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INPUT_MESSAGE_DEVICE_TYPE {
     type Abi = Self;
 }
@@ -227,6 +232,11 @@ impl ::core::marker::Copy for INPUT_MESSAGE_ORIGIN_ID {}
 impl ::core::clone::Clone for INPUT_MESSAGE_ORIGIN_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INPUT_MESSAGE_ORIGIN_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INPUT_MESSAGE_ORIGIN_ID {
@@ -477,6 +487,11 @@ impl ::core::clone::Clone for RAWINPUTDEVICE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RAWINPUTDEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RAWINPUTDEVICE_FLAGS {
     type Abi = Self;
 }
@@ -690,6 +705,11 @@ impl ::core::clone::Clone for RAW_INPUT_DATA_COMMAND_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for RAW_INPUT_DATA_COMMAND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RAW_INPUT_DATA_COMMAND_FLAGS {
     type Abi = Self;
 }
@@ -740,6 +760,11 @@ impl ::core::marker::Copy for RAW_INPUT_DEVICE_INFO_COMMAND {}
 impl ::core::clone::Clone for RAW_INPUT_DEVICE_INFO_COMMAND {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RAW_INPUT_DEVICE_INFO_COMMAND {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RAW_INPUT_DEVICE_INFO_COMMAND {
@@ -970,6 +995,11 @@ impl ::core::marker::Copy for RID_DEVICE_INFO_TYPE {}
 impl ::core::clone::Clone for RID_DEVICE_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RID_DEVICE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_TYPE {

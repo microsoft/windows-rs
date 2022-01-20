@@ -330,6 +330,11 @@ impl ::core::clone::Clone for DayFormat {
         *self
     }
 }
+impl ::core::default::Default for DayFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DayFormat {
     type Abi = Self;
 }
@@ -360,6 +365,11 @@ impl ::core::clone::Clone for DayOfWeekFormat {
         *self
     }
 }
+impl ::core::default::Default for DayOfWeekFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DayOfWeekFormat {
     type Abi = Self;
 }
@@ -386,6 +396,11 @@ impl ::core::marker::Copy for HourFormat {}
 impl ::core::clone::Clone for HourFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HourFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HourFormat {
@@ -518,6 +533,11 @@ impl ::core::clone::Clone for MinuteFormat {
         *self
     }
 }
+impl ::core::default::Default for MinuteFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MinuteFormat {
     type Abi = Self;
 }
@@ -549,6 +569,11 @@ impl ::core::clone::Clone for MonthFormat {
         *self
     }
 }
+impl ::core::default::Default for MonthFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MonthFormat {
     type Abi = Self;
 }
@@ -575,6 +600,11 @@ impl ::core::marker::Copy for SecondFormat {}
 impl ::core::clone::Clone for SecondFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SecondFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SecondFormat {
@@ -605,6 +635,11 @@ impl ::core::marker::Copy for YearFormat {}
 impl ::core::clone::Clone for YearFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for YearFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for YearFormat {

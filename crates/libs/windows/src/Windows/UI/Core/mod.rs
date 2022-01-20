@@ -159,6 +159,11 @@ impl ::core::clone::Clone for AppViewBackButtonVisibility {
         *self
     }
 }
+impl ::core::default::Default for AppViewBackButtonVisibility {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppViewBackButtonVisibility {
     type Abi = Self;
 }
@@ -623,6 +628,11 @@ impl ::core::marker::Copy for CoreAcceleratorKeyEventType {}
 impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreAcceleratorKeyEventType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreAcceleratorKeyEventType {
@@ -1337,6 +1347,11 @@ impl ::core::clone::Clone for CoreCursorType {
         *self
     }
 }
+impl ::core::default::Default for CoreCursorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreCursorType {
     type Abi = Self;
 }
@@ -1560,6 +1575,11 @@ impl ::core::clone::Clone for CoreDispatcherPriority {
         *self
     }
 }
+impl ::core::default::Default for CoreDispatcherPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreDispatcherPriority {
     type Abi = Self;
 }
@@ -1590,6 +1610,11 @@ impl ::core::marker::Copy for CoreIndependentInputFilters {}
 impl ::core::clone::Clone for CoreIndependentInputFilters {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreIndependentInputFilters {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreIndependentInputFilters {
@@ -2216,6 +2241,11 @@ impl ::core::clone::Clone for CoreInputDeviceTypes {
         *self
     }
 }
+impl ::core::default::Default for CoreInputDeviceTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreInputDeviceTypes {
     type Abi = Self;
 }
@@ -2315,6 +2345,11 @@ impl ::core::clone::Clone for CoreProcessEventsOption {
         *self
     }
 }
+impl ::core::default::Default for CoreProcessEventsOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreProcessEventsOption {
     type Abi = Self;
 }
@@ -2390,6 +2425,11 @@ impl ::core::clone::Clone for CoreProximityEvaluationScore {
         *self
     }
 }
+impl ::core::default::Default for CoreProximityEvaluationScore {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreProximityEvaluationScore {
     type Abi = Self;
 }
@@ -2417,6 +2457,11 @@ impl ::core::marker::Copy for CoreVirtualKeyStates {}
 impl ::core::clone::Clone for CoreVirtualKeyStates {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreVirtualKeyStates {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreVirtualKeyStates {
@@ -3116,6 +3161,11 @@ impl ::core::clone::Clone for CoreWindowActivationMode {
         *self
     }
 }
+impl ::core::default::Default for CoreWindowActivationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreWindowActivationMode {
     type Abi = Self;
 }
@@ -3143,6 +3193,11 @@ impl ::core::marker::Copy for CoreWindowActivationState {}
 impl ::core::clone::Clone for CoreWindowActivationState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreWindowActivationState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreWindowActivationState {
@@ -3485,6 +3540,11 @@ impl ::core::marker::Copy for CoreWindowFlowDirection {}
 impl ::core::clone::Clone for CoreWindowFlowDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreWindowFlowDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreWindowFlowDirection {

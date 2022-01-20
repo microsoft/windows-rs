@@ -9348,6 +9348,11 @@ impl ::core::clone::Clone for TASKPAGE {
         *self
     }
 }
+impl ::core::default::Default for TASKPAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASKPAGE {
     type Abi = Self;
 }
@@ -9372,6 +9377,11 @@ impl ::core::marker::Copy for TASK_ACTION_TYPE {}
 impl ::core::clone::Clone for TASK_ACTION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_ACTION_TYPE {
@@ -9410,6 +9420,11 @@ impl ::core::clone::Clone for TASK_COMPATIBILITY {
         *self
     }
 }
+impl ::core::default::Default for TASK_COMPATIBILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_COMPATIBILITY {
     type Abi = Self;
 }
@@ -9442,6 +9457,11 @@ impl ::core::clone::Clone for TASK_CREATION {
         *self
     }
 }
+impl ::core::default::Default for TASK_CREATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_CREATION {
     type Abi = Self;
 }
@@ -9462,6 +9482,11 @@ impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
 impl ::core::clone::Clone for TASK_ENUM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_ENUM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_ENUM_FLAGS {
@@ -9524,6 +9549,11 @@ impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
         *self
     }
 }
+impl ::core::default::Default for TASK_INSTANCES_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_INSTANCES_POLICY {
     type Abi = Self;
 }
@@ -9564,6 +9594,11 @@ impl ::core::clone::Clone for TASK_LOGON_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TASK_LOGON_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_LOGON_TYPE {
     type Abi = Self;
 }
@@ -9600,6 +9635,11 @@ impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TASK_PROCESSTOKENSID_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_PROCESSTOKENSID_TYPE {
     type Abi = Self;
 }
@@ -9620,6 +9660,11 @@ impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
 impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_RUNLEVEL_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_RUNLEVEL_TYPE {
@@ -9648,6 +9693,11 @@ impl ::core::marker::Copy for TASK_RUN_FLAGS {}
 impl ::core::clone::Clone for TASK_RUN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_RUN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_RUN_FLAGS {
@@ -9686,6 +9736,11 @@ impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TASK_SESSION_STATE_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_SESSION_STATE_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -9712,6 +9767,11 @@ impl ::core::marker::Copy for TASK_STATE {}
 impl ::core::clone::Clone for TASK_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_STATE {
@@ -9801,6 +9861,11 @@ impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
         *self
     }
 }
+impl ::core::default::Default for TASK_TRIGGER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TASK_TRIGGER_TYPE {
     type Abi = Self;
 }
@@ -9841,6 +9906,11 @@ impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
 impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TASK_TRIGGER_TYPE2 {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TASK_TRIGGER_TYPE2 {

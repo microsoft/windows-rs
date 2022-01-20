@@ -95,6 +95,11 @@ impl ::core::clone::Clone for PhoneNumberFormat {
         *self
     }
 }
+impl ::core::default::Default for PhoneNumberFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNumberFormat {
     type Abi = Self;
 }
@@ -478,6 +483,11 @@ impl ::core::clone::Clone for PhoneNumberMatchResult {
         *self
     }
 }
+impl ::core::default::Default for PhoneNumberMatchResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNumberMatchResult {
     type Abi = Self;
 }
@@ -507,6 +517,11 @@ impl ::core::marker::Copy for PhoneNumberParseResult {}
 impl ::core::clone::Clone for PhoneNumberParseResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneNumberParseResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneNumberParseResult {
@@ -545,6 +560,11 @@ impl ::core::marker::Copy for PredictedPhoneNumberKind {}
 impl ::core::clone::Clone for PredictedPhoneNumberKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PredictedPhoneNumberKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PredictedPhoneNumberKind {

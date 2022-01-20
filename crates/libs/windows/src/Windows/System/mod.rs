@@ -527,6 +527,11 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for AppDiagnosticInfoWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppDiagnosticInfoWatcherStatus {
     type Abi = Self;
 }
@@ -749,6 +754,11 @@ impl ::core::marker::Copy for AppMemoryUsageLevel {}
 impl ::core::clone::Clone for AppMemoryUsageLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppMemoryUsageLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppMemoryUsageLevel {
@@ -974,6 +984,11 @@ impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
         *self
     }
 }
+impl ::core::default::Default for AppResourceGroupEnergyQuotaState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppResourceGroupEnergyQuotaState {
     type Abi = Self;
 }
@@ -1003,6 +1018,11 @@ impl ::core::marker::Copy for AppResourceGroupExecutionState {}
 impl ::core::clone::Clone for AppResourceGroupExecutionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppResourceGroupExecutionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppResourceGroupExecutionState {
@@ -1531,6 +1551,11 @@ impl ::core::marker::Copy for AppResourceGroupInfoWatcherStatus {}
 impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppResourceGroupInfoWatcherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppResourceGroupInfoWatcherStatus {
@@ -2139,6 +2164,11 @@ impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
         *self
     }
 }
+impl ::core::default::Default for AutoUpdateTimeZoneStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutoUpdateTimeZoneStatus {
     type Abi = Self;
 }
@@ -2184,6 +2214,11 @@ impl ::core::marker::Copy for DiagnosticAccessStatus {}
 impl ::core::clone::Clone for DiagnosticAccessStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DiagnosticAccessStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DiagnosticAccessStatus {
@@ -2540,6 +2575,11 @@ impl ::core::marker::Copy for DispatcherQueuePriority {}
 impl ::core::clone::Clone for DispatcherQueuePriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DispatcherQueuePriority {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DispatcherQueuePriority {
@@ -4730,6 +4770,11 @@ impl ::core::clone::Clone for LaunchFileStatus {
         *self
     }
 }
+impl ::core::default::Default for LaunchFileStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LaunchFileStatus {
     type Abi = Self;
 }
@@ -4761,6 +4806,11 @@ impl ::core::clone::Clone for LaunchQuerySupportStatus {
         *self
     }
 }
+impl ::core::default::Default for LaunchQuerySupportStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LaunchQuerySupportStatus {
     type Abi = Self;
 }
@@ -4787,6 +4837,11 @@ impl ::core::marker::Copy for LaunchQuerySupportType {}
 impl ::core::clone::Clone for LaunchQuerySupportType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LaunchQuerySupportType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LaunchQuerySupportType {
@@ -4907,6 +4962,11 @@ impl ::core::marker::Copy for LaunchUriStatus {}
 impl ::core::clone::Clone for LaunchUriStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for LaunchUriStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for LaunchUriStatus {
@@ -5685,6 +5745,11 @@ impl ::core::clone::Clone for PowerState {
         *self
     }
 }
+impl ::core::default::Default for PowerState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PowerState {
     type Abi = Self;
 }
@@ -6054,6 +6119,11 @@ impl ::core::clone::Clone for ProcessorArchitecture {
         *self
     }
 }
+impl ::core::default::Default for ProcessorArchitecture {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProcessorArchitecture {
     type Abi = Self;
 }
@@ -6165,6 +6235,11 @@ impl ::core::marker::Copy for RemoteLaunchUriStatus {}
 impl ::core::clone::Clone for RemoteLaunchUriStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteLaunchUriStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteLaunchUriStatus {
@@ -6333,6 +6408,11 @@ impl ::core::marker::Copy for ShutdownKind {}
 impl ::core::clone::Clone for ShutdownKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ShutdownKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ShutdownKind {
@@ -6645,6 +6725,11 @@ impl ::core::clone::Clone for UserAgeConsentGroup {
         *self
     }
 }
+impl ::core::default::Default for UserAgeConsentGroup {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserAgeConsentGroup {
     type Abi = Self;
 }
@@ -6676,6 +6761,11 @@ impl ::core::clone::Clone for UserAgeConsentResult {
         *self
     }
 }
+impl ::core::default::Default for UserAgeConsentResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserAgeConsentResult {
     type Abi = Self;
 }
@@ -6703,6 +6793,11 @@ impl ::core::marker::Copy for UserAuthenticationStatus {}
 impl ::core::clone::Clone for UserAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserAuthenticationStatus {
@@ -7264,6 +7359,11 @@ impl ::core::clone::Clone for UserPictureSize {
         *self
     }
 }
+impl ::core::default::Default for UserPictureSize {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserPictureSize {
     type Abi = Self;
 }
@@ -7293,6 +7393,11 @@ impl ::core::marker::Copy for UserType {}
 impl ::core::clone::Clone for UserType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserType {
@@ -7523,6 +7628,11 @@ impl ::core::clone::Clone for UserWatcherStatus {
         *self
     }
 }
+impl ::core::default::Default for UserWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserWatcherStatus {
     type Abi = Self;
 }
@@ -7549,6 +7659,11 @@ impl ::core::marker::Copy for UserWatcherUpdateKind {}
 impl ::core::clone::Clone for UserWatcherUpdateKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserWatcherUpdateKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserWatcherUpdateKind {
@@ -7749,6 +7864,11 @@ impl ::core::clone::Clone for VirtualKey {
         *self
     }
 }
+impl ::core::default::Default for VirtualKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VirtualKey {
     type Abi = Self;
 }
@@ -7778,6 +7898,11 @@ impl ::core::marker::Copy for VirtualKeyModifiers {}
 impl ::core::clone::Clone for VirtualKeyModifiers {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VirtualKeyModifiers {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VirtualKeyModifiers {

@@ -1458,6 +1458,11 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
         *self
     }
 }
+impl ::core::default::Default for SmartCardActivationPolicyChangeResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
     type Abi = Self;
 }
@@ -1701,6 +1706,11 @@ impl ::core::marker::Copy for SmartCardAppletIdGroupActivationPolicy {}
 impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardAppletIdGroupActivationPolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
@@ -2066,6 +2076,11 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
         *self
     }
 }
+impl ::core::default::Default for SmartCardAutomaticResponseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
     type Abi = Self;
 }
@@ -2365,6 +2380,11 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptogramAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
     type Abi = Self;
 }
@@ -2654,6 +2674,11 @@ impl ::core::marker::Copy for SmartCardCryptogramGeneratorOperationStatus {}
 impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramGeneratorOperationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
@@ -3235,6 +3260,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResp
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type Abi = Self;
 }
@@ -3261,6 +3291,11 @@ impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageFormat {}
 impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramMaterialPackageFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
@@ -3381,6 +3416,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptogramMaterialProtectionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
     type Abi = Self;
 }
@@ -3412,6 +3452,11 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptogramMaterialType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
     type Abi = Self;
 }
@@ -3439,6 +3484,11 @@ impl ::core::marker::Copy for SmartCardCryptogramPlacementOptions {}
 impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramPlacementOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
@@ -3696,6 +3746,11 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptogramStorageKeyAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
     type Abi = Self;
 }
@@ -3723,6 +3778,11 @@ impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCapabilities {}
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramStorageKeyCapabilities {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
@@ -4041,6 +4101,11 @@ impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
         *self
     }
 }
+impl ::core::default::Default for SmartCardCryptographicKeyAttestationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
     type Abi = Self;
 }
@@ -4067,6 +4132,11 @@ impl ::core::marker::Copy for SmartCardEmulationCategory {}
 impl ::core::clone::Clone for SmartCardEmulationCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulationCategory {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
@@ -4096,6 +4166,11 @@ impl ::core::marker::Copy for SmartCardEmulationType {}
 impl ::core::clone::Clone for SmartCardEmulationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardEmulationType {
@@ -4542,6 +4617,11 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
         *self
     }
 }
+impl ::core::default::Default for SmartCardEmulatorConnectionDeactivatedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
     type Abi = Self;
 }
@@ -4659,6 +4739,11 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
         *self
     }
 }
+impl ::core::default::Default for SmartCardEmulatorConnectionSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
     type Abi = Self;
 }
@@ -4689,6 +4774,11 @@ impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
         *self
     }
 }
+impl ::core::default::Default for SmartCardEmulatorEnablementPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
     type Abi = Self;
 }
@@ -4715,6 +4805,11 @@ impl ::core::marker::Copy for SmartCardLaunchBehavior {}
 impl ::core::clone::Clone for SmartCardLaunchBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardLaunchBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
@@ -4744,6 +4839,11 @@ impl ::core::marker::Copy for SmartCardPinCharacterPolicyOption {}
 impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardPinCharacterPolicyOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
@@ -5562,6 +5662,11 @@ impl ::core::clone::Clone for SmartCardReaderKind {
         *self
     }
 }
+impl ::core::default::Default for SmartCardReaderKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardReaderKind {
     type Abi = Self;
 }
@@ -5589,6 +5694,11 @@ impl ::core::marker::Copy for SmartCardReaderStatus {}
 impl ::core::clone::Clone for SmartCardReaderStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardReaderStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
@@ -5620,6 +5730,11 @@ impl ::core::marker::Copy for SmartCardStatus {}
 impl ::core::clone::Clone for SmartCardStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardStatus {
@@ -5787,6 +5902,11 @@ impl ::core::clone::Clone for SmartCardTriggerType {
         *self
     }
 }
+impl ::core::default::Default for SmartCardTriggerType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SmartCardTriggerType {
     type Abi = Self;
 }
@@ -5814,6 +5934,11 @@ impl ::core::marker::Copy for SmartCardUnlockPromptingBehavior {}
 impl ::core::clone::Clone for SmartCardUnlockPromptingBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SmartCardUnlockPromptingBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SmartCardUnlockPromptingBehavior {

@@ -17,6 +17,11 @@ impl ::core::clone::Clone for CommonFileQuery {
         *self
     }
 }
+impl ::core::default::Default for CommonFileQuery {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CommonFileQuery {
     type Abi = Self;
 }
@@ -54,6 +59,11 @@ impl ::core::marker::Copy for CommonFolderQuery {}
 impl ::core::clone::Clone for CommonFolderQuery {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CommonFolderQuery {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CommonFolderQuery {
@@ -392,6 +402,11 @@ impl ::core::clone::Clone for DateStackOption {
         *self
     }
 }
+impl ::core::default::Default for DateStackOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DateStackOption {
     type Abi = Self;
 }
@@ -418,6 +433,11 @@ impl ::core::marker::Copy for FolderDepth {}
 impl ::core::clone::Clone for FolderDepth {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FolderDepth {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FolderDepth {
@@ -1466,6 +1486,11 @@ impl ::core::clone::Clone for IndexedState {
         *self
     }
 }
+impl ::core::default::Default for IndexedState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IndexedState {
     type Abi = Self;
 }
@@ -1494,6 +1519,11 @@ impl ::core::marker::Copy for IndexerOption {}
 impl ::core::clone::Clone for IndexerOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IndexerOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IndexerOption {

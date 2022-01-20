@@ -123,6 +123,11 @@ impl ::core::clone::Clone for BatteryStatus {
         *self
     }
 }
+impl ::core::default::Default for BatteryStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BatteryStatus {
     type Abi = Self;
 }
@@ -150,6 +155,11 @@ impl ::core::marker::Copy for EnergySaverStatus {}
 impl ::core::clone::Clone for EnergySaverStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnergySaverStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnergySaverStatus {
@@ -560,6 +570,11 @@ impl ::core::marker::Copy for PowerSupplyStatus {}
 impl ::core::clone::Clone for PowerSupplyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PowerSupplyStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PowerSupplyStatus {

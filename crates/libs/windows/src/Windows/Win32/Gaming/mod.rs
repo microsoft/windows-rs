@@ -73,6 +73,11 @@ impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
         *self
     }
 }
+impl ::core::default::Default for GAMESTATS_OPEN_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_RESULT {
     type Abi = Self;
 }
@@ -93,6 +98,11 @@ impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
 impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GAMESTATS_OPEN_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_TYPE {
@@ -117,6 +127,11 @@ impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
 impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GAME_INSTALL_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GAME_INSTALL_SCOPE {
@@ -145,6 +160,11 @@ impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
 impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GAMING_DEVICE_DEVICE_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_DEVICE_ID {
@@ -198,6 +218,11 @@ impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
 impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GAMING_DEVICE_VENDOR_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
@@ -1115,6 +1140,11 @@ impl ::core::clone::Clone for KnownGamingPrivileges {
         *self
     }
 }
+impl ::core::default::Default for KnownGamingPrivileges {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
     type Abi = Self;
 }
@@ -1475,6 +1505,11 @@ impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
 impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XBL_IDP_AUTH_TOKEN_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XBL_IDP_AUTH_TOKEN_STATUS {

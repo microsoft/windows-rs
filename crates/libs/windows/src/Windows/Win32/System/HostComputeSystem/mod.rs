@@ -11,6 +11,11 @@ impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for HCS_CREATE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
     type Abi = Self;
 }
@@ -119,6 +124,11 @@ impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for HCS_EVENT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCS_EVENT_OPTIONS {
     type Abi = Self;
 }
@@ -185,6 +195,11 @@ impl ::core::clone::Clone for HCS_EVENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HCS_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCS_EVENT_TYPE {
     type Abi = Self;
 }
@@ -245,6 +260,11 @@ impl ::core::clone::Clone for HCS_NOTIFICATIONS {
         *self
     }
 }
+impl ::core::default::Default for HCS_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HCS_NOTIFICATIONS {
     type Abi = Self;
 }
@@ -268,6 +288,11 @@ impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HCS_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HCS_NOTIFICATION_FLAGS {
@@ -356,6 +381,11 @@ impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
 impl ::core::clone::Clone for HCS_OPERATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HCS_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HCS_OPERATION_TYPE {

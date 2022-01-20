@@ -317,6 +317,11 @@ impl ::core::clone::Clone for Print3DWorkflowDetail {
         *self
     }
 }
+impl ::core::default::Default for Print3DWorkflowDetail {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
     type Abi = Self;
 }
@@ -523,6 +528,11 @@ impl ::core::marker::Copy for Print3DWorkflowStatus {}
 impl ::core::clone::Clone for Print3DWorkflowStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Print3DWorkflowStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {

@@ -782,6 +782,11 @@ impl ::core::clone::Clone for XamlEventIndex {
         *self
     }
 }
+impl ::core::default::Default for XamlEventIndex {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XamlEventIndex {
     type Abi = Self;
 }
@@ -2477,6 +2482,11 @@ impl ::core::clone::Clone for XamlPropertyIndex {
         *self
     }
 }
+impl ::core::default::Default for XamlPropertyIndex {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XamlPropertyIndex {
     type Abi = Self;
 }
@@ -2751,6 +2761,11 @@ impl ::core::marker::Copy for XamlTypeIndex {}
 impl ::core::clone::Clone for XamlTypeIndex {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XamlTypeIndex {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XamlTypeIndex {

@@ -202,6 +202,11 @@ impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTION_PHASE {
         *self
     }
 }
+impl ::core::default::Default for DOT11EXT_IHV_CONNECTION_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DOT11EXT_IHV_CONNECTION_PHASE {
     type Abi = Self;
 }
@@ -420,6 +425,11 @@ impl ::core::marker::Copy for DOT11EXT_IHV_INDICATION_TYPE {}
 impl ::core::clone::Clone for DOT11EXT_IHV_INDICATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11EXT_IHV_INDICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11EXT_IHV_INDICATION_TYPE {
@@ -933,6 +943,11 @@ impl ::core::marker::Copy for DOT11_MSONEX_RESULT {}
 impl ::core::clone::Clone for DOT11_MSONEX_RESULT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DOT11_MSONEX_RESULT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DOT11_MSONEX_RESULT {
@@ -1627,6 +1642,11 @@ impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_MODE {
     type Abi = Self;
 }
@@ -1927,6 +1947,11 @@ impl ::core::clone::Clone for NDIS_802_11_MEDIA_STREAM_MODE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
     type Abi = Self;
 }
@@ -1951,6 +1976,11 @@ impl ::core::marker::Copy for NDIS_802_11_NETWORK_INFRASTRUCTURE {}
 impl ::core::clone::Clone for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
@@ -1981,6 +2011,11 @@ impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE {}
 impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE {
@@ -2137,6 +2172,11 @@ impl ::core::clone::Clone for NDIS_802_11_POWER_MODE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_POWER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_POWER_MODE {
     type Abi = Self;
 }
@@ -2157,6 +2197,11 @@ impl ::core::marker::Copy for NDIS_802_11_PRIVACY_FILTER {}
 impl ::core::clone::Clone for NDIS_802_11_PRIVACY_FILTER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_802_11_PRIVACY_FILTER {
@@ -2187,6 +2232,11 @@ impl ::core::clone::Clone for NDIS_802_11_RADIO_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_RADIO_STATUS {
     type Abi = Self;
 }
@@ -2205,6 +2255,11 @@ impl ::core::marker::Copy for NDIS_802_11_RELOAD_DEFAULTS {}
 impl ::core::clone::Clone for NDIS_802_11_RELOAD_DEFAULTS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_802_11_RELOAD_DEFAULTS {
@@ -2406,6 +2461,11 @@ impl ::core::clone::Clone for NDIS_802_11_STATUS_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_TYPE {
     type Abi = Self;
 }
@@ -2566,6 +2626,11 @@ impl ::core::clone::Clone for NDIS_802_11_WEP_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_802_11_WEP_STATUS {
     type Abi = Self;
 }
@@ -2596,6 +2661,11 @@ impl ::core::marker::Copy for NDIS_802_5_RING_STATE {}
 impl ::core::clone::Clone for NDIS_802_5_RING_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_802_5_RING_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_802_5_RING_STATE {
@@ -2757,6 +2827,11 @@ impl ::core::clone::Clone for NDIS_DEVICE_POWER_STATE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_DEVICE_POWER_STATE {
     type Abi = Self;
 }
@@ -2847,6 +2922,11 @@ impl ::core::clone::Clone for NDIS_FDDI_ATTACHMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
     type Abi = Self;
 }
@@ -2885,6 +2965,11 @@ impl ::core::clone::Clone for NDIS_FDDI_LCONNECTION_STATE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_FDDI_LCONNECTION_STATE {
     type Abi = Self;
 }
@@ -2917,6 +3002,11 @@ impl ::core::marker::Copy for NDIS_FDDI_RING_MGT_STATE {}
 impl ::core::clone::Clone for NDIS_FDDI_RING_MGT_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_FDDI_RING_MGT_STATE {
@@ -3385,6 +3475,11 @@ impl ::core::clone::Clone for NDIS_HARDWARE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for NDIS_HARDWARE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_HARDWARE_STATUS {
     type Abi = Self;
 }
@@ -3453,6 +3548,11 @@ impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION {}
 impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION {
@@ -3961,6 +4061,11 @@ impl ::core::clone::Clone for NDIS_MEDIA_STATE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_MEDIA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_MEDIA_STATE {
     type Abi = Self;
 }
@@ -4021,6 +4126,11 @@ impl ::core::clone::Clone for NDIS_MEDIUM {
         *self
     }
 }
+impl ::core::default::Default for NDIS_MEDIUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_MEDIUM {
     type Abi = Self;
 }
@@ -4053,6 +4163,11 @@ impl ::core::marker::Copy for NDIS_NETWORK_CHANGE_TYPE {}
 impl ::core::clone::Clone for NDIS_NETWORK_CHANGE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_NETWORK_CHANGE_TYPE {
@@ -4694,6 +4809,11 @@ impl ::core::clone::Clone for NDIS_PHYSICAL_MEDIUM {
         *self
     }
 }
+impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_PHYSICAL_MEDIUM {
     type Abi = Self;
 }
@@ -5038,6 +5158,11 @@ impl ::core::clone::Clone for NDIS_PORT_AUTHORIZATION_STATE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHORIZATION_STATE {
     type Abi = Self;
 }
@@ -5128,6 +5253,11 @@ impl ::core::clone::Clone for NDIS_PORT_CONTROL_STATE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_PORT_CONTROL_STATE {
     type Abi = Self;
 }
@@ -5216,6 +5346,11 @@ impl ::core::clone::Clone for NDIS_PORT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_PORT_TYPE {
     type Abi = Self;
 }
@@ -5240,6 +5375,11 @@ impl ::core::marker::Copy for NDIS_PROCESSOR_VENDOR {}
 impl ::core::clone::Clone for NDIS_PROCESSOR_VENDOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_PROCESSOR_VENDOR {
@@ -5670,6 +5810,11 @@ impl ::core::clone::Clone for NDIS_REQUEST_TYPE {
         *self
     }
 }
+impl ::core::default::Default for NDIS_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_REQUEST_TYPE {
     type Abi = Self;
 }
@@ -5993,6 +6138,11 @@ impl ::core::marker::Copy for NDIS_SUPPORTED_PAUSE_FUNCTIONS {}
 impl ::core::clone::Clone for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
@@ -6657,6 +6807,11 @@ impl ::core::clone::Clone for NDIS_WAN_HEADER_FORMAT {
         *self
     }
 }
+impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDIS_WAN_HEADER_FORMAT {
     type Abi = Self;
 }
@@ -6707,6 +6862,11 @@ impl ::core::marker::Copy for NDIS_WAN_MEDIUM_SUBTYPE {}
 impl ::core::clone::Clone for NDIS_WAN_MEDIUM_SUBTYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_WAN_MEDIUM_SUBTYPE {
@@ -6762,6 +6922,11 @@ impl ::core::marker::Copy for NDIS_WAN_QUALITY {}
 impl ::core::clone::Clone for NDIS_WAN_QUALITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NDIS_WAN_QUALITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NDIS_WAN_QUALITY {
@@ -7763,6 +7928,11 @@ impl ::core::clone::Clone for NDK_RDMA_TECHNOLOGY {
         *self
     }
 }
+impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NDK_RDMA_TECHNOLOGY {
     type Abi = Self;
 }
@@ -8023,6 +8193,11 @@ impl ::core::clone::Clone for OFFLOAD_CONF_ALGO {
         *self
     }
 }
+impl ::core::default::Default for OFFLOAD_CONF_ALGO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OFFLOAD_CONF_ALGO {
     type Abi = Self;
 }
@@ -8049,6 +8224,11 @@ impl ::core::marker::Copy for OFFLOAD_INTEGRITY_ALGO {}
 impl ::core::clone::Clone for OFFLOAD_INTEGRITY_ALGO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLOAD_INTEGRITY_ALGO {
@@ -8321,6 +8501,11 @@ impl ::core::marker::Copy for OFFLOAD_OPERATION_E {}
 impl ::core::clone::Clone for OFFLOAD_OPERATION_E {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OFFLOAD_OPERATION_E {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OFFLOAD_OPERATION_E {
@@ -9989,6 +10174,11 @@ impl ::core::marker::Copy for UDP_ENCAP_TYPE {}
 impl ::core::clone::Clone for UDP_ENCAP_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UDP_ENCAP_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UDP_ENCAP_TYPE {

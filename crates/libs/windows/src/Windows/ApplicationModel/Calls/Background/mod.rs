@@ -108,6 +108,11 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallBlockedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
     type Abi = Self;
 }
@@ -322,6 +327,11 @@ impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
 impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneIncomingCallDismissedReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
@@ -564,6 +574,11 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
         *self
     }
 }
+impl ::core::default::Default for PhoneLineChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
     type Abi = Self;
 }
@@ -695,6 +710,11 @@ impl ::core::marker::Copy for PhoneLineProperties {}
 impl ::core::clone::Clone for PhoneLineProperties {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneLineProperties {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneLineProperties {
@@ -854,6 +874,11 @@ impl ::core::marker::Copy for PhoneTriggerType {}
 impl ::core::clone::Clone for PhoneTriggerType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneTriggerType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneTriggerType {

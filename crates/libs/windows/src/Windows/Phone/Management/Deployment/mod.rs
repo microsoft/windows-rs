@@ -275,6 +275,11 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
         *self
     }
 }
+impl ::core::default::Default for EnterpriseEnrollmentStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
     type Abi = Self;
 }
@@ -303,6 +308,11 @@ impl ::core::marker::Copy for EnterpriseStatus {}
 impl ::core::clone::Clone for EnterpriseStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for EnterpriseStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for EnterpriseStatus {

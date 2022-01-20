@@ -29,6 +29,11 @@ impl ::core::clone::Clone for ACTIVITY_STATE {
         *self
     }
 }
+impl ::core::default::Default for ACTIVITY_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
 impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ACTIVITY_STATE_COUNT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
@@ -73,6 +83,11 @@ impl ::core::marker::Copy for AXIS {}
 impl ::core::clone::Clone for AXIS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AXIS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AXIS {
@@ -267,6 +282,11 @@ impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
         *self
     }
 }
+impl ::core::default::Default for ELEVATION_CHANGE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
     type Abi = Self;
 }
@@ -360,6 +380,11 @@ impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
     type Abi = Self;
 }
@@ -378,6 +403,11 @@ impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
 impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
@@ -1108,6 +1138,11 @@ impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
         *self
     }
 }
+impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
     type Abi = Self;
 }
@@ -1136,6 +1171,11 @@ impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
         *self
     }
 }
+impl ::core::default::Default for LOCATION_POSITION_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
     type Abi = Self;
 }
@@ -1160,6 +1200,11 @@ impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
 impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MAGNETOMETER_ACCURACY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
@@ -1310,6 +1355,11 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
+impl ::core::default::Default for MagnetometerAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
 }
@@ -1338,6 +1388,11 @@ impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PEDOMETER_STEP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
     type Abi = Self;
 }
@@ -1356,6 +1411,11 @@ impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
 impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
@@ -1380,6 +1440,11 @@ impl ::core::marker::Copy for PROXIMITY_TYPE {}
 impl ::core::clone::Clone for PROXIMITY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PROXIMITY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
@@ -1735,6 +1800,11 @@ impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
 impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
@@ -2295,6 +2365,11 @@ impl ::core::clone::Clone for SENSOR_STATE {
         *self
     }
 }
+impl ::core::default::Default for SENSOR_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SENSOR_STATE {
     type Abi = Self;
 }
@@ -2411,6 +2486,11 @@ impl ::core::clone::Clone for SIMPLE_DEVICE_ORIENTATION {
         *self
     }
 }
+impl ::core::default::Default for SIMPLE_DEVICE_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SIMPLE_DEVICE_ORIENTATION {
     type Abi = Self;
 }
@@ -2452,6 +2532,11 @@ impl ::core::clone::Clone for SensorConnectionType {
         *self
     }
 }
+impl ::core::default::Default for SensorConnectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SensorConnectionType {
     type Abi = Self;
 }
@@ -2486,6 +2571,11 @@ impl ::core::marker::Copy for SensorState {}
 impl ::core::clone::Clone for SensorState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SensorState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SensorState {
@@ -2545,6 +2635,11 @@ impl ::core::marker::Copy for SimpleDeviceOrientation {}
 impl ::core::clone::Clone for SimpleDeviceOrientation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SimpleDeviceOrientation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SimpleDeviceOrientation {

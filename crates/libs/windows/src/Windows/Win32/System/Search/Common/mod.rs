@@ -39,6 +39,11 @@ impl ::core::clone::Clone for CONDITION_OPERATION {
         *self
     }
 }
+impl ::core::default::Default for CONDITION_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONDITION_OPERATION {
     type Abi = Self;
 }
@@ -63,6 +68,11 @@ impl ::core::marker::Copy for CONDITION_TYPE {}
 impl ::core::clone::Clone for CONDITION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CONDITION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CONDITION_TYPE {

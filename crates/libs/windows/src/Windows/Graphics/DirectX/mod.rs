@@ -17,6 +17,11 @@ impl ::core::clone::Clone for DirectXAlphaMode {
         *self
     }
 }
+impl ::core::default::Default for DirectXAlphaMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DirectXAlphaMode {
     type Abi = Self;
 }
@@ -66,6 +71,11 @@ impl ::core::marker::Copy for DirectXColorSpace {}
 impl ::core::clone::Clone for DirectXColorSpace {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DirectXColorSpace {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DirectXColorSpace {
@@ -215,6 +225,11 @@ impl ::core::clone::Clone for DirectXPixelFormat {
         *self
     }
 }
+impl ::core::default::Default for DirectXPixelFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DirectXPixelFormat {
     type Abi = Self;
 }
@@ -245,6 +260,11 @@ impl ::core::marker::Copy for DirectXPrimitiveTopology {}
 impl ::core::clone::Clone for DirectXPrimitiveTopology {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DirectXPrimitiveTopology {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DirectXPrimitiveTopology {

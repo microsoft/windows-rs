@@ -43,6 +43,11 @@ impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
         *self
     }
 }
+impl ::core::default::Default for ACT_AUTHORIZATION_STATE_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE_VALUE {
     type Abi = Self;
 }

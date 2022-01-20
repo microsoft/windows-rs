@@ -507,6 +507,11 @@ impl ::core::clone::Clone for GET_CONVERSION_LIST_FLAG {
         *self
     }
 }
+impl ::core::default::Default for GET_CONVERSION_LIST_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GET_CONVERSION_LIST_FLAG {
     type Abi = Self;
 }
@@ -559,6 +564,11 @@ impl ::core::marker::Copy for GET_GUIDE_LINE_TYPE {}
 impl ::core::clone::Clone for GET_GUIDE_LINE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GET_GUIDE_LINE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GET_GUIDE_LINE_TYPE {
@@ -4158,6 +4168,11 @@ impl ::core::clone::Clone for IMEFMT {
         *self
     }
 }
+impl ::core::default::Default for IMEFMT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMEFMT {
     type Abi = Self;
 }
@@ -4796,6 +4811,11 @@ impl ::core::clone::Clone for IMEREG {
         *self
     }
 }
+impl ::core::default::Default for IMEREG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IMEREG {
     type Abi = Self;
 }
@@ -4862,6 +4882,11 @@ impl ::core::marker::Copy for IMEREL {}
 impl ::core::clone::Clone for IMEREL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMEREL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMEREL {
@@ -5008,6 +5033,11 @@ impl ::core::marker::Copy for IMEUCT {}
 impl ::core::clone::Clone for IMEUCT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IMEUCT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IMEUCT {
@@ -5264,6 +5294,11 @@ impl ::core::marker::Copy for IME_PAD_REQUEST_FLAGS {}
 impl ::core::clone::Clone for IME_PAD_REQUEST_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IME_PAD_REQUEST_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IME_PAD_REQUEST_FLAGS {
@@ -7338,6 +7373,11 @@ impl ::core::clone::Clone for NOTIFY_IME_ACTION {
         *self
     }
 }
+impl ::core::default::Default for NOTIFY_IME_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NOTIFY_IME_ACTION {
     type Abi = Self;
 }
@@ -7390,6 +7430,11 @@ impl ::core::marker::Copy for NOTIFY_IME_INDEX {}
 impl ::core::clone::Clone for NOTIFY_IME_INDEX {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NOTIFY_IME_INDEX {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NOTIFY_IME_INDEX {
@@ -7612,6 +7657,11 @@ impl ::core::marker::Copy for SET_COMPOSITION_STRING_TYPE {}
 impl ::core::clone::Clone for SET_COMPOSITION_STRING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SET_COMPOSITION_STRING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SET_COMPOSITION_STRING_TYPE {

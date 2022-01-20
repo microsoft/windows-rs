@@ -372,6 +372,11 @@ impl ::core::clone::Clone for DNS_CHARSET {
         *self
     }
 }
+impl ::core::default::Default for DNS_CHARSET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DNS_CHARSET {
     type Abi = Self;
 }
@@ -446,6 +451,11 @@ impl ::core::marker::Copy for DNS_CONFIG_TYPE {}
 impl ::core::clone::Clone for DNS_CONFIG_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_CONFIG_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_CONFIG_TYPE {
@@ -696,6 +706,11 @@ impl ::core::marker::Copy for DNS_CONNECTION_POLICY_TAG {}
 impl ::core::clone::Clone for DNS_CONNECTION_POLICY_TAG {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_CONNECTION_POLICY_TAG {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_TAG {
@@ -959,6 +974,11 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_SWITCH {
         *self
     }
 }
+impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_SWITCH {
     type Abi = Self;
 }
@@ -1026,6 +1046,11 @@ impl ::core::marker::Copy for DNS_CONNECTION_PROXY_TYPE {}
 impl ::core::clone::Clone for DNS_CONNECTION_PROXY_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_CONNECTION_PROXY_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_TYPE {
@@ -1221,6 +1246,11 @@ impl ::core::marker::Copy for DNS_FREE_TYPE {}
 impl ::core::clone::Clone for DNS_FREE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_FREE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_FREE_TYPE {
@@ -1595,6 +1625,11 @@ impl ::core::marker::Copy for DNS_NAME_FORMAT {}
 impl ::core::clone::Clone for DNS_NAME_FORMAT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_NAME_FORMAT {
@@ -2061,6 +2096,11 @@ impl ::core::marker::Copy for DNS_PROXY_INFORMATION_TYPE {}
 impl ::core::clone::Clone for DNS_PROXY_INFORMATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_PROXY_INFORMATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION_TYPE {
@@ -3033,6 +3073,11 @@ impl ::core::marker::Copy for DNS_SECTION {}
 impl ::core::clone::Clone for DNS_SECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DNS_SECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DNS_SECTION {

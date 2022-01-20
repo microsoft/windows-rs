@@ -39,6 +39,11 @@ impl ::core::clone::Clone for ATTRIBUTE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ATTRIBUTE_TYPE {
     type Abi = Self;
 }
@@ -71,6 +76,11 @@ impl ::core::marker::Copy for DIAGNOSIS_STATUS {}
 impl ::core::clone::Clone for DIAGNOSIS_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DIAGNOSIS_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DIAGNOSIS_STATUS {
@@ -1148,6 +1158,11 @@ impl ::core::clone::Clone for PROBLEM_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PROBLEM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROBLEM_TYPE {
     type Abi = Self;
 }
@@ -1178,6 +1193,11 @@ impl ::core::clone::Clone for REPAIR_RISK {
         *self
     }
 }
+impl ::core::default::Default for REPAIR_RISK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for REPAIR_RISK {
     type Abi = Self;
 }
@@ -1202,6 +1222,11 @@ impl ::core::marker::Copy for REPAIR_SCOPE {}
 impl ::core::clone::Clone for REPAIR_SCOPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REPAIR_SCOPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REPAIR_SCOPE {
@@ -1230,6 +1255,11 @@ impl ::core::marker::Copy for REPAIR_STATUS {}
 impl ::core::clone::Clone for REPAIR_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for REPAIR_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for REPAIR_STATUS {
@@ -1441,6 +1471,11 @@ impl ::core::marker::Copy for UI_INFO_TYPE {}
 impl ::core::clone::Clone for UI_INFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UI_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UI_INFO_TYPE {

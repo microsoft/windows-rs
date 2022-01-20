@@ -48,6 +48,11 @@ impl ::core::clone::Clone for CROSS_SLIDE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CROSS_SLIDE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CROSS_SLIDE_FLAGS {
     type Abi = Self;
 }
@@ -135,6 +140,11 @@ impl ::core::marker::Copy for CROSS_SLIDE_THRESHOLD {}
 impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CROSS_SLIDE_THRESHOLD {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CROSS_SLIDE_THRESHOLD {
@@ -363,6 +373,11 @@ impl ::core::clone::Clone for HOLD_PARAMETER {
         *self
     }
 }
+impl ::core::default::Default for HOLD_PARAMETER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HOLD_PARAMETER {
     type Abi = Self;
 }
@@ -393,6 +408,11 @@ impl ::core::marker::Copy for INERTIA_PARAMETER {}
 impl ::core::clone::Clone for INERTIA_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INERTIA_PARAMETER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INERTIA_PARAMETER {
@@ -560,6 +580,11 @@ impl ::core::marker::Copy for INTERACTION_CONFIGURATION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_CONFIGURATION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERACTION_CONFIGURATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERACTION_CONFIGURATION_FLAGS {
@@ -797,6 +822,11 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_PROPERTY {
         *self
     }
 }
+impl ::core::default::Default for INTERACTION_CONTEXT_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_PROPERTY {
     type Abi = Self;
 }
@@ -825,6 +855,11 @@ impl ::core::marker::Copy for INTERACTION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INTERACTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INTERACTION_FLAGS {
@@ -889,6 +924,11 @@ impl ::core::clone::Clone for INTERACTION_ID {
         *self
     }
 }
+impl ::core::default::Default for INTERACTION_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_ID {
     type Abi = Self;
 }
@@ -915,6 +955,11 @@ impl ::core::clone::Clone for INTERACTION_STATE {
         *self
     }
 }
+impl ::core::default::Default for INTERACTION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for INTERACTION_STATE {
     type Abi = Self;
 }
@@ -939,6 +984,11 @@ impl ::core::marker::Copy for MANIPULATION_RAILS_STATE {}
 impl ::core::clone::Clone for MANIPULATION_RAILS_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MANIPULATION_RAILS_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MANIPULATION_RAILS_STATE {
@@ -1038,6 +1088,11 @@ impl ::core::marker::Copy for MOUSE_WHEEL_PARAMETER {}
 impl ::core::clone::Clone for MOUSE_WHEEL_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MOUSE_WHEEL_PARAMETER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MOUSE_WHEEL_PARAMETER {
@@ -1305,6 +1360,11 @@ impl ::core::clone::Clone for TAP_PARAMETER {
         *self
     }
 }
+impl ::core::default::Default for TAP_PARAMETER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TAP_PARAMETER {
     type Abi = Self;
 }
@@ -1327,6 +1387,11 @@ impl ::core::marker::Copy for TRANSLATION_PARAMETER {}
 impl ::core::clone::Clone for TRANSLATION_PARAMETER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TRANSLATION_PARAMETER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TRANSLATION_PARAMETER {

@@ -635,6 +635,11 @@ impl ::core::clone::Clone for FilterType {
         *self
     }
 }
+impl ::core::default::Default for FilterType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FilterType {
     type Abi = Self;
 }
@@ -2369,6 +2374,11 @@ impl ::core::clone::Clone for QOS_FLOWRATE_REASON {
         *self
     }
 }
+impl ::core::default::Default for QOS_FLOWRATE_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QOS_FLOWRATE_REASON {
     type Abi = Self;
 }
@@ -2473,6 +2483,11 @@ impl ::core::clone::Clone for QOS_NOTIFY_FLOW {
         *self
     }
 }
+impl ::core::default::Default for QOS_NOTIFY_FLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QOS_NOTIFY_FLOW {
     type Abi = Self;
 }
@@ -2567,6 +2582,11 @@ impl ::core::clone::Clone for QOS_QUERY_FLOW {
         *self
     }
 }
+impl ::core::default::Default for QOS_QUERY_FLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QOS_QUERY_FLOW {
     type Abi = Self;
 }
@@ -2622,6 +2642,11 @@ impl ::core::clone::Clone for QOS_SET_FLOW {
         *self
     }
 }
+impl ::core::default::Default for QOS_SET_FLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for QOS_SET_FLOW {
     type Abi = Self;
 }
@@ -2644,6 +2669,11 @@ impl ::core::marker::Copy for QOS_SHAPING {}
 impl ::core::clone::Clone for QOS_SHAPING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QOS_SHAPING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QOS_SHAPING {
@@ -2768,6 +2798,11 @@ impl ::core::marker::Copy for QOS_TRAFFIC_TYPE {}
 impl ::core::clone::Clone for QOS_TRAFFIC_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QOS_TRAFFIC_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QOS_TRAFFIC_TYPE {
@@ -4996,6 +5031,11 @@ impl ::core::marker::Copy for int_serv_wkp {}
 impl ::core::clone::Clone for int_serv_wkp {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for int_serv_wkp {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for int_serv_wkp {

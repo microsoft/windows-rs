@@ -114,6 +114,11 @@ impl ::core::clone::Clone for UserDataAvailability {
         *self
     }
 }
+impl ::core::default::Default for UserDataAvailability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAvailability {
     type Abi = Self;
 }
@@ -312,6 +317,11 @@ impl ::core::marker::Copy for UserDataBufferUnprotectStatus {}
 impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataBufferUnprotectStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
@@ -574,6 +584,11 @@ impl ::core::marker::Copy for UserDataStorageItemProtectionStatus {}
 impl ::core::clone::Clone for UserDataStorageItemProtectionStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataStorageItemProtectionStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataStorageItemProtectionStatus {

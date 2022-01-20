@@ -15,6 +15,11 @@ impl ::core::clone::Clone for AddServiceFlag {
         *self
     }
 }
+impl ::core::default::Default for AddServiceFlag {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddServiceFlag {
     type Abi = Self;
 }
@@ -37,6 +42,11 @@ impl ::core::marker::Copy for AutoDownloadMode {}
 impl ::core::clone::Clone for AutoDownloadMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutoDownloadMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutoDownloadMode {
@@ -63,6 +73,11 @@ impl ::core::marker::Copy for AutoSelectionMode {}
 impl ::core::clone::Clone for AutoSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutoSelectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutoSelectionMode {
@@ -94,6 +109,11 @@ impl ::core::clone::Clone for AutomaticUpdatesNotificationLevel {
         *self
     }
 }
+impl ::core::default::Default for AutomaticUpdatesNotificationLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomaticUpdatesNotificationLevel {
     type Abi = Self;
 }
@@ -120,6 +140,11 @@ impl ::core::marker::Copy for AutomaticUpdatesPermissionType {}
 impl ::core::clone::Clone for AutomaticUpdatesPermissionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomaticUpdatesPermissionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomaticUpdatesPermissionType {
@@ -156,6 +181,11 @@ impl ::core::clone::Clone for AutomaticUpdatesScheduledInstallationDay {
         *self
     }
 }
+impl ::core::default::Default for AutomaticUpdatesScheduledInstallationDay {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AutomaticUpdatesScheduledInstallationDay {
     type Abi = Self;
 }
@@ -176,6 +206,11 @@ impl ::core::marker::Copy for AutomaticUpdatesUserType {}
 impl ::core::clone::Clone for AutomaticUpdatesUserType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AutomaticUpdatesUserType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AutomaticUpdatesUserType {
@@ -206,6 +241,11 @@ impl ::core::clone::Clone for DeploymentAction {
         *self
     }
 }
+impl ::core::default::Default for DeploymentAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DeploymentAction {
     type Abi = Self;
 }
@@ -228,6 +268,11 @@ impl ::core::marker::Copy for DownloadPhase {}
 impl ::core::clone::Clone for DownloadPhase {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DownloadPhase {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DownloadPhase {
@@ -254,6 +299,11 @@ impl ::core::marker::Copy for DownloadPriority {}
 impl ::core::clone::Clone for DownloadPriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DownloadPriority {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DownloadPriority {
@@ -15567,6 +15617,11 @@ impl ::core::clone::Clone for InstallationImpact {
         *self
     }
 }
+impl ::core::default::Default for InstallationImpact {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for InstallationImpact {
     type Abi = Self;
 }
@@ -15589,6 +15644,11 @@ impl ::core::marker::Copy for InstallationRebootBehavior {}
 impl ::core::clone::Clone for InstallationRebootBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for InstallationRebootBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for InstallationRebootBehavior {
@@ -15622,6 +15682,11 @@ impl ::core::clone::Clone for OperationResultCode {
         *self
     }
 }
+impl ::core::default::Default for OperationResultCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for OperationResultCode {
     type Abi = Self;
 }
@@ -15652,6 +15717,11 @@ impl ::core::clone::Clone for SearchScope {
         *self
     }
 }
+impl ::core::default::Default for SearchScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SearchScope {
     type Abi = Self;
 }
@@ -15676,6 +15746,11 @@ impl ::core::marker::Copy for ServerSelection {}
 impl ::core::clone::Clone for ServerSelection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ServerSelection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ServerSelection {
@@ -15710,6 +15785,11 @@ impl ::core::clone::Clone for UpdateExceptionContext {
         *self
     }
 }
+impl ::core::default::Default for UpdateExceptionContext {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UpdateExceptionContext {
     type Abi = Self;
 }
@@ -15729,6 +15809,11 @@ impl ::core::marker::Copy for UpdateLockdownOption {}
 impl ::core::clone::Clone for UpdateLockdownOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UpdateLockdownOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UpdateLockdownOption {
@@ -15753,6 +15838,11 @@ impl ::core::clone::Clone for UpdateOperation {
         *self
     }
 }
+impl ::core::default::Default for UpdateOperation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UpdateOperation {
     type Abi = Self;
 }
@@ -15773,6 +15863,11 @@ impl ::core::marker::Copy for UpdateServiceOption {}
 impl ::core::clone::Clone for UpdateServiceOption {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UpdateServiceOption {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UpdateServiceOption {
@@ -15799,6 +15894,11 @@ impl ::core::clone::Clone for UpdateServiceRegistrationState {
         *self
     }
 }
+impl ::core::default::Default for UpdateServiceRegistrationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UpdateServiceRegistrationState {
     type Abi = Self;
 }
@@ -15820,6 +15920,11 @@ impl ::core::marker::Copy for UpdateType {}
 impl ::core::clone::Clone for UpdateType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UpdateType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UpdateType {

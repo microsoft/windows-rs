@@ -60,6 +60,11 @@ impl ::core::clone::Clone for EndpointConnectorType {
         *self
     }
 }
+impl ::core::default::Default for EndpointConnectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EndpointConnectorType {
     type Abi = Self;
 }

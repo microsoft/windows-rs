@@ -19,6 +19,11 @@ impl ::core::clone::Clone for AcrylicBackgroundSource {
         *self
     }
 }
+impl ::core::default::Default for AcrylicBackgroundSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AcrylicBackgroundSource {
     type Abi = Self;
 }
@@ -361,6 +366,11 @@ impl ::core::clone::Clone for AlignmentX {
         *self
     }
 }
+impl ::core::default::Default for AlignmentX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AlignmentX {
     type Abi = Self;
 }
@@ -388,6 +398,11 @@ impl ::core::marker::Copy for AlignmentY {}
 impl ::core::clone::Clone for AlignmentY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AlignmentY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AlignmentY {
@@ -657,6 +672,11 @@ impl ::core::clone::Clone for AudioCategory {
         *self
     }
 }
+impl ::core::default::Default for AudioCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioCategory {
     type Abi = Self;
 }
@@ -684,6 +704,11 @@ impl ::core::marker::Copy for AudioDeviceType {}
 impl ::core::clone::Clone for AudioDeviceType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioDeviceType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioDeviceType {
@@ -1478,6 +1503,11 @@ impl ::core::clone::Clone for BrushMappingMode {
         *self
     }
 }
+impl ::core::default::Default for BrushMappingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BrushMappingMode {
     type Abi = Self;
 }
@@ -1596,6 +1626,11 @@ impl ::core::marker::Copy for ColorInterpolationMode {}
 impl ::core::clone::Clone for ColorInterpolationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ColorInterpolationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ColorInterpolationMode {
@@ -2337,6 +2372,11 @@ impl ::core::clone::Clone for ElementCompositeMode {
         *self
     }
 }
+impl ::core::default::Default for ElementCompositeMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ElementCompositeMode {
     type Abi = Self;
 }
@@ -2553,6 +2593,11 @@ impl ::core::clone::Clone for FastPlayFallbackBehaviour {
         *self
     }
 }
+impl ::core::default::Default for FastPlayFallbackBehaviour {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FastPlayFallbackBehaviour {
     type Abi = Self;
 }
@@ -2579,6 +2624,11 @@ impl ::core::marker::Copy for FillRule {}
 impl ::core::clone::Clone for FillRule {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FillRule {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FillRule {
@@ -3646,6 +3696,11 @@ impl ::core::marker::Copy for GradientSpreadMethod {}
 impl ::core::clone::Clone for GradientSpreadMethod {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GradientSpreadMethod {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GradientSpreadMethod {
@@ -7266,6 +7321,11 @@ impl ::core::clone::Clone for LoadedImageSourceLoadStatus {
         *self
     }
 }
+impl ::core::default::Default for LoadedImageSourceLoadStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LoadedImageSourceLoadStatus {
     type Abi = Self;
 }
@@ -7965,6 +8025,11 @@ impl ::core::clone::Clone for MediaCanPlayResponse {
         *self
     }
 }
+impl ::core::default::Default for MediaCanPlayResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCanPlayResponse {
     type Abi = Self;
 }
@@ -7995,6 +8060,11 @@ impl ::core::marker::Copy for MediaElementState {}
 impl ::core::clone::Clone for MediaElementState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaElementState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaElementState {
@@ -9186,6 +9256,11 @@ impl ::core::clone::Clone for PenLineCap {
         *self
     }
 }
+impl ::core::default::Default for PenLineCap {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PenLineCap {
     type Abi = Self;
 }
@@ -9213,6 +9288,11 @@ impl ::core::marker::Copy for PenLineJoin {}
 impl ::core::clone::Clone for PenLineJoin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PenLineJoin {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PenLineJoin {
@@ -11719,6 +11799,11 @@ impl ::core::clone::Clone for RevealBrushState {
         *self
     }
 }
+impl ::core::default::Default for RevealBrushState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RevealBrushState {
     type Abi = Self;
 }
@@ -12678,6 +12763,11 @@ impl ::core::clone::Clone for Stereo3DVideoPackingMode {
         *self
     }
 }
+impl ::core::default::Default for Stereo3DVideoPackingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Stereo3DVideoPackingMode {
     type Abi = Self;
 }
@@ -12704,6 +12794,11 @@ impl ::core::marker::Copy for Stereo3DVideoRenderMode {}
 impl ::core::clone::Clone for Stereo3DVideoRenderMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for Stereo3DVideoRenderMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for Stereo3DVideoRenderMode {
@@ -12736,6 +12831,11 @@ impl ::core::clone::Clone for Stretch {
         *self
     }
 }
+impl ::core::default::Default for Stretch {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Stretch {
     type Abi = Self;
 }
@@ -12766,6 +12866,11 @@ impl ::core::clone::Clone for StyleSimulations {
         *self
     }
 }
+impl ::core::default::Default for StyleSimulations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StyleSimulations {
     type Abi = Self;
 }
@@ -12792,6 +12897,11 @@ impl ::core::marker::Copy for SweepDirection {}
 impl ::core::clone::Clone for SweepDirection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SweepDirection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SweepDirection {

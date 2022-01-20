@@ -89,6 +89,11 @@ impl ::core::clone::Clone for TokenBindingKeyType {
         *self
     }
 }
+impl ::core::default::Default for TokenBindingKeyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TokenBindingKeyType {
     type Abi = Self;
 }
@@ -190,6 +195,11 @@ impl ::core::marker::Copy for WebAuthenticationOptions {}
 impl ::core::clone::Clone for WebAuthenticationOptions {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebAuthenticationOptions {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
@@ -342,6 +352,11 @@ impl ::core::marker::Copy for WebAuthenticationStatus {}
 impl ::core::clone::Clone for WebAuthenticationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebAuthenticationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebAuthenticationStatus {

@@ -430,6 +430,11 @@ impl ::core::clone::Clone for TargetedContentAppInstallationState {
         *self
     }
 }
+impl ::core::default::Default for TargetedContentAppInstallationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
     type Abi = Self;
 }
@@ -457,6 +462,11 @@ impl ::core::marker::Copy for TargetedContentAvailability {}
 impl ::core::clone::Clone for TargetedContentAvailability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TargetedContentAvailability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentAvailability {
@@ -1174,6 +1184,11 @@ impl ::core::clone::Clone for TargetedContentInteraction {
         *self
     }
 }
+impl ::core::default::Default for TargetedContentInteraction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TargetedContentInteraction {
     type Abi = Self;
 }
@@ -1512,6 +1527,11 @@ impl ::core::marker::Copy for TargetedContentObjectKind {}
 impl ::core::clone::Clone for TargetedContentObjectKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TargetedContentObjectKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
@@ -2116,6 +2136,11 @@ impl ::core::marker::Copy for TargetedContentValueKind {}
 impl ::core::clone::Clone for TargetedContentValueKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TargetedContentValueKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TargetedContentValueKind {

@@ -27,6 +27,11 @@ impl ::core::clone::Clone for AR_STATE {
         *self
     }
 }
+impl ::core::default::Default for AR_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AR_STATE {
     type Abi = Self;
 }
@@ -116,6 +121,11 @@ impl ::core::marker::Copy for BACKLIGHT_OPTIMIZATION_LEVEL {}
 impl ::core::clone::Clone for BACKLIGHT_OPTIMIZATION_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BACKLIGHT_OPTIMIZATION_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
@@ -295,6 +305,11 @@ impl ::core::marker::Copy for BRIGHTNESS_INTERFACE_VERSION {}
 impl ::core::clone::Clone for BRIGHTNESS_INTERFACE_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BRIGHTNESS_INTERFACE_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BRIGHTNESS_INTERFACE_VERSION {
@@ -514,6 +529,11 @@ impl ::core::marker::Copy for BlackScreenDiagnosticsCalloutParam {}
 impl ::core::clone::Clone for BlackScreenDiagnosticsCalloutParam {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BlackScreenDiagnosticsCalloutParam {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BlackScreenDiagnosticsCalloutParam {
@@ -1117,6 +1137,11 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
     type Abi = Self;
 }
@@ -1285,6 +1310,11 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_STAGE_CONTROL {
         *self
     }
 }
+impl ::core::default::Default for COLORSPACE_TRANSFORM_STAGE_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     type Abi = Self;
 }
@@ -1337,6 +1367,11 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
         *self
     }
 }
+impl ::core::default::Default for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     type Abi = Self;
 }
@@ -1365,6 +1400,11 @@ impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TYPE {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COLORSPACE_TRANSFORM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TYPE {
@@ -1803,6 +1843,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_DEVICE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     type Abi = Self;
 }
@@ -2108,6 +2153,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
     type Abi = Self;
 }
@@ -2390,6 +2440,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PIXELFORMAT {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_PIXELFORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PIXELFORMAT {
     type Abi = Self;
 }
@@ -2449,6 +2504,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_ROTATION {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_ROTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_ROTATION {
     type Abi = Self;
 }
@@ -2481,6 +2541,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SCALING {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_SCALING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCALING {
     type Abi = Self;
 }
@@ -2509,6 +2574,11 @@ impl ::core::marker::Copy for DISPLAYCONFIG_SCANLINE_ORDERING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_SCANLINE_ORDERING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPLAYCONFIG_SCANLINE_ORDERING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
@@ -3296,6 +3366,11 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TOPOLOGY_ID {
         *self
     }
 }
+impl ::core::default::Default for DISPLAYCONFIG_TOPOLOGY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
     type Abi = Self;
 }
@@ -3354,6 +3429,11 @@ impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {}
 impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
@@ -3678,6 +3758,11 @@ impl ::core::marker::Copy for DSI_CONTROL_TRANSMISSION_MODE {}
 impl ::core::clone::Clone for DSI_CONTROL_TRANSMISSION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DSI_CONTROL_TRANSMISSION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DSI_CONTROL_TRANSMISSION_MODE {
@@ -4009,6 +4094,11 @@ impl ::core::clone::Clone for ENG_DEVICE_ATTRIBUTE {
         *self
     }
 }
+impl ::core::default::Default for ENG_DEVICE_ATTRIBUTE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ENG_DEVICE_ATTRIBUTE {
     type Abi = Self;
 }
@@ -4068,6 +4158,11 @@ impl ::core::marker::Copy for ENG_SYSTEM_ATTRIBUTE {}
 impl ::core::clone::Clone for ENG_SYSTEM_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ENG_SYSTEM_ATTRIBUTE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ENG_SYSTEM_ATTRIBUTE {
@@ -8417,6 +8512,11 @@ impl ::core::clone::Clone for MC_COLOR_TEMPERATURE {
         *self
     }
 }
+impl ::core::default::Default for MC_COLOR_TEMPERATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MC_COLOR_TEMPERATURE {
     type Abi = Self;
 }
@@ -8453,6 +8553,11 @@ impl ::core::clone::Clone for MC_DISPLAY_TECHNOLOGY_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MC_DISPLAY_TECHNOLOGY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
     type Abi = Self;
 }
@@ -8475,6 +8580,11 @@ impl ::core::marker::Copy for MC_DRIVE_TYPE {}
 impl ::core::clone::Clone for MC_DRIVE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MC_DRIVE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MC_DRIVE_TYPE {
@@ -8501,6 +8611,11 @@ impl ::core::clone::Clone for MC_GAIN_TYPE {
         *self
     }
 }
+impl ::core::default::Default for MC_GAIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MC_GAIN_TYPE {
     type Abi = Self;
 }
@@ -8521,6 +8636,11 @@ impl ::core::marker::Copy for MC_POSITION_TYPE {}
 impl ::core::clone::Clone for MC_POSITION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MC_POSITION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MC_POSITION_TYPE {
@@ -8545,6 +8665,11 @@ impl ::core::marker::Copy for MC_SIZE_TYPE {}
 impl ::core::clone::Clone for MC_SIZE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MC_SIZE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MC_SIZE_TYPE {
@@ -8612,6 +8737,11 @@ impl ::core::marker::Copy for MC_VCP_CODE_TYPE {}
 impl ::core::clone::Clone for MC_VCP_CODE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MC_VCP_CODE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MC_VCP_CODE_TYPE {
@@ -9008,6 +9138,11 @@ impl ::core::clone::Clone for ORIENTATION_PREFERENCE {
         *self
     }
 }
+impl ::core::default::Default for ORIENTATION_PREFERENCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ORIENTATION_PREFERENCE {
     type Abi = Self;
 }
@@ -9036,6 +9171,11 @@ impl ::core::marker::Copy for OUTPUT_COLOR_ENCODING {}
 impl ::core::clone::Clone for OUTPUT_COLOR_ENCODING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OUTPUT_COLOR_ENCODING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OUTPUT_COLOR_ENCODING {
@@ -9068,6 +9208,11 @@ impl ::core::marker::Copy for OUTPUT_WIRE_COLOR_SPACE_TYPE {}
 impl ::core::clone::Clone for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for OUTPUT_WIRE_COLOR_SPACE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
@@ -11237,6 +11382,11 @@ impl ::core::clone::Clone for VIDEO_BANK_TYPE {
         *self
     }
 }
+impl ::core::default::Default for VIDEO_BANK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VIDEO_BANK_TYPE {
     type Abi = Self;
 }
@@ -12330,6 +12480,11 @@ impl ::core::clone::Clone for VIDEO_POWER_STATE {
         *self
     }
 }
+impl ::core::default::Default for VIDEO_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VIDEO_POWER_STATE {
     type Abi = Self;
 }
@@ -12687,6 +12842,11 @@ impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {}
 impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {

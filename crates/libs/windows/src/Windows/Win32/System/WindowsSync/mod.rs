@@ -17,6 +17,11 @@ impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
         *self
     }
 }
+impl ::core::default::Default for CONFLICT_RESOLUTION_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONFLICT_RESOLUTION_POLICY {
     type Abi = Self;
 }
@@ -43,6 +48,11 @@ impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
         *self
     }
 }
+impl ::core::default::Default for CONSTRAINT_CONFLICT_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CONSTRAINT_CONFLICT_REASON {
     type Abi = Self;
 }
@@ -65,6 +75,11 @@ impl ::core::clone::Clone for FILTERING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for FILTERING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FILTERING_TYPE {
     type Abi = Self;
 }
@@ -83,6 +98,11 @@ impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
 impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILTER_COMBINATION_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_COMBINATION_TYPE {
@@ -7026,6 +7046,11 @@ impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
         *self
     }
 }
+impl ::core::default::Default for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
     type Abi = Self;
 }
@@ -7130,6 +7155,11 @@ impl ::core::clone::Clone for SYNC_CONSTRAINT_RESOLVE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for SYNC_CONSTRAINT_RESOLVE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_CONSTRAINT_RESOLVE_ACTION {
     type Abi = Self;
 }
@@ -7201,6 +7231,11 @@ impl ::core::clone::Clone for SYNC_FULL_ENUMERATION_ACTION {
         *self
     }
 }
+impl ::core::default::Default for SYNC_FULL_ENUMERATION_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_FULL_ENUMERATION_ACTION {
     type Abi = Self;
 }
@@ -7225,6 +7260,11 @@ impl ::core::clone::Clone for SYNC_PROGRESS_STAGE {
         *self
     }
 }
+impl ::core::default::Default for SYNC_PROGRESS_STAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_PROGRESS_STAGE {
     type Abi = Self;
 }
@@ -7245,6 +7285,11 @@ impl ::core::marker::Copy for SYNC_PROVIDER_ROLE {}
 impl ::core::clone::Clone for SYNC_PROVIDER_ROLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYNC_PROVIDER_ROLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_PROVIDER_ROLE {
@@ -7310,6 +7355,11 @@ impl ::core::clone::Clone for SYNC_REGISTRATION_EVENT {
         *self
     }
 }
+impl ::core::default::Default for SYNC_REGISTRATION_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_REGISTRATION_EVENT {
     type Abi = Self;
 }
@@ -7340,6 +7390,11 @@ impl ::core::clone::Clone for SYNC_RESOLVE_ACTION {
         *self
     }
 }
+impl ::core::default::Default for SYNC_RESOLVE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SYNC_RESOLVE_ACTION {
     type Abi = Self;
 }
@@ -7362,6 +7417,11 @@ impl ::core::marker::Copy for SYNC_SERIALIZATION_VERSION {}
 impl ::core::clone::Clone for SYNC_SERIALIZATION_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYNC_SERIALIZATION_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_SERIALIZATION_VERSION {
@@ -7415,6 +7475,11 @@ impl ::core::marker::Copy for SYNC_STATISTICS {}
 impl ::core::clone::Clone for SYNC_STATISTICS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SYNC_STATISTICS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SYNC_STATISTICS {

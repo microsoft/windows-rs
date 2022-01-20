@@ -715,6 +715,11 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for TIMECODE_SAMPLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE_FLAGS {
     type Abi = Self;
 }

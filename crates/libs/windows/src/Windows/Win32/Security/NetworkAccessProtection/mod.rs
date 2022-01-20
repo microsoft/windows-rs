@@ -99,6 +99,11 @@ impl ::core::clone::Clone for ExtendedIsolationState {
         *self
     }
 }
+impl ::core::default::Default for ExtendedIsolationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ExtendedIsolationState {
     type Abi = Self;
 }
@@ -127,6 +132,11 @@ impl ::core::marker::Copy for FailureCategory {}
 impl ::core::clone::Clone for FailureCategory {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FailureCategory {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FailureCategory {
@@ -222,6 +232,11 @@ impl ::core::marker::Copy for FixupState {}
 impl ::core::clone::Clone for FixupState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FixupState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FixupState {
@@ -389,6 +404,11 @@ impl ::core::clone::Clone for IsolationState {
         *self
     }
 }
+impl ::core::default::Default for IsolationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for IsolationState {
     type Abi = Self;
 }
@@ -459,6 +479,11 @@ impl ::core::clone::Clone for NapNotifyType {
         *self
     }
 }
+impl ::core::default::Default for NapNotifyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NapNotifyType {
     type Abi = Self;
 }
@@ -483,6 +508,11 @@ impl ::core::marker::Copy for NapTracingLevel {}
 impl ::core::clone::Clone for NapTracingLevel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NapTracingLevel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NapTracingLevel {
@@ -567,6 +597,11 @@ impl ::core::marker::Copy for RemoteConfigurationType {}
 impl ::core::clone::Clone for RemoteConfigurationType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RemoteConfigurationType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RemoteConfigurationType {

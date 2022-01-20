@@ -68,6 +68,11 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
         *self
     }
 }
+impl ::core::default::Default for AddResourcePackageOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AddResourcePackageOptions {
     type Abi = Self;
 }
@@ -221,6 +226,11 @@ impl ::core::marker::Copy for AppExecutionContext {}
 impl ::core::clone::Clone for AppExecutionContext {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppExecutionContext {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppExecutionContext {
@@ -615,6 +625,11 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
         *self
     }
 }
+impl ::core::default::Default for AppInstallerPolicySource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppInstallerPolicySource {
     type Abi = Self;
 }
@@ -927,6 +942,11 @@ impl ::core::marker::Copy for FullTrustLaunchResult {}
 impl ::core::clone::Clone for FullTrustLaunchResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FullTrustLaunchResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FullTrustLaunchResult {
@@ -2736,6 +2756,11 @@ impl ::core::clone::Clone for LimitedAccessFeatureStatus {
         *self
     }
 }
+impl ::core::default::Default for LimitedAccessFeatureStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LimitedAccessFeatureStatus {
     type Abi = Self;
 }
@@ -4040,6 +4065,11 @@ impl ::core::clone::Clone for PackageContentGroupState {
         *self
     }
 }
+impl ::core::default::Default for PackageContentGroupState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageContentGroupState {
     type Abi = Self;
 }
@@ -4372,6 +4402,11 @@ impl ::core::marker::Copy for PackageSignatureKind {}
 impl ::core::clone::Clone for PackageSignatureKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PackageSignatureKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PackageSignatureKind {
@@ -4889,6 +4924,11 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
         *self
     }
 }
+impl ::core::default::Default for PackageUpdateAvailability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PackageUpdateAvailability {
     type Abi = Self;
 }
@@ -5291,6 +5331,11 @@ impl ::core::marker::Copy for StartupTaskState {}
 impl ::core::clone::Clone for StartupTaskState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for StartupTaskState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for StartupTaskState {

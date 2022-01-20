@@ -835,6 +835,11 @@ impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastCameraCaptureState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCameraCaptureState {
     type Abi = Self;
 }
@@ -959,6 +964,11 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastCameraOverlayLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlayLocation {
     type Abi = Self;
 }
@@ -986,6 +996,11 @@ impl ::core::marker::Copy for AppBroadcastCameraOverlaySize {}
 impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppBroadcastCameraOverlaySize {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlaySize {
@@ -1016,6 +1031,11 @@ impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastCaptureTargetType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastCaptureTargetType {
     type Abi = Self;
 }
@@ -1044,6 +1064,11 @@ impl ::core::marker::Copy for AppBroadcastExitBroadcastModeReason {}
 impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppBroadcastExitBroadcastModeReason {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastExitBroadcastModeReason {
@@ -1426,6 +1451,11 @@ impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastMicrophoneCaptureState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastMicrophoneCaptureState {
     type Abi = Self;
 }
@@ -1777,6 +1807,11 @@ impl ::core::clone::Clone for AppBroadcastPlugInState {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastPlugInState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastPlugInState {
     type Abi = Self;
 }
@@ -2003,6 +2038,11 @@ impl ::core::marker::Copy for AppBroadcastPreviewState {}
 impl ::core::clone::Clone for AppBroadcastPreviewState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppBroadcastPreviewState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastPreviewState {
@@ -2797,6 +2837,11 @@ impl ::core::clone::Clone for AppBroadcastSignInResult {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastSignInResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastSignInResult {
     type Abi = Self;
 }
@@ -2826,6 +2871,11 @@ impl ::core::marker::Copy for AppBroadcastSignInState {}
 impl ::core::clone::Clone for AppBroadcastSignInState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppBroadcastSignInState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastSignInState {
@@ -3656,6 +3706,11 @@ impl ::core::clone::Clone for AppBroadcastStreamState {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastStreamState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastStreamState {
     type Abi = Self;
 }
@@ -3981,6 +4036,11 @@ impl ::core::clone::Clone for AppBroadcastTerminationReason {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastTerminationReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastTerminationReason {
     type Abi = Self;
 }
@@ -4088,6 +4148,11 @@ impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
         *self
     }
 }
+impl ::core::default::Default for AppBroadcastVideoEncodingBitrateMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingBitrateMode {
     type Abi = Self;
 }
@@ -4114,6 +4179,11 @@ impl ::core::marker::Copy for AppBroadcastVideoEncodingResolutionMode {}
 impl ::core::clone::Clone for AppBroadcastVideoEncodingResolutionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppBroadcastVideoEncodingResolutionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingResolutionMode {
@@ -4827,6 +4897,11 @@ impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
         *self
     }
 }
+impl ::core::default::Default for AppCaptureHistoricalBufferLengthUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppCaptureHistoricalBufferLengthUnit {
     type Abi = Self;
 }
@@ -4876,6 +4951,11 @@ impl ::core::marker::Copy for AppCaptureMetadataPriority {}
 impl ::core::clone::Clone for AppCaptureMetadataPriority {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppCaptureMetadataPriority {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureMetadataPriority {
@@ -5080,6 +5160,11 @@ impl ::core::marker::Copy for AppCaptureMicrophoneCaptureState {}
 impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppCaptureMicrophoneCaptureState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureMicrophoneCaptureState {
@@ -5365,6 +5450,11 @@ impl ::core::marker::Copy for AppCaptureRecordingState {}
 impl ::core::clone::Clone for AppCaptureRecordingState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppCaptureRecordingState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureRecordingState {
@@ -6168,6 +6258,11 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
         *self
     }
 }
+impl ::core::default::Default for AppCaptureVideoEncodingBitrateMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingBitrateMode {
     type Abi = Self;
 }
@@ -6194,6 +6289,11 @@ impl ::core::marker::Copy for AppCaptureVideoEncodingFrameRateMode {}
 impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppCaptureVideoEncodingFrameRateMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingFrameRateMode {
@@ -6223,6 +6323,11 @@ impl ::core::marker::Copy for AppCaptureVideoEncodingResolutionMode {}
 impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AppCaptureVideoEncodingResolutionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingResolutionMode {
@@ -6360,6 +6465,11 @@ impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
         *self
     }
 }
+impl ::core::default::Default for CameraCaptureUIMaxPhotoResolution {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxPhotoResolution {
     type Abi = Self;
 }
@@ -6390,6 +6500,11 @@ impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
         *self
     }
 }
+impl ::core::default::Default for CameraCaptureUIMaxVideoResolution {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxVideoResolution {
     type Abi = Self;
 }
@@ -6417,6 +6532,11 @@ impl ::core::marker::Copy for CameraCaptureUIMode {}
 impl ::core::clone::Clone for CameraCaptureUIMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CameraCaptureUIMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CameraCaptureUIMode {
@@ -6590,6 +6710,11 @@ impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
         *self
     }
 }
+impl ::core::default::Default for CameraCaptureUIPhotoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CameraCaptureUIPhotoFormat {
     type Abi = Self;
 }
@@ -6741,6 +6866,11 @@ impl ::core::marker::Copy for CameraCaptureUIVideoFormat {}
 impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CameraCaptureUIVideoFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CameraCaptureUIVideoFormat {
@@ -7463,6 +7593,11 @@ impl ::core::clone::Clone for ForegroundActivationArgument {
         *self
     }
 }
+impl ::core::default::Default for ForegroundActivationArgument {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ForegroundActivationArgument {
     type Abi = Self;
 }
@@ -7503,6 +7638,11 @@ impl ::core::clone::Clone for GameBarCommand {
         *self
     }
 }
+impl ::core::default::Default for GameBarCommand {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GameBarCommand {
     type Abi = Self;
 }
@@ -7530,6 +7670,11 @@ impl ::core::marker::Copy for GameBarCommandOrigin {}
 impl ::core::clone::Clone for GameBarCommandOrigin {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameBarCommandOrigin {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameBarCommandOrigin {
@@ -7785,6 +7930,11 @@ impl ::core::marker::Copy for GameBarServicesDisplayMode {}
 impl ::core::clone::Clone for GameBarServicesDisplayMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameBarServicesDisplayMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameBarServicesDisplayMode {
@@ -8102,6 +8252,11 @@ impl ::core::marker::Copy for GameBarTargetCapturePolicy {}
 impl ::core::clone::Clone for GameBarTargetCapturePolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for GameBarTargetCapturePolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for GameBarTargetCapturePolicy {
@@ -10910,6 +11065,11 @@ impl ::core::clone::Clone for KnownVideoProfile {
         *self
     }
 }
+impl ::core::default::Default for KnownVideoProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for KnownVideoProfile {
     type Abi = Self;
 }
@@ -11971,6 +12131,11 @@ impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatus {
         *self
     }
 }
+impl ::core::default::Default for MediaCaptureDeviceExclusiveControlStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureDeviceExclusiveControlStatus {
     type Abi = Self;
 }
@@ -12659,6 +12824,11 @@ impl ::core::clone::Clone for MediaCaptureMemoryPreference {
         *self
     }
 }
+impl ::core::default::Default for MediaCaptureMemoryPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureMemoryPreference {
     type Abi = Self;
 }
@@ -13133,6 +13303,11 @@ impl ::core::clone::Clone for MediaCaptureSharingMode {
         *self
     }
 }
+impl ::core::default::Default for MediaCaptureSharingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCaptureSharingMode {
     type Abi = Self;
 }
@@ -13279,6 +13454,11 @@ impl ::core::marker::Copy for MediaCaptureThermalStatus {}
 impl ::core::clone::Clone for MediaCaptureThermalStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaCaptureThermalStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaCaptureThermalStatus {
@@ -13590,6 +13770,11 @@ impl ::core::clone::Clone for MediaCategory {
         *self
     }
 }
+impl ::core::default::Default for MediaCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaCategory {
     type Abi = Self;
 }
@@ -13619,6 +13804,11 @@ impl ::core::marker::Copy for MediaStreamType {}
 impl ::core::clone::Clone for MediaStreamType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaStreamType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaStreamType {
@@ -13737,6 +13927,11 @@ impl ::core::marker::Copy for PhotoCaptureSource {}
 impl ::core::clone::Clone for PhotoCaptureSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhotoCaptureSource {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhotoCaptureSource {
@@ -13955,6 +14150,11 @@ impl ::core::marker::Copy for PowerlineFrequency {}
 impl ::core::clone::Clone for PowerlineFrequency {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PowerlineFrequency {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PowerlineFrequency {
@@ -14287,6 +14487,11 @@ impl ::core::clone::Clone for StreamingCaptureMode {
         *self
     }
 }
+impl ::core::default::Default for StreamingCaptureMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for StreamingCaptureMode {
     type Abi = Self;
 }
@@ -14318,6 +14523,11 @@ impl ::core::clone::Clone for VideoDeviceCharacteristic {
         *self
     }
 }
+impl ::core::default::Default for VideoDeviceCharacteristic {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for VideoDeviceCharacteristic {
     type Abi = Self;
 }
@@ -14346,6 +14556,11 @@ impl ::core::marker::Copy for VideoRotation {}
 impl ::core::clone::Clone for VideoRotation {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VideoRotation {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VideoRotation {

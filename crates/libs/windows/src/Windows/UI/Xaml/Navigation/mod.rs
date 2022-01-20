@@ -672,6 +672,11 @@ impl ::core::clone::Clone for NavigationCacheMode {
         *self
     }
 }
+impl ::core::default::Default for NavigationCacheMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NavigationCacheMode {
     type Abi = Self;
 }
@@ -1011,6 +1016,11 @@ impl ::core::marker::Copy for NavigationMode {}
 impl ::core::clone::Clone for NavigationMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NavigationMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NavigationMode {

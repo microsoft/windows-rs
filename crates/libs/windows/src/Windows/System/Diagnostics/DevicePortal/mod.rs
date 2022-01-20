@@ -259,6 +259,11 @@ impl ::core::clone::Clone for DevicePortalConnectionClosedReason {
         *self
     }
 }
+impl ::core::default::Default for DevicePortalConnectionClosedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DevicePortalConnectionClosedReason {
     type Abi = Self;
 }

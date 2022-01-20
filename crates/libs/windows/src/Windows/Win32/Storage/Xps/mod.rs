@@ -89,6 +89,11 @@ impl ::core::clone::Clone for DEVICE_CAPABILITIES {
         *self
     }
 }
+impl ::core::default::Default for DEVICE_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DEVICE_CAPABILITIES {
     type Abi = Self;
 }
@@ -10303,6 +10308,11 @@ impl ::core::clone::Clone for PRINT_WINDOW_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PRINT_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRINT_WINDOW_FLAGS {
     type Abi = Self;
 }
@@ -10514,6 +10524,11 @@ impl ::core::marker::Copy for PSINJECT_POINT {}
 impl ::core::clone::Clone for PSINJECT_POINT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSINJECT_POINT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSINJECT_POINT {
@@ -10791,6 +10806,11 @@ impl ::core::clone::Clone for XPS_COLOR_INTERPOLATION {
         *self
     }
 }
+impl ::core::default::Default for XPS_COLOR_INTERPOLATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_COLOR_INTERPOLATION {
     type Abi = Self;
 }
@@ -10813,6 +10833,11 @@ impl ::core::marker::Copy for XPS_COLOR_TYPE {}
 impl ::core::clone::Clone for XPS_COLOR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_COLOR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_COLOR_TYPE {
@@ -10872,6 +10897,11 @@ impl ::core::clone::Clone for XPS_DASH_CAP {
         *self
     }
 }
+impl ::core::default::Default for XPS_DASH_CAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_DASH_CAP {
     type Abi = Self;
 }
@@ -10894,6 +10924,11 @@ impl ::core::marker::Copy for XPS_DOCUMENT_TYPE {}
 impl ::core::clone::Clone for XPS_DOCUMENT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_DOCUMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_DOCUMENT_TYPE {
@@ -11088,6 +11123,11 @@ impl ::core::clone::Clone for XPS_FILL_RULE {
         *self
     }
 }
+impl ::core::default::Default for XPS_FILL_RULE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_FILL_RULE {
     type Abi = Self;
 }
@@ -11112,6 +11152,11 @@ impl ::core::marker::Copy for XPS_FONT_EMBEDDING {}
 impl ::core::clone::Clone for XPS_FONT_EMBEDDING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_FONT_EMBEDDING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_FONT_EMBEDDING {
@@ -11208,6 +11253,11 @@ impl ::core::clone::Clone for XPS_IMAGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for XPS_IMAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_IMAGE_TYPE {
     type Abi = Self;
 }
@@ -11228,6 +11278,11 @@ impl ::core::marker::Copy for XPS_INTERLEAVING {}
 impl ::core::clone::Clone for XPS_INTERLEAVING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_INTERLEAVING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_INTERLEAVING {
@@ -11256,6 +11311,11 @@ impl ::core::clone::Clone for XPS_LINE_CAP {
         *self
     }
 }
+impl ::core::default::Default for XPS_LINE_CAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_LINE_CAP {
     type Abi = Self;
 }
@@ -11278,6 +11338,11 @@ impl ::core::marker::Copy for XPS_LINE_JOIN {}
 impl ::core::clone::Clone for XPS_LINE_JOIN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_LINE_JOIN {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_LINE_JOIN {
@@ -11351,6 +11416,11 @@ impl ::core::marker::Copy for XPS_OBJECT_TYPE {}
 impl ::core::clone::Clone for XPS_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_OBJECT_TYPE {
@@ -11441,6 +11511,11 @@ impl ::core::clone::Clone for XPS_SEGMENT_STROKE_PATTERN {
         *self
     }
 }
+impl ::core::default::Default for XPS_SEGMENT_STROKE_PATTERN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_SEGMENT_STROKE_PATTERN {
     type Abi = Self;
 }
@@ -11473,6 +11548,11 @@ impl ::core::clone::Clone for XPS_SEGMENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for XPS_SEGMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_SEGMENT_TYPE {
     type Abi = Self;
 }
@@ -11501,6 +11581,11 @@ impl ::core::clone::Clone for XPS_SIGNATURE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for XPS_SIGNATURE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_SIGNATURE_STATUS {
     type Abi = Self;
 }
@@ -11521,6 +11606,11 @@ impl ::core::marker::Copy for XPS_SIGN_FLAGS {}
 impl ::core::clone::Clone for XPS_SIGN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_SIGN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_SIGN_FLAGS {
@@ -11551,6 +11641,11 @@ impl ::core::marker::Copy for XPS_SIGN_POLICY {}
 impl ::core::clone::Clone for XPS_SIGN_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_SIGN_POLICY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_SIGN_POLICY {
@@ -11608,6 +11703,11 @@ impl ::core::clone::Clone for XPS_SPREAD_METHOD {
         *self
     }
 }
+impl ::core::default::Default for XPS_SPREAD_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_SPREAD_METHOD {
     type Abi = Self;
 }
@@ -11632,6 +11732,11 @@ impl ::core::marker::Copy for XPS_STYLE_SIMULATION {}
 impl ::core::clone::Clone for XPS_STYLE_SIMULATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_STYLE_SIMULATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_STYLE_SIMULATION {
@@ -11660,6 +11765,11 @@ impl ::core::clone::Clone for XPS_THUMBNAIL_SIZE {
         *self
     }
 }
+impl ::core::default::Default for XPS_THUMBNAIL_SIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XPS_THUMBNAIL_SIZE {
     type Abi = Self;
 }
@@ -11686,6 +11796,11 @@ impl ::core::marker::Copy for XPS_TILE_MODE {}
 impl ::core::clone::Clone for XPS_TILE_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for XPS_TILE_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for XPS_TILE_MODE {

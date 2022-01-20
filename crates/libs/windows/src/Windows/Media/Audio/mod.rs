@@ -299,6 +299,11 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for AudioDeviceNodeCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioDeviceNodeCreationStatus {
     type Abi = Self;
 }
@@ -950,6 +955,11 @@ impl ::core::marker::Copy for AudioFileNodeCreationStatus {}
 impl ::core::clone::Clone for AudioFileNodeCreationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioFileNodeCreationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioFileNodeCreationStatus {
@@ -2452,6 +2462,11 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for AudioGraphCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioGraphCreationStatus {
     type Abi = Self;
 }
@@ -2663,6 +2678,11 @@ impl ::core::marker::Copy for AudioGraphUnrecoverableError {}
 impl ::core::clone::Clone for AudioGraphUnrecoverableError {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioGraphUnrecoverableError {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioGraphUnrecoverableError {
@@ -3084,6 +3104,11 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
         *self
     }
 }
+impl ::core::default::Default for AudioNodeEmitterDecayKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterDecayKind {
     type Abi = Self;
 }
@@ -3325,6 +3350,11 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
         *self
     }
 }
+impl ::core::default::Default for AudioNodeEmitterSettings {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterSettings {
     type Abi = Self;
 }
@@ -3487,6 +3517,11 @@ impl ::core::marker::Copy for AudioNodeEmitterShapeKind {}
 impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioNodeEmitterShapeKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioNodeEmitterShapeKind {
@@ -3932,6 +3967,11 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
         *self
     }
 }
+impl ::core::default::Default for AudioPlaybackConnectionOpenResultStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionOpenResultStatus {
     type Abi = Self;
 }
@@ -3958,6 +3998,11 @@ impl ::core::marker::Copy for AudioPlaybackConnectionState {}
 impl ::core::clone::Clone for AudioPlaybackConnectionState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for AudioPlaybackConnectionState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionState {
@@ -8228,6 +8273,11 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
         *self
     }
 }
+impl ::core::default::Default for MediaSourceAudioInputNodeCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaSourceAudioInputNodeCreationStatus {
     type Abi = Self;
 }
@@ -8254,6 +8304,11 @@ impl ::core::marker::Copy for MixedRealitySpatialAudioFormatPolicy {}
 impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MixedRealitySpatialAudioFormatPolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MixedRealitySpatialAudioFormatPolicy {
@@ -8283,6 +8338,11 @@ impl ::core::marker::Copy for QuantumSizeSelectionMode {}
 impl ::core::clone::Clone for QuantumSizeSelectionMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for QuantumSizeSelectionMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for QuantumSizeSelectionMode {
@@ -8826,6 +8886,11 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
         *self
     }
 }
+impl ::core::default::Default for SetDefaultSpatialAudioFormatStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SetDefaultSpatialAudioFormatStatus {
     type Abi = Self;
 }
@@ -9183,6 +9248,11 @@ impl ::core::marker::Copy for SpatialAudioModel {}
 impl ::core::clone::Clone for SpatialAudioModel {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SpatialAudioModel {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SpatialAudioModel {

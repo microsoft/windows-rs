@@ -698,6 +698,11 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
         *self
     }
 }
+impl ::core::default::Default for PeerDiscoveryTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PeerDiscoveryTypes {
     type Abi = Self;
 }
@@ -1030,6 +1035,11 @@ impl ::core::clone::Clone for PeerRole {
         *self
     }
 }
+impl ::core::default::Default for PeerRole {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PeerRole {
     type Abi = Self;
 }
@@ -1226,6 +1236,11 @@ impl ::core::marker::Copy for PeerWatcherStatus {}
 impl ::core::clone::Clone for PeerWatcherStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PeerWatcherStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PeerWatcherStatus {
@@ -1587,6 +1602,11 @@ impl ::core::marker::Copy for TriggeredConnectState {}
 impl ::core::clone::Clone for TriggeredConnectState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TriggeredConnectState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TriggeredConnectState {

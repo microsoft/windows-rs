@@ -529,6 +529,11 @@ impl ::core::clone::Clone for BCRYPT_DH_KEY_BLOB_MAGIC {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_DH_KEY_BLOB_MAGIC {
     type Abi = Self;
 }
@@ -683,6 +688,11 @@ impl ::core::marker::Copy for BCRYPT_DSA_MAGIC {}
 impl ::core::clone::Clone for BCRYPT_DSA_MAGIC {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BCRYPT_DSA_MAGIC {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BCRYPT_DSA_MAGIC {
@@ -982,6 +992,11 @@ impl ::core::clone::Clone for BCRYPT_HASH_OPERATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_HASH_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_HASH_OPERATION_TYPE {
     type Abi = Self;
 }
@@ -1032,6 +1047,11 @@ impl ::core::marker::Copy for BCRYPT_INTERFACE {}
 impl ::core::clone::Clone for BCRYPT_INTERFACE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BCRYPT_INTERFACE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BCRYPT_INTERFACE {
@@ -1327,6 +1347,11 @@ impl ::core::clone::Clone for BCRYPT_MULTI_OPERATION_TYPE {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_MULTI_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_MULTI_OPERATION_TYPE {
     type Abi = Self;
 }
@@ -1457,6 +1482,11 @@ impl ::core::clone::Clone for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type Abi = Self;
 }
@@ -1513,6 +1543,11 @@ impl ::core::marker::Copy for BCRYPT_OPERATION {}
 impl ::core::clone::Clone for BCRYPT_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BCRYPT_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BCRYPT_OPERATION {
@@ -1692,6 +1727,11 @@ impl ::core::clone::Clone for BCRYPT_QUERY_PROVIDER_MODE {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_QUERY_PROVIDER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_QUERY_PROVIDER_MODE {
     type Abi = Self;
 }
@@ -1748,6 +1788,11 @@ impl ::core::marker::Copy for BCRYPT_RESOLVE_PROVIDERS_FLAGS {}
 impl ::core::clone::Clone for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
@@ -1841,6 +1886,11 @@ impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB_MAGIC {
         *self
     }
 }
+impl ::core::default::Default for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for BCRYPT_RSAKEY_BLOB_MAGIC {
     type Abi = Self;
 }
@@ -1915,6 +1965,11 @@ impl ::core::marker::Copy for BCRYPT_TABLE {}
 impl ::core::clone::Clone for BCRYPT_TABLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for BCRYPT_TABLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for BCRYPT_TABLE {
@@ -2871,6 +2926,11 @@ impl ::core::clone::Clone for CASetupProperty {
         *self
     }
 }
+impl ::core::default::Default for CASetupProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CASetupProperty {
     type Abi = Self;
 }
@@ -2899,6 +2959,11 @@ impl ::core::marker::Copy for CEPSetupProperty {}
 impl ::core::clone::Clone for CEPSetupProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CEPSetupProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CEPSetupProperty {
@@ -3401,6 +3466,11 @@ impl ::core::marker::Copy for CERT_BIOMETRIC_DATA_TYPE {}
 impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_BIOMETRIC_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_DATA_TYPE {
@@ -3952,6 +4022,11 @@ impl ::core::clone::Clone for CERT_CHAIN_POLICY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_CHAIN_POLICY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_CHAIN_POLICY_FLAGS {
     type Abi = Self;
 }
@@ -4218,6 +4293,11 @@ impl ::core::clone::Clone for CERT_CONTROL_STORE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_CONTROL_STORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_CONTROL_STORE_FLAGS {
     type Abi = Self;
 }
@@ -4316,6 +4396,11 @@ impl ::core::marker::Copy for CERT_CREATE_SELFSIGN_FLAGS {}
 impl ::core::clone::Clone for CERT_CREATE_SELFSIGN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_CREATE_SELFSIGN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_CREATE_SELFSIGN_FLAGS {
@@ -4632,6 +4717,11 @@ impl ::core::clone::Clone for CERT_FIND_CHAIN_IN_STORE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     type Abi = Self;
 }
@@ -4762,6 +4852,11 @@ impl ::core::clone::Clone for CERT_FIND_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_FIND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_FIND_FLAGS {
     type Abi = Self;
 }
@@ -4820,6 +4915,11 @@ impl ::core::marker::Copy for CERT_FIND_TYPE {}
 impl ::core::clone::Clone for CERT_FIND_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_FIND_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_FIND_TYPE {
@@ -5046,6 +5146,11 @@ impl ::core::marker::Copy for CERT_ID_OPTION {}
 impl ::core::clone::Clone for CERT_ID_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_ID_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_ID_OPTION {
@@ -5382,6 +5487,11 @@ impl ::core::clone::Clone for CERT_KEY_SPEC {
         *self
     }
 }
+impl ::core::default::Default for CERT_KEY_SPEC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_KEY_SPEC {
     type Abi = Self;
 }
@@ -5606,6 +5716,11 @@ impl ::core::marker::Copy for CERT_LOGOTYPE_CHOICE {}
 impl ::core::clone::Clone for CERT_LOGOTYPE_CHOICE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_LOGOTYPE_CHOICE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_CHOICE {
@@ -5892,6 +6007,11 @@ impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     type Abi = Self;
 }
@@ -6006,6 +6126,11 @@ impl ::core::marker::Copy for CERT_LOGOTYPE_OPTION {}
 impl ::core::clone::Clone for CERT_LOGOTYPE_OPTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_LOGOTYPE_OPTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_OPTION {
@@ -6304,6 +6429,11 @@ impl ::core::marker::Copy for CERT_OPEN_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_OPEN_STORE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_OPEN_STORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_OPEN_STORE_FLAGS {
@@ -7179,6 +7309,11 @@ impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE {
     type Abi = Self;
 }
@@ -7257,6 +7392,11 @@ impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE_FLAGS {
     type Abi = Self;
 }
@@ -7305,6 +7445,11 @@ impl ::core::marker::Copy for CERT_QUERY_ENCODING_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_ENCODING_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_QUERY_ENCODING_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_QUERY_ENCODING_TYPE {
@@ -7357,6 +7502,11 @@ impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE {
@@ -7413,6 +7563,11 @@ impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE_FLAGS {
     type Abi = Self;
 }
@@ -7461,6 +7616,11 @@ impl ::core::marker::Copy for CERT_QUERY_OBJECT_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_QUERY_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_QUERY_OBJECT_TYPE {
@@ -7622,6 +7782,11 @@ impl ::core::marker::Copy for CERT_RDN_ATTR_VALUE_TYPE {}
 impl ::core::clone::Clone for CERT_RDN_ATTR_VALUE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_RDN_ATTR_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_RDN_ATTR_VALUE_TYPE {
@@ -8059,6 +8224,11 @@ impl ::core::clone::Clone for CERT_REVOCATION_STATUS_REASON {
         *self
     }
 }
+impl ::core::default::Default for CERT_REVOCATION_STATUS_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_REVOCATION_STATUS_REASON {
     type Abi = Self;
 }
@@ -8113,6 +8283,11 @@ impl ::core::marker::Copy for CERT_ROOT_PROGRAM_FLAGS {}
 impl ::core::clone::Clone for CERT_ROOT_PROGRAM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_ROOT_PROGRAM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_ROOT_PROGRAM_FLAGS {
@@ -8293,6 +8468,11 @@ impl ::core::marker::Copy for CERT_SELECT_CRITERIA_TYPE {}
 impl ::core::clone::Clone for CERT_SELECT_CRITERIA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_SELECT_CRITERIA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_SELECT_CRITERIA_TYPE {
@@ -8656,6 +8836,11 @@ impl ::core::clone::Clone for CERT_STORE_PROV_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CERT_STORE_PROV_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_STORE_PROV_FLAGS {
     type Abi = Self;
 }
@@ -8779,6 +8964,11 @@ impl ::core::clone::Clone for CERT_STORE_SAVE_AS {
         *self
     }
 }
+impl ::core::default::Default for CERT_STORE_SAVE_AS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_AS {
     type Abi = Self;
 }
@@ -8835,6 +9025,11 @@ impl ::core::marker::Copy for CERT_STORE_SAVE_TO {}
 impl ::core::clone::Clone for CERT_STORE_SAVE_TO {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_STORE_SAVE_TO {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_TO {
@@ -8897,6 +9092,11 @@ impl ::core::clone::Clone for CERT_STRING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CERT_STRING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CERT_STRING_TYPE {
     type Abi = Self;
 }
@@ -8945,6 +9145,11 @@ impl ::core::marker::Copy for CERT_STRONG_SIGN_FLAGS {}
 impl ::core::clone::Clone for CERT_STRONG_SIGN_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_STRONG_SIGN_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_FLAGS {
@@ -9167,6 +9372,11 @@ impl ::core::marker::Copy for CERT_SYSTEM_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_SYSTEM_STORE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CERT_SYSTEM_STORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_FLAGS {
@@ -9789,6 +9999,11 @@ impl ::core::marker::Copy for CESSetupProperty {}
 impl ::core::clone::Clone for CESSetupProperty {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CESSetupProperty {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CESSetupProperty {
@@ -11350,6 +11565,11 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_OPTION {
         *self
     }
 }
+impl ::core::default::Default for CMSG_KEY_AGREE_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_OPTION {
     type Abi = Self;
 }
@@ -11398,6 +11618,11 @@ impl ::core::marker::Copy for CMSG_KEY_AGREE_ORIGINATOR {}
 impl ::core::clone::Clone for CMSG_KEY_AGREE_ORIGINATOR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CMSG_KEY_AGREE_ORIGINATOR {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ORIGINATOR {
@@ -13352,6 +13577,11 @@ impl ::core::clone::Clone for CRYPT_ACQUIRE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_ACQUIRE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_ACQUIRE_FLAGS {
     type Abi = Self;
 }
@@ -13898,6 +14128,11 @@ impl ::core::clone::Clone for CRYPT_CONTEXT_CONFIG_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_CONFIG_FLAGS {
     type Abi = Self;
 }
@@ -14224,6 +14459,11 @@ impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_FLAGS {
     type Abi = Self;
 }
@@ -14311,6 +14551,11 @@ impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_TYPE {}
 impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_TYPE {
@@ -14506,6 +14751,11 @@ impl ::core::marker::Copy for CRYPT_ENCODE_OBJECT_FLAGS {}
 impl ::core::clone::Clone for CRYPT_ENCODE_OBJECT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_ENCODE_OBJECT_FLAGS {
@@ -14730,6 +14980,11 @@ impl ::core::clone::Clone for CRYPT_FIND_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_FIND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_FIND_FLAGS {
     type Abi = Self;
 }
@@ -14868,6 +15123,11 @@ impl ::core::marker::Copy for CRYPT_GET_URL_FLAGS {}
 impl ::core::clone::Clone for CRYPT_GET_URL_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_GET_URL_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_GET_URL_FLAGS {
@@ -15044,6 +15304,11 @@ impl ::core::clone::Clone for CRYPT_IMAGE_REF_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_IMAGE_REF_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_IMAGE_REF_FLAGS {
     type Abi = Self;
 }
@@ -15144,6 +15409,11 @@ impl ::core::marker::Copy for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {}
 impl ::core::clone::Clone for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
@@ -15311,6 +15581,11 @@ impl ::core::clone::Clone for CRYPT_KEY_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_KEY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_KEY_FLAGS {
     type Abi = Self;
 }
@@ -15371,6 +15646,11 @@ impl ::core::marker::Copy for CRYPT_KEY_PARAM_ID {}
 impl ::core::clone::Clone for CRYPT_KEY_PARAM_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_KEY_PARAM_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_KEY_PARAM_ID {
@@ -15700,6 +15980,11 @@ impl ::core::clone::Clone for CRYPT_MSG_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_MSG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_MSG_TYPE {
     type Abi = Self;
 }
@@ -15815,6 +16100,11 @@ impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {}
 impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
@@ -16827,6 +17117,11 @@ impl ::core::clone::Clone for CRYPT_SET_HASH_PARAM {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_SET_HASH_PARAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_SET_HASH_PARAM {
     type Abi = Self;
 }
@@ -16905,6 +17200,11 @@ impl ::core::marker::Copy for CRYPT_SET_PROV_PARAM_ID {}
 impl ::core::clone::Clone for CRYPT_SET_PROV_PARAM_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_SET_PROV_PARAM_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_SET_PROV_PARAM_ID {
@@ -17168,6 +17468,11 @@ impl ::core::marker::Copy for CRYPT_STRING {}
 impl ::core::clone::Clone for CRYPT_STRING {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_STRING {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_STRING {
@@ -17511,6 +17816,11 @@ impl ::core::clone::Clone for CRYPT_TIMESTAMP_RESPONSE_STATUS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     type Abi = Self;
 }
@@ -17557,6 +17867,11 @@ impl ::core::marker::Copy for CRYPT_TIMESTAMP_VERSION {}
 impl ::core::clone::Clone for CRYPT_TIMESTAMP_VERSION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_TIMESTAMP_VERSION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_VERSION {
@@ -17741,6 +18056,11 @@ impl ::core::marker::Copy for CRYPT_VERIFY_CERT_FLAGS {}
 impl ::core::clone::Clone for CRYPT_VERIFY_CERT_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_VERIFY_CERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_FLAGS {
@@ -18112,6 +18432,11 @@ impl ::core::clone::Clone for CRYPT_XML_CHARSET {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_XML_CHARSET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_XML_CHARSET {
     type Abi = Self;
 }
@@ -18342,6 +18667,11 @@ impl ::core::clone::Clone for CRYPT_XML_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_XML_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_XML_FLAGS {
     type Abi = Self;
 }
@@ -18402,6 +18732,11 @@ impl ::core::marker::Copy for CRYPT_XML_GROUP_ID {}
 impl ::core::clone::Clone for CRYPT_XML_GROUP_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_GROUP_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_GROUP_ID {
@@ -18546,6 +18881,11 @@ impl ::core::clone::Clone for CRYPT_XML_KEYINFO_SPEC {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_XML_KEYINFO_SPEC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_SPEC {
     type Abi = Self;
 }
@@ -18572,6 +18912,11 @@ impl ::core::marker::Copy for CRYPT_XML_KEYINFO_TYPE {}
 impl ::core::clone::Clone for CRYPT_XML_KEYINFO_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_KEYINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_TYPE {
@@ -18915,6 +19260,11 @@ impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_XML_KEY_VALUE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE_TYPE {
     type Abi = Self;
 }
@@ -19047,6 +19397,11 @@ impl ::core::marker::Copy for CRYPT_XML_PROPERTY_ID {}
 impl ::core::clone::Clone for CRYPT_XML_PROPERTY_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_PROPERTY_ID {
@@ -19291,6 +19646,11 @@ impl ::core::clone::Clone for CRYPT_XML_STATUS_ERROR_STATUS {
         *self
     }
 }
+impl ::core::default::Default for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_ERROR_STATUS {
     type Abi = Self;
 }
@@ -19347,6 +19707,11 @@ impl ::core::marker::Copy for CRYPT_XML_STATUS_INFO_STATUS {}
 impl ::core::clone::Clone for CRYPT_XML_STATUS_INFO_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_STATUS_INFO_STATUS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_INFO_STATUS {
@@ -19441,6 +19806,11 @@ impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_FLAGS {}
 impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_TRANSFORM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_TRANSFORM_FLAGS {
@@ -19652,6 +20022,11 @@ impl ::core::marker::Copy for CRYPT_XML_X509DATA_TYPE {}
 impl ::core::clone::Clone for CRYPT_XML_X509DATA_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CRYPT_XML_X509DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_TYPE {
@@ -21419,6 +21794,11 @@ impl ::core::marker::Copy for CertKeyType {}
 impl ::core::clone::Clone for CertKeyType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CertKeyType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CertKeyType {
@@ -24477,6 +24857,11 @@ impl ::core::clone::Clone for DSAFIPSVERSION_ENUM {
         *self
     }
 }
+impl ::core::default::Default for DSAFIPSVERSION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DSAFIPSVERSION_ENUM {
     type Abi = Self;
 }
@@ -24545,6 +24930,11 @@ impl ::core::clone::Clone for Direction {
         *self
     }
 }
+impl ::core::default::Default for Direction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for Direction {
     type Abi = Self;
 }
@@ -24563,6 +24953,11 @@ impl ::core::marker::Copy for ECC_CURVE_ALG_ID_ENUM {}
 impl ::core::clone::Clone for ECC_CURVE_ALG_ID_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ECC_CURVE_ALG_ID_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ECC_CURVE_ALG_ID_ENUM {
@@ -24587,6 +24982,11 @@ impl ::core::marker::Copy for ECC_CURVE_TYPE_ENUM {}
 impl ::core::clone::Clone for ECC_CURVE_TYPE_ENUM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ECC_CURVE_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ECC_CURVE_TYPE_ENUM {
@@ -24970,6 +25370,11 @@ impl ::core::clone::Clone for HASHALGORITHM_ENUM {
         *self
     }
 }
+impl ::core::default::Default for HASHALGORITHM_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HASHALGORITHM_ENUM {
     type Abi = Self;
 }
@@ -25102,6 +25507,11 @@ impl ::core::clone::Clone for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
         *self
     }
 }
+impl ::core::default::Default for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     type Abi = Self;
 }
@@ -25220,6 +25630,11 @@ impl ::core::marker::Copy for HandleType {}
 impl ::core::clone::Clone for HandleType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HandleType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HandleType {
@@ -26802,6 +27217,11 @@ impl ::core::clone::Clone for MSCEPSetupProperty {
         *self
     }
 }
+impl ::core::default::Default for MSCEPSetupProperty {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MSCEPSetupProperty {
     type Abi = Self;
 }
@@ -26908,6 +27328,11 @@ impl ::core::marker::Copy for NCRYPT_ALGORITHM_NAME_CLASS {}
 impl ::core::clone::Clone for NCRYPT_ALGORITHM_NAME_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NCRYPT_ALGORITHM_NAME_CLASS {
@@ -27180,6 +27605,11 @@ impl ::core::clone::Clone for NCRYPT_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for NCRYPT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NCRYPT_FLAGS {
     type Abi = Self;
 }
@@ -27410,6 +27840,11 @@ impl ::core::marker::Copy for NCRYPT_OPERATION {}
 impl ::core::clone::Clone for NCRYPT_OPERATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for NCRYPT_OPERATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for NCRYPT_OPERATION {
@@ -29917,6 +30352,11 @@ impl ::core::marker::Copy for PaddingMode {}
 impl ::core::clone::Clone for PaddingMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PaddingMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PaddingMode {

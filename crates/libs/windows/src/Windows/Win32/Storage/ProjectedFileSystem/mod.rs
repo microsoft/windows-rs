@@ -127,6 +127,11 @@ impl ::core::clone::Clone for PRJ_CALLBACK_DATA_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PRJ_CALLBACK_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA_FLAGS {
     type Abi = Self;
 }
@@ -262,6 +267,11 @@ impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_TYPE {}
 impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRJ_COMPLETE_COMMAND_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_TYPE {
@@ -425,6 +435,11 @@ impl ::core::clone::Clone for PRJ_EXT_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PRJ_EXT_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_EXT_INFO_TYPE {
     type Abi = Self;
 }
@@ -495,6 +510,11 @@ impl ::core::marker::Copy for PRJ_FILE_STATE {}
 impl ::core::clone::Clone for PRJ_FILE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRJ_FILE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_FILE_STATE {
@@ -608,6 +628,11 @@ impl ::core::marker::Copy for PRJ_NOTIFICATION {}
 impl ::core::clone::Clone for PRJ_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRJ_NOTIFICATION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION {
@@ -848,6 +873,11 @@ impl ::core::clone::Clone for PRJ_NOTIFY_TYPES {
         *self
     }
 }
+impl ::core::default::Default for PRJ_NOTIFY_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_NOTIFY_TYPES {
     type Abi = Self;
 }
@@ -894,6 +924,11 @@ impl ::core::marker::Copy for PRJ_PLACEHOLDER_ID {}
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_ID {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRJ_PLACEHOLDER_ID {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_ID {
@@ -1112,6 +1147,11 @@ impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
     type Abi = Self;
 }
@@ -1213,6 +1253,11 @@ impl ::core::clone::Clone for PRJ_UPDATE_FAILURE_CAUSES {
         *self
     }
 }
+impl ::core::default::Default for PRJ_UPDATE_FAILURE_CAUSES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PRJ_UPDATE_FAILURE_CAUSES {
     type Abi = Self;
 }
@@ -1273,6 +1318,11 @@ impl ::core::marker::Copy for PRJ_UPDATE_TYPES {}
 impl ::core::clone::Clone for PRJ_UPDATE_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PRJ_UPDATE_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PRJ_UPDATE_TYPES {

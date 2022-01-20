@@ -379,6 +379,11 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
         *self
     }
 }
+impl ::core::default::Default for UserDataAccountProviderOperationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
     type Abi = Self;
 }
@@ -405,6 +410,11 @@ impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
 impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for UserDataAccountProviderPartnerAccountKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {

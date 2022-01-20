@@ -291,6 +291,11 @@ impl ::core::clone::Clone for FILTER_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for FILTER_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FILTER_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -414,6 +419,11 @@ impl ::core::marker::Copy for FILTER_VOLUME_INFORMATION_CLASS {}
 impl ::core::clone::Clone for FILTER_VOLUME_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FILTER_VOLUME_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FILTER_VOLUME_INFORMATION_CLASS {
@@ -547,6 +557,11 @@ impl ::core::marker::Copy for FLT_FILESYSTEM_TYPE {}
 impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for FLT_FILESYSTEM_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for FLT_FILESYSTEM_TYPE {
@@ -1420,6 +1435,11 @@ impl ::core::marker::Copy for INSTANCE_INFORMATION_CLASS {}
 impl ::core::clone::Clone for INSTANCE_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for INSTANCE_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for INSTANCE_INFORMATION_CLASS {

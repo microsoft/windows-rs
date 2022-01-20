@@ -225,6 +225,11 @@ impl ::core::clone::Clone for PSS_CAPTURE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PSS_CAPTURE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_CAPTURE_FLAGS {
     type Abi = Self;
 }
@@ -273,6 +278,11 @@ impl ::core::marker::Copy for PSS_DUPLICATE_FLAGS {}
 impl ::core::clone::Clone for PSS_DUPLICATE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSS_DUPLICATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSS_DUPLICATE_FLAGS {
@@ -663,6 +673,11 @@ impl ::core::clone::Clone for PSS_HANDLE_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for PSS_HANDLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_HANDLE_FLAGS {
     type Abi = Self;
 }
@@ -792,6 +807,11 @@ impl ::core::clone::Clone for PSS_OBJECT_TYPE {
         *self
     }
 }
+impl ::core::default::Default for PSS_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_OBJECT_TYPE {
     type Abi = Self;
 }
@@ -876,6 +896,11 @@ impl ::core::marker::Copy for PSS_PROCESS_FLAGS {}
 impl ::core::clone::Clone for PSS_PROCESS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSS_PROCESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSS_PROCESS_FLAGS {
@@ -1030,6 +1055,11 @@ impl ::core::clone::Clone for PSS_QUERY_INFORMATION_CLASS {
         *self
     }
 }
+impl ::core::default::Default for PSS_QUERY_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PSS_QUERY_INFORMATION_CLASS {
     type Abi = Self;
 }
@@ -1126,6 +1156,11 @@ impl ::core::marker::Copy for PSS_THREAD_FLAGS {}
 impl ::core::clone::Clone for PSS_THREAD_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSS_THREAD_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSS_THREAD_FLAGS {
@@ -1343,6 +1378,11 @@ impl ::core::marker::Copy for PSS_WALK_INFORMATION_CLASS {}
 impl ::core::clone::Clone for PSS_WALK_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PSS_WALK_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PSS_WALK_INFORMATION_CLASS {

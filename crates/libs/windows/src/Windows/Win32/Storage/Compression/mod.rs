@@ -51,6 +51,11 @@ impl ::core::clone::Clone for COMPRESS_ALGORITHM {
         *self
     }
 }
+impl ::core::default::Default for COMPRESS_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
     type Abi = Self;
 }
@@ -139,6 +144,11 @@ impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
 impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {

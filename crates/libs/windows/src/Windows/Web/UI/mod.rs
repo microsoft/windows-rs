@@ -1935,6 +1935,11 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
+impl ::core::default::Default for WebViewControlPermissionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
     type Abi = Self;
 }
@@ -1966,6 +1971,11 @@ impl ::core::marker::Copy for WebViewControlPermissionType {}
 impl ::core::clone::Clone for WebViewControlPermissionType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for WebViewControlPermissionType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for WebViewControlPermissionType {

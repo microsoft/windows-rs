@@ -925,6 +925,11 @@ impl ::core::clone::Clone for DML_AXIS_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for DML_AXIS_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_AXIS_DIRECTION {
     type Abi = Self;
 }
@@ -1150,6 +1155,11 @@ impl ::core::clone::Clone for DML_BINDING_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DML_BINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_BINDING_TYPE {
     type Abi = Self;
 }
@@ -1316,6 +1326,11 @@ impl ::core::clone::Clone for DML_CONVOLUTION_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for DML_CONVOLUTION_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_CONVOLUTION_DIRECTION {
     type Abi = Self;
 }
@@ -1388,6 +1403,11 @@ impl ::core::marker::Copy for DML_CONVOLUTION_MODE {}
 impl ::core::clone::Clone for DML_CONVOLUTION_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_CONVOLUTION_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_CONVOLUTION_MODE {
@@ -1468,6 +1488,11 @@ impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
 impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_CREATE_DEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_CREATE_DEVICE_FLAGS {
@@ -1602,6 +1627,11 @@ impl ::core::marker::Copy for DML_DEPTH_SPACE_ORDER {}
 impl ::core::clone::Clone for DML_DEPTH_SPACE_ORDER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_DEPTH_SPACE_ORDER {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_DEPTH_SPACE_ORDER {
@@ -3756,6 +3786,11 @@ impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DML_EXECUTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_EXECUTION_FLAGS {
     type Abi = Self;
 }
@@ -3804,6 +3839,11 @@ impl ::core::marker::Copy for DML_FEATURE {}
 impl ::core::clone::Clone for DML_FEATURE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_FEATURE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_FEATURE {
@@ -3902,6 +3942,11 @@ impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
 impl ::core::clone::Clone for DML_FEATURE_LEVEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_FEATURE_LEVEL {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_FEATURE_LEVEL {
@@ -4290,6 +4335,11 @@ impl ::core::clone::Clone for DML_GRAPH_EDGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DML_GRAPH_EDGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_GRAPH_EDGE_TYPE {
     type Abi = Self;
 }
@@ -4341,6 +4391,11 @@ impl ::core::marker::Copy for DML_GRAPH_NODE_TYPE {}
 impl ::core::clone::Clone for DML_GRAPH_NODE_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_GRAPH_NODE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_GRAPH_NODE_TYPE {
@@ -4510,6 +4565,11 @@ impl ::core::clone::Clone for DML_INTERPOLATION_MODE {
         *self
     }
 }
+impl ::core::default::Default for DML_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_INTERPOLATION_MODE {
     type Abi = Self;
 }
@@ -4532,6 +4592,11 @@ impl ::core::marker::Copy for DML_IS_INFINITY_MODE {}
 impl ::core::clone::Clone for DML_IS_INFINITY_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_IS_INFINITY_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_IS_INFINITY_MODE {
@@ -4853,6 +4918,11 @@ impl ::core::marker::Copy for DML_MATRIX_TRANSFORM {}
 impl ::core::clone::Clone for DML_MATRIX_TRANSFORM {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_MATRIX_TRANSFORM {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_MATRIX_TRANSFORM {
@@ -5582,6 +5652,11 @@ impl ::core::clone::Clone for DML_OPERATOR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DML_OPERATOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_OPERATOR_TYPE {
     type Abi = Self;
 }
@@ -5647,6 +5722,11 @@ impl ::core::marker::Copy for DML_PADDING_MODE {}
 impl ::core::clone::Clone for DML_PADDING_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_PADDING_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_PADDING_MODE {
@@ -5840,6 +5920,11 @@ impl ::core::clone::Clone for DML_RANDOM_GENERATOR_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DML_RANDOM_GENERATOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_RANDOM_GENERATOR_TYPE {
     type Abi = Self;
 }
@@ -5862,6 +5947,11 @@ impl ::core::marker::Copy for DML_RECURRENT_NETWORK_DIRECTION {}
 impl ::core::clone::Clone for DML_RECURRENT_NETWORK_DIRECTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_RECURRENT_NETWORK_DIRECTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_RECURRENT_NETWORK_DIRECTION {
@@ -5904,6 +5994,11 @@ impl ::core::marker::Copy for DML_REDUCE_FUNCTION {}
 impl ::core::clone::Clone for DML_REDUCE_FUNCTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_REDUCE_FUNCTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_REDUCE_FUNCTION {
@@ -6305,6 +6400,11 @@ impl ::core::marker::Copy for DML_ROUNDING_MODE {}
 impl ::core::clone::Clone for DML_ROUNDING_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_ROUNDING_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_ROUNDING_MODE {
@@ -6722,6 +6822,11 @@ impl ::core::clone::Clone for DML_TENSOR_DATA_TYPE {
         *self
     }
 }
+impl ::core::default::Default for DML_TENSOR_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_TENSOR_DATA_TYPE {
     type Abi = Self;
 }
@@ -6779,6 +6884,11 @@ impl ::core::clone::Clone for DML_TENSOR_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for DML_TENSOR_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DML_TENSOR_FLAGS {
     type Abi = Self;
 }
@@ -6827,6 +6937,11 @@ impl ::core::marker::Copy for DML_TENSOR_TYPE {}
 impl ::core::clone::Clone for DML_TENSOR_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DML_TENSOR_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DML_TENSOR_TYPE {

@@ -667,6 +667,11 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
         *self
     }
 }
+impl ::core::default::Default for HolographicDepthReprojectionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicDepthReprojectionMethod {
     type Abi = Self;
 }
@@ -1131,6 +1136,11 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
         *self
     }
 }
+impl ::core::default::Default for HolographicFramePresentResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicFramePresentResult {
     type Abi = Self;
 }
@@ -1157,6 +1167,11 @@ impl ::core::marker::Copy for HolographicFramePresentWaitBehavior {}
 impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HolographicFramePresentWaitBehavior {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HolographicFramePresentWaitBehavior {
@@ -2076,6 +2091,11 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
         *self
     }
 }
+impl ::core::default::Default for HolographicReprojectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicReprojectionMode {
     type Abi = Self;
 }
@@ -2509,6 +2529,11 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
         *self
     }
 }
+impl ::core::default::Default for HolographicSpaceUserPresence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for HolographicSpaceUserPresence {
     type Abi = Self;
 }
@@ -2760,6 +2785,11 @@ impl ::core::marker::Copy for HolographicViewConfigurationKind {}
 impl ::core::clone::Clone for HolographicViewConfigurationKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HolographicViewConfigurationKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HolographicViewConfigurationKind {

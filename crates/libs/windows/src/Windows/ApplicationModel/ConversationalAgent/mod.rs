@@ -445,6 +445,11 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStat
         *self
     }
 }
+impl ::core::default::Default for ActivationSignalDetectionConfigurationCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
     type Abi = Self;
 }
@@ -473,6 +478,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResul
 impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationRemovalResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
@@ -509,6 +519,11 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelData
         *self
     }
 }
+impl ::core::default::Default for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
     type Abi = Self;
 }
@@ -536,6 +551,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeR
 impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
@@ -573,6 +593,11 @@ impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
 impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectionTrainingDataFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
@@ -869,6 +894,11 @@ impl ::core::clone::Clone for ActivationSignalDetectorKind {
         *self
     }
 }
+impl ::core::default::Default for ActivationSignalDetectorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
     type Abi = Self;
 }
@@ -896,6 +926,11 @@ impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
 impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ActivationSignalDetectorPowerState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
@@ -926,6 +961,11 @@ impl ::core::clone::Clone for ConversationalAgentActivationKind {
         *self
     }
 }
+impl ::core::default::Default for ConversationalAgentActivationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
     type Abi = Self;
 }
@@ -954,6 +994,11 @@ impl ::core::marker::Copy for ConversationalAgentActivationResult {}
 impl ::core::clone::Clone for ConversationalAgentActivationResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentActivationResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
@@ -1649,6 +1694,11 @@ impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
         *self
     }
 }
+impl ::core::default::Default for ConversationalAgentSessionUpdateResponse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
     type Abi = Self;
 }
@@ -1924,6 +1974,11 @@ impl ::core::clone::Clone for ConversationalAgentState {
         *self
     }
 }
+impl ::core::default::Default for ConversationalAgentState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentState {
     type Abi = Self;
 }
@@ -1952,6 +2007,11 @@ impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
 impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ConversationalAgentSystemStateChangeType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
@@ -2067,6 +2127,11 @@ impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind
         *self
     }
 }
+impl ::core::default::Default for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
     type Abi = Self;
 }
@@ -2094,6 +2159,11 @@ impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
 impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DetectionConfigurationAvailabilityChangeKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
@@ -2325,6 +2395,11 @@ impl ::core::marker::Copy for DetectionConfigurationTrainingStatus {}
 impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for DetectionConfigurationTrainingStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for DetectionConfigurationTrainingStatus {
@@ -2903,6 +2978,11 @@ impl ::core::marker::Copy for SignalDetectorResourceKind {}
 impl ::core::clone::Clone for SignalDetectorResourceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for SignalDetectorResourceKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for SignalDetectorResourceKind {

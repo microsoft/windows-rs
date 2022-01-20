@@ -130,6 +130,11 @@ impl ::core::clone::Clone for AppRestartFailureReason {
         *self
     }
 }
+impl ::core::default::Default for AppRestartFailureReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AppRestartFailureReason {
     type Abi = Self;
 }

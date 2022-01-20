@@ -201,6 +201,11 @@ impl ::core::clone::Clone for EXPR_TOKEN {
         *self
     }
 }
+impl ::core::default::Default for EXPR_TOKEN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for EXPR_TOKEN {
     type Abi = Self;
 }
@@ -231,6 +236,11 @@ impl ::core::marker::Copy for ExtendedErrorParamTypes {}
 impl ::core::clone::Clone for ExtendedErrorParamTypes {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ExtendedErrorParamTypes {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ExtendedErrorParamTypes {
@@ -356,6 +366,11 @@ impl ::core::clone::Clone for GROUP_NAME_SYNTAX {
         *self
     }
 }
+impl ::core::default::Default for GROUP_NAME_SYNTAX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GROUP_NAME_SYNTAX {
     type Abi = Self;
 }
@@ -406,6 +421,11 @@ impl ::core::marker::Copy for IDL_CS_CONVERT {}
 impl ::core::clone::Clone for IDL_CS_CONVERT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for IDL_CS_CONVERT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for IDL_CS_CONVERT {
@@ -1560,6 +1580,11 @@ impl ::core::clone::Clone for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
         *self
     }
 }
+impl ::core::default::Default for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
     type Abi = Self;
 }
@@ -1617,6 +1642,11 @@ impl ::core::clone::Clone for MIDL_ES_CODE {
         *self
     }
 }
+impl ::core::default::Default for MIDL_ES_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MIDL_ES_CODE {
     type Abi = Self;
 }
@@ -1639,6 +1669,11 @@ impl ::core::marker::Copy for MIDL_ES_HANDLE_STYLE {}
 impl ::core::clone::Clone for MIDL_ES_HANDLE_STYLE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MIDL_ES_HANDLE_STYLE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MIDL_ES_HANDLE_STYLE {
@@ -7602,6 +7637,11 @@ impl ::core::clone::Clone for PROXY_PHASE {
         *self
     }
 }
+impl ::core::default::Default for PROXY_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PROXY_PHASE {
     type Abi = Self;
 }
@@ -7720,6 +7760,11 @@ impl ::core::clone::Clone for RPC_ADDRESS_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RPC_ADDRESS_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_ADDRESS_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -7746,6 +7791,11 @@ impl ::core::marker::Copy for RPC_ASYNC_EVENT {}
 impl ::core::clone::Clone for RPC_ASYNC_EVENT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_ASYNC_EVENT {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_ASYNC_EVENT {
@@ -7971,6 +8021,11 @@ impl ::core::marker::Copy for RPC_BINDING_HANDLE_OPTIONS_FLAGS {}
 impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
@@ -8855,6 +8910,11 @@ impl ::core::clone::Clone for RPC_C_AUTHN_INFO_TYPE {
         *self
     }
 }
+impl ::core::default::Default for RPC_C_AUTHN_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_C_AUTHN_INFO_TYPE {
     type Abi = Self;
 }
@@ -8969,6 +9029,11 @@ impl ::core::clone::Clone for RPC_C_HTTP_AUTHN_TARGET {
         *self
     }
 }
+impl ::core::default::Default for RPC_C_HTTP_AUTHN_TARGET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_C_HTTP_AUTHN_TARGET {
     type Abi = Self;
 }
@@ -9021,6 +9086,11 @@ impl ::core::marker::Copy for RPC_C_HTTP_FLAGS {}
 impl ::core::clone::Clone for RPC_C_HTTP_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_C_HTTP_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_C_HTTP_FLAGS {
@@ -9228,6 +9298,11 @@ impl ::core::clone::Clone for RPC_C_QOS_CAPABILITIES {
         *self
     }
 }
+impl ::core::default::Default for RPC_C_QOS_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_C_QOS_CAPABILITIES {
     type Abi = Self;
 }
@@ -9276,6 +9351,11 @@ impl ::core::marker::Copy for RPC_C_QOS_IDENTITY {}
 impl ::core::clone::Clone for RPC_C_QOS_IDENTITY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_C_QOS_IDENTITY {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_C_QOS_IDENTITY {
@@ -9658,6 +9738,11 @@ impl ::core::marker::Copy for RPC_HTTP_REDIRECTOR_STAGE {}
 impl ::core::clone::Clone for RPC_HTTP_REDIRECTOR_STAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_HTTP_REDIRECTOR_STAGE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_HTTP_REDIRECTOR_STAGE {
@@ -10209,6 +10294,11 @@ impl ::core::clone::Clone for RPC_NOTIFICATIONS {
         *self
     }
 }
+impl ::core::default::Default for RPC_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_NOTIFICATIONS {
     type Abi = Self;
 }
@@ -10237,6 +10327,11 @@ impl ::core::marker::Copy for RPC_NOTIFICATION_TYPES {}
 impl ::core::clone::Clone for RPC_NOTIFICATION_TYPES {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RPC_NOTIFICATION_TYPES {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RPC_NOTIFICATION_TYPES {
@@ -11324,6 +11419,11 @@ impl ::core::clone::Clone for RPC_STATUS {
         *self
     }
 }
+impl ::core::default::Default for RPC_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RPC_STATUS {
     type Abi = Self;
 }
@@ -11973,6 +12073,11 @@ impl ::core::clone::Clone for RpcCallClientLocality {
         *self
     }
 }
+impl ::core::default::Default for RpcCallClientLocality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RpcCallClientLocality {
     type Abi = Self;
 }
@@ -11997,6 +12102,11 @@ impl ::core::marker::Copy for RpcCallType {}
 impl ::core::clone::Clone for RpcCallType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RpcCallType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RpcCallType {
@@ -12404,6 +12514,11 @@ impl ::core::marker::Copy for RpcLocalAddressFormat {}
 impl ::core::clone::Clone for RpcLocalAddressFormat {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RpcLocalAddressFormat {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RpcLocalAddressFormat {
@@ -13666,6 +13781,11 @@ impl ::core::clone::Clone for RpcProxyPerfCounters {
         *self
     }
 }
+impl ::core::default::Default for RpcProxyPerfCounters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for RpcProxyPerfCounters {
     type Abi = Self;
 }
@@ -14826,6 +14946,11 @@ impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY {
         *self
     }
 }
+impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY {
     type Abi = Self;
 }
@@ -14954,6 +15079,11 @@ impl ::core::clone::Clone for STUB_PHASE {
         *self
     }
 }
+impl ::core::default::Default for STUB_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for STUB_PHASE {
     type Abi = Self;
 }
@@ -15055,6 +15185,11 @@ impl ::core::marker::Copy for USER_MARSHAL_CB_TYPE {}
 impl ::core::clone::Clone for USER_MARSHAL_CB_TYPE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for USER_MARSHAL_CB_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for USER_MARSHAL_CB_TYPE {
@@ -15329,6 +15464,11 @@ impl ::core::clone::Clone for XLAT_SIDE {
         *self
     }
 }
+impl ::core::default::Default for XLAT_SIDE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for XLAT_SIDE {
     type Abi = Self;
 }
@@ -15458,6 +15598,11 @@ impl ::core::marker::Copy for system_handle_t {}
 impl ::core::clone::Clone for system_handle_t {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for system_handle_t {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for system_handle_t {

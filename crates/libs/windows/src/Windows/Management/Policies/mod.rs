@@ -276,6 +276,11 @@ impl ::core::clone::Clone for NamedPolicyKind {
         *self
     }
 }
+impl ::core::default::Default for NamedPolicyKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for NamedPolicyKind {
     type Abi = Self;
 }

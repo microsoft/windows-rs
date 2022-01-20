@@ -79,6 +79,11 @@ impl ::core::clone::Clone for CLEAR_COMM_ERROR_FLAGS {
         *self
     }
 }
+impl ::core::default::Default for CLEAR_COMM_ERROR_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CLEAR_COMM_ERROR_FLAGS {
     type Abi = Self;
 }
@@ -252,6 +257,11 @@ impl ::core::clone::Clone for COMMPROP_STOP_PARITY {
         *self
     }
 }
+impl ::core::default::Default for COMMPROP_STOP_PARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for COMMPROP_STOP_PARITY {
     type Abi = Self;
 }
@@ -356,6 +366,11 @@ impl ::core::marker::Copy for COMM_EVENT_MASK {}
 impl ::core::clone::Clone for COMM_EVENT_MASK {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for COMM_EVENT_MASK {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for COMM_EVENT_MASK {
@@ -578,6 +593,11 @@ impl ::core::marker::Copy for ESCAPE_COMM_FUNCTION {}
 impl ::core::clone::Clone for ESCAPE_COMM_FUNCTION {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ESCAPE_COMM_FUNCTION {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ESCAPE_COMM_FUNCTION {
@@ -1033,6 +1053,11 @@ impl ::core::clone::Clone for MODEMDEVCAPS_DIAL_OPTIONS {
         *self
     }
 }
+impl ::core::default::Default for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
     type Abi = Self;
 }
@@ -1087,6 +1112,11 @@ impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_MODE {
         *self
     }
 }
+impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_MODE {
     type Abi = Self;
 }
@@ -1137,6 +1167,11 @@ impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_VOLUME {}
 impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
@@ -1247,6 +1282,11 @@ impl ::core::clone::Clone for MODEMSETTINGS_SPEAKER_MODE {
         *self
     }
 }
+impl ::core::default::Default for MODEMSETTINGS_SPEAKER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MODEMSETTINGS_SPEAKER_MODE {
     type Abi = Self;
 }
@@ -1297,6 +1337,11 @@ impl ::core::marker::Copy for MODEM_SPEAKER_VOLUME {}
 impl ::core::clone::Clone for MODEM_SPEAKER_VOLUME {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MODEM_SPEAKER_VOLUME {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MODEM_SPEAKER_VOLUME {
@@ -1351,6 +1396,11 @@ impl ::core::marker::Copy for MODEM_STATUS_FLAGS {}
 impl ::core::clone::Clone for MODEM_STATUS_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MODEM_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MODEM_STATUS_FLAGS {
@@ -1420,6 +1470,11 @@ impl ::core::marker::Copy for PURGE_COMM_FLAGS {}
 impl ::core::clone::Clone for PURGE_COMM_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PURGE_COMM_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PURGE_COMM_FLAGS {

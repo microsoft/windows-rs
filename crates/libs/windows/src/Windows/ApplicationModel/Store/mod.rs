@@ -343,6 +343,11 @@ impl ::core::clone::Clone for FulfillmentResult {
         *self
     }
 }
+impl ::core::default::Default for FulfillmentResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for FulfillmentResult {
     type Abi = Self;
 }
@@ -1607,6 +1612,11 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
         *self
     }
 }
+impl ::core::default::Default for ProductPurchaseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProductPurchaseStatus {
     type Abi = Self;
 }
@@ -1634,6 +1644,11 @@ impl ::core::marker::Copy for ProductType {}
 impl ::core::clone::Clone for ProductType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ProductType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ProductType {

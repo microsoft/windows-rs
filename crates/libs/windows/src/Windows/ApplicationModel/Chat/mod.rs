@@ -661,6 +661,11 @@ impl ::core::clone::Clone for ChatConversationThreadingKind {
         *self
     }
 }
+impl ::core::default::Default for ChatConversationThreadingKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatConversationThreadingKind {
     type Abi = Self;
 }
@@ -687,6 +692,11 @@ impl ::core::marker::Copy for ChatItemKind {}
 impl ::core::clone::Clone for ChatItemKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatItemKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatItemKind {
@@ -1634,6 +1644,11 @@ impl ::core::clone::Clone for ChatMessageChangeType {
         *self
     }
 }
+impl ::core::default::Default for ChatMessageChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageChangeType {
     type Abi = Self;
 }
@@ -1824,6 +1839,11 @@ impl ::core::marker::Copy for ChatMessageKind {}
 impl ::core::clone::Clone for ChatMessageKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatMessageKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageKind {
@@ -2043,6 +2063,11 @@ impl ::core::clone::Clone for ChatMessageOperatorKind {
         *self
     }
 }
+impl ::core::default::Default for ChatMessageOperatorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageOperatorKind {
     type Abi = Self;
 }
@@ -2172,6 +2197,11 @@ impl ::core::marker::Copy for ChatMessageStatus {}
 impl ::core::clone::Clone for ChatMessageStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatMessageStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageStatus {
@@ -2870,6 +2900,11 @@ impl ::core::clone::Clone for ChatMessageTransportKind {
         *self
     }
 }
+impl ::core::default::Default for ChatMessageTransportKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatMessageTransportKind {
     type Abi = Self;
 }
@@ -3016,6 +3051,11 @@ impl ::core::marker::Copy for ChatMessageValidationStatus {}
 impl ::core::clone::Clone for ChatMessageValidationStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatMessageValidationStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatMessageValidationStatus {
@@ -3303,6 +3343,11 @@ impl ::core::clone::Clone for ChatRestoreHistorySpan {
         *self
     }
 }
+impl ::core::default::Default for ChatRestoreHistorySpan {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatRestoreHistorySpan {
     type Abi = Self;
 }
@@ -3426,6 +3471,11 @@ impl ::core::marker::Copy for ChatStoreChangedEventKind {}
 impl ::core::clone::Clone for ChatStoreChangedEventKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatStoreChangedEventKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatStoreChangedEventKind {
@@ -3679,6 +3729,11 @@ impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
         *self
     }
 }
+impl ::core::default::Default for ChatTransportErrorCodeCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ChatTransportErrorCodeCategory {
     type Abi = Self;
 }
@@ -3709,6 +3764,11 @@ impl ::core::marker::Copy for ChatTransportInterpretedErrorCode {}
 impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ChatTransportInterpretedErrorCode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ChatTransportInterpretedErrorCode {
@@ -5486,6 +5546,11 @@ impl ::core::marker::Copy for RcsServiceKind {}
 impl ::core::clone::Clone for RcsServiceKind {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RcsServiceKind {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RcsServiceKind {

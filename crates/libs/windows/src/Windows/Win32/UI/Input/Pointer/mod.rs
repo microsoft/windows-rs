@@ -564,6 +564,11 @@ impl ::core::clone::Clone for POINTER_BUTTON_CHANGE_TYPE {
         *self
     }
 }
+impl ::core::default::Default for POINTER_BUTTON_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for POINTER_BUTTON_CHANGE_TYPE {
     type Abi = Self;
 }
@@ -618,6 +623,11 @@ impl ::core::marker::Copy for POINTER_FLAGS {}
 impl ::core::clone::Clone for POINTER_FLAGS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for POINTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for POINTER_FLAGS {
@@ -843,6 +853,11 @@ impl ::core::marker::Copy for TOUCH_FEEDBACK_MODE {}
 impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {

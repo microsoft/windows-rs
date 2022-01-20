@@ -376,6 +376,11 @@ impl ::core::clone::Clone for AccessoryNotificationType {
         *self
     }
 }
+impl ::core::default::Default for AccessoryNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AccessoryNotificationType {
     type Abi = Self;
 }
@@ -789,6 +794,11 @@ impl ::core::marker::Copy for CalendarChangedEvent {}
 impl ::core::clone::Clone for CalendarChangedEvent {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CalendarChangedEvent {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CalendarChangedEvent {
@@ -2683,6 +2693,11 @@ impl ::core::clone::Clone for PhoneCallAudioEndpoint {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallAudioEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallAudioEndpoint {
     type Abi = Self;
 }
@@ -2881,6 +2896,11 @@ impl ::core::clone::Clone for PhoneCallDirection {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
     type Abi = Self;
 }
@@ -2912,6 +2932,11 @@ impl ::core::clone::Clone for PhoneCallState {
         *self
     }
 }
+impl ::core::default::Default for PhoneCallState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneCallState {
     type Abi = Self;
 }
@@ -2938,6 +2963,11 @@ impl ::core::marker::Copy for PhoneCallTransport {}
 impl ::core::clone::Clone for PhoneCallTransport {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneCallTransport {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallTransport {
@@ -3096,6 +3126,11 @@ impl ::core::clone::Clone for PhoneLineRegistrationState {
         *self
     }
 }
+impl ::core::default::Default for PhoneLineRegistrationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneLineRegistrationState {
     type Abi = Self;
 }
@@ -3122,6 +3157,11 @@ impl ::core::marker::Copy for PhoneMediaType {}
 impl ::core::clone::Clone for PhoneMediaType {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PhoneMediaType {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PhoneMediaType {
@@ -3318,6 +3358,11 @@ impl ::core::clone::Clone for PhoneNotificationType {
         *self
     }
 }
+impl ::core::default::Default for PhoneNotificationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PhoneNotificationType {
     type Abi = Self;
 }
@@ -3353,6 +3398,11 @@ impl ::core::marker::Copy for PlaybackCapability {}
 impl ::core::clone::Clone for PlaybackCapability {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlaybackCapability {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlaybackCapability {
@@ -3419,6 +3469,11 @@ impl ::core::clone::Clone for PlaybackCommand {
         *self
     }
 }
+impl ::core::default::Default for PlaybackCommand {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PlaybackCommand {
     type Abi = Self;
 }
@@ -3448,6 +3503,11 @@ impl ::core::marker::Copy for PlaybackStatus {}
 impl ::core::clone::Clone for PlaybackStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for PlaybackStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for PlaybackStatus {
@@ -3682,6 +3742,11 @@ impl ::core::marker::Copy for ReminderState {}
 impl ::core::clone::Clone for ReminderState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ReminderState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ReminderState {
@@ -4081,6 +4146,11 @@ impl ::core::marker::Copy for VibrateState {}
 impl ::core::clone::Clone for VibrateState {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for VibrateState {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for VibrateState {

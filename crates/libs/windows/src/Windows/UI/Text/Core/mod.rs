@@ -749,6 +749,11 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
         *self
     }
 }
+impl ::core::default::Default for CoreTextFormatUpdatingReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
 }
@@ -777,6 +782,11 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
         *self
     }
 }
+impl ::core::default::Default for CoreTextFormatUpdatingResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
 }
@@ -803,6 +813,11 @@ impl ::core::marker::Copy for CoreTextInputPaneDisplayPolicy {}
 impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreTextInputPaneDisplayPolicy {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextInputPaneDisplayPolicy {
@@ -896,6 +911,11 @@ impl ::core::marker::Copy for CoreTextInputScope {}
 impl ::core::clone::Clone for CoreTextInputScope {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreTextInputScope {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextInputScope {
@@ -1556,6 +1576,11 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
         *self
     }
 }
+impl ::core::default::Default for CoreTextSelectionUpdatingResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
 }
@@ -2046,6 +2071,11 @@ impl ::core::marker::Copy for CoreTextTextUpdatingResult {}
 impl ::core::clone::Clone for CoreTextTextUpdatingResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for CoreTextTextUpdatingResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for CoreTextTextUpdatingResult {

@@ -206,6 +206,11 @@ impl ::core::clone::Clone for GraphicsTrustStatus {
         *self
     }
 }
+impl ::core::default::Default for GraphicsTrustStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for GraphicsTrustStatus {
     type Abi = Self;
 }
@@ -233,6 +238,11 @@ impl ::core::marker::Copy for HdcpProtection {}
 impl ::core::clone::Clone for HdcpProtection {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdcpProtection {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdcpProtection {
@@ -416,6 +426,11 @@ impl ::core::marker::Copy for HdcpSetProtectionResult {}
 impl ::core::clone::Clone for HdcpSetProtectionResult {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for HdcpSetProtectionResult {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for HdcpSetProtectionResult {
@@ -1153,6 +1168,11 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
         *self
     }
 }
+impl ::core::default::Default for ProtectionCapabilityResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ProtectionCapabilityResult {
     type Abi = Self;
 }
@@ -1260,6 +1280,11 @@ impl ::core::marker::Copy for RenewalStatus {}
 impl ::core::clone::Clone for RenewalStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RenewalStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RenewalStatus {
@@ -1496,6 +1521,11 @@ impl ::core::marker::Copy for RevocationAndRenewalReasons {}
 impl ::core::clone::Clone for RevocationAndRenewalReasons {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for RevocationAndRenewalReasons {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for RevocationAndRenewalReasons {

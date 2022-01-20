@@ -503,6 +503,11 @@ impl ::core::clone::Clone for LocalLocationFinderStatus {
         *self
     }
 }
+impl ::core::default::Default for LocalLocationFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
     type Abi = Self;
 }

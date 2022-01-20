@@ -1422,6 +1422,11 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
         *self
     }
 }
+impl ::core::default::Default for MediaFrameReaderAcquisitionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
 }
@@ -1451,6 +1456,11 @@ impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
 impl ::core::clone::Clone for MediaFrameReaderStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaFrameReaderStartStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
@@ -2021,6 +2031,11 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
         *self
     }
 }
+impl ::core::default::Default for MediaFrameSourceGetPropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
 }
@@ -2338,6 +2353,11 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
         *self
     }
 }
+impl ::core::default::Default for MediaFrameSourceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
     type Abi = Self;
 }
@@ -2368,6 +2388,11 @@ impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
 impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MediaFrameSourceSetPropertyStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
@@ -2630,6 +2655,11 @@ impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
 impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for MultiSourceMediaFrameReaderStartStatus {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {

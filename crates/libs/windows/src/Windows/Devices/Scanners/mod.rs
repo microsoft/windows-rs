@@ -915,6 +915,11 @@ impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
         *self
     }
 }
+impl ::core::default::Default for ImageScannerAutoCroppingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerAutoCroppingMode {
     type Abi = Self;
 }
@@ -943,6 +948,11 @@ impl ::core::marker::Copy for ImageScannerColorMode {}
 impl ::core::clone::Clone for ImageScannerColorMode {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ImageScannerColorMode {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ImageScannerColorMode {
@@ -1830,6 +1840,11 @@ impl ::core::clone::Clone for ImageScannerFormat {
         *self
     }
 }
+impl ::core::default::Default for ImageScannerFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for ImageScannerFormat {
     type Abi = Self;
 }
@@ -2066,6 +2081,11 @@ impl ::core::marker::Copy for ImageScannerScanSource {}
 impl ::core::clone::Clone for ImageScannerScanSource {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::default::Default for ImageScannerScanSource {
+    fn default() -> Self {
+        Self(0)
     }
 }
 unsafe impl ::windows::core::Abi for ImageScannerScanSource {
