@@ -9,19 +9,21 @@ impl ::windows::core::RuntimeName for IWebAccountProviderBaseReportOperation {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderBaseReportOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderBaseReportOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderBaseReportOperation_Vtbl {
-        unsafe extern "system" fn ReportCompleted<Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>() -> IWebAccountProviderBaseReportOperation_Vtbl {
+        unsafe extern "system" fn ReportCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        unsafe extern "system" fn ReportError<Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReportError<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReportError(&*(&value as *const <super::Core::WebProviderError as ::windows::core::Abi>::Abi as *const <super::Core::WebProviderError as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderBaseReportOperation, BASE_OFFSET>(),
-            ReportCompleted: ReportCompleted::<Impl, IMPL_OFFSET>,
-            ReportError: ReportError::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderBaseReportOperation, OFFSET>(),
+            ReportCompleted: ReportCompleted::<Identity, Impl, OFFSET>,
+            ReportError: ReportError::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -35,9 +37,10 @@ impl ::windows::core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
 }
 impl IWebAccountProviderOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderOperation_Vtbl {
-        unsafe extern "system" fn Kind<Impl: IWebAccountProviderOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderOperation_Impl, const OFFSET: isize>() -> IWebAccountProviderOperation_Vtbl {
+        unsafe extern "system" fn Kind<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -47,7 +50,7 @@ impl IWebAccountProviderOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderOperation, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderOperation, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderOperation as ::windows::core::Interface>::IID
@@ -64,19 +67,21 @@ impl ::windows::core::RuntimeName for IWebAccountProviderSilentReportOperation {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderSilentReportOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderSilentReportOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderSilentReportOperation_Vtbl {
-        unsafe extern "system" fn ReportUserInteractionRequired<Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>() -> IWebAccountProviderSilentReportOperation_Vtbl {
+        unsafe extern "system" fn ReportUserInteractionRequired<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReportUserInteractionRequired().into()
         }
-        unsafe extern "system" fn ReportUserInteractionRequiredWithError<Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReportUserInteractionRequiredWithError<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReportUserInteractionRequiredWithError(&*(&value as *const <super::Core::WebProviderError as ::windows::core::Abi>::Abi as *const <super::Core::WebProviderError as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSilentReportOperation, BASE_OFFSET>(),
-            ReportUserInteractionRequired: ReportUserInteractionRequired::<Impl, IMPL_OFFSET>,
-            ReportUserInteractionRequiredWithError: ReportUserInteractionRequiredWithError::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderSilentReportOperation, OFFSET>(),
+            ReportUserInteractionRequired: ReportUserInteractionRequired::<Identity, Impl, OFFSET>,
+            ReportUserInteractionRequiredWithError: ReportUserInteractionRequiredWithError::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -90,9 +95,10 @@ impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
 }
 impl IWebAccountProviderTokenObjects_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderTokenObjects_Vtbl {
-        unsafe extern "system" fn Operation<Impl: IWebAccountProviderTokenObjects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects_Impl, const OFFSET: isize>() -> IWebAccountProviderTokenObjects_Vtbl {
+        unsafe extern "system" fn Operation<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Operation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -103,8 +109,8 @@ impl IWebAccountProviderTokenObjects_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects, BASE_OFFSET>(),
-            Operation: Operation::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects, OFFSET>(),
+            Operation: Operation::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -121,9 +127,10 @@ impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects2 {
 }
 #[cfg(feature = "System")]
 impl IWebAccountProviderTokenObjects2_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderTokenObjects2_Vtbl {
-        unsafe extern "system" fn User<Impl: IWebAccountProviderTokenObjects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects2_Impl, const OFFSET: isize>() -> IWebAccountProviderTokenObjects2_Vtbl {
+        unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenObjects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -133,7 +140,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects2, BASE_OFFSET>(), User: User::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenObjects2, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebAccountProviderTokenObjects2 as ::windows::core::Interface>::IID
@@ -152,9 +159,10 @@ impl ::windows::core::RuntimeName for IWebAccountProviderTokenOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IWebAccountProviderTokenOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderTokenOperation_Vtbl {
-        unsafe extern "system" fn ProviderRequest<Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>() -> IWebAccountProviderTokenOperation_Vtbl {
+        unsafe extern "system" fn ProviderRequest<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ProviderRequest() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -164,8 +172,9 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderResponses<Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ProviderResponses<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ProviderResponses() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -175,12 +184,14 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCacheExpirationTime<Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetCacheExpirationTime<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetCacheExpirationTime(&*(&value as *const <super::super::super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CacheExpirationTime<Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CacheExpirationTime<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CacheExpirationTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -191,11 +202,11 @@ impl IWebAccountProviderTokenOperation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenOperation, BASE_OFFSET>(),
-            ProviderRequest: ProviderRequest::<Impl, IMPL_OFFSET>,
-            ProviderResponses: ProviderResponses::<Impl, IMPL_OFFSET>,
-            SetCacheExpirationTime: SetCacheExpirationTime::<Impl, IMPL_OFFSET>,
-            CacheExpirationTime: CacheExpirationTime::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderTokenOperation, OFFSET>(),
+            ProviderRequest: ProviderRequest::<Identity, Impl, OFFSET>,
+            ProviderResponses: ProviderResponses::<Identity, Impl, OFFSET>,
+            SetCacheExpirationTime: SetCacheExpirationTime::<Identity, Impl, OFFSET>,
+            CacheExpirationTime: CacheExpirationTime::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -212,14 +223,15 @@ impl ::windows::core::RuntimeName for IWebAccountProviderUIReportOperation {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderUIReportOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderUIReportOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAccountProviderUIReportOperation_Vtbl {
-        unsafe extern "system" fn ReportUserCanceled<Impl: IWebAccountProviderUIReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderUIReportOperation_Impl, const OFFSET: isize>() -> IWebAccountProviderUIReportOperation_Vtbl {
+        unsafe extern "system" fn ReportUserCanceled<Identity: ::windows::core::IUnknownImpl, Impl: IWebAccountProviderUIReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReportUserCanceled().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderUIReportOperation, BASE_OFFSET>(),
-            ReportUserCanceled: ReportUserCanceled::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAccountProviderUIReportOperation, OFFSET>(),
+            ReportUserCanceled: ReportUserCanceled::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

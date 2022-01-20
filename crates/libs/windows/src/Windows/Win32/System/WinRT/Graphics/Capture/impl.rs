@@ -5,19 +5,21 @@ pub trait IGraphicsCaptureItemInterop_Impl: Sized {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IGraphicsCaptureItemInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGraphicsCaptureItemInterop_Vtbl {
-        unsafe extern "system" fn CreateForWindow<Impl: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> IGraphicsCaptureItemInterop_Vtbl {
+        unsafe extern "system" fn CreateForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CreateForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&result)).into()
         }
-        unsafe extern "system" fn CreateForMonitor<Impl: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateForMonitor<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CreateForMonitor(::core::mem::transmute_copy(&monitor), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            CreateForWindow: CreateForWindow::<Impl, IMPL_OFFSET>,
-            CreateForMonitor: CreateForMonitor::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
+            CreateForMonitor: CreateForMonitor::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

@@ -12,9 +12,10 @@ impl ::windows::core::RuntimeName for IHolographicCameraInterop {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IHolographicCameraInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraInterop_Vtbl {
-        unsafe extern "system" fn CreateDirect3D12BackBufferResource<Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>() -> IHolographicCameraInterop_Vtbl {
+        unsafe extern "system" fn CreateDirect3D12BackBufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateDirect3D12BackBufferResource(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&ptexture2ddesc)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcreatedtexture2dresource = ::core::mem::transmute(ok__);
@@ -23,8 +24,9 @@ impl IHolographicCameraInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDirect3D12HardwareProtectedBackBufferResource<Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: ::windows::core::RawPtr, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateDirect3D12HardwareProtectedBackBufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: ::windows::core::RawPtr, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateDirect3D12HardwareProtectedBackBufferResource(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&ptexture2ddesc), ::core::mem::transmute(&pprotectedresourcesession)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcreatedtexture2dresource = ::core::mem::transmute(ok__);
@@ -33,25 +35,28 @@ impl IHolographicCameraInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcquireDirect3D12BufferResource<Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcquireDirect3D12BufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).AcquireDirect3D12BufferResource(::core::mem::transmute(&presourcetoacquire), ::core::mem::transmute(&pcommandqueue)).into()
         }
-        unsafe extern "system" fn AcquireDirect3D12BufferResourceWithTimeout<Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, duration: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcquireDirect3D12BufferResourceWithTimeout<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, duration: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).AcquireDirect3D12BufferResourceWithTimeout(::core::mem::transmute(&presourcetoacquire), ::core::mem::transmute(&pcommandqueue), ::core::mem::transmute_copy(&duration)).into()
         }
-        unsafe extern "system" fn UnacquireDirect3D12BufferResource<Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnacquireDirect3D12BufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).UnacquireDirect3D12BufferResource(::core::mem::transmute(&presourcetounacquire)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraInterop, BASE_OFFSET>(),
-            CreateDirect3D12BackBufferResource: CreateDirect3D12BackBufferResource::<Impl, IMPL_OFFSET>,
-            CreateDirect3D12HardwareProtectedBackBufferResource: CreateDirect3D12HardwareProtectedBackBufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
-            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraInterop, OFFSET>(),
+            CreateDirect3D12BackBufferResource: CreateDirect3D12BackBufferResource::<Identity, Impl, OFFSET>,
+            CreateDirect3D12HardwareProtectedBackBufferResource: CreateDirect3D12HardwareProtectedBackBufferResource::<Identity, Impl, OFFSET>,
+            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
+            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Identity, Impl, OFFSET>,
+            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -69,19 +74,21 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParametersInter
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IHolographicCameraRenderingParametersInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParametersInterop_Vtbl {
-        unsafe extern "system" fn CommitDirect3D12Resource<Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>() -> IHolographicCameraRenderingParametersInterop_Vtbl {
+        unsafe extern "system" fn CommitDirect3D12Resource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CommitDirect3D12Resource(::core::mem::transmute(&pcolorresourcetocommit), ::core::mem::transmute(&pcolorresourcefence), ::core::mem::transmute_copy(&colorresourcefencesignalvalue)).into()
         }
-        unsafe extern "system" fn CommitDirect3D12ResourceWithDepthData<Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: ::windows::core::RawPtr, pdepthresourcefence: ::windows::core::RawPtr, depthresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CommitDirect3D12ResourceWithDepthData<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: ::windows::core::RawPtr, pdepthresourcefence: ::windows::core::RawPtr, depthresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CommitDirect3D12ResourceWithDepthData(::core::mem::transmute(&pcolorresourcetocommit), ::core::mem::transmute(&pcolorresourcefence), ::core::mem::transmute_copy(&colorresourcefencesignalvalue), ::core::mem::transmute(&pdepthresourcetocommit), ::core::mem::transmute(&pdepthresourcefence), ::core::mem::transmute_copy(&depthresourcefencesignalvalue)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParametersInterop, BASE_OFFSET>(),
-            CommitDirect3D12Resource: CommitDirect3D12Resource::<Impl, IMPL_OFFSET>,
-            CommitDirect3D12ResourceWithDepthData: CommitDirect3D12ResourceWithDepthData::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicCameraRenderingParametersInterop, OFFSET>(),
+            CommitDirect3D12Resource: CommitDirect3D12Resource::<Identity, Impl, OFFSET>,
+            CommitDirect3D12ResourceWithDepthData: CommitDirect3D12ResourceWithDepthData::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -102,9 +109,10 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayerInterop {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IHolographicQuadLayerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerInterop_Vtbl {
-        unsafe extern "system" fn CreateDirect3D12ContentBufferResource<Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pptexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>() -> IHolographicQuadLayerInterop_Vtbl {
+        unsafe extern "system" fn CreateDirect3D12ContentBufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pptexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateDirect3D12ContentBufferResource(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&ptexture2ddesc)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pptexture2dresource = ::core::mem::transmute(ok__);
@@ -113,8 +121,9 @@ impl IHolographicQuadLayerInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDirect3D12HardwareProtectedContentBufferResource<Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: ::windows::core::RawPtr, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateDirect3D12HardwareProtectedContentBufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: ::windows::core::RawPtr, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateDirect3D12HardwareProtectedContentBufferResource(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&ptexture2ddesc), ::core::mem::transmute(&pprotectedresourcesession)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcreatedtexture2dresource = ::core::mem::transmute(ok__);
@@ -123,25 +132,28 @@ impl IHolographicQuadLayerInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcquireDirect3D12BufferResource<Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcquireDirect3D12BufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).AcquireDirect3D12BufferResource(::core::mem::transmute(&presourcetoacquire), ::core::mem::transmute(&pcommandqueue)).into()
         }
-        unsafe extern "system" fn AcquireDirect3D12BufferResourceWithTimeout<Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, duration: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AcquireDirect3D12BufferResourceWithTimeout<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetoacquire: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, duration: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).AcquireDirect3D12BufferResourceWithTimeout(::core::mem::transmute(&presourcetoacquire), ::core::mem::transmute(&pcommandqueue), ::core::mem::transmute_copy(&duration)).into()
         }
-        unsafe extern "system" fn UnacquireDirect3D12BufferResource<Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnacquireDirect3D12BufferResource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).UnacquireDirect3D12BufferResource(::core::mem::transmute(&presourcetounacquire)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerInterop, BASE_OFFSET>(),
-            CreateDirect3D12ContentBufferResource: CreateDirect3D12ContentBufferResource::<Impl, IMPL_OFFSET>,
-            CreateDirect3D12HardwareProtectedContentBufferResource: CreateDirect3D12HardwareProtectedContentBufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
-            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Impl, IMPL_OFFSET>,
-            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerInterop, OFFSET>(),
+            CreateDirect3D12ContentBufferResource: CreateDirect3D12ContentBufferResource::<Identity, Impl, OFFSET>,
+            CreateDirect3D12HardwareProtectedContentBufferResource: CreateDirect3D12HardwareProtectedContentBufferResource::<Identity, Impl, OFFSET>,
+            AcquireDirect3D12BufferResource: AcquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
+            AcquireDirect3D12BufferResourceWithTimeout: AcquireDirect3D12BufferResourceWithTimeout::<Identity, Impl, OFFSET>,
+            UnacquireDirect3D12BufferResource: UnacquireDirect3D12BufferResource::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -158,14 +170,15 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParametersInter
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersInterop_Vtbl {
-        unsafe extern "system" fn CommitDirect3D12Resource<Impl: IHolographicQuadLayerUpdateParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersInterop_Impl, const OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersInterop_Vtbl {
+        unsafe extern "system" fn CommitDirect3D12Resource<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CommitDirect3D12Resource(::core::mem::transmute(&pcolorresourcetocommit), ::core::mem::transmute(&pcolorresourcefence), ::core::mem::transmute_copy(&colorresourcefencesignalvalue)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParametersInterop, BASE_OFFSET>(),
-            CommitDirect3D12Resource: CommitDirect3D12Resource::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicQuadLayerUpdateParametersInterop, OFFSET>(),
+            CommitDirect3D12Resource: CommitDirect3D12Resource::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

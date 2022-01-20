@@ -10,24 +10,27 @@ impl ::windows::core::RuntimeName for IAccountsSettingsPaneInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAccountsSettingsPaneInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccountsSettingsPaneInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccountsSettingsPaneInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>() -> IAccountsSettingsPaneInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&accountssettingspane)).into()
         }
-        unsafe extern "system" fn ShowManageAccountsForWindowAsync<Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShowManageAccountsForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ShowManageAccountsForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncaction)).into()
         }
-        unsafe extern "system" fn ShowAddAccountForWindowAsync<Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShowAddAccountForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IAccountsSettingsPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ShowAddAccountForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncaction)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
-            ShowManageAccountsForWindowAsync: ShowManageAccountsForWindowAsync::<Impl, IMPL_OFFSET>,
-            ShowAddAccountForWindowAsync: ShowAddAccountForWindowAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
+            ShowManageAccountsForWindowAsync: ShowManageAccountsForWindowAsync::<Identity, Impl, OFFSET>,
+            ShowAddAccountForWindowAsync: ShowAddAccountForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -41,9 +44,10 @@ impl ::windows::core::RuntimeName for IActivationFactory {
     const NAME: &'static str = "";
 }
 impl IActivationFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationFactory_Vtbl {
-        unsafe extern "system" fn ActivateInstance<Impl: IActivationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFactory_Impl, const OFFSET: isize>() -> IActivationFactory_Vtbl {
+        unsafe extern "system" fn ActivateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ActivateInstance() {
                 ::core::result::Result::Ok(ok__) => {
                     *instance = ::core::mem::transmute(ok__);
@@ -53,8 +57,8 @@ impl IActivationFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationFactory, BASE_OFFSET>(),
-            ActivateInstance: ActivateInstance::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IActivationFactory, OFFSET>(),
+            ActivateInstance: ActivateInstance::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -65,12 +69,13 @@ pub trait IAgileReference_Impl: Sized {
     fn Resolve(&mut self, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IAgileReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAgileReference_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAgileReference_Vtbl {
-        unsafe extern "system" fn Resolve<Impl: IAgileReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAgileReference_Impl, const OFFSET: isize>() -> IAgileReference_Vtbl {
+        unsafe extern "system" fn Resolve<Identity: ::windows::core::IUnknownImpl, Impl: IAgileReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Resolve(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobjectreference)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Resolve: Resolve::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAgileReference as ::windows::core::Interface>::IID
@@ -80,12 +85,13 @@ pub trait IApartmentShutdown_Impl: Sized {
     fn OnUninitialize(&mut self, ui64apartmentidentifier: u64);
 }
 impl IApartmentShutdown_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApartmentShutdown_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApartmentShutdown_Vtbl {
-        unsafe extern "system" fn OnUninitialize<Impl: IApartmentShutdown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ui64apartmentidentifier: u64) {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApartmentShutdown_Impl, const OFFSET: isize>() -> IApartmentShutdown_Vtbl {
+        unsafe extern "system" fn OnUninitialize<Identity: ::windows::core::IUnknownImpl, Impl: IApartmentShutdown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ui64apartmentidentifier: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OnUninitialize(::core::mem::transmute_copy(&ui64apartmentidentifier))
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnUninitialize: OnUninitialize::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUninitialize: OnUninitialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApartmentShutdown as ::windows::core::Interface>::IID
@@ -95,14 +101,15 @@ pub trait IAppServiceConnectionExtendedExecution_Impl: Sized {
     fn OpenForExtendedExecutionAsync(&mut self, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IAppServiceConnectionExtendedExecution_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionExtendedExecution_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppServiceConnectionExtendedExecution_Vtbl {
-        unsafe extern "system" fn OpenForExtendedExecutionAsync<Impl: IAppServiceConnectionExtendedExecution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionExtendedExecution_Impl, const OFFSET: isize>() -> IAppServiceConnectionExtendedExecution_Vtbl {
+        unsafe extern "system" fn OpenForExtendedExecutionAsync<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionExtendedExecution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OpenForExtendedExecutionAsync(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&operation)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            OpenForExtendedExecutionAsync: OpenForExtendedExecutionAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            OpenForExtendedExecutionAsync: OpenForExtendedExecutionAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -113,9 +120,10 @@ pub trait IBufferByteAccess_Impl: Sized {
     fn Buffer(&mut self) -> ::windows::core::Result<*mut u8>;
 }
 impl IBufferByteAccess_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferByteAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBufferByteAccess_Vtbl {
-        unsafe extern "system" fn Buffer<Impl: IBufferByteAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferByteAccess_Impl, const OFFSET: isize>() -> IBufferByteAccess_Vtbl {
+        unsafe extern "system" fn Buffer<Identity: ::windows::core::IUnknownImpl, Impl: IBufferByteAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Buffer() {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
@@ -124,7 +132,7 @@ impl IBufferByteAccess_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Buffer: Buffer::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Buffer: Buffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBufferByteAccess as ::windows::core::Interface>::IID
@@ -138,21 +146,25 @@ pub trait ICastingController_Impl: Sized {
     fn UnAdvise(&mut self, cookie: u32) -> ::windows::core::Result<()>;
 }
 impl ICastingController_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingController_Vtbl {
-        unsafe extern "system" fn Initialize<Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, castingengine: *mut ::core::ffi::c_void, castingsource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>() -> ICastingController_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, castingengine: *mut ::core::ffi::c_void, castingsource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&castingengine), ::core::mem::transmute(&castingsource)).into()
         }
-        unsafe extern "system" fn Connect<Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Connect().into()
         }
-        unsafe extern "system" fn Disconnect<Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Disconnect<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Disconnect().into()
         }
-        unsafe extern "system" fn Advise<Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Advise<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Advise(::core::mem::transmute(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *cookie = ::core::mem::transmute(ok__);
@@ -161,17 +173,18 @@ impl ICastingController_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnAdvise<Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnAdvise<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).UnAdvise(::core::mem::transmute_copy(&cookie)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            Initialize: Initialize::<Impl, IMPL_OFFSET>,
-            Connect: Connect::<Impl, IMPL_OFFSET>,
-            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
-            Advise: Advise::<Impl, IMPL_OFFSET>,
-            UnAdvise: UnAdvise::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Initialize: Initialize::<Identity, Impl, OFFSET>,
+            Connect: Connect::<Identity, Impl, OFFSET>,
+            Disconnect: Disconnect::<Identity, Impl, OFFSET>,
+            Advise: Advise::<Identity, Impl, OFFSET>,
+            UnAdvise: UnAdvise::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -185,19 +198,21 @@ pub trait ICastingEventHandler_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICastingEventHandler_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingEventHandler_Vtbl {
-        unsafe extern "system" fn OnStateChanged<Impl: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingEventHandler_Impl, const OFFSET: isize>() -> ICastingEventHandler_Vtbl {
+        unsafe extern "system" fn OnStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OnStateChanged(::core::mem::transmute_copy(&newstate)).into()
         }
-        unsafe extern "system" fn OnError<Impl: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn OnError<Identity: ::windows::core::IUnknownImpl, Impl: ICastingEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OnError(::core::mem::transmute_copy(&errorstatus), ::core::mem::transmute_copy(&errormessage)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            OnStateChanged: OnStateChanged::<Impl, IMPL_OFFSET>,
-            OnError: OnError::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            OnStateChanged: OnStateChanged::<Identity, Impl, OFFSET>,
+            OnError: OnError::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -211,9 +226,10 @@ pub trait ICastingSourceInfo_Impl: Sized {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ICastingSourceInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICastingSourceInfo_Vtbl {
-        unsafe extern "system" fn GetController<Impl: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controller: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceInfo_Impl, const OFFSET: isize>() -> ICastingSourceInfo_Vtbl {
+        unsafe extern "system" fn GetController<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controller: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetController() {
                 ::core::result::Result::Ok(ok__) => {
                     *controller = ::core::mem::transmute(ok__);
@@ -222,8 +238,9 @@ impl ICastingSourceInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperties<Impl: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, props: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: ICastingSourceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, props: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetProperties() {
                 ::core::result::Result::Ok(ok__) => {
                     *props = ::core::mem::transmute(ok__);
@@ -233,9 +250,9 @@ impl ICastingSourceInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            GetController: GetController::<Impl, IMPL_OFFSET>,
-            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetController: GetController::<Identity, Impl, OFFSET>,
+            GetProperties: GetProperties::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -251,9 +268,10 @@ impl ::windows::core::RuntimeName for ICorrelationVectorInformation {
     const NAME: &'static str = "";
 }
 impl ICorrelationVectorInformation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICorrelationVectorInformation_Vtbl {
-        unsafe extern "system" fn LastCorrelationVectorForThread<Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>() -> ICorrelationVectorInformation_Vtbl {
+        unsafe extern "system" fn LastCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).LastCorrelationVectorForThread() {
                 ::core::result::Result::Ok(ok__) => {
                     *cv = ::core::mem::transmute(ok__);
@@ -262,8 +280,9 @@ impl ICorrelationVectorInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextCorrelationVectorForThread<Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn NextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).NextCorrelationVectorForThread() {
                 ::core::result::Result::Ok(ok__) => {
                     *cv = ::core::mem::transmute(ok__);
@@ -272,15 +291,16 @@ impl ICorrelationVectorInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNextCorrelationVectorForThread<Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetNextCorrelationVectorForThread(::core::mem::transmute_copy(&cv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorrelationVectorInformation, BASE_OFFSET>(),
-            LastCorrelationVectorForThread: LastCorrelationVectorForThread::<Impl, IMPL_OFFSET>,
-            NextCorrelationVectorForThread: NextCorrelationVectorForThread::<Impl, IMPL_OFFSET>,
-            SetNextCorrelationVectorForThread: SetNextCorrelationVectorForThread::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICorrelationVectorInformation, OFFSET>(),
+            LastCorrelationVectorForThread: LastCorrelationVectorForThread::<Identity, Impl, OFFSET>,
+            NextCorrelationVectorForThread: NextCorrelationVectorForThread::<Identity, Impl, OFFSET>,
+            SetNextCorrelationVectorForThread: SetNextCorrelationVectorForThread::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -291,9 +311,10 @@ pub trait ICorrelationVectorSource_Impl: Sized {
     fn CorrelationVector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ICorrelationVectorSource_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICorrelationVectorSource_Vtbl {
-        unsafe extern "system" fn CorrelationVector<Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>() -> ICorrelationVectorSource_Vtbl {
+        unsafe extern "system" fn CorrelationVector<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CorrelationVector() {
                 ::core::result::Result::Ok(ok__) => {
                     *cv = ::core::mem::transmute(ok__);
@@ -302,7 +323,7 @@ impl ICorrelationVectorSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CorrelationVector: CorrelationVector::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CorrelationVector: CorrelationVector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICorrelationVectorSource as ::windows::core::Interface>::IID
@@ -318,14 +339,15 @@ impl ::windows::core::RuntimeName for IDragDropManagerInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDragDropManagerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragDropManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragDropManagerInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IDragDropManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragDropManagerInterop_Impl, const OFFSET: isize>() -> IDragDropManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IDragDropManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragDropManagerInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDragDropManagerInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -342,14 +364,15 @@ impl ::windows::core::RuntimeName for IHolographicSpaceInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHolographicSpaceInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceInterop_Vtbl {
-        unsafe extern "system" fn CreateForWindow<Impl: IHolographicSpaceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceInterop_Impl, const OFFSET: isize>() -> IHolographicSpaceInterop_Vtbl {
+        unsafe extern "system" fn CreateForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CreateForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&holographicspace)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceInterop, BASE_OFFSET>(),
-            CreateForWindow: CreateForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceInterop, OFFSET>(),
+            CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -366,12 +389,13 @@ impl ::windows::core::RuntimeName for IInputPaneInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInputPaneInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputPaneInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputPaneInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IInputPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputPaneInterop_Impl, const OFFSET: isize>() -> IInputPaneInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IInputPaneInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&inputpane)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneInterop, BASE_OFFSET>(), GetForWindow: GetForWindow::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneInterop as ::windows::core::Interface>::IID
@@ -381,9 +405,10 @@ pub trait ILanguageExceptionErrorInfo_Impl: Sized {
     fn GetLanguageException(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ILanguageExceptionErrorInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageExceptionErrorInfo_Vtbl {
-        unsafe extern "system" fn GetLanguageException<Impl: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>() -> ILanguageExceptionErrorInfo_Vtbl {
+        unsafe extern "system" fn GetLanguageException<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetLanguageException() {
                 ::core::result::Result::Ok(ok__) => {
                     *languageexception = ::core::mem::transmute(ok__);
@@ -392,7 +417,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetLanguageException: GetLanguageException::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLanguageException: GetLanguageException::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageExceptionErrorInfo as ::windows::core::Interface>::IID
@@ -404,9 +429,10 @@ pub trait ILanguageExceptionErrorInfo2_Impl: Sized + ILanguageExceptionErrorInfo
     fn GetPropagationContextHead(&mut self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageExceptionErrorInfo2_Vtbl {
-        unsafe extern "system" fn GetPreviousLanguageExceptionErrorInfo<Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>() -> ILanguageExceptionErrorInfo2_Vtbl {
+        unsafe extern "system" fn GetPreviousLanguageExceptionErrorInfo<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetPreviousLanguageExceptionErrorInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *previouslanguageexceptionerrorinfo = ::core::mem::transmute(ok__);
@@ -415,12 +441,14 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapturePropagationContext<Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CapturePropagationContext<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CapturePropagationContext(::core::mem::transmute(&languageexception)).into()
         }
-        unsafe extern "system" fn GetPropagationContextHead<Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetPropagationContextHead<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetPropagationContextHead() {
                 ::core::result::Result::Ok(ok__) => {
                     *propagatedlanguageexceptionerrorinfohead = ::core::mem::transmute(ok__);
@@ -430,10 +458,10 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
             }
         }
         Self {
-            base: ILanguageExceptionErrorInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
-            GetPreviousLanguageExceptionErrorInfo: GetPreviousLanguageExceptionErrorInfo::<Impl, IMPL_OFFSET>,
-            CapturePropagationContext: CapturePropagationContext::<Impl, IMPL_OFFSET>,
-            GetPropagationContextHead: GetPropagationContextHead::<Impl, IMPL_OFFSET>,
+            base: ILanguageExceptionErrorInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetPreviousLanguageExceptionErrorInfo: GetPreviousLanguageExceptionErrorInfo::<Identity, Impl, OFFSET>,
+            CapturePropagationContext: CapturePropagationContext::<Identity, Impl, OFFSET>,
+            GetPropagationContextHead: GetPropagationContextHead::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -444,12 +472,13 @@ pub trait ILanguageExceptionStackBackTrace_Impl: Sized {
     fn GetStackBackTrace(&mut self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::Result<()>;
 }
 impl ILanguageExceptionStackBackTrace_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionStackBackTrace_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageExceptionStackBackTrace_Vtbl {
-        unsafe extern "system" fn GetStackBackTrace<Impl: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>() -> ILanguageExceptionStackBackTrace_Vtbl {
+        unsafe extern "system" fn GetStackBackTrace<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetStackBackTrace(::core::mem::transmute_copy(&maxframestocapture), ::core::mem::transmute_copy(&stackbacktrace), ::core::mem::transmute_copy(&framescaptured)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageExceptionStackBackTrace as ::windows::core::Interface>::IID
@@ -459,9 +488,10 @@ pub trait ILanguageExceptionTransform_Impl: Sized {
     fn GetTransformedRestrictedErrorInfo(&mut self) -> ::windows::core::Result<IRestrictedErrorInfo>;
 }
 impl ILanguageExceptionTransform_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionTransform_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageExceptionTransform_Vtbl {
-        unsafe extern "system" fn GetTransformedRestrictedErrorInfo<Impl: ILanguageExceptionTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionTransform_Impl, const OFFSET: isize>() -> ILanguageExceptionTransform_Vtbl {
+        unsafe extern "system" fn GetTransformedRestrictedErrorInfo<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTransformedRestrictedErrorInfo() {
                 ::core::result::Result::Ok(ok__) => {
                     *restrictederrorinfo = ::core::mem::transmute(ok__);
@@ -471,8 +501,8 @@ impl ILanguageExceptionTransform_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            GetTransformedRestrictedErrorInfo: GetTransformedRestrictedErrorInfo::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetTransformedRestrictedErrorInfo: GetTransformedRestrictedErrorInfo::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -483,12 +513,13 @@ pub trait IMemoryBufferByteAccess_Impl: Sized {
     fn GetBuffer(&mut self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMemoryBufferByteAccess_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMemoryBufferByteAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMemoryBufferByteAccess_Vtbl {
-        unsafe extern "system" fn GetBuffer<Impl: IMemoryBufferByteAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMemoryBufferByteAccess_Impl, const OFFSET: isize>() -> IMemoryBufferByteAccess_Vtbl {
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IMemoryBufferByteAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetBuffer(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&capacity)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetBuffer: GetBuffer::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBufferByteAccess as ::windows::core::Interface>::IID
@@ -501,12 +532,13 @@ impl ::windows::core::RuntimeName for IMessageDispatcher {
     const NAME: &'static str = "";
 }
 impl IMessageDispatcher_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDispatcher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageDispatcher_Vtbl {
-        unsafe extern "system" fn PumpMessages<Impl: IMessageDispatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDispatcher_Impl, const OFFSET: isize>() -> IMessageDispatcher_Vtbl {
+        unsafe extern "system" fn PumpMessages<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDispatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).PumpMessages().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMessageDispatcher, BASE_OFFSET>(), PumpMessages: PumpMessages::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMessageDispatcher, OFFSET>(), PumpMessages: PumpMessages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMessageDispatcher as ::windows::core::Interface>::IID
@@ -523,19 +555,21 @@ impl ::windows::core::RuntimeName for IPlayToManagerInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPlayToManagerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlayToManagerInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IPlayToManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerInterop_Impl, const OFFSET: isize>() -> IPlayToManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&playtomanager)).into()
         }
-        unsafe extern "system" fn ShowPlayToUIForWindow<Impl: IPlayToManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShowPlayToUIForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ShowPlayToUIForWindow(::core::mem::transmute_copy(&appwindow)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToManagerInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
-            ShowPlayToUIForWindow: ShowPlayToUIForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToManagerInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
+            ShowPlayToUIForWindow: ShowPlayToUIForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -549,13 +583,15 @@ pub trait IRestrictedErrorInfo_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRestrictedErrorInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRestrictedErrorInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRestrictedErrorInfo_Vtbl {
-        unsafe extern "system" fn GetErrorDetails<Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>() -> IRestrictedErrorInfo_Vtbl {
+        unsafe extern "system" fn GetErrorDetails<Identity: ::windows::core::IUnknownImpl, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetErrorDetails(::core::mem::transmute_copy(&description), ::core::mem::transmute_copy(&error), ::core::mem::transmute_copy(&restricteddescription), ::core::mem::transmute_copy(&capabilitysid)).into()
         }
-        unsafe extern "system" fn GetReference<Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetReference<Identity: ::windows::core::IUnknownImpl, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetReference() {
                 ::core::result::Result::Ok(ok__) => {
                     *reference = ::core::mem::transmute(ok__);
@@ -565,9 +601,9 @@ impl IRestrictedErrorInfo_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            GetErrorDetails: GetErrorDetails::<Impl, IMPL_OFFSET>,
-            GetReference: GetReference::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetErrorDetails: GetErrorDetails::<Identity, Impl, OFFSET>,
+            GetReference: GetReference::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -580,12 +616,13 @@ pub trait IRoMetaDataLocator_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoMetaDataLocator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoMetaDataLocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRoMetaDataLocator_Vtbl {
-        unsafe extern "system" fn Locate<Impl: IRoMetaDataLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nameelement: super::super::Foundation::PWSTR, metadatadestination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoMetaDataLocator_Impl, const OFFSET: isize>() -> IRoMetaDataLocator_Vtbl {
+        unsafe extern "system" fn Locate<Identity: ::windows::core::IUnknownImpl, Impl: IRoMetaDataLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nameelement: super::super::Foundation::PWSTR, metadatadestination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Locate(::core::mem::transmute_copy(&nameelement), ::core::mem::transmute(&metadatadestination)).into()
         }
-        Self { Locate: Locate::<Impl, IMPL_OFFSET> }
+        Self { Locate: Locate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRoMetaDataLocator as ::windows::core::Interface>::IID
@@ -606,58 +643,68 @@ pub trait IRoSimpleMetaDataBuilder_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoSimpleMetaDataBuilder_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRoSimpleMetaDataBuilder_Vtbl {
-        unsafe extern "system" fn SetWinRtInterface<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>() -> IRoSimpleMetaDataBuilder_Vtbl {
+        unsafe extern "system" fn SetWinRtInterface<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetWinRtInterface(::core::mem::transmute_copy(&iid)).into()
         }
-        unsafe extern "system" fn SetDelegate<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDelegate<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetDelegate(::core::mem::transmute_copy(&iid)).into()
         }
-        unsafe extern "system" fn SetInterfaceGroupSimpleDefault<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetInterfaceGroupSimpleDefault<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetInterfaceGroupSimpleDefault(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&defaultinterfacename), ::core::mem::transmute_copy(&defaultinterfaceiid)).into()
         }
-        unsafe extern "system" fn SetInterfaceGroupParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetInterfaceGroupParameterizedDefault<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetInterfaceGroupParameterizedDefault(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&defaultinterfacenameelements)).into()
         }
-        unsafe extern "system" fn SetRuntimeClassSimpleDefault<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRuntimeClassSimpleDefault<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetRuntimeClassSimpleDefault(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&defaultinterfacename), ::core::mem::transmute_copy(&defaultinterfaceiid)).into()
         }
-        unsafe extern "system" fn SetRuntimeClassParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetRuntimeClassParameterizedDefault<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetRuntimeClassParameterizedDefault(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&defaultinterfacenameelements)).into()
         }
-        unsafe extern "system" fn SetStruct<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetStruct<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetStruct(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&numfields), ::core::mem::transmute_copy(&fieldtypenames)).into()
         }
-        unsafe extern "system" fn SetEnum<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, basetype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetEnum<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, basetype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetEnum(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&basetype)).into()
         }
-        unsafe extern "system" fn SetParameterizedInterface<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetParameterizedInterface<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetParameterizedInterface(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&numargs)).into()
         }
-        unsafe extern "system" fn SetParameterizedDelegate<Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetParameterizedDelegate<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetParameterizedDelegate(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&numargs)).into()
         }
         Self {
-            SetWinRtInterface: SetWinRtInterface::<Impl, IMPL_OFFSET>,
-            SetDelegate: SetDelegate::<Impl, IMPL_OFFSET>,
-            SetInterfaceGroupSimpleDefault: SetInterfaceGroupSimpleDefault::<Impl, IMPL_OFFSET>,
-            SetInterfaceGroupParameterizedDefault: SetInterfaceGroupParameterizedDefault::<Impl, IMPL_OFFSET>,
-            SetRuntimeClassSimpleDefault: SetRuntimeClassSimpleDefault::<Impl, IMPL_OFFSET>,
-            SetRuntimeClassParameterizedDefault: SetRuntimeClassParameterizedDefault::<Impl, IMPL_OFFSET>,
-            SetStruct: SetStruct::<Impl, IMPL_OFFSET>,
-            SetEnum: SetEnum::<Impl, IMPL_OFFSET>,
-            SetParameterizedInterface: SetParameterizedInterface::<Impl, IMPL_OFFSET>,
-            SetParameterizedDelegate: SetParameterizedDelegate::<Impl, IMPL_OFFSET>,
+            SetWinRtInterface: SetWinRtInterface::<Identity, Impl, OFFSET>,
+            SetDelegate: SetDelegate::<Identity, Impl, OFFSET>,
+            SetInterfaceGroupSimpleDefault: SetInterfaceGroupSimpleDefault::<Identity, Impl, OFFSET>,
+            SetInterfaceGroupParameterizedDefault: SetInterfaceGroupParameterizedDefault::<Identity, Impl, OFFSET>,
+            SetRuntimeClassSimpleDefault: SetRuntimeClassSimpleDefault::<Identity, Impl, OFFSET>,
+            SetRuntimeClassParameterizedDefault: SetRuntimeClassParameterizedDefault::<Identity, Impl, OFFSET>,
+            SetStruct: SetStruct::<Identity, Impl, OFFSET>,
+            SetEnum: SetEnum::<Identity, Impl, OFFSET>,
+            SetParameterizedInterface: SetParameterizedInterface::<Identity, Impl, OFFSET>,
+            SetParameterizedDelegate: SetParameterizedDelegate::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -670,9 +717,10 @@ pub trait IShareWindowCommandEventArgsInterop_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IShareWindowCommandEventArgsInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandEventArgsInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareWindowCommandEventArgsInterop_Vtbl {
-        unsafe extern "system" fn GetWindow<Impl: IShareWindowCommandEventArgsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandEventArgsInterop_Impl, const OFFSET: isize>() -> IShareWindowCommandEventArgsInterop_Vtbl {
+        unsafe extern "system" fn GetWindow<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandEventArgsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
@@ -681,7 +729,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetWindow: GetWindow::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareWindowCommandEventArgsInterop as ::windows::core::Interface>::IID
@@ -693,12 +741,13 @@ pub trait IShareWindowCommandSourceInterop_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IShareWindowCommandSourceInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareWindowCommandSourceInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>() -> IShareWindowCommandSourceInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IShareWindowCommandSourceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&sharewindowcommandsource)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetForWindow: GetForWindow::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareWindowCommandSourceInterop as ::windows::core::Interface>::IID
@@ -714,14 +763,15 @@ impl ::windows::core::RuntimeName for ISpatialInteractionManagerInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISpatialInteractionManagerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialInteractionManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialInteractionManagerInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: ISpatialInteractionManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialInteractionManagerInterop_Impl, const OFFSET: isize>() -> ISpatialInteractionManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialInteractionManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&spatialinteractionmanager)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManagerInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManagerInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -738,14 +788,15 @@ impl ::windows::core::RuntimeName for ISystemMediaTransportControlsInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISystemMediaTransportControlsInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMediaTransportControlsInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: ISystemMediaTransportControlsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsInterop_Impl, const OFFSET: isize>() -> ISystemMediaTransportControlsInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMediaTransportControlsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&mediatransportcontrol)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemMediaTransportControlsInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISystemMediaTransportControlsInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -762,12 +813,13 @@ impl ::windows::core::RuntimeName for IUIViewSettingsInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIViewSettingsInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIViewSettingsInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIViewSettingsInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IUIViewSettingsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIViewSettingsInterop_Impl, const OFFSET: isize>() -> IUIViewSettingsInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IUIViewSettingsInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUIViewSettingsInterop, BASE_OFFSET>(), GetForWindow: GetForWindow::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUIViewSettingsInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIViewSettingsInterop as ::windows::core::Interface>::IID
@@ -783,14 +835,15 @@ impl ::windows::core::RuntimeName for IUserActivityInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUserActivityInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityInterop_Vtbl {
-        unsafe extern "system" fn CreateSessionForWindow<Impl: IUserActivityInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityInterop_Impl, const OFFSET: isize>() -> IUserActivityInterop_Vtbl {
+        unsafe extern "system" fn CreateSessionForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CreateSessionForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityInterop, BASE_OFFSET>(),
-            CreateSessionForWindow: CreateSessionForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityInterop, OFFSET>(),
+            CreateSessionForWindow: CreateSessionForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -807,14 +860,15 @@ impl ::windows::core::RuntimeName for IUserActivityRequestManagerInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUserActivityRequestManagerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivityRequestManagerInterop_Vtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IUserActivityRequestManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerInterop_Impl, const OFFSET: isize>() -> IUserActivityRequestManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivityRequestManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestManagerInterop, BASE_OFFSET>(),
-            GetForWindow: GetForWindow::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestManagerInterop, OFFSET>(),
+            GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -828,14 +882,15 @@ impl ::windows::core::RuntimeName for IUserActivitySourceHostInterop {
     const NAME: &'static str = "";
 }
 impl IUserActivitySourceHostInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySourceHostInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserActivitySourceHostInterop_Vtbl {
-        unsafe extern "system" fn SetActivitySourceHost<Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitysourcehost: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>() -> IUserActivitySourceHostInterop_Vtbl {
+        unsafe extern "system" fn SetActivitySourceHost<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitysourcehost: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetActivitySourceHost(::core::mem::transmute_copy(&activitysourcehost)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySourceHostInterop, BASE_OFFSET>(),
-            SetActivitySourceHost: SetActivitySourceHost::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySourceHostInterop, OFFSET>(),
+            SetActivitySourceHost: SetActivitySourceHost::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -852,14 +907,15 @@ impl ::windows::core::RuntimeName for IUserConsentVerifierInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUserConsentVerifierInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserConsentVerifierInterop_Vtbl {
-        unsafe extern "system" fn RequestVerificationForWindowAsync<Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>() -> IUserConsentVerifierInterop_Vtbl {
+        unsafe extern "system" fn RequestVerificationForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).RequestVerificationForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&message), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserConsentVerifierInterop, BASE_OFFSET>(),
-            RequestVerificationForWindowAsync: RequestVerificationForWindowAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUserConsentVerifierInterop, OFFSET>(),
+            RequestVerificationForWindowAsync: RequestVerificationForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -870,12 +926,13 @@ pub trait IWeakReference_Impl: Sized {
     fn Resolve(&mut self, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWeakReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReference_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWeakReference_Vtbl {
-        unsafe extern "system" fn Resolve<Impl: IWeakReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReference_Impl, const OFFSET: isize>() -> IWeakReference_Vtbl {
+        unsafe extern "system" fn Resolve<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Resolve(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&objectreference)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Resolve: Resolve::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWeakReference as ::windows::core::Interface>::IID
@@ -885,9 +942,10 @@ pub trait IWeakReferenceSource_Impl: Sized {
     fn GetWeakReference(&mut self) -> ::windows::core::Result<IWeakReference>;
 }
 impl IWeakReferenceSource_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReferenceSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWeakReferenceSource_Vtbl {
-        unsafe extern "system" fn GetWeakReference<Impl: IWeakReferenceSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, weakreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReferenceSource_Impl, const OFFSET: isize>() -> IWeakReferenceSource_Vtbl {
+        unsafe extern "system" fn GetWeakReference<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReferenceSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, weakreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetWeakReference() {
                 ::core::result::Result::Ok(ok__) => {
                     *weakreference = ::core::mem::transmute(ok__);
@@ -896,7 +954,7 @@ impl IWeakReferenceSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetWeakReference: GetWeakReference::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWeakReference: GetWeakReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWeakReferenceSource as ::windows::core::Interface>::IID
@@ -913,19 +971,21 @@ impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerInterop {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWebAuthenticationCoreManagerInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationCoreManagerInterop_Vtbl {
-        unsafe extern "system" fn RequestTokenForWindowAsync<Impl: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>() -> IWebAuthenticationCoreManagerInterop_Vtbl {
+        unsafe extern "system" fn RequestTokenForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).RequestTokenForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&request), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncinfo)).into()
         }
-        unsafe extern "system" fn RequestTokenWithWebAccountForWindowAsync<Impl: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RequestTokenWithWebAccountForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).RequestTokenWithWebAccountForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&request), ::core::mem::transmute(&webaccount), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncinfo)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, BASE_OFFSET>(),
-            RequestTokenForWindowAsync: RequestTokenForWindowAsync::<Impl, IMPL_OFFSET>,
-            RequestTokenWithWebAccountForWindowAsync: RequestTokenWithWebAccountForWindowAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, OFFSET>(),
+            RequestTokenForWindowAsync: RequestTokenForWindowAsync::<Identity, Impl, OFFSET>,
+            RequestTokenWithWebAccountForWindowAsync: RequestTokenWithWebAccountForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

@@ -10,9 +10,10 @@ impl ::windows::core::RuntimeName for ISearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl {
-        unsafe extern "system" fn QueryText<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl {
+        unsafe extern "system" fn QueryText<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).QueryText() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -22,8 +23,9 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -33,8 +35,9 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LinguisticDetails<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).LinguisticDetails() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -45,10 +48,10 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, BASE_OFFSET>(),
-            QueryText: QueryText::<Impl, IMPL_OFFSET>,
-            Language: Language::<Impl, IMPL_OFFSET>,
-            LinguisticDetails: LinguisticDetails::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISearchPaneQueryChangedEventArgs, OFFSET>(),
+            QueryText: QueryText::<Identity, Impl, OFFSET>,
+            Language: Language::<Identity, Impl, OFFSET>,
+            LinguisticDetails: LinguisticDetails::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

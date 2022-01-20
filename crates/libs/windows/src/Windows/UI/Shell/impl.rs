@@ -5,9 +5,10 @@ impl ::windows::core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
 impl IAdaptiveCard_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveCard_Vtbl {
-        unsafe extern "system" fn ToJson<Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCard_Impl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl {
+        unsafe extern "system" fn ToJson<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ToJson() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -17,7 +18,7 @@ impl IAdaptiveCard_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveCard, BASE_OFFSET>(), ToJson: ToJson::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveCard, OFFSET>(), ToJson: ToJson::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAdaptiveCard as ::windows::core::Interface>::IID
@@ -30,9 +31,10 @@ impl ::windows::core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardBuilderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
-        unsafe extern "system" fn CreateAdaptiveCardFromJson<Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
+        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateAdaptiveCardFromJson(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -43,8 +45,8 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveCardBuilderStatics, BASE_OFFSET>(),
-            CreateAdaptiveCardFromJson: CreateAdaptiveCardFromJson::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAdaptiveCardBuilderStatics, OFFSET>(),
+            CreateAdaptiveCardFromJson: CreateAdaptiveCardFromJson::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

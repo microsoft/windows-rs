@@ -13,13 +13,15 @@ impl ::windows::core::RuntimeName for IMediaCue {
 }
 #[cfg(feature = "Foundation")]
 impl IMediaCue_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCue_Vtbl {
-        unsafe extern "system" fn SetStartTime<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>() -> IMediaCue_Vtbl {
+        unsafe extern "system" fn SetStartTime<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetStartTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartTime<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartTime<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).StartTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -29,12 +31,14 @@ impl IMediaCue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuration<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDuration<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetDuration(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Duration<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Duration<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -44,12 +48,14 @@ impl IMediaCue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Id<Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -60,13 +66,13 @@ impl IMediaCue_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCue, BASE_OFFSET>(),
-            SetStartTime: SetStartTime::<Impl, IMPL_OFFSET>,
-            StartTime: StartTime::<Impl, IMPL_OFFSET>,
-            SetDuration: SetDuration::<Impl, IMPL_OFFSET>,
-            Duration: Duration::<Impl, IMPL_OFFSET>,
-            SetId: SetId::<Impl, IMPL_OFFSET>,
-            Id: Id::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaCue, OFFSET>(),
+            SetStartTime: SetStartTime::<Identity, Impl, OFFSET>,
+            StartTime: StartTime::<Identity, Impl, OFFSET>,
+            SetDuration: SetDuration::<Identity, Impl, OFFSET>,
+            Duration: Duration::<Identity, Impl, OFFSET>,
+            SetId: SetId::<Identity, Impl, OFFSET>,
+            Id: Id::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -78,8 +84,8 @@ impl ::windows::core::RuntimeName for IMediaSource {
     const NAME: &'static str = "Windows.Media.Core.IMediaSource";
 }
 impl IMediaSource_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaSource_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource, BASE_OFFSET>() }
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaSource_Impl, const OFFSET: isize>() -> IMediaSource_Vtbl {
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMediaSource as ::windows::core::Interface>::IID
@@ -96,9 +102,10 @@ impl ::windows::core::RuntimeName for IMediaStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor";
 }
 impl IMediaStreamDescriptor_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaStreamDescriptor_Vtbl {
-        unsafe extern "system" fn IsSelected<Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>() -> IMediaStreamDescriptor_Vtbl {
+        unsafe extern "system" fn IsSelected<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).IsSelected() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -108,12 +115,14 @@ impl IMediaStreamDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Name<Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -123,12 +132,14 @@ impl IMediaStreamDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguage<Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Language<Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -139,12 +150,12 @@ impl IMediaStreamDescriptor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor, BASE_OFFSET>(),
-            IsSelected: IsSelected::<Impl, IMPL_OFFSET>,
-            SetName: SetName::<Impl, IMPL_OFFSET>,
-            Name: Name::<Impl, IMPL_OFFSET>,
-            SetLanguage: SetLanguage::<Impl, IMPL_OFFSET>,
-            Language: Language::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor, OFFSET>(),
+            IsSelected: IsSelected::<Identity, Impl, OFFSET>,
+            SetName: SetName::<Identity, Impl, OFFSET>,
+            Name: Name::<Identity, Impl, OFFSET>,
+            SetLanguage: SetLanguage::<Identity, Impl, OFFSET>,
+            Language: Language::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -159,13 +170,15 @@ impl ::windows::core::RuntimeName for IMediaStreamDescriptor2 {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor2";
 }
 impl IMediaStreamDescriptor2_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaStreamDescriptor2_Vtbl {
-        unsafe extern "system" fn SetLabel<Impl: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor2_Impl, const OFFSET: isize>() -> IMediaStreamDescriptor2_Vtbl {
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Label<Impl: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl, Impl: IMediaStreamDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -176,9 +189,9 @@ impl IMediaStreamDescriptor2_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor2, BASE_OFFSET>(),
-            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
-            Label: Label::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaStreamDescriptor2, OFFSET>(),
+            SetLabel: SetLabel::<Identity, Impl, OFFSET>,
+            Label: Label::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -196,9 +209,10 @@ impl ::windows::core::RuntimeName for IMediaTrack {
     const NAME: &'static str = "Windows.Media.Core.IMediaTrack";
 }
 impl IMediaTrack_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTrack_Vtbl {
-        unsafe extern "system" fn Id<Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>() -> IMediaTrack_Vtbl {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -208,8 +222,9 @@ impl IMediaTrack_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -219,8 +234,9 @@ impl IMediaTrack_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrackKind<Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaTrackKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn TrackKind<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaTrackKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).TrackKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -230,12 +246,14 @@ impl IMediaTrack_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetLabel<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Label<Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -246,12 +264,12 @@ impl IMediaTrack_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTrack, BASE_OFFSET>(),
-            Id: Id::<Impl, IMPL_OFFSET>,
-            Language: Language::<Impl, IMPL_OFFSET>,
-            TrackKind: TrackKind::<Impl, IMPL_OFFSET>,
-            SetLabel: SetLabel::<Impl, IMPL_OFFSET>,
-            Label: Label::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaTrack, OFFSET>(),
+            Id: Id::<Identity, Impl, OFFSET>,
+            Language: Language::<Identity, Impl, OFFSET>,
+            TrackKind: TrackKind::<Identity, Impl, OFFSET>,
+            SetLabel: SetLabel::<Identity, Impl, OFFSET>,
+            Label: Label::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -271,9 +289,10 @@ impl ::windows::core::RuntimeName for ISingleSelectMediaTrackList {
 }
 #[cfg(feature = "Foundation")]
 impl ISingleSelectMediaTrackList_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISingleSelectMediaTrackList_Vtbl {
-        unsafe extern "system" fn SelectedIndexChanged<Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>() -> ISingleSelectMediaTrackList_Vtbl {
+        unsafe extern "system" fn SelectedIndexChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).SelectedIndexChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -283,16 +302,19 @@ impl ISingleSelectMediaTrackList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSelectedIndexChanged<Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveSelectedIndexChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveSelectedIndexChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetSelectedIndex<Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetSelectedIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetSelectedIndex(value).into()
         }
-        unsafe extern "system" fn SelectedIndex<Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SelectedIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).SelectedIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -303,11 +325,11 @@ impl ISingleSelectMediaTrackList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISingleSelectMediaTrackList, BASE_OFFSET>(),
-            SelectedIndexChanged: SelectedIndexChanged::<Impl, IMPL_OFFSET>,
-            RemoveSelectedIndexChanged: RemoveSelectedIndexChanged::<Impl, IMPL_OFFSET>,
-            SetSelectedIndex: SetSelectedIndex::<Impl, IMPL_OFFSET>,
-            SelectedIndex: SelectedIndex::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISingleSelectMediaTrackList, OFFSET>(),
+            SelectedIndexChanged: SelectedIndexChanged::<Identity, Impl, OFFSET>,
+            RemoveSelectedIndexChanged: RemoveSelectedIndexChanged::<Identity, Impl, OFFSET>,
+            SetSelectedIndex: SetSelectedIndex::<Identity, Impl, OFFSET>,
+            SelectedIndex: SelectedIndex::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -324,9 +346,10 @@ impl ::windows::core::RuntimeName for ITimedMetadataTrackProvider {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ITimedMetadataTrackProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimedMetadataTrackProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimedMetadataTrackProvider_Vtbl {
-        unsafe extern "system" fn TimedMetadataTracks<Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>() -> ITimedMetadataTrackProvider_Vtbl {
+        unsafe extern "system" fn TimedMetadataTracks<Identity: ::windows::core::IUnknownImpl, Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).TimedMetadataTracks() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -337,8 +360,8 @@ impl ITimedMetadataTrackProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackProvider, BASE_OFFSET>(),
-            TimedMetadataTracks: TimedMetadataTracks::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITimedMetadataTrackProvider, OFFSET>(),
+            TimedMetadataTracks: TimedMetadataTracks::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

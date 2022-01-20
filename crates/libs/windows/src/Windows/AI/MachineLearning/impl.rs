@@ -8,9 +8,10 @@ impl ::windows::core::RuntimeName for ILearningModelFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
 }
 impl ILearningModelFeatureDescriptor_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelFeatureDescriptor_Vtbl {
-        unsafe extern "system" fn Name<Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>() -> ILearningModelFeatureDescriptor_Vtbl {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -20,8 +21,9 @@ impl ILearningModelFeatureDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -31,8 +33,9 @@ impl ILearningModelFeatureDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -42,8 +45,9 @@ impl ILearningModelFeatureDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRequired<Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn IsRequired<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).IsRequired() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -54,11 +58,11 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureDescriptor, BASE_OFFSET>(),
-            Name: Name::<Impl, IMPL_OFFSET>,
-            Description: Description::<Impl, IMPL_OFFSET>,
-            Kind: Kind::<Impl, IMPL_OFFSET>,
-            IsRequired: IsRequired::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureDescriptor, OFFSET>(),
+            Name: Name::<Identity, Impl, OFFSET>,
+            Description: Description::<Identity, Impl, OFFSET>,
+            Kind: Kind::<Identity, Impl, OFFSET>,
+            IsRequired: IsRequired::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -72,9 +76,10 @@ impl ::windows::core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
 }
 impl ILearningModelFeatureValue_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelFeatureValue_Vtbl {
-        unsafe extern "system" fn Kind<Impl: ILearningModelFeatureValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureValue_Impl, const OFFSET: isize>() -> ILearningModelFeatureValue_Vtbl {
+        unsafe extern "system" fn Kind<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelFeatureValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -84,7 +89,7 @@ impl ILearningModelFeatureValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureValue, BASE_OFFSET>(), Kind: Kind::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelFeatureValue as ::windows::core::Interface>::IID
@@ -95,8 +100,8 @@ impl ::windows::core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
 }
 impl ILearningModelOperatorProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILearningModelOperatorProvider_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelOperatorProvider, BASE_OFFSET>() }
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> ILearningModelOperatorProvider_Vtbl {
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILearningModelOperatorProvider as ::windows::core::Interface>::IID
@@ -113,9 +118,10 @@ impl ::windows::core::RuntimeName for ITensor {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ITensor_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITensor_Vtbl {
-        unsafe extern "system" fn TensorKind<Impl: ITensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TensorKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensor_Impl, const OFFSET: isize>() -> ITensor_Vtbl {
+        unsafe extern "system" fn TensorKind<Identity: ::windows::core::IUnknownImpl, Impl: ITensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TensorKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).TensorKind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -125,8 +131,9 @@ impl ITensor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Shape<Impl: ITensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Shape<Identity: ::windows::core::IUnknownImpl, Impl: ITensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Shape() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -137,9 +144,9 @@ impl ITensor_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensor, BASE_OFFSET>(),
-            TensorKind: TensorKind::<Impl, IMPL_OFFSET>,
-            Shape: Shape::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITensor, OFFSET>(),
+            TensorKind: TensorKind::<Identity, Impl, OFFSET>,
+            Shape: Shape::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

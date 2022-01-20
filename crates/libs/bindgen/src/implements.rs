@@ -80,8 +80,9 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         };
 
         quote! {
-            unsafe extern "system" fn #name<#(#constraints)* Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
-                let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
+                let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+                let this = (*this).get_impl() as *mut Impl;
                 #invoke_upcall
             }
         }
@@ -90,12 +91,12 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
 
     match def.vtable_types().last() {
-        Some(ElementType::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), }),
-        Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, BASE_OFFSET>(), }),
+        Some(ElementType::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
+        Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
         Some(ElementType::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(&def, gen);
             let namespace = gen.namespace(def.namespace());
-            methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
+            methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
         }
         _ => {}
     }
@@ -105,7 +106,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     for method in def.methods() {
         let name = method_names.add(&method);
-        methods.combine(&quote! { #name: #name::<#(#generics)* Impl, IMPL_OFFSET>, });
+        methods.combine(&quote! { #name: #name::<#(#generics)* Identity, Impl, OFFSET>, });
     }
 
     quote!{
@@ -116,7 +117,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         #runtime_name
         #cfg
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
-            pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
+            pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self{
                     #methods

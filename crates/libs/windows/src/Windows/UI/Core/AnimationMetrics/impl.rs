@@ -12,9 +12,10 @@ impl ::windows::core::RuntimeName for IPropertyAnimation {
 }
 #[cfg(feature = "Foundation")]
 impl IPropertyAnimation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPropertyAnimation_Vtbl {
-        unsafe extern "system" fn Type<Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>() -> IPropertyAnimation_Vtbl {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -24,8 +25,9 @@ impl IPropertyAnimation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delay<Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Delay<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Delay() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -35,8 +37,9 @@ impl IPropertyAnimation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Duration<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -46,8 +49,9 @@ impl IPropertyAnimation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Control1<Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Control1<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Control1() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,8 +61,9 @@ impl IPropertyAnimation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Control2<Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Control2<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Control2() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -69,12 +74,12 @@ impl IPropertyAnimation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyAnimation, BASE_OFFSET>(),
-            Type: Type::<Impl, IMPL_OFFSET>,
-            Delay: Delay::<Impl, IMPL_OFFSET>,
-            Duration: Duration::<Impl, IMPL_OFFSET>,
-            Control1: Control1::<Impl, IMPL_OFFSET>,
-            Control2: Control2::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyAnimation, OFFSET>(),
+            Type: Type::<Identity, Impl, OFFSET>,
+            Delay: Delay::<Identity, Impl, OFFSET>,
+            Duration: Duration::<Identity, Impl, OFFSET>,
+            Control1: Control1::<Identity, Impl, OFFSET>,
+            Control2: Control2::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

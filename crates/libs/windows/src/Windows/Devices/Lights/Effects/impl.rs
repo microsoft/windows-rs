@@ -6,9 +6,10 @@ impl ::windows::core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
 impl ILampArrayEffect_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILampArrayEffect_Vtbl {
-        unsafe extern "system" fn ZIndex<Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffect_Impl, const OFFSET: isize>() -> ILampArrayEffect_Vtbl {
+        unsafe extern "system" fn ZIndex<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ZIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -18,14 +19,15 @@ impl ILampArrayEffect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetZIndex<Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetZIndex<Identity: ::windows::core::IUnknownImpl, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetZIndex(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffect, BASE_OFFSET>(),
-            ZIndex: ZIndex::<Impl, IMPL_OFFSET>,
-            SetZIndex: SetZIndex::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILampArrayEffect, OFFSET>(),
+            ZIndex: ZIndex::<Identity, Impl, OFFSET>,
+            SetZIndex: SetZIndex::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

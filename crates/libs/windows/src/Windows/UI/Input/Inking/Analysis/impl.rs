@@ -14,9 +14,10 @@ impl ::windows::core::RuntimeName for IInkAnalysisNode {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IInkAnalysisNode_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisNode_Vtbl {
-        unsafe extern "system" fn Id<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>() -> IInkAnalysisNode_Vtbl {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -26,8 +27,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Kind<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -37,8 +39,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BoundingRect<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BoundingRect<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).BoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -48,8 +51,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RotatedBoundingRect<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RotatedBoundingRect<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).RotatedBoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -59,8 +63,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Children<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Children<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -70,8 +75,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Parent<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Parent() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -81,8 +87,9 @@ impl IInkAnalysisNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStrokeIds<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetStrokeIds<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetStrokeIds() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -93,14 +100,14 @@ impl IInkAnalysisNode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisNode, BASE_OFFSET>(),
-            Id: Id::<Impl, IMPL_OFFSET>,
-            Kind: Kind::<Impl, IMPL_OFFSET>,
-            BoundingRect: BoundingRect::<Impl, IMPL_OFFSET>,
-            RotatedBoundingRect: RotatedBoundingRect::<Impl, IMPL_OFFSET>,
-            Children: Children::<Impl, IMPL_OFFSET>,
-            Parent: Parent::<Impl, IMPL_OFFSET>,
-            GetStrokeIds: GetStrokeIds::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalysisNode, OFFSET>(),
+            Id: Id::<Identity, Impl, OFFSET>,
+            Kind: Kind::<Identity, Impl, OFFSET>,
+            BoundingRect: BoundingRect::<Identity, Impl, OFFSET>,
+            RotatedBoundingRect: RotatedBoundingRect::<Identity, Impl, OFFSET>,
+            Children: Children::<Identity, Impl, OFFSET>,
+            Parent: Parent::<Identity, Impl, OFFSET>,
+            GetStrokeIds: GetStrokeIds::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -114,9 +121,10 @@ impl ::windows::core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
 }
 impl IInkAnalyzerFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalyzerFactory_Vtbl {
-        unsafe extern "system" fn CreateAnalyzer<Impl: IInkAnalyzerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerFactory_Impl, const OFFSET: isize>() -> IInkAnalyzerFactory_Vtbl {
+        unsafe extern "system" fn CreateAnalyzer<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateAnalyzer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -127,8 +135,8 @@ impl IInkAnalyzerFactory_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzerFactory, BASE_OFFSET>(),
-            CreateAnalyzer: CreateAnalyzer::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInkAnalyzerFactory, OFFSET>(),
+            CreateAnalyzer: CreateAnalyzer::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

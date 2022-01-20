@@ -58,6 +58,8 @@ impl core::fmt::Debug for IUnknown {
 }
 
 pub trait IUnknownImpl {
+    fn get_impl(&mut self) -> RawPtr;
+
     fn QueryInterface(&mut self,  iid: &GUID, interface: *mut RawPtr) -> HRESULT;
     fn AddRef(&mut self) -> u32;
     fn Release(&mut self) -> u32;

@@ -8,9 +8,10 @@ impl ::windows::core::RuntimeName for IUriToStreamResolver {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl IUriToStreamResolver_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriToStreamResolver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUriToStreamResolver_Vtbl {
-        unsafe extern "system" fn UriToStreamAsync<Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>() -> IUriToStreamResolver_Vtbl {
+        unsafe extern "system" fn UriToStreamAsync<Identity: ::windows::core::IUnknownImpl, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).UriToStreamAsync(&*(&uri as *const <super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +22,8 @@ impl IUriToStreamResolver_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriToStreamResolver, BASE_OFFSET>(),
-            UriToStreamAsync: UriToStreamAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriToStreamResolver, OFFSET>(),
+            UriToStreamAsync: UriToStreamAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

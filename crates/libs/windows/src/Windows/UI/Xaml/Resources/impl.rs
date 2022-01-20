@@ -5,9 +5,10 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderOverrides";
 }
 impl ICustomXamlResourceLoaderOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderOverrides_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomXamlResourceLoaderOverrides_Vtbl {
-        unsafe extern "system" fn GetResource<Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>() -> ICustomXamlResourceLoaderOverrides_Vtbl {
+        unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl, Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetResource(
                 &*(&resourceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
                 &*(&objecttype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -23,8 +24,8 @@ impl ICustomXamlResourceLoaderOverrides_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomXamlResourceLoaderOverrides, BASE_OFFSET>(),
-            GetResource: GetResource::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomXamlResourceLoaderOverrides, OFFSET>(),
+            GetResource: GetResource::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

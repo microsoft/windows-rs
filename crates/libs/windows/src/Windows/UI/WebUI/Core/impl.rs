@@ -3,8 +3,8 @@ impl ::windows::core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
 }
 impl IWebUICommandBarElement_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarElement_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarElement, BASE_OFFSET>() }
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElement_Impl, const OFFSET: isize>() -> IWebUICommandBarElement_Vtbl {
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUICommandBarElement as ::windows::core::Interface>::IID
@@ -15,8 +15,8 @@ impl ::windows::core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
 }
 impl IWebUICommandBarIcon_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIcon_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIcon_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarIcon, BASE_OFFSET>() }
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIcon_Impl, const OFFSET: isize>() -> IWebUICommandBarIcon_Vtbl {
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUICommandBarIcon as ::windows::core::Interface>::IID

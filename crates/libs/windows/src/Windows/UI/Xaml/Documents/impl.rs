@@ -7,14 +7,15 @@ impl ::windows::core::RuntimeName for ITextElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ITextElementOverrides";
 }
 impl ITextElementOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextElementOverrides_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextElementOverrides_Vtbl {
-        unsafe extern "system" fn OnDisconnectVisualChildren<Impl: ITextElementOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextElementOverrides_Impl, const OFFSET: isize>() -> ITextElementOverrides_Vtbl {
+        unsafe extern "system" fn OnDisconnectVisualChildren<Identity: ::windows::core::IUnknownImpl, Impl: ITextElementOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OnDisconnectVisualChildren().into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextElementOverrides, BASE_OFFSET>(),
-            OnDisconnectVisualChildren: OnDisconnectVisualChildren::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITextElementOverrides, OFFSET>(),
+            OnDisconnectVisualChildren: OnDisconnectVisualChildren::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

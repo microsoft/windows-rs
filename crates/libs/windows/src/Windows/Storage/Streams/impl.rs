@@ -7,9 +7,10 @@ impl ::windows::core::RuntimeName for IBuffer {
     const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
 }
 impl IBuffer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBuffer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBuffer_Vtbl {
-        unsafe extern "system" fn Capacity<Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBuffer_Impl, const OFFSET: isize>() -> IBuffer_Vtbl {
+        unsafe extern "system" fn Capacity<Identity: ::windows::core::IUnknownImpl, Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Capacity() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -19,8 +20,9 @@ impl IBuffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Length<Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Length<Identity: ::windows::core::IUnknownImpl, Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -30,15 +32,16 @@ impl IBuffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLength<Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetLength<Identity: ::windows::core::IUnknownImpl, Impl: IBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetLength(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IBuffer, BASE_OFFSET>(),
-            Capacity: Capacity::<Impl, IMPL_OFFSET>,
-            Length: Length::<Impl, IMPL_OFFSET>,
-            SetLength: SetLength::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IBuffer, OFFSET>(),
+            Capacity: Capacity::<Identity, Impl, OFFSET>,
+            Length: Length::<Identity, Impl, OFFSET>,
+            SetLength: SetLength::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -52,9 +55,10 @@ impl ::windows::core::RuntimeName for IContentTypeProvider {
     const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
 }
 impl IContentTypeProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentTypeProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentTypeProvider_Vtbl {
-        unsafe extern "system" fn ContentType<Impl: IContentTypeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentTypeProvider_Impl, const OFFSET: isize>() -> IContentTypeProvider_Vtbl {
+        unsafe extern "system" fn ContentType<Identity: ::windows::core::IUnknownImpl, Impl: IContentTypeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ContentType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -64,7 +68,7 @@ impl IContentTypeProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContentTypeProvider, BASE_OFFSET>(), ContentType: ContentType::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
@@ -105,9 +109,10 @@ impl ::windows::core::RuntimeName for IDataReader {
 }
 #[cfg(feature = "Foundation")]
 impl IDataReader_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataReader_Vtbl {
-        unsafe extern "system" fn UnconsumedBufferLength<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>() -> IDataReader_Vtbl {
+        unsafe extern "system" fn UnconsumedBufferLength<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).UnconsumedBufferLength() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -117,8 +122,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnicodeEncoding<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnicodeEncoding<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).UnicodeEncoding() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -128,12 +134,14 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUnicodeEncoding<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetUnicodeEncoding<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetUnicodeEncoding(value).into()
         }
-        unsafe extern "system" fn ByteOrder<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ByteOrder) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ByteOrder<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ByteOrder) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ByteOrder() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -143,12 +151,14 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetByteOrder<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ByteOrder) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetByteOrder<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ByteOrder) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetByteOrder(value).into()
         }
-        unsafe extern "system" fn InputStreamOptions<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputStreamOptions) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn InputStreamOptions<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputStreamOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).InputStreamOptions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -158,12 +168,14 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputStreamOptions<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InputStreamOptions) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetInputStreamOptions<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InputStreamOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetInputStreamOptions(value).into()
         }
-        unsafe extern "system" fn ReadByte<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadByte<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadByte() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -173,12 +185,14 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadBytes<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadBytes<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ReadBytes(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn ReadBuffer<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadBuffer(length) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -188,8 +202,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadBoolean<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadBoolean<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadBoolean() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -199,8 +214,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadGuid<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadGuid<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadGuid() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -210,8 +226,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadInt16<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadInt16<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadInt16() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -221,8 +238,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadInt32<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadInt32<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadInt32() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -232,8 +250,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadInt64<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadInt64<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadInt64() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -243,8 +262,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadUInt16<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadUInt16<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadUInt16() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -254,8 +274,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadUInt32<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadUInt32<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadUInt32() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -265,8 +286,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadUInt64<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadUInt64<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadUInt64() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -276,8 +298,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadSingle<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadSingle<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadSingle() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -287,8 +310,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadDouble<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadDouble<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadDouble() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -298,8 +322,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadString<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codeunitcount: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadString<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codeunitcount: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadString(codeunitcount) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -309,8 +334,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadDateTime<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadDateTime<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadDateTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -320,8 +346,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadTimeSpan<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ReadTimeSpan<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadTimeSpan() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -331,8 +358,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadAsync<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn LoadAsync<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).LoadAsync(count) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -342,8 +370,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachBuffer<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DetachBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).DetachBuffer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -353,8 +382,9 @@ impl IDataReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachStream<Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DetachStream<Identity: ::windows::core::IUnknownImpl, Impl: IDataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).DetachStream() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -365,33 +395,33 @@ impl IDataReader_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReader, BASE_OFFSET>(),
-            UnconsumedBufferLength: UnconsumedBufferLength::<Impl, IMPL_OFFSET>,
-            UnicodeEncoding: UnicodeEncoding::<Impl, IMPL_OFFSET>,
-            SetUnicodeEncoding: SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
-            ByteOrder: ByteOrder::<Impl, IMPL_OFFSET>,
-            SetByteOrder: SetByteOrder::<Impl, IMPL_OFFSET>,
-            InputStreamOptions: InputStreamOptions::<Impl, IMPL_OFFSET>,
-            SetInputStreamOptions: SetInputStreamOptions::<Impl, IMPL_OFFSET>,
-            ReadByte: ReadByte::<Impl, IMPL_OFFSET>,
-            ReadBytes: ReadBytes::<Impl, IMPL_OFFSET>,
-            ReadBuffer: ReadBuffer::<Impl, IMPL_OFFSET>,
-            ReadBoolean: ReadBoolean::<Impl, IMPL_OFFSET>,
-            ReadGuid: ReadGuid::<Impl, IMPL_OFFSET>,
-            ReadInt16: ReadInt16::<Impl, IMPL_OFFSET>,
-            ReadInt32: ReadInt32::<Impl, IMPL_OFFSET>,
-            ReadInt64: ReadInt64::<Impl, IMPL_OFFSET>,
-            ReadUInt16: ReadUInt16::<Impl, IMPL_OFFSET>,
-            ReadUInt32: ReadUInt32::<Impl, IMPL_OFFSET>,
-            ReadUInt64: ReadUInt64::<Impl, IMPL_OFFSET>,
-            ReadSingle: ReadSingle::<Impl, IMPL_OFFSET>,
-            ReadDouble: ReadDouble::<Impl, IMPL_OFFSET>,
-            ReadString: ReadString::<Impl, IMPL_OFFSET>,
-            ReadDateTime: ReadDateTime::<Impl, IMPL_OFFSET>,
-            ReadTimeSpan: ReadTimeSpan::<Impl, IMPL_OFFSET>,
-            LoadAsync: LoadAsync::<Impl, IMPL_OFFSET>,
-            DetachBuffer: DetachBuffer::<Impl, IMPL_OFFSET>,
-            DetachStream: DetachStream::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataReader, OFFSET>(),
+            UnconsumedBufferLength: UnconsumedBufferLength::<Identity, Impl, OFFSET>,
+            UnicodeEncoding: UnicodeEncoding::<Identity, Impl, OFFSET>,
+            SetUnicodeEncoding: SetUnicodeEncoding::<Identity, Impl, OFFSET>,
+            ByteOrder: ByteOrder::<Identity, Impl, OFFSET>,
+            SetByteOrder: SetByteOrder::<Identity, Impl, OFFSET>,
+            InputStreamOptions: InputStreamOptions::<Identity, Impl, OFFSET>,
+            SetInputStreamOptions: SetInputStreamOptions::<Identity, Impl, OFFSET>,
+            ReadByte: ReadByte::<Identity, Impl, OFFSET>,
+            ReadBytes: ReadBytes::<Identity, Impl, OFFSET>,
+            ReadBuffer: ReadBuffer::<Identity, Impl, OFFSET>,
+            ReadBoolean: ReadBoolean::<Identity, Impl, OFFSET>,
+            ReadGuid: ReadGuid::<Identity, Impl, OFFSET>,
+            ReadInt16: ReadInt16::<Identity, Impl, OFFSET>,
+            ReadInt32: ReadInt32::<Identity, Impl, OFFSET>,
+            ReadInt64: ReadInt64::<Identity, Impl, OFFSET>,
+            ReadUInt16: ReadUInt16::<Identity, Impl, OFFSET>,
+            ReadUInt32: ReadUInt32::<Identity, Impl, OFFSET>,
+            ReadUInt64: ReadUInt64::<Identity, Impl, OFFSET>,
+            ReadSingle: ReadSingle::<Identity, Impl, OFFSET>,
+            ReadDouble: ReadDouble::<Identity, Impl, OFFSET>,
+            ReadString: ReadString::<Identity, Impl, OFFSET>,
+            ReadDateTime: ReadDateTime::<Identity, Impl, OFFSET>,
+            ReadTimeSpan: ReadTimeSpan::<Identity, Impl, OFFSET>,
+            LoadAsync: LoadAsync::<Identity, Impl, OFFSET>,
+            DetachBuffer: DetachBuffer::<Identity, Impl, OFFSET>,
+            DetachStream: DetachStream::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -434,9 +464,10 @@ impl ::windows::core::RuntimeName for IDataWriter {
 }
 #[cfg(feature = "Foundation")]
 impl IDataWriter_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataWriter_Vtbl {
-        unsafe extern "system" fn UnstoredBufferLength<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>() -> IDataWriter_Vtbl {
+        unsafe extern "system" fn UnstoredBufferLength<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).UnstoredBufferLength() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -446,8 +477,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnicodeEncoding<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn UnicodeEncoding<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).UnicodeEncoding() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -457,12 +489,14 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUnicodeEncoding<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetUnicodeEncoding<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetUnicodeEncoding(value).into()
         }
-        unsafe extern "system" fn ByteOrder<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ByteOrder) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ByteOrder<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ByteOrder) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ByteOrder() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -472,76 +506,94 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetByteOrder<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ByteOrder) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetByteOrder<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ByteOrder) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetByteOrder(value).into()
         }
-        unsafe extern "system" fn WriteByte<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteByte<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteByte(value).into()
         }
-        unsafe extern "system" fn WriteBytes<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteBytes<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn WriteBuffer<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteBuffer(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteBufferRange<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, start: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteBufferRange<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, start: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteBufferRange(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType), start, count).into()
         }
-        unsafe extern "system" fn WriteBoolean<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteBoolean<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteBoolean(value).into()
         }
-        unsafe extern "system" fn WriteGuid<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteGuid<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteGuid(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteInt16<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteInt16<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteInt16(value).into()
         }
-        unsafe extern "system" fn WriteInt32<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteInt32<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteInt32(value).into()
         }
-        unsafe extern "system" fn WriteInt64<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteInt64<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteInt64(value).into()
         }
-        unsafe extern "system" fn WriteUInt16<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteUInt16<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteUInt16(value).into()
         }
-        unsafe extern "system" fn WriteUInt32<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteUInt32<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteUInt32(value).into()
         }
-        unsafe extern "system" fn WriteUInt64<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteUInt64<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteUInt64(value).into()
         }
-        unsafe extern "system" fn WriteSingle<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteSingle<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteSingle(value).into()
         }
-        unsafe extern "system" fn WriteDouble<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteDouble<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteDouble(value).into()
         }
-        unsafe extern "system" fn WriteDateTime<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteDateTime<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteDateTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteTimeSpan<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteTimeSpan<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).WriteTimeSpan(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteString<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn WriteString<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).WriteString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -551,8 +603,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MeasureString<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn MeasureString<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).MeasureString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -562,8 +615,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StoreAsync<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StoreAsync<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).StoreAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -573,8 +627,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FlushAsync<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FlushAsync<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).FlushAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -584,8 +639,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachBuffer<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DetachBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).DetachBuffer() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -595,8 +651,9 @@ impl IDataWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachStream<Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DetachStream<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).DetachStream() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -607,34 +664,34 @@ impl IDataWriter_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriter, BASE_OFFSET>(),
-            UnstoredBufferLength: UnstoredBufferLength::<Impl, IMPL_OFFSET>,
-            UnicodeEncoding: UnicodeEncoding::<Impl, IMPL_OFFSET>,
-            SetUnicodeEncoding: SetUnicodeEncoding::<Impl, IMPL_OFFSET>,
-            ByteOrder: ByteOrder::<Impl, IMPL_OFFSET>,
-            SetByteOrder: SetByteOrder::<Impl, IMPL_OFFSET>,
-            WriteByte: WriteByte::<Impl, IMPL_OFFSET>,
-            WriteBytes: WriteBytes::<Impl, IMPL_OFFSET>,
-            WriteBuffer: WriteBuffer::<Impl, IMPL_OFFSET>,
-            WriteBufferRange: WriteBufferRange::<Impl, IMPL_OFFSET>,
-            WriteBoolean: WriteBoolean::<Impl, IMPL_OFFSET>,
-            WriteGuid: WriteGuid::<Impl, IMPL_OFFSET>,
-            WriteInt16: WriteInt16::<Impl, IMPL_OFFSET>,
-            WriteInt32: WriteInt32::<Impl, IMPL_OFFSET>,
-            WriteInt64: WriteInt64::<Impl, IMPL_OFFSET>,
-            WriteUInt16: WriteUInt16::<Impl, IMPL_OFFSET>,
-            WriteUInt32: WriteUInt32::<Impl, IMPL_OFFSET>,
-            WriteUInt64: WriteUInt64::<Impl, IMPL_OFFSET>,
-            WriteSingle: WriteSingle::<Impl, IMPL_OFFSET>,
-            WriteDouble: WriteDouble::<Impl, IMPL_OFFSET>,
-            WriteDateTime: WriteDateTime::<Impl, IMPL_OFFSET>,
-            WriteTimeSpan: WriteTimeSpan::<Impl, IMPL_OFFSET>,
-            WriteString: WriteString::<Impl, IMPL_OFFSET>,
-            MeasureString: MeasureString::<Impl, IMPL_OFFSET>,
-            StoreAsync: StoreAsync::<Impl, IMPL_OFFSET>,
-            FlushAsync: FlushAsync::<Impl, IMPL_OFFSET>,
-            DetachBuffer: DetachBuffer::<Impl, IMPL_OFFSET>,
-            DetachStream: DetachStream::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IDataWriter, OFFSET>(),
+            UnstoredBufferLength: UnstoredBufferLength::<Identity, Impl, OFFSET>,
+            UnicodeEncoding: UnicodeEncoding::<Identity, Impl, OFFSET>,
+            SetUnicodeEncoding: SetUnicodeEncoding::<Identity, Impl, OFFSET>,
+            ByteOrder: ByteOrder::<Identity, Impl, OFFSET>,
+            SetByteOrder: SetByteOrder::<Identity, Impl, OFFSET>,
+            WriteByte: WriteByte::<Identity, Impl, OFFSET>,
+            WriteBytes: WriteBytes::<Identity, Impl, OFFSET>,
+            WriteBuffer: WriteBuffer::<Identity, Impl, OFFSET>,
+            WriteBufferRange: WriteBufferRange::<Identity, Impl, OFFSET>,
+            WriteBoolean: WriteBoolean::<Identity, Impl, OFFSET>,
+            WriteGuid: WriteGuid::<Identity, Impl, OFFSET>,
+            WriteInt16: WriteInt16::<Identity, Impl, OFFSET>,
+            WriteInt32: WriteInt32::<Identity, Impl, OFFSET>,
+            WriteInt64: WriteInt64::<Identity, Impl, OFFSET>,
+            WriteUInt16: WriteUInt16::<Identity, Impl, OFFSET>,
+            WriteUInt32: WriteUInt32::<Identity, Impl, OFFSET>,
+            WriteUInt64: WriteUInt64::<Identity, Impl, OFFSET>,
+            WriteSingle: WriteSingle::<Identity, Impl, OFFSET>,
+            WriteDouble: WriteDouble::<Identity, Impl, OFFSET>,
+            WriteDateTime: WriteDateTime::<Identity, Impl, OFFSET>,
+            WriteTimeSpan: WriteTimeSpan::<Identity, Impl, OFFSET>,
+            WriteString: WriteString::<Identity, Impl, OFFSET>,
+            MeasureString: MeasureString::<Identity, Impl, OFFSET>,
+            StoreAsync: StoreAsync::<Identity, Impl, OFFSET>,
+            FlushAsync: FlushAsync::<Identity, Impl, OFFSET>,
+            DetachBuffer: DetachBuffer::<Identity, Impl, OFFSET>,
+            DetachStream: DetachStream::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -651,9 +708,10 @@ impl ::windows::core::RuntimeName for IInputStream {
 }
 #[cfg(feature = "Foundation")]
 impl IInputStream_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStream_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputStream_Vtbl {
-        unsafe extern "system" fn ReadAsync<Impl: IInputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, count: u32, options: InputStreamOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStream_Impl, const OFFSET: isize>() -> IInputStream_Vtbl {
+        unsafe extern "system" fn ReadAsync<Identity: ::windows::core::IUnknownImpl, Impl: IInputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, count: u32, options: InputStreamOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ReadAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType), count, options) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -663,7 +721,7 @@ impl IInputStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStream, BASE_OFFSET>(), ReadAsync: ReadAsync::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputStream as ::windows::core::Interface>::IID
@@ -679,9 +737,10 @@ impl ::windows::core::RuntimeName for IInputStreamReference {
 }
 #[cfg(feature = "Foundation")]
 impl IInputStreamReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamReference_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputStreamReference_Vtbl {
-        unsafe extern "system" fn OpenSequentialReadAsync<Impl: IInputStreamReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamReference_Impl, const OFFSET: isize>() -> IInputStreamReference_Vtbl {
+        unsafe extern "system" fn OpenSequentialReadAsync<Identity: ::windows::core::IUnknownImpl, Impl: IInputStreamReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).OpenSequentialReadAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -692,8 +751,8 @@ impl IInputStreamReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStreamReference, BASE_OFFSET>(),
-            OpenSequentialReadAsync: OpenSequentialReadAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IInputStreamReference, OFFSET>(),
+            OpenSequentialReadAsync: OpenSequentialReadAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -711,9 +770,10 @@ impl ::windows::core::RuntimeName for IOutputStream {
 }
 #[cfg(feature = "Foundation")]
 impl IOutputStream_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStream_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOutputStream_Vtbl {
-        unsafe extern "system" fn WriteAsync<Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStream_Impl, const OFFSET: isize>() -> IOutputStream_Vtbl {
+        unsafe extern "system" fn WriteAsync<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).WriteAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -723,8 +783,9 @@ impl IOutputStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FlushAsync<Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FlushAsync<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).FlushAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -735,9 +796,9 @@ impl IOutputStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IOutputStream, BASE_OFFSET>(),
-            WriteAsync: WriteAsync::<Impl, IMPL_OFFSET>,
-            FlushAsync: FlushAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IOutputStream, OFFSET>(),
+            WriteAsync: WriteAsync::<Identity, Impl, OFFSET>,
+            FlushAsync: FlushAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -755,9 +816,10 @@ impl ::windows::core::RuntimeName for IPropertySetSerializer {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IPropertySetSerializer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPropertySetSerializer_Vtbl {
-        unsafe extern "system" fn Serialize<Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>() -> IPropertySetSerializer_Vtbl {
+        unsafe extern "system" fn Serialize<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Serialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -767,14 +829,15 @@ impl IPropertySetSerializer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deserialize<Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Deserialize<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Deserialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, BASE_OFFSET>(),
-            Serialize: Serialize::<Impl, IMPL_OFFSET>,
-            Deserialize: Deserialize::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, OFFSET>(),
+            Serialize: Serialize::<Identity, Impl, OFFSET>,
+            Deserialize: Deserialize::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -799,9 +862,10 @@ impl ::windows::core::RuntimeName for IRandomAccessStream {
 }
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStream_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStream_Vtbl {
-        unsafe extern "system" fn Size<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>() -> IRandomAccessStream_Vtbl {
+        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -811,12 +875,14 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetSize<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetSize(value).into()
         }
-        unsafe extern "system" fn GetInputStreamAt<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetInputStreamAt<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetInputStreamAt(position) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -826,8 +892,9 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputStreamAt<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetOutputStreamAt<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetOutputStreamAt(position) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -837,8 +904,9 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Position<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -848,12 +916,14 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Seek<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Seek(position).into()
         }
-        unsafe extern "system" fn CloneStream<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CloneStream<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CloneStream() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -863,8 +933,9 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanRead<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CanRead<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CanRead() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -874,8 +945,9 @@ impl IRandomAccessStream_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanWrite<Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CanWrite<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CanWrite() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -886,16 +958,16 @@ impl IRandomAccessStream_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStream, BASE_OFFSET>(),
-            Size: Size::<Impl, IMPL_OFFSET>,
-            SetSize: SetSize::<Impl, IMPL_OFFSET>,
-            GetInputStreamAt: GetInputStreamAt::<Impl, IMPL_OFFSET>,
-            GetOutputStreamAt: GetOutputStreamAt::<Impl, IMPL_OFFSET>,
-            Position: Position::<Impl, IMPL_OFFSET>,
-            Seek: Seek::<Impl, IMPL_OFFSET>,
-            CloneStream: CloneStream::<Impl, IMPL_OFFSET>,
-            CanRead: CanRead::<Impl, IMPL_OFFSET>,
-            CanWrite: CanWrite::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStream, OFFSET>(),
+            Size: Size::<Identity, Impl, OFFSET>,
+            SetSize: SetSize::<Identity, Impl, OFFSET>,
+            GetInputStreamAt: GetInputStreamAt::<Identity, Impl, OFFSET>,
+            GetOutputStreamAt: GetOutputStreamAt::<Identity, Impl, OFFSET>,
+            Position: Position::<Identity, Impl, OFFSET>,
+            Seek: Seek::<Identity, Impl, OFFSET>,
+            CloneStream: CloneStream::<Identity, Impl, OFFSET>,
+            CanRead: CanRead::<Identity, Impl, OFFSET>,
+            CanWrite: CanWrite::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -912,9 +984,10 @@ impl ::windows::core::RuntimeName for IRandomAccessStreamReference {
 }
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReference_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamReference_Vtbl {
-        unsafe extern "system" fn OpenReadAsync<Impl: IRandomAccessStreamReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReference_Impl, const OFFSET: isize>() -> IRandomAccessStreamReference_Vtbl {
+        unsafe extern "system" fn OpenReadAsync<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).OpenReadAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -925,8 +998,8 @@ impl IRandomAccessStreamReference_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReference, BASE_OFFSET>(),
-            OpenReadAsync: OpenReadAsync::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamReference, OFFSET>(),
+            OpenReadAsync: OpenReadAsync::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -941,8 +1014,8 @@ impl ::windows::core::RuntimeName for IRandomAccessStreamWithContentType {
 }
 #[cfg(feature = "Foundation")]
 impl IRandomAccessStreamWithContentType_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamWithContentType_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamWithContentType, BASE_OFFSET>() }
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> IRandomAccessStreamWithContentType_Vtbl {
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID

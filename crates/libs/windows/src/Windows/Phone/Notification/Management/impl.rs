@@ -13,9 +13,10 @@ impl ::windows::core::RuntimeName for IAccessoryNotificationTriggerDetails {
 }
 #[cfg(feature = "Foundation")]
 impl IAccessoryNotificationTriggerDetails_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessoryNotificationTriggerDetails_Vtbl {
-        unsafe extern "system" fn TimeCreated<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetails_Vtbl {
+        unsafe extern "system" fn TimeCreated<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).TimeCreated() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -25,8 +26,9 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppDisplayName<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AppDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AppDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -36,8 +38,9 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AppId<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -47,8 +50,9 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccessoryNotificationType<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AccessoryNotificationType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AccessoryNotificationType<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AccessoryNotificationType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AccessoryNotificationType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -58,8 +62,9 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartedProcessing<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn StartedProcessing<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).StartedProcessing() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -69,18 +74,19 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartedProcessing<Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetStartedProcessing<Identity: ::windows::core::IUnknownImpl, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetStartedProcessing(value).into()
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryNotificationTriggerDetails, BASE_OFFSET>(),
-            TimeCreated: TimeCreated::<Impl, IMPL_OFFSET>,
-            AppDisplayName: AppDisplayName::<Impl, IMPL_OFFSET>,
-            AppId: AppId::<Impl, IMPL_OFFSET>,
-            AccessoryNotificationType: AccessoryNotificationType::<Impl, IMPL_OFFSET>,
-            StartedProcessing: StartedProcessing::<Impl, IMPL_OFFSET>,
-            SetStartedProcessing: SetStartedProcessing::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAccessoryNotificationTriggerDetails, OFFSET>(),
+            TimeCreated: TimeCreated::<Identity, Impl, OFFSET>,
+            AppDisplayName: AppDisplayName::<Identity, Impl, OFFSET>,
+            AppId: AppId::<Identity, Impl, OFFSET>,
+            AccessoryNotificationType: AccessoryNotificationType::<Identity, Impl, OFFSET>,
+            StartedProcessing: StartedProcessing::<Identity, Impl, OFFSET>,
+            SetStartedProcessing: SetStartedProcessing::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

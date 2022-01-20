@@ -22,13 +22,12 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
 
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
-        let base_offset: TokenStream = format!("{}", -2 - enumerate as isize).into();
-        let impl_offset: TokenStream = format!("{}", 1 + attributes.implement.len() - enumerate).into();
-        quote! { #vtbl_ident::new::<Self, #original_ident, #base_offset, #impl_offset>() }
+        let offset: TokenStream = format!("{}", -2 - enumerate as isize).into();
+        quote! { #vtbl_ident::new::<Self, #original_ident, #offset>() }
     });
 
-    let vtbl_count = attributes.implement.iter().enumerate().map(|(count,_)| {
-        let offset: TokenStream = format!("{}", count).into();
+    let offset = attributes.implement.iter().enumerate().map(|(offset,_)| {
+        let offset: TokenStream = format!("{}", offset).into();
         offset
     });
 
@@ -82,13 +81,16 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 Self {
                     base: ::core::option::Option::None,
                     identity: &Self::IDENTITY,
-                    vtables:(#(&Self::VTABLES.#vtbl_count,)*),
+                    vtables:(#(&Self::VTABLES.#offset,)*),
                     this,
                     count: ::windows::core::WeakRefCount::new(),
                 }
             }
         }
         impl ::windows::core::IUnknownImpl for #impl_ident {
+            fn get_impl(&mut self) -> ::windows::core::RawPtr {
+                &mut self.this as *mut _ as _
+            }
             fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 unsafe {
                     *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID

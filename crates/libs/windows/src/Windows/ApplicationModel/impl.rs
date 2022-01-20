@@ -8,9 +8,10 @@ impl ::windows::core::RuntimeName for IEnteredBackgroundEventArgs {
 }
 #[cfg(feature = "Foundation")]
 impl IEnteredBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnteredBackgroundEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
-        unsafe extern "system" fn GetDeferral<Impl: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ::windows::core::IUnknownImpl, Impl: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +22,8 @@ impl IEnteredBackgroundEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnteredBackgroundEventArgs, BASE_OFFSET>(),
-            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IEnteredBackgroundEventArgs, OFFSET>(),
+            GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -39,9 +40,10 @@ impl ::windows::core::RuntimeName for ILeavingBackgroundEventArgs {
 }
 #[cfg(feature = "Foundation")]
 impl ILeavingBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILeavingBackgroundEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
-        unsafe extern "system" fn GetDeferral<Impl: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ::windows::core::IUnknownImpl, Impl: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -52,8 +54,8 @@ impl ILeavingBackgroundEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILeavingBackgroundEventArgs, BASE_OFFSET>(),
-            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILeavingBackgroundEventArgs, OFFSET>(),
+            GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -67,12 +69,13 @@ impl ::windows::core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
 }
 impl ISuspendingDeferral_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingDeferral_Vtbl {
-        unsafe extern "system" fn Complete<Impl: ISuspendingDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingDeferral_Impl, const OFFSET: isize>() -> ISuspendingDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Complete().into()
         }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISuspendingDeferral as ::windows::core::Interface>::IID
@@ -85,9 +88,10 @@ impl ::windows::core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
 }
 impl ISuspendingEventArgs_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingEventArgs_Vtbl {
-        unsafe extern "system" fn SuspendingOperation<Impl: ISuspendingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingEventArgs_Impl, const OFFSET: isize>() -> ISuspendingEventArgs_Vtbl {
+        unsafe extern "system" fn SuspendingOperation<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).SuspendingOperation() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -98,8 +102,8 @@ impl ISuspendingEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingEventArgs, BASE_OFFSET>(),
-            SuspendingOperation: SuspendingOperation::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingEventArgs, OFFSET>(),
+            SuspendingOperation: SuspendingOperation::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -117,9 +121,10 @@ impl ::windows::core::RuntimeName for ISuspendingOperation {
 }
 #[cfg(feature = "Foundation")]
 impl ISuspendingOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuspendingOperation_Vtbl {
-        unsafe extern "system" fn GetDeferral<Impl: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperation_Impl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -129,8 +134,9 @@ impl ISuspendingOperation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Impl: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Deadline<Identity: ::windows::core::IUnknownImpl, Impl: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -141,9 +147,9 @@ impl ISuspendingOperation_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingOperation, BASE_OFFSET>(),
-            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
-            Deadline: Deadline::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ISuspendingOperation, OFFSET>(),
+            GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
+            Deadline: Deadline::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

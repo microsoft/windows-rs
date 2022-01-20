@@ -24,53 +24,65 @@ pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnection
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDiskQuotaControl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiskQuotaControl_Vtbl {
-        unsafe extern "system" fn Initialize<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>() -> IDiskQuotaControl_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&breadwrite)).into()
         }
-        unsafe extern "system" fn SetQuotaState<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstate: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetQuotaState<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstate: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetQuotaState(::core::mem::transmute_copy(&dwstate)).into()
         }
-        unsafe extern "system" fn GetQuotaState<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaState<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaState(::core::mem::transmute_copy(&pdwstate)).into()
         }
-        unsafe extern "system" fn SetQuotaLogFlags<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetQuotaLogFlags<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetQuotaLogFlags(::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn GetQuotaLogFlags<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaLogFlags<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaLogFlags(::core::mem::transmute_copy(&pdwflags)).into()
         }
-        unsafe extern "system" fn SetDefaultQuotaThreshold<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llthreshold: i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDefaultQuotaThreshold<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llthreshold: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetDefaultQuotaThreshold(::core::mem::transmute_copy(&llthreshold)).into()
         }
-        unsafe extern "system" fn GetDefaultQuotaThreshold<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDefaultQuotaThreshold<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetDefaultQuotaThreshold(::core::mem::transmute_copy(&pllthreshold)).into()
         }
-        unsafe extern "system" fn GetDefaultQuotaThresholdText<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDefaultQuotaThresholdText<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetDefaultQuotaThresholdText(::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn SetDefaultQuotaLimit<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lllimit: i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetDefaultQuotaLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lllimit: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetDefaultQuotaLimit(::core::mem::transmute_copy(&lllimit)).into()
         }
-        unsafe extern "system" fn GetDefaultQuotaLimit<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDefaultQuotaLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetDefaultQuotaLimit(::core::mem::transmute_copy(&plllimit)).into()
         }
-        unsafe extern "system" fn GetDefaultQuotaLimitText<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetDefaultQuotaLimitText<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetDefaultQuotaLimitText(::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn AddUserSid<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AddUserSid<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AddUserSid(::core::mem::transmute_copy(&pusersid), ::core::mem::transmute_copy(&fnameresolution)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppuser = ::core::mem::transmute(ok__);
@@ -79,8 +91,9 @@ impl IDiskQuotaControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddUserName<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn AddUserName<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AddUserName(::core::mem::transmute_copy(&pszlogonname), ::core::mem::transmute_copy(&fnameresolution)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppuser = ::core::mem::transmute(ok__);
@@ -89,12 +102,14 @@ impl IDiskQuotaControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteUser<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeleteUser<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteUser(::core::mem::transmute(&puser)).into()
         }
-        unsafe extern "system" fn FindUserSid<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FindUserSid<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).FindUserSid(::core::mem::transmute_copy(&pusersid), ::core::mem::transmute_copy(&fnameresolution)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppuser = ::core::mem::transmute(ok__);
@@ -103,8 +118,9 @@ impl IDiskQuotaControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindUserName<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FindUserName<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).FindUserName(::core::mem::transmute_copy(&pszlogonname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppuser = ::core::mem::transmute(ok__);
@@ -113,12 +129,14 @@ impl IDiskQuotaControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEnumUsers<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateEnumUsers<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).CreateEnumUsers(::core::mem::transmute_copy(&rgpusersids), ::core::mem::transmute_copy(&cpsids), ::core::mem::transmute_copy(&fnameresolution), ::core::mem::transmute_copy(&ppenum)).into()
         }
-        unsafe extern "system" fn CreateUserBatch<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn CreateUserBatch<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).CreateUserBatch() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbatch = ::core::mem::transmute(ok__);
@@ -127,41 +145,44 @@ impl IDiskQuotaControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidateSidNameCache<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn InvalidateSidNameCache<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).InvalidateSidNameCache().into()
         }
-        unsafe extern "system" fn GiveUserNameResolutionPriority<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GiveUserNameResolutionPriority<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GiveUserNameResolutionPriority(::core::mem::transmute(&puser)).into()
         }
-        unsafe extern "system" fn ShutdownNameResolution<Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ShutdownNameResolution<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).ShutdownNameResolution().into()
         }
         Self {
-            base: super::super::System::Com::IConnectionPointContainer_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
-            Initialize: Initialize::<Impl, IMPL_OFFSET>,
-            SetQuotaState: SetQuotaState::<Impl, IMPL_OFFSET>,
-            GetQuotaState: GetQuotaState::<Impl, IMPL_OFFSET>,
-            SetQuotaLogFlags: SetQuotaLogFlags::<Impl, IMPL_OFFSET>,
-            GetQuotaLogFlags: GetQuotaLogFlags::<Impl, IMPL_OFFSET>,
-            SetDefaultQuotaThreshold: SetDefaultQuotaThreshold::<Impl, IMPL_OFFSET>,
-            GetDefaultQuotaThreshold: GetDefaultQuotaThreshold::<Impl, IMPL_OFFSET>,
-            GetDefaultQuotaThresholdText: GetDefaultQuotaThresholdText::<Impl, IMPL_OFFSET>,
-            SetDefaultQuotaLimit: SetDefaultQuotaLimit::<Impl, IMPL_OFFSET>,
-            GetDefaultQuotaLimit: GetDefaultQuotaLimit::<Impl, IMPL_OFFSET>,
-            GetDefaultQuotaLimitText: GetDefaultQuotaLimitText::<Impl, IMPL_OFFSET>,
-            AddUserSid: AddUserSid::<Impl, IMPL_OFFSET>,
-            AddUserName: AddUserName::<Impl, IMPL_OFFSET>,
-            DeleteUser: DeleteUser::<Impl, IMPL_OFFSET>,
-            FindUserSid: FindUserSid::<Impl, IMPL_OFFSET>,
-            FindUserName: FindUserName::<Impl, IMPL_OFFSET>,
-            CreateEnumUsers: CreateEnumUsers::<Impl, IMPL_OFFSET>,
-            CreateUserBatch: CreateUserBatch::<Impl, IMPL_OFFSET>,
-            InvalidateSidNameCache: InvalidateSidNameCache::<Impl, IMPL_OFFSET>,
-            GiveUserNameResolutionPriority: GiveUserNameResolutionPriority::<Impl, IMPL_OFFSET>,
-            ShutdownNameResolution: ShutdownNameResolution::<Impl, IMPL_OFFSET>,
+            base: super::super::System::Com::IConnectionPointContainer_Vtbl::new::<Identity, Impl, OFFSET>(),
+            Initialize: Initialize::<Identity, Impl, OFFSET>,
+            SetQuotaState: SetQuotaState::<Identity, Impl, OFFSET>,
+            GetQuotaState: GetQuotaState::<Identity, Impl, OFFSET>,
+            SetQuotaLogFlags: SetQuotaLogFlags::<Identity, Impl, OFFSET>,
+            GetQuotaLogFlags: GetQuotaLogFlags::<Identity, Impl, OFFSET>,
+            SetDefaultQuotaThreshold: SetDefaultQuotaThreshold::<Identity, Impl, OFFSET>,
+            GetDefaultQuotaThreshold: GetDefaultQuotaThreshold::<Identity, Impl, OFFSET>,
+            GetDefaultQuotaThresholdText: GetDefaultQuotaThresholdText::<Identity, Impl, OFFSET>,
+            SetDefaultQuotaLimit: SetDefaultQuotaLimit::<Identity, Impl, OFFSET>,
+            GetDefaultQuotaLimit: GetDefaultQuotaLimit::<Identity, Impl, OFFSET>,
+            GetDefaultQuotaLimitText: GetDefaultQuotaLimitText::<Identity, Impl, OFFSET>,
+            AddUserSid: AddUserSid::<Identity, Impl, OFFSET>,
+            AddUserName: AddUserName::<Identity, Impl, OFFSET>,
+            DeleteUser: DeleteUser::<Identity, Impl, OFFSET>,
+            FindUserSid: FindUserSid::<Identity, Impl, OFFSET>,
+            FindUserName: FindUserName::<Identity, Impl, OFFSET>,
+            CreateEnumUsers: CreateEnumUsers::<Identity, Impl, OFFSET>,
+            CreateUserBatch: CreateUserBatch::<Identity, Impl, OFFSET>,
+            InvalidateSidNameCache: InvalidateSidNameCache::<Identity, Impl, OFFSET>,
+            GiveUserNameResolutionPriority: GiveUserNameResolutionPriority::<Identity, Impl, OFFSET>,
+            ShutdownNameResolution: ShutdownNameResolution::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -172,12 +193,13 @@ pub trait IDiskQuotaEvents_Impl: Sized {
     fn OnUserNameChanged(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
 }
 impl IDiskQuotaEvents_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
-        unsafe extern "system" fn OnUserNameChanged<Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
+        unsafe extern "system" fn OnUserNameChanged<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).OnUserNameChanged(::core::mem::transmute(&puser)).into()
         }
-        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Impl, IMPL_OFFSET> }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiskQuotaEvents as ::windows::core::Interface>::IID
@@ -203,84 +225,99 @@ pub trait IDiskQuotaUser_Impl: Sized {
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDiskQuotaUser_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiskQuotaUser_Vtbl {
-        unsafe extern "system" fn GetID<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>() -> IDiskQuotaUser_Vtbl {
+        unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetID(::core::mem::transmute_copy(&pulid)).into()
         }
-        unsafe extern "system" fn GetName<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&pszaccountcontainer), ::core::mem::transmute_copy(&cchaccountcontainer), ::core::mem::transmute_copy(&pszlogonname), ::core::mem::transmute_copy(&cchlogonname), ::core::mem::transmute_copy(&pszdisplayname), ::core::mem::transmute_copy(&cchdisplayname)).into()
         }
-        unsafe extern "system" fn GetSidLength<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSidLength<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetSidLength(::core::mem::transmute_copy(&pdwlength)).into()
         }
-        unsafe extern "system" fn GetSid<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetSid<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetSid(::core::mem::transmute_copy(&pbsidbuffer), ::core::mem::transmute_copy(&cbsidbuffer)).into()
         }
-        unsafe extern "system" fn GetQuotaThreshold<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaThreshold<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaThreshold(::core::mem::transmute_copy(&pllthreshold)).into()
         }
-        unsafe extern "system" fn GetQuotaThresholdText<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaThresholdText<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaThresholdText(::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn GetQuotaLimit<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaLimit(::core::mem::transmute_copy(&plllimit)).into()
         }
-        unsafe extern "system" fn GetQuotaLimitText<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaLimitText<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaLimitText(::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn GetQuotaUsed<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllused: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaUsed<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllused: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaUsed(::core::mem::transmute_copy(&pllused)).into()
         }
-        unsafe extern "system" fn GetQuotaUsedText<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaUsedText<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaUsedText(::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn GetQuotaInformation<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetQuotaInformation<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetQuotaInformation(::core::mem::transmute_copy(&pbquotainfo), ::core::mem::transmute_copy(&cbquotainfo)).into()
         }
-        unsafe extern "system" fn SetQuotaThreshold<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetQuotaThreshold<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetQuotaThreshold(::core::mem::transmute_copy(&llthreshold), ::core::mem::transmute_copy(&fwritethrough)).into()
         }
-        unsafe extern "system" fn SetQuotaLimit<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SetQuotaLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).SetQuotaLimit(::core::mem::transmute_copy(&lllimit), ::core::mem::transmute_copy(&fwritethrough)).into()
         }
-        unsafe extern "system" fn Invalidate<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Invalidate<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Invalidate().into()
         }
-        unsafe extern "system" fn GetAccountStatus<Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GetAccountStatus<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).GetAccountStatus(::core::mem::transmute_copy(&pdwstatus)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            GetID: GetID::<Impl, IMPL_OFFSET>,
-            GetName: GetName::<Impl, IMPL_OFFSET>,
-            GetSidLength: GetSidLength::<Impl, IMPL_OFFSET>,
-            GetSid: GetSid::<Impl, IMPL_OFFSET>,
-            GetQuotaThreshold: GetQuotaThreshold::<Impl, IMPL_OFFSET>,
-            GetQuotaThresholdText: GetQuotaThresholdText::<Impl, IMPL_OFFSET>,
-            GetQuotaLimit: GetQuotaLimit::<Impl, IMPL_OFFSET>,
-            GetQuotaLimitText: GetQuotaLimitText::<Impl, IMPL_OFFSET>,
-            GetQuotaUsed: GetQuotaUsed::<Impl, IMPL_OFFSET>,
-            GetQuotaUsedText: GetQuotaUsedText::<Impl, IMPL_OFFSET>,
-            GetQuotaInformation: GetQuotaInformation::<Impl, IMPL_OFFSET>,
-            SetQuotaThreshold: SetQuotaThreshold::<Impl, IMPL_OFFSET>,
-            SetQuotaLimit: SetQuotaLimit::<Impl, IMPL_OFFSET>,
-            Invalidate: Invalidate::<Impl, IMPL_OFFSET>,
-            GetAccountStatus: GetAccountStatus::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetID: GetID::<Identity, Impl, OFFSET>,
+            GetName: GetName::<Identity, Impl, OFFSET>,
+            GetSidLength: GetSidLength::<Identity, Impl, OFFSET>,
+            GetSid: GetSid::<Identity, Impl, OFFSET>,
+            GetQuotaThreshold: GetQuotaThreshold::<Identity, Impl, OFFSET>,
+            GetQuotaThresholdText: GetQuotaThresholdText::<Identity, Impl, OFFSET>,
+            GetQuotaLimit: GetQuotaLimit::<Identity, Impl, OFFSET>,
+            GetQuotaLimitText: GetQuotaLimitText::<Identity, Impl, OFFSET>,
+            GetQuotaUsed: GetQuotaUsed::<Identity, Impl, OFFSET>,
+            GetQuotaUsedText: GetQuotaUsedText::<Identity, Impl, OFFSET>,
+            GetQuotaInformation: GetQuotaInformation::<Identity, Impl, OFFSET>,
+            SetQuotaThreshold: SetQuotaThreshold::<Identity, Impl, OFFSET>,
+            SetQuotaLimit: SetQuotaLimit::<Identity, Impl, OFFSET>,
+            Invalidate: Invalidate::<Identity, Impl, OFFSET>,
+            GetAccountStatus: GetAccountStatus::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -294,29 +331,33 @@ pub trait IDiskQuotaUserBatch_Impl: Sized {
     fn FlushToDisk(&mut self) -> ::windows::core::Result<()>;
 }
 impl IDiskQuotaUserBatch_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiskQuotaUserBatch_Vtbl {
-        unsafe extern "system" fn Add<Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> IDiskQuotaUserBatch_Vtbl {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Add(::core::mem::transmute(&puser)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Remove(::core::mem::transmute(&puser)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn RemoveAll<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveAll().into()
         }
-        unsafe extern "system" fn FlushToDisk<Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn FlushToDisk<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).FlushToDisk().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            Add: Add::<Impl, IMPL_OFFSET>,
-            Remove: Remove::<Impl, IMPL_OFFSET>,
-            RemoveAll: RemoveAll::<Impl, IMPL_OFFSET>,
-            FlushToDisk: FlushToDisk::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Add: Add::<Identity, Impl, OFFSET>,
+            Remove: Remove::<Identity, Impl, OFFSET>,
+            RemoveAll: RemoveAll::<Identity, Impl, OFFSET>,
+            FlushToDisk: FlushToDisk::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -330,21 +371,25 @@ pub trait IEnumDiskQuotaUsers_Impl: Sized {
     fn Clone(&mut self) -> ::windows::core::Result<IEnumDiskQuotaUsers>;
 }
 impl IEnumDiskQuotaUsers_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumDiskQuotaUsers_Vtbl {
-        unsafe extern "system" fn Next<Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>() -> IEnumDiskQuotaUsers_Vtbl {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Next(::core::mem::transmute_copy(&cusers), ::core::mem::transmute_copy(&rgusers), ::core::mem::transmute_copy(&pcusersfetched)).into()
         }
-        unsafe extern "system" fn Skip<Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Skip(::core::mem::transmute_copy(&cusers)).into()
         }
-        unsafe extern "system" fn Reset<Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             (*this).Reset().into()
         }
-        unsafe extern "system" fn Clone<Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
@@ -354,11 +399,11 @@ impl IEnumDiskQuotaUsers_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
-            Next: Next::<Impl, IMPL_OFFSET>,
-            Skip: Skip::<Impl, IMPL_OFFSET>,
-            Reset: Reset::<Impl, IMPL_OFFSET>,
-            Clone: Clone::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, Impl, OFFSET>,
+            Skip: Skip::<Identity, Impl, OFFSET>,
+            Reset: Reset::<Identity, Impl, OFFSET>,
+            Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

@@ -12,9 +12,10 @@ impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProvider {
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl ILowLevelDevicesAggregateProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLevelDevicesAggregateProvider_Vtbl {
-        unsafe extern "system" fn AdcControllerProvider<Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>() -> ILowLevelDevicesAggregateProvider_Vtbl {
+        unsafe extern "system" fn AdcControllerProvider<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AdcControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -24,8 +25,9 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PwmControllerProvider<Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn PwmControllerProvider<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).PwmControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -35,8 +37,9 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GpioControllerProvider<Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn GpioControllerProvider<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).GpioControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -46,8 +49,9 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn I2cControllerProvider<Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn I2cControllerProvider<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).I2cControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -57,8 +61,9 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpiControllerProvider<Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn SpiControllerProvider<Identity: ::windows::core::IUnknownImpl, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).SpiControllerProvider() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -69,12 +74,12 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProvider, BASE_OFFSET>(),
-            AdcControllerProvider: AdcControllerProvider::<Impl, IMPL_OFFSET>,
-            PwmControllerProvider: PwmControllerProvider::<Impl, IMPL_OFFSET>,
-            GpioControllerProvider: GpioControllerProvider::<Impl, IMPL_OFFSET>,
-            I2cControllerProvider: I2cControllerProvider::<Impl, IMPL_OFFSET>,
-            SpiControllerProvider: SpiControllerProvider::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILowLevelDevicesAggregateProvider, OFFSET>(),
+            AdcControllerProvider: AdcControllerProvider::<Identity, Impl, OFFSET>,
+            PwmControllerProvider: PwmControllerProvider::<Identity, Impl, OFFSET>,
+            GpioControllerProvider: GpioControllerProvider::<Identity, Impl, OFFSET>,
+            I2cControllerProvider: I2cControllerProvider::<Identity, Impl, OFFSET>,
+            SpiControllerProvider: SpiControllerProvider::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

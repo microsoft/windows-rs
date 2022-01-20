@@ -9,9 +9,10 @@ impl ::windows::core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
 impl IIOControlCode_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIOControlCode_Vtbl {
-        unsafe extern "system" fn AccessMode<Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>() -> IIOControlCode_Vtbl {
+        unsafe extern "system" fn AccessMode<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).AccessMode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -21,8 +22,9 @@ impl IIOControlCode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BufferingMethod<Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn BufferingMethod<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).BufferingMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -32,8 +34,9 @@ impl IIOControlCode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Function<Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn Function<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).Function() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -43,8 +46,9 @@ impl IIOControlCode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceType<Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn DeviceType<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).DeviceType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -54,8 +58,9 @@ impl IIOControlCode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlCode<Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+        unsafe extern "system" fn ControlCode<Identity: ::windows::core::IUnknownImpl, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = (*this).get_impl() as *mut Impl;
             match (*this).ControlCode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
@@ -66,12 +71,12 @@ impl IIOControlCode_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCode, BASE_OFFSET>(),
-            AccessMode: AccessMode::<Impl, IMPL_OFFSET>,
-            BufferingMethod: BufferingMethod::<Impl, IMPL_OFFSET>,
-            Function: Function::<Impl, IMPL_OFFSET>,
-            DeviceType: DeviceType::<Impl, IMPL_OFFSET>,
-            ControlCode: ControlCode::<Impl, IMPL_OFFSET>,
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIOControlCode, OFFSET>(),
+            AccessMode: AccessMode::<Identity, Impl, OFFSET>,
+            BufferingMethod: BufferingMethod::<Identity, Impl, OFFSET>,
+            Function: Function::<Identity, Impl, OFFSET>,
+            DeviceType: DeviceType::<Identity, Impl, OFFSET>,
+            ControlCode: ControlCode::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
