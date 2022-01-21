@@ -177,7 +177,15 @@ struct ImplementType {
 
 impl ImplementType {
     fn to_ident(&self) -> TokenStream {
-        self.type_name.clone().into()
+        let mut tokens: TokenStream = self.type_name.clone().into();
+        tokens.push_str("<");
+
+        for g in &self.generics {
+            tokens.combine(&g.to_ident());
+        }
+
+        tokens.push_str(">");
+        tokens
     }
     fn to_vtbl_ident(&self) -> TokenStream {
         let ident = self.to_ident();
