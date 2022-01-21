@@ -1,23 +1,26 @@
-use test_implement::*;
-use windows::core::*;
-use Windows::Foundation::IStringable;
-use Windows::Win32::Foundation::HANDLE;
-use Windows::Win32::System::WinRT::Composition::ISwapChainInterop;
-use Windows::Win32::System::WinRT::Display::IDisplayPathInterop;
+#![allow(non_snake_case)]
 
-#[implement(Windows::Foundation::IStringable, Windows::Win32::System::WinRT::Composition::ISwapChainInterop, Windows::Win32::System::WinRT::Display::IDisplayPathInterop)]
+use windows::core::*;
+use windows::Foundation::*;
+use windows::Win32::Foundation::HANDLE;
+use windows::Win32::System::WinRT::Composition::*;
+use windows::Win32::System::WinRT::Display::*;
+
+#[implement(windows::Foundation::IStringable, windows::Win32::System::WinRT::Composition::ISwapChainInterop, windows::Win32::System::WinRT::Display::IDisplayPathInterop)]
 struct Mix();
 
-#[allow(non_snake_case)]
-impl Mix {
+impl IStringable_Impl for Mix {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("Mix".into())
     }
-
+}
+impl ISwapChainInterop_Impl for Mix {
     fn SetSwapChain(&self, _: &Option<IUnknown>) -> Result<()> {
         Ok(())
     }
+}
 
+impl IDisplayPathInterop_Impl for Mix {
     fn GetSourceId(&self) -> Result<u32> {
         Ok(123)
     }

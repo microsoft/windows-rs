@@ -1,11 +1,10 @@
 use core::convert::TryInto;
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
-use Windows::Foundation::*;
+use windows::Foundation::Collections::*;
+use windows::Foundation::*;
 
 #[implement(
-    Windows::Foundation::Collections::IVectorView<Windows::Foundation::IStringable>,
+    windows::Foundation::Collections::IVectorView<windows::Foundation::IStringable>,
 )]
 struct Thing(Vec<IStringable>);
 

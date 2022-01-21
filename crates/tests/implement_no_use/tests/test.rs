@@ -3,7 +3,7 @@
 // Note: this test purposefully does not use the `use` keyword to validate that hte implement macro
 // doesn't rely on contextual names.
 
-#[windows::core::implement(windows::Foundation::IStringable, windows::Foundation::IClosable)]
+#[windows::core::implement(windows::Foundation::{IStringable, IClosable})]
 struct Test(&'static str);
 
 impl windows::Foundation::IStringable_Impl for Test {

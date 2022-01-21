@@ -1,10 +1,11 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
+use windows::Foundation::Collections::*;
+
+// TODO: test whether we can implement two different IIterable's.
 
 #[implement(
-    Windows::Foundation::Collections::IVectorView<i32>,
-    Windows::Foundation::Collections::IIterable<i32>,
+    IVectorView<i32>,
+    IIterable<i32>,
 )]
 struct Thing();
 

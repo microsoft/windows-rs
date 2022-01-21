@@ -1,17 +1,19 @@
-use test_implement::*;
-use windows::core::*;
-use Windows::Win32::Foundation::BOOL;
-use Windows::Win32::System::Com::{IPersist, IPersistStream, IStream};
+#![allow(non_snake_case)]
 
-#[implement(Windows::Win32::System::Com::IPersistStream)]
+use windows::core::*;
+use windows::Win32::Foundation::BOOL;
+use windows::Win32::System::Com::*;
+
+#[implement(IPersistStream)]
 struct Test();
 
-#[allow(non_snake_case)]
-impl Test {
+impl IPersist_Impl for Test {
     fn GetClassID(&self) -> Result<GUID> {
         Ok(GUID::zeroed())
     }
+}
 
+impl IPersistStream_Impl for Test {
     fn IsDirty(&self) -> Result<()> {
         Ok(())
     }

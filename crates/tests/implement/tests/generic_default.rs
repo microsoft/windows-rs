@@ -1,12 +1,11 @@
 use core::convert::TryInto;
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
-use Windows::Foundation::*;
-use Windows::Win32::Foundation::E_BOUNDS;
+use windows::Foundation::Collections::*;
+use windows::Foundation::*;
+use windows::Win32::Foundation::E_BOUNDS;
 
 #[implement(
-    Windows::Foundation::Collections::IVectorView<T>,
+    IVectorView<T>,
 )]
 struct Thing<T>(Vec<T::DefaultType>)
 where

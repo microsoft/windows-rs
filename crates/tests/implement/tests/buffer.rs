@@ -1,10 +1,8 @@
-use test_implement::*;
 use windows::core::*;
+use windows::Storage::Streams::Buffer;
+use windows::Win32::System::WinRT::IBufferByteAccess;
 
-use Windows::Storage::Streams::Buffer;
-use Windows::Win32::System::WinRT::IBufferByteAccess;
-
-#[implement(Windows::Win32::System::WinRT::IBufferByteAccess)]
+#[implement(IBufferByteAccess)]
 struct TestBuffer(Vec<u8>);
 
 #[allow(non_snake_case)]
