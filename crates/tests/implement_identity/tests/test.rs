@@ -37,7 +37,7 @@ impl IClosable_Impl for Test {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn identity() -> Result<()> {
     unsafe {
         assert_eq!(COUNTER, 0);
         {
@@ -63,6 +63,21 @@ fn test() -> Result<()> {
             let a: IInspectable = Test::new("test").into();
             let b: IStringable = a.cast()?;
             assert!(b.ToString()? == "test");
+        }
+        {
+            let a: IInspectable = Test::new("test").into();
+            assert_eq!(a.GetRuntimeClassName()?, "");
+        
+            let b: IStringable = a.cast()?;
+            let c: IInspectable = b.into();
+            assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
+
+            let d: IClosable = a.cast()?;
+            let e: IInspectable = d.into();
+            assert_eq!(e.GetRuntimeClassName()?, "Windows.Foundation.IClosable");
+
+            let f: IInspectable = e.cast()?;
+            assert_eq!(f.GetRuntimeClassName()?, "");
         }
         assert_eq!(COUNTER, 0);
         Ok(())
