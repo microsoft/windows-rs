@@ -76,7 +76,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         }
         impl #impl_ident {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, ::windows::core::IInspectable, 0>();
+            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, ::windows::core::IInspectable, -1>();
             fn new(this: #original_ident) -> Self {
                 Self {
                     base: ::core::option::Option::None,
