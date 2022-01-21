@@ -10,25 +10,27 @@ use windows::Foundation::Collections::*;
 struct Thing();
 
 #[allow(non_snake_case)]
-impl Thing {
-    pub fn GetAt(&self, index: u32) -> Result<i32> {
+impl IVectorView_Impl<i32> for Thing {
+    fn GetAt(&mut self, index: u32) -> Result<i32> {
         Ok(index as _)
     }
 
-    pub fn Size(&self) -> Result<u32> {
+    fn Size(&mut self) -> Result<u32> {
         Ok(123)
     }
 
-    pub fn IndexOf(&self, value: i32, index: &mut u32) -> Result<bool> {
-        *index = value as _;
+    fn IndexOf(&mut self, value: &i32, index: &mut u32) -> Result<bool> {
+        *index = *value as _;
         Ok(true)
     }
 
-    pub fn GetMany(&self, _startindex: u32, _items: &mut [i32]) -> Result<u32> {
+    fn GetMany(&mut self, _startindex: u32, _items: &mut [i32]) -> Result<u32> {
         panic!();
     }
+}
 
-    fn First(&self) -> Result<IIterator<i32>> {
+impl IIterable_Impl<i32> for Thing {
+    fn First(&mut self) -> Result<IIterator<i32>> {
         panic!();
     }
 }

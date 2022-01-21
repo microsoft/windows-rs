@@ -10,22 +10,22 @@ use windows::Win32::System::WinRT::Display::*;
 struct Mix();
 
 impl IStringable_Impl for Mix {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&mut self) -> Result<HSTRING> {
         Ok("Mix".into())
     }
 }
 impl ISwapChainInterop_Impl for Mix {
-    fn SetSwapChain(&self, _: &Option<IUnknown>) -> Result<()> {
+    fn SetSwapChain(&mut self, _: &Option<IUnknown>) -> Result<()> {
         Ok(())
     }
 }
 
 impl IDisplayPathInterop_Impl for Mix {
-    fn GetSourceId(&self) -> Result<u32> {
+    fn GetSourceId(&mut self) -> Result<u32> {
         Ok(123)
     }
 
-    fn CreateSourcePresentationHandle(&self) -> Result<HANDLE> {
+    fn CreateSourcePresentationHandle(&mut self) -> Result<HANDLE> {
         Ok(HANDLE::default())
     }
 }

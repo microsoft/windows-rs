@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use core::convert::TryInto;
 use windows::core::*;
 use windows::Foundation::Collections::*;
@@ -11,20 +13,19 @@ struct Thing<T>(Vec<T::DefaultType>)
 where
     T: ::windows::core::RuntimeType + 'static;
 
-#[allow(non_snake_case)]
-impl<T: ::windows::core::RuntimeType + 'static> Thing<T> {
-    fn GetAt(&self, index: u32) -> Result<T> {
+impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
+    fn GetAt(&mut self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => unsafe { <T as DefaultType>::from_default(value) },
             None => Err(Error::new(E_BOUNDS, "".into())),
         }
     }
 
-    fn Size(&self) -> Result<u32> {
+    fn Size(&mut self) -> Result<u32> {
         Ok(self.0.len() as _)
     }
 
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&mut self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
         match self.0.iter().position(|element| element == value) {
             Some(index) => {
                 *result = index as _;
@@ -34,8 +35,14 @@ impl<T: ::windows::core::RuntimeType + 'static> Thing<T> {
         }
     }
 
-    fn GetMany(&self, _startindex: u32, _items: &mut [T]) -> Result<u32> {
+    fn GetMany(&mut self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
         panic!();
+    }
+}
+
+impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Thing<T> {
+    fn First(&mut self) -> Result<IIterator<T>> {
+        todo!()
     }
 }
 

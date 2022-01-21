@@ -8,25 +8,25 @@ use windows::Win32::System::Com::*;
 struct Test();
 
 impl IPersist_Impl for Test {
-    fn GetClassID(&self) -> Result<GUID> {
+    fn GetClassID(&mut self) -> Result<GUID> {
         Ok(GUID::zeroed())
     }
 }
 
 impl IPersistStream_Impl for Test {
-    fn IsDirty(&self) -> Result<()> {
+    fn IsDirty(&mut self) -> Result<()> {
         Ok(())
     }
 
-    fn Load(&self, _: &Option<IStream>) -> Result<()> {
+    fn Load(&mut self, _: &Option<IStream>) -> Result<()> {
         Ok(())
     }
 
-    fn Save(&self, _: &Option<IStream>, _: BOOL) -> Result<()> {
+    fn Save(&mut self, _: &Option<IStream>, _: BOOL) -> Result<()> {
         Ok(())
     }
 
-    fn GetSizeMax(&self) -> Result<u64> {
+    fn GetSizeMax(&mut self) -> Result<u64> {
         Ok(0)
     }
 }

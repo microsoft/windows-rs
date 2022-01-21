@@ -1,12 +1,12 @@
 use windows::core::*;
 use windows::Storage::Streams::Buffer;
-use windows::Win32::System::WinRT::IBufferByteAccess;
+use windows::Win32::System::WinRT::*;
 
 #[implement(IBufferByteAccess)]
 struct TestBuffer(Vec<u8>);
 
 #[allow(non_snake_case)]
-impl TestBuffer {
+impl IBufferByteAccess_Impl for TestBuffer {
     fn Buffer(&mut self) -> Result<*mut u8> {
         Ok(self.0.as_mut_ptr())
     }

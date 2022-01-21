@@ -9,21 +9,27 @@ use windows::Foundation::*;
 struct Thing(Vec<IStringable>);
 
 #[allow(non_snake_case)]
-impl Thing {
-    fn GetAt(&self, index: u32) -> Result<IStringable> {
+impl IVectorView_Impl<IStringable> for Thing {
+    fn GetAt(&mut self, index: u32) -> Result<IStringable> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
 
-    fn Size(&self) -> Result<u32> {
+    fn Size(&mut self) -> Result<u32> {
         panic!();
     }
 
-    fn IndexOf(&self, _value: &Option<IStringable>, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&mut self, _value: &Option<IStringable>, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 
-    fn GetMany(&self, _startindex: u32, _items: &mut [Option<IStringable>]) -> Result<u32> {
+    fn GetMany(&mut self, _startindex: u32, _items: &mut [Option<IStringable>]) -> Result<u32> {
         panic!();
+    }
+}
+
+impl IIterable_Impl<IStringable> for Thing {
+    fn First(&mut self) -> Result<IIterator<IStringable>> {
+        todo!()
     }
 }
 

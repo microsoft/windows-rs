@@ -1,4 +1,3 @@
-use test_implement::*;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Win32::Foundation::E_BOUNDS;
@@ -15,8 +14,8 @@ where
 }
 
 #[allow(non_snake_case)]
-impl<T: RuntimeType + 'static> Iterator<T> {
-    fn Current(&self) -> Result<T> {
+impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
+    fn Current(&mut self) -> Result<T> {
         let owner = unsafe { Iterable::to_impl(&self.owner) };
 
         if owner.0.len() > self.current {
@@ -26,7 +25,7 @@ impl<T: RuntimeType + 'static> Iterator<T> {
         }
     }
 
-    fn HasCurrent(&self) -> Result<bool> {
+    fn HasCurrent(&mut self) -> Result<bool> {
         let owner = unsafe { Iterable::to_impl(&self.owner) };
         Ok(owner.0.len() > self.current)
     }
@@ -37,7 +36,7 @@ impl<T: RuntimeType + 'static> Iterator<T> {
         Ok(owner.0.len() > self.current)
     }
 
-    fn GetMany(&self, _items: &mut [<T as DefaultType>::DefaultType]) -> Result<u32> {
+    fn GetMany(&mut self, _items: &mut [<T as DefaultType>::DefaultType]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }
@@ -50,9 +49,9 @@ where
     T: RuntimeType + 'static;
 
 #[allow(non_snake_case)]
-impl<T: RuntimeType + 'static> Iterable<T> {
+impl<T: RuntimeType + 'static> IIterable_Impl<T> for Iterable<T> {
     fn First(&mut self) -> Result<IIterator<T>> {
-        Ok(Iterator::<T> { owner: self.into(), current: 0 }.into())
+        Ok(Iterator::<T> { owner: self.cast()?, current: 0 }.into())
     }
 }
 
