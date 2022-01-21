@@ -1,6 +1,5 @@
-use test_winrt_weak::*;
 use windows::core::*;
-use Windows::Win32::System::WinRT::IWeakReferenceSource;
+use windows::Win32::System::WinRT::IWeakReferenceSource;
 
 #[test]
 fn test() {
