@@ -182,6 +182,7 @@ impl ImplementType {
 
         for g in &self.generics {
             tokens.combine(&g.to_ident());
+            tokens.push_str(",");
         }
 
         tokens.push_str(">");

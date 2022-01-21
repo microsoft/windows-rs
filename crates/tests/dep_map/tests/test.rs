@@ -1,25 +1,17 @@
 use windows::core::*;
 use windows::Foundation::Collections::*;
 
-// This test ensures that all interfaces required by IMap can be both called and implemented
-// simply by importing IMap. This consists of the following interfaces:
-//   IMap
-//   IMapView
-//   IIterable
-//   IIterator
-//   KeyValuePair
-
 #[implement(
     IKeyValuePair<i32, f32>,
 )]
 struct KeyValuePair();
 
 #[allow(non_snake_case)]
-impl KeyValuePair {
-    fn Key(&self) -> Result<i32> {
+impl IKeyValuePair_Impl<i32, f32> for KeyValuePair {
+    fn Key(&mut self) -> Result<i32> {
         Ok(0)
     }
-    fn Value(&self) -> Result<f32> {
+    fn Value(&mut self) -> Result<f32> {
         Ok(0.0)
     }
 }
@@ -30,17 +22,17 @@ impl KeyValuePair {
 struct Iterator();
 
 #[allow(non_snake_case)]
-impl Iterator {
-    fn GetMany(&self, _items: &mut [IKeyValuePair<i32, f32>]) -> Result<u32> {
+impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator {
+    fn GetMany(&mut self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
         Ok(0)
     }
-    fn MoveNext(&self) -> Result<bool> {
+    fn MoveNext(&mut self) -> Result<bool> {
         Ok(true)
     }
-    fn Current(&self) -> Result<IKeyValuePair<i32, f32>> {
+    fn Current(&mut self) -> Result<IKeyValuePair<i32, f32>> {
         Ok(KeyValuePair().into())
     }
-    fn HasCurrent(&self) -> Result<bool> {
+    fn HasCurrent(&mut self) -> Result<bool> {
         Ok(true)
     }
 }
@@ -52,20 +44,25 @@ impl Iterator {
 struct MapView();
 
 #[allow(non_snake_case)]
-impl MapView {
-    fn HasKey(&self, _key: i32) -> Result<bool> {
+impl IMapView_Impl<i32, f32> for MapView {
+    // TODO: shouldn't require & for primtiive
+    fn HasKey(&mut self, _key: &i32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&self, _key: i32) -> Result<f32> {
+    fn Lookup(&mut self, _key: &i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Split(&self, _first: &mut IMapView<i32, f32>, _second: &mut IMapView<i32, f32>) -> Result<()> {
+    fn Split(&mut self, _first: &mut Option<IMapView<i32, f32>>, _second: &mut Option<IMapView<i32, f32>>) -> Result<()> {
         Ok(())
     }
-    fn Size(&self) -> Result<u32> {
+    fn Size(&mut self) -> Result<u32> {
         Ok(0)
     }
-    fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
+}
+
+#[allow(non_snake_case)]
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView {
+    fn First(&mut self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
 }
@@ -77,29 +74,32 @@ impl MapView {
 struct Map();
 
 #[allow(non_snake_case)]
-impl Map {
-    fn Clear(&self) -> Result<()> {
+impl IMap_Impl<i32, f32> for Map {
+    fn Clear(&mut self) -> Result<()> {
         Ok(())
     }
-    fn GetView(&self) -> Result<IMapView<i32, f32>> {
+    fn GetView(&mut self) -> Result<IMapView<i32, f32>> {
         Ok(MapView().into())
     }
-    fn HasKey(&self, _key: i32) -> Result<bool> {
+    fn HasKey(&mut self, _key: &i32) -> Result<bool> {
         Ok(true)
     }
-    fn Insert(&self, _key: i32, _value: f32) -> Result<bool> {
+    fn Insert(&mut self, _key: &i32, _value: &f32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&self, _key: i32) -> Result<f32> {
+    fn Lookup(&mut self, _key: &i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Remove(&self, _key: i32) -> Result<()> {
+    fn Remove(&mut self, _key: &i32) -> Result<()> {
         Ok(())
     }
-    fn Size(&self) -> Result<u32> {
+    fn Size(&mut self) -> Result<u32> {
         Ok(0)
     }
-    fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
+}
+
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map {
+    fn First(&mut self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
 }
