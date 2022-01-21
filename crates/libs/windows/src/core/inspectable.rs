@@ -21,10 +21,10 @@ impl IInspectable {
 }
 
 #[repr(C)]
-pub struct IInspectableVtbl{
+pub struct IInspectableVtbl {
     pub base: IUnknownVtbl,
-    pub GetIids: unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, 
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, 
+    pub GetIids: unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+    pub GetRuntimeClassName: unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
     pub GetTrustLevel: unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
 }
 
@@ -127,11 +127,7 @@ impl core::convert::TryFrom<&IInspectable> for HSTRING {
 #[cfg(feature = "implement")]
 impl IInspectableVtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIids(
-            _: RawPtr,
-            count: *mut u32,
-            values: *mut *mut GUID,
-        ) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIids(_: RawPtr, count: *mut u32, values: *mut *mut GUID) -> ::windows::core::HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.
@@ -139,11 +135,8 @@ impl IInspectableVtbl {
             *values = core::ptr::null_mut();
             HRESULT(0)
         }
-        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
-            _: RawPtr,
-            value: *mut RawPtr,
-        ) -> HRESULT {
-            let h : HSTRING = T::NAME.into(); // TODO: should be try_into
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: RawPtr, value: *mut RawPtr) -> HRESULT {
+            let h: HSTRING = T::NAME.into(); // TODO: should be try_into
             *value = ::core::mem::transmute(h);
             HRESULT(0)
         }
@@ -154,11 +147,6 @@ impl IInspectableVtbl {
             *value = 0;
             HRESULT(0)
         }
-        Self { 
-            base: IUnknownVtbl::new::<Identity, OFFSET>(),
-            GetIids,
-            GetRuntimeClassName: GetRuntimeClassName::<Name>,
-            GetTrustLevel,
-        }
+        Self { base: IUnknownVtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
     }
 }

@@ -1,6 +1,6 @@
 use core::convert::{TryFrom, TryInto};
-use windows::Foundation::{IPropertyValue, PropertyValue};
 use windows::core::{IInspectable, Interface, HSTRING};
+use windows::Foundation::{IPropertyValue, PropertyValue};
 
 macro_rules! primitive_try_into_test {
     ($(($t:ty, $v:literal)),+) => {

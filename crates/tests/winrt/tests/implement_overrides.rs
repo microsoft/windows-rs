@@ -1,8 +1,8 @@
 #![allow(non_snake_case)]
 
 use ::windows::core::Result;
-use windows::UI::Xaml::*;
 use windows::ApplicationModel::Activation::*;
+use windows::UI::Xaml::*;
 
 #[::windows::core::implement(IApplicationOverrides, IApplicationOverrides2)]
 struct App {}

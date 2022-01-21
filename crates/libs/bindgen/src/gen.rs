@@ -153,7 +153,7 @@ impl Gen<'_> {
             }
             TypeKind::Interface => {
                 if !def.is_winrt() {
-                    for def in def.vtable_types(){
+                    for def in def.vtable_types() {
                         if let ElementType::TypeDef(def) = def {
                             self.add_namespace(def.namespace(), namespaces);
                         }
@@ -188,7 +188,7 @@ impl Gen<'_> {
 
     fn type_and_method_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         self.type_requirements(def, namespaces, keys);
-    
+
         for method in def.methods() {
             self.method_requirements(&method.signature(&[]), namespaces, keys);
         }

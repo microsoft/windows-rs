@@ -1,17 +1,14 @@
 use windows::{core::*, Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*};
 
 fn main() -> Result<()> {
-    let input = std::env::args()
-        .nth(1)
-        .expect("Expected one command line argument for text to be spell-corrected");
+    let input = std::env::args().nth(1).expect("Expected one command line argument for text to be spell-corrected");
     // Initialize the COM runtime for this thread
     unsafe {
         CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)?;
     }
 
     // Create ISpellCheckerFactory
-    let factory: ISpellCheckerFactory =
-        unsafe { CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)? };
+    let factory: ISpellCheckerFactory = unsafe { CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)? };
 
     // Make sure that the "en-US" locale is supported
     let locale = "en-US";
@@ -46,9 +43,7 @@ fn main() -> Result<()> {
                 // Get the replacement as a widestring and convert to a Rust String
                 let replacement = unsafe { error.Replacement()? };
 
-                println!("Replace: {} with {}", substring, unsafe {
-                    read_to_string(replacement)
-                });
+                println!("Replace: {} with {}", substring, unsafe { read_to_string(replacement) });
 
                 unsafe { CoTaskMemFree(replacement.0 as *mut _) };
             }
@@ -67,9 +62,7 @@ fn main() -> Result<()> {
                         break;
                     }
 
-                    println!("Maybe replace: {} with {}", substring, unsafe {
-                        read_to_string(suggestion)
-                    });
+                    println!("Maybe replace: {} with {}", substring, unsafe { read_to_string(suggestion) });
 
                     unsafe { CoTaskMemFree(suggestion.0 as *mut _) };
                 }

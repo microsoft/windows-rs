@@ -294,17 +294,16 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 const NAME: &'static str = #runtime_name;
             }
         }
-    }
-     else if def.vtable_types().iter().any(|e| e == &ElementType::IInspectable) {
+    } else if def.vtable_types().iter().any(|e| e == &ElementType::IInspectable) {
         quote! {
             #cfg
             impl ::windows::core::RuntimeName for #name {
                 const NAME: &'static str = "";
             }
         }
-     } else {
-         quote! {}
-     }
+    } else {
+        quote! {}
+    }
 }
 
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
@@ -393,7 +392,6 @@ fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     }
 }
 
-
 fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_element_name(&param.signature.kind, gen);
@@ -429,11 +427,11 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 
     if def.is_winrt() {
         let is_delegate = def.kind() == TypeKind::Delegate;
-        let params = signature.params.iter().map(|p| gen_winrt_produce_type(p,  !is_delegate, gen));
+        let params = signature.params.iter().map(|p| gen_winrt_produce_type(p, !is_delegate, gen));
 
         let return_sig = if let Some(return_sig) = &signature.return_sig {
             let tokens = gen_element_name(&return_sig.kind, gen);
-    
+
             if return_sig.is_array {
                 quote! { ::windows::core::Array<#tokens> }
             } else {
@@ -442,8 +440,8 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         } else {
             quote! { () }
         };
-    
-        let this = if is_delegate{
+
+        let this = if is_delegate {
             quote! {}
         } else {
             quote! { &mut self, }
@@ -452,7 +450,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
     } else {
         let signature_kind = signature.kind();
-        let mut params = quote!{};
+        let mut params = quote! {};
 
         if signature_kind == SignatureKind::ResultValue {
             for param in &signature.params[..signature.params.len() - 1] {
@@ -471,7 +469,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
                 let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
                 return_sig.pointers -= 1;
                 let return_sig = gen_result_sig(&return_sig, gen);
-    
+
                 quote! { -> ::windows::core::Result<#return_sig> }
             }
             _ => gen_return_sig(&signature, gen),

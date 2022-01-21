@@ -10,28 +10,28 @@ mod functions;
 mod gen;
 mod handles;
 mod helpers;
+mod implements;
 mod interfaces;
 mod iterator;
+mod method_names;
 mod methods;
 mod names;
 mod replacements;
 mod signatures;
 mod structs;
-mod implements;
-mod method_names;
 
 use cfg::*;
 use functions::*;
 pub use gen::*;
 use helpers::*;
 use iterator::*;
+use method_names::*;
 use methods::*;
 use names::*;
 use quote::*;
 use r#async::*;
 use reader::*;
 use signatures::*;
-use method_names::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();

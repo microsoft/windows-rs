@@ -1,10 +1,7 @@
 #![windows_subsystem = "windows"]
 #![allow(non_snake_case)]
 
-use windows::{
-    core::*, ApplicationModel::Activation::*, Win32::System::Com::*, UI::Xaml::Controls::*,
-    UI::Xaml::*,
-};
+use windows::{core::*, ApplicationModel::Activation::*, Win32::System::Com::*, UI::Xaml::Controls::*, UI::Xaml::*};
 
 #[implement(IApplicationOverrides)]
 struct MyApp();

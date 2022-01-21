@@ -1,9 +1,6 @@
 #![allow(non_snake_case)]
 
-use windows::{
-    core::*,
-    Foundation::*,
-};
+use windows::{core::*, Foundation::*};
 
 #[test]
 fn implement() -> Result<()> {

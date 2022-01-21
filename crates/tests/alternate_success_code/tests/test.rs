@@ -1,7 +1,4 @@
-use windows::{
-    Win32::Foundation::CO_E_NOTINITIALIZED,
-    Win32::System::Ole::DoDragDrop,
-};
+use windows::{Win32::Foundation::CO_E_NOTINITIALIZED, Win32::System::Ole::DoDragDrop};
 
 // This test validates that the AlternateSuccessCodes attribute is being honored by preserving the original signature
 // and not doing any transformation.

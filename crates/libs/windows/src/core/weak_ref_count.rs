@@ -97,9 +97,15 @@ impl TearOff {
         core::mem::transmute(tear_off)
     }
 
-    const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl{ base: IUnknownVtbl{ QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease}, GetWeakReference: Self::StrongDowngrade};
+    const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
+        base: IUnknownVtbl { QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease },
+        GetWeakReference: Self::StrongDowngrade,
+    };
 
-    const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl{base: IUnknownVtbl{ QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease}, Resolve: Self::WeakUpgrade};
+    const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
+        base: IUnknownVtbl { QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease },
+        Resolve: Self::WeakUpgrade,
+    };
 
     unsafe fn from_strong_ptr<'a>(this: RawPtr) -> &'a mut Self {
         &mut *(this as *mut RawPtr as *mut Self)

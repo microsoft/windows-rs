@@ -29,7 +29,7 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let doc = cfg.gen_doc(gen);
     let features = cfg.gen(gen);
     let vtbl_signature = gen_vtbl_signature(def, &method, gen);
-    let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, &mut MethodNames::new(),&mut MethodNames::new(), gen);
+    let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, &mut MethodNames::new(), &mut MethodNames::new(), gen);
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     let mut tokens = quote! {
@@ -119,4 +119,3 @@ fn gen_fn_constraint(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStrea
 
     quote! { F: FnMut #signature + 'static }
 }
-

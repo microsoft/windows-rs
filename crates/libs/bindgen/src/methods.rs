@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef,  method_names: &mut MethodNames, virtual_names: &mut MethodNames, gen: &Gen) -> TokenStream {
+pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
     let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
@@ -53,29 +53,38 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
 
     let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
         if return_sig.is_array {
-            (quote! {
-                let mut result__: #return_type_tokens = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
-                    .and_then(|| result__ )
-            }, quote! {} )
+            (
+                quote! {
+                    let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                        .and_then(|| result__ )
+                },
+                quote! {},
+            )
         } else {
             let abi_type_name = gen_abi_element_name(return_sig, gen);
             let args = quote! { #(#args,)* };
 
-            (quote! {
-                let mut result__: #abi_type_name = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
-                        .from_abi::<#return_type_tokens>(result__ )
-            }, quote! {
-                let mut result__: #abi_type_name = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
-                        .from_abi::<#return_type_tokens>(result__ )
-            })
+            (
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+            )
         }
     } else {
-        (quote! {
-            (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
-        }, quote! {} )
+        (
+            quote! {
+                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+            },
+            quote! {},
+        )
     };
 
     match kind {
@@ -109,7 +118,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
-         InterfaceKind::Composable => {
+        InterfaceKind::Composable => {
             quote! {
                 #cfg
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
@@ -128,7 +137,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     }
 }
 
-pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize, gen: &Gen) -> TokenStream {
+pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
     let name = method_names.add(method);
     let vname = virtual_names.add(method);

@@ -1,7 +1,4 @@
-use windows::{
-    core::*, Win32::System::Com::*, Win32::UI::Accessibility::*, Win32::UI::WindowsAndMessaging::*,
-    UI::UIAutomation::*,
-};
+use windows::{core::*, Win32::System::Com::*, Win32::UI::Accessibility::*, Win32::UI::WindowsAndMessaging::*, UI::UIAutomation::*};
 
 fn main() -> Result<()> {
     unsafe {

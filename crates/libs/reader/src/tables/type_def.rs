@@ -228,7 +228,7 @@ impl TypeDef {
     pub fn is_primitive(&self) -> bool {
         match self.kind() {
             TypeKind::Enum => true,
-            TypeKind::Struct => self.is_handle() && self.type_name() != TypeName::BSTR, 
+            TypeKind::Struct => self.is_handle() && self.type_name() != TypeName::BSTR,
             _ => false,
         }
     }
@@ -538,13 +538,13 @@ impl TypeDef {
                     if let ConstantValue::TypeDef(def) = arg {
                         for child in def.interface_impls() {
                             if child.is_overridable() {
-                               if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
+                                if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
                                     if def.name() == self.name() {
                                         return true;
                                     }
-                                }      
+                                }
                             }
-                        }                              
+                        }
                     }
                 }
 

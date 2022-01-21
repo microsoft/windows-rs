@@ -26,7 +26,7 @@ impl IActivationFactory {
 #[repr(C)]
 pub struct IActivationFactoryVtbl {
     pub base: IInspectableVtbl,
-    pub ActivateInstance : unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT,
+    pub ActivateInstance: unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT,
 }
 
 unsafe impl Interface for IActivationFactory {

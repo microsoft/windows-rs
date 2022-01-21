@@ -72,7 +72,7 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in vtable_types {
         match def {
-            ElementType::IUnknown | ElementType::IInspectable => {},
+            ElementType::IUnknown | ElementType::IInspectable => {}
             ElementType::TypeDef(def) => {
                 methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, bases, gen));
             }
@@ -107,7 +107,7 @@ fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut Metho
         if is_winrt {
             methods.combine(&gen_winrt_method(&def, kind, &method, method_names, virtual_names, gen));
         } else {
-            methods.combine(&gen_com_method(&def, &method,  method_names, virtual_names, bases, gen));
+            methods.combine(&gen_com_method(&def, &method, method_names, virtual_names, bases, gen));
         }
     }
 
@@ -202,4 +202,3 @@ fn gen_agile(def: &TypeDef, gen: &Gen) -> TokenStream {
         TokenStream::new()
     }
 }
-

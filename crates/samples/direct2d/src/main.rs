@@ -1,11 +1,4 @@
-use windows::{
-    core::*, Foundation::Numerics::*, Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*,
-    Win32::Graphics::Direct2D::*, Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
-    Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*,
-    Win32::System::Com::*, Win32::System::LibraryLoader::*, Win32::System::Performance::*,
-    Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*,
-    Win32::UI::WindowsAndMessaging::*,
-};
+use windows::{core::*, Foundation::Numerics::*, Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*, Win32::Graphics::Direct2D::*, Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*, Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*, Win32::System::Com::*, Win32::System::LibraryLoader::*, Win32::System::Performance::*, Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*, Win32::UI::WindowsAndMessaging::*};
 
 fn main() -> Result<()> {
     unsafe {
@@ -51,11 +44,7 @@ impl Angles {
         let minute = time.wMinute as f32 * 6.0 + second / 60.0;
         let hour = (time.wHour % 12) as f32 * 30.0 + minute / 12.0;
 
-        Self {
-            second,
-            minute,
-            hour,
-        }
+        Self { second, minute, hour }
     }
 }
 
@@ -64,8 +53,7 @@ impl Window {
         let factory = create_factory()?;
         let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
         let style = create_style(&factory)?;
-        let manager: IUIAnimationManager =
-            unsafe { CoCreateInstance(&UIAnimationManager, None, CLSCTX_ALL)? };
+        let manager: IUIAnimationManager = unsafe { CoCreateInstance(&UIAnimationManager, None, CLSCTX_ALL)? };
         let transition = create_transition()?;
 
         let mut dpi = 0.0;
@@ -128,10 +116,7 @@ impl Window {
 
         if let Err(error) = self.present(1, 0) {
             if error.code() == DXGI_STATUS_OCCLUDED {
-                self.occlusion = unsafe {
-                    self.dxfactory
-                        .RegisterOcclusionStatusWindow(self.handle, WM_USER)?
-                };
+                self.occlusion = unsafe { self.dxfactory.RegisterOcclusionStatusWindow(self.handle, WM_USER)? };
                 self.visible = false;
             } else {
                 self.release_device();
@@ -164,12 +149,7 @@ impl Window {
         unsafe {
             self.manager.Update(get_time(self.frequency)?)?;
 
-            target.Clear(&D2D1_COLOR_F {
-                r: 1.0,
-                g: 1.0,
-                b: 1.0,
-                a: 1.0,
-            });
+            target.Clear(&D2D1_COLOR_F { r: 1.0, g: 1.0, b: 1.0, a: 1.0 });
 
             let mut previous = None;
             target.GetTarget(&mut previous);
@@ -182,23 +162,11 @@ impl Window {
             let mut output = None;
             shadow.GetOutput(&mut output);
 
-            target.DrawImage(
-                output,
-                std::ptr::null(),
-                std::ptr::null(),
-                D2D1_INTERPOLATION_MODE_LINEAR,
-                D2D1_COMPOSITE_MODE_SOURCE_OVER,
-            );
+            target.DrawImage(output, std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
 
             target.SetTransform(&Matrix3x2::identity());
 
-            target.DrawImage(
-                clock,
-                std::ptr::null(),
-                std::ptr::null(),
-                D2D1_INTERPOLATION_MODE_LINEAR,
-                D2D1_COMPOSITE_MODE_SOURCE_OVER,
-            );
+            target.DrawImage(clock, std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
         }
 
         Ok(())
@@ -214,11 +182,7 @@ impl Window {
         let translation = Matrix3x2::translation(size.width / 2.0, size.height / 2.0);
         unsafe { target.SetTransform(&translation) };
 
-        let ellipse = D2D1_ELLIPSE {
-            point: D2D_POINT_2F::default(),
-            radiusX: radius,
-            radiusY: radius,
-        };
+        let ellipse = D2D1_ELLIPSE { point: D2D_POINT_2F::default(), radiusX: radius, radiusY: radius };
 
         let swing = unsafe {
             target.DrawEllipse(&ellipse, brush, radius / 20.0, None);
@@ -245,42 +209,15 @@ impl Window {
         unsafe {
             target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * &translation));
 
-            target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.75),
-                },
-                brush,
-                radius / 25.0,
-                &self.style,
-            );
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * &translation));
 
-            target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.75),
-                },
-                brush,
-                radius / 15.0,
-                &self.style,
-            );
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * &translation));
 
-            target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.5),
-                },
-                brush,
-                radius / 10.0,
-                &self.style,
-            );
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
         }
 
         Ok(())
@@ -298,16 +235,10 @@ impl Window {
     fn create_clock(&self, target: &ID2D1DeviceContext) -> Result<ID2D1Bitmap1> {
         let size_f = unsafe { target.GetSize() };
 
-        let size_u = D2D_SIZE_U {
-            width: (size_f.width * self.dpi / 96.0) as u32,
-            height: (size_f.height * self.dpi / 96.0) as u32,
-        };
+        let size_u = D2D_SIZE_U { width: (size_f.width * self.dpi / 96.0) as u32, height: (size_f.height * self.dpi / 96.0) as u32 };
 
         let properties = D2D1_BITMAP_PROPERTIES1 {
-            pixelFormat: D2D1_PIXEL_FORMAT {
-                format: DXGI_FORMAT_B8G8R8A8_UNORM,
-                alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
-            },
+            pixelFormat: D2D1_PIXEL_FORMAT { format: DXGI_FORMAT_B8G8R8A8_UNORM, alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED },
             dpiX: self.dpi,
             dpiY: self.dpi,
             bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET,
@@ -322,11 +253,7 @@ impl Window {
             let swapchain = self.swapchain.as_ref().unwrap();
             unsafe { target.SetTarget(None) };
 
-            if unsafe {
-                swapchain
-                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
-                    .is_ok()
-            } {
+            if unsafe { swapchain.ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0).is_ok() } {
                 create_swapchain_bitmap(swapchain, &target)?;
                 self.create_device_size_resources()?;
             } else {
@@ -398,20 +325,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(
-                Default::default(),
-                PSTR(b"window\0".as_ptr() as _),
-                PSTR(b"Sample Window\0".as_ptr() as _),
-                WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                CW_USEDEFAULT,
-                None,
-                None,
-                instance,
-                self as *mut _ as _,
-            );
+            let handle = CreateWindowExA(Default::default(), PSTR(b"window\0".as_ptr() as _), PSTR(b"Sample Window\0".as_ptr() as _), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);
@@ -440,12 +354,7 @@ impl Window {
         }
     }
 
-    extern "system" fn wndproc(
-        window: HWND,
-        message: u32,
-        wparam: WPARAM,
-        lparam: LPARAM,
-    ) -> LRESULT {
+    extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
         unsafe {
             if message == WM_NCCREATE {
                 let cs = lparam.0 as *const CREATESTRUCTA;
@@ -475,17 +384,9 @@ fn get_time(frequency: i64) -> Result<f64> {
 }
 
 fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-    let color = D2D1_COLOR_F {
-        r: 0.92,
-        g: 0.38,
-        b: 0.208,
-        a: 1.0,
-    };
+    let color = D2D1_COLOR_F { r: 0.92, g: 0.38, b: 0.208, a: 1.0 };
 
-    let properties = D2D1_BRUSH_PROPERTIES {
-        opacity: 0.8,
-        transform: Matrix3x2::identity(),
-    };
+    let properties = D2D1_BRUSH_PROPERTIES { opacity: 0.8, transform: Matrix3x2::identity() };
 
     unsafe { target.CreateSolidColorBrush(&color, &properties) }
 }
@@ -508,31 +409,18 @@ fn create_factory() -> Result<ID2D1Factory1> {
 
     let mut result = None;
 
-    unsafe {
-        D2D1CreateFactory(
-            D2D1_FACTORY_TYPE_SINGLE_THREADED,
-            &ID2D1Factory1::IID,
-            &options,
-            std::mem::transmute(&mut result),
-        )
-        .map(|()| result.unwrap())
-    }
+    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &ID2D1Factory1::IID, &options, std::mem::transmute(&mut result)).map(|()| result.unwrap()) }
 }
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
-    let props = D2D1_STROKE_STYLE_PROPERTIES {
-        startCap: D2D1_CAP_STYLE_ROUND,
-        endCap: D2D1_CAP_STYLE_TRIANGLE,
-        ..Default::default()
-    };
+    let props = D2D1_STROKE_STYLE_PROPERTIES { startCap: D2D1_CAP_STYLE_ROUND, endCap: D2D1_CAP_STYLE_TRIANGLE, ..Default::default() };
 
     unsafe { factory.CreateStrokeStyle(&props, std::ptr::null(), 0) }
 }
 
 fn create_transition() -> Result<IUIAnimationTransition> {
     unsafe {
-        let library: IUIAnimationTransitionLibrary =
-            CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL)?;
+        let library: IUIAnimationTransitionLibrary = CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL)?;
         library.CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8)
     }
 }
@@ -546,21 +434,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 
     let mut device = None;
 
-    unsafe {
-        D3D11CreateDevice(
-            None,
-            drive_type,
-            HINSTANCE::default(),
-            flags,
-            std::ptr::null(),
-            0,
-            D3D11_SDK_VERSION,
-            &mut device,
-            std::ptr::null_mut(),
-            &mut None,
-        )
-        .map(|()| device.unwrap())
-    }
+    unsafe { D3D11CreateDevice(None, drive_type, HINSTANCE::default(), flags, std::ptr::null(), 0, D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
 }
 
 fn create_device() -> Result<ID3D11Device> {
@@ -575,10 +449,7 @@ fn create_device() -> Result<ID3D11Device> {
     result
 }
 
-fn create_render_target(
-    factory: &ID2D1Factory1,
-    device: &ID3D11Device,
-) -> Result<ID2D1DeviceContext> {
+fn create_render_target(factory: &ID2D1Factory1, device: &ID3D11Device) -> Result<ID2D1DeviceContext> {
     unsafe {
         let d2device = factory.CreateDevice(device.cast::<IDXGIDevice>()?)?;
 
@@ -599,10 +470,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
     let surface: IDXGISurface = unsafe { swapchain.GetBuffer(0)? };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
-        pixelFormat: D2D1_PIXEL_FORMAT {
-            format: DXGI_FORMAT_B8G8R8A8_UNORM,
-            alphaMode: D2D1_ALPHA_MODE_IGNORE,
-        },
+        pixelFormat: D2D1_PIXEL_FORMAT { format: DXGI_FORMAT_B8G8R8A8_UNORM, alphaMode: D2D1_ALPHA_MODE_IGNORE },
         dpiX: 96.0,
         dpiY: 96.0,
         bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
@@ -622,10 +490,7 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
 
     let props = DXGI_SWAP_CHAIN_DESC1 {
         Format: DXGI_FORMAT_B8G8R8A8_UNORM,
-        SampleDesc: DXGI_SAMPLE_DESC {
-            Count: 1,
-            Quality: 0,
-        },
+        SampleDesc: DXGI_SAMPLE_DESC { Count: 1, Quality: 0 },
         BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
         BufferCount: 2,
         SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,

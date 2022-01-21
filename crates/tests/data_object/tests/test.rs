@@ -1,10 +1,6 @@
 #![allow(non_snake_case)]
 
-use windows::{
-    core::*,
-    Win32::Foundation::*,
-    Win32::System::Com::*,
-};
+use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
 #[implement(IDataObject)]
 #[derive(Default)]

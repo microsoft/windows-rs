@@ -10,9 +10,9 @@ pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 #[doc(hidden)]
 #[repr(C)]
 pub struct IUnknownVtbl {
-    pub QueryInterface : unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
-    pub AddRef : unsafe extern "system" fn (this: RawPtr) -> u32,
-    pub Release : unsafe extern "system" fn (this: RawPtr) -> u32,
+    pub QueryInterface: unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub Release: unsafe extern "system" fn(this: RawPtr) -> u32,
 }
 
 unsafe impl Interface for IUnknown {
@@ -60,7 +60,7 @@ impl core::fmt::Debug for IUnknown {
 pub trait IUnknownImpl {
     fn get_impl(&mut self) -> RawPtr;
 
-    fn QueryInterface(&mut self,  iid: &GUID, interface: *mut RawPtr) -> HRESULT;
+    fn QueryInterface(&mut self, iid: &GUID, interface: *mut RawPtr) -> HRESULT;
     fn AddRef(&mut self) -> u32;
     fn Release(&mut self) -> u32;
 }
@@ -80,10 +80,6 @@ impl IUnknownVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
             (*this).Release()
         }
-        Self { 
-            QueryInterface: QueryInterface::<T, OFFSET>,
-            AddRef: AddRef::<T, OFFSET>,
-            Release: Release::<T, OFFSET>,
-        }
+        Self { QueryInterface: QueryInterface::<T, OFFSET>, AddRef: AddRef::<T, OFFSET>, Release: Release::<T, OFFSET> }
     }
 }

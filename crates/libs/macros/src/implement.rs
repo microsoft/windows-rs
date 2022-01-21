@@ -1,8 +1,8 @@
+use quote::*;
+use std::collections::*;
 use syn::parse::*;
 use syn::Ident;
 use syn::*;
-use quote::*;
-use std::collections::*;
 
 // New traits-based implement macro that doesn't rely on metadata
 // Also no support for overrides (Xaml) but developers can still implement overrides directly by implementning the necessary override interface
@@ -21,9 +21,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
     let impl_ident = original_ident.join("_Impl");
 
-    let vtbl_idents = attributes.implement.iter().map(|implement| {
-        implement.to_vtbl_ident()
-    });
+    let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
 
     let vtbl_idents2 = vtbl_idents.clone();
 
@@ -33,12 +31,12 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         quote! { #vtbl_ident::new::<Self, #original_ident::<#(#generics,)*>, #offset>() }
     });
 
-    let offset = attributes.implement.iter().enumerate().map(|(offset,_)| {
+    let offset = attributes.implement.iter().enumerate().map(|(offset, _)| {
         let offset: TokenStream = format!("{}", offset).into();
         offset
     });
 
-    let queries = attributes.implement.iter().enumerate().map(|(count,implement)| {
+    let queries = attributes.implement.iter().enumerate().map(|(count, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
         let offset: TokenStream = format!("{}", count).into();
         quote! {

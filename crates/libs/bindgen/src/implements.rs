@@ -58,7 +58,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {
                 fn #name #signature {
                     ::core::result::Result::Ok(())
-                } 
+                }
             }
         } else {
             quote! { fn #name #signature; }
@@ -73,11 +73,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         let signature = method.signature(&def.generics);
         let vtbl_signature = gen_vtbl_signature(&def, &method, gen);
 
-        let invoke_upcall = if def.is_winrt() {
-             gen_winrt_upcall(&signature, quote! { (*this).#name }, gen)
-        } else {
-            gen_win32_upcall(&signature, quote! { (*this).#name })
-        };
+        let invoke_upcall = if def.is_winrt() { gen_winrt_upcall(&signature, quote! { (*this).#name }, gen) } else { gen_win32_upcall(&signature, quote! { (*this).#name }) };
 
         quote! {
             unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
@@ -109,7 +105,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         methods.combine(&quote! { #name: #name::<#(#generics)* Identity, Impl, OFFSET>, });
     }
 
-    quote!{
+    quote! {
         #cfg
         pub trait #impl_ident<#(#generics)*> : Sized #requires where #(#constraints)* {
             #(#method_traits)*

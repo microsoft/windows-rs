@@ -1,7 +1,4 @@
-use windows_sys::{
-    Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect,
-    Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*,
-};
+use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect, Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*};
 
 fn main() {
     unsafe {
@@ -26,20 +23,7 @@ fn main() {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(
-            0,
-            window_class,
-            b"This is a sample window".as_ptr() as _,
-            WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            0,
-            0,
-            instance,
-            std::ptr::null_mut(),
-        );
+        CreateWindowExA(0, window_class, b"This is a sample window".as_ptr() as _, WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null_mut());
 
         let mut message = std::mem::zeroed();
 

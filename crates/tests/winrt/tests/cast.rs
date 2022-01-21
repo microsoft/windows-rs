@@ -1,5 +1,5 @@
-use windows::Foundation::{IClosable, IStringable, Uri};
 use windows::core::{Interface, Result};
+use windows::Foundation::{IClosable, IStringable, Uri};
 
 #[test]
 fn try_into() -> Result<()> {

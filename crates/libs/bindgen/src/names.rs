@@ -32,7 +32,6 @@ fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
     if def.generics.is_empty() {
         name
     } else {
-
         if gen.sys {
             name
         } else {

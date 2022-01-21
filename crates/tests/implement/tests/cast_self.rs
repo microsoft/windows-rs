@@ -1,6 +1,6 @@
 use windows::core::*;
-use windows::UI::Xaml::*;
 use windows::ApplicationModel::Activation::*;
+use windows::UI::Xaml::*;
 
 // TODO: This is a compile-only test for now until #81 is further along and can provide composable test classes.
 
