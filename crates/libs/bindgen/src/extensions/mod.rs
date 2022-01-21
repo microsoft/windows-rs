@@ -5,6 +5,7 @@ mod timespan;
 mod vector2;
 mod vector3;
 mod vector4;
+mod win32_error;
 
 pub fn gen(def: &TypeDef) -> TokenStream {
     match def.type_name() {
@@ -14,6 +15,7 @@ pub fn gen(def: &TypeDef) -> TokenStream {
         TypeName::Vector4 => vector4::gen(),
         TypeName::Matrix3x2 => matrix3x2::gen(),
         TypeName::Matrix4x4 => matrix4x4::gen(),
+        TypeName::WIN32_ERROR => win32_error::gen(),
         _ => quote! {},
     }
 }

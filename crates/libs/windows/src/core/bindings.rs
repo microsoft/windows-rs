@@ -688,6 +688,11 @@ impl ::core::clone::Clone for PropertyType {
         *self
     }
 }
+impl ::core::default::Default for PropertyType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
 }
@@ -1559,7 +1564,61 @@ pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type WIN32_ERROR = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIN32_ERROR(pub u32);
+impl ::core::marker::Copy for WIN32_ERROR {}
+impl ::core::clone::Clone for WIN32_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WIN32_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WIN32_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIN32_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WIN32_ERROR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WIN32_ERROR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WIN32_ERROR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WIN32_ERROR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WIN32_ERROR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
+    fn from(value: WIN32_ERROR) -> Self {
+        Self::from_win32(value.0)
+    }
+}
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
@@ -1780,13 +1839,62 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FORMAT_MESSAGE_OPTIONS = u32;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
-pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = 8192u32;
-pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
-pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = 1024u32;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(256u32);
+pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(8192u32);
+pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(2048u32);
+pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(1024u32);
+pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(4096u32);
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(512u32);
+impl ::core::marker::Copy for FORMAT_MESSAGE_OPTIONS {}
+impl ::core::clone::Clone for FORMAT_MESSAGE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FORMAT_MESSAGE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FORMAT_MESSAGE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FORMAT_MESSAGE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FORMAT_MESSAGE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg(windows)]
@@ -1852,24 +1960,73 @@ pub unsafe fn GetProcessHeap() -> HeapHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HEAP_FLAGS = u32;
-pub const HEAP_NONE: HEAP_FLAGS = 0u32;
-pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = 1u32;
-pub const HEAP_GROWABLE: HEAP_FLAGS = 2u32;
-pub const HEAP_GENERATE_EXCEPTIONS: HEAP_FLAGS = 4u32;
-pub const HEAP_ZERO_MEMORY: HEAP_FLAGS = 8u32;
-pub const HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = 16u32;
-pub const HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = 32u32;
-pub const HEAP_FREE_CHECKING_ENABLED: HEAP_FLAGS = 64u32;
-pub const HEAP_DISABLE_COALESCE_ON_FREE: HEAP_FLAGS = 128u32;
-pub const HEAP_CREATE_ALIGN_16: HEAP_FLAGS = 65536u32;
-pub const HEAP_CREATE_ENABLE_TRACING: HEAP_FLAGS = 131072u32;
-pub const HEAP_CREATE_ENABLE_EXECUTE: HEAP_FLAGS = 262144u32;
-pub const HEAP_MAXIMUM_TAG: HEAP_FLAGS = 4095u32;
-pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = 32768u32;
-pub const HEAP_TAG_SHIFT: HEAP_FLAGS = 18u32;
-pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = 256u32;
-pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = 512u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HEAP_FLAGS(pub u32);
+pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
+pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = HEAP_FLAGS(1u32);
+pub const HEAP_GROWABLE: HEAP_FLAGS = HEAP_FLAGS(2u32);
+pub const HEAP_GENERATE_EXCEPTIONS: HEAP_FLAGS = HEAP_FLAGS(4u32);
+pub const HEAP_ZERO_MEMORY: HEAP_FLAGS = HEAP_FLAGS(8u32);
+pub const HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = HEAP_FLAGS(16u32);
+pub const HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = HEAP_FLAGS(32u32);
+pub const HEAP_FREE_CHECKING_ENABLED: HEAP_FLAGS = HEAP_FLAGS(64u32);
+pub const HEAP_DISABLE_COALESCE_ON_FREE: HEAP_FLAGS = HEAP_FLAGS(128u32);
+pub const HEAP_CREATE_ALIGN_16: HEAP_FLAGS = HEAP_FLAGS(65536u32);
+pub const HEAP_CREATE_ENABLE_TRACING: HEAP_FLAGS = HEAP_FLAGS(131072u32);
+pub const HEAP_CREATE_ENABLE_EXECUTE: HEAP_FLAGS = HEAP_FLAGS(262144u32);
+pub const HEAP_MAXIMUM_TAG: HEAP_FLAGS = HEAP_FLAGS(4095u32);
+pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = HEAP_FLAGS(32768u32);
+pub const HEAP_TAG_SHIFT: HEAP_FLAGS = HEAP_FLAGS(18u32);
+pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = HEAP_FLAGS(256u32);
+pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = HEAP_FLAGS(512u32);
+impl ::core::marker::Copy for HEAP_FLAGS {}
+impl ::core::clone::Clone for HEAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEAP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEAP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEAP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HEAP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HEAP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HEAP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HEAP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HEAP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[inline]
 pub unsafe fn HeapAlloc<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]

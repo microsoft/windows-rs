@@ -181,6 +181,8 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                 }
             });
         }
+
+        tokens.combine(&extensions::gen(def));
     }
 
     tokens

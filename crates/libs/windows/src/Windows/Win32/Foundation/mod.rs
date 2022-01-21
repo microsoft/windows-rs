@@ -20898,6 +20898,11 @@ impl ::core::ops::Not for WIN32_ERROR {
         Self(self.0.not())
     }
 }
+impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
+    fn from(value: WIN32_ERROR) -> Self {
+        Self::from_win32(value.0)
+    }
+}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292403i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
