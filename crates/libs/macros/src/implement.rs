@@ -2,6 +2,7 @@ use syn::parse::*;
 use syn::Ident;
 use syn::*;
 use quote::*;
+use std::collections::*;
 
 // New traits-based implement macro that doesn't rely on metadata
 // Also no support for overrides (Xaml) but developers can still implement overrides directly by implementning the necessary override interface
@@ -9,6 +10,11 @@ use quote::*;
 // And don't make the overrides required constraints.
 pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
+    let generics = attributes.generics();
+
+    let constraints = quote! {
+        #(#generics: ::windows::core::RuntimeType + 'static,)*
+    };
 
     let original_type2 = original_type.clone();
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
@@ -23,7 +29,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
     let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let vtbl_ident = implement.to_vtbl_ident();
         let offset: TokenStream = format!("{}", -2 - enumerate as isize).into();
-        quote! { #vtbl_ident::new::<Self, #original_ident, #offset>() }
+        quote! { #vtbl_ident::new::<Self, #original_ident::<#(#generics,)*>, #offset>() }
     });
 
     let offset = attributes.implement.iter().enumerate().map(|(offset,_)| {
@@ -45,10 +51,10 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         let interface_ident = implement.to_ident();
         let offset: TokenStream = format!("{}", enumerate).into();
         quote! {
-            impl From<#original_ident> for #interface_ident {
-                fn from(this: #original_ident) -> Self {
+            impl <#constraints> From<#original_ident::<#(#generics,)*>> for #interface_ident {
+                fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                     unsafe {
-                        let this = #impl_ident::new(this);
+                        let this = #impl_ident::<#(#generics,)*>::new(this);
                         let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
                         ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
                             &mut (*ptr).vtables.#offset as *mut _ as _,
@@ -56,10 +62,10 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                     }
                 }
             }
-            impl ::windows::core::ToImpl<#interface_ident> for #original_ident {
+            impl <#constraints> ::windows::core::ToImpl<#interface_ident> for #original_ident::<#(#generics,)*> {
                 unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
                     let this: ::windows::core::RawPtr = ::core::mem::transmute_copy(interface);
-                    let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident;
+                    let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident::<#(#generics,)*>;
                     &mut (*this).this
                 }
             }
@@ -67,17 +73,17 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
     });
 
     let tokens = quote! {
-        struct #impl_ident {
+        struct #impl_ident<#(#generics,)*> where #constraints {
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
             vtables: (#(*const #vtbl_idents,)*),
-            this: #original_ident,
+            this: #original_ident::<#(#generics,)*>,
             count: ::windows::core::WeakRefCount,
         }
-        impl #impl_ident {
+        impl <#constraints> #impl_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
             const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, ::windows::core::IInspectable, -1>();
-            fn new(this: #original_ident) -> Self {
+            fn new(this: #original_ident::<#(#generics,)*>) -> Self {
                 Self {
                     base: ::core::option::Option::None,
                     identity: &Self::IDENTITY,
@@ -87,7 +93,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 }
             }
         }
-        impl ::windows::core::IUnknownImpl for #impl_ident {
+        impl <#constraints> ::windows::core::IUnknownImpl for #impl_ident::<#(#generics,)*> {
             fn get_impl(&mut self) -> ::windows::core::RawPtr {
                 &mut self.this as *mut _ as _
             }
@@ -132,17 +138,17 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 remaining
             }
         }
-        impl ::windows::core::Compose for #original_ident {
+        impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
                 let inspectable: ::windows::core::IInspectable = implementation.into();
-                let this = (&inspectable as *const _ as *mut ::windows::core::RawPtr).sub(1) as *mut #impl_ident;
+                let this = (&inspectable as *const _ as *mut ::windows::core::RawPtr).sub(1) as *mut #impl_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }
-        impl From<#original_ident> for ::windows::core::IUnknown {
-            fn from(this: #original_ident) -> Self {
+        impl <#constraints> From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
+            fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 unsafe {
-                    let this = #impl_ident::new(this);
+                    let this = #impl_ident::<#(#generics,)*>::new(this);
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
                     ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
                         &mut (*ptr).identity as *mut _ as _
@@ -150,10 +156,10 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 }
             }
         }
-        impl From<#original_ident> for ::windows::core::IInspectable {
-            fn from(this: #original_ident) -> Self {
+        impl <#constraints> From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable {
+            fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 unsafe {
-                    let this = #impl_ident::new(this);
+                    let this = #impl_ident::<#(#generics,)*>::new(this);
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
                     ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
                         &mut (*ptr).identity as *mut _ as _
@@ -194,6 +200,19 @@ impl ImplementType {
             <#ident as ::windows::core::Interface>::Vtable
         }
     }
+    fn generics(&self) -> BTreeSet<TokenStream> {
+        let mut set = BTreeSet::new();
+
+        if self.type_name.len() == 1 && self.type_name == self.type_name.to_uppercase() {
+            set.insert(self.type_name.clone().into());
+        }
+
+        for def in &self.generics {
+            set.append(&mut def.generics());
+        }
+
+        set
+    }
 }
 
 #[derive(Default)]
@@ -214,6 +233,16 @@ impl Parse for ImplementAttributes {
 }
 
 impl ImplementAttributes {
+    fn generics(&self) -> BTreeSet<TokenStream> {
+        let mut set = BTreeSet::new();
+
+        for def in &self.implement {
+            set.append(&mut def.generics());
+        }
+
+        set
+    }
+
     fn parse_implement(&mut self, cursor: ParseStream) -> Result<()> {
         let tree = cursor.parse::<UseTree2>()?;
         self.walk_implement(&tree, &mut String::new())?;
