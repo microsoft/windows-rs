@@ -5,8 +5,9 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies.windows]
-path = "../../../libs/windows"
+path = "../../libs/windows"
 features = [
+    "alloc",
     "Win32_Web_MsHtml",
     "Win32_Foundation",
     "Win32_System_Com",
