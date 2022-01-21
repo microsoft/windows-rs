@@ -1,6 +1,5 @@
-use test_winrt_dep_map::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
+use windows::Foundation::Collections::*;
 
 // This test ensures that all interfaces required by IMap can be both called and implemented
 // simply by importing IMap. This consists of the following interfaces:
@@ -11,7 +10,7 @@ use Windows::Foundation::Collections::*;
 //   KeyValuePair
 
 #[implement(
-    Windows::Foundation::Collections::IKeyValuePair<i32, f32>,
+    IKeyValuePair<i32, f32>,
 )]
 struct KeyValuePair();
 
@@ -26,7 +25,7 @@ impl KeyValuePair {
 }
 
 #[implement(
-    Windows::Foundation::Collections::IIterator<Windows::Foundation::Collections::IKeyValuePair<i32, f32>>,
+    IIterator<IKeyValuePair<i32, f32>>,
 )]
 struct Iterator();
 
@@ -47,8 +46,8 @@ impl Iterator {
 }
 
 #[implement(
-    Windows::Foundation::Collections::IMapView<i32, f32>,
-    Windows::Foundation::Collections::IIterable<Windows::Foundation::Collections::IKeyValuePair<i32, f32>>,
+    IMapView<i32, f32>,
+    IIterable<IKeyValuePair<i32, f32>>,
 )]
 struct MapView();
 
@@ -72,8 +71,8 @@ impl MapView {
 }
 
 #[implement(
-    Windows::Foundation::Collections::IMap<i32, f32>,
-    Windows::Foundation::Collections::IIterable<Windows::Foundation::Collections::IKeyValuePair<i32, f32>>,
+    IMap<i32, f32>,
+    IIterable<IKeyValuePair<i32, f32>>,
 )]
 struct Map();
 
