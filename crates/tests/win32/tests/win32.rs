@@ -20,17 +20,17 @@ use windows::core::GUID;
 
 #[test]
 fn signed_enum32() {
-    assert!(ACCESS_MODE::default() == 0.into());
+    assert!(ACCESS_MODE::default().0 == 0);
     let e: ACCESS_MODE = REVOKE_ACCESS;
     assert!(e == REVOKE_ACCESS);
 }
 
 #[test]
 fn unsigned_enum32() {
-    assert!(DXGI_ADAPTER_FLAG::default() == 0.into());
+    assert!(DXGI_ADAPTER_FLAG::default().0 == 0);
 
     let both = DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
-    assert!(both == 3.into());
+    assert!(both.0 == 3);
 }
 
 #[test]
