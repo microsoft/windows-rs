@@ -9,31 +9,8 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  build_components:
-    name: Build test components
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        platform: [x86, x64]
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Configure MSBuild
-      uses: microsoft/setup-msbuild@v1.0.3
-
-    - name: Install CLangSharpPInvokeGenerator
-      run: dotnet tool install -g ClangSharpPInvokeGenerator --version 11.0.0-beta3
-
-    - name: Restore NuGet Packages (${{ matrix.platform }})
-      run: msbuild crates\tests\components\components.sln /t:Restore /p:Platform=${{ matrix.platform }} /p:RestorePackagesConfig=true /m
-
-    - name: Build components (${{ matrix.platform }})
-      run: msbuild crates\tests\components\components.sln /t:Build /p:Platform=${{ matrix.platform }} /p:Configuration=Release /m
-
   test:
     name: Test
-    needs: build_components
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -92,9 +69,9 @@ jobs:
       run: cargo check --target ${{ matrix.other }}
       if: contains(matrix.other, 'windows-gnu')
 
-    - name: Test (${{ matrix.os }})
-      run: cargo test --all --target ${{ matrix.other }}
-      if: contains(matrix.other, 'windows-msvc')
+    # - name: Test (${{ matrix.os }})
+    #   run: cargo test --all --target ${{ matrix.other }}
+    #   if: contains(matrix.other, 'windows-msvc')
 
   cargo_fmt:
     name: Check cargo formatting
@@ -126,20 +103,6 @@ jobs:
 
     - name: Run cargo doc
       run: cargo doc --no-deps -p windows
-
-  windows_fmt:
-    name: Check macro formatting
-    runs-on: windows-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Run windows_fmt
-      run: cargo run -p windows_fmt
-
-    - name: Compare
-      shell: bash
-      run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
 
   generation:
     name: Check generation of `windows_${{ matrix.generator }}`
