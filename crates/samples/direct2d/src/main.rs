@@ -207,15 +207,15 @@ impl Window {
         }
 
         unsafe {
-            target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * &translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * translation));
 
             target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * &translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * translation));
 
             target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * &translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * translation));
 
             target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
         }
@@ -254,7 +254,7 @@ impl Window {
             unsafe { target.SetTarget(None) };
 
             if unsafe { swapchain.ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0).is_ok() } {
-                create_swapchain_bitmap(swapchain, &target)?;
+                create_swapchain_bitmap(swapchain, target)?;
                 self.create_device_size_resources()?;
             } else {
                 self.release_device();

@@ -244,7 +244,7 @@ mod d3d12_hello_triangle {
 
     impl DXSample for Sample {
         fn new(command_line: &SampleCommandLine) -> Result<Self> {
-            let (dxgi_factory, device) = create_device(&command_line)?;
+            let (dxgi_factory, device) = create_device(command_line)?;
 
             Ok(Sample { dxgi_factory, device, resources: None })
         }
@@ -342,11 +342,11 @@ mod d3d12_hello_triangle {
 
         fn render(&mut self) {
             if let Some(resources) = &mut self.resources {
-                populate_command_list(&resources).unwrap();
+                populate_command_list(resources).unwrap();
 
                 // Execute the command list.
                 let command_list = ID3D12CommandList::from(&resources.command_list);
-                unsafe { resources.command_queue.ExecuteCommandLists(1, &mut Some(command_list)) };
+                unsafe { resources.command_queue.ExecuteCommandLists(1, &Some(command_list)) };
 
                 // Present the frame.
                 unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
@@ -416,7 +416,7 @@ mod d3d12_hello_triangle {
         if cfg!(debug_assertions) {
             unsafe {
                 let mut debug: Option<ID3D12Debug> = None;
-                if let Some(debug) = D3D12GetDebugInterface(&mut debug).ok().and_then(|_| debug) {
+                if let Some(debug) = D3D12GetDebugInterface(&mut debug).ok().and(debug) {
                     debug.EnableDebugLayer();
                 }
             }
