@@ -21,7 +21,7 @@
   <Applications>
     <Application Id="App" Executable="xaml_app.exe" EntryPoint="XamlApp.App">
       <uap:VisualElements DisplayName="Rust XamlApp" Description="Description"
-        Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png">
+        Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png" BackgroundColor="transparent">
         <uap:SplashScreen Image="SplashScreen.png" />
       </uap:VisualElements>
     </Application>

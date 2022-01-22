@@ -31,20 +31,18 @@ fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
 
     if def.generics.is_empty() {
         name
+    } else if gen.sys {
+        name
     } else {
-        if gen.sys {
-            name
-        } else {
-            name.push('<');
+        name.push('<');
 
-            for g in &def.generics {
-                name.push_str(gen_element_name(g, gen).as_str());
-                name.push(',');
-            }
-
-            name.push('>');
-            name
+        for g in &def.generics {
+            name.push_str(gen_element_name(g, gen).as_str());
+            name.push(',');
         }
+
+        name.push('>');
+        name
     }
 }
 
