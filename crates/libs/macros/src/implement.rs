@@ -316,7 +316,7 @@ impl UseTree2 {
                     generics.push(g.to_element_type(&mut String::new())?);
                 }
 
-                Ok(ImplementType{type_name, generics })
+                Ok(ImplementType { type_name, generics })
             }
             UseTree2::Group(input) => Err(Error::new(input.brace_token.span, "Syntax not supported")),
         }

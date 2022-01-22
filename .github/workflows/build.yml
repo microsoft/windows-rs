@@ -16,7 +16,7 @@ jobs:
       matrix:
         include:
         - os: windows-latest
-          rust: stable
+          rust: nightly
           other: x86_64-pc-windows-msvc
           platform: x64
         - os: windows-latest
@@ -28,7 +28,7 @@ jobs:
           other: x86_64-pc-windows-gnu
           platform: x64
         - os: windows-latest
-          rust: stable
+          rust: nightly
           other: i686-pc-windows-gnu
           platform: x86
     steps:
