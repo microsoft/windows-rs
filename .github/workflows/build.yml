@@ -92,7 +92,7 @@ jobs:
 
     - name: Run cargo clippy
       # TODO: Add  --all-targets when the tests adhere to clippy lints
-      run: cargo clippy --all -- -D warnings
+      run: cargo +nightly clippy --all -- -D warnings
 
   cargo_doc:
     name: Check cargo docs
