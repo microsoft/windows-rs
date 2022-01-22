@@ -355,15 +355,36 @@ impl ::core::default::Default for DNS_A_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_CHARSET = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_CHARSET(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsCharSetUnknown: DNS_CHARSET = 0i32;
+pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsCharSetUnicode: DNS_CHARSET = 1i32;
+pub const DnsCharSetUnicode: DNS_CHARSET = DNS_CHARSET(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsCharSetUtf8: DNS_CHARSET = 2i32;
+pub const DnsCharSetUtf8: DNS_CHARSET = DNS_CHARSET(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsCharSetAnsi: DNS_CHARSET = 3i32;
+pub const DnsCharSetAnsi: DNS_CHARSET = DNS_CHARSET(3i32);
+impl ::core::marker::Copy for DNS_CHARSET {}
+impl ::core::clone::Clone for DNS_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_CHARSET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_CHARSET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_CHARSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_CHARSET").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_CLASS_ALL: u32 = 255u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
@@ -385,45 +406,66 @@ pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_CONFIG_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_CONFIG_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = 0i32;
+pub const DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigPrimaryDomainName_A: DNS_CONFIG_TYPE = 1i32;
+pub const DnsConfigPrimaryDomainName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigPrimaryDomainName_UTF8: DNS_CONFIG_TYPE = 2i32;
+pub const DnsConfigPrimaryDomainName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAdapterDomainName_W: DNS_CONFIG_TYPE = 3i32;
+pub const DnsConfigAdapterDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAdapterDomainName_A: DNS_CONFIG_TYPE = 4i32;
+pub const DnsConfigAdapterDomainName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAdapterDomainName_UTF8: DNS_CONFIG_TYPE = 5i32;
+pub const DnsConfigAdapterDomainName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigDnsServerList: DNS_CONFIG_TYPE = 6i32;
+pub const DnsConfigDnsServerList: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigSearchList: DNS_CONFIG_TYPE = 7i32;
+pub const DnsConfigSearchList: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAdapterInfo: DNS_CONFIG_TYPE = 8i32;
+pub const DnsConfigAdapterInfo: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigPrimaryHostNameRegistrationEnabled: DNS_CONFIG_TYPE = 9i32;
+pub const DnsConfigPrimaryHostNameRegistrationEnabled: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAdapterHostNameRegistrationEnabled: DNS_CONFIG_TYPE = 10i32;
+pub const DnsConfigAdapterHostNameRegistrationEnabled: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigAddressRegistrationMaxCount: DNS_CONFIG_TYPE = 11i32;
+pub const DnsConfigAddressRegistrationMaxCount: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigHostName_W: DNS_CONFIG_TYPE = 12i32;
+pub const DnsConfigHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(12i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigHostName_A: DNS_CONFIG_TYPE = 13i32;
+pub const DnsConfigHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(13i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigHostName_UTF8: DNS_CONFIG_TYPE = 14i32;
+pub const DnsConfigHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(14i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigFullHostName_W: DNS_CONFIG_TYPE = 15i32;
+pub const DnsConfigFullHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(15i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = 16i32;
+pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(16i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = 17i32;
+pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(17i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsConfigNameServer: DNS_CONFIG_TYPE = 18i32;
+pub const DnsConfigNameServer: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(18i32);
+impl ::core::marker::Copy for DNS_CONFIG_TYPE {}
+impl ::core::clone::Clone for DNS_CONFIG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_CONFIG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_CONFIG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_CONFIG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_CONFIG_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -651,13 +693,34 @@ impl ::core::default::Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_CONNECTION_POLICY_TAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0i32;
+pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1i32;
+pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2i32;
+pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
+impl ::core::marker::Copy for DNS_CONNECTION_POLICY_TAG {}
+impl ::core::clone::Clone for DNS_CONNECTION_POLICY_TAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_CONNECTION_POLICY_TAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_TAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_TAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_CONNECTION_POLICY_TAG").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -896,13 +959,34 @@ pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_CONNECTION_PROXY_INFO_SWITCH = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = 0i32;
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = 1i32;
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2i32;
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_SWITCH {}
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_CONNECTION_PROXY_INFO_SWITCH").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
 #[repr(C)]
@@ -945,17 +1029,38 @@ impl ::core::default::Default for DNS_CONNECTION_PROXY_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_CONNECTION_PROXY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = 0i32;
+pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1i32;
+pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = 2i32;
+pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = 4i32;
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = 5i32;
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(5i32);
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_TYPE {}
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_CONNECTION_PROXY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_CONNECTION_PROXY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1128,13 +1233,34 @@ impl ::core::default::Default for DNS_DS_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_FREE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_FREE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsFreeFlat: DNS_FREE_TYPE = 0i32;
+pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsFreeRecordList: DNS_FREE_TYPE = 1i32;
+pub const DnsFreeRecordList: DNS_FREE_TYPE = DNS_FREE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2i32;
+pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = DNS_FREE_TYPE(2i32);
+impl ::core::marker::Copy for DNS_FREE_TYPE {}
+impl ::core::clone::Clone for DNS_FREE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_FREE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_FREE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_FREE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_FREE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub struct DNS_HEADER {
@@ -1478,21 +1604,42 @@ impl ::core::default::Default for DNS_MX_DATAW {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_NAME_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_NAME_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameDomain: DNS_NAME_FORMAT = 0i32;
+pub const DnsNameDomain: DNS_NAME_FORMAT = DNS_NAME_FORMAT(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameDomainLabel: DNS_NAME_FORMAT = 1i32;
+pub const DnsNameDomainLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameHostnameFull: DNS_NAME_FORMAT = 2i32;
+pub const DnsNameHostnameFull: DNS_NAME_FORMAT = DNS_NAME_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = 3i32;
+pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameWildcard: DNS_NAME_FORMAT = 4i32;
+pub const DnsNameWildcard: DNS_NAME_FORMAT = DNS_NAME_FORMAT(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameSrvRecord: DNS_NAME_FORMAT = 5i32;
+pub const DnsNameSrvRecord: DNS_NAME_FORMAT = DNS_NAME_FORMAT(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsNameValidateTld: DNS_NAME_FORMAT = 6i32;
+pub const DnsNameValidateTld: DNS_NAME_FORMAT = DNS_NAME_FORMAT(6i32);
+impl ::core::marker::Copy for DNS_NAME_FORMAT {}
+impl ::core::clone::Clone for DNS_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_NAME_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_NAME_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_NAME_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1934,15 +2081,36 @@ impl ::core::default::Default for DNS_PROXY_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_PROXY_INFORMATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0i32;
+pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1i32;
+pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2i32;
+pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3i32;
+pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
+impl ::core::marker::Copy for DNS_PROXY_INFORMATION_TYPE {}
+impl ::core::clone::Clone for DNS_PROXY_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_PROXY_INFORMATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_PROXY_INFORMATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_PROXY_INFORMATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2890,15 +3058,36 @@ pub const DNS_RTYPE_WKS: u32 = 2816u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
 pub const DNS_RTYPE_X25: u32 = 4864u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub type DNS_SECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_SECTION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsSectionQuestion: DNS_SECTION = 0i32;
+pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsSectionAnswer: DNS_SECTION = 1i32;
+pub const DnsSectionAnswer: DNS_SECTION = DNS_SECTION(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsSectionAuthority: DNS_SECTION = 2i32;
+pub const DnsSectionAuthority: DNS_SECTION = DNS_SECTION(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns'*"]
-pub const DnsSectionAddtional: DNS_SECTION = 3i32;
+pub const DnsSectionAddtional: DNS_SECTION = DNS_SECTION(3i32);
+impl ::core::marker::Copy for DNS_SECTION {}
+impl ::core::clone::Clone for DNS_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_SECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_SECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_SECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_SECTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5516,3 +5705,5 @@ impl ::core::default::Default for _DnsRecordOptW_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

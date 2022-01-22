@@ -62,11 +62,32 @@ impl ::core::default::Default for HARDWARE_COUNTER_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
-pub type HARDWARE_COUNTER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HARDWARE_COUNTER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
+impl ::core::marker::Copy for HARDWARE_COUNTER_TYPE {}
+impl ::core::clone::Clone for HARDWARE_COUNTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HARDWARE_COUNTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HARDWARE_COUNTER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HARDWARE_COUNTER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Performance_HardwareCounterProfiling'*"]
 pub struct PERFORMANCE_DATA {
@@ -135,3 +156,5 @@ pub unsafe fn ReadThreadProfilingData<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

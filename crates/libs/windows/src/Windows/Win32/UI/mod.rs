@@ -33,3 +33,5 @@ pub mod WindowsAndMessaging;
 pub mod Wpf;
 #[cfg(feature = "Win32_UI_Xaml")]
 pub mod Xaml;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -286,3 +286,5 @@ pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

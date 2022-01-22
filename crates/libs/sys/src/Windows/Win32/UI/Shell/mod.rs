@@ -1047,10 +1047,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Shell'*"]
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_System_Ole'*"]
+    #[cfg(feature = "Win32_System_Ole")]
     pub fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE, ppsv: *mut IShellView) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_Shell_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
     pub fn SHCreateShellFolderViewEx(pcsfv: *const CSFV, ppsv: *mut IShellView) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_UI_Shell_Common'*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -1362,8 +1363,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_UI_Shell_Common'*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHOpenFolderAndSelectItems(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Registry'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole', 'Win32_System_Registry'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Registry"))]
     pub fn SHOpenPropSheetW(pszcaption: super::super::Foundation::PWSTR, ahkeys: *const super::super::System::Registry::HKEY, ckeys: u32, pclsiddefault: *const ::windows_sys::core::GUID, pdtobj: super::super::System::Com::IDataObject, psb: IShellBrowser, pstartpage: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
@@ -2799,8 +2800,8 @@ pub const BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = 4i32;
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub const BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = 5i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: ITravelLog,
@@ -2830,17 +2831,17 @@ pub struct BASEBROWSERDATALH {
     pub _hwndFrame: super::super::Foundation::HWND,
     pub _lPhishingFilterStatus: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::marker::Copy for BASEBROWSERDATALH {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for BASEBROWSERDATALH {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: ITravelLog,
@@ -2869,9 +2870,9 @@ pub struct BASEBROWSERDATAXP {
     pub _clsidViewPending: ::windows_sys::core::GUID,
     pub _hwndFrame: super::super::Foundation::HWND,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::marker::Copy for BASEBROWSERDATAXP {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for BASEBROWSERDATAXP {
     fn clone(&self) -> Self {
         *self
@@ -3964,8 +3965,8 @@ pub const CPUS_CREDUI: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 4i32;
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 5i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_Shell_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole', 'Win32_UI_Shell_Common'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: IShellFolder,
@@ -3975,9 +3976,9 @@ pub struct CSFV {
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: FOLDERVIEWMODE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::marker::Copy for CSFV {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for CSFV {
     fn clone(&self) -> Self {
         *self
@@ -6735,8 +6736,8 @@ pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = -2144927485i32;
 #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
 pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
@@ -9025,14 +9026,17 @@ pub const SFVS_SELECT_ALLITEMS: SFVS_SELECT = 1i32;
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub const SFVS_SELECT_INVERT: SFVS_SELECT = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell'*"]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_System_Ole'*"]
+#[cfg(feature = "Win32_System_Ole")]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: IShellFolder,
     pub psvOuter: IShellView,
     pub psfvcb: IShellFolderViewCB,
 }
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::marker::Copy for SFV_CREATE {}
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::clone::Clone for SFV_CREATE {
     fn clone(&self) -> Self {
         *self
@@ -11289,8 +11293,8 @@ pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: IShellView,
@@ -11300,9 +11304,9 @@ pub struct SV2CVW2_PARAMS {
     pub pvid: *mut ::windows_sys::core::GUID,
     pub hwndView: super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SV2CVW2_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SV2CVW2_PARAMS {
     fn clone(&self) -> Self {
         *self
@@ -12086,8 +12090,8 @@ pub const TLOG_CURRENT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub const TLOG_FORE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 pub struct TOOLBARITEM {
     pub ptbar: IDockingWindow,
     pub rcBorderTool: super::super::Foundation::RECT,
@@ -12095,9 +12099,9 @@ pub struct TOOLBARITEM {
     pub fShow: super::super::Foundation::BOOL,
     pub hMon: super::super::Graphics::Gdi::HMONITOR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for TOOLBARITEM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TOOLBARITEM {
     fn clone(&self) -> Self {
         *self

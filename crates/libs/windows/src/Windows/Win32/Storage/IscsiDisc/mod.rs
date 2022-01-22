@@ -1389,9 +1389,30 @@ impl ::core::default::Default for IKE_AUTHENTICATION_INFORMATION_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type IKE_AUTHENTICATION_METHOD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IKE_AUTHENTICATION_METHOD(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1i32;
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
+impl ::core::marker::Copy for IKE_AUTHENTICATION_METHOD {}
+impl ::core::clone::Clone for IKE_AUTHENTICATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IKE_AUTHENTICATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IKE_AUTHENTICATION_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IKE_AUTHENTICATION_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKE_AUTHENTICATION_METHOD").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
@@ -1515,13 +1536,34 @@ impl ::core::default::Default for IO_SCSI_CAPABILITIES {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type ISCSI_AUTH_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ISCSI_AUTH_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0i32;
+pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1i32;
+pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(1i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
+pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(2i32);
+impl ::core::marker::Copy for ISCSI_AUTH_TYPES {}
+impl ::core::clone::Clone for ISCSI_AUTH_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ISCSI_AUTH_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ISCSI_AUTH_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ISCSI_AUTH_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCSI_AUTH_TYPES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1737,11 +1779,32 @@ impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONW {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type ISCSI_DIGEST_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ISCSI_DIGEST_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = 0i32;
+pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = 1i32;
+pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(1i32);
+impl ::core::marker::Copy for ISCSI_DIGEST_TYPES {}
+impl ::core::clone::Clone for ISCSI_DIGEST_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ISCSI_DIGEST_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ISCSI_DIGEST_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ISCSI_DIGEST_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCSI_DIGEST_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
@@ -2927,21 +2990,63 @@ impl ::core::default::Default for MP_DEVICE_DATA_SET_RANGE {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type MP_STORAGE_DIAGNOSTIC_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = 0i32;
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = 1i32;
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
+impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_LEVEL {}
+impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MP_STORAGE_DIAGNOSTIC_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 0i32;
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 2i32;
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 3i32;
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 4i32;
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {}
+impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MP_STORAGE_DIAGNOSTIC_TARGET_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
@@ -3167,25 +3272,67 @@ impl ::core::default::Default for NVCACHE_REQUEST_BLOCK {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type NVCACHE_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NVCACHE_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheStatusUnknown: NVCACHE_STATUS = 0i32;
+pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheStatusDisabling: NVCACHE_STATUS = 1i32;
+pub const NvCacheStatusDisabling: NVCACHE_STATUS = NVCACHE_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheStatusDisabled: NVCACHE_STATUS = 2i32;
+pub const NvCacheStatusDisabled: NVCACHE_STATUS = NVCACHE_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheStatusEnabled: NVCACHE_STATUS = 3i32;
+pub const NvCacheStatusEnabled: NVCACHE_STATUS = NVCACHE_STATUS(3i32);
+impl ::core::marker::Copy for NVCACHE_STATUS {}
+impl ::core::clone::Clone for NVCACHE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NVCACHE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NVCACHE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NVCACHE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NVCACHE_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type NVCACHE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NVCACHE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheTypeUnknown: NVCACHE_TYPE = 0i32;
+pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheTypeNone: NVCACHE_TYPE = 1i32;
+pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheTypeWriteBack: NVCACHE_TYPE = 2i32;
+pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = 3i32;
+pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
+impl ::core::marker::Copy for NVCACHE_TYPE {}
+impl ::core::clone::Clone for NVCACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NVCACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NVCACHE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NVCACHE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NVCACHE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct NV_FEATURE_PARAMETER {
@@ -3327,15 +3474,36 @@ pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type NV_SEP_WRITE_CACHE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0i32;
+pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = 1i32;
+pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2i32;
+pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3i32;
+pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
+impl ::core::marker::Copy for NV_SEP_WRITE_CACHE_TYPE {}
+impl ::core::clone::Clone for NV_SEP_WRITE_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NV_SEP_WRITE_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NV_SEP_WRITE_CACHE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NV_SEP_WRITE_CACHE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NV_SEP_WRITE_CACHE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
 #[repr(C)]
@@ -5377,27 +5545,71 @@ pub unsafe fn SetupPersistentIScsiVolumes() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type TARGETPROTOCOLTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TARGETPROTOCOLTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0i32;
+pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
+impl ::core::marker::Copy for TARGETPROTOCOLTYPE {}
+impl ::core::clone::Clone for TARGETPROTOCOLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TARGETPROTOCOLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TARGETPROTOCOLTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TARGETPROTOCOLTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TARGETPROTOCOLTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub type TARGET_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TARGET_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const ProtocolType: TARGET_INFORMATION_CLASS = 0i32;
+pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const TargetAlias: TARGET_INFORMATION_CLASS = 1i32;
+pub const TargetAlias: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = 2i32;
+pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const PortalGroups: TARGET_INFORMATION_CLASS = 3i32;
+pub const PortalGroups: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = 4i32;
+pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const InitiatorName: TARGET_INFORMATION_CLASS = 5i32;
+pub const InitiatorName: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const TargetFlags: TARGET_INFORMATION_CLASS = 6i32;
+pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
-pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
+pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
+impl ::core::marker::Copy for TARGET_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TARGET_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TARGET_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TARGET_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TARGET_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TARGET_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 pub const WmiScsiAddressGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

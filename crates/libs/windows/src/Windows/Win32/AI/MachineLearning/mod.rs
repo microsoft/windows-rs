@@ -3,3 +3,5 @@
 pub mod DirectML;
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 pub mod WinML;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

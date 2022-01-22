@@ -26,6 +26,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
             let value = gen_guid(&guid, gen);
             let guid = gen_element_name(&ElementType::GUID, gen);
             return quote! { pub const #name: #guid = #value; };
+            // TODO: why this if about "Vtbl"?
         } else if name.as_str().ends_with("Vtbl") {
             return quote! {};
         } else {

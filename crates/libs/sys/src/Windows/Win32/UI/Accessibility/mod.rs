@@ -60,7 +60,8 @@ extern "system" {
     pub fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: super::super::System::Com::VARIANT, pfound: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut IAccessible) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows_sys::core::HRESULT;
@@ -256,7 +257,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub fn UiaProviderFromIAccessible(paccessible: IAccessible, idchild: i32, dwflags: u32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn UiaRaiseActiveTextPositionChangedEvent(provider: IRawElementProviderSimple, textrange: ITextRangeProvider) -> ::windows_sys::core::HRESULT;
@@ -305,8 +307,8 @@ extern "system" {
     pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn WindowFromAccessibleObject(param0: IAccessible, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;

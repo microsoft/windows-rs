@@ -34,15 +34,64 @@ impl ::core::default::Default for ENUM_PAGE_FILE_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
-pub type ENUM_PROCESS_MODULES_EX_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
-pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = 3u32;
+pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
-pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = 0u32;
+pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
-pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 1u32;
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
-pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 2u32;
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
+impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
+impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_PROCESS_MODULES_EX_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENUM_PROCESS_MODULES_EX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -931,3 +980,5 @@ impl ::core::default::Default for PSAPI_WS_WATCH_INFORMATION_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

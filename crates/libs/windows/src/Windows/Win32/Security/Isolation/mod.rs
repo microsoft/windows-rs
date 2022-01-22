@@ -116,7 +116,7 @@ impl IIsolatedAppLauncher {
     #[doc = "*Required features: 'Win32_Security_Isolation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Launch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, arguments: Param1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), arguments.into_param().abi(), ::core::mem::transmute(telemetryparameters)).ok()
+        (::windows::core::Interface::vtable(self).Launch)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), arguments.into_param().abi(), ::core::mem::transmute(telemetryparameters)).ok()
     }
 }
 impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::core::IUnknown {
@@ -156,18 +156,18 @@ impl ::core::fmt::Debug for IIsolatedAppLauncher {
     }
 }
 unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
-    type Vtable = IIsolatedAppLauncherVtbl;
+    type Vtable = IIsolatedAppLauncher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIsolatedAppLauncherVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IIsolatedAppLauncher_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Launch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Launch: usize,
+}
 #[doc = "*Required features: 'Win32_Security_Isolation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -256,3 +256,5 @@ impl ::core::default::Default for IsolatedAppLauncherTelemetryParameters {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

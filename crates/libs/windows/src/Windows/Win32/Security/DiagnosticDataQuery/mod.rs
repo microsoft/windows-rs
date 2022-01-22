@@ -500,13 +500,34 @@ impl ::core::default::Default for DIAGNOSTIC_REPORT_SIGNATURE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
-pub type DdqAccessLevel = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DdqAccessLevel(pub i32);
 #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
-pub const NoData: DdqAccessLevel = 0i32;
+pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
 #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
-pub const CurrentUserData: DdqAccessLevel = 1i32;
+pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
-pub const AllUserData: DdqAccessLevel = 2i32;
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
+impl ::core::marker::Copy for DdqAccessLevel {}
+impl ::core::clone::Clone for DdqAccessLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DdqAccessLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DdqAccessLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DdqAccessLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DdqAccessLevel").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_DiagnosticDataQuery'*"]
 #[inline]
 pub unsafe fn DdqCancelDiagnosticRecordOperation<'a, Param0: ::windows::core::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0) -> ::windows::core::Result<()> {
@@ -1035,3 +1056,5 @@ pub unsafe fn DdqSetTranscriptConfiguration<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

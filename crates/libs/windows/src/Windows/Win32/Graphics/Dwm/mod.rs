@@ -1,84 +1,168 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWMFLIP3DWINDOWPOLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = 0i32;
+pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = 1i32;
+pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = 2i32;
+pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = 3i32;
+pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(3i32);
+impl ::core::marker::Copy for DWMFLIP3DWINDOWPOLICY {}
+impl ::core::clone::Clone for DWMFLIP3DWINDOWPOLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWMFLIP3DWINDOWPOLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWMFLIP3DWINDOWPOLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWMFLIP3DWINDOWPOLICY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWMNCRENDERINGPOLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWMNCRENDERINGPOLICY(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = 0i32;
+pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = 1i32;
+pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = 2i32;
+pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = 3i32;
+pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(3i32);
+impl ::core::marker::Copy for DWMNCRENDERINGPOLICY {}
+impl ::core::clone::Clone for DWMNCRENDERINGPOLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWMNCRENDERINGPOLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWMNCRENDERINGPOLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWMNCRENDERINGPOLICY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWMTRANSITION_OWNEDWINDOW_TARGET = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = -1i32;
+pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(-1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = 0i32;
+pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(0i32);
+impl ::core::marker::Copy for DWMTRANSITION_OWNEDWINDOW_TARGET {}
+impl ::core::clone::Clone for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWMTRANSITION_OWNEDWINDOW_TARGET").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWMWINDOWATTRIBUTE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWMWINDOWATTRIBUTE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = 1i32;
+pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_NCRENDERING_POLICY: DWMWINDOWATTRIBUTE = 2i32;
+pub const DWMWA_NCRENDERING_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_TRANSITIONS_FORCEDISABLED: DWMWINDOWATTRIBUTE = 3i32;
+pub const DWMWA_TRANSITIONS_FORCEDISABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_ALLOW_NCPAINT: DWMWINDOWATTRIBUTE = 4i32;
+pub const DWMWA_ALLOW_NCPAINT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_CAPTION_BUTTON_BOUNDS: DWMWINDOWATTRIBUTE = 5i32;
+pub const DWMWA_CAPTION_BUTTON_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_NONCLIENT_RTL_LAYOUT: DWMWINDOWATTRIBUTE = 6i32;
+pub const DWMWA_NONCLIENT_RTL_LAYOUT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_FORCE_ICONIC_REPRESENTATION: DWMWINDOWATTRIBUTE = 7i32;
+pub const DWMWA_FORCE_ICONIC_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_FLIP3D_POLICY: DWMWINDOWATTRIBUTE = 8i32;
+pub const DWMWA_FLIP3D_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_EXTENDED_FRAME_BOUNDS: DWMWINDOWATTRIBUTE = 9i32;
+pub const DWMWA_EXTENDED_FRAME_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_HAS_ICONIC_BITMAP: DWMWINDOWATTRIBUTE = 10i32;
+pub const DWMWA_HAS_ICONIC_BITMAP: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(10i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_DISALLOW_PEEK: DWMWINDOWATTRIBUTE = 11i32;
+pub const DWMWA_DISALLOW_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(11i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_EXCLUDED_FROM_PEEK: DWMWINDOWATTRIBUTE = 12i32;
+pub const DWMWA_EXCLUDED_FROM_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(12i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_CLOAK: DWMWINDOWATTRIBUTE = 13i32;
+pub const DWMWA_CLOAK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(13i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_CLOAKED: DWMWINDOWATTRIBUTE = 14i32;
+pub const DWMWA_CLOAKED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(14i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_FREEZE_REPRESENTATION: DWMWINDOWATTRIBUTE = 15i32;
+pub const DWMWA_FREEZE_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(15i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_PASSIVE_UPDATE_MODE: DWMWINDOWATTRIBUTE = 16i32;
+pub const DWMWA_PASSIVE_UPDATE_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_USE_HOSTBACKDROPBRUSH: DWMWINDOWATTRIBUTE = 17i32;
+pub const DWMWA_USE_HOSTBACKDROPBRUSH: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(17i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_USE_IMMERSIVE_DARK_MODE: DWMWINDOWATTRIBUTE = 20i32;
+pub const DWMWA_USE_IMMERSIVE_DARK_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(20i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_WINDOW_CORNER_PREFERENCE: DWMWINDOWATTRIBUTE = 33i32;
+pub const DWMWA_WINDOW_CORNER_PREFERENCE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(33i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_BORDER_COLOR: DWMWINDOWATTRIBUTE = 34i32;
+pub const DWMWA_BORDER_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(34i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_CAPTION_COLOR: DWMWINDOWATTRIBUTE = 35i32;
+pub const DWMWA_CAPTION_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(35i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = 36i32;
+pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(36i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = 37i32;
+pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(37i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = 38i32;
+pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
+impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
+impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWMWINDOWATTRIBUTE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWMWINDOWATTRIBUTE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWMWINDOWATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWMWINDOWATTRIBUTE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
@@ -172,55 +256,174 @@ impl ::core::default::Default for DWM_PRESENT_PARAMETERS {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWM_SHOWCONTACT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWM_SHOWCONTACT(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_DOWN: DWM_SHOWCONTACT = 1u32;
+pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_UP: DWM_SHOWCONTACT = 2u32;
+pub const DWMSC_UP: DWM_SHOWCONTACT = DWM_SHOWCONTACT(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_DRAG: DWM_SHOWCONTACT = 4u32;
+pub const DWMSC_DRAG: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_HOLD: DWM_SHOWCONTACT = 8u32;
+pub const DWMSC_HOLD: DWM_SHOWCONTACT = DWM_SHOWCONTACT(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = 16u32;
+pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_NONE: DWM_SHOWCONTACT = 0u32;
+pub const DWMSC_NONE: DWM_SHOWCONTACT = DWM_SHOWCONTACT(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMSC_ALL: DWM_SHOWCONTACT = 4294967295u32;
+pub const DWMSC_ALL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4294967295u32);
+impl ::core::marker::Copy for DWM_SHOWCONTACT {}
+impl ::core::clone::Clone for DWM_SHOWCONTACT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWM_SHOWCONTACT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWM_SHOWCONTACT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWM_SHOWCONTACT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWM_SHOWCONTACT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DWM_SHOWCONTACT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DWM_SHOWCONTACT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DWM_SHOWCONTACT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DWM_SHOWCONTACT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DWM_SHOWCONTACT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWM_SOURCE_FRAME_SAMPLING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = 1i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2i32;
+pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(2i32);
+impl ::core::marker::Copy for DWM_SOURCE_FRAME_SAMPLING {}
+impl ::core::clone::Clone for DWM_SOURCE_FRAME_SAMPLING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWM_SOURCE_FRAME_SAMPLING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWM_SOURCE_FRAME_SAMPLING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWM_SOURCE_FRAME_SAMPLING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWM_TAB_WINDOW_REQUIREMENTS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = 0u32;
+pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = 1u32;
+pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_WINDOW_RELATIONSHIP: DWM_TAB_WINDOW_REQUIREMENTS = 2u32;
+pub const DWMTWR_WINDOW_RELATIONSHIP: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_WINDOW_STYLES: DWM_TAB_WINDOW_REQUIREMENTS = 4u32;
+pub const DWMTWR_WINDOW_STYLES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_WINDOW_REGION: DWM_TAB_WINDOW_REQUIREMENTS = 8u32;
+pub const DWMTWR_WINDOW_REGION: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_WINDOW_DWM_ATTRIBUTES: DWM_TAB_WINDOW_REQUIREMENTS = 16u32;
+pub const DWMTWR_WINDOW_DWM_ATTRIBUTES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_WINDOW_MARGINS: DWM_TAB_WINDOW_REQUIREMENTS = 32u32;
+pub const DWMTWR_WINDOW_MARGINS: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = 64u32;
+pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = 128u32;
+pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = 256u32;
+pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = 512u32;
+pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(512u32);
+impl ::core::marker::Copy for DWM_TAB_WINDOW_REQUIREMENTS {}
+impl ::core::clone::Clone for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWM_TAB_WINDOW_REQUIREMENTS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DWM_TAB_WINDOW_REQUIREMENTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DWM_TAB_WINDOW_REQUIREMENTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DWM_TAB_WINDOW_REQUIREMENTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -333,15 +536,36 @@ pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = 0i32;
+pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = 1i32;
+pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = 2i32;
+pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = 3i32;
+pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(3i32);
+impl ::core::marker::Copy for DWM_WINDOW_CORNER_PREFERENCE {}
+impl ::core::clone::Clone for DWM_WINDOW_CORNER_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWM_WINDOW_CORNER_PREFERENCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DWM_WINDOW_CORNER_PREFERENCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWM_WINDOW_CORNER_PREFERENCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -809,29 +1033,50 @@ pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub type GESTURE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GESTURE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_PEN_TAP: GESTURE_TYPE = 0i32;
+pub const GT_PEN_TAP: GESTURE_TYPE = GESTURE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = 1i32;
+pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = 2i32;
+pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = 3i32;
+pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = 4i32;
+pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_TAP: GESTURE_TYPE = 5i32;
+pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = 6i32;
+pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7i32;
+pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = 8i32;
+pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9i32;
+pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
-pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10i32;
+pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
+impl ::core::marker::Copy for GESTURE_TYPE {}
+impl ::core::clone::Clone for GESTURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GESTURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GESTURE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GESTURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GESTURE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub struct MilMatrix3x2D {
@@ -894,3 +1139,5 @@ pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

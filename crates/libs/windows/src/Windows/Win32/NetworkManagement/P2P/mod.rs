@@ -41,23 +41,44 @@ impl ::core::default::Default for DRT_ADDRESS {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_ADDRESS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_ADDRESS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_ACCEPTED: DRT_ADDRESS_FLAGS = 1i32;
+pub const DRT_ADDRESS_FLAG_ACCEPTED: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_REJECTED: DRT_ADDRESS_FLAGS = 2i32;
+pub const DRT_ADDRESS_FLAG_REJECTED: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_UNREACHABLE: DRT_ADDRESS_FLAGS = 4i32;
+pub const DRT_ADDRESS_FLAG_UNREACHABLE: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_LOOP: DRT_ADDRESS_FLAGS = 8i32;
+pub const DRT_ADDRESS_FLAG_LOOP: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_TOO_BUSY: DRT_ADDRESS_FLAGS = 16i32;
+pub const DRT_ADDRESS_FLAG_TOO_BUSY: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(16i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_BAD_VALIDATE_ID: DRT_ADDRESS_FLAGS = 32i32;
+pub const DRT_ADDRESS_FLAG_BAD_VALIDATE_ID: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(32i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_SUSPECT_UNREGISTERED_ID: DRT_ADDRESS_FLAGS = 64i32;
+pub const DRT_ADDRESS_FLAG_SUSPECT_UNREGISTERED_ID: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(64i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ADDRESS_FLAG_INQUIRE: DRT_ADDRESS_FLAGS = 128i32;
+pub const DRT_ADDRESS_FLAG_INQUIRE: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(128i32);
+impl ::core::marker::Copy for DRT_ADDRESS_FLAGS {}
+impl ::core::clone::Clone for DRT_ADDRESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_ADDRESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_ADDRESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_ADDRESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_ADDRESS_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -395,13 +416,34 @@ impl ::core::default::Default for DRT_EVENT_DATA_0_2_0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_EVENT_STATUS_CHANGED: DRT_EVENT_TYPE = 0i32;
+pub const DRT_EVENT_STATUS_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_EVENT_LEAFSET_KEY_CHANGED: DRT_EVENT_TYPE = 1i32;
+pub const DRT_EVENT_LEAFSET_KEY_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_EVENT_REGISTRATION_STATE_CHANGED: DRT_EVENT_TYPE = 2i32;
+pub const DRT_EVENT_REGISTRATION_STATE_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(2i32);
+impl ::core::marker::Copy for DRT_EVENT_TYPE {}
+impl ::core::clone::Clone for DRT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052914i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -485,21 +527,63 @@ pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::cor
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_LEAFSET_KEY_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = 0i32;
+pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = DRT_LEAFSET_KEY_CHANGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_LEAFSET_KEY_DELETED: DRT_LEAFSET_KEY_CHANGE_TYPE = 1i32;
+pub const DRT_LEAFSET_KEY_DELETED: DRT_LEAFSET_KEY_CHANGE_TYPE = DRT_LEAFSET_KEY_CHANGE_TYPE(1i32);
+impl ::core::marker::Copy for DRT_LEAFSET_KEY_CHANGE_TYPE {}
+impl ::core::clone::Clone for DRT_LEAFSET_KEY_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_LEAFSET_KEY_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_LEAFSET_KEY_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_LEAFSET_KEY_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_LEAFSET_KEY_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_MATCH_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_MATCH_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = 0i32;
+pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = DRT_MATCH_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_MATCH_NEAR: DRT_MATCH_TYPE = 1i32;
+pub const DRT_MATCH_NEAR: DRT_MATCH_TYPE = DRT_MATCH_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_MATCH_INTERMEDIATE: DRT_MATCH_TYPE = 2i32;
+pub const DRT_MATCH_INTERMEDIATE: DRT_MATCH_TYPE = DRT_MATCH_TYPE(2i32);
+impl ::core::marker::Copy for DRT_MATCH_TYPE {}
+impl ::core::clone::Clone for DRT_MATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_MATCH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_MATCH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_MATCH_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -542,17 +626,59 @@ impl ::core::default::Default for DRT_REGISTRATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_REGISTRATION_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_REGISTRATION_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_REGISTRATION_STATE_UNRESOLVEABLE: DRT_REGISTRATION_STATE = 1i32;
+pub const DRT_REGISTRATION_STATE_UNRESOLVEABLE: DRT_REGISTRATION_STATE = DRT_REGISTRATION_STATE(1i32);
+impl ::core::marker::Copy for DRT_REGISTRATION_STATE {}
+impl ::core::clone::Clone for DRT_REGISTRATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_REGISTRATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_REGISTRATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_REGISTRATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_REGISTRATION_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_GLOBAL_SCOPE: DRT_SCOPE = 1i32;
+pub const DRT_GLOBAL_SCOPE: DRT_SCOPE = DRT_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_SITE_LOCAL_SCOPE: DRT_SCOPE = 2i32;
+pub const DRT_SITE_LOCAL_SCOPE: DRT_SCOPE = DRT_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_LINK_LOCAL_SCOPE: DRT_SCOPE = 3i32;
+pub const DRT_LINK_LOCAL_SCOPE: DRT_SCOPE = DRT_SCOPE(3i32);
+impl ::core::marker::Copy for DRT_SCOPE {}
+impl ::core::clone::Clone for DRT_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_SCOPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -631,13 +757,34 @@ impl ::core::default::Default for DRT_SEARCH_RESULT {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_SECURITY_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_SECURITY_MODE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_SECURE_RESOLVE: DRT_SECURITY_MODE = 0i32;
+pub const DRT_SECURE_RESOLVE: DRT_SECURITY_MODE = DRT_SECURITY_MODE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_SECURE_MEMBERSHIP: DRT_SECURITY_MODE = 1i32;
+pub const DRT_SECURE_MEMBERSHIP: DRT_SECURITY_MODE = DRT_SECURITY_MODE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_SECURE_CONFIDENTIALPAYLOAD: DRT_SECURITY_MODE = 2i32;
+pub const DRT_SECURE_CONFIDENTIALPAYLOAD: DRT_SECURITY_MODE = DRT_SECURITY_MODE(2i32);
+impl ::core::marker::Copy for DRT_SECURITY_MODE {}
+impl ::core::clone::Clone for DRT_SECURITY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_SECURITY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_SECURITY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_SECURITY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_SECURITY_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct DRT_SECURITY_PROVIDER {
@@ -755,15 +902,36 @@ impl ::core::default::Default for DRT_SETTINGS {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type DRT_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRT_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ACTIVE: DRT_STATUS = 0i32;
+pub const DRT_ACTIVE: DRT_STATUS = DRT_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_ALONE: DRT_STATUS = 1i32;
+pub const DRT_ALONE: DRT_STATUS = DRT_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_NO_NETWORK: DRT_STATUS = 10i32;
+pub const DRT_NO_NETWORK: DRT_STATUS = DRT_STATUS(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const DRT_FAULTED: DRT_STATUS = 20i32;
+pub const DRT_FAULTED: DRT_STATUS = DRT_STATUS(20i32);
+impl ::core::marker::Copy for DRT_STATUS {}
+impl ::core::clone::Clone for DRT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRT_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_S_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(6426640i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -1210,11 +1378,32 @@ impl ::core::default::Default for PEERDIST_CLIENT_BASIC_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = 0i32;
+pub const PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const MaximumPeerDistClientInfoByHandlesClass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = 1i32;
+pub const MaximumPeerDistClientInfoByHandlesClass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(1i32);
+impl ::core::marker::Copy for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {}
+impl ::core::clone::Clone for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEERDIST_CONTENT_TAG {
@@ -1320,21 +1509,91 @@ impl ::core::default::Default for PEERDIST_RETRIEVAL_OPTIONS {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_1: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 1u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_1: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_2: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 2u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_2: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 2u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(2u32);
+impl ::core::marker::Copy for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {}
+impl ::core::clone::Clone for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEERDIST_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEERDIST_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = 0i32;
+pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = PEERDIST_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_STATUS_UNAVAILABLE: PEERDIST_STATUS = 1i32;
+pub const PEERDIST_STATUS_UNAVAILABLE: PEERDIST_STATUS = PEERDIST_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEERDIST_STATUS_AVAILABLE: PEERDIST_STATUS = 2i32;
+pub const PEERDIST_STATUS_AVAILABLE: PEERDIST_STATUS = PEERDIST_STATUS(2i32);
+impl ::core::marker::Copy for PEERDIST_STATUS {}
+impl ::core::clone::Clone for PEERDIST_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEERDIST_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEERDIST_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEERDIST_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEERDIST_STATUS_INFO {
@@ -1483,11 +1742,32 @@ impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_APPLICATION_REGISTRATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = 0i32;
+pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = PEER_APPLICATION_REGISTRATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_APPLICATION_ALL_USERS: PEER_APPLICATION_REGISTRATION_TYPE = 1i32;
+pub const PEER_APPLICATION_ALL_USERS: PEER_APPLICATION_REGISTRATION_TYPE = PEER_APPLICATION_REGISTRATION_TYPE(1i32);
+impl ::core::marker::Copy for PEER_APPLICATION_REGISTRATION_TYPE {}
+impl ::core::clone::Clone for PEER_APPLICATION_REGISTRATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_APPLICATION_REGISTRATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_APPLICATION_REGISTRATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1529,13 +1809,34 @@ impl ::core::default::Default for PEER_APP_LAUNCH_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = 0i32;
+pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = 1i32;
+pub const PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = 2i32;
+pub const PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(2i32);
+impl ::core::marker::Copy for PEER_CHANGE_TYPE {}
+impl ::core::clone::Clone for PEER_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1639,36 +1940,78 @@ impl ::core::default::Default for PEER_COLLAB_EVENT_REGISTRATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_COLLAB_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = 1i32;
+pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = 2i32;
+pub const PEER_EVENT_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_ENDPOINT_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = 3i32;
+pub const PEER_EVENT_ENDPOINT_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_ENDPOINT_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = 4i32;
+pub const PEER_EVENT_ENDPOINT_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_ENDPOINT_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 5i32;
+pub const PEER_EVENT_ENDPOINT_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_MY_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = 6i32;
+pub const PEER_EVENT_MY_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_MY_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = 7i32;
+pub const PEER_EVENT_MY_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_MY_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = 8i32;
+pub const PEER_EVENT_MY_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_MY_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 9i32;
+pub const PEER_EVENT_MY_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = 10i32;
+pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_EVENT_REQUEST_STATUS_CHANGED: PEER_COLLAB_EVENT_TYPE = 11i32;
+pub const PEER_EVENT_REQUEST_STATUS_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(11i32);
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_TYPE {}
+impl ::core::clone::Clone for PEER_COLLAB_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_COLLAB_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_COLLAB_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_COLLAB_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_CONNECTION_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_CONNECTION_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = 1i32;
+pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CONNECTION_DIRECT: PEER_CONNECTION_FLAGS = 2i32;
+pub const PEER_CONNECTION_DIRECT: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(2i32);
+impl ::core::marker::Copy for PEER_CONNECTION_FLAGS {}
+impl ::core::clone::Clone for PEER_CONNECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_CONNECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_CONNECTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_CONNECTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_CONNECTION_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1707,13 +2050,34 @@ impl ::core::default::Default for PEER_CONNECTION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_CONNECTION_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_CONNECTION_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CONNECTED: PEER_CONNECTION_STATUS = 1i32;
+pub const PEER_CONNECTED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_DISCONNECTED: PEER_CONNECTION_STATUS = 2i32;
+pub const PEER_DISCONNECTED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_CONNECTION_FAILED: PEER_CONNECTION_STATUS = 3i32;
+pub const PEER_CONNECTION_FAILED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(3i32);
+impl ::core::marker::Copy for PEER_CONNECTION_STATUS {}
+impl ::core::clone::Clone for PEER_CONNECTION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_CONNECTION_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_CONNECTION_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_CONNECTION_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_CONNECTION_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2485,25 +2849,46 @@ impl ::core::default::Default for PEER_GRAPH_EVENT_REGISTRATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GRAPH_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = 1i32;
+pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_PROPERTY_CHANGED: PEER_GRAPH_EVENT_TYPE = 2i32;
+pub const PEER_GRAPH_EVENT_PROPERTY_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_RECORD_CHANGED: PEER_GRAPH_EVENT_TYPE = 3i32;
+pub const PEER_GRAPH_EVENT_RECORD_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_DIRECT_CONNECTION: PEER_GRAPH_EVENT_TYPE = 4i32;
+pub const PEER_GRAPH_EVENT_DIRECT_CONNECTION: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_NEIGHBOR_CONNECTION: PEER_GRAPH_EVENT_TYPE = 5i32;
+pub const PEER_GRAPH_EVENT_NEIGHBOR_CONNECTION: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_INCOMING_DATA: PEER_GRAPH_EVENT_TYPE = 6i32;
+pub const PEER_GRAPH_EVENT_INCOMING_DATA: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_CONNECTION_REQUIRED: PEER_GRAPH_EVENT_TYPE = 7i32;
+pub const PEER_GRAPH_EVENT_CONNECTION_REQUIRED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_NODE_CHANGED: PEER_GRAPH_EVENT_TYPE = 8i32;
+pub const PEER_GRAPH_EVENT_NODE_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = 9i32;
+pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(9i32);
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_TYPE {}
+impl ::core::clone::Clone for PEER_GRAPH_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GRAPH_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GRAPH_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GRAPH_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2552,37 +2937,121 @@ impl ::core::default::Default for PEER_GRAPH_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GRAPH_PROPERTY_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_PROPERTY_HEARTBEATS: PEER_GRAPH_PROPERTY_FLAGS = 1i32;
+pub const PEER_GRAPH_PROPERTY_HEARTBEATS: PEER_GRAPH_PROPERTY_FLAGS = PEER_GRAPH_PROPERTY_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_PROPERTY_DEFER_EXPIRATION: PEER_GRAPH_PROPERTY_FLAGS = 2i32;
+pub const PEER_GRAPH_PROPERTY_DEFER_EXPIRATION: PEER_GRAPH_PROPERTY_FLAGS = PEER_GRAPH_PROPERTY_FLAGS(2i32);
+impl ::core::marker::Copy for PEER_GRAPH_PROPERTY_FLAGS {}
+impl ::core::clone::Clone for PEER_GRAPH_PROPERTY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GRAPH_PROPERTY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GRAPH_PROPERTY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GRAPH_PROPERTY_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GRAPH_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GRAPH_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_SCOPE_ANY: PEER_GRAPH_SCOPE = 0i32;
+pub const PEER_GRAPH_SCOPE_ANY: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_SCOPE_GLOBAL: PEER_GRAPH_SCOPE = 1i32;
+pub const PEER_GRAPH_SCOPE_GLOBAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_SCOPE_SITELOCAL: PEER_GRAPH_SCOPE = 2i32;
+pub const PEER_GRAPH_SCOPE_SITELOCAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_SCOPE_LINKLOCAL: PEER_GRAPH_SCOPE = 3i32;
+pub const PEER_GRAPH_SCOPE_LINKLOCAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_SCOPE_LOOPBACK: PEER_GRAPH_SCOPE = 4i32;
+pub const PEER_GRAPH_SCOPE_LOOPBACK: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(4i32);
+impl ::core::marker::Copy for PEER_GRAPH_SCOPE {}
+impl ::core::clone::Clone for PEER_GRAPH_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GRAPH_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GRAPH_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GRAPH_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GRAPH_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GRAPH_STATUS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_STATUS_LISTENING: PEER_GRAPH_STATUS_FLAGS = 1i32;
+pub const PEER_GRAPH_STATUS_LISTENING: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_STATUS_HAS_CONNECTIONS: PEER_GRAPH_STATUS_FLAGS = 2i32;
+pub const PEER_GRAPH_STATUS_HAS_CONNECTIONS: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GRAPH_STATUS_SYNCHRONIZED: PEER_GRAPH_STATUS_FLAGS = 4i32;
+pub const PEER_GRAPH_STATUS_SYNCHRONIZED: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(4i32);
+impl ::core::marker::Copy for PEER_GRAPH_STATUS_FLAGS {}
+impl ::core::clone::Clone for PEER_GRAPH_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GRAPH_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GRAPH_STATUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GRAPH_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GRAPH_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GROUP_AUTHENTICATION_SCHEME = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 1i32;
+pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = PEER_GROUP_AUTHENTICATION_SCHEME(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 2i32;
+pub const PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = PEER_GROUP_AUTHENTICATION_SCHEME(2i32);
+impl ::core::marker::Copy for PEER_GROUP_AUTHENTICATION_SCHEME {}
+impl ::core::clone::Clone for PEER_GROUP_AUTHENTICATION_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_AUTHENTICATION_SCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_AUTHENTICATION_SCHEME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GROUP_AUTHENTICATION_SCHEME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GROUP_AUTHENTICATION_SCHEME").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2685,29 +3154,71 @@ impl ::core::default::Default for PEER_GROUP_EVENT_REGISTRATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GROUP_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GROUP_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = 1i32;
+pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_PROPERTY_CHANGED: PEER_GROUP_EVENT_TYPE = 2i32;
+pub const PEER_GROUP_EVENT_PROPERTY_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_RECORD_CHANGED: PEER_GROUP_EVENT_TYPE = 3i32;
+pub const PEER_GROUP_EVENT_RECORD_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_DIRECT_CONNECTION: PEER_GROUP_EVENT_TYPE = 4i32;
+pub const PEER_GROUP_EVENT_DIRECT_CONNECTION: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_NEIGHBOR_CONNECTION: PEER_GROUP_EVENT_TYPE = 5i32;
+pub const PEER_GROUP_EVENT_NEIGHBOR_CONNECTION: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_INCOMING_DATA: PEER_GROUP_EVENT_TYPE = 6i32;
+pub const PEER_GROUP_EVENT_INCOMING_DATA: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_MEMBER_CHANGED: PEER_GROUP_EVENT_TYPE = 8i32;
+pub const PEER_GROUP_EVENT_MEMBER_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_CONNECTION_FAILED: PEER_GROUP_EVENT_TYPE = 10i32;
+pub const PEER_GROUP_EVENT_CONNECTION_FAILED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_EVENT_AUTHENTICATION_FAILED: PEER_GROUP_EVENT_TYPE = 11i32;
+pub const PEER_GROUP_EVENT_AUTHENTICATION_FAILED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(11i32);
+impl ::core::marker::Copy for PEER_GROUP_EVENT_TYPE {}
+impl ::core::clone::Clone for PEER_GROUP_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GROUP_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GROUP_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = 1i32;
+pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(1i32);
+impl ::core::marker::Copy for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {}
+impl ::core::clone::Clone for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GROUP_ISSUE_CREDENTIAL_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2773,22 +3284,64 @@ impl ::core::default::Default for PEER_GROUP_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GROUP_PROPERTY_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = 1i32;
+pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = 2i32;
+pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = 4i32;
+pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(4i32);
+impl ::core::marker::Copy for PEER_GROUP_PROPERTY_FLAGS {}
+impl ::core::clone::Clone for PEER_GROUP_PROPERTY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_PROPERTY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GROUP_PROPERTY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GROUP_PROPERTY_FLAGS").field(&self.0).finish()
+    }
+}
 pub const PEER_GROUP_ROLE_ADMIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4);
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_GROUP_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_GROUP_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = 1i32;
+pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = PEER_GROUP_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = 2i32;
+pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = PEER_GROUP_STATUS(2i32);
+impl ::core::marker::Copy for PEER_GROUP_STATUS {}
+impl ::core::clone::Clone for PEER_GROUP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_GROUP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_GROUP_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_GROUP_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2946,15 +3499,36 @@ impl ::core::default::Default for PEER_INVITATION_RESPONSE {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_INVITATION_RESPONSE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = 0i32;
+pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_INVITATION_RESPONSE_ACCEPTED: PEER_INVITATION_RESPONSE_TYPE = 1i32;
+pub const PEER_INVITATION_RESPONSE_ACCEPTED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_INVITATION_RESPONSE_EXPIRED: PEER_INVITATION_RESPONSE_TYPE = 2i32;
+pub const PEER_INVITATION_RESPONSE_EXPIRED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_INVITATION_RESPONSE_ERROR: PEER_INVITATION_RESPONSE_TYPE = 3i32;
+pub const PEER_INVITATION_RESPONSE_ERROR: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(3i32);
+impl ::core::marker::Copy for PEER_INVITATION_RESPONSE_TYPE {}
+impl ::core::clone::Clone for PEER_INVITATION_RESPONSE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_INVITATION_RESPONSE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_INVITATION_RESPONSE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_INVITATION_RESPONSE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -3001,21 +3575,63 @@ impl ::core::default::Default for PEER_MEMBER {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_MEMBER_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = 1i32;
+pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_DISCONNECTED: PEER_MEMBER_CHANGE_TYPE = 2i32;
+pub const PEER_MEMBER_DISCONNECTED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_UPDATED: PEER_MEMBER_CHANGE_TYPE = 3i32;
+pub const PEER_MEMBER_UPDATED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_JOINED: PEER_MEMBER_CHANGE_TYPE = 4i32;
+pub const PEER_MEMBER_JOINED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_LEFT: PEER_MEMBER_CHANGE_TYPE = 5i32;
+pub const PEER_MEMBER_LEFT: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(5i32);
+impl ::core::marker::Copy for PEER_MEMBER_CHANGE_TYPE {}
+impl ::core::clone::Clone for PEER_MEMBER_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_MEMBER_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_MEMBER_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_MEMBER_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_MEMBER_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_MEMBER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_MEMBER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = 1i32;
+pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = PEER_MEMBER_FLAGS(1i32);
+impl ::core::marker::Copy for PEER_MEMBER_FLAGS {}
+impl ::core::clone::Clone for PEER_MEMBER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_MEMBER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_MEMBER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_MEMBER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_MEMBER_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3057,13 +3673,34 @@ impl ::core::default::Default for PEER_NAME_PAIR {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_NODE_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_NODE_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = 1i32;
+pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = 2i32;
+pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_NODE_CHANGE_UPDATED: PEER_NODE_CHANGE_TYPE = 3i32;
+pub const PEER_NODE_CHANGE_UPDATED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(3i32);
+impl ::core::marker::Copy for PEER_NODE_CHANGE_TYPE {}
+impl ::core::clone::Clone for PEER_NODE_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_NODE_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_NODE_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_NODE_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_NODE_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3339,33 +3976,75 @@ impl ::core::default::Default for PEER_PRESENCE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_PRESENCE_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_PRESENCE_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = 0i32;
+pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_OUT_TO_LUNCH: PEER_PRESENCE_STATUS = 1i32;
+pub const PEER_PRESENCE_OUT_TO_LUNCH: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_AWAY: PEER_PRESENCE_STATUS = 2i32;
+pub const PEER_PRESENCE_AWAY: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_BE_RIGHT_BACK: PEER_PRESENCE_STATUS = 3i32;
+pub const PEER_PRESENCE_BE_RIGHT_BACK: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_IDLE: PEER_PRESENCE_STATUS = 4i32;
+pub const PEER_PRESENCE_IDLE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_BUSY: PEER_PRESENCE_STATUS = 5i32;
+pub const PEER_PRESENCE_BUSY: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_ON_THE_PHONE: PEER_PRESENCE_STATUS = 6i32;
+pub const PEER_PRESENCE_ON_THE_PHONE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PRESENCE_ONLINE: PEER_PRESENCE_STATUS = 7i32;
+pub const PEER_PRESENCE_ONLINE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(7i32);
+impl ::core::marker::Copy for PEER_PRESENCE_STATUS {}
+impl ::core::clone::Clone for PEER_PRESENCE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_PRESENCE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_PRESENCE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_PRESENCE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_PRESENCE_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_PUBLICATION_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_PUBLICATION_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PUBLICATION_SCOPE_NONE: PEER_PUBLICATION_SCOPE = 0i32;
+pub const PEER_PUBLICATION_SCOPE_NONE: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PUBLICATION_SCOPE_NEAR_ME: PEER_PUBLICATION_SCOPE = 1i32;
+pub const PEER_PUBLICATION_SCOPE_NEAR_ME: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PUBLICATION_SCOPE_INTERNET: PEER_PUBLICATION_SCOPE = 2i32;
+pub const PEER_PUBLICATION_SCOPE_INTERNET: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_PUBLICATION_SCOPE_ALL: PEER_PUBLICATION_SCOPE = 3i32;
+pub const PEER_PUBLICATION_SCOPE_ALL: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(3i32);
+impl ::core::marker::Copy for PEER_PUBLICATION_SCOPE {}
+impl ::core::clone::Clone for PEER_PUBLICATION_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_PUBLICATION_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_PUBLICATION_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_PUBLICATION_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_PUBLICATION_SCOPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3431,21 +4110,63 @@ impl ::core::default::Default for PEER_RECORD {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_RECORD_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = 1i32;
+pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_UPDATED: PEER_RECORD_CHANGE_TYPE = 2i32;
+pub const PEER_RECORD_UPDATED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_DELETED: PEER_RECORD_CHANGE_TYPE = 3i32;
+pub const PEER_RECORD_DELETED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_EXPIRED: PEER_RECORD_CHANGE_TYPE = 4i32;
+pub const PEER_RECORD_EXPIRED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(4i32);
+impl ::core::marker::Copy for PEER_RECORD_CHANGE_TYPE {}
+impl ::core::clone::Clone for PEER_RECORD_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_RECORD_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_RECORD_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_RECORD_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_RECORD_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_RECORD_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_RECORD_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_FLAG_AUTOREFRESH: PEER_RECORD_FLAGS = 1i32;
+pub const PEER_RECORD_FLAG_AUTOREFRESH: PEER_RECORD_FLAGS = PEER_RECORD_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_RECORD_FLAG_DELETED: PEER_RECORD_FLAGS = 2i32;
+pub const PEER_RECORD_FLAG_DELETED: PEER_RECORD_FLAGS = PEER_RECORD_FLAGS(2i32);
+impl ::core::marker::Copy for PEER_RECORD_FLAGS {}
+impl ::core::clone::Clone for PEER_RECORD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_RECORD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_RECORD_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_RECORD_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_RECORD_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3505,15 +4226,36 @@ impl ::core::default::Default for PEER_SECURITY_INTERFACE {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_SIGNIN_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_SIGNIN_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = 0i32;
+pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_SIGNIN_NEAR_ME: PEER_SIGNIN_FLAGS = 1i32;
+pub const PEER_SIGNIN_NEAR_ME: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_SIGNIN_INTERNET: PEER_SIGNIN_FLAGS = 2i32;
+pub const PEER_SIGNIN_INTERNET: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_SIGNIN_ALL: PEER_SIGNIN_FLAGS = 3i32;
+pub const PEER_SIGNIN_ALL: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(3i32);
+impl ::core::marker::Copy for PEER_SIGNIN_FLAGS {}
+impl ::core::clone::Clone for PEER_SIGNIN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_SIGNIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_SIGNIN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_SIGNIN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_SIGNIN_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_VERSION_DATA {
@@ -3546,11 +4288,32 @@ impl ::core::default::Default for PEER_VERSION_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PEER_WATCH_PERMISSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEER_WATCH_PERMISSION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = 0i32;
+pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PEER_WATCH_ALLOWED: PEER_WATCH_PERMISSION = 1i32;
+pub const PEER_WATCH_ALLOWED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(1i32);
+impl ::core::marker::Copy for PEER_WATCH_PERMISSION {}
+impl ::core::clone::Clone for PEER_WATCH_PERMISSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEER_WATCH_PERMISSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_WATCH_PERMISSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEER_WATCH_PERMISSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEER_WATCH_PERMISSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -3718,15 +4481,36 @@ impl ::core::default::Default for PNRPINFO_V2_0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_CLOUD_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_CLOUD_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_NO_FLAGS: PNRP_CLOUD_FLAGS = 0i32;
+pub const PNRP_CLOUD_NO_FLAGS: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_NAME_LOCAL: PNRP_CLOUD_FLAGS = 1i32;
+pub const PNRP_CLOUD_NAME_LOCAL: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_RESOLVE_ONLY: PNRP_CLOUD_FLAGS = 2i32;
+pub const PNRP_CLOUD_RESOLVE_ONLY: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_FULL_PARTICIPANT: PNRP_CLOUD_FLAGS = 4i32;
+pub const PNRP_CLOUD_FULL_PARTICIPANT: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(4i32);
+impl ::core::marker::Copy for PNRP_CLOUD_FLAGS {}
+impl ::core::clone::Clone for PNRP_CLOUD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_CLOUD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_CLOUD_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_CLOUD_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_CLOUD_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PNRP_CLOUD_ID {
@@ -3760,65 +4544,170 @@ impl ::core::default::Default for PNRP_CLOUD_ID {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_CLOUD_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_CLOUD_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_VIRTUAL: PNRP_CLOUD_STATE = 0i32;
+pub const PNRP_CLOUD_STATE_VIRTUAL: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_SYNCHRONISING: PNRP_CLOUD_STATE = 1i32;
+pub const PNRP_CLOUD_STATE_SYNCHRONISING: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_ACTIVE: PNRP_CLOUD_STATE = 2i32;
+pub const PNRP_CLOUD_STATE_ACTIVE: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_DEAD: PNRP_CLOUD_STATE = 3i32;
+pub const PNRP_CLOUD_STATE_DEAD: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_DISABLED: PNRP_CLOUD_STATE = 4i32;
+pub const PNRP_CLOUD_STATE_DISABLED: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_NO_NET: PNRP_CLOUD_STATE = 5i32;
+pub const PNRP_CLOUD_STATE_NO_NET: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_CLOUD_STATE_ALONE: PNRP_CLOUD_STATE = 6i32;
+pub const PNRP_CLOUD_STATE_ALONE: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(6i32);
+impl ::core::marker::Copy for PNRP_CLOUD_STATE {}
+impl ::core::clone::Clone for PNRP_CLOUD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_CLOUD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_CLOUD_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_CLOUD_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_CLOUD_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_EXTENDED_PAYLOAD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = 0i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_BINARY: PNRP_EXTENDED_PAYLOAD_TYPE = 1i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_BINARY: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_STRING: PNRP_EXTENDED_PAYLOAD_TYPE = 2i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_STRING: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(2i32);
+impl ::core::marker::Copy for PNRP_EXTENDED_PAYLOAD_TYPE {}
+impl ::core::clone::Clone for PNRP_EXTENDED_PAYLOAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_EXTENDED_PAYLOAD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_EXTENDED_PAYLOAD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_EXTENDED_PAYLOAD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_EXTENDED_PAYLOAD_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_REGISTERED_ID_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_REGISTERED_ID_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_REGISTERED_ID_STATE_OK: PNRP_REGISTERED_ID_STATE = 1i32;
+pub const PNRP_REGISTERED_ID_STATE_OK: PNRP_REGISTERED_ID_STATE = PNRP_REGISTERED_ID_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_REGISTERED_ID_STATE_PROBLEM: PNRP_REGISTERED_ID_STATE = 2i32;
+pub const PNRP_REGISTERED_ID_STATE_PROBLEM: PNRP_REGISTERED_ID_STATE = PNRP_REGISTERED_ID_STATE(2i32);
+impl ::core::marker::Copy for PNRP_REGISTERED_ID_STATE {}
+impl ::core::clone::Clone for PNRP_REGISTERED_ID_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_REGISTERED_ID_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_REGISTERED_ID_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_REGISTERED_ID_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_REGISTERED_ID_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_RESOLVE_CRITERIA = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_RESOLVE_CRITERIA(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_DEFAULT: PNRP_RESOLVE_CRITERIA = 0i32;
+pub const PNRP_RESOLVE_CRITERIA_DEFAULT: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = 1i32;
+pub const PNRP_RESOLVE_CRITERIA_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = 2i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = 3i32;
+pub const PNRP_RESOLVE_CRITERIA_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = 4i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_ANY_PEER_NAME: PNRP_RESOLVE_CRITERIA = 5i32;
+pub const PNRP_RESOLVE_CRITERIA_ANY_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_PEER_NAME: PNRP_RESOLVE_CRITERIA = 6i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(6i32);
+impl ::core::marker::Copy for PNRP_RESOLVE_CRITERIA {}
+impl ::core::clone::Clone for PNRP_RESOLVE_CRITERIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_RESOLVE_CRITERIA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_RESOLVE_CRITERIA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_RESOLVE_CRITERIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_RESOLVE_CRITERIA").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub type PNRP_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PNRP_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_SCOPE_ANY: PNRP_SCOPE = 0i32;
+pub const PNRP_SCOPE_ANY: PNRP_SCOPE = PNRP_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_GLOBAL_SCOPE: PNRP_SCOPE = 1i32;
+pub const PNRP_GLOBAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_SITE_LOCAL_SCOPE: PNRP_SCOPE = 2i32;
+pub const PNRP_SITE_LOCAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
-pub const PNRP_LINK_LOCAL_SCOPE: PNRP_SCOPE = 3i32;
+pub const PNRP_LINK_LOCAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(3i32);
+impl ::core::marker::Copy for PNRP_SCOPE {}
+impl ::core::clone::Clone for PNRP_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PNRP_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PNRP_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNRP_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6433,3 +7322,5 @@ pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
 pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

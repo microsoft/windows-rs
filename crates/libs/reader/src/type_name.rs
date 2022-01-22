@@ -93,11 +93,11 @@ impl TypeName {
     }
 }
 
-fn trim_tick(name: &'static str) -> &'static str {
-    let len = name.len() - 2;
-    match name.as_bytes().get(len) {
-        Some(c) if *c == b'`' => &name[..len],
-        _ => name,
+pub fn trim_tick(name: &str) -> &str {
+    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
+        &name[..name.len() - 2]
+    } else {
+        name
     }
 }
 

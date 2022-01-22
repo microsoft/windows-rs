@@ -6,7 +6,7 @@ impl INotificationActivationCallback {
     #[doc = "*Required features: 'Win32_UI_Notifications', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
     }
 }
 impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {
@@ -46,18 +46,18 @@ impl ::core::fmt::Debug for INotificationActivationCallback {
     }
 }
 unsafe impl ::windows::core::Interface for INotificationActivationCallback {
-    type Vtable = INotificationActivationCallbackVtbl;
+    type Vtable = INotificationActivationCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INotificationActivationCallbackVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct INotificationActivationCallback_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Activate: usize,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Notifications', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -97,3 +97,5 @@ impl ::core::default::Default for NOTIFICATION_USER_INPUT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

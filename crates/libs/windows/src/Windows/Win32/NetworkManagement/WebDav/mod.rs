@@ -1,12 +1,33 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
-pub type AUTHNEXTSTEP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHNEXTSTEP(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
-pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
+pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
-pub const RetryRequest: AUTHNEXTSTEP = 1i32;
+pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
-pub const CancelRequest: AUTHNEXTSTEP = 2i32;
+pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+impl ::core::marker::Copy for AUTHNEXTSTEP {}
+impl ::core::clone::Clone for AUTHNEXTSTEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHNEXTSTEP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHNEXTSTEP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHNEXTSTEP").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
@@ -304,3 +325,5 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
 pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 #[doc = "*Required features: 'Win32_NetworkManagement_WebDav'*"]
 pub type PFNDAVAUTHCALLBACK_FREECRED = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

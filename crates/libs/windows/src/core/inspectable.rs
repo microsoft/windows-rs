@@ -11,17 +11,22 @@ pub struct IInspectable(pub IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
-    pub fn type_name(&self) -> Result<HSTRING> {
+    pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = core::ptr::null_mut();
-            (self.vtable().4)(core::mem::transmute_copy(self), &mut abi).ok()?;
+            (self.vtable().GetRuntimeClassName)(core::mem::transmute_copy(self), &mut abi).ok()?;
             Ok(core::mem::transmute(abi))
         }
     }
 }
 
 #[repr(C)]
-pub struct IInspectableVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
+pub struct IInspectableVtbl {
+    pub base: IUnknownVtbl,
+    pub GetIids: unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+    pub GetRuntimeClassName: unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
+    pub GetTrustLevel: unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
+}
 
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectableVtbl;
@@ -33,6 +38,10 @@ unsafe impl RuntimeType for IInspectable {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
+impl RuntimeName for IInspectable {
+    const NAME: &'static str = "";
+}
+
 impl core::fmt::Debug for IInspectable {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         // Attempts to retrieve the string representation of the object via the
@@ -41,7 +50,7 @@ impl core::fmt::Debug for IInspectable {
         // is used by all of the generated `Debug` implementations for WinRT
         // classes and interfaces.
 
-        let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.type_name()).unwrap_or_default();
+        let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
 
         write!(f, "{:?} {}", self.0, name)
     }
@@ -112,5 +121,32 @@ impl core::convert::TryFrom<&IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: &IInspectable) -> Result<Self> {
         <IInspectable as Interface>::cast::<IReference<HSTRING>>(value)?.Value()
+    }
+}
+
+#[cfg(feature = "implement")]
+impl IInspectableVtbl {
+    pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetIids(_: RawPtr, count: *mut u32, values: *mut *mut GUID) -> ::windows::core::HRESULT {
+            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+            // since the data to be returned is type- not instance-specific so can be shared for all
+            // interfaces.
+            *count = 0;
+            *values = core::ptr::null_mut();
+            HRESULT(0)
+        }
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: RawPtr, value: *mut RawPtr) -> HRESULT {
+            let h: HSTRING = T::NAME.into(); // TODO: should be try_into
+            *value = ::core::mem::transmute(h);
+            HRESULT(0)
+        }
+        unsafe extern "system" fn GetTrustLevel(_: RawPtr, value: *mut i32) -> HRESULT {
+            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+            // since the data to be returned is type- not instance-specific so can be shared for all
+            // interfaces.
+            *value = 0;
+            HRESULT(0)
+        }
+        Self { base: IUnknownVtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
     }
 }

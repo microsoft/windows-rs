@@ -99,27 +99,125 @@ impl ::core::default::Default for RESTOREPOINTINFOW {
     }
 }
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 102u32;
+pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(102u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 100u32;
+pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(100u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 103u32;
+pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(103u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 101u32;
+pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(101u32);
+impl ::core::marker::Copy for RESTOREPOINTINFO_EVENT_TYPE {}
+impl ::core::clone::Clone for RESTOREPOINTINFO_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RESTOREPOINTINFO_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESTOREPOINTINFO_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RESTOREPOINTINFO_EVENT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RESTOREPOINTINFO_EVENT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RESTOREPOINTINFO_EVENT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RESTOREPOINTINFO_EVENT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RESTOREPOINTINFO_EVENT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub type RESTOREPOINTINFO_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESTOREPOINTINFO_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
+pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = 1u32;
+pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = 10u32;
+pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(10u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
+pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(12u32);
 #[doc = "*Required features: 'Win32_System_Restore'*"]
-pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = 13u32;
+pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(13u32);
+impl ::core::marker::Copy for RESTOREPOINTINFO_TYPE {}
+impl ::core::clone::Clone for RESTOREPOINTINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RESTOREPOINTINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESTOREPOINTINFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESTOREPOINTINFO_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RESTOREPOINTINFO_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RESTOREPOINTINFO_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RESTOREPOINTINFO_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RESTOREPOINTINFO_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RESTOREPOINTINFO_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Restore', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -218,3 +316,5 @@ impl ::core::default::Default for _RESTOREPTINFOEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

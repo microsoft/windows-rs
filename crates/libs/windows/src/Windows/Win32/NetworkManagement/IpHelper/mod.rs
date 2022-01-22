@@ -1,12 +1,61 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type ADDRESS_FAMILY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ADDRESS_FAMILY(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const AF_INET: ADDRESS_FAMILY = 2u32;
+pub const AF_INET: ADDRESS_FAMILY = ADDRESS_FAMILY(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const AF_INET6: ADDRESS_FAMILY = 23u32;
+pub const AF_INET6: ADDRESS_FAMILY = ADDRESS_FAMILY(23u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const AF_UNSPEC: ADDRESS_FAMILY = 0u32;
+pub const AF_UNSPEC: ADDRESS_FAMILY = ADDRESS_FAMILY(0u32);
+impl ::core::marker::Copy for ADDRESS_FAMILY {}
+impl ::core::clone::Clone for ADDRESS_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADDRESS_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADDRESS_FAMILY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADDRESS_FAMILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADDRESS_FAMILY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ADDRESS_FAMILY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ADDRESS_FAMILY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ADDRESS_FAMILY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ADDRESS_FAMILY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ADDRESS_FAMILY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const ANY_SIZE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -693,11 +742,32 @@ impl ::core::default::Default for DNS_SERVER_PROPERTY {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type DNS_SERVER_PROPERTY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = 0i32;
+pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = 1i32;
+pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(1i32);
+impl ::core::marker::Copy for DNS_SERVER_PROPERTY_TYPE {}
+impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DNS_SERVER_PROPERTY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DNS_SERVER_PROPERTY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DNS_SERVER_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DNS_SERVER_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1169,37 +1239,107 @@ pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type GET_ADAPTERS_ADDRESSES_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 1u32;
+pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = 2u32;
+pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 4u32;
+pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = 8u32;
+pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = 16u32;
+pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = 32u32;
+pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = 64u32;
+pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = 128u32;
+pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = 256u32;
+pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = 512u32;
+pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = 1024u32;
+pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
+impl ::core::marker::Copy for GET_ADAPTERS_ADDRESSES_FLAGS {}
+impl ::core::clone::Clone for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_ADAPTERS_ADDRESSES_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_ADAPTERS_ADDRESSES_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_ADAPTERS_ADDRESSES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_ADAPTERS_ADDRESSES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type GLOBAL_FILTER = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GLOBAL_FILTER(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GF_FRAGMENTS: GLOBAL_FILTER = 2i32;
+pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GF_STRONGHOST: GLOBAL_FILTER = 8i32;
+pub const GF_STRONGHOST: GLOBAL_FILTER = GLOBAL_FILTER(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const GF_FRAGCACHE: GLOBAL_FILTER = 9i32;
+pub const GF_FRAGCACHE: GLOBAL_FILTER = GLOBAL_FILTER(9i32);
+impl ::core::marker::Copy for GLOBAL_FILTER {}
+impl ::core::clone::Clone for GLOBAL_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBAL_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBAL_FILTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBAL_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBAL_FILTER").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2410,91 +2550,175 @@ unsafe impl ::windows::core::Abi for HIFTIMESTAMPCHANGE {
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const HYBRID_NODETYPE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type ICMP4_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ICMP4_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = 0i32;
+pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = ICMP4_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_DST_UNREACH: ICMP4_TYPE = 3i32;
+pub const ICMP4_DST_UNREACH: ICMP4_TYPE = ICMP4_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = 4i32;
+pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = ICMP4_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_REDIRECT: ICMP4_TYPE = 5i32;
+pub const ICMP4_REDIRECT: ICMP4_TYPE = ICMP4_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = 8i32;
+pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = ICMP4_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = 9i32;
+pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = ICMP4_TYPE(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = 10i32;
+pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = ICMP4_TYPE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = 11i32;
+pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = ICMP4_TYPE(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_PARAM_PROB: ICMP4_TYPE = 12i32;
+pub const ICMP4_PARAM_PROB: ICMP4_TYPE = ICMP4_TYPE(12i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = 13i32;
+pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = ICMP4_TYPE(13i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = 14i32;
+pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = ICMP4_TYPE(14i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = 17i32;
+pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = ICMP4_TYPE(17i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP4_MASK_REPLY: ICMP4_TYPE = 18i32;
+pub const ICMP4_MASK_REPLY: ICMP4_TYPE = ICMP4_TYPE(18i32);
+impl ::core::marker::Copy for ICMP4_TYPE {}
+impl ::core::clone::Clone for ICMP4_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ICMP4_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ICMP4_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ICMP4_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICMP4_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type ICMP6_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ICMP6_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_DST_UNREACH: ICMP6_TYPE = 1i32;
+pub const ICMP6_DST_UNREACH: ICMP6_TYPE = ICMP6_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = 2i32;
+pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = ICMP6_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3i32;
+pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = ICMP6_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_PARAM_PROB: ICMP6_TYPE = 4i32;
+pub const ICMP6_PARAM_PROB: ICMP6_TYPE = ICMP6_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128i32;
+pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = ICMP6_TYPE(128i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = 129i32;
+pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = ICMP6_TYPE(129i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = 130i32;
+pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = ICMP6_TYPE(130i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131i32;
+pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(131i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = 132i32;
+pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = ICMP6_TYPE(132i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = 133i32;
+pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(133i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ND_ROUTER_ADVERT: ICMP6_TYPE = 134i32;
+pub const ND_ROUTER_ADVERT: ICMP6_TYPE = ICMP6_TYPE(134i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135i32;
+pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(135i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136i32;
+pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = ICMP6_TYPE(136i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ND_REDIRECT: ICMP6_TYPE = 137i32;
+pub const ND_REDIRECT: ICMP6_TYPE = ICMP6_TYPE(137i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143i32;
+pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(143i32);
+impl ::core::marker::Copy for ICMP6_TYPE {}
+impl ::core::clone::Clone for ICMP6_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ICMP6_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ICMP6_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ICMP6_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICMP6_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const ICMP_STATS: u32 = 11u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type IF_ACCESS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IF_ACCESS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = 1i32;
+pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = IF_ACCESS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = 2i32;
+pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = IF_ACCESS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = 3i32;
+pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = 3i32;
+pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = 4i32;
+pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = 4i32;
+pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
+impl ::core::marker::Copy for IF_ACCESS_TYPE {}
+impl ::core::clone::Clone for IF_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IF_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IF_ACCESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IF_ACCESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IF_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type IF_ADMINISTRATIVE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IF_ADMINISTRATIVE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = 0i32;
+pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1i32;
+pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = 2i32;
+pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(2i32);
+impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
+impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IF_ADMINISTRATIVE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IF_ADMINISTRATIVE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -2551,21 +2775,42 @@ pub const IF_MAX_STRING_SIZE: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const IF_NUMBER: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type IF_OPER_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusUp: IF_OPER_STATUS = 1i32;
+pub const IfOperStatusUp: IF_OPER_STATUS = IF_OPER_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusDown: IF_OPER_STATUS = 2i32;
+pub const IfOperStatusDown: IF_OPER_STATUS = IF_OPER_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusTesting: IF_OPER_STATUS = 3i32;
+pub const IfOperStatusTesting: IF_OPER_STATUS = IF_OPER_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusUnknown: IF_OPER_STATUS = 4i32;
+pub const IfOperStatusUnknown: IF_OPER_STATUS = IF_OPER_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusDormant: IF_OPER_STATUS = 5i32;
+pub const IfOperStatusDormant: IF_OPER_STATUS = IF_OPER_STATUS(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusNotPresent: IF_OPER_STATUS = 6i32;
+pub const IfOperStatusNotPresent: IF_OPER_STATUS = IF_OPER_STATUS(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = 7i32;
+pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for IF_OPER_STATUS {}
+impl ::core::clone::Clone for IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IF_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IF_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub struct IF_PHYSICAL_ADDRESS_LH {
@@ -3179,19 +3424,40 @@ impl ::core::default::Default for INTERFACE_TIMESTAMP_CAPABILITIES {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type INTERNAL_IF_OPER_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNAL_IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 0i32;
+pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = 1i32;
+pub const IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = 2i32;
+pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = 3i32;
+pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = 4i32;
+pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 5i32;
+pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(5i32);
+impl ::core::marker::Copy for INTERNAL_IF_OPER_STATUS {}
+impl ::core::clone::Clone for INTERNAL_IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNAL_IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNAL_IF_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNAL_IF_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNAL_IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -5924,11 +6190,32 @@ pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_IF_ENTRY_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_IF_ENTRY_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = 0i32;
+pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = 2i32;
+pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(2i32);
+impl ::core::marker::Copy for MIB_IF_ENTRY_LEVEL {}
+impl ::core::clone::Clone for MIB_IF_ENTRY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_IF_ENTRY_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_IF_ENTRY_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_IF_ENTRY_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_IF_ENTRY_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -6073,13 +6360,34 @@ impl ::core::default::Default for MIB_IF_TABLE2 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_IF_TABLE_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_IF_TABLE_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = 0i32;
+pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = 1i32;
+pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = 2i32;
+pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(2i32);
+impl ::core::marker::Copy for MIB_IF_TABLE_LEVEL {}
+impl ::core::clone::Clone for MIB_IF_TABLE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_IF_TABLE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_IF_TABLE_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_IF_TABLE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_IF_TABLE_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -6594,15 +6902,36 @@ impl ::core::default::Default for MIB_IPFORWARD_TABLE2 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_IPFORWARD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_IPFORWARD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1i32;
+pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2i32;
+pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3i32;
+pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4i32;
+pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(4i32);
+impl ::core::marker::Copy for MIB_IPFORWARD_TYPE {}
+impl ::core::clone::Clone for MIB_IPFORWARD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_IPFORWARD_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_IPFORWARD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_IPFORWARD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_IPFORWARD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7525,15 +7854,36 @@ impl ::core::default::Default for MIB_IPNET_TABLE2 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_IPNET_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_IPNET_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1i32;
+pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2i32;
+pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = MIB_IPNET_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3i32;
+pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4i32;
+pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(4i32);
+impl ::core::marker::Copy for MIB_IPNET_TYPE {}
+impl ::core::clone::Clone for MIB_IPNET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_IPNET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_IPNET_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_IPNET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_IPNET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7646,11 +7996,32 @@ impl ::core::default::Default for MIB_IPPATH_TABLE {
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_IPSTATS_FORWARDING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_IPSTATS_FORWARDING(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1i32;
+pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2i32;
+pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(2i32);
+impl ::core::marker::Copy for MIB_IPSTATS_FORWARDING {}
+impl ::core::clone::Clone for MIB_IPSTATS_FORWARDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_IPSTATS_FORWARDING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_IPSTATS_FORWARDING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_IPSTATS_FORWARDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_IPSTATS_FORWARDING").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub struct MIB_IPSTATS_LH {
@@ -8032,15 +8403,36 @@ impl ::core::default::Default for MIB_MULTICASTIPADDRESS_TABLE {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_NOTIFICATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = 0i32;
+pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibAddInstance: MIB_NOTIFICATION_TYPE = 1i32;
+pub const MibAddInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = 2i32;
+pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = 3i32;
+pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(3i32);
+impl ::core::marker::Copy for MIB_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for MIB_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_NOTIFICATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub struct MIB_OPAQUE_INFO {
@@ -8989,33 +9381,54 @@ impl ::core::default::Default for MIB_TCPTABLE_OWNER_PID {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type MIB_TCP_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIB_TCP_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = 1i32;
+pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = MIB_TCP_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = 2i32;
+pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = MIB_TCP_STATE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3i32;
+pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = MIB_TCP_STATE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4i32;
+pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = MIB_TCP_STATE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = 5i32;
+pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = MIB_TCP_STATE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = 6i32;
+pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = MIB_TCP_STATE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = 7i32;
+pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = MIB_TCP_STATE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = 8i32;
+pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = 9i32;
+pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = MIB_TCP_STATE(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = 10i32;
+pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = MIB_TCP_STATE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11i32;
+pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = 12i32;
+pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = MIB_TCP_STATE(12i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100i32;
+pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = MIB_TCP_STATE(100i32);
+impl ::core::marker::Copy for MIB_TCP_STATE {}
+impl ::core::clone::Clone for MIB_TCP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIB_TCP_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIB_TCP_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIB_TCP_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIB_TCP_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -9982,37 +10395,100 @@ impl ::core::default::Default for NDIS_INTERFACE_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_ADDRESS_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_ADDRESS_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = 0i32;
+pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = 1i32;
+pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = 2i32;
+pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = 3i32;
+pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(3i32);
+impl ::core::marker::Copy for NET_ADDRESS_FORMAT {}
+impl ::core::clone::Clone for NET_ADDRESS_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_ADDRESS_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_ADDRESS_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_ADDRESS_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_ADDRESS_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_ACCESS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_ACCESS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = 1i32;
+pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = 2i32;
+pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = 3i32;
+pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = 4i32;
+pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = 5i32;
+pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(5i32);
+impl ::core::marker::Copy for NET_IF_ACCESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_ACCESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_ADMIN_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_ADMIN_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = 1i32;
+pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = 2i32;
+pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = 3i32;
+pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(3i32);
+impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
+impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_ADMIN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_ADMIN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_ADMIN_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub struct NET_IF_ALIAS_LH {
@@ -10045,41 +10521,125 @@ impl ::core::default::Default for NET_IF_ALIAS_LH {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_CONNECTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_CONNECTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = 1i32;
+pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = 2i32;
+pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = 3i32;
+pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = 4i32;
+pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(4i32);
+impl ::core::marker::Copy for NET_IF_CONNECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_CONNECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_CONNECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_DIRECTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_DIRECTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = 0i32;
+pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = 1i32;
+pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = 2i32;
+pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = 3i32;
+pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_DIRECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_DIRECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_DIRECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_MEDIA_CONNECT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = 0i32;
+pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = 1i32;
+pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = 2i32;
+pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_CONNECT_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_MEDIA_CONNECT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_MEDIA_CONNECT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0i32;
+pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1i32;
+pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2i32;
+pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_MEDIA_DUPLEX_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_MEDIA_DUPLEX_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -10089,21 +10649,42 @@ pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_OPER_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = 1i32;
+pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = 2i32;
+pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = 3i32;
+pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = 4i32;
+pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = 5i32;
+pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = 6i32;
+pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = 7i32;
+pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
+impl ::core::clone::Clone for NET_IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -10145,13 +10726,34 @@ impl ::core::default::Default for NET_IF_RCV_ADDRESS_LH {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type NET_IF_RCV_ADDRESS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = 1i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 2i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 3i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_RCV_ADDRESS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub union NET_LUID_LH {
@@ -10424,11 +11026,32 @@ pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::core::IntoPara
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type PFADDRESSTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFADDRESSTYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PF_IPV4: PFADDRESSTYPE = 0i32;
+pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PF_IPV6: PFADDRESSTYPE = 1i32;
+pub const PF_IPV6: PFADDRESSTYPE = PFADDRESSTYPE(1i32);
+impl ::core::marker::Copy for PFADDRESSTYPE {}
+impl ::core::clone::Clone for PFADDRESSTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFADDRESSTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFADDRESSTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFADDRESSTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFADDRESSTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -10436,19 +11059,61 @@ pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type PFFORWARD_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFFORWARD_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = 0i32;
+pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PF_ACTION_DROP: PFFORWARD_ACTION = 1i32;
+pub const PF_ACTION_DROP: PFFORWARD_ACTION = PFFORWARD_ACTION(1i32);
+impl ::core::marker::Copy for PFFORWARD_ACTION {}
+impl ::core::clone::Clone for PFFORWARD_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFFORWARD_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFFORWARD_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFFORWARD_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFFORWARD_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type PFFRAMETYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PFFRAMETYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PFFT_FILTER: PFFRAMETYPE = 1i32;
+pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PFFT_FRAG: PFFRAMETYPE = 2i32;
+pub const PFFT_FRAG: PFFRAMETYPE = PFFRAMETYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const PFFT_SPOOF: PFFRAMETYPE = 3i32;
+pub const PFFT_SPOOF: PFFRAMETYPE = PFFRAMETYPE(3i32);
+impl ::core::marker::Copy for PFFRAMETYPE {}
+impl ::core::clone::Clone for PFFRAMETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PFFRAMETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PFFRAMETYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PFFRAMETYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PFFRAMETYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub struct PFLOGFRAME {
@@ -11332,31 +11997,94 @@ impl ::core::default::Default for TCPIP_OWNER_MODULE_BASIC_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0i32;
+pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
+impl ::core::marker::Copy for TCPIP_OWNER_MODULE_INFO_CLASS {}
+impl ::core::clone::Clone for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCPIP_OWNER_MODULE_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCPIP_OWNER_MODULE_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_BOOLEAN_OPTIONAL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = 0i32;
+pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = 1i32;
+pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = -1i32;
+pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(-1i32);
+impl ::core::marker::Copy for TCP_BOOLEAN_OPTIONAL {}
+impl ::core::clone::Clone for TCP_BOOLEAN_OPTIONAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_BOOLEAN_OPTIONAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_BOOLEAN_OPTIONAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_BOOLEAN_OPTIONAL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_CONNECTION_OFFLOAD_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0i32;
+pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = 1i32;
+pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = 2i32;
+pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = 3i32;
+pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = 4i32;
+pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(4i32);
+impl ::core::marker::Copy for TCP_CONNECTION_OFFLOAD_STATE {}
+impl ::core::clone::Clone for TCP_CONNECTION_OFFLOAD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_CONNECTION_OFFLOAD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_CONNECTION_OFFLOAD_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_CONNECTION_OFFLOAD_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_CONNECTION_OFFLOAD_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12159,109 +12887,214 @@ impl ::core::default::Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_ESTATS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_ESTATS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = 0i32;
+pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = 1i32;
+pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = 2i32;
+pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = 3i32;
+pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = 4i32;
+pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = 5i32;
+pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = 6i32;
+pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = 7i32;
+pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = 8i32;
+pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = 9i32;
+pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(9i32);
+impl ::core::marker::Copy for TCP_ESTATS_TYPE {}
+impl ::core::clone::Clone for TCP_ESTATS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_ESTATS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_ESTATS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_ESTATS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_ESTATS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const TCP_ROW: u32 = 14u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_RTO_ALGORITHM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_RTO_ALGORITHM(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = 1i32;
+pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = 2i32;
+pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = 3i32;
+pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = 4i32;
+pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1i32;
+pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2i32;
+pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3i32;
+pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = 4i32;
+pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
+impl ::core::marker::Copy for TCP_RTO_ALGORITHM {}
+impl ::core::clone::Clone for TCP_RTO_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_RTO_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_RTO_ALGORITHM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_RTO_ALGORITHM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_RTO_ALGORITHM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_SOFT_ERROR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_SOFT_ERROR(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorNone: TCP_SOFT_ERROR = 0i32;
+pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = 1i32;
+pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = 2i32;
+pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = 3i32;
+pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = 4i32;
+pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = 5i32;
+pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = 6i32;
+pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = 7i32;
+pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = 8i32;
+pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = 9i32;
+pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(9i32);
+impl ::core::marker::Copy for TCP_SOFT_ERROR {}
+impl ::core::clone::Clone for TCP_SOFT_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_SOFT_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_SOFT_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_SOFT_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_SOFT_ERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const TCP_STATS: u32 = 12u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const TCP_TABLE: u32 = 13u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TCP_TABLE_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_TABLE_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0i32;
+pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1i32;
+pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2i32;
+pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3i32;
+pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4i32;
+pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5i32;
+pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6i32;
+pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = 7i32;
+pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = 8i32;
+pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(8i32);
+impl ::core::marker::Copy for TCP_TABLE_CLASS {}
+impl ::core::clone::Clone for TCP_TABLE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TCP_TABLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_TABLE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_TABLE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_TABLE_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type TUNNEL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TUNNEL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = 0i32;
+pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = TUNNEL_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_OTHER: TUNNEL_TYPE = 1i32;
+pub const TUNNEL_TYPE_OTHER: TUNNEL_TYPE = TUNNEL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = 2i32;
+pub const TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = TUNNEL_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = 11i32;
+pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = TUNNEL_TYPE(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = 13i32;
+pub const TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = TUNNEL_TYPE(13i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = 14i32;
+pub const TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = TUNNEL_TYPE(14i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = 15i32;
+pub const TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = TUNNEL_TYPE(15i32);
+impl ::core::marker::Copy for TUNNEL_TYPE {}
+impl ::core::clone::Clone for TUNNEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TUNNEL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TUNNEL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TUNNEL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TUNNEL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const UDP6_STATS: u32 = 37u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -12271,13 +13104,34 @@ pub const UDP_STATS: u32 = 15u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const UDP_TABLE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub type UDP_TABLE_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UDP_TABLE_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0i32;
+pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1i32;
+pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
-pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2i32;
+pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
+impl ::core::marker::Copy for UDP_TABLE_CLASS {}
+impl ::core::clone::Clone for UDP_TABLE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UDP_TABLE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UDP_TABLE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UDP_TABLE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UDP_TABLE_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
@@ -12617,3 +13471,5 @@ impl ::core::default::Default for tcp_reserve_port_range {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

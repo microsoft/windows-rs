@@ -15,16 +15,6 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn include_dependencies(&self, include: TypeInclude) {
-        if let Some(return_sig) = &self.return_sig {
-            return_sig.kind.include_definition(include);
-        }
-
-        for param in &self.params {
-            param.signature.kind.include_definition(include);
-        }
-    }
-
     pub fn method_features(&self) -> BTreeSet<&'static str> {
         let mut features = std::collections::BTreeSet::new();
         let mut keys = std::collections::HashSet::new();
@@ -69,7 +59,6 @@ impl MethodSignature {
 
                     return SignatureKind::ResultVoid;
                 }
-                // TODO: collapse the next two (they're both TypeDef)
                 ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
                     return SignatureKind::ResultVoid;
                 }

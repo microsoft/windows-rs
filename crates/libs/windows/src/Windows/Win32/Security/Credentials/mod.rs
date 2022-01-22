@@ -364,19 +364,40 @@ impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONW {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CREDSPP_SUBMIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREDSPP_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = 2i32;
+pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = 4i32;
+pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = 13i32;
+pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = 50i32;
+pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = 51i32;
+pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = 100i32;
+pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
+impl ::core::marker::Copy for CREDSPP_SUBMIT_TYPE {}
+impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREDSPP_SUBMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREDSPP_SUBMIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREDSPP_SUBMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub struct CREDSSP_CRED {
@@ -456,63 +477,161 @@ pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CREDUIWIN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREDUIWIN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = 1u32;
+pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = 2u32;
+pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = 16u32;
+pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = 32u32;
+pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = 256u32;
+pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = 512u32;
+pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = 4096u32;
+pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = 8192u32;
+pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = 268435456u32;
+pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
+impl ::core::marker::Copy for CREDUIWIN_FLAGS {}
+impl ::core::clone::Clone for CREDUIWIN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREDUIWIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREDUIWIN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREDUIWIN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREDUIWIN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CREDUIWIN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREDUIWIN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREDUIWIN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREDUIWIN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREDUIWIN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CREDUI_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREDUI_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = 128u32;
+pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = 2048u32;
+pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = 2u32;
+pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = 8u32;
+pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = CREDUI_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = 131072u32;
+pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = CREDUI_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = 262144u32;
+pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = 1u32;
+pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = CREDUI_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = 1048576u32;
+pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1048576u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = 512u32;
+pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = CREDUI_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = 4096u32;
+pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = 4u32;
+pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = CREDUI_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = 16u32;
+pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = CREDUI_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = 256u32;
+pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = CREDUI_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = 16384u32;
+pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = 64u32;
+pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = 524288u32;
+pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = 1024u32;
+pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
+impl ::core::marker::Copy for CREDUI_FLAGS {}
+impl ::core::clone::Clone for CREDUI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREDUI_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREDUI_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREDUI_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREDUI_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CREDUI_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREDUI_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREDUI_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREDUI_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREDUI_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -608,45 +727,164 @@ pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_ENUMERATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_ENUMERATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = 1u32;
+pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
+impl ::core::marker::Copy for CRED_ENUMERATE_FLAGS {}
+impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_ENUMERATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_ENUMERATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_ENUMERATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRED_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRED_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRED_ENUMERATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRED_ENUMERATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRED_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = 1u32;
+pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = 2u32;
+pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = CRED_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = 4u32;
+pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = CRED_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = 8u32;
+pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = CRED_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = 16u32;
+pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = CRED_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = 32u32;
+pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = CRED_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = 64u32;
+pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = 128u32;
+pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = 61695u32;
+pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = 61599u32;
+pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599u32);
+impl ::core::marker::Copy for CRED_FLAGS {}
+impl ::core::clone::Clone for CRED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_MARSHAL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_MARSHAL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CertCredential: CRED_MARSHAL_TYPE = 1i32;
+pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = 2i32;
+pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
+pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4i32;
+pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
+pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
+impl ::core::marker::Copy for CRED_MARSHAL_TYPE {}
+impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_MARSHAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_MARSHAL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_MARSHAL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -660,37 +898,156 @@ pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_PACK_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_PACK_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = 1u32;
+pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = 2u32;
+pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = 4u32;
+pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = 8u32;
+pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8u32);
+impl ::core::marker::Copy for CRED_PACK_FLAGS {}
+impl ::core::clone::Clone for CRED_PACK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_PACK_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_PACK_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_PACK_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRED_PACK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRED_PACK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRED_PACK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRED_PACK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRED_PACK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_PERSIST = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_PERSIST(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PERSIST_NONE: CRED_PERSIST = 0u32;
+pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PERSIST_SESSION: CRED_PERSIST = 1u32;
+pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = 2u32;
+pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = 3u32;
+pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3u32);
+impl ::core::marker::Copy for CRED_PERSIST {}
+impl ::core::clone::Clone for CRED_PERSIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_PERSIST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_PERSIST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_PERSIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_PERSIST").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRED_PERSIST {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRED_PERSIST {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRED_PERSIST {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRED_PERSIST {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRED_PERSIST {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_PROTECTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_PROTECTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredUnprotected: CRED_PROTECTION_TYPE = 0i32;
+pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredUserProtection: CRED_PROTECTION_TYPE = 1i32;
+pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredTrustedProtection: CRED_PROTECTION_TYPE = 2i32;
+pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CredForSystemProtection: CRED_PROTECTION_TYPE = 3i32;
+pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3i32);
+impl ::core::marker::Copy for CRED_PROTECTION_TYPE {}
+impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_PROTECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_PROTECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_PROTECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -712,23 +1069,72 @@ pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type CRED_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_GENERIC: CRED_TYPE = 1u32;
+pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = 2u32;
+pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = CRED_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = 3u32;
+pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = CRED_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = 4u32;
+pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = CRED_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = 5u32;
+pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = 6u32;
+pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_MAXIMUM: CRED_TYPE = 7u32;
+pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = 1007u32;
+pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007u32);
+impl ::core::marker::Copy for CRED_TYPE {}
+impl ::core::clone::Clone for CRED_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRED_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRED_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRED_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRED_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRED_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRED_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -1560,31 +1966,101 @@ impl ::core::default::Default for KeyCredentialManagerInfo {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type KeyCredentialManagerOperationErrorStates = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KeyCredentialManagerOperationErrorStates(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = 0u32;
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = 1u32;
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = 2u32;
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = 4u32;
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = 8u32;
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = 16u32;
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = 32u32;
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = 64u32;
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64u32);
+impl ::core::marker::Copy for KeyCredentialManagerOperationErrorStates {}
+impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KeyCredentialManagerOperationErrorStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KeyCredentialManagerOperationErrorStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialManagerOperationErrorStates").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KeyCredentialManagerOperationErrorStates {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KeyCredentialManagerOperationErrorStates {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KeyCredentialManagerOperationErrorStates {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KeyCredentialManagerOperationErrorStates {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KeyCredentialManagerOperationErrorStates {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type KeyCredentialManagerOperationType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KeyCredentialManagerOperationType(pub i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = 0i32;
+pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = 1i32;
+pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = 2i32;
+pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
+impl ::core::marker::Copy for KeyCredentialManagerOperationType {}
+impl ::core::clone::Clone for KeyCredentialManagerOperationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KeyCredentialManagerOperationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KeyCredentialManagerOperationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialManagerOperationType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2181,13 +2657,34 @@ impl ::core::default::Default for READER_SEL_REQUEST_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = 1i32;
+pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = 2i32;
+pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = 3i32;
+pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
+impl ::core::marker::Copy for READER_SEL_REQUEST_MATCH_TYPE {}
+impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for READER_SEL_REQUEST_MATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_MATCH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("READER_SEL_REQUEST_MATCH_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub struct READER_SEL_RESPONSE {
@@ -2469,11 +2966,60 @@ pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_RESET_CARD: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type SCARD_SCOPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCARD_SCOPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_SCOPE_USER: SCARD_SCOPE = 0u32;
+pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = 2u32;
+pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2u32);
+impl ::core::marker::Copy for SCARD_SCOPE {}
+impl ::core::clone::Clone for SCARD_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCARD_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCARD_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCARD_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCARD_SCOPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCARD_SCOPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCARD_SCOPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCARD_SCOPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCARD_SCOPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCARD_SCOPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2485,29 +3031,78 @@ pub const SCARD_SHARE_SHARED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SPECIFIC: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub type SCARD_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCARD_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_UNAWARE: SCARD_STATE = 0u32;
+pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_IGNORE: SCARD_STATE = 1u32;
+pub const SCARD_STATE_IGNORE: SCARD_STATE = SCARD_STATE(1u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = 8u32;
+pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = SCARD_STATE(8u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_EMPTY: SCARD_STATE = 16u32;
+pub const SCARD_STATE_EMPTY: SCARD_STATE = SCARD_STATE(16u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_PRESENT: SCARD_STATE = 32u32;
+pub const SCARD_STATE_PRESENT: SCARD_STATE = SCARD_STATE(32u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_ATRMATCH: SCARD_STATE = 64u32;
+pub const SCARD_STATE_ATRMATCH: SCARD_STATE = SCARD_STATE(64u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = 128u32;
+pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = SCARD_STATE(128u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_INUSE: SCARD_STATE = 256u32;
+pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_MUTE: SCARD_STATE = 512u32;
+pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_CHANGED: SCARD_STATE = 2u32;
+pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2u32);
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-pub const SCARD_STATE_UNKNOWN: SCARD_STATE = 4u32;
+pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4u32);
+impl ::core::marker::Copy for SCARD_STATE {}
+impl ::core::clone::Clone for SCARD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCARD_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCARD_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCARD_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCARD_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCARD_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCARD_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCARD_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCARD_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCARD_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -3881,3 +4476,5 @@ impl ::core::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

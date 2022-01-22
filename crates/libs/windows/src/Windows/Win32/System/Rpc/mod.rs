@@ -176,39 +176,81 @@ pub const EEInfoUseFileTime: u32 = 4u32;
 #[cfg(feature = "Win32_System_Com")]
 pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type EXPR_TOKEN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXPR_TOKEN(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_START: EXPR_TOKEN = 0i32;
+pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = 0i32;
+pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = EXPR_TOKEN(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_CONST32: EXPR_TOKEN = 1i32;
+pub const FC_EXPR_CONST32: EXPR_TOKEN = EXPR_TOKEN(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_CONST64: EXPR_TOKEN = 2i32;
+pub const FC_EXPR_CONST64: EXPR_TOKEN = EXPR_TOKEN(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_VAR: EXPR_TOKEN = 3i32;
+pub const FC_EXPR_VAR: EXPR_TOKEN = EXPR_TOKEN(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_OPER: EXPR_TOKEN = 4i32;
+pub const FC_EXPR_OPER: EXPR_TOKEN = EXPR_TOKEN(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_NOOP: EXPR_TOKEN = 5i32;
+pub const FC_EXPR_NOOP: EXPR_TOKEN = EXPR_TOKEN(5i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const FC_EXPR_END: EXPR_TOKEN = 6i32;
+pub const FC_EXPR_END: EXPR_TOKEN = EXPR_TOKEN(6i32);
+impl ::core::marker::Copy for EXPR_TOKEN {}
+impl ::core::clone::Clone for EXPR_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXPR_TOKEN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXPR_TOKEN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXPR_TOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXPR_TOKEN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type ExtendedErrorParamTypes = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ExtendedErrorParamTypes(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptAnsiString: ExtendedErrorParamTypes = 1i32;
+pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptUnicodeString: ExtendedErrorParamTypes = 2i32;
+pub const eeptUnicodeString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptLongVal: ExtendedErrorParamTypes = 3i32;
+pub const eeptLongVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptShortVal: ExtendedErrorParamTypes = 4i32;
+pub const eeptShortVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptPointerVal: ExtendedErrorParamTypes = 5i32;
+pub const eeptPointerVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(5i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptNone: ExtendedErrorParamTypes = 6i32;
+pub const eeptNone: ExtendedErrorParamTypes = ExtendedErrorParamTypes(6i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const eeptBinary: ExtendedErrorParamTypes = 7i32;
+pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7i32);
+impl ::core::marker::Copy for ExtendedErrorParamTypes {}
+impl ::core::clone::Clone for ExtendedErrorParamTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ExtendedErrorParamTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ExtendedErrorParamTypes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ExtendedErrorParamTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExtendedErrorParamTypes").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct FULL_PTR_XLAT_TABLES {
@@ -311,19 +353,89 @@ impl ::core::default::Default for GENERIC_BINDING_ROUTINE_PAIR {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type GROUP_NAME_SYNTAX = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GROUP_NAME_SYNTAX(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = 0u32;
+pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = 3u32;
+pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(3u32);
+impl ::core::marker::Copy for GROUP_NAME_SYNTAX {}
+impl ::core::clone::Clone for GROUP_NAME_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GROUP_NAME_SYNTAX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GROUP_NAME_SYNTAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GROUP_NAME_SYNTAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GROUP_NAME_SYNTAX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GROUP_NAME_SYNTAX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GROUP_NAME_SYNTAX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GROUP_NAME_SYNTAX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GROUP_NAME_SYNTAX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GROUP_NAME_SYNTAX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type IDL_CS_CONVERT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IDL_CS_CONVERT(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = 0i32;
+pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = 1i32;
+pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = 2i32;
+pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2i32);
+impl ::core::marker::Copy for IDL_CS_CONVERT {}
+impl ::core::clone::Clone for IDL_CS_CONVERT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IDL_CS_CONVERT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IDL_CS_CONVERT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IDL_CS_CONVERT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDL_CS_CONVERT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -1455,11 +1567,32 @@ pub unsafe fn I_UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 0i32;
+pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 1i32;
+pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
+impl ::core::marker::Copy for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {}
+impl ::core::clone::Clone for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct MALLOC_FREE_STRUCT {
@@ -1494,21 +1627,63 @@ impl ::core::default::Default for MALLOC_FREE_STRUCT {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type MIDL_ES_CODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIDL_ES_CODE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_ENCODE: MIDL_ES_CODE = 0i32;
+pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_DECODE: MIDL_ES_CODE = 1i32;
+pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_ENCODE_NDR64: MIDL_ES_CODE = 2i32;
+pub const MES_ENCODE_NDR64: MIDL_ES_CODE = MIDL_ES_CODE(2i32);
+impl ::core::marker::Copy for MIDL_ES_CODE {}
+impl ::core::clone::Clone for MIDL_ES_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIDL_ES_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_ES_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIDL_ES_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIDL_ES_CODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type MIDL_ES_HANDLE_STYLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIDL_ES_HANDLE_STYLE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = 0i32;
+pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 1i32;
+pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 2i32;
+pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
+impl ::core::marker::Copy for MIDL_ES_HANDLE_STYLE {}
+impl ::core::clone::Clone for MIDL_ES_HANDLE_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MIDL_ES_HANDLE_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_ES_HANDLE_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIDL_ES_HANDLE_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIDL_ES_HANDLE_STYLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type MIDL_ES_READ = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
@@ -7443,17 +7618,38 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type PROXY_PHASE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROXY_PHASE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROXY_CALCSIZE: PROXY_PHASE = 0i32;
+pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROXY_GETBUFFER: PROXY_PHASE = 1i32;
+pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROXY_MARSHAL: PROXY_PHASE = 2i32;
+pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROXY_SENDRECEIVE: PROXY_PHASE = 3i32;
+pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROXY_UNMARSHAL: PROXY_PHASE = 4i32;
+pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4i32);
+impl ::core::marker::Copy for PROXY_PHASE {}
+impl ::core::clone::Clone for PROXY_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROXY_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROXY_PHASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROXY_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXY_PHASE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void)>;
 #[repr(C)]
@@ -7549,25 +7745,67 @@ pub type RPCLT_PDU_FILTER_FUNC = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type RPC_ADDRESS_CHANGE_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_ADDRESS_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = 1i32;
+pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2i32;
+pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3i32;
+pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3i32);
+impl ::core::marker::Copy for RPC_ADDRESS_CHANGE_TYPE {}
+impl ::core::clone::Clone for RPC_ADDRESS_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_ADDRESS_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_ADDRESS_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_ADDRESS_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_ADDRESS_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_ASYNC_EVENT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_ASYNC_EVENT(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcCallComplete: RPC_ASYNC_EVENT = 0i32;
+pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcSendComplete: RPC_ASYNC_EVENT = 1i32;
+pub const RpcSendComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcReceiveComplete: RPC_ASYNC_EVENT = 2i32;
+pub const RpcReceiveComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcClientDisconnect: RPC_ASYNC_EVENT = 3i32;
+pub const RpcClientDisconnect: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcClientCancel: RPC_ASYNC_EVENT = 4i32;
+pub const RpcClientCancel: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(4i32);
+impl ::core::marker::Copy for RPC_ASYNC_EVENT {}
+impl ::core::clone::Clone for RPC_ASYNC_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_ASYNC_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_ASYNC_EVENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_ASYNC_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_ASYNC_EVENT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7772,11 +8010,60 @@ pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_BINDING_HANDLE_OPTIONS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 1u32;
+pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 2u32;
+pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_OPTIONS_FLAGS {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_BINDING_HANDLE_OPTIONS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
@@ -8610,11 +8897,60 @@ pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_C_AUTHN_INFO_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = 0u32;
+pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = 1u32;
+pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(1u32);
+impl ::core::marker::Copy for RPC_C_AUTHN_INFO_TYPE {}
+impl ::core::clone::Clone for RPC_C_AUTHN_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_C_AUTHN_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_C_AUTHN_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_C_AUTHN_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_C_AUTHN_INFO_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_C_AUTHN_INFO_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_C_AUTHN_INFO_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_C_AUTHN_INFO_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_C_AUTHN_INFO_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_C_AUTHN_INFO_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -8680,21 +9016,119 @@ pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_C_HTTP_AUTHN_TARGET = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = 1u32;
+pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = 2u32;
+pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(2u32);
+impl ::core::marker::Copy for RPC_C_HTTP_AUTHN_TARGET {}
+impl ::core::clone::Clone for RPC_C_HTTP_AUTHN_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_C_HTTP_AUTHN_TARGET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_C_HTTP_AUTHN_TARGET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_C_HTTP_AUTHN_TARGET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_C_HTTP_AUTHN_TARGET").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_C_HTTP_AUTHN_TARGET {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_C_HTTP_AUTHN_TARGET {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_C_HTTP_AUTHN_TARGET {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_C_HTTP_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_C_HTTP_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = 1u32;
+pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = 2u32;
+pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = 8u32;
+pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = 16u32;
+pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(16u32);
+impl ::core::marker::Copy for RPC_C_HTTP_FLAGS {}
+impl ::core::clone::Clone for RPC_C_HTTP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_C_HTTP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_C_HTTP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_C_HTTP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_C_HTTP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_C_HTTP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_C_HTTP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_C_HTTP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_C_HTTP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_C_HTTP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -8841,27 +9275,125 @@ pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_C_QOS_CAPABILITIES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_C_QOS_CAPABILITIES(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = 0u32;
+pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = 1u32;
+pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(1u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = 2u32;
+pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(2u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = 4u32;
+pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(4u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = 8u32;
+pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = 16u32;
+pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = 32u32;
+pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32u32);
+impl ::core::marker::Copy for RPC_C_QOS_CAPABILITIES {}
+impl ::core::clone::Clone for RPC_C_QOS_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_C_QOS_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_C_QOS_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_C_QOS_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_C_QOS_CAPABILITIES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_C_QOS_CAPABILITIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_C_QOS_CAPABILITIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_C_QOS_CAPABILITIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_C_QOS_CAPABILITIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_C_QOS_CAPABILITIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_C_QOS_IDENTITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_C_QOS_IDENTITY(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = 0u32;
+pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = 1u32;
+pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(1u32);
+impl ::core::marker::Copy for RPC_C_QOS_IDENTITY {}
+impl ::core::clone::Clone for RPC_C_QOS_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_C_QOS_IDENTITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_C_QOS_IDENTITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_C_QOS_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_C_QOS_IDENTITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RPC_C_QOS_IDENTITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RPC_C_QOS_IDENTITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RPC_C_QOS_IDENTITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RPC_C_QOS_IDENTITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RPC_C_QOS_IDENTITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -9189,17 +9721,38 @@ pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type RPC_HTTP_PROXY_FREE_STRING = ::core::option::Option<unsafe extern "system" fn(string: *const u16)>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1i32;
+pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = 2i32;
+pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3i32;
+pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4i32;
+pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5i32;
+pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(5i32);
+impl ::core::marker::Copy for RPC_HTTP_REDIRECTOR_STAGE {}
+impl ::core::clone::Clone for RPC_HTTP_REDIRECTOR_STAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_HTTP_REDIRECTOR_STAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_REDIRECTOR_STAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_HTTP_REDIRECTOR_STAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_HTTP_REDIRECTOR_STAGE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
@@ -9726,27 +10279,69 @@ pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type RPC_NEW_HTTP_PROXY_CHANNEL = ::core::option::Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_NOTIFICATIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_NOTIFICATIONS(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = 0i32;
+pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = 1i32;
+pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = 2i32;
+pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(2i32);
+impl ::core::marker::Copy for RPC_NOTIFICATIONS {}
+impl ::core::clone::Clone for RPC_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_NOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_NOTIFICATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_NOTIFICATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_NOTIFICATIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_NOTIFICATION_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_NOTIFICATION_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = 0i32;
+pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = 1i32;
+pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = 2i32;
+pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = 3i32;
+pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = 4i32;
+pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = 5i32;
+pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5i32);
+impl ::core::marker::Copy for RPC_NOTIFICATION_TYPES {}
+impl ::core::clone::Clone for RPC_NOTIFICATION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_NOTIFICATION_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_NOTIFICATION_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_NOTIFICATION_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_NOTIFICATION_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type RPC_OBJECT_INQ_FN = ::core::option::Option<unsafe extern "system" fn(objectuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID, status: *mut RPC_STATUS)>;
 #[repr(C)]
@@ -10615,207 +11210,228 @@ impl ::core::default::Default for RPC_STATS_VECTOR {
     }
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RPC_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RPC_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = 1700i32;
+pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = RPC_STATUS(1700i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = 1701i32;
+pub const RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = RPC_STATUS(1701i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_BINDING: RPC_STATUS = 1702i32;
+pub const RPC_S_INVALID_BINDING: RPC_STATUS = RPC_STATUS(1702i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROTSEQ_NOT_SUPPORTED: RPC_STATUS = 1703i32;
+pub const RPC_S_PROTSEQ_NOT_SUPPORTED: RPC_STATUS = RPC_STATUS(1703i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_RPC_PROTSEQ: RPC_STATUS = 1704i32;
+pub const RPC_S_INVALID_RPC_PROTSEQ: RPC_STATUS = RPC_STATUS(1704i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_STRING_UUID: RPC_STATUS = 1705i32;
+pub const RPC_S_INVALID_STRING_UUID: RPC_STATUS = RPC_STATUS(1705i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_ENDPOINT_FORMAT: RPC_STATUS = 1706i32;
+pub const RPC_S_INVALID_ENDPOINT_FORMAT: RPC_STATUS = RPC_STATUS(1706i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_NET_ADDR: RPC_STATUS = 1707i32;
+pub const RPC_S_INVALID_NET_ADDR: RPC_STATUS = RPC_STATUS(1707i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_ENDPOINT_FOUND: RPC_STATUS = 1708i32;
+pub const RPC_S_NO_ENDPOINT_FOUND: RPC_STATUS = RPC_STATUS(1708i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_TIMEOUT: RPC_STATUS = 1709i32;
+pub const RPC_S_INVALID_TIMEOUT: RPC_STATUS = RPC_STATUS(1709i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_OBJECT_NOT_FOUND: RPC_STATUS = 1710i32;
+pub const RPC_S_OBJECT_NOT_FOUND: RPC_STATUS = RPC_STATUS(1710i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ALREADY_REGISTERED: RPC_STATUS = 1711i32;
+pub const RPC_S_ALREADY_REGISTERED: RPC_STATUS = RPC_STATUS(1711i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_TYPE_ALREADY_REGISTERED: RPC_STATUS = 1712i32;
+pub const RPC_S_TYPE_ALREADY_REGISTERED: RPC_STATUS = RPC_STATUS(1712i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ALREADY_LISTENING: RPC_STATUS = 1713i32;
+pub const RPC_S_ALREADY_LISTENING: RPC_STATUS = RPC_STATUS(1713i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_PROTSEQS_REGISTERED: RPC_STATUS = 1714i32;
+pub const RPC_S_NO_PROTSEQS_REGISTERED: RPC_STATUS = RPC_STATUS(1714i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOT_LISTENING: RPC_STATUS = 1715i32;
+pub const RPC_S_NOT_LISTENING: RPC_STATUS = RPC_STATUS(1715i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_MGR_TYPE: RPC_STATUS = 1716i32;
+pub const RPC_S_UNKNOWN_MGR_TYPE: RPC_STATUS = RPC_STATUS(1716i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_IF: RPC_STATUS = 1717i32;
+pub const RPC_S_UNKNOWN_IF: RPC_STATUS = RPC_STATUS(1717i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_BINDINGS: RPC_STATUS = 1718i32;
+pub const RPC_S_NO_BINDINGS: RPC_STATUS = RPC_STATUS(1718i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_PROTSEQS: RPC_STATUS = 1719i32;
+pub const RPC_S_NO_PROTSEQS: RPC_STATUS = RPC_STATUS(1719i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CANT_CREATE_ENDPOINT: RPC_STATUS = 1720i32;
+pub const RPC_S_CANT_CREATE_ENDPOINT: RPC_STATUS = RPC_STATUS(1720i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_OUT_OF_RESOURCES: RPC_STATUS = 1721i32;
+pub const RPC_S_OUT_OF_RESOURCES: RPC_STATUS = RPC_STATUS(1721i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SERVER_UNAVAILABLE: RPC_STATUS = 1722i32;
+pub const RPC_S_SERVER_UNAVAILABLE: RPC_STATUS = RPC_STATUS(1722i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SERVER_TOO_BUSY: RPC_STATUS = 1723i32;
+pub const RPC_S_SERVER_TOO_BUSY: RPC_STATUS = RPC_STATUS(1723i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_NETWORK_OPTIONS: RPC_STATUS = 1724i32;
+pub const RPC_S_INVALID_NETWORK_OPTIONS: RPC_STATUS = RPC_STATUS(1724i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_CALL_ACTIVE: RPC_STATUS = 1725i32;
+pub const RPC_S_NO_CALL_ACTIVE: RPC_STATUS = RPC_STATUS(1725i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CALL_FAILED: RPC_STATUS = 1726i32;
+pub const RPC_S_CALL_FAILED: RPC_STATUS = RPC_STATUS(1726i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CALL_FAILED_DNE: RPC_STATUS = 1727i32;
+pub const RPC_S_CALL_FAILED_DNE: RPC_STATUS = RPC_STATUS(1727i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROTOCOL_ERROR: RPC_STATUS = 1728i32;
+pub const RPC_S_PROTOCOL_ERROR: RPC_STATUS = RPC_STATUS(1728i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROXY_ACCESS_DENIED: RPC_STATUS = 1729i32;
+pub const RPC_S_PROXY_ACCESS_DENIED: RPC_STATUS = RPC_STATUS(1729i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNSUPPORTED_TRANS_SYN: RPC_STATUS = 1730i32;
+pub const RPC_S_UNSUPPORTED_TRANS_SYN: RPC_STATUS = RPC_STATUS(1730i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNSUPPORTED_TYPE: RPC_STATUS = 1732i32;
+pub const RPC_S_UNSUPPORTED_TYPE: RPC_STATUS = RPC_STATUS(1732i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_TAG: RPC_STATUS = 1733i32;
+pub const RPC_S_INVALID_TAG: RPC_STATUS = RPC_STATUS(1733i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_BOUND: RPC_STATUS = 1734i32;
+pub const RPC_S_INVALID_BOUND: RPC_STATUS = RPC_STATUS(1734i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_ENTRY_NAME: RPC_STATUS = 1735i32;
+pub const RPC_S_NO_ENTRY_NAME: RPC_STATUS = RPC_STATUS(1735i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_NAME_SYNTAX: RPC_STATUS = 1736i32;
+pub const RPC_S_INVALID_NAME_SYNTAX: RPC_STATUS = RPC_STATUS(1736i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: RPC_STATUS = 1737i32;
+pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: RPC_STATUS = RPC_STATUS(1737i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UUID_NO_ADDRESS: RPC_STATUS = 1739i32;
+pub const RPC_S_UUID_NO_ADDRESS: RPC_STATUS = RPC_STATUS(1739i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_DUPLICATE_ENDPOINT: RPC_STATUS = 1740i32;
+pub const RPC_S_DUPLICATE_ENDPOINT: RPC_STATUS = RPC_STATUS(1740i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_AUTHN_TYPE: RPC_STATUS = 1741i32;
+pub const RPC_S_UNKNOWN_AUTHN_TYPE: RPC_STATUS = RPC_STATUS(1741i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_MAX_CALLS_TOO_SMALL: RPC_STATUS = 1742i32;
+pub const RPC_S_MAX_CALLS_TOO_SMALL: RPC_STATUS = RPC_STATUS(1742i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_STRING_TOO_LONG: RPC_STATUS = 1743i32;
+pub const RPC_S_STRING_TOO_LONG: RPC_STATUS = RPC_STATUS(1743i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROTSEQ_NOT_FOUND: RPC_STATUS = 1744i32;
+pub const RPC_S_PROTSEQ_NOT_FOUND: RPC_STATUS = RPC_STATUS(1744i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROCNUM_OUT_OF_RANGE: RPC_STATUS = 1745i32;
+pub const RPC_S_PROCNUM_OUT_OF_RANGE: RPC_STATUS = RPC_STATUS(1745i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_BINDING_HAS_NO_AUTH: RPC_STATUS = 1746i32;
+pub const RPC_S_BINDING_HAS_NO_AUTH: RPC_STATUS = RPC_STATUS(1746i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_AUTHN_SERVICE: RPC_STATUS = 1747i32;
+pub const RPC_S_UNKNOWN_AUTHN_SERVICE: RPC_STATUS = RPC_STATUS(1747i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_AUTHN_LEVEL: RPC_STATUS = 1748i32;
+pub const RPC_S_UNKNOWN_AUTHN_LEVEL: RPC_STATUS = RPC_STATUS(1748i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_AUTH_IDENTITY: RPC_STATUS = 1749i32;
+pub const RPC_S_INVALID_AUTH_IDENTITY: RPC_STATUS = RPC_STATUS(1749i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: RPC_STATUS = 1750i32;
+pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: RPC_STATUS = RPC_STATUS(1750i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const EPT_S_INVALID_ENTRY: RPC_STATUS = 1751i32;
+pub const EPT_S_INVALID_ENTRY: RPC_STATUS = RPC_STATUS(1751i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const EPT_S_CANT_PERFORM_OP: RPC_STATUS = 1752i32;
+pub const EPT_S_CANT_PERFORM_OP: RPC_STATUS = RPC_STATUS(1752i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const EPT_S_NOT_REGISTERED: RPC_STATUS = 1753i32;
+pub const EPT_S_NOT_REGISTERED: RPC_STATUS = RPC_STATUS(1753i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOTHING_TO_EXPORT: RPC_STATUS = 1754i32;
+pub const RPC_S_NOTHING_TO_EXPORT: RPC_STATUS = RPC_STATUS(1754i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INCOMPLETE_NAME: RPC_STATUS = 1755i32;
+pub const RPC_S_INCOMPLETE_NAME: RPC_STATUS = RPC_STATUS(1755i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_VERS_OPTION: RPC_STATUS = 1756i32;
+pub const RPC_S_INVALID_VERS_OPTION: RPC_STATUS = RPC_STATUS(1756i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_MORE_MEMBERS: RPC_STATUS = 1757i32;
+pub const RPC_S_NO_MORE_MEMBERS: RPC_STATUS = RPC_STATUS(1757i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: RPC_STATUS = 1758i32;
+pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: RPC_STATUS = RPC_STATUS(1758i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INTERFACE_NOT_FOUND: RPC_STATUS = 1759i32;
+pub const RPC_S_INTERFACE_NOT_FOUND: RPC_STATUS = RPC_STATUS(1759i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ENTRY_ALREADY_EXISTS: RPC_STATUS = 1760i32;
+pub const RPC_S_ENTRY_ALREADY_EXISTS: RPC_STATUS = RPC_STATUS(1760i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ENTRY_NOT_FOUND: RPC_STATUS = 1761i32;
+pub const RPC_S_ENTRY_NOT_FOUND: RPC_STATUS = RPC_STATUS(1761i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NAME_SERVICE_UNAVAILABLE: RPC_STATUS = 1762i32;
+pub const RPC_S_NAME_SERVICE_UNAVAILABLE: RPC_STATUS = RPC_STATUS(1762i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_NAF_ID: RPC_STATUS = 1763i32;
+pub const RPC_S_INVALID_NAF_ID: RPC_STATUS = RPC_STATUS(1763i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CANNOT_SUPPORT: RPC_STATUS = 1764i32;
+pub const RPC_S_CANNOT_SUPPORT: RPC_STATUS = RPC_STATUS(1764i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_CONTEXT_AVAILABLE: RPC_STATUS = 1765i32;
+pub const RPC_S_NO_CONTEXT_AVAILABLE: RPC_STATUS = RPC_STATUS(1765i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INTERNAL_ERROR: RPC_STATUS = 1766i32;
+pub const RPC_S_INTERNAL_ERROR: RPC_STATUS = RPC_STATUS(1766i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ZERO_DIVIDE: RPC_STATUS = 1767i32;
+pub const RPC_S_ZERO_DIVIDE: RPC_STATUS = RPC_STATUS(1767i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ADDRESS_ERROR: RPC_STATUS = 1768i32;
+pub const RPC_S_ADDRESS_ERROR: RPC_STATUS = RPC_STATUS(1768i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_FP_DIV_ZERO: RPC_STATUS = 1769i32;
+pub const RPC_S_FP_DIV_ZERO: RPC_STATUS = RPC_STATUS(1769i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_FP_UNDERFLOW: RPC_STATUS = 1770i32;
+pub const RPC_S_FP_UNDERFLOW: RPC_STATUS = RPC_STATUS(1770i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_FP_OVERFLOW: RPC_STATUS = 1771i32;
+pub const RPC_S_FP_OVERFLOW: RPC_STATUS = RPC_STATUS(1771i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CALL_IN_PROGRESS: RPC_STATUS = 1791i32;
+pub const RPC_S_CALL_IN_PROGRESS: RPC_STATUS = RPC_STATUS(1791i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_MORE_BINDINGS: RPC_STATUS = 1806i32;
+pub const RPC_S_NO_MORE_BINDINGS: RPC_STATUS = RPC_STATUS(1806i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_INTERFACES: RPC_STATUS = 1817i32;
+pub const RPC_S_NO_INTERFACES: RPC_STATUS = RPC_STATUS(1817i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_CALL_CANCELLED: RPC_STATUS = 1818i32;
+pub const RPC_S_CALL_CANCELLED: RPC_STATUS = RPC_STATUS(1818i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_BINDING_INCOMPLETE: RPC_STATUS = 1819i32;
+pub const RPC_S_BINDING_INCOMPLETE: RPC_STATUS = RPC_STATUS(1819i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_COMM_FAILURE: RPC_STATUS = 1820i32;
+pub const RPC_S_COMM_FAILURE: RPC_STATUS = RPC_STATUS(1820i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: RPC_STATUS = 1821i32;
+pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: RPC_STATUS = RPC_STATUS(1821i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NO_PRINC_NAME: RPC_STATUS = 1822i32;
+pub const RPC_S_NO_PRINC_NAME: RPC_STATUS = RPC_STATUS(1822i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOT_RPC_ERROR: RPC_STATUS = 1823i32;
+pub const RPC_S_NOT_RPC_ERROR: RPC_STATUS = RPC_STATUS(1823i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824i32;
+pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = RPC_STATUS(1824i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SEC_PKG_ERROR: RPC_STATUS = 1825i32;
+pub const RPC_S_SEC_PKG_ERROR: RPC_STATUS = RPC_STATUS(1825i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOT_CANCELLED: RPC_STATUS = 1826i32;
+pub const RPC_S_NOT_CANCELLED: RPC_STATUS = RPC_STATUS(1826i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_COOKIE_AUTH_FAILED: RPC_STATUS = 1833i32;
+pub const RPC_S_COOKIE_AUTH_FAILED: RPC_STATUS = RPC_STATUS(1833i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_DO_NOT_DISTURB: RPC_STATUS = 1834i32;
+pub const RPC_S_DO_NOT_DISTURB: RPC_STATUS = RPC_STATUS(1834i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RPC_STATUS = 1835i32;
+pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RPC_STATUS = RPC_STATUS(1835i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RPC_STATUS = 1836i32;
+pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RPC_STATUS = RPC_STATUS(1836i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_GROUP_MEMBER_NOT_FOUND: RPC_STATUS = 1898i32;
+pub const RPC_S_GROUP_MEMBER_NOT_FOUND: RPC_STATUS = RPC_STATUS(1898i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const EPT_S_CANT_CREATE: RPC_STATUS = 1899i32;
+pub const EPT_S_CANT_CREATE: RPC_STATUS = RPC_STATUS(1899i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_OBJECT: RPC_STATUS = 1900i32;
+pub const RPC_S_INVALID_OBJECT: RPC_STATUS = RPC_STATUS(1900i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_SEND_INCOMPLETE: RPC_STATUS = 1913i32;
+pub const RPC_S_SEND_INCOMPLETE: RPC_STATUS = RPC_STATUS(1913i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_ASYNC_HANDLE: RPC_STATUS = 1914i32;
+pub const RPC_S_INVALID_ASYNC_HANDLE: RPC_STATUS = RPC_STATUS(1914i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INVALID_ASYNC_CALL: RPC_STATUS = 1915i32;
+pub const RPC_S_INVALID_ASYNC_CALL: RPC_STATUS = RPC_STATUS(1915i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_ENTRY_TYPE_MISMATCH: RPC_STATUS = 1922i32;
+pub const RPC_S_ENTRY_TYPE_MISMATCH: RPC_STATUS = RPC_STATUS(1922i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_NOT_ALL_OBJS_EXPORTED: RPC_STATUS = 1923i32;
+pub const RPC_S_NOT_ALL_OBJS_EXPORTED: RPC_STATUS = RPC_STATUS(1923i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_INTERFACE_NOT_EXPORTED: RPC_STATUS = 1924i32;
+pub const RPC_S_INTERFACE_NOT_EXPORTED: RPC_STATUS = RPC_STATUS(1924i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PROFILE_NOT_ADDED: RPC_STATUS = 1925i32;
+pub const RPC_S_PROFILE_NOT_ADDED: RPC_STATUS = RPC_STATUS(1925i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = 1926i32;
+pub const RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1926i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = 1927i32;
+pub const RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1927i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = 1928i32;
+pub const RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1928i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = 1929i32;
+pub const RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1929i32);
+impl ::core::marker::Copy for RPC_STATUS {}
+impl ::core::clone::Clone for RPC_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RPC_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RPC_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RPC_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct RPC_SYNTAX_IDENTIFIER {
@@ -11440,25 +12056,67 @@ pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RpcCallClientLocality = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RpcCallClientLocality(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rcclInvalid: RpcCallClientLocality = 0i32;
+pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rcclLocal: RpcCallClientLocality = 1i32;
+pub const rcclLocal: RpcCallClientLocality = RpcCallClientLocality(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rcclRemote: RpcCallClientLocality = 2i32;
+pub const rcclRemote: RpcCallClientLocality = RpcCallClientLocality(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rcclClientUnknownLocality: RpcCallClientLocality = 3i32;
+pub const rcclClientUnknownLocality: RpcCallClientLocality = RpcCallClientLocality(3i32);
+impl ::core::marker::Copy for RpcCallClientLocality {}
+impl ::core::clone::Clone for RpcCallClientLocality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RpcCallClientLocality {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RpcCallClientLocality {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RpcCallClientLocality {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RpcCallClientLocality").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RpcCallType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RpcCallType(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rctInvalid: RpcCallType = 0i32;
+pub const rctInvalid: RpcCallType = RpcCallType(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rctNormal: RpcCallType = 1i32;
+pub const rctNormal: RpcCallType = RpcCallType(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rctTraining: RpcCallType = 2i32;
+pub const rctTraining: RpcCallType = RpcCallType(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rctGuaranteed: RpcCallType = 3i32;
+pub const rctGuaranteed: RpcCallType = RpcCallType(3i32);
+impl ::core::marker::Copy for RpcCallType {}
+impl ::core::clone::Clone for RpcCallType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RpcCallType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RpcCallType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RpcCallType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RpcCallType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
 pub unsafe fn RpcCancelThread(thread: *const ::core::ffi::c_void) -> RPC_STATUS {
@@ -11843,13 +12501,34 @@ pub unsafe fn RpcImpersonateClientContainer(bindinghandle: *const ::core::ffi::c
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RpcLocalAddressFormat = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RpcLocalAddressFormat(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rlafInvalid: RpcLocalAddressFormat = 0i32;
+pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rlafIPv4: RpcLocalAddressFormat = 1i32;
+pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const rlafIPv6: RpcLocalAddressFormat = 2i32;
+pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2i32);
+impl ::core::marker::Copy for RpcLocalAddressFormat {}
+impl ::core::clone::Clone for RpcLocalAddressFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RpcLocalAddressFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RpcLocalAddressFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RpcLocalAddressFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RpcLocalAddressFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
 pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
@@ -13069,31 +13748,52 @@ pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type RpcProxyPerfCounters = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RpcProxyPerfCounters(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = 1i32;
+pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcBackEndConnectionAttempts: RpcProxyPerfCounters = 2i32;
+pub const RpcBackEndConnectionAttempts: RpcProxyPerfCounters = RpcProxyPerfCounters(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcBackEndConnectionFailed: RpcProxyPerfCounters = 3i32;
+pub const RpcBackEndConnectionFailed: RpcProxyPerfCounters = RpcProxyPerfCounters(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcRequestsPerSecond: RpcProxyPerfCounters = 4i32;
+pub const RpcRequestsPerSecond: RpcProxyPerfCounters = RpcProxyPerfCounters(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcIncomingConnections: RpcProxyPerfCounters = 5i32;
+pub const RpcIncomingConnections: RpcProxyPerfCounters = RpcProxyPerfCounters(5i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcIncomingBandwidth: RpcProxyPerfCounters = 6i32;
+pub const RpcIncomingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(6i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcOutgoingBandwidth: RpcProxyPerfCounters = 7i32;
+pub const RpcOutgoingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(7i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcAttemptedLbsDecisions: RpcProxyPerfCounters = 8i32;
+pub const RpcAttemptedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(8i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = 9i32;
+pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(9i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = 10i32;
+pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(10i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcFailedLbsMessages: RpcProxyPerfCounters = 11i32;
+pub const RpcFailedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(11i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const RpcLastCounter: RpcProxyPerfCounters = 12i32;
+pub const RpcLastCounter: RpcProxyPerfCounters = RpcProxyPerfCounters(12i32);
+impl ::core::marker::Copy for RpcProxyPerfCounters {}
+impl ::core::clone::Clone for RpcProxyPerfCounters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RpcProxyPerfCounters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RpcProxyPerfCounters {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RpcProxyPerfCounters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RpcProxyPerfCounters").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
 pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
@@ -14233,11 +14933,60 @@ impl ::core::default::Default for SCONTEXT_QUEUE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type SEC_WINNT_AUTH_IDENTITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = 1u32;
+pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = 2u32;
+pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(2u32);
+impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY {}
+impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEC_WINNT_AUTH_IDENTITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SEC_WINNT_AUTH_IDENTITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SEC_WINNT_AUTH_IDENTITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SEC_WINNT_AUTH_IDENTITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SEC_WINNT_AUTH_IDENTITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SEC_WINNT_AUTH_IDENTITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
@@ -14313,15 +15062,36 @@ impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_W {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type STUB_PHASE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STUB_PHASE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const STUB_UNMARSHAL: STUB_PHASE = 0i32;
+pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const STUB_CALL_SERVER: STUB_PHASE = 1i32;
+pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const STUB_MARSHAL: STUB_PHASE = 2i32;
+pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3i32;
+pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3i32);
+impl ::core::marker::Copy for STUB_PHASE {}
+impl ::core::clone::Clone for STUB_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STUB_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STUB_PHASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STUB_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STUB_PHASE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
@@ -14400,15 +15170,36 @@ impl ::core::default::Default for USER_MARSHAL_CB {
     }
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type USER_MARSHAL_CB_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct USER_MARSHAL_CB_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = 0i32;
+pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = 1i32;
+pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = 2i32;
+pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = 3i32;
+pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(3i32);
+impl ::core::marker::Copy for USER_MARSHAL_CB_TYPE {}
+impl ::core::clone::Clone for USER_MARSHAL_CB_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_MARSHAL_CB_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USER_MARSHAL_CB_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_MARSHAL_CB_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_MARSHAL_CB_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -14660,11 +15451,32 @@ pub unsafe fn UuidToStringW(uuid: *const ::windows::core::GUID, stringuuid: *mut
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type XLAT_SIDE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XLAT_SIDE(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const XLAT_SERVER: XLAT_SIDE = 1i32;
+pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const XLAT_CLIENT: XLAT_SIDE = 2i32;
+pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2i32);
+impl ::core::marker::Copy for XLAT_SIDE {}
+impl ::core::clone::Clone for XLAT_SIDE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XLAT_SIDE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XLAT_SIDE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XLAT_SIDE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XLAT_SIDE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
@@ -14749,34 +15561,57 @@ impl ::core::default::Default for _NDR_SCONTEXT {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub type system_handle_t = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct system_handle_t(pub i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_FILE: system_handle_t = 0i32;
+pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = 1i32;
+pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = system_handle_t(1i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_EVENT: system_handle_t = 2i32;
+pub const SYSTEM_HANDLE_EVENT: system_handle_t = system_handle_t(2i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_MUTEX: system_handle_t = 3i32;
+pub const SYSTEM_HANDLE_MUTEX: system_handle_t = system_handle_t(3i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_PROCESS: system_handle_t = 4i32;
+pub const SYSTEM_HANDLE_PROCESS: system_handle_t = system_handle_t(4i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_TOKEN: system_handle_t = 5i32;
+pub const SYSTEM_HANDLE_TOKEN: system_handle_t = system_handle_t(5i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_SECTION: system_handle_t = 6i32;
+pub const SYSTEM_HANDLE_SECTION: system_handle_t = system_handle_t(6i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = 7i32;
+pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = system_handle_t(7i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_THREAD: system_handle_t = 8i32;
+pub const SYSTEM_HANDLE_THREAD: system_handle_t = system_handle_t(8i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9i32;
+pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = system_handle_t(9i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_SOCKET: system_handle_t = 10i32;
+pub const SYSTEM_HANDLE_SOCKET: system_handle_t = system_handle_t(10i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_JOB: system_handle_t = 11i32;
+pub const SYSTEM_HANDLE_JOB: system_handle_t = system_handle_t(11i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_PIPE: system_handle_t = 12i32;
+pub const SYSTEM_HANDLE_PIPE: system_handle_t = system_handle_t(12i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_MAX: system_handle_t = 12i32;
+pub const SYSTEM_HANDLE_MAX: system_handle_t = system_handle_t(12i32);
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
-pub const SYSTEM_HANDLE_INVALID: system_handle_t = 255i32;
+pub const SYSTEM_HANDLE_INVALID: system_handle_t = system_handle_t(255i32);
+impl ::core::marker::Copy for system_handle_t {}
+impl ::core::clone::Clone for system_handle_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for system_handle_t {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for system_handle_t {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for system_handle_t {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("system_handle_t").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1,0 +1,17 @@
+[package]
+name = "ocr"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies]
+futures = "0.3.5"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Media_Ocr", 
+    "Graphics_Imaging", 
+    "Storage_Streams", 
+    "Foundation",
+]

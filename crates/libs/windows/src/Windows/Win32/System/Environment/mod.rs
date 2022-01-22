@@ -151,19 +151,40 @@ pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Environment'*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub type ENCLAVE_SEALING_IDENTITY_POLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = 0i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 1i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = 2i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = 3i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = 4i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
 #[doc = "*Required features: 'Win32_System_Environment'*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = 5i32;
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
+impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
+impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENCLAVE_SEALING_IDENTITY_POLICY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Environment'*"]
 pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Environment'*"]
@@ -1014,3 +1035,5 @@ pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Environment'*"]
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

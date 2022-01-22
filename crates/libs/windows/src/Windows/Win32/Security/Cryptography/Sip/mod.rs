@@ -705,3 +705,5 @@ pub type pfnIsFileSupported = ::core::option::Option<unsafe extern "system" fn(h
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnIsFileSupportedName = ::core::option::Option<unsafe extern "system" fn(pwszfilename: super::super::super::Foundation::PWSTR, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

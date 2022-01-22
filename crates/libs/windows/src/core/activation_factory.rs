@@ -18,24 +18,19 @@ impl IActivationFactory {
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
             // so a cast is required to convert the `IInspectable` into `I`, or the class type.
-            (self.vtable().6)(core::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
+            (self.vtable().ActivateInstance)(core::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
         }
     }
 }
 
 #[repr(C)]
-pub struct IActivationFactory_abi(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT, // ActivateInstance
-);
+pub struct IActivationFactoryVtbl {
+    pub base: IInspectableVtbl,
+    pub ActivateInstance: unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT,
+}
 
 unsafe impl Interface for IActivationFactory {
-    type Vtable = IActivationFactory_abi;
+    type Vtable = IActivationFactoryVtbl;
 
     const IID: GUID = GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
 }

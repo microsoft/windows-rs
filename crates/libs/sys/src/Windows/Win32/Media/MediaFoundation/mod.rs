@@ -1978,13 +1978,16 @@ impl ::core::clone::Clone for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     fn clone(&self) -> Self {
         *self
@@ -3775,11 +3778,14 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     fn clone(&self) -> Self {
         *self

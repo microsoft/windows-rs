@@ -169,76 +169,6 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn include_dependencies(&self, include: TypeInclude) {
-        match self.kind() {
-            TypeKind::Interface => {
-                if include == TypeInclude::Minimal {
-                    return;
-                }
-
-                self.interfaces().for_each(|i| i.include_definition(include));
-                self.methods().for_each(|m| m.include_dependencies());
-            }
-            TypeKind::Class => {
-                if include == TypeInclude::Minimal {
-                    if let Some(default_interface) = self.default_interface() {
-                        default_interface.include_definition(TypeInclude::Minimal);
-                    }
-
-                    return;
-                }
-
-                // TODO: test for this?
-                self.generics.iter().for_each(|g| g.include_definition(TypeInclude::Minimal));
-
-                self.interfaces().for_each(|i| i.include_definition(TypeInclude::Full));
-                self.bases().for_each(|b| b.include_definition(TypeInclude::Full));
-
-                self.attributes().for_each(|attribute| match attribute.name() {
-                    "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                        for (_, arg) in attribute.args() {
-                            if let ConstantValue::TypeDef(def) = arg {
-                                def.include_definition(TypeInclude::Full);
-                            }
-                        }
-                    }
-                    _ => {}
-                });
-            }
-            TypeKind::Struct => match self.type_name() {
-                TypeName::BSTR => {
-                    let reader = TypeReader::get_mut();
-                    reader.include_type_name(TypeName::SysStringLen, include);
-                    reader.include_type_name(TypeName::SysAllocStringLen, include);
-                    reader.include_type_name(TypeName::SysFreeString, include);
-                }
-                _ => {
-                    self.fields().for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
-
-                    if let Some(dependency) = self.is_convertible_to() {
-                        dependency.include_definition(TypeInclude::Minimal);
-                    }
-                }
-            },
-            TypeKind::Delegate => self.invoke_method().include_dependencies(),
-            TypeKind::Enum => {}
-        }
-    }
-
-    pub fn include_definition(&self, include: TypeInclude) {
-        let type_name = self.type_name();
-
-        if type_name.namespace().is_empty() {
-            self.include_dependencies(TypeInclude::Minimal);
-        } else {
-            TypeReader::get_mut().include_type_name(type_name, include);
-
-            for generic in &self.generics {
-                generic.include_definition(include);
-            }
-        }
-    }
-
     // TODO: for sys definitions the features are less demanding since interfaces won't have dependencies
     pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         if !keys.insert(self.row.clone()) {
@@ -296,7 +226,11 @@ impl TypeDef {
     }
 
     pub fn is_primitive(&self) -> bool {
-        self.kind() == TypeKind::Enum
+        match self.kind() {
+            TypeKind::Enum => true,
+            TypeKind::Struct => self.is_handle() && self.type_name() != TypeName::BSTR,
+            _ => false,
+        }
     }
 
     pub fn is_union(&self) -> bool {
@@ -462,7 +396,6 @@ impl TypeDef {
             }
         }
 
-        result.push(ElementType::TypeDef(self.clone()));
         result
     }
 
@@ -596,6 +529,30 @@ impl TypeDef {
             TypeKind::Delegate => self.is_winrt(),
             _ => false,
         }
+    }
+
+    pub fn can_implement(&self) -> bool {
+        for attribute in self.attributes() {
+            if attribute.name() == "ExclusiveToAttribute" {
+                for (_, arg) in attribute.args() {
+                    if let ConstantValue::TypeDef(def) = arg {
+                        for child in def.interface_impls() {
+                            if child.is_overridable() {
+                                if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
+                                    if def.name() == self.name() {
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        true
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {

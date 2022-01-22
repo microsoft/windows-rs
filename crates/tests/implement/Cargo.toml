@@ -1,0 +1,21 @@
+[package]
+name = "test_implement"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "implement",
+    "ApplicationModel_Activation",
+    "Foundation_Collections",
+    "Win32_Foundation",
+    "Storage_Streams",
+    "Win32_System_WinRT_Composition",
+    "Win32_System_WinRT_Display",
+    "UI_Xaml",
+    "Win32_Foundation",
+    "Win32_System_Com",
+]

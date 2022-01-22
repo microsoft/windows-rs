@@ -1486,43 +1486,64 @@ impl ::core::default::Default for JET_ENUMCOLUMNVALUE {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub type JET_ERRCAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct JET_ERRCAT(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatUnknown: JET_ERRCAT = 0i32;
+pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatError: JET_ERRCAT = 1i32;
+pub const JET_errcatError: JET_ERRCAT = JET_ERRCAT(1i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatOperation: JET_ERRCAT = 2i32;
+pub const JET_errcatOperation: JET_ERRCAT = JET_ERRCAT(2i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatFatal: JET_ERRCAT = 3i32;
+pub const JET_errcatFatal: JET_ERRCAT = JET_ERRCAT(3i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatIO: JET_ERRCAT = 4i32;
+pub const JET_errcatIO: JET_ERRCAT = JET_ERRCAT(4i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatResource: JET_ERRCAT = 5i32;
+pub const JET_errcatResource: JET_ERRCAT = JET_ERRCAT(5i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatMemory: JET_ERRCAT = 6i32;
+pub const JET_errcatMemory: JET_ERRCAT = JET_ERRCAT(6i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatQuota: JET_ERRCAT = 7i32;
+pub const JET_errcatQuota: JET_ERRCAT = JET_ERRCAT(7i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatDisk: JET_ERRCAT = 8i32;
+pub const JET_errcatDisk: JET_ERRCAT = JET_ERRCAT(8i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatData: JET_ERRCAT = 9i32;
+pub const JET_errcatData: JET_ERRCAT = JET_ERRCAT(9i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatCorruption: JET_ERRCAT = 10i32;
+pub const JET_errcatCorruption: JET_ERRCAT = JET_ERRCAT(10i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatInconsistent: JET_ERRCAT = 11i32;
+pub const JET_errcatInconsistent: JET_ERRCAT = JET_ERRCAT(11i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatFragmentation: JET_ERRCAT = 12i32;
+pub const JET_errcatFragmentation: JET_ERRCAT = JET_ERRCAT(12i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatApi: JET_ERRCAT = 13i32;
+pub const JET_errcatApi: JET_ERRCAT = JET_ERRCAT(13i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatUsage: JET_ERRCAT = 14i32;
+pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatState: JET_ERRCAT = 15i32;
+pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatObsolete: JET_ERRCAT = 16i32;
+pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_errcatMax: JET_ERRCAT = 17i32;
+pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
+impl ::core::marker::Copy for JET_ERRCAT {}
+impl ::core::clone::Clone for JET_ERRCAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JET_ERRCAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JET_ERRCAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JET_ERRCAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JET_ERRCAT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ERRINFOBASIC_W {
@@ -1577,15 +1598,36 @@ pub const JET_ExceptionMsgBox: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_ExceptionNone: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub type JET_INDEXCHECKING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct JET_INDEXCHECKING(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_IndexCheckingOff: JET_INDEXCHECKING = 0i32;
+pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_IndexCheckingOn: JET_INDEXCHECKING = 1i32;
+pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = 2i32;
+pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3i32;
+pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
+impl ::core::marker::Copy for JET_INDEXCHECKING {}
+impl ::core::clone::Clone for JET_INDEXCHECKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JET_INDEXCHECKING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JET_INDEXCHECKING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JET_INDEXCHECKING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JET_INDEXCHECKING").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3616,25 +3658,46 @@ impl ::core::default::Default for JET_RECSIZE2 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub type JET_RELOP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct JET_RELOP(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopEquals: JET_RELOP = 0i32;
+pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopPrefixEquals: JET_RELOP = 1i32;
+pub const JET_relopPrefixEquals: JET_RELOP = JET_RELOP(1i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopNotEquals: JET_RELOP = 2i32;
+pub const JET_relopNotEquals: JET_RELOP = JET_RELOP(2i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopLessThanOrEqual: JET_RELOP = 3i32;
+pub const JET_relopLessThanOrEqual: JET_RELOP = JET_RELOP(3i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopLessThan: JET_RELOP = 4i32;
+pub const JET_relopLessThan: JET_RELOP = JET_RELOP(4i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopGreaterThanOrEqual: JET_RELOP = 5i32;
+pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopGreaterThan: JET_RELOP = 6i32;
+pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopBitmaskEqualsZero: JET_RELOP = 7i32;
+pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
-pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = 8i32;
+pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
+impl ::core::marker::Copy for JET_RELOP {}
+impl ::core::clone::Clone for JET_RELOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JET_RELOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JET_RELOP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JET_RELOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JET_RELOP").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RETINFO {
@@ -10176,3 +10239,5 @@ pub unsafe fn JetUpdate2<'a, Param0: ::windows::core::IntoParam<'a, super::Struc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

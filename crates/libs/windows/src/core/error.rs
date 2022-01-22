@@ -35,7 +35,7 @@ impl Error {
     }
 
     pub fn from_win32() -> Self {
-        unsafe { Self::fast_error(HRESULT::from_win32(GetLastError())) }
+        unsafe { Self::fast_error(GetLastError().into()) }
     }
 
     /// The error code describing the error.

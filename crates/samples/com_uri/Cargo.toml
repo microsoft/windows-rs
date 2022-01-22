@@ -1,0 +1,12 @@
+[package]
+name = "com_uri"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Win32_Foundation",
+    "Win32_System_Com",
+]

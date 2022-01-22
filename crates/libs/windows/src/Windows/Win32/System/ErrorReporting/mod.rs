@@ -30,29 +30,50 @@ pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type EFaultRepRetVal = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EFaultRepRetVal(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvOk: EFaultRepRetVal = 0i32;
+pub const frrvOk: EFaultRepRetVal = EFaultRepRetVal(0i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvOkManifest: EFaultRepRetVal = 1i32;
+pub const frrvOkManifest: EFaultRepRetVal = EFaultRepRetVal(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvOkQueued: EFaultRepRetVal = 2i32;
+pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErr: EFaultRepRetVal = 3i32;
+pub const frrvErr: EFaultRepRetVal = EFaultRepRetVal(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErrNoDW: EFaultRepRetVal = 4i32;
+pub const frrvErrNoDW: EFaultRepRetVal = EFaultRepRetVal(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErrTimeout: EFaultRepRetVal = 5i32;
+pub const frrvErrTimeout: EFaultRepRetVal = EFaultRepRetVal(5i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvLaunchDebugger: EFaultRepRetVal = 6i32;
+pub const frrvLaunchDebugger: EFaultRepRetVal = EFaultRepRetVal(6i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvOkHeadless: EFaultRepRetVal = 7i32;
+pub const frrvOkHeadless: EFaultRepRetVal = EFaultRepRetVal(7i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErrAnotherInstance: EFaultRepRetVal = 8i32;
+pub const frrvErrAnotherInstance: EFaultRepRetVal = EFaultRepRetVal(8i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErrNoMemory: EFaultRepRetVal = 9i32;
+pub const frrvErrNoMemory: EFaultRepRetVal = EFaultRepRetVal(9i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const frrvErrDoubleFault: EFaultRepRetVal = 10i32;
+pub const frrvErrDoubleFault: EFaultRepRetVal = EFaultRepRetVal(10i32);
+impl ::core::marker::Copy for EFaultRepRetVal {}
+impl ::core::clone::Clone for EFaultRepRetVal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EFaultRepRetVal {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EFaultRepRetVal {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EFaultRepRetVal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EFaultRepRetVal").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HREPORT(pub isize);
@@ -131,17 +152,38 @@ pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type REPORT_STORE_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REPORT_STORE_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0i32;
+pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(0i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1i32;
+pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2i32;
+pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3i32;
+pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const E_STORE_INVALID: REPORT_STORE_TYPES = 4i32;
+pub const E_STORE_INVALID: REPORT_STORE_TYPES = REPORT_STORE_TYPES(4i32);
+impl ::core::marker::Copy for REPORT_STORE_TYPES {}
+impl ::core::clone::Clone for REPORT_STORE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REPORT_STORE_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REPORT_STORE_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REPORT_STORE_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REPORT_STORE_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -158,17 +200,38 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_CONSENT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_CONSENT(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerConsentNotAsked: WER_CONSENT = 1i32;
+pub const WerConsentNotAsked: WER_CONSENT = WER_CONSENT(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerConsentApproved: WER_CONSENT = 2i32;
+pub const WerConsentApproved: WER_CONSENT = WER_CONSENT(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerConsentDenied: WER_CONSENT = 3i32;
+pub const WerConsentDenied: WER_CONSENT = WER_CONSENT(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerConsentAlwaysPrompt: WER_CONSENT = 4i32;
+pub const WerConsentAlwaysPrompt: WER_CONSENT = WER_CONSENT(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerConsentMax: WER_CONSENT = 5i32;
+pub const WerConsentMax: WER_CONSENT = WER_CONSENT(5i32);
+impl ::core::marker::Copy for WER_CONSENT {}
+impl ::core::clone::Clone for WER_CONSENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_CONSENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_CONSENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_CONSENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_CONSENT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[repr(C)]
@@ -370,19 +433,40 @@ pub const WER_DUMP_MASK_START: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_DUMP_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_DUMP_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeNone: WER_DUMP_TYPE = 0i32;
+pub const WerDumpTypeNone: WER_DUMP_TYPE = WER_DUMP_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = 1i32;
+pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = WER_DUMP_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = 2i32;
+pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = WER_DUMP_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = 3i32;
+pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = WER_DUMP_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = 4i32;
+pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = WER_DUMP_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDumpTypeMax: WER_DUMP_TYPE = 5i32;
+pub const WerDumpTypeMax: WER_DUMP_TYPE = WER_DUMP_TYPE(5i32);
+impl ::core::marker::Copy for WER_DUMP_TYPE {}
+impl ::core::clone::Clone for WER_DUMP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_DUMP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_DUMP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_DUMP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_DUMP_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -423,17 +507,66 @@ impl ::core::default::Default for WER_EXCEPTION_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_FAULT_REPORTING = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_FAULT_REPORTING(pub u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = 4u32;
+pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = WER_FAULT_REPORTING(4u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = 1u32;
+pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = WER_FAULT_REPORTING(1u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = 2u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = WER_FAULT_REPORTING(2u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = 8u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = WER_FAULT_REPORTING(8u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
+pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = WER_FAULT_REPORTING(16u32);
+impl ::core::marker::Copy for WER_FAULT_REPORTING {}
+impl ::core::clone::Clone for WER_FAULT_REPORTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_FAULT_REPORTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_FAULT_REPORTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_FAULT_REPORTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_FAULT_REPORTING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WER_FAULT_REPORTING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WER_FAULT_REPORTING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WER_FAULT_REPORTING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WER_FAULT_REPORTING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WER_FAULT_REPORTING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
@@ -447,35 +580,105 @@ pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_FILE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_FILE(pub u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = 2u32;
+pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = WER_FILE(2u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = 1u32;
+pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = WER_FILE(1u32);
+impl ::core::marker::Copy for WER_FILE {}
+impl ::core::clone::Clone for WER_FILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_FILE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_FILE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_FILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_FILE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WER_FILE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WER_FILE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WER_FILE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WER_FILE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WER_FILE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_FILE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_FILE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeMicrodump: WER_FILE_TYPE = 1i32;
+pub const WerFileTypeMicrodump: WER_FILE_TYPE = WER_FILE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeMinidump: WER_FILE_TYPE = 2i32;
+pub const WerFileTypeMinidump: WER_FILE_TYPE = WER_FILE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeHeapdump: WER_FILE_TYPE = 3i32;
+pub const WerFileTypeHeapdump: WER_FILE_TYPE = WER_FILE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeUserDocument: WER_FILE_TYPE = 4i32;
+pub const WerFileTypeUserDocument: WER_FILE_TYPE = WER_FILE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeOther: WER_FILE_TYPE = 5i32;
+pub const WerFileTypeOther: WER_FILE_TYPE = WER_FILE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeTriagedump: WER_FILE_TYPE = 6i32;
+pub const WerFileTypeTriagedump: WER_FILE_TYPE = WER_FILE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeCustomDump: WER_FILE_TYPE = 7i32;
+pub const WerFileTypeCustomDump: WER_FILE_TYPE = WER_FILE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = 8i32;
+pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = WER_FILE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeEtlTrace: WER_FILE_TYPE = 9i32;
+pub const WerFileTypeEtlTrace: WER_FILE_TYPE = WER_FILE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerFileTypeMax: WER_FILE_TYPE = 10i32;
+pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
+impl ::core::marker::Copy for WER_FILE_TYPE {}
+impl ::core::clone::Clone for WER_FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_FILE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_FILE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_FILE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
@@ -533,13 +736,34 @@ pub const WER_P8: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_P9: u32 = 9u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_REGISTER_FILE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_REGISTER_FILE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = 1i32;
+pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = 2i32;
+pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = 3i32;
+pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(3i32);
+impl ::core::marker::Copy for WER_REGISTER_FILE_TYPE {}
+impl ::core::clone::Clone for WER_REGISTER_FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_REGISTER_FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_REGISTER_FILE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_REGISTER_FILE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_REGISTER_FILE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1010,43 +1234,85 @@ impl ::core::default::Default for WER_REPORT_SIGNATURE {
     }
 }
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_REPORT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_REPORT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportNonCritical: WER_REPORT_TYPE = 0i32;
+pub const WerReportNonCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportCritical: WER_REPORT_TYPE = 1i32;
+pub const WerReportCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportApplicationCrash: WER_REPORT_TYPE = 2i32;
+pub const WerReportApplicationCrash: WER_REPORT_TYPE = WER_REPORT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportApplicationHang: WER_REPORT_TYPE = 3i32;
+pub const WerReportApplicationHang: WER_REPORT_TYPE = WER_REPORT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportKernel: WER_REPORT_TYPE = 4i32;
+pub const WerReportKernel: WER_REPORT_TYPE = WER_REPORT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportInvalid: WER_REPORT_TYPE = 5i32;
+pub const WerReportInvalid: WER_REPORT_TYPE = WER_REPORT_TYPE(5i32);
+impl ::core::marker::Copy for WER_REPORT_TYPE {}
+impl ::core::clone::Clone for WER_REPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_REPORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_REPORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_REPORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_REPORT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_REPORT_UI = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_REPORT_UI(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = 1i32;
+pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = WER_REPORT_UI(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIIconFilePath: WER_REPORT_UI = 2i32;
+pub const WerUIIconFilePath: WER_REPORT_UI = WER_REPORT_UI(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIConsentDlgHeader: WER_REPORT_UI = 3i32;
+pub const WerUIConsentDlgHeader: WER_REPORT_UI = WER_REPORT_UI(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIConsentDlgBody: WER_REPORT_UI = 4i32;
+pub const WerUIConsentDlgBody: WER_REPORT_UI = WER_REPORT_UI(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = 5i32;
+pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(5i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = 6i32;
+pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(6i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUICloseText: WER_REPORT_UI = 7i32;
+pub const WerUICloseText: WER_REPORT_UI = WER_REPORT_UI(7i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUICloseDlgHeader: WER_REPORT_UI = 8i32;
+pub const WerUICloseDlgHeader: WER_REPORT_UI = WER_REPORT_UI(8i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUICloseDlgBody: WER_REPORT_UI = 9i32;
+pub const WerUICloseDlgBody: WER_REPORT_UI = WER_REPORT_UI(9i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUICloseDlgButtonText: WER_REPORT_UI = 10i32;
+pub const WerUICloseDlgButtonText: WER_REPORT_UI = WER_REPORT_UI(10i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerUIMax: WER_REPORT_UI = 11i32;
+pub const WerUIMax: WER_REPORT_UI = WER_REPORT_UI(11i32);
+impl ::core::marker::Copy for WER_REPORT_UI {}
+impl ::core::clone::Clone for WER_REPORT_UI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_REPORT_UI {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_REPORT_UI {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_REPORT_UI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_REPORT_UI").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -1091,63 +1357,133 @@ pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_SUBMIT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_SUBMIT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;
+pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = 1u32;
+pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = 2u32;
+pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = 256u32;
+pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = 64u32;
+pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = 128u32;
+pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = 32u32;
+pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = 1024u32;
+pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = 4u32;
+pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = 8u32;
+pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = 512u32;
+pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = 2048u32;
+pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = 4096u32;
+pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = 8192u32;
+pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8192u32);
+impl ::core::marker::Copy for WER_SUBMIT_FLAGS {}
+impl ::core::clone::Clone for WER_SUBMIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_SUBMIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_SUBMIT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_SUBMIT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_SUBMIT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WER_SUBMIT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WER_SUBMIT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WER_SUBMIT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WER_SUBMIT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WER_SUBMIT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub type WER_SUBMIT_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WER_SUBMIT_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportQueued: WER_SUBMIT_RESULT = 1i32;
+pub const WerReportQueued: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(1i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportUploaded: WER_SUBMIT_RESULT = 2i32;
+pub const WerReportUploaded: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(2i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportDebug: WER_SUBMIT_RESULT = 3i32;
+pub const WerReportDebug: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(3i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportFailed: WER_SUBMIT_RESULT = 4i32;
+pub const WerReportFailed: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(4i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDisabled: WER_SUBMIT_RESULT = 5i32;
+pub const WerDisabled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(5i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportCancelled: WER_SUBMIT_RESULT = 6i32;
+pub const WerReportCancelled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(6i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerDisabledQueue: WER_SUBMIT_RESULT = 7i32;
+pub const WerDisabledQueue: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(7i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportAsync: WER_SUBMIT_RESULT = 8i32;
+pub const WerReportAsync: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(8i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerCustomAction: WER_SUBMIT_RESULT = 9i32;
+pub const WerCustomAction: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(9i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerThrottled: WER_SUBMIT_RESULT = 10i32;
+pub const WerThrottled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(10i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerReportUploadedCab: WER_SUBMIT_RESULT = 11i32;
+pub const WerReportUploadedCab: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(11i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = 12i32;
+pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(12i32);
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-pub const WerSubmitResultMax: WER_SUBMIT_RESULT = 13i32;
+pub const WerSubmitResultMax: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(13i32);
+impl ::core::marker::Copy for WER_SUBMIT_RESULT {}
+impl ::core::clone::Clone for WER_SUBMIT_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WER_SUBMIT_RESULT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WER_SUBMIT_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WER_SUBMIT_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WER_SUBMIT_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1724,3 +2060,5 @@ pub type pfn_ADDEREXCLUDEDAPPLICATIONW = ::core::option::Option<unsafe extern "s
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type pfn_REPORTFAULT = ::core::option::Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1,26 +1,21 @@
 use super::*;
 
-pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, vtable_offset: usize, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
+pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
-
     let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
-    let name = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
-        "new".into()
+    let (name, name_compose) = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
+        ("new".into(), "compose".into())
     } else {
-        let name = method.rust_name();
-        let overload = method_names.entry(name.to_string()).or_insert(0);
-        *overload += 1;
-        if *overload > 1 {
-            format!("{}{}", name, overload).into()
-        } else {
-            gen_ident(&name)
-        }
+        let name = method_names.add(method);
+        let name_compose = name.join("_compose");
+        (name, name_compose)
     };
+
+    let vname = virtual_names.add(method);
 
     let constraints = gen_param_constraints(params, gen);
     let cfg = gen.method_cfg(def, method).gen_with_doc(gen);
-    let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
     let args = params.iter().map(gen_winrt_abi_arg);
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(def, gen);
@@ -47,37 +42,49 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         quote! {}
     };
 
-    // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
-    // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match kind {
         InterfaceKind::Composable => quote! {
-            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _,
+            ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
         },
         _ => quote! {},
     };
 
     // TODO: don't use Interface::vtable trait for winrt/winrt calls - just stamp out vtable type directly
 
-    let vcall = if let Some(return_sig) = &signature.return_sig {
+    let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
         if return_sig.is_array {
-            quote! {
-                let mut result__: #return_type_tokens = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
-                    .and_then(|| result__ )
-            }
+            (
+                quote! {
+                    let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                        .and_then(|| result__ )
+                },
+                quote! {},
+            )
         } else {
             let abi_type_name = gen_abi_element_name(return_sig, gen);
+            let args = quote! { #(#args,)* };
 
-            quote! {
-                let mut result__: #abi_type_name = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
-                        .from_abi::<#return_type_tokens>(result__ )
-            }
+            (
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+            )
         }
     } else {
-        quote! {
-            (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
-        }
+        (
+            quote! {
+                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+            },
+            quote! {},
+        )
     };
 
     match kind {
@@ -101,7 +108,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
-        InterfaceKind::Static | InterfaceKind::Composable => {
+        // TODO: for composable generate a different signature that lets you provide an Option<Composable> so non
+        // derived cases can just provide None for the derived type
+        InterfaceKind::Static => {
             quote! {
                 #cfg
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
@@ -109,21 +118,37 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
+        InterfaceKind::Composable => {
+            quote! {
+                #cfg
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe { #vcall_none })
+                }
+                #cfg
+                pub fn #name_compose<#constraints T: ::windows::core::Compose>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe {
+                        let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                        #vcall
+                    })
+                }
+            }
+        }
         InterfaceKind::Extend | InterfaceKind::Overridable => unimplemented!(), // TODO: should remove these flags
     }
 }
 
-pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
+pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
-
-    let name = method.rust_name();
-    let overload = method_names.entry(name.to_string()).or_insert(0);
-    *overload += 1;
-    let name = if *overload > 1 { format!("{}{}", name, overload).into() } else { gen_ident(&name) };
-
+    let name = method_names.add(method);
+    let vname = virtual_names.add(method);
     let constraints = gen_param_constraints(&signature.params, gen);
     let cfg = gen.method_cfg(def, method).gen_with_doc(gen);
-    let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
+
+    let mut bases = quote! {};
+
+    for _ in 0..base_count {
+        bases.combine(&quote! { .base });
+    }
 
     match signature.kind() {
         SignatureKind::Query => {
@@ -135,7 +160,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
                 #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -147,7 +172,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
@@ -165,7 +190,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -177,20 +202,21 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*).ok()
                 }
             }
         }
         SignatureKind::ReturnStruct => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
+            // TODO: why is this using gen_abi_element_name?
             let return_sig = gen_abi_element_name(&signature.return_sig.unwrap(), gen);
 
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }
             }
@@ -198,12 +224,13 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
         SignatureKind::PreserveSig => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
+            // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
             let return_sig = gen_return_sig(&signature, gen);
 
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    ::core::mem::transmute((::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*))
+                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
             }
         }
@@ -214,7 +241,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) {
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*)
                 }
             }
         }

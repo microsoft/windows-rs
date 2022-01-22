@@ -64,34 +64,30 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
-    let mut vtable_offset = 0;
-    let mut method_names = BTreeMap::<String, u32>::new();
+    let mut method_names = MethodNames::new();
+    let mut virtual_names = MethodNames::new();
     let cfg = cfg.gen(gen);
+    let vtable_types = def.vtable_types();
+    let mut bases = vtable_types.len();
 
-    for def in def.vtable_types() {
+    for def in vtable_types {
         match def {
-            ElementType::IUnknown | ElementType::IInspectable => vtable_offset += 3,
+            ElementType::IUnknown | ElementType::IInspectable => {}
             ElementType::TypeDef(def) => {
-                for method in def.methods() {
-                    if is_winrt {
-                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method, vtable_offset, &mut method_names, gen));
-                    } else {
-                        methods.combine(&gen_com_method(&def, &method, vtable_offset, &mut method_names, gen));
-                    }
-                    vtable_offset += 1;
-                }
+                methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, bases, gen));
             }
             _ => unimplemented!(),
         }
+
+        bases -= 1;
     }
+
+    // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
+    methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
 
     if is_winrt && !gen.min_inherit {
         for def in def.required_interfaces() {
-            let mut vtable_offset = 6;
-            for method in def.methods() {
-                methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method, vtable_offset, &mut method_names, gen));
-                vtable_offset += 1;
-            }
+            methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, &mut virtual_names, 0, gen));
         }
     }
 
@@ -103,15 +99,29 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
+fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut MethodNames, virtual_names: &mut MethodNames, bases: usize, gen: &Gen) -> TokenStream {
+    let mut methods = quote! {};
+    let is_winrt = def.is_winrt();
+
+    for method in def.methods() {
+        if is_winrt {
+            methods.combine(&gen_winrt_method(&def, kind, &method, method_names, virtual_names, gen));
+        } else {
+            methods.combine(&gen_com_method(&def, &method, method_names, virtual_names, bases, gen));
+        }
+    }
+
+    methods
+}
+
 fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut tokens = quote! {};
 
-    // vtable_types includes self at the end so reverse and skip it
-    for def in def.vtable_types().iter().rev().skip(1) {
-        let into = gen_element_name(def, gen);
-        let cfg = cfg.union(gen.element_cfg(def)).gen(gen);
+    for def in def.vtable_types() {
+        let into = gen_element_name(&def, gen);
+        let cfg = cfg.union(gen.element_cfg(&def)).gen(gen);
         tokens.combine(&quote! {
             #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {

@@ -22,14 +22,6 @@ impl Field {
         self.0.file.equal_range(TableIndex::Constant, 1, HasConstant::Field(self.clone()).encode()).map(Constant).next()
     }
 
-    pub fn include_dependencies(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
-        self.signature(enclosing).kind.include_definition(include)
-    }
-
-    pub fn include_definition(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
-        self.signature(enclosing).kind.include_definition(include)
-    }
-
     pub fn features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         self.signature(enclosing).kind.features(features, keys);
     }

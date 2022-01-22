@@ -1930,81 +1930,375 @@ impl ::core::default::Default for WINTRUST_DATA_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_PROVIDER_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_PROVIDER_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 1u32;
+pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2u32;
+pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 4u32;
+pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = 16u32;
+pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = 32u32;
+pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = 64u32;
+pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = 128u32;
+pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 256u32;
+pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 512u32;
+pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = 1024u32;
+pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = 2048u32;
+pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = 4096u32;
+pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = 8192u32;
+pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = 16384u32;
+pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16384u32);
+impl ::core::marker::Copy for WINTRUST_DATA_PROVIDER_FLAGS {}
+impl ::core::clone::Clone for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_PROVIDER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_PROVIDER_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_PROVIDER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_PROVIDER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_PROVIDER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_PROVIDER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_REVOCATION_CHECKS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = 0u32;
+pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(0u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = 1u32;
+pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(1u32);
+impl ::core::marker::Copy for WINTRUST_DATA_REVOCATION_CHECKS {}
+impl ::core::clone::Clone for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_REVOCATION_CHECKS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_REVOCATION_CHECKS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_REVOCATION_CHECKS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_REVOCATION_CHECKS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_REVOCATION_CHECKS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_REVOCATION_CHECKS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_STATE_ACTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = 0u32;
+pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(0u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = 1u32;
+pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = 2u32;
+pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(2u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = 3u32;
+pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(3u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = 4u32;
+pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(4u32);
+impl ::core::marker::Copy for WINTRUST_DATA_STATE_ACTION {}
+impl ::core::clone::Clone for WINTRUST_DATA_STATE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_STATE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_STATE_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_STATE_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_STATE_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_STATE_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_STATE_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_STATE_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_STATE_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_STATE_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_UICHOICE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_UICHOICE(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = 1u32;
+pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = 2u32;
+pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(2u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = 3u32;
+pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(3u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = 4u32;
+pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(4u32);
+impl ::core::marker::Copy for WINTRUST_DATA_UICHOICE {}
+impl ::core::clone::Clone for WINTRUST_DATA_UICHOICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_UICHOICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_UICHOICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_UICHOICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_UICHOICE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_UICHOICE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_UICHOICE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_UICHOICE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_UICHOICE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_UICHOICE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_UICONTEXT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_UICONTEXT(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = 0u32;
+pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(0u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = 1u32;
+pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(1u32);
+impl ::core::marker::Copy for WINTRUST_DATA_UICONTEXT {}
+impl ::core::clone::Clone for WINTRUST_DATA_UICONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_UICONTEXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_UICONTEXT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_UICONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_UICONTEXT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_UICONTEXT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_UICONTEXT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_UICONTEXT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_UICONTEXT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_UICONTEXT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_DATA_UNION_CHOICE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = 1u32;
+pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = 2u32;
+pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(2u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = 3u32;
+pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(3u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = 4u32;
+pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(4u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = 5u32;
+pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(5u32);
+impl ::core::marker::Copy for WINTRUST_DATA_UNION_CHOICE {}
+impl ::core::clone::Clone for WINTRUST_DATA_UNION_CHOICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_DATA_UNION_CHOICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_DATA_UNION_CHOICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_DATA_UNION_CHOICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_DATA_UNION_CHOICE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_DATA_UNION_CHOICE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_DATA_UNION_CHOICE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_DATA_UNION_CHOICE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_DATA_UNION_CHOICE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_DATA_UNION_CHOICE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2047,39 +2341,137 @@ impl ::core::default::Default for WINTRUST_FILE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 1u32;
+pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 2u32;
+pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
+impl ::core::marker::Copy for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {}
+impl ::core::clone::Clone for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_POLICY_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_POLICY_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = 32u32;
+pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = 128u32;
+pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = 256u32;
+pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = 512u32;
+pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = 1024u32;
+pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = 2048u32;
+pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = 4096u32;
+pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = 8192u32;
+pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = 65536u32;
+pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = 131072u32;
+pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = 262144u32;
+pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(262144u32);
+impl ::core::marker::Copy for WINTRUST_POLICY_FLAGS {}
+impl ::core::clone::Clone for WINTRUST_POLICY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_POLICY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_POLICY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_POLICY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_POLICY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_POLICY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_POLICY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_POLICY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_POLICY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_POLICY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2166,11 +2558,60 @@ impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub type WINTRUST_SIGNATURE_SETTINGS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 1u32;
+pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 2u32;
+pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(2u32);
+impl ::core::marker::Copy for WINTRUST_SIGNATURE_SETTINGS_FLAGS {}
+impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINTRUST_SIGNATURE_SETTINGS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct WIN_CERTIFICATE {
@@ -2893,3 +3334,5 @@ pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

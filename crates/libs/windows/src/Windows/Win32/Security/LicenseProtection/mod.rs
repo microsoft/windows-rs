@@ -1,16 +1,37 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub type LicenseProtectionStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LicenseProtectionStatus(pub i32);
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub const Success: LicenseProtectionStatus = 0i32;
+pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub const LicenseKeyNotFound: LicenseProtectionStatus = 1i32;
+pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub const LicenseKeyUnprotected: LicenseProtectionStatus = 2i32;
+pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub const LicenseKeyCorrupted: LicenseProtectionStatus = 3i32;
+pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
 #[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
-pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = 4i32;
+pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
+impl ::core::marker::Copy for LicenseProtectionStatus {}
+impl ::core::clone::Clone for LicenseProtectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LicenseProtectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LicenseProtectionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LicenseProtectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LicenseProtectionStatus").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_LicenseProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -42,3 +63,5 @@ pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

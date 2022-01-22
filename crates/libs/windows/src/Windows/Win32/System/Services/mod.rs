@@ -248,13 +248,62 @@ pub unsafe fn DeleteService<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type ENUM_SERVICE_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENUM_SERVICE_STATE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = 1u32;
+pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = 2u32;
+pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = 3u32;
+pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
+impl ::core::marker::Copy for ENUM_SERVICE_STATE {}
+impl ::core::clone::Clone for ENUM_SERVICE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_SERVICE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_SERVICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_SERVICE_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENUM_SERVICE_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENUM_SERVICE_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENUM_SERVICE_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENUM_SERVICE_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENUM_SERVICE_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -416,31 +465,80 @@ impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSW {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type ENUM_SERVICE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENUM_SERVICE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = 11u32;
+pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_FILE_SYSTEM_DRIVER_: ENUM_SERVICE_TYPE = 2u32;
+pub const SERVICE_FILE_SYSTEM_DRIVER_: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = 1u32;
+pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = 48u32;
+pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(48u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_WIN32_OWN_PROCESS_: ENUM_SERVICE_TYPE = 16u32;
+pub const SERVICE_WIN32_OWN_PROCESS_: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = 32u32;
+pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(32u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = 4u32;
+pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = 2u32;
+pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = 8u32;
+pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = 16u32;
+pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = 80u32;
+pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(80u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = 96u32;
+pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(96u32);
+impl ::core::marker::Copy for ENUM_SERVICE_TYPE {}
+impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_SERVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_SERVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_SERVICE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENUM_SERVICE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENUM_SERVICE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENUM_SERVICE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENUM_SERVICE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENUM_SERVICE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -1210,29 +1308,92 @@ impl ::core::default::Default for SC_ACTION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SC_ACTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SC_ACTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ACTION_NONE: SC_ACTION_TYPE = 0i32;
+pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ACTION_RESTART: SC_ACTION_TYPE = 1i32;
+pub const SC_ACTION_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = 2i32;
+pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = SC_ACTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = 3i32;
+pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = SC_ACTION_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = 4i32;
+pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
+impl ::core::marker::Copy for SC_ACTION_TYPE {}
+impl ::core::clone::Clone for SC_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SC_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SC_ACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SC_ACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SC_ACTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SC_ENUM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SC_ENUM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = 0i32;
+pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
+impl ::core::marker::Copy for SC_ENUM_TYPE {}
+impl ::core::clone::Clone for SC_ENUM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SC_ENUM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SC_ENUM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SC_ENUM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SC_ENUM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SC_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SC_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = 0i32;
+pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = 1i32;
+pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = 2i32;
+pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(2i32);
+impl ::core::marker::Copy for SC_EVENT_TYPE {}
+impl ::core::clone::Clone for SC_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SC_EVENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SC_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SC_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SC_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1248,9 +1409,30 @@ pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SC_STATUS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SC_STATUS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = 0i32;
+pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
+impl ::core::marker::Copy for SC_STATUS_TYPE {}
+impl ::core::clone::Clone for SC_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SC_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SC_STATUS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SC_STATUS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SC_STATUS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1284,27 +1466,76 @@ pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_CONFIG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_CONFIG(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = 3u32;
+pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = SERVICE_CONFIG(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = 1u32;
+pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = SERVICE_CONFIG(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = 2u32;
+pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = SERVICE_CONFIG(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = 4u32;
+pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = SERVICE_CONFIG(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = 9u32;
+pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = SERVICE_CONFIG(9u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = 7u32;
+pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = SERVICE_CONFIG(7u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = 6u32;
+pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = SERVICE_CONFIG(6u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = 5u32;
+pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = SERVICE_CONFIG(5u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = 8u32;
+pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = SERVICE_CONFIG(8u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = 12u32;
+pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = SERVICE_CONFIG(12u32);
+impl ::core::marker::Copy for SERVICE_CONFIG {}
+impl ::core::clone::Clone for SERVICE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_CONFIG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_CONFIG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_CONFIG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_CONFIG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_CONFIG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_CONFIG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_CONFIG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_CONFIG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1622,25 +1853,95 @@ impl ::core::default::Default for SERVICE_DESCRIPTIONW {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_DIRECTORY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_DIRECTORY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = 0i32;
+pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = 1i32;
+pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(1i32);
+impl ::core::marker::Copy for SERVICE_DIRECTORY_TYPE {}
+impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_DIRECTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_DIRECTORY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_ERROR = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_ERROR(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = 3u32;
+pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = 0u32;
+pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = SERVICE_ERROR(0u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = 1u32;
+pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = SERVICE_ERROR(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = 2u32;
+pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = SERVICE_ERROR(2u32);
+impl ::core::marker::Copy for SERVICE_ERROR {}
+impl ::core::clone::Clone for SERVICE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_ERROR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_ERROR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_ERROR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_ERROR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_ERROR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_ERROR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1809,27 +2110,76 @@ pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" 
 #[cfg(feature = "Win32_Foundation")]
 pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR)>;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_NOTIFY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_NOTIFY(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = 128u32;
+pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = 16u32;
+pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(16u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = 512u32;
+pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(512u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = 256u32;
+pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = SERVICE_NOTIFY(256u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = 32u32;
+pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(32u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = 64u32;
+pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = SERVICE_NOTIFY(64u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = 8u32;
+pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = SERVICE_NOTIFY(8u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = 2u32;
+pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = 4u32;
+pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = 1u32;
+pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = SERVICE_NOTIFY(1u32);
+impl ::core::marker::Copy for SERVICE_NOTIFY {}
+impl ::core::clone::Clone for SERVICE_NOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_NOTIFY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_NOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_NOTIFY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_NOTIFY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_NOTIFY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_NOTIFY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_NOTIFY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_NOTIFY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub struct SERVICE_NOTIFY_1 {
@@ -2036,13 +2386,34 @@ pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_REGISTRY_STATE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = 0i32;
+pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = 1i32;
+pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = 2i32;
+pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(2i32);
+impl ::core::marker::Copy for SERVICE_REGISTRY_STATE_TYPE {}
+impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_REGISTRY_STATE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_REGISTRY_STATE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_REGISTRY_STATE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_REGISTRY_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2120,19 +2491,110 @@ impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_RUNS_IN_PROCESS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = 0u32;
+pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = 1u32;
+pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(1u32);
+impl ::core::marker::Copy for SERVICE_RUNS_IN_PROCESS {}
+impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_RUNS_IN_PROCESS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_RUNS_IN_PROCESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_RUNS_IN_PROCESS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_RUNS_IN_PROCESS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_RUNS_IN_PROCESS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_RUNS_IN_PROCESS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_RUNS_IN_PROCESS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_RUNS_IN_PROCESS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_SHARED_DIRECTORY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = 0i32;
+pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
+impl ::core::marker::Copy for SERVICE_SHARED_DIRECTORY_TYPE {}
+impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_SHARED_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_SHARED_REGISTRY_STATE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0i32;
+pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
+impl ::core::marker::Copy for SERVICE_SHARED_REGISTRY_STATE_TYPE {}
+impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_SHARED_REGISTRY_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub struct SERVICE_SID_INFO {
@@ -2210,17 +2672,66 @@ pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_START_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_START_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_AUTO_START: SERVICE_START_TYPE = 2u32;
+pub const SERVICE_AUTO_START: SERVICE_START_TYPE = SERVICE_START_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_BOOT_START: SERVICE_START_TYPE = 0u32;
+pub const SERVICE_BOOT_START: SERVICE_START_TYPE = SERVICE_START_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = 3u32;
+pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_DISABLED: SERVICE_START_TYPE = 4u32;
+pub const SERVICE_DISABLED: SERVICE_START_TYPE = SERVICE_START_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = 1u32;
+pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
+impl ::core::marker::Copy for SERVICE_START_TYPE {}
+impl ::core::clone::Clone for SERVICE_START_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_START_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_START_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_START_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_START_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_START_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_START_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_START_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_START_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_START_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub struct SERVICE_STATUS {
@@ -2258,21 +2769,70 @@ impl ::core::default::Default for SERVICE_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_STATUS_CURRENT_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = 5u32;
+pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = 6u32;
+pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(6u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = 7u32;
+pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(7u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = 4u32;
+pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = 2u32;
+pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = 3u32;
+pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = 1u32;
+pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
+impl ::core::marker::Copy for SERVICE_STATUS_CURRENT_STATE {}
+impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_STATUS_CURRENT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_STATUS_CURRENT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_STATUS_CURRENT_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_STATUS_CURRENT_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_STATUS_CURRENT_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_STATUS_CURRENT_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_STATUS_CURRENT_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_STATUS_CURRENT_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SERVICE_STATUS_HANDLE(pub isize);
@@ -2577,11 +3137,60 @@ impl ::core::default::Default for SERVICE_TRIGGER {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_TRIGGER_ACTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_TRIGGER_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = 1u32;
+pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = 2u32;
+pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(2u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_ACTION {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_TRIGGER_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_TRIGGER_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_TRIGGER_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_TRIGGER_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_TRIGGER_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
@@ -2677,33 +3286,131 @@ impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 1u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 2u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 3u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 4u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 5u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub type SERVICE_TRIGGER_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVICE_TRIGGER_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = 20u32;
+pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = 1u32;
+pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = 3u32;
+pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(3u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = 4u32;
+pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = 5u32;
+pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(5u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = 2u32;
+pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Services'*"]
-pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = 6u32;
+pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(6u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_TYPE {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERVICE_TRIGGER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVICE_TRIGGER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERVICE_TRIGGER_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERVICE_TRIGGER_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERVICE_TRIGGER_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -2848,3 +3555,5 @@ pub unsafe fn WaitServiceState<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

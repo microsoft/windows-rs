@@ -13,6 +13,11 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
         *self
     }
 }
+impl ::core::default::Default for TextPatternRangeEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
@@ -46,6 +51,11 @@ impl ::core::clone::Clone for TextUnit {
         *self
     }
 }
+impl ::core::default::Default for TextUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for TextUnit {
     type Abi = Self;
 }
@@ -60,3 +70,5 @@ unsafe impl ::windows::core::RuntimeType for TextUnit {
 impl ::windows::core::DefaultType for TextUnit {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

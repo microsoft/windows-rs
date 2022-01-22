@@ -140,3 +140,5 @@ impl ::core::fmt::Debug for HCOMDB {
 unsafe impl ::windows::core::Abi for HCOMDB {
     type Abi = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

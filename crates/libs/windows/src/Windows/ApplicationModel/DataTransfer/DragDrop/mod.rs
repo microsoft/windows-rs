@@ -20,6 +20,11 @@ impl ::core::clone::Clone for DragDropModifiers {
         *self
     }
 }
+impl ::core::default::Default for DragDropModifiers {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for DragDropModifiers {
     type Abi = Self;
 }
@@ -62,3 +67,5 @@ unsafe impl ::windows::core::RuntimeType for DragDropModifiers {
 impl ::windows::core::DefaultType for DragDropModifiers {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");
