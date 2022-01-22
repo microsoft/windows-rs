@@ -15,7 +15,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut requires = quote! {};
 
     fn gen_required_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
-        let name = gen_impl_ident(&def, gen);
+        let name = gen_impl_ident(def, gen);
         let namespace = gen.namespace(def.namespace());
         quote! {
             + #namespace #name
@@ -71,7 +71,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let method_impls = def.methods().map(|method| {
         let name = method_names.add(&method);
         let signature = method.signature(&def.generics);
-        let vtbl_signature = gen_vtbl_signature(&def, &method, gen);
+        let vtbl_signature = gen_vtbl_signature(def, &method, gen);
 
         let invoke_upcall = if def.is_winrt() { gen_winrt_upcall(&signature, quote! { (*this).#name }, gen) } else { gen_win32_upcall(&signature, quote! { (*this).#name }) };
 
@@ -90,7 +90,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         Some(ElementType::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
         Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
         Some(ElementType::TypeDef(def)) => {
-            let vtbl = gen_vtbl_ident(&def, gen);
+            let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
             methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
         }

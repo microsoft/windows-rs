@@ -304,18 +304,19 @@ impl UseTree2 {
                 input.tree.to_element_type(namespace)
             }
             UseTree2::Name(input) => {
-                let mut def = ImplementType::default();
-                def.type_name = input.ident.to_string();
+                let mut type_name = input.ident.to_string();
 
                 if !namespace.is_empty() {
-                    def.type_name = format!("{}::{}", namespace, def.type_name);
+                    type_name = format!("{}::{}", namespace, type_name);
                 }
+
+                let mut generics = vec![];
 
                 for g in &input.generics {
-                    def.generics.push(g.to_element_type(&mut String::new())?);
+                    generics.push(g.to_element_type(&mut String::new())?);
                 }
 
-                Ok(def)
+                Ok(ImplementType{type_name, generics })
             }
             UseTree2::Group(input) => Err(Error::new(input.brace_token.span, "Syntax not supported")),
         }

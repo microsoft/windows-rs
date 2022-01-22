@@ -29,9 +29,7 @@ fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
     let mut name = gen_ident(def.name());
     name.push_str(vtbl);
 
-    if def.generics.is_empty() {
-        name
-    } else if gen.sys {
+    if gen.sys || def.generics.is_empty() {
         name
     } else {
         name.push('<');

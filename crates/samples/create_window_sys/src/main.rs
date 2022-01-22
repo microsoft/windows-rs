@@ -28,7 +28,7 @@ fn main() {
         let mut message = std::mem::zeroed();
 
         while GetMessageA(&mut message, 0, 0, 0) != 0 {
-            DispatchMessageA(&mut message);
+            DispatchMessageA(&message);
         }
     }
 }

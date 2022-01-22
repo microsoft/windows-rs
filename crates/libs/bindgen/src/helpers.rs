@@ -160,7 +160,7 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
         Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
         Some(ElementType::TypeDef(def)) => {
-            let vtbl = gen_vtbl_ident(&def, gen);
+            let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
             methods.combine(&quote! { pub base: #namespace #vtbl, });
         }
@@ -173,8 +173,8 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         }
 
         let name = method_names.add(&method);
-        let signature = gen_vtbl_signature(&def, &method, gen);
-        let cfg = gen.method_cfg(&def, &method);
+        let signature = gen_vtbl_signature(def, &method, gen);
+        let cfg = gen.method_cfg(def, &method);
         let cfg_all = cfg.gen(gen);
         let cfg_not = cfg.gen_not(gen);
 
@@ -309,7 +309,7 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
     match sig.kind() {
         SignatureKind::ResultValue => {
-            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(gen_win32_invoke_arg);
 
             let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
@@ -324,21 +324,21 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
             }
         }
         SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
         }
         SignatureKind::ReturnStruct => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
 
             quote! {
                 *result__ = #inner(#(#invoke_args,)*)
             }
         }
         _ => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
 
             quote! {
                 #inner(#(#invoke_args,)*)

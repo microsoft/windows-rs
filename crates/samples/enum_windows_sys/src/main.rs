@@ -16,6 +16,6 @@ extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
             println!("{}", text);
         }
 
-        return 1;
+        1
     }
 }

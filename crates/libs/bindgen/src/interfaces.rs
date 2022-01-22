@@ -83,7 +83,7 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 
     // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
-    methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
+    methods.combine(&gen_methods_impl(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
 
     if is_winrt && !gen.min_inherit {
         for def in def.required_interfaces() {
@@ -105,9 +105,9 @@ fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut Metho
 
     for method in def.methods() {
         if is_winrt {
-            methods.combine(&gen_winrt_method(&def, kind, &method, method_names, virtual_names, gen));
+            methods.combine(&gen_winrt_method(def, kind, &method, method_names, virtual_names, gen));
         } else {
-            methods.combine(&gen_com_method(&def, &method, method_names, virtual_names, bases, gen));
+            methods.combine(&gen_com_method(def, &method, method_names, virtual_names, bases, gen));
         }
     }
 
