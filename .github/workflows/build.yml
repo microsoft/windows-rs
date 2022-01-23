@@ -90,9 +90,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Update toolchain
+      run: rustup update --no-self-update nightly && rustup default nightly
+
     - name: Run cargo clippy
       # TODO: Add  --all-targets when the tests adhere to clippy lints
-      run: cargo +nightly clippy --all -- -D warnings
+      run: cargo clippy --all -- -D warnings
 
   cargo_doc:
     name: Check cargo docs
