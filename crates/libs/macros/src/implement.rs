@@ -72,6 +72,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
     });
 
     let tokens = quote! {
+        #[repr(C)]
         struct #impl_ident<#(#generics,)*> where #constraints {
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
@@ -153,6 +154,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 (inspectable, &mut (*this).base)
             }
         }
+        // tODO: From must be fully qualified
         impl <#constraints> From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 unsafe {
