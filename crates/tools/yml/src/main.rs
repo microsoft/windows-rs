@@ -1,7 +1,7 @@
 use std::io::prelude::*;
 
 fn main() {
-    let mut root = std::path::PathBuf::from(reader::workspace_dir());
+    let root = std::path::PathBuf::from(reader::workspace_dir());
 
     let mut yml = std::fs::File::create(root.join(".github/workflows/test.yml")).unwrap();
 
