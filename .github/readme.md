@@ -90,3 +90,36 @@ fn main() {
     }
 }
 ```
+
+## Stability
+
+All crates in `windows-rs` interact with [Windows Metadata (`.winmd`)
+files](https://github.com/microsoft/win32metadata) which describe the various
+windows APIs. All Windows APIs can be split into two categories:
+`win32` APIs and `WinRT/COM` APIs. The way we bind to these APIs is different,
+but in the metadata they also have different stability guarantees:
+
+| Metadata category | Stable? |
+|-------------------|---------|
+| `Win32`           | ❌       |
+| `WinRT/COM`       | ✅       |
+
+The `windows-rs` project consists of different crates, which interact with
+different parts of the Windows APIs. The stability of a crate is determined by
+two factors which both must be stable for the crate to be stable:
+
+1. The stability of the underlying schema we're generating bindings for.
+2. The stability of the code we generate for the schema (the "projection").
+
+| Crate name            | `Win32` support? | `WinRT/COM` support? | Projection Stable?  | Crate Stable? |
+|-----------------------|------------------|----------------------|---------------------|---------------|
+| **`windows`**         | ✅                | ✅                    | ❌                   | ❌             |
+| **`windows-sys`**     | ✅                | ❌                    | ❌ (but we're close) | ❌             |
+| **`windows-bindgen`** | ✅                | ✅                    | ❌                   | ❌             |
+
+Because of the scope of the project (`230.000+` unique types), marking anything
+as "stable" is a difficult task. Despite that, it is our explicit intent to
+eventually achieve that. Over time we hope to gradually mark more APIs as
+stable, propose concrete plans how to get to `1.0.0` stable releases for all
+crates, and ensure that any breakage before then is well-communicated to reduce
+friction.
