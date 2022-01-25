@@ -1,5 +1,5 @@
 [package]
-name = "test_winrt_dep_map"
+name = "test_implement_map"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"

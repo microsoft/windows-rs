@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 on:
   pull_request:
@@ -65,36 +65,42 @@ jobs:
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.other, 'windows-gnu')
 
-    - name: Test (${{ matrix.os }})
-      run: cargo test --target ${{ matrix.other }} -p test_agile
-      run: cargo test --target ${{ matrix.other }} -p test_alternate_success_code
-      run: cargo test --target ${{ matrix.other }} -p test_arch
-      run: cargo test --target ${{ matrix.other }} -p test_arch_feature
-      run: cargo test --target ${{ matrix.other }} -p test_bstr
-      run: cargo test --target ${{ matrix.other }} -p test_class_factory
-      run: cargo test --target ${{ matrix.other }} -p test_core
-      run: cargo test --target ${{ matrix.other }} -p test_data_object
-      run: cargo test --target ${{ matrix.other }} -p test_debug
-      run: cargo test --target ${{ matrix.other }} -p test_deprecated
-      run: cargo test --target ${{ matrix.other }} -p test_dep_map
-      run: cargo test --target ${{ matrix.other }} -p test_enums
-      run: cargo test --target ${{ matrix.other }} -p test_handles
-      run: cargo test --target ${{ matrix.other }} -p test_helpers
-      run: cargo test --target ${{ matrix.other }} -p test_implement
-      run: cargo test --target ${{ matrix.other }} -p test_implement_identity
-      run: cargo test --target ${{ matrix.other }} -p test_implement_no_use
-      run: cargo test --target ${{ matrix.other }} -p test_implement_null_result
-      run: cargo test --target ${{ matrix.other }} -p test_interop
-      run: cargo test --target ${{ matrix.other }} -p test_lib
-      run: cargo test --target ${{ matrix.other }} -p test_matrix3x2
-      run: cargo test --target ${{ matrix.other }} -p test_mshtml
-      run: cargo test --target ${{ matrix.other }} -p test_ntstatus
-      run: cargo test --target ${{ matrix.other }} -p test_pwstr
-      run: cargo test --target ${{ matrix.other }} -p test_return_struct
-      run: cargo test --target ${{ matrix.other }} -p test_structs
-      run: cargo test --target ${{ matrix.other }} -p test_sys
-      run: cargo test --target ${{ matrix.other }} -p test_unions
-      run: cargo test --target ${{ matrix.other }} -p test_weak
-      run: cargo test --target ${{ matrix.other }} -p test_win32
-      run: cargo test --target ${{ matrix.other }} -p test_win32_arrays
-      run: cargo test --target ${{ matrix.other }} -p test_winrt
+    - name: Test stable (${{ matrix.os }})
+      run: |
+        cargo test --target ${{ matrix.other }} -p test_agile
+        cargo test --target ${{ matrix.other }} -p test_alternate_success_code
+        cargo test --target ${{ matrix.other }} -p test_arch
+        cargo test --target ${{ matrix.other }} -p test_arch_feature
+        cargo test --target ${{ matrix.other }} -p test_bstr
+        cargo test --target ${{ matrix.other }} -p test_core
+        cargo test --target ${{ matrix.other }} -p test_debug
+        cargo test --target ${{ matrix.other }} -p test_deprecated
+        cargo test --target ${{ matrix.other }} -p test_enums
+        cargo test --target ${{ matrix.other }} -p test_handles
+        cargo test --target ${{ matrix.other }} -p test_helpers
+        cargo test --target ${{ matrix.other }} -p test_implement
+        cargo test --target ${{ matrix.other }} -p test_interop
+        cargo test --target ${{ matrix.other }} -p test_lib
+        cargo test --target ${{ matrix.other }} -p test_matrix3x2
+        cargo test --target ${{ matrix.other }} -p test_mshtml
+        cargo test --target ${{ matrix.other }} -p test_ntstatus
+        cargo test --target ${{ matrix.other }} -p test_pwstr
+        cargo test --target ${{ matrix.other }} -p test_return_struct
+        cargo test --target ${{ matrix.other }} -p test_structs
+        cargo test --target ${{ matrix.other }} -p test_sys
+        cargo test --target ${{ matrix.other }} -p test_unions
+        cargo test --target ${{ matrix.other }} -p test_weak
+        cargo test --target ${{ matrix.other }} -p test_win32
+        cargo test --target ${{ matrix.other }} -p test_win32_arrays
+      if: contains(matrix.rust, 'stable')
+
+    - name: Test nightly (${{ matrix.os }})
+      run: |
+        cargo test --target ${{ matrix.other }} -p test_implement_class_factory
+        cargo test --target ${{ matrix.other }} -p test_implement_data_object
+        cargo test --target ${{ matrix.other }} -p test_implement_identity
+        cargo test --target ${{ matrix.other }} -p test_implement_map
+        cargo test --target ${{ matrix.other }} -p test_implement_no_use
+        cargo test --target ${{ matrix.other }} -p test_implement_null_result
+        cargo test --target ${{ matrix.other }} -p test_implement_winrt
+      if: contains(matrix.rust, 'nightly')
