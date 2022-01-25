@@ -590,34 +590,6 @@ impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
         f.debug_tuple("NETWORK_NAME_FORMAT_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NETWORK_NAME_FORMAT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NETWORK_NAME_FORMAT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -647,34 +619,6 @@ unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
 impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NET_RESOURCE_SCOPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_RESOURCE_SCOPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_RESOURCE_SCOPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
@@ -1039,34 +983,6 @@ impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
         f.debug_tuple("NPDIRECTORY_NOTIFY_OPERATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NPDIRECTORY_NOTIFY_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NPDIRECTORY_NOTIFY_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1273,34 +1189,6 @@ unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
 impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NP_PROPERTY_DIALOG_SELECTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NP_PROPERTY_DIALOG_SELECTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NP_PROPERTY_DIALOG_SELECTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -1556,34 +1444,6 @@ unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
 impl ::core::fmt::Debug for UNC_INFO_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UNC_INFO_LEVEL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UNC_INFO_LEVEL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UNC_INFO_LEVEL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1846,34 +1706,6 @@ unsafe impl ::windows::core::Abi for WNPERM_DLG {
 impl ::core::fmt::Debug for WNPERM_DLG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WNPERM_DLG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WNPERM_DLG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WNPERM_DLG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WNPERM_DLG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WNPERM_DLG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WNPERM_DLG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]

@@ -2772,34 +2772,6 @@ impl ::core::fmt::Debug for FORCE_LEVEL_FLAGS {
         f.debug_tuple("FORCE_LEVEL_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FORCE_LEVEL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FORCE_LEVEL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FORCE_LEVEL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FORCE_LEVEL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FORCE_LEVEL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const GNLEN: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -15490,34 +15462,6 @@ impl ::core::fmt::Debug for SERVER_INFO_HIDDEN {
         f.debug_tuple("SERVER_INFO_HIDDEN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SERVER_INFO_HIDDEN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVER_INFO_HIDDEN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVER_INFO_HIDDEN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVER_INFO_HIDDEN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SERVER_INFO_HIDDEN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -15543,34 +15487,6 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
 impl ::core::fmt::Debug for SERVER_INFO_SECURITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SERVER_INFO_SECURITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SERVER_INFO_SECURITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVER_INFO_SECURITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVER_INFO_SECURITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVER_INFO_SECURITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SERVER_INFO_SECURITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -18937,34 +18853,6 @@ impl ::core::fmt::Debug for USER_MODALS_ROLES {
         f.debug_tuple("USER_MODALS_ROLES").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for USER_MODALS_ROLES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for USER_MODALS_ROLES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for USER_MODALS_ROLES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for USER_MODALS_ROLES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for USER_MODALS_ROLES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const USER_NAME_PARMNUM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -19037,34 +18925,6 @@ unsafe impl ::windows::core::Abi for USER_PRIV {
 impl ::core::fmt::Debug for USER_PRIV {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USER_PRIV").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for USER_PRIV {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for USER_PRIV {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for USER_PRIV {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for USER_PRIV {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for USER_PRIV {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -19382,34 +19242,6 @@ unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
 impl ::core::fmt::Debug for USE_INFO_ASG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USE_INFO_ASG_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for USE_INFO_ASG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for USE_INFO_ASG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for USE_INFO_ASG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for USE_INFO_ASG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for USE_INFO_ASG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]

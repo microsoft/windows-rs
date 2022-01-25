@@ -1497,34 +1497,6 @@ impl ::core::fmt::Debug for D3DBACKBUFFER_TYPE {
         f.debug_tuple("D3DBACKBUFFER_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D3DBACKBUFFER_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DBACKBUFFER_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DBACKBUFFER_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DBACKBUFFER_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DBACKBUFFER_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1615,34 +1587,6 @@ impl ::core::fmt::Debug for D3DBLEND {
         f.debug_tuple("D3DBLEND").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D3DBLEND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DBLEND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DBLEND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DBLEND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DBLEND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1676,34 +1620,6 @@ unsafe impl ::windows::core::Abi for D3DBLENDOP {
 impl ::core::fmt::Debug for D3DBLENDOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3DBLENDOP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D3DBLENDOP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DBLENDOP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DBLENDOP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DBLENDOP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DBLENDOP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -2338,34 +2254,6 @@ impl ::core::fmt::Debug for D3DCULL {
         f.debug_tuple("D3DCULL").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D3DCULL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DCULL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DCULL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DCULL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DCULL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const D3DCURSORCAPS_COLOR: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -2950,34 +2838,6 @@ impl ::core::fmt::Debug for D3DDEVTYPE {
         f.debug_tuple("D3DDEVTYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D3DDEVTYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DDEVTYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DDEVTYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DDEVTYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DDEVTYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub struct D3DDISPLAYMODE {
@@ -3388,34 +3248,6 @@ unsafe impl ::windows::core::Abi for D3DFORMAT {
 impl ::core::fmt::Debug for D3DFORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3DFORMAT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D3DFORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DFORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DFORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DFORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DFORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -4084,34 +3916,6 @@ unsafe impl ::windows::core::Abi for D3DPOOL {
 impl ::core::fmt::Debug for D3DPOOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3DPOOL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D3DPOOL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DPOOL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DPOOL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DPOOL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DPOOL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -5710,34 +5514,6 @@ impl ::core::fmt::Debug for D3DSTENCILOP {
         f.debug_tuple("D3DSTENCILOP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D3DSTENCILOP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DSTENCILOP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DSTENCILOP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DSTENCILOP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DSTENCILOP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
 pub const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
@@ -5812,34 +5588,6 @@ unsafe impl ::windows::core::Abi for D3DSWAPEFFECT {
 impl ::core::fmt::Debug for D3DSWAPEFFECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3DSWAPEFFECT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D3DSWAPEFFECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D3DSWAPEFFECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3DSWAPEFFECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3DSWAPEFFECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D3DSWAPEFFECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]

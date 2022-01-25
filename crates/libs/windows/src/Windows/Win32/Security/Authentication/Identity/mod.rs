@@ -1914,34 +1914,6 @@ impl ::core::fmt::Debug for KERB_ADDRESS_TYPE {
         f.debug_tuple("KERB_ADDRESS_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for KERB_ADDRESS_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for KERB_ADDRESS_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for KERB_ADDRESS_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for KERB_ADDRESS_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for KERB_ADDRESS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4229,34 +4201,6 @@ impl ::core::fmt::Debug for KERB_REQUEST_FLAGS {
         f.debug_tuple("KERB_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for KERB_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for KERB_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for KERB_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for KERB_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for KERB_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5557,34 +5501,6 @@ unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION_AUTH_TYPE {
 impl ::core::fmt::Debug for LSA_AUTH_INFORMATION_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LSA_AUTH_INFORMATION_AUTH_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -7362,34 +7278,6 @@ impl ::core::fmt::Debug for MSV1_0 {
         f.debug_tuple("MSV1_0").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MSV1_0 {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MSV1_0 {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSV1_0 {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSV1_0 {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MSV1_0 {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -8652,34 +8540,6 @@ unsafe impl ::windows::core::Abi for MSV_SUB_AUTHENTICATION_FILTER {
 impl ::core::fmt::Debug for MSV_SUB_AUTHENTICATION_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MSV_SUB_AUTHENTICATION_FILTER").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MSV_SUB_AUTHENTICATION_FILTER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MSV_SUB_AUTHENTICATION_FILTER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSV_SUB_AUTHENTICATION_FILTER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSV_SUB_AUTHENTICATION_FILTER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MSV_SUB_AUTHENTICATION_FILTER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -11087,34 +10947,6 @@ impl ::core::fmt::Debug for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
         f.debug_tuple("SCHANNEL_ALERT_TOKEN_ALERT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SCHANNEL_CERT_HASH {
@@ -11433,34 +11265,6 @@ unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN_FLAGS {
 impl ::core::fmt::Debug for SCHANNEL_SESSION_TOKEN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SCHANNEL_SESSION_TOKEN_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SCHANNEL_SESSION_TOKEN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SCHANNEL_SESSION_TOKEN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCHANNEL_SESSION_TOKEN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCHANNEL_SESSION_TOKEN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SCHANNEL_SESSION_TOKEN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -11919,34 +11723,6 @@ unsafe impl ::windows::core::Abi for SECPKG_ATTR {
 impl ::core::fmt::Debug for SECPKG_ATTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECPKG_ATTR").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SECPKG_ATTR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SECPKG_ATTR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECPKG_ATTR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECPKG_ATTR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SECPKG_ATTR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -12436,34 +12212,6 @@ unsafe impl ::windows::core::Abi for SECPKG_CRED {
 impl ::core::fmt::Debug for SECPKG_CRED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECPKG_CRED").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SECPKG_CRED {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SECPKG_CRED {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECPKG_CRED {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECPKG_CRED {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SECPKG_CRED {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -13363,34 +13111,6 @@ unsafe impl ::windows::core::Abi for SECPKG_PACKAGE_CHANGE_TYPE {
 impl ::core::fmt::Debug for SECPKG_PACKAGE_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECPKG_PACKAGE_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SECPKG_PACKAGE_CHANGE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SECPKG_PACKAGE_CHANGE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECPKG_PACKAGE_CHANGE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECPKG_PACKAGE_CHANGE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SECPKG_PACKAGE_CHANGE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -14301,34 +14021,6 @@ unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS_TYPE {
 impl ::core::fmt::Debug for SECURITY_PACKAGE_OPTIONS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECURITY_PACKAGE_OPTIONS_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SECURITY_PACKAGE_OPTIONS_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SECURITY_PACKAGE_OPTIONS_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECURITY_PACKAGE_OPTIONS_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECURITY_PACKAGE_OPTIONS_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SECURITY_PACKAGE_OPTIONS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -15626,34 +15318,6 @@ unsafe impl ::windows::core::Abi for SLDATATYPE {
 impl ::core::fmt::Debug for SLDATATYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SLDATATYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SLDATATYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SLDATATYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SLDATATYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SLDATATYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SLDATATYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
@@ -21934,34 +21598,6 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
         f.debug_tuple("TRUSTED_DOMAIN_TRUST_ATTRIBUTES").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -21993,34 +21629,6 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_DIRECTION {
         f.debug_tuple("TRUSTED_DOMAIN_TRUST_DIRECTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -22050,34 +21658,6 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_TYPE {
 impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRUSTED_DOMAIN_TRUST_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]

@@ -221,34 +221,6 @@ impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
         f.debug_tuple("CONVINFO_CONVERSATION_STATE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CONVINFO_CONVERSATION_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONVINFO_CONVERSATION_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONVINFO_CONVERSATION_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONVINFO_CONVERSATION_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONVINFO_CONVERSATION_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -674,34 +646,6 @@ impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
         f.debug_tuple("DDE_CLIENT_TRANSACTION_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DDE_CLIENT_TRANSACTION_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DDE_CLIENT_TRANSACTION_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DDE_CLIENT_TRANSACTION_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DDE_CLIENT_TRANSACTION_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DDE_CLIENT_TRANSACTION_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -731,34 +675,6 @@ unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
 impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DDE_ENABLE_CALLBACK_CMD").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DDE_ENABLE_CALLBACK_CMD {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DDE_ENABLE_CALLBACK_CMD {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DDE_ENABLE_CALLBACK_CMD {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DDE_ENABLE_CALLBACK_CMD {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DDE_ENABLE_CALLBACK_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
@@ -903,34 +819,6 @@ unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {
 impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DDE_NAME_SERVICE_CMD").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DDE_NAME_SERVICE_CMD {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DDE_NAME_SERVICE_CMD {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DDE_NAME_SERVICE_CMD {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DDE_NAME_SERVICE_CMD {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DDE_NAME_SERVICE_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]

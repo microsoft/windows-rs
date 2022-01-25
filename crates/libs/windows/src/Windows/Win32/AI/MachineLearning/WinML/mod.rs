@@ -1465,34 +1465,6 @@ impl ::core::fmt::Debug for MLOperatorAttributeType {
         f.debug_tuple("MLOperatorAttributeType").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MLOperatorAttributeType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MLOperatorAttributeType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MLOperatorAttributeType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MLOperatorAttributeType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MLOperatorAttributeType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorEdgeDescription {
@@ -1572,34 +1544,6 @@ impl ::core::fmt::Debug for MLOperatorEdgeType {
         f.debug_tuple("MLOperatorEdgeType").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MLOperatorEdgeType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MLOperatorEdgeType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MLOperatorEdgeType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MLOperatorEdgeType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MLOperatorEdgeType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1666,34 +1610,6 @@ unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
 impl ::core::fmt::Debug for MLOperatorExecutionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorExecutionType").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MLOperatorExecutionType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MLOperatorExecutionType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MLOperatorExecutionType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MLOperatorExecutionType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MLOperatorExecutionType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -2100,34 +2016,6 @@ unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
 impl ::core::fmt::Debug for MLOperatorTensorDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MLOperatorTensorDataType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MLOperatorTensorDataType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MLOperatorTensorDataType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MLOperatorTensorDataType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MLOperatorTensorDataType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

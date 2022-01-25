@@ -28,34 +28,6 @@ impl ::core::fmt::Debug for ADDRESS_FAMILY {
         f.debug_tuple("ADDRESS_FAMILY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ADDRESS_FAMILY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ADDRESS_FAMILY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ADDRESS_FAMILY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ADDRESS_FAMILY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ADDRESS_FAMILY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const ANY_SIZE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]

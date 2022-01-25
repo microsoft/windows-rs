@@ -1856,34 +1856,6 @@ impl ::core::fmt::Debug for WINBIO_COMPONENT {
         f.debug_tuple("WINBIO_COMPONENT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINBIO_COMPONENT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_COMPONENT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_COMPONENT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_COMPONENT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_COMPONENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4121,34 +4093,6 @@ impl ::core::fmt::Debug for WINBIO_POOL {
         f.debug_tuple("WINBIO_POOL").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINBIO_POOL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_POOL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_POOL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_POOL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_POOL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4784,34 +4728,6 @@ unsafe impl ::windows::core::Abi for WINBIO_SETTING_SOURCE {
 impl ::core::fmt::Debug for WINBIO_SETTING_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINBIO_SETTING_SOURCE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_SETTING_SOURCE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_SETTING_SOURCE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

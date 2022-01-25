@@ -987,34 +987,6 @@ impl ::core::fmt::Debug for CRED_PERSIST {
         f.debug_tuple("CRED_PERSIST").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRED_PERSIST {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRED_PERSIST {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRED_PERSIST {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRED_PERSIST {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRED_PERSIST {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -1105,34 +1077,6 @@ unsafe impl ::windows::core::Abi for CRED_TYPE {
 impl ::core::fmt::Debug for CRED_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRED_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRED_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRED_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRED_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRED_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRED_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2992,34 +2936,6 @@ impl ::core::fmt::Debug for SCARD_SCOPE {
         f.debug_tuple("SCARD_SCOPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SCARD_SCOPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SCARD_SCOPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCARD_SCOPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCARD_SCOPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SCARD_SCOPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -3073,34 +2989,6 @@ unsafe impl ::windows::core::Abi for SCARD_STATE {
 impl ::core::fmt::Debug for SCARD_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SCARD_STATE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SCARD_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SCARD_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCARD_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCARD_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SCARD_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]

@@ -13081,34 +13081,6 @@ impl ::core::fmt::Debug for WLAN_CONNECTION_NOTIFICATION_FLAGS {
         f.debug_tuple("WLAN_CONNECTION_NOTIFICATION_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WLAN_CONNECTION_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -15182,34 +15154,6 @@ unsafe impl ::windows::core::Abi for WLAN_SET_EAPHOST_FLAGS {
 impl ::core::fmt::Debug for WLAN_SET_EAPHOST_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WLAN_SET_EAPHOST_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WLAN_SET_EAPHOST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WLAN_SET_EAPHOST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WLAN_SET_EAPHOST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WLAN_SET_EAPHOST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WLAN_SET_EAPHOST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

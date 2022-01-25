@@ -234,34 +234,6 @@ impl ::core::fmt::Debug for ALERT_SYSTEM_SEV {
         f.debug_tuple("ALERT_SYSTEM_SEV").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ALERT_SYSTEM_SEV {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ALERT_SYSTEM_SEV {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ALERT_SYSTEM_SEV {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ALERT_SYSTEM_SEV {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ALERT_SYSTEM_SEV {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const ALL_POWERSCHEMES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
@@ -529,34 +501,6 @@ unsafe impl ::windows::core::Abi for APPCOMMAND_ID {
 impl ::core::fmt::Debug for APPCOMMAND_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("APPCOMMAND_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for APPCOMMAND_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for APPCOMMAND_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for APPCOMMAND_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for APPCOMMAND_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for APPCOMMAND_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1009,34 +953,6 @@ unsafe impl ::windows::core::Abi for CLIPBOARD_FORMATS {
 impl ::core::fmt::Debug for CLIPBOARD_FORMATS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CLIPBOARD_FORMATS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CLIPBOARD_FORMATS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CLIPBOARD_FORMATS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CLIPBOARD_FORMATS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CLIPBOARD_FORMATS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CLIPBOARD_FORMATS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -2689,34 +2605,6 @@ impl ::core::fmt::Debug for DEV_BROADCAST_HDR_DEVICE_TYPE {
         f.debug_tuple("DEV_BROADCAST_HDR_DEVICE_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct DEV_BROADCAST_NET {
@@ -4174,34 +4062,6 @@ unsafe impl ::windows::core::Abi for IGP_ID {
 impl ::core::fmt::Debug for IGP_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IGP_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for IGP_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IGP_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IGP_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IGP_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IGP_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C, packed(4))]

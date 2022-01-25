@@ -23388,34 +23388,6 @@ impl ::core::fmt::Debug for SOUNDSENTRY_TEXT_EFFECT {
         f.debug_tuple("SOUNDSENTRY_TEXT_EFFECT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SOUNDSENTRY_TEXT_EFFECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SOUNDSENTRY_TEXT_EFFECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SOUNDSENTRY_TEXT_EFFECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SOUNDSENTRY_TEXT_EFFECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SOUNDSENTRY_TEXT_EFFECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -23449,34 +23421,6 @@ impl ::core::fmt::Debug for SOUNDSENTRY_WINDOWS_EFFECT {
         f.debug_tuple("SOUNDSENTRY_WINDOWS_EFFECT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SOUNDSENTRY_WINDOWS_EFFECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SOUNDSENTRY_WINDOWS_EFFECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SOUNDSENTRY_WINDOWS_EFFECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -23502,34 +23446,6 @@ unsafe impl ::windows::core::Abi for SOUND_SENTRY_GRAPHICS_EFFECT {
 impl ::core::fmt::Debug for SOUND_SENTRY_GRAPHICS_EFFECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SOUND_SENTRY_GRAPHICS_EFFECT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SOUND_SENTRY_GRAPHICS_EFFECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SOUND_SENTRY_GRAPHICS_EFFECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SOUND_SENTRY_GRAPHICS_EFFECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]

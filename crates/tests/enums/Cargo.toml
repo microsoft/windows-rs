@@ -8,4 +8,5 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "Storage_Streams",
+    "Win32_Foundation",
 ]

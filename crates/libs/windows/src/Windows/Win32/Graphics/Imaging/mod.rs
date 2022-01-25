@@ -6329,34 +6329,6 @@ impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
         f.debug_tuple("WIC8BIMIptcDigestProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WIC8BIMIptcDigestProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIC8BIMIptcDigestProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIC8BIMIptcDigestProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIC8BIMIptcDigestProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIC8BIMIptcDigestProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6384,34 +6356,6 @@ unsafe impl ::windows::core::Abi for WIC8BIMIptcProperties {
 impl ::core::fmt::Debug for WIC8BIMIptcProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIC8BIMIptcProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WIC8BIMIptcProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIC8BIMIptcProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIC8BIMIptcProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIC8BIMIptcProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIC8BIMIptcProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -6451,34 +6395,6 @@ unsafe impl ::windows::core::Abi for WIC8BIMResolutionInfoProperties {
 impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIC8BIMResolutionInfoProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WIC8BIMResolutionInfoProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIC8BIMResolutionInfoProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIC8BIMResolutionInfoProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIC8BIMResolutionInfoProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIC8BIMResolutionInfoProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -7325,34 +7241,6 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
         f.debug_tuple("WICGifApplicationExtensionProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICGifApplicationExtensionProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICGifApplicationExtensionProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICGifApplicationExtensionProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICGifApplicationExtensionProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICGifApplicationExtensionProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7378,34 +7266,6 @@ unsafe impl ::windows::core::Abi for WICGifCommentExtensionProperties {
 impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICGifCommentExtensionProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICGifCommentExtensionProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICGifCommentExtensionProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICGifCommentExtensionProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICGifCommentExtensionProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICGifCommentExtensionProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -7441,34 +7301,6 @@ unsafe impl ::windows::core::Abi for WICGifGraphicControlExtensionProperties {
 impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICGifGraphicControlExtensionProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICGifGraphicControlExtensionProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICGifGraphicControlExtensionProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICGifGraphicControlExtensionProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICGifGraphicControlExtensionProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICGifGraphicControlExtensionProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -7510,34 +7342,6 @@ unsafe impl ::windows::core::Abi for WICGifImageDescriptorProperties {
 impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICGifImageDescriptorProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICGifImageDescriptorProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICGifImageDescriptorProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICGifImageDescriptorProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICGifImageDescriptorProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICGifImageDescriptorProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -7583,34 +7387,6 @@ impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
         f.debug_tuple("WICGifLogicalScreenDescriptorProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICGifLogicalScreenDescriptorProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICGifLogicalScreenDescriptorProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICGifLogicalScreenDescriptorProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICGifLogicalScreenDescriptorProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICGifLogicalScreenDescriptorProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7646,34 +7422,6 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
         f.debug_tuple("WICHeifHdrProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICHeifHdrProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICHeifHdrProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICHeifHdrProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICHeifHdrProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICHeifHdrProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7699,34 +7447,6 @@ unsafe impl ::windows::core::Abi for WICHeifProperties {
 impl ::core::fmt::Debug for WICHeifProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICHeifProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICHeifProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICHeifProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICHeifProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICHeifProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICHeifProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7800,34 +7520,6 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
         f.debug_tuple("WICJpegChrominanceProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICJpegChrominanceProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegChrominanceProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegChrominanceProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegChrominanceProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegChrominanceProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7853,34 +7545,6 @@ unsafe impl ::windows::core::Abi for WICJpegCommentProperties {
 impl ::core::fmt::Debug for WICJpegCommentProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICJpegCommentProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICJpegCommentProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegCommentProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegCommentProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegCommentProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegCommentProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7949,34 +7613,6 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
         f.debug_tuple("WICJpegIndexingOptions").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICJpegIndexingOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegIndexingOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegIndexingOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegIndexingOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegIndexingOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8002,34 +7638,6 @@ unsafe impl ::windows::core::Abi for WICJpegLuminanceProperties {
 impl ::core::fmt::Debug for WICJpegLuminanceProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICJpegLuminanceProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICJpegLuminanceProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegLuminanceProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegLuminanceProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegLuminanceProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegLuminanceProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8109,34 +7717,6 @@ impl ::core::fmt::Debug for WICJpegScanType {
         f.debug_tuple("WICJpegScanType").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICJpegScanType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegScanType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegScanType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegScanType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegScanType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8164,34 +7744,6 @@ unsafe impl ::windows::core::Abi for WICJpegTransferMatrix {
 impl ::core::fmt::Debug for WICJpegTransferMatrix {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICJpegTransferMatrix").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICJpegTransferMatrix {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICJpegTransferMatrix {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICJpegTransferMatrix {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICJpegTransferMatrix {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICJpegTransferMatrix {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -8510,34 +8062,6 @@ impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
         f.debug_tuple("WICPixelFormatNumericRepresentation").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICPixelFormatNumericRepresentation {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPixelFormatNumericRepresentation {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPixelFormatNumericRepresentation {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPixelFormatNumericRepresentation {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPixelFormatNumericRepresentation {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8594,34 +8118,6 @@ impl ::core::fmt::Debug for WICPngBkgdProperties {
         f.debug_tuple("WICPngBkgdProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICPngBkgdProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngBkgdProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngBkgdProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngBkgdProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngBkgdProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8661,34 +8157,6 @@ unsafe impl ::windows::core::Abi for WICPngChrmProperties {
 impl ::core::fmt::Debug for WICPngChrmProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICPngChrmProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICPngChrmProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngChrmProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngChrmProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngChrmProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngChrmProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -8757,34 +8225,6 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
         f.debug_tuple("WICPngGamaProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICPngGamaProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngGamaProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngGamaProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngGamaProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngGamaProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8810,34 +8250,6 @@ unsafe impl ::windows::core::Abi for WICPngHistProperties {
 impl ::core::fmt::Debug for WICPngHistProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICPngHistProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICPngHistProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngHistProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngHistProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngHistProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngHistProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -8867,34 +8279,6 @@ unsafe impl ::windows::core::Abi for WICPngIccpProperties {
 impl ::core::fmt::Debug for WICPngIccpProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICPngIccpProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICPngIccpProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngIccpProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngIccpProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngIccpProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngIccpProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -8932,34 +8316,6 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
         f.debug_tuple("WICPngItxtProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICPngItxtProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngItxtProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngItxtProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngItxtProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngItxtProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8985,34 +8341,6 @@ unsafe impl ::windows::core::Abi for WICPngSrgbProperties {
 impl ::core::fmt::Debug for WICPngSrgbProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICPngSrgbProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICPngSrgbProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngSrgbProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngSrgbProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngSrgbProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngSrgbProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -9050,34 +8378,6 @@ unsafe impl ::windows::core::Abi for WICPngTimeProperties {
 impl ::core::fmt::Debug for WICPngTimeProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICPngTimeProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICPngTimeProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICPngTimeProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICPngTimeProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICPngTimeProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICPngTimeProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
@@ -9488,34 +8788,6 @@ impl ::core::fmt::Debug for WICSectionAccessLevel {
         f.debug_tuple("WICSectionAccessLevel").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICSectionAccessLevel {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICSectionAccessLevel {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICSectionAccessLevel {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICSectionAccessLevel {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICSectionAccessLevel {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -9599,34 +8871,6 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
         f.debug_tuple("WICWebpAnimProperties").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WICWebpAnimProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICWebpAnimProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICWebpAnimProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICWebpAnimProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICWebpAnimProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9652,34 +8896,6 @@ unsafe impl ::windows::core::Abi for WICWebpAnmfProperties {
 impl ::core::fmt::Debug for WICWebpAnmfProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WICWebpAnmfProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WICWebpAnmfProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WICWebpAnmfProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WICWebpAnmfProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WICWebpAnmfProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WICWebpAnmfProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]

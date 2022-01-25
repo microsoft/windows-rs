@@ -539,34 +539,6 @@ impl ::core::fmt::Debug for ADS_AUTHENTICATION_ENUM {
         f.debug_tuple("ADS_AUTHENTICATION_ENUM").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ADS_AUTHENTICATION_ENUM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ADS_AUTHENTICATION_ENUM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ADS_AUTHENTICATION_ENUM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ADS_AUTHENTICATION_ENUM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ADS_AUTHENTICATION_ENUM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

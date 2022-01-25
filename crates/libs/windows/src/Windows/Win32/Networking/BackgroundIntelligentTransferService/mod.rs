@@ -1017,34 +1017,6 @@ impl ::core::fmt::Debug for BG_TOKEN {
         f.debug_tuple("BG_TOKEN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for BG_TOKEN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BG_TOKEN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BG_TOKEN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BG_TOKEN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BG_TOKEN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const BITSExtensionSetupFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;

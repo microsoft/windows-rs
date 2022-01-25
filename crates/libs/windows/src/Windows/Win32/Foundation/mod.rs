@@ -5285,34 +5285,6 @@ impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
         f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NTSTATUS_FACILITY_CODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NTSTATUS_FACILITY_CODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NTSTATUS_FACILITY_CODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NTSTATUS_FACILITY_CODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NTSTATUS_FACILITY_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -20868,34 +20840,6 @@ unsafe impl ::windows::core::Abi for WIN32_ERROR {
 impl ::core::fmt::Debug for WIN32_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WIN32_ERROR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN32_ERROR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN32_ERROR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN32_ERROR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIN32_ERROR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {

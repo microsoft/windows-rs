@@ -4822,34 +4822,6 @@ impl ::core::fmt::Debug for CONFIGRET {
         f.debug_tuple("CONFIGRET").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CONFIGRET {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONFIGRET {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONFIGRET {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONFIGRET {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONFIGRET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7736,34 +7708,6 @@ impl ::core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
         f.debug_tuple("OEM_SOURCE_MEDIA_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OEM_SOURCE_MEDIA_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OEM_SOURCE_MEDIA_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
 #[repr(C, packed(1))]
@@ -7972,34 +7916,6 @@ impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
         f.debug_tuple("SETUP_DI_BUILD_DRIVER_DRIVER_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8025,34 +7941,6 @@ unsafe impl ::windows::core::Abi for SETUP_FILE_OPERATION {
 impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SETUP_FILE_OPERATION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SETUP_FILE_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SETUP_FILE_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
@@ -11826,34 +11714,6 @@ unsafe impl ::windows::core::Abi for SP_INF_STYLE {
 impl ::core::fmt::Debug for SP_INF_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SP_INF_STYLE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SP_INF_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SP_INF_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SP_INF_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SP_INF_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SP_INF_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

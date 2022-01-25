@@ -170,34 +170,6 @@ impl ::core::fmt::Debug for ENABLECALLBACK_ENABLED_STATE {
         f.debug_tuple("ENABLECALLBACK_ENABLED_STATE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ENABLECALLBACK_ENABLED_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENABLECALLBACK_ENABLED_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENABLECALLBACK_ENABLED_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENABLECALLBACK_ENABLED_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENABLECALLBACK_ENABLED_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ENABLE_TRACE_PARAMETERS {
@@ -2504,34 +2476,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_CONTROL {
 impl ::core::fmt::Debug for EVENT_TRACE_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EVENT_TRACE_CONTROL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EVENT_TRACE_CONTROL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EVENT_TRACE_CONTROL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EVENT_TRACE_CONTROL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EVENT_TRACE_CONTROL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EVENT_TRACE_CONTROL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]

@@ -429,34 +429,6 @@ impl ::core::fmt::Debug for BUTTON_IMAGELIST_ALIGN {
         f.debug_tuple("BUTTON_IMAGELIST_ALIGN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for BUTTON_IMAGELIST_ALIGN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BUTTON_IMAGELIST_ALIGN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BUTTON_IMAGELIST_ALIGN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BUTTON_IMAGELIST_ALIGN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BUTTON_IMAGELIST_ALIGN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1391,34 +1363,6 @@ impl ::core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
         f.debug_tuple("COMBOBOXINFO_BUTTON_STATE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for COMBOBOXINFO_BUTTON_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COMBOBOXINFO_BUTTON_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMBOBOXINFO_BUTTON_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMBOBOXINFO_BUTTON_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COMBOBOXINFO_BUTTON_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1844,34 +1788,6 @@ impl ::core::fmt::Debug for DLG_BUTTON_CHECK_STATE {
         f.debug_tuple("DLG_BUTTON_CHECK_STATE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DLG_BUTTON_CHECK_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DLG_BUTTON_CHECK_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DLG_BUTTON_CHECK_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DLG_BUTTON_CHECK_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DLG_BUTTON_CHECK_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1976,34 +1892,6 @@ unsafe impl ::windows::core::Abi for DPAMM_MESSAGE {
 impl ::core::fmt::Debug for DPAMM_MESSAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DPAMM_MESSAGE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DPAMM_MESSAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DPAMM_MESSAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DPAMM_MESSAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DPAMM_MESSAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DPAMM_MESSAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -2402,34 +2290,6 @@ impl ::core::fmt::Debug for DRAGLISTINFO_NOTIFICATION_FLAGS {
         f.debug_tuple("DRAGLISTINFO_NOTIFICATION_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2511,34 +2371,6 @@ unsafe impl ::windows::core::Abi for DRAWITEMSTRUCT_CTL_TYPE {
 impl ::core::fmt::Debug for DRAWITEMSTRUCT_CTL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DRAWITEMSTRUCT_CTL_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DRAWITEMSTRUCT_CTL_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DRAWITEMSTRUCT_CTL_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DRAWITEMSTRUCT_CTL_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DRAWITEMSTRUCT_CTL_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DRAWITEMSTRUCT_CTL_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -3439,34 +3271,6 @@ impl ::core::fmt::Debug for EDITBALLOONTIP_ICON {
         f.debug_tuple("EDITBALLOONTIP_ICON").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for EDITBALLOONTIP_ICON {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EDITBALLOONTIP_ICON {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EDITBALLOONTIP_ICON {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EDITBALLOONTIP_ICON {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EDITBALLOONTIP_ICON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: super::super::Foundation::PSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
@@ -3657,34 +3461,6 @@ unsafe impl ::windows::core::Abi for ENABLE_SCROLL_BAR_ARROWS {
 impl ::core::fmt::Debug for ENABLE_SCROLL_BAR_ARROWS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ENABLE_SCROLL_BAR_ARROWS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ENABLE_SCROLL_BAR_ARROWS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENABLE_SCROLL_BAR_ARROWS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENABLE_SCROLL_BAR_ARROWS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENABLE_SCROLL_BAR_ARROWS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENABLE_SCROLL_BAR_ARROWS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -4106,34 +3882,6 @@ unsafe impl ::windows::core::Abi for GET_THEME_BITMAP_FLAGS {
 impl ::core::fmt::Debug for GET_THEME_BITMAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_THEME_BITMAP_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_THEME_BITMAP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_THEME_BITMAP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_THEME_BITMAP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_THEME_BITMAP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_THEME_BITMAP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -5574,34 +5322,6 @@ impl ::core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
         f.debug_tuple("HEADER_CONTROL_NOTIFICATION_BUTTON").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HHT_ABOVE: u32 = 256u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -6850,34 +6570,6 @@ impl ::core::fmt::Debug for IMAGE_LIST_COPY_FLAGS {
         f.debug_tuple("IMAGE_LIST_COPY_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for IMAGE_LIST_COPY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IMAGE_LIST_COPY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IMAGE_LIST_COPY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IMAGE_LIST_COPY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IMAGE_LIST_COPY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6966,34 +6658,6 @@ unsafe impl ::windows::core::Abi for IMAGE_LIST_ITEM_FLAGS {
 impl ::core::fmt::Debug for IMAGE_LIST_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IMAGE_LIST_ITEM_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for IMAGE_LIST_ITEM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IMAGE_LIST_ITEM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IMAGE_LIST_ITEM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IMAGE_LIST_ITEM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IMAGE_LIST_ITEM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -8718,34 +8382,6 @@ impl ::core::fmt::Debug for LVFOOTERITEM_MASK {
         f.debug_tuple("LVFOOTERITEM_MASK").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for LVFOOTERITEM_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LVFOOTERITEM_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LVFOOTERITEM_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LVFOOTERITEM_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LVFOOTERITEM_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGA_FOOTER_CENTER: u32 = 16u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -10048,34 +9684,6 @@ impl ::core::fmt::Debug for LVTILEVIEWINFO_FLAGS {
         f.debug_tuple("LVTILEVIEWINFO_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for LVTILEVIEWINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LVTILEVIEWINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LVTILEVIEWINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LVTILEVIEWINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LVTILEVIEWINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVTVIF_AUTOSIZE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -10363,34 +9971,6 @@ unsafe impl ::windows::core::Abi for MCGRIDINFO_PART {
 impl ::core::fmt::Debug for MCGRIDINFO_PART {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MCGRIDINFO_PART").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MCGRIDINFO_PART {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MCGRIDINFO_PART {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MCGRIDINFO_PART {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MCGRIDINFO_PART {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MCGRIDINFO_PART {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -11357,34 +10937,6 @@ unsafe impl ::windows::core::Abi for NMCUSTOMDRAW_DRAW_STAGE {
 impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMCUSTOMDRAW_DRAW_STAGE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NMCUSTOMDRAW_DRAW_STAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMCUSTOMDRAW_DRAW_STAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMCUSTOMDRAW_DRAW_STAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMCUSTOMDRAW_DRAW_STAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMCUSTOMDRAW_DRAW_STAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -12459,34 +12011,6 @@ impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ALIGN {
         f.debug_tuple("NMLVCUSTOMDRAW_ALIGN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NMLVCUSTOMDRAW_ALIGN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMLVCUSTOMDRAW_ALIGN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMLVCUSTOMDRAW_ALIGN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMLVCUSTOMDRAW_ALIGN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMLVCUSTOMDRAW_ALIGN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -12514,34 +12038,6 @@ unsafe impl ::windows::core::Abi for NMLVCUSTOMDRAW_ITEM_TYPE {
 impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ITEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMLVCUSTOMDRAW_ITEM_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NMLVCUSTOMDRAW_ITEM_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMLVCUSTOMDRAW_ITEM_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMLVCUSTOMDRAW_ITEM_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMLVCUSTOMDRAW_ITEM_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMLVCUSTOMDRAW_ITEM_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -12685,34 +12181,6 @@ unsafe impl ::windows::core::Abi for NMLVEMPTYMARKUP_FLAGS {
 impl ::core::fmt::Debug for NMLVEMPTYMARKUP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMLVEMPTYMARKUP_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NMLVEMPTYMARKUP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMLVEMPTYMARKUP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMLVEMPTYMARKUP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMLVEMPTYMARKUP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMLVEMPTYMARKUP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -13193,34 +12661,6 @@ impl ::core::fmt::Debug for NMPGCALCSIZE_FLAGS {
         f.debug_tuple("NMPGCALCSIZE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NMPGCALCSIZE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMPGCALCSIZE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMPGCALCSIZE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMPGCALCSIZE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMPGCALCSIZE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13329,34 +12769,6 @@ unsafe impl ::windows::core::Abi for NMPGSCROLL_DIR {
 impl ::core::fmt::Debug for NMPGSCROLL_DIR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMPGSCROLL_DIR").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NMPGSCROLL_DIR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NMPGSCROLL_DIR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NMPGSCROLL_DIR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NMPGSCROLL_DIR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NMPGSCROLL_DIR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -17807,34 +17219,6 @@ impl ::core::fmt::Debug for PSPCB_MESSAGE {
         f.debug_tuple("PSPCB_MESSAGE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PSPCB_MESSAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PSPCB_MESSAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PSPCB_MESSAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PSPCB_MESSAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PSPCB_MESSAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PSP_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -20014,34 +19398,6 @@ impl ::core::fmt::Debug for TBINSERTMARK_FLAGS {
         f.debug_tuple("TBINSERTMARK_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TBINSERTMARK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TBINSERTMARK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TBINSERTMARK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TBINSERTMARK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TBINSERTMARK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TBMETRICS {
@@ -20689,34 +20045,6 @@ unsafe impl ::windows::core::Abi for TCHITTESTINFO_FLAGS {
 impl ::core::fmt::Debug for TCHITTESTINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TCHITTESTINFO_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TCHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TCHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TCHITTESTINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TCHITTESTINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TCHITTESTINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]
@@ -21667,34 +20995,6 @@ unsafe impl ::windows::core::Abi for THEME_PROPERTY_SYMBOL_ID {
 impl ::core::fmt::Debug for THEME_PROPERTY_SYMBOL_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("THEME_PROPERTY_SYMBOL_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for THEME_PROPERTY_SYMBOL_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for THEME_PROPERTY_SYMBOL_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for THEME_PROPERTY_SYMBOL_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for THEME_PROPERTY_SYMBOL_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for THEME_PROPERTY_SYMBOL_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -23594,34 +22894,6 @@ unsafe impl ::windows::core::Abi for WORD_BREAK_ACTION {
 impl ::core::fmt::Debug for WORD_BREAK_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WORD_BREAK_ACTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WORD_BREAK_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WORD_BREAK_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WORD_BREAK_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WORD_BREAK_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WORD_BREAK_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls'*"]

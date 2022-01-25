@@ -1853,34 +1853,6 @@ impl ::core::fmt::Debug for MPR_ET {
         f.debug_tuple("MPR_ET").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MPR_ET {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_ET {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_ET {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_ET {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MPR_ET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2387,34 +2359,6 @@ impl ::core::fmt::Debug for MPR_INTERFACE_DIAL_MODE {
         f.debug_tuple("MPR_INTERFACE_DIAL_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_INTERFACE_DIAL_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_INTERFACE_DIAL_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -2894,34 +2838,6 @@ unsafe impl ::windows::core::Abi for MPR_VS {
 impl ::core::fmt::Debug for MPR_VS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MPR_VS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MPR_VS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_VS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_VS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_VS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MPR_VS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -5269,34 +5185,6 @@ impl ::core::fmt::Debug for PPP_LCP {
         f.debug_tuple("PPP_LCP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PPP_LCP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PPP_LCP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PPP_LCP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PPP_LCP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PPP_LCP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 pub const PPP_LCP_3_DES: u32 = 32u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -5394,34 +5282,6 @@ unsafe impl ::windows::core::Abi for PPP_LCP_INFO_AUTH_DATA {
 impl ::core::fmt::Debug for PPP_LCP_INFO_AUTH_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PPP_LCP_INFO_AUTH_DATA").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PPP_LCP_INFO_AUTH_DATA {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PPP_LCP_INFO_AUTH_DATA {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -7290,34 +7150,6 @@ impl ::core::fmt::Debug for RASENTRY_DIAL_MODE {
         f.debug_tuple("RASENTRY_DIAL_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASENTRY_DIAL_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASENTRY_DIAL_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -8347,34 +8179,6 @@ impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
         f.debug_tuple("RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8404,34 +8208,6 @@ unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL
 impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -9053,34 +8829,6 @@ unsafe impl ::windows::core::Abi for RAS_FLAGS {
 impl ::core::fmt::Debug for RAS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RAS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RAS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RAS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RAS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RAS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RAS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -12927,34 +12675,6 @@ unsafe impl ::windows::core::Abi for SECURITY_MESSAGE_MSG_ID {
 impl ::core::fmt::Debug for SECURITY_MESSAGE_MSG_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECURITY_MESSAGE_MSG_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECURITY_MESSAGE_MSG_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECURITY_MESSAGE_MSG_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

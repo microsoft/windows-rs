@@ -1,4 +1,7 @@
-use windows::Storage::Streams::*;
+use windows::{
+    Storage::Streams::*,
+    Win32::Foundation::*,
+};
 
 #[test]
 fn nested() {
@@ -25,4 +28,9 @@ fn const_pattern() {
         InputStreamOptions::ReadAhead => assert!(true),
         _ => assert!(false),
     }
+}
+
+#[test]
+fn win32_error() {
+    
 }

@@ -1586,34 +1586,6 @@ impl ::core::fmt::Debug for WIN32_ERROR {
         f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WIN32_ERROR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN32_ERROR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN32_ERROR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN32_ERROR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIN32_ERROR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
         Self::from_win32(value.0)

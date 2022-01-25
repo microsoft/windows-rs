@@ -2415,34 +2415,6 @@ impl ::core::fmt::Debug for UNMAP_VIEW_OF_FILE_FLAGS {
         f.debug_tuple("UNMAP_VIEW_OF_FILE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for UNMAP_VIEW_OF_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UNMAP_VIEW_OF_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UNMAP_VIEW_OF_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UNMAP_VIEW_OF_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UNMAP_VIEW_OF_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2595,34 +2567,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_FREE_TYPE {
 impl ::core::fmt::Debug for VIRTUAL_FREE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VIRTUAL_FREE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VIRTUAL_FREE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VIRTUAL_FREE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VIRTUAL_FREE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VIRTUAL_FREE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VIRTUAL_FREE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]

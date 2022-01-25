@@ -51108,34 +51108,6 @@ impl ::core::fmt::Debug for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
         f.debug_tuple("MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const MEDeviceStreamCreated: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0252a1cf_3540_43b4_9164_d72eb405fa40);
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
@@ -60244,34 +60216,6 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_SOURCE {
         f.debug_tuple("MF_CAPTURE_ENGINE_SOURCE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MF_CAPTURE_ENGINE_SOURCE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MF_CAPTURE_ENGINE_SOURCE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MF_CAPTURE_ENGINE_SOURCE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MF_CAPTURE_ENGINE_SOURCE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MF_CAPTURE_ENGINE_SOURCE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -63407,34 +63351,6 @@ impl ::core::fmt::Debug for MF_SINK_WRITER_CONSTANTS {
         f.debug_tuple("MF_SINK_WRITER_CONSTANTS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MF_SINK_WRITER_CONSTANTS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MF_SINK_WRITER_CONSTANTS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MF_SINK_WRITER_CONSTANTS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MF_SINK_WRITER_CONSTANTS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MF_SINK_WRITER_CONSTANTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const MF_SINK_WRITER_D3D_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec822da2_e1e9_4b29_a0d8_563c719f5269);
 pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b845d8_2b74_4afe_9d53_be16d2d5ae4f);
 pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad91cd04_a7cc_4ac7_99b6_a57b9a4a7c70);
@@ -65780,34 +65696,6 @@ unsafe impl ::windows::core::Abi for OPM_PROTECTION_STANDARD_TYPE {
 impl ::core::fmt::Debug for OPM_PROTECTION_STANDARD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPM_PROTECTION_STANDARD_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for OPM_PROTECTION_STANDARD_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OPM_PROTECTION_STANDARD_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OPM_PROTECTION_STANDARD_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OPM_PROTECTION_STANDARD_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OPM_PROTECTION_STANDARD_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]

@@ -132,34 +132,6 @@ impl ::core::fmt::Debug for ARC_DIRECTION {
         f.debug_tuple("ARC_DIRECTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ARC_DIRECTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ARC_DIRECTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ARC_DIRECTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ARC_DIRECTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ARC_DIRECTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
@@ -480,34 +452,6 @@ unsafe impl ::windows::core::Abi for BACKGROUND_MODE {
 impl ::core::fmt::Debug for BACKGROUND_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BACKGROUND_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BACKGROUND_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BACKGROUND_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BACKGROUND_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BACKGROUND_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BACKGROUND_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -1344,34 +1288,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
         f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_ENCODING").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1399,34 +1315,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
         f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_PLATFORM").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1452,34 +1340,6 @@ unsafe impl ::windows::core::Abi for CREATE_POLYGON_RGN_MODE {
 impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CREATE_POLYGON_RGN_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CREATE_POLYGON_RGN_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_POLYGON_RGN_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_POLYGON_RGN_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_POLYGON_RGN_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREATE_POLYGON_RGN_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -3106,34 +2966,6 @@ impl ::core::fmt::Debug for DFC_TYPE {
         f.debug_tuple("DFC_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DFC_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DFC_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DFC_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DFC_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DFC_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3201,34 +3033,6 @@ unsafe impl ::windows::core::Abi for DIB_USAGE {
 impl ::core::fmt::Debug for DIB_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIB_USAGE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DIB_USAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DIB_USAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DIB_USAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DIB_USAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DIB_USAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -4647,34 +4451,6 @@ impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
         f.debug_tuple("EMBEDDED_FONT_PRIV_STATUS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for EMBEDDED_FONT_PRIV_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EMBEDDED_FONT_PRIV_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EMBEDDED_FONT_PRIV_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EMBEDDED_FONT_PRIV_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EMBEDDED_FONT_PRIV_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4700,34 +4476,6 @@ unsafe impl ::windows::core::Abi for EMBED_FONT_CHARSET {
 impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EMBED_FONT_CHARSET").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EMBED_FONT_CHARSET {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EMBED_FONT_CHARSET {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EMBED_FONT_CHARSET {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EMBED_FONT_CHARSET {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EMBED_FONT_CHARSET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8025,34 +7773,6 @@ impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_MODE {
         f.debug_tuple("ENUM_DISPLAY_SETTINGS_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ENUM_DISPLAY_SETTINGS_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_DISPLAY_SETTINGS_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EPSPRINTING: u32 = 33u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -8459,34 +8179,6 @@ unsafe impl ::windows::core::Abi for EXT_FLOOD_FILL_TYPE {
 impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EXT_FLOOD_FILL_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EXT_FLOOD_FILL_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EXT_FLOOD_FILL_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EXT_FLOOD_FILL_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EXT_FLOOD_FILL_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EXT_FLOOD_FILL_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -9200,34 +8892,6 @@ impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
         f.debug_tuple("FONT_LICENSE_PRIVS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FONT_LICENSE_PRIVS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FONT_LICENSE_PRIVS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FONT_LICENSE_PRIVS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FONT_LICENSE_PRIVS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FONT_LICENSE_PRIVS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9271,34 +8935,6 @@ impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
         f.debug_tuple("FONT_OUTPUT_PRECISION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FONT_OUTPUT_PRECISION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FONT_OUTPUT_PRECISION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FONT_OUTPUT_PRECISION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FONT_OUTPUT_PRECISION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FONT_OUTPUT_PRECISION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9332,34 +8968,6 @@ unsafe impl ::windows::core::Abi for FONT_PITCH_AND_FAMILY {
 impl ::core::fmt::Debug for FONT_PITCH_AND_FAMILY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FONT_PITCH_AND_FAMILY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FONT_PITCH_AND_FAMILY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FONT_PITCH_AND_FAMILY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FONT_PITCH_AND_FAMILY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FONT_PITCH_AND_FAMILY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FONT_PITCH_AND_FAMILY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -9397,34 +9005,6 @@ impl ::core::fmt::Debug for FONT_QUALITY {
         f.debug_tuple("FONT_QUALITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FONT_QUALITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FONT_QUALITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FONT_QUALITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FONT_QUALITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FONT_QUALITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9450,34 +9030,6 @@ unsafe impl ::windows::core::Abi for FONT_RESOURCE_CHARACTERISTICS {
 impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FONT_RESOURCE_CHARACTERISTICS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FONT_RESOURCE_CHARACTERISTICS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FONT_RESOURCE_CHARACTERISTICS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FONT_RESOURCE_CHARACTERISTICS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FONT_RESOURCE_CHARACTERISTICS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FONT_RESOURCE_CHARACTERISTICS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -10109,34 +9661,6 @@ impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
         f.debug_tuple("GET_DEVICE_CAPS_INDEX").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for GET_DEVICE_CAPS_INDEX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_DEVICE_CAPS_INDEX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_DEVICE_CAPS_INDEX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_DEVICE_CAPS_INDEX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_DEVICE_CAPS_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10176,34 +9700,6 @@ unsafe impl ::windows::core::Abi for GET_GLYPH_OUTLINE_FORMAT {
 impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_GLYPH_OUTLINE_FORMAT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_GLYPH_OUTLINE_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_GLYPH_OUTLINE_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_GLYPH_OUTLINE_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_GLYPH_OUTLINE_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_GLYPH_OUTLINE_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -10269,34 +9765,6 @@ unsafe impl ::windows::core::Abi for GET_STOCK_OBJECT_FLAGS {
 impl ::core::fmt::Debug for GET_STOCK_OBJECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_STOCK_OBJECT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_STOCK_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_STOCK_OBJECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_STOCK_OBJECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_STOCK_OBJECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_STOCK_OBJECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -10411,34 +9879,6 @@ impl ::core::fmt::Debug for GRADIENT_FILL {
         f.debug_tuple("GRADIENT_FILL").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for GRADIENT_FILL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GRADIENT_FILL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GRADIENT_FILL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GRADIENT_FILL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GRADIENT_FILL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[repr(C)]
@@ -10529,34 +9969,6 @@ unsafe impl ::windows::core::Abi for GRAPHICS_MODE {
 impl ::core::fmt::Debug for GRAPHICS_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GRAPHICS_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GRAPHICS_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GRAPHICS_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GRAPHICS_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GRAPHICS_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GRAPHICS_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -12391,34 +11803,6 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
         f.debug_tuple("HATCH_BRUSH_STYLE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for HATCH_BRUSH_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HATCH_BRUSH_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HATCH_BRUSH_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HATCH_BRUSH_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HATCH_BRUSH_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HBITMAP(pub isize);
@@ -12568,34 +11952,6 @@ unsafe impl ::windows::core::Abi for HDC_MAP_MODE {
 impl ::core::fmt::Debug for HDC_MAP_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HDC_MAP_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HDC_MAP_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HDC_MAP_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HDC_MAP_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HDC_MAP_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HDC_MAP_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -13850,34 +13206,6 @@ impl ::core::fmt::Debug for MODIFY_WORLD_TRANSFORM_MODE {
         f.debug_tuple("MODIFY_WORLD_TRANSFORM_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MODIFY_WORLD_TRANSFORM_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MODIFY_WORLD_TRANSFORM_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODIFY_WORLD_TRANSFORM_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODIFY_WORLD_TRANSFORM_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MODIFY_WORLD_TRANSFORM_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -14027,34 +13355,6 @@ unsafe impl ::windows::core::Abi for MONITOR_FROM_FLAGS {
 impl ::core::fmt::Debug for MONITOR_FROM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MONITOR_FROM_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MONITOR_FROM_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MONITOR_FROM_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MONITOR_FROM_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MONITOR_FROM_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MONITOR_FROM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -16226,34 +15526,6 @@ impl ::core::fmt::Debug for ROP_CODE {
         f.debug_tuple("ROP_CODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ROP_CODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ROP_CODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ROP_CODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ROP_CODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ROP_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RUSSIAN_CHARSET: u32 = 204u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -16606,34 +15878,6 @@ impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
         f.debug_tuple("SET_BOUNDS_RECT_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SET_BOUNDS_RECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_BOUNDS_RECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_BOUNDS_RECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_BOUNDS_RECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SET_BOUNDS_RECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_CLIP_BOX: u32 = 4108u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -16707,34 +15951,6 @@ impl ::core::fmt::Debug for STRETCH_BLT_MODE {
         f.debug_tuple("STRETCH_BLT_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for STRETCH_BLT_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for STRETCH_BLT_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for STRETCH_BLT_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for STRETCH_BLT_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for STRETCH_BLT_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYMBOL_CHARSET: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -16768,34 +15984,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_PALETTE_USE {
 impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEM_PALETTE_USE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SYSTEM_PALETTE_USE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_PALETTE_USE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_PALETTE_USE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_PALETTE_USE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_PALETTE_USE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -17806,34 +16994,6 @@ unsafe impl ::windows::core::Abi for TEXT_ALIGN_OPTIONS {
 impl ::core::fmt::Debug for TEXT_ALIGN_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TEXT_ALIGN_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TEXT_ALIGN_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]

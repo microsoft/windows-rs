@@ -225,34 +225,6 @@ impl ::core::fmt::Debug for CREATE_PROCESS_LOGON_FLAGS {
         f.debug_tuple("CREATE_PROCESS_LOGON_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_PROCESS_LOGON_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_PROCESS_LOGON_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -1467,34 +1439,6 @@ unsafe impl ::windows::core::Abi for GET_GUI_RESOURCES_FLAGS {
 impl ::core::fmt::Debug for GET_GUI_RESOURCES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_GUI_RESOURCES_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_GUI_RESOURCES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_GUI_RESOURCES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -2945,34 +2889,6 @@ impl ::core::fmt::Debug for MEMORY_PRIORITY {
         f.debug_tuple("MEMORY_PRIORITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MEMORY_PRIORITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MEMORY_PRIORITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MEMORY_PRIORITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MEMORY_PRIORITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MEMORY_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub struct MEMORY_PRIORITY_INFORMATION {
@@ -3403,34 +3319,6 @@ impl ::core::fmt::Debug for POWER_REQUEST_CONTEXT_FLAGS {
         f.debug_tuple("POWER_REQUEST_CONTEXT_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POWER_REQUEST_CONTEXT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POWER_REQUEST_CONTEXT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -3545,34 +3433,6 @@ unsafe impl ::windows::core::Abi for PROCESSOR_FEATURE_ID {
 impl ::core::fmt::Debug for PROCESSOR_FEATURE_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROCESSOR_FEATURE_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESSOR_FEATURE_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESSOR_FEATURE_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -3693,34 +3553,6 @@ unsafe impl ::windows::core::Abi for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
 impl ::core::fmt::Debug for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROCESS_AFFINITY_AUTO_UPDATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4363,34 +4195,6 @@ impl ::core::fmt::Debug for PROCESS_NAME_FORMAT {
         f.debug_tuple("PROCESS_NAME_FORMAT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_NAME_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_NAME_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -4470,34 +4274,6 @@ unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL {
 impl ::core::fmt::Debug for PROCESS_PROTECTION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROCESS_PROTECTION_LEVEL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_PROTECTION_LEVEL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_PROTECTION_LEVEL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

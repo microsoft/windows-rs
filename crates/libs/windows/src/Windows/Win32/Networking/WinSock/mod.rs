@@ -5922,34 +5922,6 @@ impl ::core::fmt::Debug for RESOURCE_DISPLAY_TYPE {
         f.debug_tuple("RESOURCE_DISPLAY_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for RESOURCE_DISPLAY_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RESOURCE_DISPLAY_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RESOURCE_DISPLAY_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RESOURCE_DISPLAY_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RESOURCE_DISPLAY_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const RESULT_IS_ADDED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -7053,34 +7025,6 @@ impl ::core::fmt::Debug for SEND_FLAGS {
         f.debug_tuple("SEND_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SEND_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SEND_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SEND_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SEND_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SEND_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct SERVICE_ADDRESS {
@@ -7560,34 +7504,6 @@ unsafe impl ::windows::core::Abi for SET_SERVICE_OPERATION {
 impl ::core::fmt::Debug for SET_SERVICE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_SERVICE_OPERATION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SET_SERVICE_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_SERVICE_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_SERVICE_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_SERVICE_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SET_SERVICE_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]

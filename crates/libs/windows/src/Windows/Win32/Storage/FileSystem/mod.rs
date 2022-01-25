@@ -3099,34 +3099,6 @@ impl ::core::fmt::Debug for DISKQUOTA_USERNAME_RESOLVE {
         f.debug_tuple("DISKQUOTA_USERNAME_RESOLVE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DISKQUOTA_USERNAME_RESOLVE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DISKQUOTA_USERNAME_RESOLVE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -4337,34 +4309,6 @@ impl ::core::fmt::Debug for FILE_ACTION {
         f.debug_tuple("FILE_ACTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FILE_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ALIGNMENT_INFO {
@@ -4558,34 +4502,6 @@ impl ::core::fmt::Debug for FILE_CREATION_DISPOSITION {
         f.debug_tuple("FILE_CREATION_DISPOSITION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_CREATION_DISPOSITION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_CREATION_DISPOSITION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4615,34 +4531,6 @@ unsafe impl ::windows::core::Abi for FILE_DEVICE_TYPE {
 impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_DEVICE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_DEVICE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_DEVICE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -5462,34 +5350,6 @@ unsafe impl ::windows::core::Abi for FILE_NAME {
 impl ::core::fmt::Debug for FILE_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_NAME").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FILE_NAME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_NAME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_NAME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_NAME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_NAME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7200,34 +7060,6 @@ unsafe impl ::windows::core::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
 impl ::core::fmt::Debug for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_TAPE_DRIVE_PARAMETERS_OPERATION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -9979,34 +9811,6 @@ impl ::core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
         f.debug_tuple("LPPROGRESS_ROUTINE_CALLBACK_REASON").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
@@ -12599,34 +12403,6 @@ impl ::core::fmt::Debug for NTMS_OMID_TYPE {
         f.debug_tuple("NTMS_OMID_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NTMS_OMID_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NTMS_OMID_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13038,34 +12814,6 @@ unsafe impl ::windows::core::Abi for NT_CREATE_FILE_DISPOSITION {
 impl ::core::fmt::Debug for NT_CREATE_FILE_DISPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NT_CREATE_FILE_DISPOSITION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NT_CREATE_FILE_DISPOSITION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NT_CREATE_FILE_DISPOSITION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -16327,34 +16075,6 @@ impl ::core::fmt::Debug for SESSION_INFO_USER_FLAGS {
         f.debug_tuple("SESSION_INFO_USER_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SESSION_INFO_USER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SESSION_INFO_USER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -16382,34 +16102,6 @@ unsafe impl ::windows::core::Abi for SET_FILE_POINTER_MOVE_METHOD {
 impl ::core::fmt::Debug for SET_FILE_POINTER_MOVE_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_FILE_POINTER_MOVE_METHOD").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_FILE_POINTER_MOVE_METHOD {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_FILE_POINTER_MOVE_METHOD {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -16902,34 +16594,6 @@ unsafe impl ::windows::core::Abi for SHARE_INFO_PERMISSIONS {
 impl ::core::fmt::Debug for SHARE_INFO_PERMISSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHARE_INFO_PERMISSIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SHARE_INFO_PERMISSIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SHARE_INFO_PERMISSIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -18128,34 +17792,6 @@ impl ::core::fmt::Debug for TAPE_INFORMATION_TYPE {
         f.debug_tuple("TAPE_INFORMATION_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TAPE_INFORMATION_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TAPE_INFORMATION_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -18667,34 +18303,6 @@ impl ::core::fmt::Debug for TXFS_MINIVERSION {
         f.debug_tuple("TXFS_MINIVERSION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TXFS_MINIVERSION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TXFS_MINIVERSION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TXFS_MINIVERSION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TXFS_MINIVERSION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TXFS_MINIVERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_ID {
@@ -19147,34 +18755,6 @@ impl ::core::fmt::Debug for VER_FIND_FILE_FLAGS {
         f.debug_tuple("VER_FIND_FILE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_FIND_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_FIND_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -19257,34 +18837,6 @@ unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_FLAGS {
 impl ::core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VER_INSTALL_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_INSTALL_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_INSTALL_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -20648,34 +20200,6 @@ unsafe impl ::windows::core::Abi for WIN_STREAM_ID {
 impl ::core::fmt::Debug for WIN_STREAM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIN_STREAM_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WIN_STREAM_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN_STREAM_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN_STREAM_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN_STREAM_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIN_STREAM_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

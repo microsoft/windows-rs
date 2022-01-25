@@ -2705,34 +2705,6 @@ impl ::core::fmt::Debug for DXGI_RESOURCE_PRIORITY {
         f.debug_tuple("DXGI_RESOURCE_PRIORITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DXGI_RESOURCE_PRIORITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DXGI_RESOURCE_PRIORITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DXGI_RESOURCE_PRIORITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DXGI_RESOURCE_PRIORITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DXGI_RESOURCE_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub struct DXGI_RGBA {

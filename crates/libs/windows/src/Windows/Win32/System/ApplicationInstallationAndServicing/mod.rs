@@ -2143,34 +2143,6 @@ impl ::core::fmt::Debug for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
         f.debug_tuple("IASSEMBLYCACHE_UNINSTALL_DISPOSITION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
 #[repr(transparent)]
 pub struct IAssemblyCache(::windows::core::IUnknown);
@@ -7417,34 +7389,6 @@ impl ::core::fmt::Debug for MSIASSEMBLYINFO {
         f.debug_tuple("MSIASSEMBLYINFO").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MSIASSEMBLYINFO {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MSIASSEMBLYINFO {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSIASSEMBLYINFO {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSIASSEMBLYINFO {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MSIASSEMBLYINFO {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8145,34 +8089,6 @@ unsafe impl ::windows::core::Abi for MSITRANSACTIONSTATE {
 impl ::core::fmt::Debug for MSITRANSACTIONSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MSITRANSACTIONSTATE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MSITRANSACTIONSTATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MSITRANSACTIONSTATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSITRANSACTIONSTATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSITRANSACTIONSTATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MSITRANSACTIONSTATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]

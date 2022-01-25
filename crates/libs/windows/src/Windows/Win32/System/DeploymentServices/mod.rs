@@ -28,34 +28,6 @@ impl ::core::fmt::Debug for CPU_ARCHITECTURE {
         f.debug_tuple("CPU_ARCHITECTURE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CPU_ARCHITECTURE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CPU_ARCHITECTURE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CPU_ARCHITECTURE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CPU_ARCHITECTURE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CPU_ARCHITECTURE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1054801324i32);
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
@@ -4760,34 +4732,6 @@ impl ::core::fmt::Debug for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
         f.debug_tuple("PFN_WDS_CLI_CALLBACK_MESSAGE_ID").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliCallback = ::core::option::Option<unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::core::ffi::c_void)>;
@@ -6654,34 +6598,6 @@ unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
 impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]

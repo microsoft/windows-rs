@@ -32,34 +32,6 @@ impl ::core::fmt::Debug for DXGI_ALPHA_MODE {
         f.debug_tuple("DXGI_ALPHA_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DXGI_ALPHA_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DXGI_ALPHA_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
@@ -412,34 +384,6 @@ unsafe impl ::windows::core::Abi for DXGI_FORMAT {
 impl ::core::fmt::Debug for DXGI_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_FORMAT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DXGI_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DXGI_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DXGI_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DXGI_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DXGI_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
