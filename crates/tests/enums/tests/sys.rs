@@ -1,8 +1,4 @@
-use windows_sys::{
-    Storage::Streams::*,
-    Win32::Foundation::*,
-    Win32::UI::WindowsAndMessaging::*,
-};
+use windows_sys::{Storage::Streams::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
 #[test]
 fn nested() {
