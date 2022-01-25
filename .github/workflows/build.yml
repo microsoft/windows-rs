@@ -47,8 +47,13 @@ jobs:
   cargo_sys:
     name: Check windows-sys
     runs-on: windows-latest
+    strategy:
+      matrix:
+        rust: [1.46.0, stable, nightly]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Update toolchain
+      run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
