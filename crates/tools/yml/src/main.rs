@@ -5,7 +5,7 @@ fn main() {
     let mut yml = std::fs::File::create(root.join(".github/workflows/test.yml")).unwrap();
 
     yml.write_all(
-        r#"name: CI
+        r#"name: Test
 
 on:
   pull_request:
