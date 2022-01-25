@@ -1,23 +1,32 @@
+use std::collections::BTreeMap;
 use super::*;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
-        let mut tokens = quote! {};
+        // the keys in this map are the libraries from which the various functions
+        // are imported.  The corresponding values are non-empty TokenStreams that contain
+        // the declarations of the functions imported from those libraries.
+        let mut tokens_by_library: BTreeMap<String, TokenStream> = BTreeMap::new();
 
         for entry in tree.types.values() {
-            tokens.combine(&gen_function_if(entry, gen));
+            gen_function_if(&mut tokens_by_library, entry, gen);
         }
 
-        if !tokens.is_empty() {
-            quote! {
-                #[link(name = "windows")]
-                extern "system" {
-                    #tokens
+        let mut tokens = quote! {};
+        // Because tokens_by_library is a BTreeMap, we're guaranteed to visit entries
+        // in ascending order by key.
+        for (library, lib_tokens) in tokens_by_library {
+            tokens.combine(
+                &quote! {
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #library, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+                    extern "system" {
+                        #lib_tokens
+                    }
                 }
-            }
-        } else {
-            quote! {}
+            );
         }
+        tokens
     } else {
         quote! {}
     }
@@ -38,16 +47,14 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_function_if(entry: &[ElementType], gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
+fn gen_function_if(tokens_by_library: &mut BTreeMap<String, TokenStream>, entry: &[ElementType], gen: &Gen) {
     for def in entry {
         if let ElementType::MethodDef(def) = def {
-            tokens.combine(&gen_sys_function(def, gen));
+            tokens_by_library.entry(def.impl_map().expect("Function").scope().name().to_lowercase())
+                .or_default()
+                .combine(&gen_sys_function(def, gen));
         }
     }
-
-    tokens
 }
 
 fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
@@ -88,12 +95,17 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let link_attr = match def.static_lib() {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
+            let link = def.impl_map().expect("Function").scope().name().to_lowercase();
             if gen.namespace.starts_with("Windows.") {
-                quote! { #[link(name = "windows")] }
+                quote! {
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #link, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+                }
             } else {
-                let link = def.impl_map().expect("Function").scope().name().to_lowercase();
-
-                quote! { #[link(name = #link)] }
+                quote! {
+                    #[cfg_attr(feature = "use_raw_dylib", link(name = #link, kind = "raw-dylib"))]
+                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = #link))]
+                }
             }
         }
     };

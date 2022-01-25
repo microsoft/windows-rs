@@ -74,6 +74,7 @@ windows-implement = { path = "../implement",  version = "0.32.0", optional = tru
 [features]
 default = []
 deprecated = []
+use_raw_dylib = []
 alloc = []
 implement = ["windows-implement"]
 "#
