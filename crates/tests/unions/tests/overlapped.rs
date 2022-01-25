@@ -1,11 +1,11 @@
 use windows::Win32::{
     Foundation::HANDLE,
-    System::IO::{OVERLAPPED, OVERLAPPED_0, OVERLAPPED_0_0},
+    System::IO::{OVERLAPPED, OVERLAPPED_0_0},
 };
 
 #[test]
 fn test() {
-    let mut o = OVERLAPPED { Internal: 1, InternalHigh: 2, Anonymous: OVERLAPPED_0 { Pointer: core::ptr::null_mut() }, hEvent: Default::default() };
+    let mut o = OVERLAPPED { Internal: 1, InternalHigh: 2, Anonymous: unsafe { std::mem::zeroed() }, hEvent: Default::default() };
 
     assert_eq!(o.Internal, 1);
     o.Internal = 10;
