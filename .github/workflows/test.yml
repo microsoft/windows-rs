@@ -103,4 +103,23 @@ jobs:
         cargo test --target ${{ matrix.other }} -p test_implement_no_use
         cargo test --target ${{ matrix.other }} -p test_implement_null_result
         cargo test --target ${{ matrix.other }} -p test_implement_winrt
+        cargo test --target ${{ matrix.other }} -p com_uri
+        cargo test --target ${{ matrix.other }} -p core_app
+        cargo test --target ${{ matrix.other }} -p create_window
+        cargo test --target ${{ matrix.other }} -p create_window_sys
+        cargo test --target ${{ matrix.other }} -p direct2d
+        cargo test --target ${{ matrix.other }} -p direct3d12
+        cargo test --target ${{ matrix.other }} -p enum_windows
+        cargo test --target ${{ matrix.other }} -p enum_windows_sys
+        cargo test --target ${{ matrix.other }} -p kernel_event
+        cargo test --target ${{ matrix.other }} -p memory_buffer
+        cargo test --target ${{ matrix.other }} -p message_box
+        cargo test --target ${{ matrix.other }} -p ocr
+        cargo test --target ${{ matrix.other }} -p overlapped
+        cargo test --target ${{ matrix.other }} -p rss
+        cargo test --target ${{ matrix.other }} -p simple
+        cargo test --target ${{ matrix.other }} -p spellchecker
+        cargo test --target ${{ matrix.other }} -p uiautomation
+        cargo test --target ${{ matrix.other }} -p xaml_app
+        cargo test --target ${{ matrix.other }} -p xml
       if: contains(matrix.rust, 'nightly')

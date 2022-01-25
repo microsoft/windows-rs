@@ -115,6 +115,17 @@ jobs:
         }
     }
 
+    if let Ok(files) = std::fs::read_dir(root.join("crates/samples")) {
+        for file in files.filter_map(|file| file.ok()) {
+            if let Ok(file_type) = file.file_type() {
+                if file_type.is_dir() {
+                    let name = file.file_name().to_str().unwrap().to_string();
+                    yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p {}\n", name).as_bytes()).unwrap();
+                }
+            }
+        }
+    }
+
     yml.write_all(
         r#"      if: contains(matrix.rust, 'nightly')
 "#
