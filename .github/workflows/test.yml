@@ -1,101 +1,100 @@
+name: CI
 
-        name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+env:
+  RUSTFLAGS: -Dwarnings
 
-        on:
-          pull_request:
-          push:
-            branches:
-              - master
-        env:
-          RUSTFLAGS: -Dwarnings
-        
-        jobs:
-          test:
-            name: Test
-            runs-on: ${{ matrix.os }}
-            strategy:
-              matrix:
-                include:
-                - os: windows-latest
-                  rust: stable
-                  other: x86_64-pc-windows-msvc
-                  platform: x64
-                - os: windows-latest
-                  rust: nightly
-                  other: i686-pc-windows-msvc
-                  platform: x86
-                - os: windows-latest
-                  rust: nightly
-                  other: x86_64-pc-windows-gnu
-                  platform: x64
-                - os: windows-latest
-                  rust: stable
-                  other: i686-pc-windows-gnu
-                  platform: x86
-            steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-        
-            - name: Update toolchain
-              run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-        
-            - name: Add toolchain target
-              run: rustup target add ${{ matrix.other }}
-        
-            - name: Configure Cargo for GNU toolchain
-              shell: pwsh
-              run: |
-                Add-Content $env:USERPROFILE\.cargo\config @"
-                  [target.x86_64-pc-windows-gnu]
-                  linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
-                  ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
-                  [target.i686-pc-windows-gnu]
-                  linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
-                  ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
-                "@
-              if: contains(matrix.other, 'windows-gnu')
-        
-            - name: Configure environment for GNU toolchain
-              shell: pwsh
-              run: |
-                if("${{ matrix.other }}" -eq "i686-pc-windows-gnu") {
-                  $MingwPath = "C:\msys64\mingw32\bin"
-                } else {
-                  $MingwPath = "C:\msys64\mingw64\bin"
-                }
-                $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-              if: contains(matrix.other, 'windows-gnu')
-        
-            - name: Test (${{ matrix.os }})
-              run: cargo test --target ${{ matrix.other }} -p test_agile
-              run: cargo test --target ${{ matrix.other }} -p test_alternate_success_code
-              run: cargo test --target ${{ matrix.other }} -p test_arch
-              run: cargo test --target ${{ matrix.other }} -p test_arch_feature
-              run: cargo test --target ${{ matrix.other }} -p test_bstr
-              run: cargo test --target ${{ matrix.other }} -p test_class_factory
-              run: cargo test --target ${{ matrix.other }} -p test_core
-              run: cargo test --target ${{ matrix.other }} -p test_data_object
-              run: cargo test --target ${{ matrix.other }} -p test_debug
-              run: cargo test --target ${{ matrix.other }} -p test_deprecated
-              run: cargo test --target ${{ matrix.other }} -p test_dep_map
-              run: cargo test --target ${{ matrix.other }} -p test_enums
-              run: cargo test --target ${{ matrix.other }} -p test_handles
-              run: cargo test --target ${{ matrix.other }} -p test_helpers
-              run: cargo test --target ${{ matrix.other }} -p test_implement
-              run: cargo test --target ${{ matrix.other }} -p test_implement_identity
-              run: cargo test --target ${{ matrix.other }} -p test_implement_no_use
-              run: cargo test --target ${{ matrix.other }} -p test_implement_null_result
-              run: cargo test --target ${{ matrix.other }} -p test_interop
-              run: cargo test --target ${{ matrix.other }} -p test_lib
-              run: cargo test --target ${{ matrix.other }} -p test_matrix3x2
-              run: cargo test --target ${{ matrix.other }} -p test_mshtml
-              run: cargo test --target ${{ matrix.other }} -p test_ntstatus
-              run: cargo test --target ${{ matrix.other }} -p test_pwstr
-              run: cargo test --target ${{ matrix.other }} -p test_return_struct
-              run: cargo test --target ${{ matrix.other }} -p test_structs
-              run: cargo test --target ${{ matrix.other }} -p test_sys
-              run: cargo test --target ${{ matrix.other }} -p test_unions
-              run: cargo test --target ${{ matrix.other }} -p test_weak
-              run: cargo test --target ${{ matrix.other }} -p test_win32
-              run: cargo test --target ${{ matrix.other }} -p test_win32_arrays
-              run: cargo test --target ${{ matrix.other }} -p test_winrt
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+        - os: windows-latest
+          rust: stable
+          other: x86_64-pc-windows-msvc
+          platform: x64
+        - os: windows-latest
+          rust: nightly
+          other: i686-pc-windows-msvc
+          platform: x86
+        - os: windows-latest
+          rust: nightly
+          other: x86_64-pc-windows-gnu
+          platform: x64
+        - os: windows-latest
+          rust: stable
+          other: i686-pc-windows-gnu
+          platform: x86
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Update toolchain
+      run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+
+    - name: Add toolchain target
+      run: rustup target add ${{ matrix.other }}
+
+    - name: Configure Cargo for GNU toolchain
+      shell: pwsh
+      run: |
+        Add-Content $env:USERPROFILE\.cargo\config @"
+          [target.x86_64-pc-windows-gnu]
+          linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
+          ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+          [target.i686-pc-windows-gnu]
+          linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
+          ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+        "@
+      if: contains(matrix.other, 'windows-gnu')
+
+    - name: Configure environment for GNU toolchain
+      shell: pwsh
+      run: |
+        if("${{ matrix.other }}" -eq "i686-pc-windows-gnu") {
+          $MingwPath = "C:\msys64\mingw32\bin"
+        } else {
+          $MingwPath = "C:\msys64\mingw64\bin"
+        }
+        $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      if: contains(matrix.other, 'windows-gnu')
+
+    - name: Test (${{ matrix.os }})
+      run: cargo test --target ${{ matrix.other }} -p test_agile
+      run: cargo test --target ${{ matrix.other }} -p test_alternate_success_code
+      run: cargo test --target ${{ matrix.other }} -p test_arch
+      run: cargo test --target ${{ matrix.other }} -p test_arch_feature
+      run: cargo test --target ${{ matrix.other }} -p test_bstr
+      run: cargo test --target ${{ matrix.other }} -p test_class_factory
+      run: cargo test --target ${{ matrix.other }} -p test_core
+      run: cargo test --target ${{ matrix.other }} -p test_data_object
+      run: cargo test --target ${{ matrix.other }} -p test_debug
+      run: cargo test --target ${{ matrix.other }} -p test_deprecated
+      run: cargo test --target ${{ matrix.other }} -p test_dep_map
+      run: cargo test --target ${{ matrix.other }} -p test_enums
+      run: cargo test --target ${{ matrix.other }} -p test_handles
+      run: cargo test --target ${{ matrix.other }} -p test_helpers
+      run: cargo test --target ${{ matrix.other }} -p test_implement
+      run: cargo test --target ${{ matrix.other }} -p test_implement_identity
+      run: cargo test --target ${{ matrix.other }} -p test_implement_no_use
+      run: cargo test --target ${{ matrix.other }} -p test_implement_null_result
+      run: cargo test --target ${{ matrix.other }} -p test_interop
+      run: cargo test --target ${{ matrix.other }} -p test_lib
+      run: cargo test --target ${{ matrix.other }} -p test_matrix3x2
+      run: cargo test --target ${{ matrix.other }} -p test_mshtml
+      run: cargo test --target ${{ matrix.other }} -p test_ntstatus
+      run: cargo test --target ${{ matrix.other }} -p test_pwstr
+      run: cargo test --target ${{ matrix.other }} -p test_return_struct
+      run: cargo test --target ${{ matrix.other }} -p test_structs
+      run: cargo test --target ${{ matrix.other }} -p test_sys
+      run: cargo test --target ${{ matrix.other }} -p test_unions
+      run: cargo test --target ${{ matrix.other }} -p test_weak
+      run: cargo test --target ${{ matrix.other }} -p test_win32
+      run: cargo test --target ${{ matrix.other }} -p test_win32_arrays
+      run: cargo test --target ${{ matrix.other }} -p test_winrt
