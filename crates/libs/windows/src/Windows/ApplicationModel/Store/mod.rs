@@ -834,7 +834,7 @@ pub struct IUnfulfilledConsumable_Vtbl {
 #[repr(transparent)]
 pub struct LicenseChangedEventHandler(pub ::windows::core::IUnknown);
 impl LicenseChangedEventHandler {
-    pub fn new<F: FnMut() -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = LicenseChangedEventHandlerBox::<F> { vtable: &LicenseChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -845,12 +845,12 @@ impl LicenseChangedEventHandler {
     }
 }
 #[repr(C)]
-struct LicenseChangedEventHandlerBox<F: FnMut() -> ::windows::core::Result<()> + 'static> {
+struct LicenseChangedEventHandlerBox<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const LicenseChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut() -> ::windows::core::Result<()> + 'static> LicenseChangedEventHandlerBox<F> {
+impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> LicenseChangedEventHandlerBox<F> {
     const VTABLE: LicenseChangedEventHandler_Vtbl = LicenseChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

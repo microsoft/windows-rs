@@ -1003,7 +1003,7 @@ unsafe impl ::core::marker::Sync for CurrentChangingEventArgs {}
 #[repr(transparent)]
 pub struct CurrentChangingEventHandler(pub ::windows::core::IUnknown);
 impl CurrentChangingEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = CurrentChangingEventHandlerBox::<F> { vtable: &CurrentChangingEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1014,12 +1014,12 @@ impl CurrentChangingEventHandler {
     }
 }
 #[repr(C)]
-struct CurrentChangingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct CurrentChangingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const CurrentChangingEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + 'static> CurrentChangingEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<CurrentChangingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CurrentChangingEventHandlerBox<F> {
     const VTABLE: CurrentChangingEventHandler_Vtbl = CurrentChangingEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -3038,7 +3038,7 @@ unsafe impl ::core::marker::Sync for PropertyChangedEventArgs {}
 #[repr(transparent)]
 pub struct PropertyChangedEventHandler(pub ::windows::core::IUnknown);
 impl PropertyChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = PropertyChangedEventHandlerBox::<F> { vtable: &PropertyChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3049,12 +3049,12 @@ impl PropertyChangedEventHandler {
     }
 }
 #[repr(C)]
-struct PropertyChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct PropertyChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const PropertyChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + 'static> PropertyChangedEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PropertyChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PropertyChangedEventHandlerBox<F> {
     const VTABLE: PropertyChangedEventHandler_Vtbl = PropertyChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

@@ -1871,7 +1871,7 @@ unsafe impl ::core::marker::Sync for DataProviderDeferral {}
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
-    pub fn new<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DataProviderHandlerBox::<F> { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1882,12 +1882,12 @@ impl DataProviderHandler {
     }
 }
 #[repr(C)]
-struct DataProviderHandlerBox<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + 'static> {
+struct DataProviderHandlerBox<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DataProviderHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + 'static> DataProviderHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DataProviderHandlerBox<F> {
     const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -3817,7 +3817,7 @@ unsafe impl ::core::marker::Sync for ShareProvider {}
 #[repr(transparent)]
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ShareProviderHandlerBox::<F> { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3828,12 +3828,12 @@ impl ShareProviderHandler {
     }
 }
 #[repr(C)]
-struct ShareProviderHandlerBox<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + 'static> {
+struct ShareProviderHandlerBox<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ShareProviderHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + 'static> ShareProviderHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ShareProviderHandlerBox<F> {
     const VTABLE: ShareProviderHandler_Vtbl = ShareProviderHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
