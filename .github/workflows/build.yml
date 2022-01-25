@@ -65,8 +65,8 @@ jobs:
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.other, 'windows-gnu')
 
-    - name: Check (${{ matrix.os }})
-      run: cargo check --target ${{ matrix.other }}
+    # - name: Check (${{ matrix.os }})
+    #   run: cargo check --target ${{ matrix.other }}
       # if: contains(matrix.other, 'windows-gnu')
 
     # - name: Test (${{ matrix.os }})
