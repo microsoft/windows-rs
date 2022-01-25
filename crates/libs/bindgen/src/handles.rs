@@ -79,10 +79,6 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_signature(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.type_name() == TypeName::HANDLE {
-        quote! { *mut ::core::ffi::c_void }
-    } else {
-        let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
-        gen_sig(&signature, gen)
-    }
+    let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+    gen_sig(&signature, gen)
 }

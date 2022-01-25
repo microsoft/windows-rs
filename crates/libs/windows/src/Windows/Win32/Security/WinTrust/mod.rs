@@ -2035,34 +2035,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_REVOCATION_CHECKS {
         f.debug_tuple("WINTRUST_DATA_REVOCATION_CHECKS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINTRUST_DATA_REVOCATION_CHECKS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_DATA_REVOCATION_CHECKS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_DATA_REVOCATION_CHECKS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_DATA_REVOCATION_CHECKS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_DATA_REVOCATION_CHECKS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2096,34 +2068,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_STATE_ACTION {
         f.debug_tuple("WINTRUST_DATA_STATE_ACTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINTRUST_DATA_STATE_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_DATA_STATE_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_DATA_STATE_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_DATA_STATE_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_DATA_STATE_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2155,34 +2099,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICHOICE {
         f.debug_tuple("WINTRUST_DATA_UICHOICE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINTRUST_DATA_UICHOICE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_DATA_UICHOICE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_DATA_UICHOICE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_DATA_UICHOICE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_DATA_UICHOICE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2208,34 +2124,6 @@ unsafe impl ::windows::core::Abi for WINTRUST_DATA_UICONTEXT {
 impl ::core::fmt::Debug for WINTRUST_DATA_UICONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINTRUST_DATA_UICONTEXT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINTRUST_DATA_UICONTEXT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_DATA_UICONTEXT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_DATA_UICONTEXT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_DATA_UICONTEXT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_DATA_UICONTEXT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -2269,34 +2157,6 @@ unsafe impl ::windows::core::Abi for WINTRUST_DATA_UNION_CHOICE {
 impl ::core::fmt::Debug for WINTRUST_DATA_UNION_CHOICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINTRUST_DATA_UNION_CHOICE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINTRUST_DATA_UNION_CHOICE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_DATA_UNION_CHOICE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_DATA_UNION_CHOICE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_DATA_UNION_CHOICE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_DATA_UNION_CHOICE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -2365,34 +2225,6 @@ unsafe impl ::windows::core::Abi for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
 impl ::core::fmt::Debug for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -2582,34 +2414,6 @@ unsafe impl ::windows::core::Abi for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
 impl ::core::fmt::Debug for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINTRUST_SIGNATURE_SETTINGS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

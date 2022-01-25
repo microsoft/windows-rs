@@ -1132,34 +1132,6 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
         f.debug_tuple("CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1189,34 +1161,6 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1595,34 +1539,6 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
         f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1648,34 +1564,6 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1747,34 +1635,6 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1853,34 +1713,6 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_FORMAT {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_EXPORT_FORMAT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPTUI_WIZ_EXPORT_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_EXPORT_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_EXPORT_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_EXPORT_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_EXPORT_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
@@ -1988,34 +1820,6 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_SUBJECT {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_SUBJECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_EXPORT_SUBJECT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
@@ -2198,34 +2002,6 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
         f.debug_tuple("CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
@@ -2297,34 +2073,6 @@ unsafe impl ::windows::core::Abi for CTL_MODIFY_REQUEST_OPERATION {
 impl ::core::fmt::Debug for CTL_MODIFY_REQUEST_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CTL_MODIFY_REQUEST_OPERATION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CTL_MODIFY_REQUEST_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CTL_MODIFY_REQUEST_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CTL_MODIFY_REQUEST_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CTL_MODIFY_REQUEST_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CTL_MODIFY_REQUEST_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]

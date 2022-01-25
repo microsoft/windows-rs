@@ -542,34 +542,6 @@ impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
         f.debug_tuple("BCRYPT_DH_KEY_BLOB_MAGIC").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for BCRYPT_DH_KEY_BLOB_MAGIC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_DH_KEY_BLOB_MAGIC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_DH_KEY_BLOB_MAGIC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_DH_KEY_BLOB_MAGIC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_DH_KEY_BLOB_MAGIC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012u32;
 #[repr(C)]
@@ -701,34 +673,6 @@ unsafe impl ::windows::core::Abi for BCRYPT_DSA_MAGIC {
 impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_DSA_MAGIC").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BCRYPT_DSA_MAGIC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_DSA_MAGIC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_DSA_MAGIC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_DSA_MAGIC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_DSA_MAGIC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1060,34 +1004,6 @@ unsafe impl ::windows::core::Abi for BCRYPT_INTERFACE {
 impl ::core::fmt::Debug for BCRYPT_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_INTERFACE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BCRYPT_INTERFACE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_INTERFACE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_INTERFACE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_INTERFACE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_INTERFACE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1740,34 +1656,6 @@ impl ::core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
         f.debug_tuple("BCRYPT_QUERY_PROVIDER_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for BCRYPT_QUERY_PROVIDER_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_QUERY_PROVIDER_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_QUERY_PROVIDER_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_QUERY_PROVIDER_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_QUERY_PROVIDER_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(593u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1899,34 +1787,6 @@ impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
         f.debug_tuple("BCRYPT_RSAKEY_BLOB_MAGIC").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for BCRYPT_RSAKEY_BLOB_MAGIC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_RSAKEY_BLOB_MAGIC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_RSAKEY_BLOB_MAGIC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_RSAKEY_BLOB_MAGIC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_RSAKEY_BLOB_MAGIC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1978,34 +1838,6 @@ unsafe impl ::windows::core::Abi for BCRYPT_TABLE {
 impl ::core::fmt::Debug for BCRYPT_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_TABLE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BCRYPT_TABLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BCRYPT_TABLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BCRYPT_TABLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BCRYPT_TABLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BCRYPT_TABLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -3481,34 +3313,6 @@ impl ::core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
         f.debug_tuple("CERT_BIOMETRIC_DATA_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_BIOMETRIC_DATA_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_BIOMETRIC_DATA_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_BIOMETRIC_DATA_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_BIOMETRIC_DATA_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_BIOMETRIC_DATA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4035,34 +3839,6 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
         f.debug_tuple("CERT_CHAIN_POLICY_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_CHAIN_POLICY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_CHAIN_POLICY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_CHAIN_POLICY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_CHAIN_POLICY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_CHAIN_POLICY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
 #[repr(C)]
@@ -4304,34 +4080,6 @@ unsafe impl ::windows::core::Abi for CERT_CONTROL_STORE_FLAGS {
 impl ::core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_CONTROL_STORE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_CONTROL_STORE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_CONTROL_STORE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_CONTROL_STORE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_CONTROL_STORE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_CONTROL_STORE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -4930,34 +4678,6 @@ impl ::core::fmt::Debug for CERT_FIND_TYPE {
         f.debug_tuple("CERT_FIND_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_FIND_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_FIND_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_FIND_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_FIND_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_FIND_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -5159,34 +4879,6 @@ unsafe impl ::windows::core::Abi for CERT_ID_OPTION {
 impl ::core::fmt::Debug for CERT_ID_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_ID_OPTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_ID_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_ID_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_ID_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_ID_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_ID_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -5500,34 +5192,6 @@ impl ::core::fmt::Debug for CERT_KEY_SPEC {
         f.debug_tuple("CERT_KEY_SPEC").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_KEY_SPEC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_KEY_SPEC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_KEY_SPEC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_KEY_SPEC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_KEY_SPEC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_KEY_SPEC_PROP_ID: u32 = 6u32;
 #[repr(C)]
@@ -5729,34 +5393,6 @@ unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_CHOICE {
 impl ::core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_LOGOTYPE_CHOICE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_LOGOTYPE_CHOICE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_LOGOTYPE_CHOICE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_CHOICE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_CHOICE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_LOGOTYPE_CHOICE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -6020,34 +5656,6 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
         f.debug_tuple("CERT_LOGOTYPE_IMAGE_INFO_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6139,34 +5747,6 @@ unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_OPTION {
 impl ::core::fmt::Debug for CERT_LOGOTYPE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_LOGOTYPE_OPTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_LOGOTYPE_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_LOGOTYPE_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_LOGOTYPE_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -6442,34 +6022,6 @@ unsafe impl ::windows::core::Abi for CERT_OPEN_STORE_FLAGS {
 impl ::core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_OPEN_STORE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_OPEN_STORE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_OPEN_STORE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_OPEN_STORE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_OPEN_STORE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_OPEN_STORE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7322,34 +6874,6 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
         f.debug_tuple("CERT_QUERY_CONTENT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_QUERY_CONTENT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_CONTENT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_CONTENT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_CONTENT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_CONTENT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7405,34 +6929,6 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
         f.debug_tuple("CERT_QUERY_CONTENT_TYPE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7458,34 +6954,6 @@ unsafe impl ::windows::core::Abi for CERT_QUERY_ENCODING_TYPE {
 impl ::core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_QUERY_ENCODING_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_QUERY_ENCODING_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_ENCODING_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_ENCODING_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_ENCODING_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_ENCODING_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7515,34 +6983,6 @@ unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE {
 impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_QUERY_FORMAT_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_QUERY_FORMAT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_FORMAT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_FORMAT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_FORMAT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_FORMAT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7576,34 +7016,6 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
         f.debug_tuple("CERT_QUERY_FORMAT_TYPE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7629,34 +7041,6 @@ unsafe impl ::windows::core::Abi for CERT_QUERY_OBJECT_TYPE {
 impl ::core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_QUERY_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_QUERY_OBJECT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_QUERY_OBJECT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_QUERY_OBJECT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_QUERY_OBJECT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_QUERY_OBJECT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7795,34 +7179,6 @@ unsafe impl ::windows::core::Abi for CERT_RDN_ATTR_VALUE_TYPE {
 impl ::core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_RDN_ATTR_VALUE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_RDN_ATTR_VALUE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_RDN_ATTR_VALUE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_RDN_ATTR_VALUE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_RDN_ATTR_VALUE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_RDN_ATTR_VALUE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8237,34 +7593,6 @@ impl ::core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
         f.debug_tuple("CERT_REVOCATION_STATUS_REASON").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_REVOCATION_STATUS_REASON {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_REVOCATION_STATUS_REASON {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_REVOCATION_STATUS_REASON {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_REVOCATION_STATUS_REASON {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_REVOCATION_STATUS_REASON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID: u32 = 83u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8481,34 +7809,6 @@ unsafe impl ::windows::core::Abi for CERT_SELECT_CRITERIA_TYPE {
 impl ::core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_SELECT_CRITERIA_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_SELECT_CRITERIA_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_SELECT_CRITERIA_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_SELECT_CRITERIA_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_SELECT_CRITERIA_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_SELECT_CRITERIA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8977,34 +8277,6 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
         f.debug_tuple("CERT_STORE_SAVE_AS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_STORE_SAVE_AS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_STORE_SAVE_AS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_STORE_SAVE_AS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_STORE_SAVE_AS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_STORE_SAVE_AS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_SAVE_AS_PKCS12: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -9038,34 +8310,6 @@ unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_TO {
 impl ::core::fmt::Debug for CERT_STORE_SAVE_TO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_STORE_SAVE_TO").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_STORE_SAVE_TO {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_STORE_SAVE_TO {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_STORE_SAVE_TO {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_STORE_SAVE_TO {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_STORE_SAVE_TO {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -9103,34 +8347,6 @@ unsafe impl ::windows::core::Abi for CERT_STRING_TYPE {
 impl ::core::fmt::Debug for CERT_STRING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_STRING_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_STRING_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_STRING_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_STRING_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_STRING_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_STRING_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -9385,34 +8601,6 @@ unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_FLAGS {
 impl ::core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_SYSTEM_STORE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_SYSTEM_STORE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_SYSTEM_STORE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_SYSTEM_STORE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_SYSTEM_STORE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_SYSTEM_STORE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -11578,34 +10766,6 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
         f.debug_tuple("CMSG_KEY_AGREE_OPTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CMSG_KEY_AGREE_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CMSG_KEY_AGREE_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CMSG_KEY_AGREE_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CMSG_KEY_AGREE_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CMSG_KEY_AGREE_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11631,34 +10791,6 @@ unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ORIGINATOR {
 impl ::core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CMSG_KEY_AGREE_ORIGINATOR").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CMSG_KEY_AGREE_ORIGINATOR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CMSG_KEY_AGREE_ORIGINATOR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CMSG_KEY_AGREE_ORIGINATOR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CMSG_KEY_AGREE_ORIGINATOR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CMSG_KEY_AGREE_ORIGINATOR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -14566,34 +13698,6 @@ impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
         f.debug_tuple("CRYPT_DEFAULT_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_DEFAULT_CONTEXT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_DEFAULT_CONTEXT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_DEFAULT_CONTEXT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_DEFAULT_CONTEXT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_DEFAULT_CONTEXT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_DELETEKEYSET: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -14991,34 +14095,6 @@ unsafe impl ::windows::core::Abi for CRYPT_FIND_FLAGS {
 impl ::core::fmt::Debug for CRYPT_FIND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_FIND_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_FIND_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_FIND_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_FIND_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_FIND_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_FIND_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -15661,34 +14737,6 @@ impl ::core::fmt::Debug for CRYPT_KEY_PARAM_ID {
         f.debug_tuple("CRYPT_KEY_PARAM_ID").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_KEY_PARAM_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_KEY_PARAM_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_KEY_PARAM_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_KEY_PARAM_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_KEY_PARAM_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15993,34 +15041,6 @@ impl ::core::fmt::Debug for CRYPT_MSG_TYPE {
         f.debug_tuple("CRYPT_MSG_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_MSG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_MSG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_MSG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_MSG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_MSG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_NDR_ENCODING: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -16113,34 +15133,6 @@ unsafe impl ::windows::core::Abi for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
 impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_OBJECT_LOCATOR_RELEASE_REASON").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -17130,34 +16122,6 @@ impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
         f.debug_tuple("CRYPT_SET_HASH_PARAM").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_SET_HASH_PARAM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_SET_HASH_PARAM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_SET_HASH_PARAM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_SET_HASH_PARAM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_SET_HASH_PARAM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -17213,34 +16177,6 @@ unsafe impl ::windows::core::Abi for CRYPT_SET_PROV_PARAM_ID {
 impl ::core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_SET_PROV_PARAM_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_SET_PROV_PARAM_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_SET_PROV_PARAM_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_SET_PROV_PARAM_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_SET_PROV_PARAM_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_SET_PROV_PARAM_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -17481,34 +16417,6 @@ unsafe impl ::windows::core::Abi for CRYPT_STRING {
 impl ::core::fmt::Debug for CRYPT_STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_STRING").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_STRING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_STRING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_STRING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_STRING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_STRING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -17829,34 +16737,6 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
         f.debug_tuple("CRYPT_TIMESTAMP_RESPONSE_STATUS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -17880,34 +16760,6 @@ unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_VERSION {
 impl ::core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_TIMESTAMP_VERSION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_TIMESTAMP_VERSION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_TIMESTAMP_VERSION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_TIMESTAMP_VERSION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_TIMESTAMP_VERSION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_TIMESTAMP_VERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -18069,34 +16921,6 @@ unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_FLAGS {
 impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_VERIFY_CERT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_VERIFY_CERT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_VERIFY_CERT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_VERIFY_CERT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_VERIFY_CERT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_VERIFY_CERT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -18680,34 +17504,6 @@ impl ::core::fmt::Debug for CRYPT_XML_FLAGS {
         f.debug_tuple("CRYPT_XML_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_XML_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -18745,34 +17541,6 @@ unsafe impl ::windows::core::Abi for CRYPT_XML_GROUP_ID {
 impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_XML_GROUP_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_XML_GROUP_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_GROUP_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_GROUP_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_GROUP_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_GROUP_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -18925,34 +17693,6 @@ unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_TYPE {
 impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_XML_KEYINFO_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_XML_KEYINFO_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_KEYINFO_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_KEYINFO_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_KEYINFO_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_KEYINFO_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -19271,34 +18011,6 @@ unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE_TYPE {
 impl ::core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_XML_KEY_VALUE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_XML_KEY_VALUE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_KEY_VALUE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_KEY_VALUE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_KEY_VALUE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_KEY_VALUE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -19659,34 +18371,6 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
         f.debug_tuple("CRYPT_XML_STATUS_ERROR_STATUS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CRYPT_XML_STATUS_ERROR_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_STATUS_ERROR_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_STATUS_ERROR_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_STATUS_ERROR_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_STATUS_ERROR_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -19720,34 +18404,6 @@ unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_INFO_STATUS {
 impl ::core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_XML_STATUS_INFO_STATUS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_XML_STATUS_INFO_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_STATUS_INFO_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_STATUS_INFO_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_STATUS_INFO_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_STATUS_INFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -20035,34 +18691,6 @@ unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_TYPE {
 impl ::core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_XML_X509DATA_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRYPT_XML_X509DATA_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPT_XML_X509DATA_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPT_XML_X509DATA_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPT_XML_X509DATA_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRYPT_XML_X509DATA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -21807,34 +20435,6 @@ unsafe impl ::windows::core::Abi for CertKeyType {
 impl ::core::fmt::Debug for CertKeyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CertKeyType").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CertKeyType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CertKeyType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CertKeyType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CertKeyType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CertKeyType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
@@ -25520,34 +24120,6 @@ impl ::core::fmt::Debug for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
         f.debug_tuple("HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -27341,34 +25913,6 @@ unsafe impl ::windows::core::Abi for NCRYPT_ALGORITHM_NAME_CLASS {
 impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NCRYPT_ALGORITHM_NAME_CLASS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NCRYPT_ALGORITHM_NAME_CLASS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NCRYPT_ALGORITHM_NAME_CLASS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NCRYPT_ALGORITHM_NAME_CLASS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NCRYPT_ALGORITHM_NAME_CLASS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NCRYPT_ALGORITHM_NAME_CLASS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

@@ -561,34 +561,6 @@ impl ::core::fmt::Debug for DWRITE_FONT_AXIS_TAG {
         f.debug_tuple("DWRITE_FONT_AXIS_TAG").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DWRITE_FONT_AXIS_TAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DWRITE_FONT_AXIS_TAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DWRITE_FONT_AXIS_TAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DWRITE_FONT_AXIS_TAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DWRITE_FONT_AXIS_TAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub struct DWRITE_FONT_AXIS_VALUE {
@@ -902,34 +874,6 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_FEATURE_TAG {
 impl ::core::fmt::Debug for DWRITE_FONT_FEATURE_TAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWRITE_FONT_FEATURE_TAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DWRITE_FONT_FEATURE_TAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DWRITE_FONT_FEATURE_TAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DWRITE_FONT_FEATURE_TAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DWRITE_FONT_FEATURE_TAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DWRITE_FONT_FEATURE_TAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]

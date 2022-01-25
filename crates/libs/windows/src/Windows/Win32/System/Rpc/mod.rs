@@ -379,34 +379,6 @@ impl ::core::fmt::Debug for GROUP_NAME_SYNTAX {
         f.debug_tuple("GROUP_NAME_SYNTAX").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GROUP_NAME_SYNTAX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GROUP_NAME_SYNTAX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8923,34 +8895,6 @@ impl ::core::fmt::Debug for RPC_C_AUTHN_INFO_TYPE {
         f.debug_tuple("RPC_C_AUTHN_INFO_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_AUTHN_INFO_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_AUTHN_INFO_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -9364,34 +9308,6 @@ unsafe impl ::windows::core::Abi for RPC_C_QOS_IDENTITY {
 impl ::core::fmt::Debug for RPC_C_QOS_IDENTITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RPC_C_QOS_IDENTITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_QOS_IDENTITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_QOS_IDENTITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -14957,34 +14873,6 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY {
 impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SEC_WINNT_AUTH_IDENTITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SEC_WINNT_AUTH_IDENTITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SEC_WINNT_AUTH_IDENTITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

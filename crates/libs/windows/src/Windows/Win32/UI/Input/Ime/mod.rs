@@ -520,34 +520,6 @@ impl ::core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
         f.debug_tuple("GET_CONVERSION_LIST_FLAG").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for GET_CONVERSION_LIST_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_CONVERSION_LIST_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_CONVERSION_LIST_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_CONVERSION_LIST_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_CONVERSION_LIST_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -577,34 +549,6 @@ unsafe impl ::windows::core::Abi for GET_GUIDE_LINE_TYPE {
 impl ::core::fmt::Debug for GET_GUIDE_LINE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_GUIDE_LINE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_GUIDE_LINE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_GUIDE_LINE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_GUIDE_LINE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_GUIDE_LINE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_GUIDE_LINE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -5309,34 +5253,6 @@ impl ::core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
         f.debug_tuple("IME_PAD_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for IME_PAD_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IME_PAD_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IME_PAD_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IME_PAD_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IME_PAD_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -7386,34 +7302,6 @@ impl ::core::fmt::Debug for NOTIFY_IME_ACTION {
         f.debug_tuple("NOTIFY_IME_ACTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for NOTIFY_IME_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NOTIFY_IME_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NOTIFY_IME_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NOTIFY_IME_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NOTIFY_IME_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7443,34 +7331,6 @@ unsafe impl ::windows::core::Abi for NOTIFY_IME_INDEX {
 impl ::core::fmt::Debug for NOTIFY_IME_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NOTIFY_IME_INDEX").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NOTIFY_IME_INDEX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NOTIFY_IME_INDEX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NOTIFY_IME_INDEX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NOTIFY_IME_INDEX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NOTIFY_IME_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
@@ -7670,34 +7530,6 @@ unsafe impl ::windows::core::Abi for SET_COMPOSITION_STRING_TYPE {
 impl ::core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_COMPOSITION_STRING_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SET_COMPOSITION_STRING_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_COMPOSITION_STRING_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_COMPOSITION_STRING_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_COMPOSITION_STRING_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SET_COMPOSITION_STRING_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]

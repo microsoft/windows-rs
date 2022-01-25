@@ -708,34 +708,6 @@ impl ::core::fmt::Debug for CACHE_CONFIG {
         f.debug_tuple("CACHE_CONFIG").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CACHE_CONFIG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CACHE_CONFIG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CACHE_CONFIG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CACHE_CONFIG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CACHE_CONFIG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -1672,34 +1644,6 @@ unsafe impl ::windows::core::Abi for FTP_FLAGS {
 impl ::core::fmt::Debug for FTP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FTP_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FTP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FTP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FTP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FTP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FTP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
@@ -3045,34 +2989,6 @@ unsafe impl ::windows::core::Abi for GOPHER_TYPE {
 impl ::core::fmt::Debug for GOPHER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GOPHER_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GOPHER_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GOPHER_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GOPHER_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GOPHER_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GOPHER_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4914,34 +4830,6 @@ impl ::core::fmt::Debug for INTERNET_ACCESS_TYPE {
         f.debug_tuple("INTERNET_ACCESS_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for INTERNET_ACCESS_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_ACCESS_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_ACCESS_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_ACCESS_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_ACCESS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct INTERNET_ASYNC_RESULT {
@@ -5049,34 +4937,6 @@ unsafe impl ::windows::core::Abi for INTERNET_AUTODIAL {
 impl ::core::fmt::Debug for INTERNET_AUTODIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("INTERNET_AUTODIAL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for INTERNET_AUTODIAL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_AUTODIAL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_AUTODIAL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_AUTODIAL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_AUTODIAL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -6189,34 +6049,6 @@ impl ::core::fmt::Debug for INTERNET_COOKIE_FLAGS {
         f.debug_tuple("INTERNET_COOKIE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for INTERNET_COOKIE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_COOKIE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_COOKIE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_COOKIE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_COOKIE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_COOKIE_HOST_ONLY: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -7061,34 +6893,6 @@ impl ::core::fmt::Debug for INTERNET_PER_CONN {
         f.debug_tuple("INTERNET_PER_CONN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for INTERNET_PER_CONN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_PER_CONN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_PER_CONN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_PER_CONN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_PER_CONN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
 #[repr(C)]
@@ -7624,34 +7428,6 @@ unsafe impl ::windows::core::Abi for INTERNET_STATE {
 impl ::core::fmt::Debug for INTERNET_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("INTERNET_STATE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for INTERNET_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]

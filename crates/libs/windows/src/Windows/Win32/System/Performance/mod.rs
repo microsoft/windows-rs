@@ -8555,34 +8555,6 @@ impl ::core::fmt::Debug for PDH_DLL_VERSION {
         f.debug_tuple("PDH_DLL_VERSION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PDH_DLL_VERSION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_DLL_VERSION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_DLL_VERSION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_DLL_VERSION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_DLL_VERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -8618,34 +8590,6 @@ unsafe impl ::windows::core::Abi for PDH_FMT {
 impl ::core::fmt::Debug for PDH_FMT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PDH_FMT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PDH_FMT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_FMT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_FMT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_FMT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_FMT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8834,34 +8778,6 @@ unsafe impl ::windows::core::Abi for PDH_LOG {
 impl ::core::fmt::Debug for PDH_LOG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PDH_LOG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PDH_LOG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_LOG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_LOG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_LOG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_LOG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9263,34 +9179,6 @@ impl ::core::fmt::Debug for PDH_LOG_TYPE {
         f.debug_tuple("PDH_LOG_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PDH_LOG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_LOG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_LOG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_LOG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_LOG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9360,34 +9248,6 @@ unsafe impl ::windows::core::Abi for PDH_PATH_FLAGS {
 impl ::core::fmt::Debug for PDH_PATH_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PDH_PATH_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PDH_PATH_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_PATH_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_PATH_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_PATH_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_PATH_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9598,34 +9458,6 @@ unsafe impl ::windows::core::Abi for PDH_SELECT_DATA_SOURCE_FLAGS {
 impl ::core::fmt::Debug for PDH_SELECT_DATA_SOURCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PDH_SELECT_DATA_SOURCE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PDH_SELECT_DATA_SOURCE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PDH_SELECT_DATA_SOURCE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PDH_SELECT_DATA_SOURCE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PDH_SELECT_DATA_SOURCE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PDH_SELECT_DATA_SOURCE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9892,34 +9724,6 @@ unsafe impl ::windows::core::Abi for PERF_COUNTER_AGGREGATE_FUNC {
 impl ::core::fmt::Debug for PERF_COUNTER_AGGREGATE_FUNC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PERF_COUNTER_AGGREGATE_FUNC").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PERF_COUNTER_AGGREGATE_FUNC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PERF_COUNTER_AGGREGATE_FUNC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PERF_COUNTER_AGGREGATE_FUNC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PERF_COUNTER_AGGREGATE_FUNC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PERF_COUNTER_AGGREGATE_FUNC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -10460,34 +10264,6 @@ unsafe impl ::windows::core::Abi for PERF_DETAIL {
 impl ::core::fmt::Debug for PERF_DETAIL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PERF_DETAIL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PERF_DETAIL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PERF_DETAIL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PERF_DETAIL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PERF_DETAIL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PERF_DETAIL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -12953,34 +12729,6 @@ unsafe impl ::windows::core::Abi for REAL_TIME_DATA_SOURCE_ID_FLAGS {
 impl ::core::fmt::Debug for REAL_TIME_DATA_SOURCE_ID_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REAL_TIME_DATA_SOURCE_ID_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]

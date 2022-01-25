@@ -608,34 +608,6 @@ impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
         f.debug_tuple("ESCAPE_COMM_FUNCTION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ESCAPE_COMM_FUNCTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ESCAPE_COMM_FUNCTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1295,34 +1267,6 @@ impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
         f.debug_tuple("MODEMSETTINGS_SPEAKER_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEMSETTINGS_SPEAKER_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEMSETTINGS_SPEAKER_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1350,34 +1294,6 @@ unsafe impl ::windows::core::Abi for MODEM_SPEAKER_VOLUME {
 impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MODEM_SPEAKER_VOLUME").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEM_SPEAKER_VOLUME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEM_SPEAKER_VOLUME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]

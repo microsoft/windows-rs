@@ -8,4 +8,14 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "Storage_Streams",
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+]
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Storage_Streams",
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
 ]

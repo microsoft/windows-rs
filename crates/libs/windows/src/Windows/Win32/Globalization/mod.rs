@@ -1098,34 +1098,6 @@ impl ::core::fmt::Debug for ENUM_DATE_FORMATS_FLAGS {
         f.debug_tuple("ENUM_DATE_FORMATS_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ENUM_DATE_FORMATS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_DATE_FORMATS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_DATE_FORMATS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_DATE_FORMATS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_DATE_FORMATS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1153,34 +1125,6 @@ impl ::core::fmt::Debug for ENUM_SYSTEM_CODE_PAGES_FLAGS {
         f.debug_tuple("ENUM_SYSTEM_CODE_PAGES_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1206,34 +1150,6 @@ unsafe impl ::windows::core::Abi for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
 impl ::core::fmt::Debug for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
@@ -5074,34 +4990,6 @@ impl ::core::fmt::Debug for IS_VALID_LOCALE_FLAGS {
         f.debug_tuple("IS_VALID_LOCALE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for IS_VALID_LOCALE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IS_VALID_LOCALE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IS_VALID_LOCALE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IS_VALID_LOCALE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IS_VALID_LOCALE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellCheckProvider(::windows::core::IUnknown);
@@ -8155,34 +8043,6 @@ impl ::core::fmt::Debug for SCRIPT_IS_COMPLEX_FLAGS {
         f.debug_tuple("SCRIPT_IS_COMPLEX_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SCRIPT_IS_COMPLEX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SCRIPT_IS_COMPLEX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCRIPT_IS_COMPLEX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCRIPT_IS_COMPLEX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SCRIPT_IS_COMPLEX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_ITEM {
@@ -9477,34 +9337,6 @@ unsafe impl ::windows::core::Abi for TRANSLATE_CHARSET_INFO_FLAGS {
 impl ::core::fmt::Debug for TRANSLATE_CHARSET_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRANSLATE_CHARSET_INFO_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TRANSLATE_CHARSET_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TRANSLATE_CHARSET_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TRANSLATE_CHARSET_INFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TRANSLATE_CHARSET_INFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TRANSLATE_CHARSET_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]

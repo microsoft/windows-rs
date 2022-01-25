@@ -856,34 +856,6 @@ impl ::core::fmt::Debug for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
         f.debug_tuple("CHANGE_WINDOW_MESSAGE_FILTER_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const CHILDID_SELF: u32 = 0u32;
 #[repr(C)]
@@ -1125,34 +1097,6 @@ unsafe impl ::windows::core::Abi for CURSORINFO_FLAGS {
 impl ::core::fmt::Debug for CURSORINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CURSORINFO_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CURSORINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CURSORINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -3659,34 +3603,6 @@ impl ::core::fmt::Debug for FOREGROUND_WINDOW_LOCK_CODE {
         f.debug_tuple("FOREGROUND_WINDOW_LOCK_CODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FOREGROUND_WINDOW_LOCK_CODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FOREGROUND_WINDOW_LOCK_CODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const FSHIFT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3812,34 +3728,6 @@ impl ::core::fmt::Debug for GDI_IMAGE_TYPE {
         f.debug_tuple("GDI_IMAGE_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GDI_IMAGE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GDI_IMAGE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3883,34 +3771,6 @@ unsafe impl ::windows::core::Abi for GET_ANCESTOR_FLAGS {
 impl ::core::fmt::Debug for GET_ANCESTOR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_ANCESTOR_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_ANCESTOR_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_ANCESTOR_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4062,34 +3922,6 @@ unsafe impl ::windows::core::Abi for GET_WINDOW_CMD {
 impl ::core::fmt::Debug for GET_WINDOW_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_WINDOW_CMD").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_WINDOW_CMD {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_WINDOW_CMD {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_WINDOW_CMD {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_WINDOW_CMD {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_WINDOW_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -7853,34 +7685,6 @@ impl ::core::fmt::Debug for MENUGETOBJECTINFO_FLAGS {
         f.debug_tuple("MENUGETOBJECTINFO_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENUGETOBJECTINFO_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENUGETOBJECTINFO_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9276,34 +9080,6 @@ unsafe impl ::windows::core::Abi for MSGFLTINFO_STATUS {
 impl ::core::fmt::Debug for MSGFLTINFO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MSGFLTINFO_STATUS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSGFLTINFO_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSGFLTINFO_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -12413,34 +12189,6 @@ impl ::core::fmt::Debug for SYSTEM_CURSOR_ID {
         f.debug_tuple("SYSTEM_CURSOR_ID").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_CURSOR_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_CURSOR_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -12652,34 +12400,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_METRICS_INDEX {
 impl ::core::fmt::Debug for SYSTEM_METRICS_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEM_METRICS_INDEX").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_METRICS_INDEX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_METRICS_INDEX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -13365,34 +13085,6 @@ unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
 impl ::core::fmt::Debug for SYS_COLOR_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYS_COLOR_INDEX").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYS_COLOR_INDEX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYS_COLOR_INDEX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
@@ -14459,34 +14151,6 @@ impl ::core::fmt::Debug for TILE_WINDOWS_HOW {
         f.debug_tuple("TILE_WINDOWS_HOW").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TILE_WINDOWS_HOW {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TILE_WINDOWS_HOW {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
@@ -14989,34 +14653,6 @@ impl ::core::fmt::Debug for UPDATE_LAYERED_WINDOW_FLAGS {
         f.debug_tuple("UPDATE_LAYERED_WINDOW_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -15404,34 +15040,6 @@ impl ::core::fmt::Debug for WINDOW_DISPLAY_AFFINITY {
         f.debug_tuple("WINDOW_DISPLAY_AFFINITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_DISPLAY_AFFINITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_DISPLAY_AFFINITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -15611,34 +15219,6 @@ unsafe impl ::windows::core::Abi for WINDOW_MESSAGE_FILTER_ACTION {
 impl ::core::fmt::Debug for WINDOW_MESSAGE_FILTER_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINDOW_MESSAGE_FILTER_ACTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_MESSAGE_FILTER_ACTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_MESSAGE_FILTER_ACTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]

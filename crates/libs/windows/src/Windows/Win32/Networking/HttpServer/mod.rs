@@ -2161,34 +2161,6 @@ impl ::core::fmt::Debug for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
         f.debug_tuple("HTTP_RECEIVE_HTTP_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]

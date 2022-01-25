@@ -315,34 +315,6 @@ impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
         f.debug_tuple("SNMP_API_TRANSLATE_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_API_TRANSLATE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_API_TRANSLATE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -420,34 +392,6 @@ impl ::core::fmt::Debug for SNMP_ERROR {
         f.debug_tuple("SNMP_ERROR").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_ERROR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_ERROR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_ERROR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_ERROR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_ERROR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -509,34 +453,6 @@ impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
         f.debug_tuple("SNMP_ERROR_STATUS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_ERROR_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_ERROR_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -570,34 +486,6 @@ unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
 impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SNMP_EXTENSION_REQUEST_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_EXTENSION_REQUEST_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_EXTENSION_REQUEST_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -637,34 +525,6 @@ impl ::core::fmt::Debug for SNMP_GENERICTRAP {
         f.debug_tuple("SNMP_GENERICTRAP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_GENERICTRAP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_GENERICTRAP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -698,34 +558,6 @@ unsafe impl ::windows::core::Abi for SNMP_LOG {
 impl ::core::fmt::Debug for SNMP_LOG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SNMP_LOG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SNMP_LOG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_LOG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_LOG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_LOG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_LOG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -779,34 +611,6 @@ impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
         f.debug_tuple("SNMP_OUTPUT_LOG_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_OUTPUT_LOG_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_OUTPUT_LOG_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -850,34 +654,6 @@ impl ::core::fmt::Debug for SNMP_PDU_TYPE {
         f.debug_tuple("SNMP_PDU_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_PDU_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_PDU_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -903,34 +679,6 @@ unsafe impl ::windows::core::Abi for SNMP_STATUS {
 impl ::core::fmt::Debug for SNMP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SNMP_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SNMP_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]

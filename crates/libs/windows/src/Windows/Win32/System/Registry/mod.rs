@@ -391,34 +391,6 @@ impl ::core::fmt::Debug for REG_CREATE_KEY_DISPOSITION {
         f.debug_tuple("REG_CREATE_KEY_DISPOSITION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_CREATE_KEY_DISPOSITION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_CREATE_KEY_DISPOSITION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
@@ -682,34 +654,6 @@ impl ::core::fmt::Debug for REG_SAVE_FORMAT {
         f.debug_tuple("REG_SAVE_FORMAT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_SAVE_FORMAT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_SAVE_FORMAT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
@@ -763,34 +707,6 @@ unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
 impl ::core::fmt::Debug for REG_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REG_VALUE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for REG_VALUE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_VALUE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_VALUE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_VALUE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for REG_VALUE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_Registry'*"]

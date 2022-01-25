@@ -26,34 +26,6 @@ impl ::core::fmt::Debug for ADDED_CERT_TYPE {
         f.debug_tuple("ADDED_CERT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ADDED_CERT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ADDED_CERT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ADDED_CERT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ADDED_CERT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ADDED_CERT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1629,34 +1601,6 @@ impl ::core::fmt::Debug for CERT_ALT_NAME {
         f.debug_tuple("CERT_ALT_NAME").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_ALT_NAME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_ALT_NAME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_ALT_NAME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_ALT_NAME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_ALT_NAME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1688,34 +1632,6 @@ impl ::core::fmt::Debug for CERT_CREATE_REQUEST_FLAGS {
         f.debug_tuple("CERT_CREATE_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_CREATE_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_CREATE_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_CREATE_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_CREATE_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_CREATE_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1741,34 +1657,6 @@ unsafe impl ::windows::core::Abi for CERT_DELETE_ROW_FLAGS {
 impl ::core::fmt::Debug for CERT_DELETE_ROW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_DELETE_ROW_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_DELETE_ROW_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_DELETE_ROW_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_DELETE_ROW_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_DELETE_ROW_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_DELETE_ROW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -1871,34 +1759,6 @@ impl ::core::fmt::Debug for CERT_GET_CONFIG_FLAGS {
         f.debug_tuple("CERT_GET_CONFIG_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_GET_CONFIG_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_GET_CONFIG_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_GET_CONFIG_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_GET_CONFIG_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_GET_CONFIG_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1926,34 +1786,6 @@ unsafe impl ::windows::core::Abi for CERT_IMPORT_FLAGS {
 impl ::core::fmt::Debug for CERT_IMPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_IMPORT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_IMPORT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_IMPORT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_IMPORT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_IMPORT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_IMPORT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -1987,34 +1819,6 @@ impl ::core::fmt::Debug for CERT_PROPERTY_TYPE {
         f.debug_tuple("CERT_PROPERTY_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CERT_PROPERTY_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_PROPERTY_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_PROPERTY_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_PROPERTY_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_PROPERTY_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2042,34 +1846,6 @@ unsafe impl ::windows::core::Abi for CERT_REQUEST_OUT_TYPE {
 impl ::core::fmt::Debug for CERT_REQUEST_OUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_REQUEST_OUT_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_REQUEST_OUT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_REQUEST_OUT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_REQUEST_OUT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_REQUEST_OUT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_REQUEST_OUT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -2132,34 +1908,6 @@ unsafe impl ::windows::core::Abi for CERT_VIEW_SEEK_OPERATOR_FLAGS {
 impl ::core::fmt::Debug for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_VIEW_SEEK_OPERATOR_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 pub const CEnroll: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
@@ -2322,34 +2070,6 @@ unsafe impl ::windows::core::Abi for CR_DISP {
 impl ::core::fmt::Debug for CR_DISP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CR_DISP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CR_DISP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CR_DISP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CR_DISP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CR_DISP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CR_DISP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -2591,34 +2311,6 @@ impl ::core::fmt::Debug for CSBACKUP_TYPE {
         f.debug_tuple("CSBACKUP_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CSBACKUP_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CSBACKUP_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CSBACKUP_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CSBACKUP_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CSBACKUP_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -2766,34 +2458,6 @@ impl ::core::fmt::Debug for CVRC_COLUMN {
         f.debug_tuple("CVRC_COLUMN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for CVRC_COLUMN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CVRC_COLUMN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CVRC_COLUMN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CVRC_COLUMN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CVRC_COLUMN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2823,34 +2487,6 @@ unsafe impl ::windows::core::Abi for CVRC_TABLE {
 impl ::core::fmt::Debug for CVRC_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CVRC_TABLE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CVRC_TABLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CVRC_TABLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CVRC_TABLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CVRC_TABLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CVRC_TABLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -3449,34 +3085,6 @@ impl ::core::fmt::Debug for ENUM_CERT_COLUMN_VALUE_FLAGS {
         f.debug_tuple("ENUM_CERT_COLUMN_VALUE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -3978,34 +3586,6 @@ unsafe impl ::windows::core::Abi for FULL_RESPONSE_PROPERTY_ID {
 impl ::core::fmt::Debug for FULL_RESPONSE_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FULL_RESPONSE_PROPERTY_ID").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FULL_RESPONSE_PROPERTY_ID {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FULL_RESPONSE_PROPERTY_ID {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FULL_RESPONSE_PROPERTY_ID {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FULL_RESPONSE_PROPERTY_ID {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FULL_RESPONSE_PROPERTY_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
@@ -37710,34 +37290,6 @@ impl ::core::fmt::Debug for PENDING_REQUEST_DESIRED_PROPERTY {
         f.debug_tuple("PENDING_REQUEST_DESIRED_PROPERTY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for PENDING_REQUEST_DESIRED_PROPERTY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PENDING_REQUEST_DESIRED_PROPERTY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PENDING_REQUEST_DESIRED_PROPERTY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PENDING_REQUEST_DESIRED_PROPERTY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PENDING_REQUEST_DESIRED_PROPERTY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -39185,34 +38737,6 @@ impl ::core::fmt::Debug for XEKL_KEYSIZE {
         f.debug_tuple("XEKL_KEYSIZE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for XEKL_KEYSIZE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for XEKL_KEYSIZE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for XEKL_KEYSIZE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for XEKL_KEYSIZE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for XEKL_KEYSIZE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -39240,34 +38764,6 @@ unsafe impl ::windows::core::Abi for XEKL_KEYSPEC {
 impl ::core::fmt::Debug for XEKL_KEYSPEC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XEKL_KEYSPEC").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for XEKL_KEYSPEC {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for XEKL_KEYSPEC {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for XEKL_KEYSPEC {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for XEKL_KEYSPEC {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for XEKL_KEYSPEC {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]

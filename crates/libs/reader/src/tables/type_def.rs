@@ -430,7 +430,7 @@ impl TypeDef {
     pub fn has_flags(&self) -> bool {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
-        self.has_attribute("FlagsAttribute") || self.underlying_type() == ElementType::U32
+        self.has_attribute("FlagsAttribute") || (self.is_winrt() && self.underlying_type() == ElementType::U32)
     }
 
     pub fn is_exclusive(&self) -> bool {

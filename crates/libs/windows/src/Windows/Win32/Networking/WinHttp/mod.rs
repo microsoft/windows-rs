@@ -279,34 +279,6 @@ impl ::core::fmt::Debug for INTERNET_PORT {
         f.debug_tuple("INTERNET_PORT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for INTERNET_PORT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_PORT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_PORT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_PORT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_PORT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 #[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
@@ -424,34 +396,6 @@ unsafe impl ::windows::core::Abi for WINHTTP_ACCESS_TYPE {
 impl ::core::fmt::Debug for WINHTTP_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINHTTP_ACCESS_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_ACCESS_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_ACCESS_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
@@ -929,34 +873,6 @@ impl ::core::fmt::Debug for WINHTTP_CREDS_AUTHSCHEME {
         f.debug_tuple("WINHTTP_CREDS_AUTHSCHEME").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_CREDS_AUTHSCHEME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_CREDS_AUTHSCHEME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1363,34 +1279,6 @@ unsafe impl ::windows::core::Abi for WINHTTP_INTERNET_SCHEME {
 impl ::core::fmt::Debug for WINHTTP_INTERNET_SCHEME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINHTTP_INTERNET_SCHEME").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_INTERNET_SCHEME {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_INTERNET_SCHEME {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
@@ -2898,34 +2786,6 @@ unsafe impl ::windows::core::Abi for WIN_HTTP_CREATE_URL_FLAGS {
 impl ::core::fmt::Debug for WIN_HTTP_CREATE_URL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIN_HTTP_CREATE_URL_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN_HTTP_CREATE_URL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN_HTTP_CREATE_URL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]

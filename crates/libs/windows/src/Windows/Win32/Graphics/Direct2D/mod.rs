@@ -309,34 +309,6 @@ impl ::core::fmt::Debug for D2D1_2DAFFINETRANSFORM_PROP {
         f.debug_tuple("D2D1_2DAFFINETRANSFORM_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_2DAFFINETRANSFORM_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_2DAFFINETRANSFORM_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_2DAFFINETRANSFORM_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_2DAFFINETRANSFORM_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_2DAFFINETRANSFORM_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -370,34 +342,6 @@ unsafe impl ::windows::core::Abi for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_M
 impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -441,34 +385,6 @@ impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_PROP {
         f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -504,34 +420,6 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
         f.debug_tuple("D2D1_3DTRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -563,34 +451,6 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_PROP {
         f.debug_tuple("D2D1_3DTRANSFORM_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_3DTRANSFORM_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_3DTRANSFORM_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_3DTRANSFORM_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_3DTRANSFORM_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_3DTRANSFORM_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -618,34 +478,6 @@ unsafe impl ::windows::core::Abi for D2D1_ANTIALIAS_MODE {
 impl ::core::fmt::Debug for D2D1_ANTIALIAS_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_ANTIALIAS_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_ANTIALIAS_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_ANTIALIAS_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_ANTIALIAS_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_ANTIALIAS_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_ANTIALIAS_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -721,34 +553,6 @@ impl ::core::fmt::Debug for D2D1_ARC_SIZE {
         f.debug_tuple("D2D1_ARC_SIZE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_ARC_SIZE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_ARC_SIZE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_ARC_SIZE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_ARC_SIZE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_ARC_SIZE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -776,34 +580,6 @@ unsafe impl ::windows::core::Abi for D2D1_ARITHMETICCOMPOSITE_PROP {
 impl ::core::fmt::Debug for D2D1_ARITHMETICCOMPOSITE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_ARITHMETICCOMPOSITE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_ARITHMETICCOMPOSITE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_ARITHMETICCOMPOSITE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_ARITHMETICCOMPOSITE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_ARITHMETICCOMPOSITE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_ARITHMETICCOMPOSITE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -835,34 +611,6 @@ impl ::core::fmt::Debug for D2D1_ATLAS_PROP {
         f.debug_tuple("D2D1_ATLAS_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_ATLAS_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_ATLAS_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_ATLAS_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_ATLAS_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_ATLAS_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -890,34 +638,6 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_ALPHA_MODE {
 impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BITMAPSOURCE_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -953,34 +673,6 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
 impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BITMAPSOURCE_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -1024,34 +716,6 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ORIENTATION {
         f.debug_tuple("D2D1_BITMAPSOURCE_ORIENTATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_ORIENTATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_ORIENTATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_ORIENTATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_ORIENTATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BITMAPSOURCE_ORIENTATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1087,34 +751,6 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_PROP {
 impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BITMAPSOURCE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BITMAPSOURCE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1208,34 +844,6 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAP_INTERPOLATION_MODE {
 impl ::core::fmt::Debug for D2D1_BITMAP_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BITMAP_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BITMAP_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BITMAP_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BITMAP_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BITMAP_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BITMAP_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -1432,34 +1040,6 @@ impl ::core::fmt::Debug for D2D1_BLEND {
         f.debug_tuple("D2D1_BLEND").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BLEND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BLEND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BLEND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BLEND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BLEND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BLEND_DESCRIPTION {
@@ -1531,34 +1111,6 @@ impl ::core::fmt::Debug for D2D1_BLEND_OPERATION {
         f.debug_tuple("D2D1_BLEND_OPERATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BLEND_OPERATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BLEND_OPERATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BLEND_OPERATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BLEND_OPERATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BLEND_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1584,34 +1136,6 @@ unsafe impl ::windows::core::Abi for D2D1_BLEND_PROP {
 impl ::core::fmt::Debug for D2D1_BLEND_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BLEND_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BLEND_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BLEND_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BLEND_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BLEND_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BLEND_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -1645,34 +1169,6 @@ impl ::core::fmt::Debug for D2D1_BORDER_EDGE_MODE {
         f.debug_tuple("D2D1_BORDER_EDGE_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BORDER_EDGE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BORDER_EDGE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BORDER_EDGE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BORDER_EDGE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BORDER_EDGE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1702,34 +1198,6 @@ impl ::core::fmt::Debug for D2D1_BORDER_PROP {
         f.debug_tuple("D2D1_BORDER_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BORDER_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BORDER_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BORDER_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BORDER_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BORDER_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1757,34 +1225,6 @@ unsafe impl ::windows::core::Abi for D2D1_BRIGHTNESS_PROP {
 impl ::core::fmt::Debug for D2D1_BRIGHTNESS_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_BRIGHTNESS_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_BRIGHTNESS_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BRIGHTNESS_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BRIGHTNESS_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BRIGHTNESS_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BRIGHTNESS_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -1863,34 +1303,6 @@ impl ::core::fmt::Debug for D2D1_BUFFER_PRECISION {
         f.debug_tuple("D2D1_BUFFER_PRECISION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_BUFFER_PRECISION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_BUFFER_PRECISION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_BUFFER_PRECISION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_BUFFER_PRECISION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_BUFFER_PRECISION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1922,34 +1334,6 @@ unsafe impl ::windows::core::Abi for D2D1_CAP_STYLE {
 impl ::core::fmt::Debug for D2D1_CAP_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CAP_STYLE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_CAP_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CAP_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CAP_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CAP_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CAP_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2044,34 +1428,6 @@ impl ::core::fmt::Debug for D2D1_CHANNEL_DEPTH {
         f.debug_tuple("D2D1_CHANNEL_DEPTH").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_CHANNEL_DEPTH {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CHANNEL_DEPTH {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CHANNEL_DEPTH {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CHANNEL_DEPTH {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CHANNEL_DEPTH {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2103,34 +1459,6 @@ unsafe impl ::windows::core::Abi for D2D1_CHANNEL_SELECTOR {
 impl ::core::fmt::Debug for D2D1_CHANNEL_SELECTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CHANNEL_SELECTOR").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_CHANNEL_SELECTOR {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CHANNEL_SELECTOR {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CHANNEL_SELECTOR {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CHANNEL_SELECTOR {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CHANNEL_SELECTOR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2166,34 +1494,6 @@ impl ::core::fmt::Debug for D2D1_CHROMAKEY_PROP {
         f.debug_tuple("D2D1_CHROMAKEY_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_CHROMAKEY_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CHROMAKEY_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CHROMAKEY_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CHROMAKEY_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CHROMAKEY_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2221,34 +1521,6 @@ unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_ALPHA_MODE {
 impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COLORMANAGEMENT_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2288,34 +1560,6 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_PROP {
         f.debug_tuple("D2D1_COLORMANAGEMENT_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLORMANAGEMENT_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2345,34 +1589,6 @@ unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_QUALITY {
 impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COLORMANAGEMENT_QUALITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_QUALITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_QUALITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_QUALITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_QUALITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLORMANAGEMENT_QUALITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2408,34 +1624,6 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
         f.debug_tuple("D2D1_COLORMANAGEMENT_RENDERING_INTENT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2467,34 +1655,6 @@ impl ::core::fmt::Debug for D2D1_COLORMATRIX_PROP {
         f.debug_tuple("D2D1_COLORMATRIX_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COLORMATRIX_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLORMATRIX_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLORMATRIX_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLORMATRIX_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLORMATRIX_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2522,34 +1682,6 @@ unsafe impl ::windows::core::Abi for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
 impl ::core::fmt::Debug for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2583,34 +1715,6 @@ impl ::core::fmt::Debug for D2D1_COLOR_CONTEXT_TYPE {
         f.debug_tuple("D2D1_COLOR_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COLOR_CONTEXT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLOR_CONTEXT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLOR_CONTEXT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLOR_CONTEXT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLOR_CONTEXT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2638,34 +1742,6 @@ unsafe impl ::windows::core::Abi for D2D1_COLOR_INTERPOLATION_MODE {
 impl ::core::fmt::Debug for D2D1_COLOR_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COLOR_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_COLOR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLOR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLOR_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLOR_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLOR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2699,34 +1775,6 @@ impl ::core::fmt::Debug for D2D1_COLOR_SPACE {
         f.debug_tuple("D2D1_COLOR_SPACE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COLOR_SPACE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COLOR_SPACE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COLOR_SPACE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COLOR_SPACE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COLOR_SPACE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2758,34 +1806,6 @@ unsafe impl ::windows::core::Abi for D2D1_COMBINE_MODE {
 impl ::core::fmt::Debug for D2D1_COMBINE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COMBINE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_COMBINE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COMBINE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COMBINE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COMBINE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COMBINE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -2872,34 +1892,6 @@ impl ::core::fmt::Debug for D2D1_COMPOSITE_PROP {
         f.debug_tuple("D2D1_COMPOSITE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_COMPOSITE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_COMPOSITE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_COMPOSITE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_COMPOSITE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_COMPOSITE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2927,34 +1919,6 @@ unsafe impl ::windows::core::Abi for D2D1_CONTRAST_PROP {
 impl ::core::fmt::Debug for D2D1_CONTRAST_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CONTRAST_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_CONTRAST_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CONTRAST_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CONTRAST_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CONTRAST_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CONTRAST_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3004,34 +1968,6 @@ impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_PROP {
         f.debug_tuple("D2D1_CONVOLVEMATRIX_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_CONVOLVEMATRIX_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CONVOLVEMATRIX_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CONVOLVEMATRIX_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CONVOLVEMATRIX_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CONVOLVEMATRIX_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3067,34 +2003,6 @@ unsafe impl ::windows::core::Abi for D2D1_CONVOLVEMATRIX_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CONVOLVEMATRIX_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -3158,34 +2066,6 @@ impl ::core::fmt::Debug for D2D1_CROP_PROP {
         f.debug_tuple("D2D1_CROP_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_CROP_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CROP_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CROP_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CROP_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CROP_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3211,34 +2091,6 @@ unsafe impl ::windows::core::Abi for D2D1_CROSSFADE_PROP {
 impl ::core::fmt::Debug for D2D1_CROSSFADE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CROSSFADE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_CROSSFADE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_CROSSFADE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_CROSSFADE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_CROSSFADE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_CROSSFADE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -3320,34 +2172,6 @@ impl ::core::fmt::Debug for D2D1_DASH_STYLE {
         f.debug_tuple("D2D1_DASH_STYLE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DASH_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DASH_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DASH_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DASH_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DASH_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3375,34 +2199,6 @@ unsafe impl ::windows::core::Abi for D2D1_DC_INITIALIZE_MODE {
 impl ::core::fmt::Debug for D2D1_DC_INITIALIZE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DC_INITIALIZE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DC_INITIALIZE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DC_INITIALIZE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DC_INITIALIZE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DC_INITIALIZE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DC_INITIALIZE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3436,34 +2232,6 @@ unsafe impl ::windows::core::Abi for D2D1_DEBUG_LEVEL {
 impl ::core::fmt::Debug for D2D1_DEBUG_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DEBUG_LEVEL").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DEBUG_LEVEL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DEBUG_LEVEL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DEBUG_LEVEL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DEBUG_LEVEL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DEBUG_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3556,34 +2324,6 @@ impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
         f.debug_tuple("D2D1_DIRECTIONALBLUR_OPTIMIZATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3615,34 +2355,6 @@ unsafe impl ::windows::core::Abi for D2D1_DIRECTIONALBLUR_PROP {
 impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DIRECTIONALBLUR_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DIRECTIONALBLUR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DIRECTIONALBLUR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DIRECTIONALBLUR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DIRECTIONALBLUR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DIRECTIONALBLUR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3688,34 +2400,6 @@ impl ::core::fmt::Debug for D2D1_DISCRETETRANSFER_PROP {
         f.debug_tuple("D2D1_DISCRETETRANSFER_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DISCRETETRANSFER_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISCRETETRANSFER_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISCRETETRANSFER_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISCRETETRANSFER_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISCRETETRANSFER_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3745,34 +2429,6 @@ unsafe impl ::windows::core::Abi for D2D1_DISPLACEMENTMAP_PROP {
 impl ::core::fmt::Debug for D2D1_DISPLACEMENTMAP_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DISPLACEMENTMAP_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DISPLACEMENTMAP_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISPLACEMENTMAP_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISPLACEMENTMAP_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISPLACEMENTMAP_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISPLACEMENTMAP_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3814,34 +2470,6 @@ impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_PROP {
         f.debug_tuple("D2D1_DISTANTDIFFUSE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DISTANTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISTANTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISTANTDIFFUSE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISTANTDIFFUSE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISTANTDIFFUSE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3877,34 +2505,6 @@ unsafe impl ::windows::core::Abi for D2D1_DISTANTDIFFUSE_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DISTANTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -3948,34 +2548,6 @@ impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_PROP {
         f.debug_tuple("D2D1_DISTANTSPECULAR_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DISTANTSPECULAR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISTANTSPECULAR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISTANTSPECULAR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISTANTSPECULAR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISTANTSPECULAR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4011,34 +2583,6 @@ unsafe impl ::windows::core::Abi for D2D1_DISTANTSPECULAR_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DISTANTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -4078,34 +2622,6 @@ impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
         f.debug_tuple("D2D1_DPICOMPENSATION_INTERPOLATION_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4135,34 +2651,6 @@ unsafe impl ::windows::core::Abi for D2D1_DPICOMPENSATION_PROP {
 impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DPICOMPENSATION_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_DPICOMPENSATION_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_DPICOMPENSATION_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_DPICOMPENSATION_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_DPICOMPENSATION_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_DPICOMPENSATION_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4343,34 +2831,6 @@ impl ::core::fmt::Debug for D2D1_EDGEDETECTION_MODE {
         f.debug_tuple("D2D1_EDGEDETECTION_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_EDGEDETECTION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_EDGEDETECTION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_EDGEDETECTION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_EDGEDETECTION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_EDGEDETECTION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4404,34 +2864,6 @@ unsafe impl ::windows::core::Abi for D2D1_EDGEDETECTION_PROP {
 impl ::core::fmt::Debug for D2D1_EDGEDETECTION_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_EDGEDETECTION_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_EDGEDETECTION_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_EDGEDETECTION_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_EDGEDETECTION_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_EDGEDETECTION_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_EDGEDETECTION_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4541,34 +2973,6 @@ impl ::core::fmt::Debug for D2D1_EMBOSS_PROP {
         f.debug_tuple("D2D1_EMBOSS_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_EMBOSS_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_EMBOSS_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_EMBOSS_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_EMBOSS_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_EMBOSS_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4594,34 +2998,6 @@ unsafe impl ::windows::core::Abi for D2D1_EXPOSURE_PROP {
 impl ::core::fmt::Debug for D2D1_EXPOSURE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_EXPOSURE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_EXPOSURE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_EXPOSURE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_EXPOSURE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_EXPOSURE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_EXPOSURE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -4653,34 +3029,6 @@ unsafe impl ::windows::core::Abi for D2D1_EXTEND_MODE {
 impl ::core::fmt::Debug for D2D1_EXTEND_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_EXTEND_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_EXTEND_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_EXTEND_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_EXTEND_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_EXTEND_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_EXTEND_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4742,34 +3090,6 @@ impl ::core::fmt::Debug for D2D1_FACTORY_TYPE {
         f.debug_tuple("D2D1_FACTORY_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_FACTORY_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_FACTORY_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_FACTORY_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_FACTORY_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_FACTORY_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4797,34 +3117,6 @@ unsafe impl ::windows::core::Abi for D2D1_FEATURE {
 impl ::core::fmt::Debug for D2D1_FEATURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_FEATURE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_FEATURE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_FEATURE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_FEATURE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_FEATURE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_FEATURE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -4934,34 +3226,6 @@ impl ::core::fmt::Debug for D2D1_FEATURE_LEVEL {
         f.debug_tuple("D2D1_FEATURE_LEVEL").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_FEATURE_LEVEL {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_FEATURE_LEVEL {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_FEATURE_LEVEL {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_FEATURE_LEVEL {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_FEATURE_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5005,34 +3269,6 @@ impl ::core::fmt::Debug for D2D1_FILTER {
         f.debug_tuple("D2D1_FILTER").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_FILTER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_FILTER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_FILTER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_FILTER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_FILTER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5058,34 +3294,6 @@ unsafe impl ::windows::core::Abi for D2D1_FLOOD_PROP {
 impl ::core::fmt::Debug for D2D1_FLOOD_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_FLOOD_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_FLOOD_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_FLOOD_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_FLOOD_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_FLOOD_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_FLOOD_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -5117,34 +3325,6 @@ impl ::core::fmt::Debug for D2D1_GAMMA {
         f.debug_tuple("D2D1_GAMMA").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_GAMMA {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GAMMA {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GAMMA {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GAMMA {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GAMMA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5174,34 +3354,6 @@ unsafe impl ::windows::core::Abi for D2D1_GAMMA1 {
 impl ::core::fmt::Debug for D2D1_GAMMA1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_GAMMA1").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_GAMMA1 {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GAMMA1 {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GAMMA1 {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GAMMA1 {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GAMMA1 {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -5263,34 +3415,6 @@ impl ::core::fmt::Debug for D2D1_GAMMATRANSFER_PROP {
         f.debug_tuple("D2D1_GAMMATRANSFER_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_GAMMATRANSFER_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GAMMATRANSFER_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GAMMATRANSFER_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GAMMATRANSFER_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GAMMATRANSFER_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5322,34 +3446,6 @@ impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_OPTIMIZATION {
         f.debug_tuple("D2D1_GAUSSIANBLUR_OPTIMIZATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5379,34 +3475,6 @@ unsafe impl ::windows::core::Abi for D2D1_GAUSSIANBLUR_PROP {
 impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_GAUSSIANBLUR_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_GAUSSIANBLUR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GAUSSIANBLUR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GAUSSIANBLUR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GAUSSIANBLUR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GAUSSIANBLUR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -5444,34 +3512,6 @@ impl ::core::fmt::Debug for D2D1_GEOMETRY_RELATION {
         f.debug_tuple("D2D1_GEOMETRY_RELATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_GEOMETRY_RELATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GEOMETRY_RELATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GEOMETRY_RELATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GEOMETRY_RELATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GEOMETRY_RELATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5499,34 +3539,6 @@ unsafe impl ::windows::core::Abi for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
 impl ::core::fmt::Debug for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_GEOMETRY_SIMPLIFICATION_OPTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -5683,34 +3695,6 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_DISPLAY_MODE {
         f.debug_tuple("D2D1_HDRTONEMAP_DISPLAY_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5742,34 +3726,6 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_PROP {
         f.debug_tuple("D2D1_HDRTONEMAP_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_HDRTONEMAP_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HDRTONEMAP_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HDRTONEMAP_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HDRTONEMAP_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HDRTONEMAP_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5797,34 +3753,6 @@ unsafe impl ::windows::core::Abi for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
 impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -5862,34 +3790,6 @@ impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
         f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5921,34 +3821,6 @@ impl ::core::fmt::Debug for D2D1_HISTOGRAM_PROP {
         f.debug_tuple("D2D1_HISTOGRAM_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_HISTOGRAM_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HISTOGRAM_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HISTOGRAM_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HISTOGRAM_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HISTOGRAM_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5974,34 +3846,6 @@ unsafe impl ::windows::core::Abi for D2D1_HUEROTATION_PROP {
 impl ::core::fmt::Debug for D2D1_HUEROTATION_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_HUEROTATION_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_HUEROTATION_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HUEROTATION_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HUEROTATION_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HUEROTATION_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HUEROTATION_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -6033,34 +3877,6 @@ impl ::core::fmt::Debug for D2D1_HUETORGB_INPUT_COLOR_SPACE {
         f.debug_tuple("D2D1_HUETORGB_INPUT_COLOR_SPACE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6086,34 +3902,6 @@ unsafe impl ::windows::core::Abi for D2D1_HUETORGB_PROP {
 impl ::core::fmt::Debug for D2D1_HUETORGB_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_HUETORGB_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_HUETORGB_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_HUETORGB_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_HUETORGB_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_HUETORGB_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_HUETORGB_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -6374,34 +4162,6 @@ impl ::core::fmt::Debug for D2D1_INK_NIB_SHAPE {
         f.debug_tuple("D2D1_INK_NIB_SHAPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_INK_NIB_SHAPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_INK_NIB_SHAPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_INK_NIB_SHAPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_INK_NIB_SHAPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_INK_NIB_SHAPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INK_POINT {
@@ -6581,34 +4341,6 @@ unsafe impl ::windows::core::Abi for D2D1_INTERPOLATION_MODE {
 impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_INTERPOLATION_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -6917,34 +4649,6 @@ impl ::core::fmt::Debug for D2D1_LINEARTRANSFER_PROP {
         f.debug_tuple("D2D1_LINEARTRANSFER_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_LINEARTRANSFER_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_LINEARTRANSFER_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_LINEARTRANSFER_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_LINEARTRANSFER_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_LINEARTRANSFER_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7017,34 +4721,6 @@ impl ::core::fmt::Debug for D2D1_LINE_JOIN {
         f.debug_tuple("D2D1_LINE_JOIN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_LINE_JOIN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_LINE_JOIN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_LINE_JOIN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_LINE_JOIN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_LINE_JOIN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7072,34 +4748,6 @@ unsafe impl ::windows::core::Abi for D2D1_LOOKUPTABLE3D_PROP {
 impl ::core::fmt::Debug for D2D1_LOOKUPTABLE3D_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_LOOKUPTABLE3D_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_LOOKUPTABLE3D_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_LOOKUPTABLE3D_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_LOOKUPTABLE3D_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_LOOKUPTABLE3D_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_LOOKUPTABLE3D_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7223,34 +4871,6 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_MODE {
         f.debug_tuple("D2D1_MORPHOLOGY_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_MORPHOLOGY_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_MORPHOLOGY_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_MORPHOLOGY_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_MORPHOLOGY_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_MORPHOLOGY_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7282,34 +4902,6 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_PROP {
         f.debug_tuple("D2D1_MORPHOLOGY_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_MORPHOLOGY_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_MORPHOLOGY_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_MORPHOLOGY_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_MORPHOLOGY_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_MORPHOLOGY_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7335,34 +4927,6 @@ unsafe impl ::windows::core::Abi for D2D1_OPACITYMETADATA_PROP {
 impl ::core::fmt::Debug for D2D1_OPACITYMETADATA_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_OPACITYMETADATA_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_OPACITYMETADATA_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_OPACITYMETADATA_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_OPACITYMETADATA_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_OPACITYMETADATA_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_OPACITYMETADATA_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -7396,34 +4960,6 @@ impl ::core::fmt::Debug for D2D1_OPACITY_MASK_CONTENT {
         f.debug_tuple("D2D1_OPACITY_MASK_CONTENT").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_OPACITY_MASK_CONTENT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_OPACITY_MASK_CONTENT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_OPACITY_MASK_CONTENT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_OPACITY_MASK_CONTENT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_OPACITY_MASK_CONTENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7449,34 +4985,6 @@ unsafe impl ::windows::core::Abi for D2D1_OPACITY_PROP {
 impl ::core::fmt::Debug for D2D1_OPACITY_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_OPACITY_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_OPACITY_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_OPACITY_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_OPACITY_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_OPACITY_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_OPACITY_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -7520,34 +5028,6 @@ impl ::core::fmt::Debug for D2D1_ORIENTATION {
         f.debug_tuple("D2D1_ORIENTATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_ORIENTATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_ORIENTATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_ORIENTATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_ORIENTATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_ORIENTATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7577,34 +5057,6 @@ unsafe impl ::windows::core::Abi for D2D1_PATCH_EDGE_MODE {
 impl ::core::fmt::Debug for D2D1_PATCH_EDGE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_PATCH_EDGE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_PATCH_EDGE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_PATCH_EDGE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_PATCH_EDGE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_PATCH_EDGE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_PATCH_EDGE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -7701,34 +5153,6 @@ impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_PROP {
         f.debug_tuple("D2D1_POINTDIFFUSE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_POINTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_POINTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_POINTDIFFUSE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_POINTDIFFUSE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_POINTDIFFUSE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7764,34 +5188,6 @@ unsafe impl ::windows::core::Abi for D2D1_POINTDIFFUSE_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_POINTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_POINTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_POINTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_POINTDIFFUSE_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_POINTDIFFUSE_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_POINTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -7833,34 +5229,6 @@ impl ::core::fmt::Debug for D2D1_POINTSPECULAR_PROP {
         f.debug_tuple("D2D1_POINTSPECULAR_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_POINTSPECULAR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_POINTSPECULAR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_POINTSPECULAR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_POINTSPECULAR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_POINTSPECULAR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7896,34 +5264,6 @@ unsafe impl ::windows::core::Abi for D2D1_POINTSPECULAR_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_POINTSPECULAR_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_POINTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_POINTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_POINTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_POINTSPECULAR_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_POINTSPECULAR_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_POINTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -7997,34 +5337,6 @@ unsafe impl ::windows::core::Abi for D2D1_POSTERIZE_PROP {
 impl ::core::fmt::Debug for D2D1_POSTERIZE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_POSTERIZE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_POSTERIZE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_POSTERIZE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_POSTERIZE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_POSTERIZE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_POSTERIZE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -8121,34 +5433,6 @@ impl ::core::fmt::Debug for D2D1_PRIMITIVE_BLEND {
         f.debug_tuple("D2D1_PRIMITIVE_BLEND").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_PRIMITIVE_BLEND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_PRIMITIVE_BLEND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_PRIMITIVE_BLEND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_PRIMITIVE_BLEND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_PRIMITIVE_BLEND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_PRINT_CONTROL_PROPERTIES {
@@ -8212,34 +5496,6 @@ impl ::core::fmt::Debug for D2D1_PRINT_FONT_SUBSET_MODE {
         f.debug_tuple("D2D1_PRINT_FONT_SUBSET_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_PRINT_FONT_SUBSET_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_PRINT_FONT_SUBSET_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_PRINT_FONT_SUBSET_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_PRINT_FONT_SUBSET_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_PRINT_FONT_SUBSET_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8283,34 +5539,6 @@ unsafe impl ::windows::core::Abi for D2D1_PROPERTY {
 impl ::core::fmt::Debug for D2D1_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_PROPERTY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_PROPERTY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_PROPERTY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_PROPERTY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_PROPERTY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_PROPERTY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8414,34 +5642,6 @@ unsafe impl ::windows::core::Abi for D2D1_PROPERTY_TYPE {
 impl ::core::fmt::Debug for D2D1_PROPERTY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_PROPERTY_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_PROPERTY_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_PROPERTY_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_PROPERTY_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_PROPERTY_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_PROPERTY_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8592,34 +5792,6 @@ impl ::core::fmt::Debug for D2D1_RENDERING_PRIORITY {
         f.debug_tuple("D2D1_RENDERING_PRIORITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_RENDERING_PRIORITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_RENDERING_PRIORITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_RENDERING_PRIORITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_RENDERING_PRIORITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_RENDERING_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8692,34 +5864,6 @@ unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_TYPE {
 impl ::core::fmt::Debug for D2D1_RENDER_TARGET_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_RENDER_TARGET_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_RENDER_TARGET_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_RENDER_TARGET_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_RENDER_TARGET_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_RENDER_TARGET_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_RENDER_TARGET_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -8845,34 +5989,6 @@ impl ::core::fmt::Debug for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
         f.debug_tuple("D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8898,34 +6014,6 @@ unsafe impl ::windows::core::Abi for D2D1_RGBTOHUE_PROP {
 impl ::core::fmt::Debug for D2D1_RGBTOHUE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_RGBTOHUE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_RGBTOHUE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_RGBTOHUE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_RGBTOHUE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_RGBTOHUE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_RGBTOHUE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -8995,34 +6083,6 @@ impl ::core::fmt::Debug for D2D1_SATURATION_PROP {
         f.debug_tuple("D2D1_SATURATION_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SATURATION_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SATURATION_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SATURATION_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SATURATION_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SATURATION_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9060,34 +6120,6 @@ impl ::core::fmt::Debug for D2D1_SCALE_INTERPOLATION_MODE {
         f.debug_tuple("D2D1_SCALE_INTERPOLATION_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SCALE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SCALE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SCALE_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SCALE_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SCALE_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9123,34 +6155,6 @@ impl ::core::fmt::Debug for D2D1_SCALE_PROP {
         f.debug_tuple("D2D1_SCALE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SCALE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SCALE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SCALE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SCALE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SCALE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -9180,34 +6184,6 @@ unsafe impl ::windows::core::Abi for D2D1_SEPIA_PROP {
 impl ::core::fmt::Debug for D2D1_SEPIA_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SEPIA_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SEPIA_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SEPIA_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SEPIA_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SEPIA_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SEPIA_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -9241,34 +6217,6 @@ impl ::core::fmt::Debug for D2D1_SHADOW_OPTIMIZATION {
         f.debug_tuple("D2D1_SHADOW_OPTIMIZATION").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SHADOW_OPTIMIZATION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SHADOW_OPTIMIZATION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SHADOW_OPTIMIZATION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SHADOW_OPTIMIZATION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SHADOW_OPTIMIZATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9300,34 +6248,6 @@ impl ::core::fmt::Debug for D2D1_SHADOW_PROP {
         f.debug_tuple("D2D1_SHADOW_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SHADOW_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SHADOW_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SHADOW_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SHADOW_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SHADOW_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9355,34 +6275,6 @@ unsafe impl ::windows::core::Abi for D2D1_SHARPEN_PROP {
 impl ::core::fmt::Debug for D2D1_SHARPEN_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SHARPEN_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SHARPEN_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SHARPEN_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SHARPEN_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SHARPEN_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SHARPEN_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -9470,34 +6362,6 @@ impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_PROP {
         f.debug_tuple("D2D1_SPOTDIFFUSE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SPOTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SPOTDIFFUSE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SPOTDIFFUSE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SPOTDIFFUSE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SPOTDIFFUSE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9533,34 +6397,6 @@ unsafe impl ::windows::core::Abi for D2D1_SPOTDIFFUSE_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SPOTDIFFUSE_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -9608,34 +6444,6 @@ impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_PROP {
         f.debug_tuple("D2D1_SPOTSPECULAR_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SPOTSPECULAR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SPOTSPECULAR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SPOTSPECULAR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SPOTSPECULAR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SPOTSPECULAR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9671,34 +6479,6 @@ unsafe impl ::windows::core::Abi for D2D1_SPOTSPECULAR_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SPOTSPECULAR_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SPOTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SPOTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SPOTSPECULAR_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SPOTSPECULAR_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SPOTSPECULAR_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -9789,34 +6569,6 @@ impl ::core::fmt::Debug for D2D1_STRAIGHTEN_PROP {
         f.debug_tuple("D2D1_STRAIGHTEN_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_STRAIGHTEN_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_STRAIGHTEN_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_STRAIGHTEN_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_STRAIGHTEN_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_STRAIGHTEN_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -9850,34 +6602,6 @@ unsafe impl ::windows::core::Abi for D2D1_STRAIGHTEN_SCALE_MODE {
 impl ::core::fmt::Debug for D2D1_STRAIGHTEN_SCALE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_STRAIGHTEN_SCALE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_STRAIGHTEN_SCALE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_STRAIGHTEN_SCALE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_STRAIGHTEN_SCALE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_STRAIGHTEN_SCALE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_STRAIGHTEN_SCALE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -9984,34 +6708,6 @@ impl ::core::fmt::Debug for D2D1_STROKE_TRANSFORM_TYPE {
         f.debug_tuple("D2D1_STROKE_TRANSFORM_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_STROKE_TRANSFORM_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_STROKE_TRANSFORM_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_STROKE_TRANSFORM_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_STROKE_TRANSFORM_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_STROKE_TRANSFORM_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10049,34 +6745,6 @@ unsafe impl ::windows::core::Abi for D2D1_SUBPROPERTY {
 impl ::core::fmt::Debug for D2D1_SUBPROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SUBPROPERTY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SUBPROPERTY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SUBPROPERTY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SUBPROPERTY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SUBPROPERTY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SUBPROPERTY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -10124,34 +6792,6 @@ impl ::core::fmt::Debug for D2D1_SVG_ASPECT_ALIGN {
         f.debug_tuple("D2D1_SVG_ASPECT_ALIGN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_ASPECT_ALIGN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_ASPECT_ALIGN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_ASPECT_ALIGN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_ASPECT_ALIGN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_ASPECT_ALIGN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10179,34 +6819,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_ASPECT_SCALING {
 impl ::core::fmt::Debug for D2D1_SVG_ASPECT_SCALING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_ASPECT_SCALING").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_ASPECT_SCALING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_ASPECT_SCALING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_ASPECT_SCALING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_ASPECT_SCALING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_ASPECT_SCALING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -10262,34 +6874,6 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_POD_TYPE {
         f.debug_tuple("D2D1_SVG_ATTRIBUTE_POD_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10319,34 +6903,6 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
         f.debug_tuple("D2D1_SVG_ATTRIBUTE_STRING_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10374,34 +6930,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_DISPLAY {
 impl ::core::fmt::Debug for D2D1_SVG_DISPLAY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_DISPLAY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_DISPLAY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_DISPLAY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_DISPLAY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_DISPLAY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_DISPLAY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -10464,34 +6992,6 @@ impl ::core::fmt::Debug for D2D1_SVG_LENGTH_UNITS {
         f.debug_tuple("D2D1_SVG_LENGTH_UNITS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_LENGTH_UNITS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_LENGTH_UNITS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_LENGTH_UNITS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_LENGTH_UNITS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_LENGTH_UNITS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10521,34 +7021,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_LINE_CAP {
 impl ::core::fmt::Debug for D2D1_SVG_LINE_CAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_LINE_CAP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_LINE_CAP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_LINE_CAP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_LINE_CAP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_LINE_CAP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_LINE_CAP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -10582,34 +7054,6 @@ impl ::core::fmt::Debug for D2D1_SVG_LINE_JOIN {
         f.debug_tuple("D2D1_SVG_LINE_JOIN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_LINE_JOIN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_LINE_JOIN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_LINE_JOIN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_LINE_JOIN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_LINE_JOIN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -10637,34 +7081,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_OVERFLOW {
 impl ::core::fmt::Debug for D2D1_SVG_OVERFLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_OVERFLOW").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_OVERFLOW {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_OVERFLOW {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_OVERFLOW {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_OVERFLOW {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_OVERFLOW {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -10704,34 +7120,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_PAINT_TYPE {
 impl ::core::fmt::Debug for D2D1_SVG_PAINT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_PAINT_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_PAINT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_PAINT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_PAINT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_PAINT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_PAINT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -10795,34 +7183,6 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_PATH_COMMAND {
 impl ::core::fmt::Debug for D2D1_SVG_PATH_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SVG_PATH_COMMAND").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SVG_PATH_COMMAND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_PATH_COMMAND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_PATH_COMMAND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_PATH_COMMAND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_PATH_COMMAND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -10894,34 +7254,6 @@ impl ::core::fmt::Debug for D2D1_SVG_UNIT_TYPE {
         f.debug_tuple("D2D1_SVG_UNIT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_UNIT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_UNIT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_UNIT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_UNIT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_UNIT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_SVG_VIEWBOX {
@@ -10984,34 +7316,6 @@ impl ::core::fmt::Debug for D2D1_SVG_VISIBILITY {
         f.debug_tuple("D2D1_SVG_VISIBILITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_SVG_VISIBILITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SVG_VISIBILITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SVG_VISIBILITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SVG_VISIBILITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SVG_VISIBILITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11039,34 +7343,6 @@ unsafe impl ::windows::core::Abi for D2D1_SWEEP_DIRECTION {
 impl ::core::fmt::Debug for D2D1_SWEEP_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SWEEP_DIRECTION").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_SWEEP_DIRECTION {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_SWEEP_DIRECTION {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_SWEEP_DIRECTION {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_SWEEP_DIRECTION {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_SWEEP_DIRECTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -11112,34 +7388,6 @@ impl ::core::fmt::Debug for D2D1_TABLETRANSFER_PROP {
         f.debug_tuple("D2D1_TABLETRANSFER_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_TABLETRANSFER_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TABLETRANSFER_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TABLETRANSFER_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TABLETRANSFER_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TABLETRANSFER_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11167,34 +7415,6 @@ unsafe impl ::windows::core::Abi for D2D1_TEMPERATUREANDTINT_PROP {
 impl ::core::fmt::Debug for D2D1_TEMPERATUREANDTINT_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_TEMPERATUREANDTINT_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_TEMPERATUREANDTINT_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TEMPERATUREANDTINT_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TEMPERATUREANDTINT_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TEMPERATUREANDTINT_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TEMPERATUREANDTINT_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -11230,34 +7450,6 @@ impl ::core::fmt::Debug for D2D1_TEXT_ANTIALIAS_MODE {
         f.debug_tuple("D2D1_TEXT_ANTIALIAS_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_TEXT_ANTIALIAS_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TEXT_ANTIALIAS_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TEXT_ANTIALIAS_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TEXT_ANTIALIAS_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TEXT_ANTIALIAS_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11287,34 +7479,6 @@ impl ::core::fmt::Debug for D2D1_THREADING_MODE {
         f.debug_tuple("D2D1_THREADING_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_THREADING_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_THREADING_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_THREADING_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_THREADING_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_THREADING_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11340,34 +7504,6 @@ unsafe impl ::windows::core::Abi for D2D1_TILE_PROP {
 impl ::core::fmt::Debug for D2D1_TILE_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_TILE_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_TILE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TILE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TILE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TILE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TILE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -11397,34 +7533,6 @@ unsafe impl ::windows::core::Abi for D2D1_TINT_PROP {
 impl ::core::fmt::Debug for D2D1_TINT_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_TINT_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_TINT_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TINT_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TINT_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TINT_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TINT_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -11597,34 +7705,6 @@ impl ::core::fmt::Debug for D2D1_TURBULENCE_PROP {
         f.debug_tuple("D2D1_TURBULENCE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_TURBULENCE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_TURBULENCE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_TURBULENCE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_TURBULENCE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_TURBULENCE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11652,34 +7732,6 @@ unsafe impl ::windows::core::Abi for D2D1_UNIT_MODE {
 impl ::core::fmt::Debug for D2D1_UNIT_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_UNIT_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_UNIT_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_UNIT_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_UNIT_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_UNIT_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_UNIT_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -11836,34 +7888,6 @@ impl ::core::fmt::Debug for D2D1_VERTEX_USAGE {
         f.debug_tuple("D2D1_VERTEX_USAGE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_VERTEX_USAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_VERTEX_USAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_VERTEX_USAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_VERTEX_USAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_VERTEX_USAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11895,34 +7919,6 @@ impl ::core::fmt::Debug for D2D1_VIGNETTE_PROP {
         f.debug_tuple("D2D1_VIGNETTE_PROP").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_VIGNETTE_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_VIGNETTE_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_VIGNETTE_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_VIGNETTE_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_VIGNETTE_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -11950,34 +7946,6 @@ unsafe impl ::windows::core::Abi for D2D1_WHITELEVELADJUSTMENT_PROP {
 impl ::core::fmt::Debug for D2D1_WHITELEVELADJUSTMENT_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_WHITELEVELADJUSTMENT_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_WHITELEVELADJUSTMENT_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_WHITELEVELADJUSTMENT_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_WHITELEVELADJUSTMENT_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_WHITELEVELADJUSTMENT_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_WHITELEVELADJUSTMENT_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -12072,34 +8040,6 @@ impl ::core::fmt::Debug for D2D1_YCBCR_CHROMA_SUBSAMPLING {
         f.debug_tuple("D2D1_YCBCR_CHROMA_SUBSAMPLING").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -12137,34 +8077,6 @@ impl ::core::fmt::Debug for D2D1_YCBCR_INTERPOLATION_MODE {
         f.debug_tuple("D2D1_YCBCR_INTERPOLATION_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for D2D1_YCBCR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_YCBCR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_YCBCR_INTERPOLATION_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_YCBCR_INTERPOLATION_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_YCBCR_INTERPOLATION_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -12194,34 +8106,6 @@ unsafe impl ::windows::core::Abi for D2D1_YCBCR_PROP {
 impl ::core::fmt::Debug for D2D1_YCBCR_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_YCBCR_PROP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for D2D1_YCBCR_PROP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for D2D1_YCBCR_PROP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D2D1_YCBCR_PROP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D2D1_YCBCR_PROP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for D2D1_YCBCR_PROP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]

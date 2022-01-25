@@ -5884,34 +5884,6 @@ impl ::core::fmt::Debug for VDS_NF_CONTROLLER {
         f.debug_tuple("VDS_NF_CONTROLLER").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for VDS_NF_CONTROLLER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_CONTROLLER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_CONTROLLER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_CONTROLLER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_CONTROLLER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5939,34 +5911,6 @@ unsafe impl ::windows::core::Abi for VDS_NF_DISK {
 impl ::core::fmt::Debug for VDS_NF_DISK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VDS_NF_DISK").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VDS_NF_DISK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_DISK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_DISK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_DISK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_DISK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
@@ -6000,34 +5944,6 @@ impl ::core::fmt::Debug for VDS_NF_DRIVE {
         f.debug_tuple("VDS_NF_DRIVE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for VDS_NF_DRIVE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_DRIVE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_DRIVE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_DRIVE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_DRIVE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_NF_DRIVE_LETTER_ASSIGN: u32 = 202u32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
@@ -6057,34 +5973,6 @@ unsafe impl ::windows::core::Abi for VDS_NF_FILE_SYSTEM {
 impl ::core::fmt::Debug for VDS_NF_FILE_SYSTEM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VDS_NF_FILE_SYSTEM").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VDS_NF_FILE_SYSTEM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_FILE_SYSTEM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_FILE_SYSTEM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_FILE_SYSTEM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_FILE_SYSTEM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
@@ -6118,34 +6006,6 @@ impl ::core::fmt::Debug for VDS_NF_LUN {
         f.debug_tuple("VDS_NF_LUN").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for VDS_NF_LUN {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_LUN {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_LUN {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_LUN {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_LUN {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_NF_MOUNT_POINTS_CHANGE: u32 = 205u32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
@@ -6175,34 +6035,6 @@ unsafe impl ::windows::core::Abi for VDS_NF_PACK {
 impl ::core::fmt::Debug for VDS_NF_PACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VDS_NF_PACK").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VDS_NF_PACK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_PACK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_PACK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_PACK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_PACK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
@@ -6240,34 +6072,6 @@ unsafe impl ::windows::core::Abi for VDS_NF_PORT {
 impl ::core::fmt::Debug for VDS_NF_PORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VDS_NF_PORT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VDS_NF_PORT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VDS_NF_PORT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VDS_NF_PORT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VDS_NF_PORT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VDS_NF_PORT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]

@@ -868,33 +868,5 @@ impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
         f.debug_tuple("TOUCH_FEEDBACK_MODE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TOUCH_FEEDBACK_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TOUCH_FEEDBACK_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TOUCH_FEEDBACK_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TOUCH_FEEDBACK_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TOUCH_FEEDBACK_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

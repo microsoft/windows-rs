@@ -893,34 +893,6 @@ impl ::core::fmt::Debug for DISC_RECORDER_STATE_FLAGS {
         f.debug_tuple("DISC_RECORDER_STATE_FLAGS").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DISC_RECORDER_STATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DISC_RECORDER_STATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DISC_RECORDER_STATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DISC_RECORDER_STATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DISC_RECORDER_STATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 pub const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]

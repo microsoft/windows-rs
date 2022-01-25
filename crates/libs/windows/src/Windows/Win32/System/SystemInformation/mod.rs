@@ -307,34 +307,6 @@ impl ::core::fmt::Debug for DEVICEFAMILYDEVICEFORM {
         f.debug_tuple("DEVICEFAMILYDEVICEFORM").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for DEVICEFAMILYDEVICEFORM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DEVICEFAMILYDEVICEFORM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEVICEFAMILYDEVICEFORM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEVICEFAMILYDEVICEFORM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DEVICEFAMILYDEVICEFORM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -394,34 +366,6 @@ unsafe impl ::windows::core::Abi for DEVICEFAMILYINFOENUM {
 impl ::core::fmt::Debug for DEVICEFAMILYINFOENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DEVICEFAMILYINFOENUM").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DEVICEFAMILYINFOENUM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DEVICEFAMILYINFOENUM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEVICEFAMILYINFOENUM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEVICEFAMILYINFOENUM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DEVICEFAMILYINFOENUM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
@@ -514,34 +458,6 @@ unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_PROVIDER {
 impl ::core::fmt::Debug for FIRMWARE_TABLE_PROVIDER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FIRMWARE_TABLE_PROVIDER").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FIRMWARE_TABLE_PROVIDER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FIRMWARE_TABLE_PROVIDER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FIRMWARE_TABLE_PROVIDER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FIRMWARE_TABLE_PROVIDER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FIRMWARE_TABLE_PROVIDER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
@@ -1965,34 +1881,6 @@ impl ::core::fmt::Debug for OS_PRODUCT_TYPE {
         f.debug_tuple("OS_PRODUCT_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for OS_PRODUCT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OS_PRODUCT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OS_PRODUCT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OS_PRODUCT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OS_PRODUCT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32>;
@@ -2961,34 +2849,6 @@ unsafe impl ::windows::core::Abi for USER_CET_ENVIRONMENT {
 impl ::core::fmt::Debug for USER_CET_ENVIRONMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USER_CET_ENVIRONMENT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for USER_CET_ENVIRONMENT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for USER_CET_ENVIRONMENT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for USER_CET_ENVIRONMENT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for USER_CET_ENVIRONMENT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for USER_CET_ENVIRONMENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]

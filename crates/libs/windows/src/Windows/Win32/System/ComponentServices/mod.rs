@@ -278,34 +278,6 @@ impl ::core::fmt::Debug for AutoSvcs_Error_Constants {
         f.debug_tuple("AutoSvcs_Error_Constants").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for AutoSvcs_Error_Constants {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AutoSvcs_Error_Constants {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AutoSvcs_Error_Constants {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AutoSvcs_Error_Constants {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AutoSvcs_Error_Constants {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const ByotServerEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]

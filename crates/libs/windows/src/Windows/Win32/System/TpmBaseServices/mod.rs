@@ -62,34 +62,6 @@ impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
         f.debug_tuple("TBS_COMMAND_LOCALITY").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TBS_COMMAND_LOCALITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TBS_COMMAND_LOCALITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -121,34 +93,6 @@ unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
 impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TBS_COMMAND_PRIORITY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TBS_COMMAND_PRIORITY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TBS_COMMAND_PRIORITY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

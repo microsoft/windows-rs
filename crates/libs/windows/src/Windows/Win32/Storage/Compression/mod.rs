@@ -64,34 +64,6 @@ impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
         f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMPRESS_ALGORITHM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMPRESS_ALGORITHM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
