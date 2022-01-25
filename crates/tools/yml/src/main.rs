@@ -85,7 +85,7 @@ jobs:
                 if file_type.is_dir() {
                     let name = file.file_name().to_str().unwrap().to_string();
                     if !name.starts_with("implement_") {
-                      yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
+                        yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
                     }
                 }
             }
@@ -93,7 +93,7 @@ jobs:
     }
 
     yml.write_all(
-      r#"      if: contains(matrix.rust, 'stable')
+        r#"      if: contains(matrix.rust, 'stable')
 
     - name: Test nightly (${{ matrix.os }})
       run: |
@@ -103,22 +103,22 @@ jobs:
     .unwrap();
 
     if let Ok(files) = std::fs::read_dir(root.join("crates/tests")) {
-      for file in files.filter_map(|file| file.ok()) {
-          if let Ok(file_type) = file.file_type() {
-              if file_type.is_dir() {
-                  let name = file.file_name().to_str().unwrap().to_string();
-                  if name.starts_with("implement_") {
-                    yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
-                  }
-              }
-          }
-      }
-  }
+        for file in files.filter_map(|file| file.ok()) {
+            if let Ok(file_type) = file.file_type() {
+                if file_type.is_dir() {
+                    let name = file.file_name().to_str().unwrap().to_string();
+                    if name.starts_with("implement_") {
+                        yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
+                    }
+                }
+            }
+        }
+    }
 
-  yml.write_all(
-    r#"      if: contains(matrix.rust, 'nightly')
+    yml.write_all(
+        r#"      if: contains(matrix.rust, 'nightly')
 "#
-      .as_bytes(),
-  )
-  .unwrap();
+        .as_bytes(),
+    )
+    .unwrap();
 }
