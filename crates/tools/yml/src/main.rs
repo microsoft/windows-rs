@@ -83,7 +83,7 @@ jobs:
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {
-                    yml.write_all(format!("    run: cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", file.file_name().to_str().unwrap()).as_bytes()).unwrap();
+                    yml.write_all(format!("      run: cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", file.file_name().to_str().unwrap()).as_bytes()).unwrap();
                 }
             }
         }
