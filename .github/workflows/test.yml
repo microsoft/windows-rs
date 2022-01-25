@@ -78,7 +78,6 @@ jobs:
         cargo test --target ${{ matrix.other }} -p test_enums &&
         cargo test --target ${{ matrix.other }} -p test_handles &&
         cargo test --target ${{ matrix.other }} -p test_helpers &&
-        cargo test --target ${{ matrix.other }} -p test_implement &&
         cargo test --target ${{ matrix.other }} -p test_interop &&
         cargo test --target ${{ matrix.other }} -p test_lib &&
         cargo test --target ${{ matrix.other }} -p test_matrix3x2 &&
@@ -96,6 +95,7 @@ jobs:
 
     - name: Test nightly (${{ matrix.os }})
       run: |
+        cargo test --target ${{ matrix.other }} -p test_implement &&
         cargo test --target ${{ matrix.other }} -p test_implement_class_factory &&
         cargo test --target ${{ matrix.other }} -p test_implement_data_object &&
         cargo test --target ${{ matrix.other }} -p test_implement_identity &&

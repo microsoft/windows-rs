@@ -72,7 +72,7 @@ jobs:
         .to_string();
 
     for name in dirs(&root, "crates/tests") {
-        if !name.starts_with("implement_") {
+        if !name.starts_with("implement") {
             yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p test_{} &&", name));
         }
     }
@@ -88,7 +88,7 @@ jobs:
     );
 
     for name in dirs(&root, "crates/tests") {
-        if name.starts_with("implement_") {
+        if name.starts_with("implement") {
             yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p test_{} &&", name));
         }
     }
