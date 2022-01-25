@@ -1,11 +1,6 @@
-use std::io::prelude::*;
-
 fn main() {
     let root = std::path::PathBuf::from(reader::workspace_dir());
-    let mut yml = std::fs::File::create(root.join(".github/workflows/test.yml")).unwrap();
-
-    yml.write_all(
-        r#"name: Test
+    let mut yml = r#"name: Test
 
 on:
   pull_request:
@@ -73,63 +68,58 @@ jobs:
       if: contains(matrix.other, 'windows-gnu')
 
     - name: Test stable (${{ matrix.os }})
-      run: |
-"#
-        .as_bytes(),
-    )
-    .unwrap();
+      run: |"#
+        .to_string();
 
-    if let Ok(files) = std::fs::read_dir(root.join("crates/tests")) {
-        for file in files.filter_map(|file| file.ok()) {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_dir() {
-                    let name = file.file_name().to_str().unwrap().to_string();
-                    if !name.starts_with("implement_") {
-                        yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
-                    }
-                }
-            }
+    for name in dirs(&root, "crates/tests") {
+        if !name.starts_with("implement_") {
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p test_{} &&", name));
         }
     }
 
-    yml.write_all(
-        r#"      if: contains(matrix.rust, 'stable')
+    yml.truncate(yml.len() - 2);
+
+    yml.push_str(
+        r#"
+      if: contains(matrix.rust, 'stable')
 
     - name: Test nightly (${{ matrix.os }})
-      run: |
-"#
-        .as_bytes(),
-    )
-    .unwrap();
+      run: |"#,
+    );
 
-    if let Ok(files) = std::fs::read_dir(root.join("crates/tests")) {
+    for name in dirs(&root, "crates/tests") {
+        if name.starts_with("implement_") {
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p test_{} &&", name));
+        }
+    }
+
+    for name in dirs(&root, "crates/samples") {
+        yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+    }
+
+    yml.truncate(yml.len() - 2);
+
+    yml.push_str(
+        r#"
+      if: contains(matrix.rust, 'nightly')
+"#,
+    );
+
+    std::fs::write(root.join(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
+}
+
+fn dirs(root: &std::path::Path, path: &str) -> Vec<String> {
+    let mut dirs = vec![];
+
+    if let Ok(files) = std::fs::read_dir(root.join(path)) {
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {
-                    let name = file.file_name().to_str().unwrap().to_string();
-                    if name.starts_with("implement_") {
-                        yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
-                    }
+                    dirs.push(file.file_name().to_str().unwrap().to_string());
                 }
             }
         }
     }
 
-    if let Ok(files) = std::fs::read_dir(root.join("crates/samples")) {
-        for file in files.filter_map(|file| file.ok()) {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_dir() {
-                    let name = file.file_name().to_str().unwrap().to_string();
-                    yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p {}\n", name).as_bytes()).unwrap();
-                }
-            }
-        }
-    }
-
-    yml.write_all(
-        r#"      if: contains(matrix.rust, 'nightly')
-"#
-        .as_bytes(),
-    )
-    .unwrap();
+    dirs
 }
