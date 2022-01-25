@@ -30,25 +30,67 @@ pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type CHUNKSTATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHUNKSTATE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_TEXT: CHUNKSTATE = 1i32;
+pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_VALUE: CHUNKSTATE = 2i32;
+pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = 4i32;
+pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
+impl ::core::marker::Copy for CHUNKSTATE {}
+impl ::core::clone::Clone for CHUNKSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CHUNKSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CHUNKSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHUNKSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHUNKSTATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type CHUNK_BREAKTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHUNK_BREAKTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0i32;
+pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_EOW: CHUNK_BREAKTYPE = 1i32;
+pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_EOS: CHUNK_BREAKTYPE = 2i32;
+pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
+pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
+pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
+impl ::core::marker::Copy for CHUNK_BREAKTYPE {}
+impl ::core::clone::Clone for CHUNK_BREAKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CHUNK_BREAKTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CHUNK_BREAKTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHUNK_BREAKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHUNK_BREAKTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
@@ -414,21 +456,42 @@ impl ::core::default::Default for DBID_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type DBKINDENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBKINDENUM(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_GUID_NAME: DBKINDENUM = 0i32;
+pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_GUID_PROPID: DBKINDENUM = 1i32;
+pub const DBKIND_GUID_PROPID: DBKINDENUM = DBKINDENUM(1i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_NAME: DBKINDENUM = 2i32;
+pub const DBKIND_NAME: DBKINDENUM = DBKINDENUM(2i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_PGUID_NAME: DBKINDENUM = 3i32;
+pub const DBKIND_PGUID_NAME: DBKINDENUM = DBKINDENUM(3i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_PGUID_PROPID: DBKINDENUM = 4i32;
+pub const DBKIND_PGUID_PROPID: DBKINDENUM = DBKINDENUM(4i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_PROPID: DBKINDENUM = 5i32;
+pub const DBKIND_PROPID: DBKINDENUM = DBKINDENUM(5i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const DBKIND_GUID: DBKINDENUM = 6i32;
+pub const DBKIND_GUID: DBKINDENUM = DBKINDENUM(6i32);
+impl ::core::marker::Copy for DBKINDENUM {}
+impl ::core::clone::Clone for DBKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DBKINDENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DBKINDENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBKINDENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBKINDENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
@@ -585,37 +648,79 @@ pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type IFILTER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IFILTER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = 1i32;
+pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
+impl ::core::marker::Copy for IFILTER_FLAGS {}
+impl ::core::clone::Clone for IFILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IFILTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IFILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IFILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFILTER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type IFILTER_INIT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IFILTER_INIT(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = 1i32;
+pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2i32;
+pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = IFILTER_INIT(2i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = 4i32;
+pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = IFILTER_INIT(4i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = 8i32;
+pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = IFILTER_INIT(8i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = 16i32;
+pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(16i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = 32i32;
+pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(32i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = 256i32;
+pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(256i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64i32;
+pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = IFILTER_INIT(64i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128i32;
+pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = IFILTER_INIT(128i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = 512i32;
+pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = 1024i32;
+pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = IFILTER_INIT(1024i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = 2048i32;
+pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = IFILTER_INIT(2048i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = 4096i32;
+pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = IFILTER_INIT(4096i32);
+impl ::core::marker::Copy for IFILTER_INIT {}
+impl ::core::clone::Clone for IFILTER_INIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IFILTER_INIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IFILTER_INIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IFILTER_INIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFILTER_INIT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[repr(transparent)]
 pub struct IFilter(::windows::core::IUnknown);
@@ -623,26 +728,26 @@ impl IFilter {
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(cattributes), ::core::mem::transmute(aattributes), ::core::mem::transmute(pflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(cattributes), ::core::mem::transmute(aattributes), ::core::mem::transmute(pflags)))
     }
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstat)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetChunk)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstat)))
     }
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer)))
     }
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppropvalue)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppropvalue)))
     }
     #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
     pub unsafe fn BindRegion<'a, Param0: ::windows::core::IntoParam<'a, FILTERREGION>>(&self, origpos: Param0, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), origpos.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).BindRegion)(::core::mem::transmute_copy(self), origpos.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)))
     }
 }
 impl ::core::convert::From<IFilter> for ::windows::core::IUnknown {
@@ -682,25 +787,31 @@ impl ::core::fmt::Debug for IFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IFilter {
-    type Vtable = IFilterVtbl;
+    type Vtable = IFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFilterVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstat: *mut STAT_CHUNK) -> i32,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
-);
+pub struct IFilter_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    Init: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub GetChunk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstat: *mut STAT_CHUNK) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    GetChunk: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetText: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    GetValue: usize,
+    pub BindRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[repr(transparent)]
 pub struct IPhraseSink(::windows::core::IUnknown);
@@ -708,12 +819,12 @@ impl IPhraseSink {
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PutSmallPhrase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcnoun: Param0, cwcnoun: u32, pwcmodifier: Param2, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwcnoun.into_param().abi(), ::core::mem::transmute(cwcnoun), pwcmodifier.into_param().abi(), ::core::mem::transmute(cwcmodifier), ::core::mem::transmute(ulattachmenttype)).ok()
+        (::windows::core::Interface::vtable(self).PutSmallPhrase)(::core::mem::transmute_copy(self), pwcnoun.into_param().abi(), ::core::mem::transmute(cwcnoun), pwcmodifier.into_param().abi(), ::core::mem::transmute(cwcmodifier), ::core::mem::transmute(ulattachmenttype)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PutPhrase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcphrase: Param0, cwcphrase: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwcphrase.into_param().abi(), ::core::mem::transmute(cwcphrase)).ok()
+        (::windows::core::Interface::vtable(self).PutPhrase)(::core::mem::transmute_copy(self), pwcphrase.into_param().abi(), ::core::mem::transmute(cwcphrase)).ok()
     }
 }
 impl ::core::convert::From<IPhraseSink> for ::windows::core::IUnknown {
@@ -753,20 +864,22 @@ impl ::core::fmt::Debug for IPhraseSink {
     }
 }
 unsafe impl ::windows::core::Interface for IPhraseSink {
-    type Vtable = IPhraseSinkVtbl;
+    type Vtable = IPhraseSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhraseSinkVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcphrase: super::super::Foundation::PWSTR, cwcphrase: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IPhraseSink_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub PutSmallPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    PutSmallPhrase: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub PutPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcphrase: super::super::Foundation::PWSTR, cwcphrase: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    PutPhrase: usize,
+}
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
@@ -959,12 +1072,35 @@ pub const VECTOR_RANK_MAX: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const VECTOR_RANK_MIN: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub type WORDREP_BREAK_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WORDREP_BREAK_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0i32;
+pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1i32;
+pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2i32;
+pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
-pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3i32;
+pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(3i32);
+impl ::core::marker::Copy for WORDREP_BREAK_TYPE {}
+impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WORDREP_BREAK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WORDREP_BREAK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WORDREP_BREAK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WORDREP_BREAK_TYPE").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

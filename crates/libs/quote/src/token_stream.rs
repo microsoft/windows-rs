@@ -1,5 +1,5 @@
 /// A stream of tokens
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct TokenStream(pub String);
 
 impl From<String> for TokenStream {

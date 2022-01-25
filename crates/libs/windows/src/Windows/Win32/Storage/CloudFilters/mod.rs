@@ -3,69 +3,482 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_CANCEL_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_CANCEL_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_CANCEL_FLAG_NONE: CF_CALLBACK_CANCEL_FLAGS = 0u32;
+pub const CF_CALLBACK_CANCEL_FLAG_NONE: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_CANCEL_FLAG_IO_TIMEOUT: CF_CALLBACK_CANCEL_FLAGS = 1u32;
+pub const CF_CALLBACK_CANCEL_FLAG_IO_TIMEOUT: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS = 2u32;
+pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_CANCEL_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_CANCEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_CANCEL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_CANCEL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_CANCEL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_CANCEL_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_CANCEL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_CANCEL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_CANCEL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_CANCEL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_CLOSE_COMPLETION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_NONE: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = 0u32;
+pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_NONE: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = CF_CALLBACK_CLOSE_COMPLETION_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_DELETED: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = 1u32;
+pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_DELETED: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = CF_CALLBACK_CLOSE_COMPLETION_FLAGS(1u32);
+impl ::core::marker::Copy for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_CLOSE_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_NONE: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = 0u32;
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_NONE: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = 1u32;
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_DEHYDRATED: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = 2u32;
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_DEHYDRATED: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_DEHYDRATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATE_FLAG_NONE: CF_CALLBACK_DEHYDRATE_FLAGS = 0u32;
+pub const CF_CALLBACK_DEHYDRATE_FLAG_NONE: CF_CALLBACK_DEHYDRATE_FLAGS = CF_CALLBACK_DEHYDRATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATE_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_FLAGS = 1u32;
+pub const CF_CALLBACK_DEHYDRATE_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_FLAGS = CF_CALLBACK_DEHYDRATE_FLAGS(1u32);
+impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATE_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_DEHYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_DEHYDRATION_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATION_REASON_NONE: CF_CALLBACK_DEHYDRATION_REASON = 0i32;
+pub const CF_CALLBACK_DEHYDRATION_REASON_NONE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATION_REASON_USER_MANUAL: CF_CALLBACK_DEHYDRATION_REASON = 1i32;
+pub const CF_CALLBACK_DEHYDRATION_REASON_USER_MANUAL: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_LOW_SPACE: CF_CALLBACK_DEHYDRATION_REASON = 2i32;
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_LOW_SPACE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_INACTIVITY: CF_CALLBACK_DEHYDRATION_REASON = 3i32;
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_INACTIVITY: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(3i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_OS_UPGRADE: CF_CALLBACK_DEHYDRATION_REASON = 4i32;
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_OS_UPGRADE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(4i32);
+impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATION_REASON {}
+impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATION_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DEHYDRATION_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATION_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_DEHYDRATION_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_DELETE_COMPLETION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DELETE_COMPLETION_FLAG_NONE: CF_CALLBACK_DELETE_COMPLETION_FLAGS = 0u32;
+pub const CF_CALLBACK_DELETE_COMPLETION_FLAG_NONE: CF_CALLBACK_DELETE_COMPLETION_FLAGS = CF_CALLBACK_DELETE_COMPLETION_FLAGS(0u32);
+impl ::core::marker::Copy for CF_CALLBACK_DELETE_COMPLETION_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_DELETE_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_DELETE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_DELETE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DELETE_FLAG_NONE: CF_CALLBACK_DELETE_FLAGS = 0u32;
+pub const CF_CALLBACK_DELETE_FLAG_NONE: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DELETE_FLAG_IS_DIRECTORY: CF_CALLBACK_DELETE_FLAGS = 1u32;
+pub const CF_CALLBACK_DELETE_FLAG_IS_DIRECTORY: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_DELETE_FLAG_IS_UNDELETE: CF_CALLBACK_DELETE_FLAGS = 2u32;
+pub const CF_CALLBACK_DELETE_FLAG_IS_UNDELETE: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_DELETE_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_DELETE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_DELETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_DELETE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_DELETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_DELETE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_DELETE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_DELETE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_DELETE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_FETCH_DATA_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_FETCH_DATA_FLAG_NONE: CF_CALLBACK_FETCH_DATA_FLAGS = 0u32;
+pub const CF_CALLBACK_FETCH_DATA_FLAG_NONE: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_FETCH_DATA_FLAG_RECOVERY: CF_CALLBACK_FETCH_DATA_FLAGS = 1u32;
+pub const CF_CALLBACK_FETCH_DATA_FLAG_RECOVERY: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_FETCH_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_FETCH_DATA_FLAGS = 2u32;
+pub const CF_CALLBACK_FETCH_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_FETCH_DATA_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_FETCH_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_FETCH_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_FETCH_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = 0u32;
+pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(0u32);
+impl ::core::marker::Copy for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_CorrelationVector'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -143,13 +556,62 @@ impl ::core::default::Default for CF_CALLBACK_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_OPEN_COMPLETION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_NONE: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 0u32;
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_NONE: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNKNOWN: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 1u32;
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNKNOWN: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNSUPPORTED: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 2u32;
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNSUPPORTED: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_OPEN_COMPLETION_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_OPEN_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -801,55 +1263,223 @@ impl ::core::default::Default for CF_CALLBACK_REGISTRATION {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_RENAME_COMPLETION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_RENAME_COMPLETION_FLAG_NONE: CF_CALLBACK_RENAME_COMPLETION_FLAGS = 0u32;
+pub const CF_CALLBACK_RENAME_COMPLETION_FLAG_NONE: CF_CALLBACK_RENAME_COMPLETION_FLAGS = CF_CALLBACK_RENAME_COMPLETION_FLAGS(0u32);
+impl ::core::marker::Copy for CF_CALLBACK_RENAME_COMPLETION_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_RENAME_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_RENAME_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_RENAME_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_RENAME_FLAG_NONE: CF_CALLBACK_RENAME_FLAGS = 0u32;
+pub const CF_CALLBACK_RENAME_FLAG_NONE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_RENAME_FLAG_IS_DIRECTORY: CF_CALLBACK_RENAME_FLAGS = 1u32;
+pub const CF_CALLBACK_RENAME_FLAG_IS_DIRECTORY: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_RENAME_FLAG_SOURCE_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = 2u32;
+pub const CF_CALLBACK_RENAME_FLAG_SOURCE_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_RENAME_FLAG_TARGET_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = 4u32;
+pub const CF_CALLBACK_RENAME_FLAG_TARGET_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(4u32);
+impl ::core::marker::Copy for CF_CALLBACK_RENAME_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_RENAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_RENAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_RENAME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_RENAME_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_RENAME_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_RENAME_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_RENAME_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_RENAME_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_FETCH_DATA: CF_CALLBACK_TYPE = 0i32;
+pub const CF_CALLBACK_TYPE_FETCH_DATA: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_VALIDATE_DATA: CF_CALLBACK_TYPE = 1i32;
+pub const CF_CALLBACK_TYPE_VALIDATE_DATA: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_CANCEL_FETCH_DATA: CF_CALLBACK_TYPE = 2i32;
+pub const CF_CALLBACK_TYPE_CANCEL_FETCH_DATA: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_FETCH_PLACEHOLDERS: CF_CALLBACK_TYPE = 3i32;
+pub const CF_CALLBACK_TYPE_FETCH_PLACEHOLDERS: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_CANCEL_FETCH_PLACEHOLDERS: CF_CALLBACK_TYPE = 4i32;
+pub const CF_CALLBACK_TYPE_CANCEL_FETCH_PLACEHOLDERS: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_FILE_OPEN_COMPLETION: CF_CALLBACK_TYPE = 5i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_FILE_OPEN_COMPLETION: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_FILE_CLOSE_COMPLETION: CF_CALLBACK_TYPE = 6i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_FILE_CLOSE_COMPLETION: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_DEHYDRATE: CF_CALLBACK_TYPE = 7i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_DEHYDRATE: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_DEHYDRATE_COMPLETION: CF_CALLBACK_TYPE = 8i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_DEHYDRATE_COMPLETION: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_DELETE: CF_CALLBACK_TYPE = 9i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_DELETE: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_DELETE_COMPLETION: CF_CALLBACK_TYPE = 10i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_DELETE_COMPLETION: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_RENAME: CF_CALLBACK_TYPE = 11i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_RENAME: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NOTIFY_RENAME_COMPLETION: CF_CALLBACK_TYPE = 12i32;
+pub const CF_CALLBACK_TYPE_NOTIFY_RENAME_COMPLETION: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_TYPE_NONE: CF_CALLBACK_TYPE = -1i32;
+pub const CF_CALLBACK_TYPE_NONE: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(-1i32);
+impl ::core::marker::Copy for CF_CALLBACK_TYPE {}
+impl ::core::clone::Clone for CF_CALLBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CALLBACK_VALIDATE_DATA_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS = 0u32;
+pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS = CF_CALLBACK_VALIDATE_DATA_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS = 2u32;
+pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS = CF_CALLBACK_VALIDATE_DATA_FLAGS(2u32);
+impl ::core::marker::Copy for CF_CALLBACK_VALIDATE_DATA_FLAGS {}
+impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CALLBACK_VALIDATE_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CF_CONNECTION_KEY(pub isize);
@@ -885,41 +1515,237 @@ unsafe impl ::windows::core::Abi for CF_CONNECTION_KEY {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CONNECT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CONNECT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONNECT_FLAG_NONE: CF_CONNECT_FLAGS = 0u32;
+pub const CF_CONNECT_FLAG_NONE: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONNECT_FLAG_REQUIRE_PROCESS_INFO: CF_CONNECT_FLAGS = 2u32;
+pub const CF_CONNECT_FLAG_REQUIRE_PROCESS_INFO: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONNECT_FLAG_REQUIRE_FULL_FILE_PATH: CF_CONNECT_FLAGS = 4u32;
+pub const CF_CONNECT_FLAG_REQUIRE_FULL_FILE_PATH: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONNECT_FLAG_BLOCK_SELF_IMPLICIT_HYDRATION: CF_CONNECT_FLAGS = 8u32;
+pub const CF_CONNECT_FLAG_BLOCK_SELF_IMPLICIT_HYDRATION: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(8u32);
+impl ::core::marker::Copy for CF_CONNECT_FLAGS {}
+impl ::core::clone::Clone for CF_CONNECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CONNECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CONNECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CONNECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CONNECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CONNECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CONNECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CONNECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CONNECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CONVERT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CONVERT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_NONE: CF_CONVERT_FLAGS = 0u32;
+pub const CF_CONVERT_FLAG_NONE: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_MARK_IN_SYNC: CF_CONVERT_FLAGS = 1u32;
+pub const CF_CONVERT_FLAG_MARK_IN_SYNC: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_DEHYDRATE: CF_CONVERT_FLAGS = 2u32;
+pub const CF_CONVERT_FLAG_DEHYDRATE: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_ENABLE_ON_DEMAND_POPULATION: CF_CONVERT_FLAGS = 4u32;
+pub const CF_CONVERT_FLAG_ENABLE_ON_DEMAND_POPULATION: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_ALWAYS_FULL: CF_CONVERT_FLAGS = 8u32;
+pub const CF_CONVERT_FLAG_ALWAYS_FULL: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CONVERT_FLAG_FORCE_CONVERT_TO_CLOUD_FILE: CF_CONVERT_FLAGS = 16u32;
+pub const CF_CONVERT_FLAG_FORCE_CONVERT_TO_CLOUD_FILE: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(16u32);
+impl ::core::marker::Copy for CF_CONVERT_FLAGS {}
+impl ::core::clone::Clone for CF_CONVERT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CONVERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CONVERT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CONVERT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CONVERT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CONVERT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CONVERT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CONVERT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CONVERT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CONVERT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_CREATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_CREATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CREATE_FLAG_NONE: CF_CREATE_FLAGS = 0u32;
+pub const CF_CREATE_FLAG_NONE: CF_CREATE_FLAGS = CF_CREATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_CREATE_FLAG_STOP_ON_ERROR: CF_CREATE_FLAGS = 1u32;
+pub const CF_CREATE_FLAG_STOP_ON_ERROR: CF_CREATE_FLAGS = CF_CREATE_FLAGS(1u32);
+impl ::core::marker::Copy for CF_CREATE_FLAGS {}
+impl ::core::clone::Clone for CF_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_CREATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_CREATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_CREATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_CREATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_CREATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_CREATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_CREATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_DEHYDRATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_DEHYDRATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_DEHYDRATE_FLAG_NONE: CF_DEHYDRATE_FLAGS = 0u32;
+pub const CF_DEHYDRATE_FLAG_NONE: CF_DEHYDRATE_FLAGS = CF_DEHYDRATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_DEHYDRATE_FLAG_BACKGROUND: CF_DEHYDRATE_FLAGS = 1u32;
+pub const CF_DEHYDRATE_FLAG_BACKGROUND: CF_DEHYDRATE_FLAGS = CF_DEHYDRATE_FLAGS(1u32);
+impl ::core::marker::Copy for CF_DEHYDRATE_FLAGS {}
+impl ::core::clone::Clone for CF_DEHYDRATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_DEHYDRATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_DEHYDRATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_DEHYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_DEHYDRATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_DEHYDRATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_FILE_RANGE {
@@ -991,15 +1817,113 @@ impl ::core::default::Default for CF_FS_METADATA {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_HARDLINK_POLICY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_HARDLINK_POLICY(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HARDLINK_POLICY_NONE: CF_HARDLINK_POLICY = 0u32;
+pub const CF_HARDLINK_POLICY_NONE: CF_HARDLINK_POLICY = CF_HARDLINK_POLICY(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HARDLINK_POLICY_ALLOWED: CF_HARDLINK_POLICY = 1u32;
+pub const CF_HARDLINK_POLICY_ALLOWED: CF_HARDLINK_POLICY = CF_HARDLINK_POLICY(1u32);
+impl ::core::marker::Copy for CF_HARDLINK_POLICY {}
+impl ::core::clone::Clone for CF_HARDLINK_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_HARDLINK_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_HARDLINK_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_HARDLINK_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_HARDLINK_POLICY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_HARDLINK_POLICY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_HARDLINK_POLICY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_HARDLINK_POLICY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_HARDLINK_POLICY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_HARDLINK_POLICY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_HYDRATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_HYDRATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATE_FLAG_NONE: CF_HYDRATE_FLAGS = 0u32;
+pub const CF_HYDRATE_FLAG_NONE: CF_HYDRATE_FLAGS = CF_HYDRATE_FLAGS(0u32);
+impl ::core::marker::Copy for CF_HYDRATE_FLAGS {}
+impl ::core::clone::Clone for CF_HYDRATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_HYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_HYDRATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_HYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_HYDRATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_HYDRATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_HYDRATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_HYDRATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_HYDRATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_HYDRATION_POLICY {
@@ -1032,17 +1956,66 @@ impl ::core::default::Default for CF_HYDRATION_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_HYDRATION_POLICY_MODIFIER = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_HYDRATION_POLICY_MODIFIER(pub u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_MODIFIER_NONE: CF_HYDRATION_POLICY_MODIFIER = 0u16;
+pub const CF_HYDRATION_POLICY_MODIFIER_NONE: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(0u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_MODIFIER_VALIDATION_REQUIRED: CF_HYDRATION_POLICY_MODIFIER = 1u16;
+pub const CF_HYDRATION_POLICY_MODIFIER_VALIDATION_REQUIRED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(1u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_MODIFIER_STREAMING_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = 2u16;
+pub const CF_HYDRATION_POLICY_MODIFIER_STREAMING_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(2u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_MODIFIER_AUTO_DEHYDRATION_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = 4u16;
+pub const CF_HYDRATION_POLICY_MODIFIER_AUTO_DEHYDRATION_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(4u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_MODIFIER_ALLOW_FULL_RESTART_HYDRATION: CF_HYDRATION_POLICY_MODIFIER = 8u16;
+pub const CF_HYDRATION_POLICY_MODIFIER_ALLOW_FULL_RESTART_HYDRATION: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(8u16);
+impl ::core::marker::Copy for CF_HYDRATION_POLICY_MODIFIER {}
+impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_HYDRATION_POLICY_MODIFIER").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_HYDRATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_HYDRATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_HYDRATION_POLICY_MODIFIER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_HYDRATION_POLICY_MODIFIER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT {
@@ -1074,15 +2047,36 @@ impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_HYDRATION_POLICY_PRIMARY = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_HYDRATION_POLICY_PRIMARY(pub u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_PARTIAL: CF_HYDRATION_POLICY_PRIMARY = 0u16;
+pub const CF_HYDRATION_POLICY_PARTIAL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(0u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_PROGRESSIVE: CF_HYDRATION_POLICY_PRIMARY = 1u16;
+pub const CF_HYDRATION_POLICY_PROGRESSIVE: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(1u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_FULL: CF_HYDRATION_POLICY_PRIMARY = 2u16;
+pub const CF_HYDRATION_POLICY_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(2u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_HYDRATION_POLICY_ALWAYS_FULL: CF_HYDRATION_POLICY_PRIMARY = 3u16;
+pub const CF_HYDRATION_POLICY_ALWAYS_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(3u16);
+impl ::core::marker::Copy for CF_HYDRATION_POLICY_PRIMARY {}
+impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_HYDRATION_POLICY_PRIMARY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT {
@@ -1114,43 +2108,113 @@ impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_INSYNC_POLICY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_INSYNC_POLICY(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_NONE: CF_INSYNC_POLICY = 0u32;
+pub const CF_INSYNC_POLICY_NONE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_CREATION_TIME: CF_INSYNC_POLICY = 1u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_CREATION_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = 2u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = 4u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = 8u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(8u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_CREATION_TIME: CF_INSYNC_POLICY = 16u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_CREATION_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(16u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = 32u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(32u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = 64u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(64u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = 128u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(128u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_LAST_WRITE_TIME: CF_INSYNC_POLICY = 256u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_LAST_WRITE_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(256u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_LAST_WRITE_TIME: CF_INSYNC_POLICY = 512u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_LAST_WRITE_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(512u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_FILE_ALL: CF_INSYNC_POLICY = 5592335u32;
+pub const CF_INSYNC_POLICY_TRACK_FILE_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(5592335u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_ALL: CF_INSYNC_POLICY = 11184880u32;
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(11184880u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_TRACK_ALL: CF_INSYNC_POLICY = 16777215u32;
+pub const CF_INSYNC_POLICY_TRACK_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(16777215u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_INSYNC_POLICY_PRESERVE_INSYNC_FOR_SYNC_ENGINE: CF_INSYNC_POLICY = 2147483648u32;
+pub const CF_INSYNC_POLICY_PRESERVE_INSYNC_FOR_SYNC_ENGINE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(2147483648u32);
+impl ::core::marker::Copy for CF_INSYNC_POLICY {}
+impl ::core::clone::Clone for CF_INSYNC_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_INSYNC_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_INSYNC_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_INSYNC_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_INSYNC_POLICY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_INSYNC_POLICY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_INSYNC_POLICY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_INSYNC_POLICY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_INSYNC_POLICY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_INSYNC_POLICY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_IN_SYNC_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_IN_SYNC_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_IN_SYNC_STATE_NOT_IN_SYNC: CF_IN_SYNC_STATE = 0i32;
+pub const CF_IN_SYNC_STATE_NOT_IN_SYNC: CF_IN_SYNC_STATE = CF_IN_SYNC_STATE(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_IN_SYNC_STATE_IN_SYNC: CF_IN_SYNC_STATE = 1i32;
+pub const CF_IN_SYNC_STATE_IN_SYNC: CF_IN_SYNC_STATE = CF_IN_SYNC_STATE(1i32);
+impl ::core::marker::Copy for CF_IN_SYNC_STATE {}
+impl ::core::clone::Clone for CF_IN_SYNC_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_IN_SYNC_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_IN_SYNC_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_IN_SYNC_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
@@ -1158,33 +2222,278 @@ pub const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPEN_FILE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPEN_FILE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPEN_FILE_FLAG_NONE: CF_OPEN_FILE_FLAGS = 0u32;
+pub const CF_OPEN_FILE_FLAG_NONE: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPEN_FILE_FLAG_EXCLUSIVE: CF_OPEN_FILE_FLAGS = 1u32;
+pub const CF_OPEN_FILE_FLAG_EXCLUSIVE: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPEN_FILE_FLAG_WRITE_ACCESS: CF_OPEN_FILE_FLAGS = 2u32;
+pub const CF_OPEN_FILE_FLAG_WRITE_ACCESS: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPEN_FILE_FLAG_DELETE_ACCESS: CF_OPEN_FILE_FLAGS = 4u32;
+pub const CF_OPEN_FILE_FLAG_DELETE_ACCESS: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPEN_FILE_FLAG_FOREGROUND: CF_OPEN_FILE_FLAGS = 8u32;
+pub const CF_OPEN_FILE_FLAG_FOREGROUND: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(8u32);
+impl ::core::marker::Copy for CF_OPEN_FILE_FLAGS {}
+impl ::core::clone::Clone for CF_OPEN_FILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPEN_FILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPEN_FILE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPEN_FILE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPEN_FILE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPEN_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPEN_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPEN_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPEN_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPEN_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_ACK_DATA_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_ACK_DATA_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_ACK_DATA_FLAG_NONE: CF_OPERATION_ACK_DATA_FLAGS = 0u32;
+pub const CF_OPERATION_ACK_DATA_FLAG_NONE: CF_OPERATION_ACK_DATA_FLAGS = CF_OPERATION_ACK_DATA_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_ACK_DATA_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_ACK_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_ACK_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_ACK_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_ACK_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_ACK_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_ACK_DEHYDRATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_ACK_DEHYDRATE_FLAG_NONE: CF_OPERATION_ACK_DEHYDRATE_FLAGS = 0u32;
+pub const CF_OPERATION_ACK_DEHYDRATE_FLAG_NONE: CF_OPERATION_ACK_DEHYDRATE_FLAGS = CF_OPERATION_ACK_DEHYDRATE_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_ACK_DEHYDRATE_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_ACK_DEHYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_ACK_DELETE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_ACK_DELETE_FLAG_NONE: CF_OPERATION_ACK_DELETE_FLAGS = 0u32;
+pub const CF_OPERATION_ACK_DELETE_FLAG_NONE: CF_OPERATION_ACK_DELETE_FLAGS = CF_OPERATION_ACK_DELETE_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_ACK_DELETE_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_ACK_DELETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_ACK_DELETE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_ACK_DELETE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DELETE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_ACK_RENAME_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = 0u32;
+pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = CF_OPERATION_ACK_RENAME_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_ACK_RENAME_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_ACK_RENAME_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_ACK_RENAME_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_ACK_RENAME_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_RENAME_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_CorrelationVector'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -1630,57 +2939,295 @@ impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_7 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_RESTART_HYDRATION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_RESTART_HYDRATION_FLAG_NONE: CF_OPERATION_RESTART_HYDRATION_FLAGS = 0u32;
+pub const CF_OPERATION_RESTART_HYDRATION_FLAG_NONE: CF_OPERATION_RESTART_HYDRATION_FLAGS = CF_OPERATION_RESTART_HYDRATION_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_RESTART_HYDRATION_FLAG_MARK_IN_SYNC: CF_OPERATION_RESTART_HYDRATION_FLAGS = 1u32;
+pub const CF_OPERATION_RESTART_HYDRATION_FLAG_MARK_IN_SYNC: CF_OPERATION_RESTART_HYDRATION_FLAGS = CF_OPERATION_RESTART_HYDRATION_FLAGS(1u32);
+impl ::core::marker::Copy for CF_OPERATION_RESTART_HYDRATION_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_RESTART_HYDRATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_RETRIEVE_DATA_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_RETRIEVE_DATA_FLAG_NONE: CF_OPERATION_RETRIEVE_DATA_FLAGS = 0u32;
+pub const CF_OPERATION_RETRIEVE_DATA_FLAG_NONE: CF_OPERATION_RETRIEVE_DATA_FLAGS = CF_OPERATION_RETRIEVE_DATA_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_RETRIEVE_DATA_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_RETRIEVE_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_TRANSFER_DATA_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TRANSFER_DATA_FLAG_NONE: CF_OPERATION_TRANSFER_DATA_FLAGS = 0u32;
+pub const CF_OPERATION_TRANSFER_DATA_FLAG_NONE: CF_OPERATION_TRANSFER_DATA_FLAGS = CF_OPERATION_TRANSFER_DATA_FLAGS(0u32);
+impl ::core::marker::Copy for CF_OPERATION_TRANSFER_DATA_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_TRANSFER_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_NONE: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = 0u32;
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_NONE: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_STOP_ON_ERROR: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = 1u32;
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_STOP_ON_ERROR: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = 2u32;
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(2u32);
+impl ::core::marker::Copy for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {}
+impl ::core::clone::Clone for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_OPERATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_TRANSFER_DATA: CF_OPERATION_TYPE = 0i32;
+pub const CF_OPERATION_TYPE_TRANSFER_DATA: CF_OPERATION_TYPE = CF_OPERATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_RETRIEVE_DATA: CF_OPERATION_TYPE = 1i32;
+pub const CF_OPERATION_TYPE_RETRIEVE_DATA: CF_OPERATION_TYPE = CF_OPERATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_ACK_DATA: CF_OPERATION_TYPE = 2i32;
+pub const CF_OPERATION_TYPE_ACK_DATA: CF_OPERATION_TYPE = CF_OPERATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_RESTART_HYDRATION: CF_OPERATION_TYPE = 3i32;
+pub const CF_OPERATION_TYPE_RESTART_HYDRATION: CF_OPERATION_TYPE = CF_OPERATION_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_TRANSFER_PLACEHOLDERS: CF_OPERATION_TYPE = 4i32;
+pub const CF_OPERATION_TYPE_TRANSFER_PLACEHOLDERS: CF_OPERATION_TYPE = CF_OPERATION_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_ACK_DEHYDRATE: CF_OPERATION_TYPE = 5i32;
+pub const CF_OPERATION_TYPE_ACK_DEHYDRATE: CF_OPERATION_TYPE = CF_OPERATION_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_ACK_DELETE: CF_OPERATION_TYPE = 6i32;
+pub const CF_OPERATION_TYPE_ACK_DELETE: CF_OPERATION_TYPE = CF_OPERATION_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_OPERATION_TYPE_ACK_RENAME: CF_OPERATION_TYPE = 7i32;
+pub const CF_OPERATION_TYPE_ACK_RENAME: CF_OPERATION_TYPE = CF_OPERATION_TYPE(7i32);
+impl ::core::marker::Copy for CF_OPERATION_TYPE {}
+impl ::core::clone::Clone for CF_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_OPERATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_OPERATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PIN_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PIN_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PIN_STATE_UNSPECIFIED: CF_PIN_STATE = 0i32;
+pub const CF_PIN_STATE_UNSPECIFIED: CF_PIN_STATE = CF_PIN_STATE(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PIN_STATE_PINNED: CF_PIN_STATE = 1i32;
+pub const CF_PIN_STATE_PINNED: CF_PIN_STATE = CF_PIN_STATE(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PIN_STATE_UNPINNED: CF_PIN_STATE = 2i32;
+pub const CF_PIN_STATE_UNPINNED: CF_PIN_STATE = CF_PIN_STATE(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PIN_STATE_EXCLUDED: CF_PIN_STATE = 3i32;
+pub const CF_PIN_STATE_EXCLUDED: CF_PIN_STATE = CF_PIN_STATE(3i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PIN_STATE_INHERIT: CF_PIN_STATE = 4i32;
+pub const CF_PIN_STATE_INHERIT: CF_PIN_STATE = CF_PIN_STATE(4i32);
+impl ::core::marker::Copy for CF_PIN_STATE {}
+impl ::core::clone::Clone for CF_PIN_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PIN_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PIN_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PIN_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PIN_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_PLACEHOLDER_BASIC_INFO {
@@ -1717,17 +3264,66 @@ impl ::core::default::Default for CF_PLACEHOLDER_BASIC_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PLACEHOLDER_CREATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = 0u32;
+pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_CREATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_PLACEHOLDER_CREATE_FLAGS = 1u32;
+pub const CF_PLACEHOLDER_CREATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_CREATE_FLAG_MARK_IN_SYNC: CF_PLACEHOLDER_CREATE_FLAGS = 2u32;
+pub const CF_PLACEHOLDER_CREATE_FLAG_MARK_IN_SYNC: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = 4u32;
+pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS = 8u32;
+pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(8u32);
+impl ::core::marker::Copy for CF_PLACEHOLDER_CREATE_FLAGS {}
+impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PLACEHOLDER_CREATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_PLACEHOLDER_CREATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_PLACEHOLDER_CREATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_PLACEHOLDER_CREATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -1773,31 +3369,94 @@ impl ::core::default::Default for CF_PLACEHOLDER_CREATE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PLACEHOLDER_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_INFO_BASIC: CF_PLACEHOLDER_INFO_CLASS = 0i32;
+pub const CF_PLACEHOLDER_INFO_BASIC: CF_PLACEHOLDER_INFO_CLASS = CF_PLACEHOLDER_INFO_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_INFO_STANDARD: CF_PLACEHOLDER_INFO_CLASS = 1i32;
+pub const CF_PLACEHOLDER_INFO_STANDARD: CF_PLACEHOLDER_INFO_CLASS = CF_PLACEHOLDER_INFO_CLASS(1i32);
+impl ::core::marker::Copy for CF_PLACEHOLDER_INFO_CLASS {}
+impl ::core::clone::Clone for CF_PLACEHOLDER_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PLACEHOLDER_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PLACEHOLDER_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PLACEHOLDER_MANAGEMENT_POLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_DEFAULT: CF_PLACEHOLDER_MANAGEMENT_POLICY = 0i32;
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_DEFAULT: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CREATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = 1i32;
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CREATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CONVERT_TO_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = 2i32;
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CONVERT_TO_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_UPDATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = 4i32;
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_UPDATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(4i32);
+impl ::core::marker::Copy for CF_PLACEHOLDER_MANAGEMENT_POLICY {}
+impl ::core::clone::Clone for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PLACEHOLDER_MANAGEMENT_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PLACEHOLDER_MANAGEMENT_POLICY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PLACEHOLDER_RANGE_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_RANGE_INFO_ONDISK: CF_PLACEHOLDER_RANGE_INFO_CLASS = 1i32;
+pub const CF_PLACEHOLDER_RANGE_INFO_ONDISK: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_RANGE_INFO_VALIDATED: CF_PLACEHOLDER_RANGE_INFO_CLASS = 2i32;
+pub const CF_PLACEHOLDER_RANGE_INFO_VALIDATED: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_RANGE_INFO_MODIFIED: CF_PLACEHOLDER_RANGE_INFO_CLASS = 3i32;
+pub const CF_PLACEHOLDER_RANGE_INFO_MODIFIED: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(3i32);
+impl ::core::marker::Copy for CF_PLACEHOLDER_RANGE_INFO_CLASS {}
+impl ::core::clone::Clone for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PLACEHOLDER_RANGE_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PLACEHOLDER_RANGE_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_PLACEHOLDER_STANDARD_INFO {
@@ -1849,23 +3508,72 @@ impl ::core::default::Default for CF_PLACEHOLDER_STANDARD_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_PLACEHOLDER_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_PLACEHOLDER_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_NO_STATES: CF_PLACEHOLDER_STATE = 0u32;
+pub const CF_PLACEHOLDER_STATE_NO_STATES: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_PLACEHOLDER: CF_PLACEHOLDER_STATE = 1u32;
+pub const CF_PLACEHOLDER_STATE_PLACEHOLDER: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_SYNC_ROOT: CF_PLACEHOLDER_STATE = 2u32;
+pub const CF_PLACEHOLDER_STATE_SYNC_ROOT: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_ESSENTIAL_PROP_PRESENT: CF_PLACEHOLDER_STATE = 4u32;
+pub const CF_PLACEHOLDER_STATE_ESSENTIAL_PROP_PRESENT: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_IN_SYNC: CF_PLACEHOLDER_STATE = 8u32;
+pub const CF_PLACEHOLDER_STATE_IN_SYNC: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(8u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_PARTIAL: CF_PLACEHOLDER_STATE = 16u32;
+pub const CF_PLACEHOLDER_STATE_PARTIAL: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(16u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_PARTIALLY_ON_DISK: CF_PLACEHOLDER_STATE = 32u32;
+pub const CF_PLACEHOLDER_STATE_PARTIALLY_ON_DISK: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(32u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PLACEHOLDER_STATE_INVALID: CF_PLACEHOLDER_STATE = 4294967295u32;
+pub const CF_PLACEHOLDER_STATE_INVALID: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(4294967295u32);
+impl ::core::marker::Copy for CF_PLACEHOLDER_STATE {}
+impl ::core::clone::Clone for CF_PLACEHOLDER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_PLACEHOLDER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_PLACEHOLDER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_PLACEHOLDER_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_PLACEHOLDER_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_PLACEHOLDER_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_PLACEHOLDER_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_PLACEHOLDER_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_PLACEHOLDER_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_PLATFORM_INFO {
@@ -1930,9 +3638,58 @@ impl ::core::default::Default for CF_POPULATION_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_POPULATION_POLICY_MODIFIER = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_POPULATION_POLICY_MODIFIER(pub u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_POPULATION_POLICY_MODIFIER_NONE: CF_POPULATION_POLICY_MODIFIER = 0u16;
+pub const CF_POPULATION_POLICY_MODIFIER_NONE: CF_POPULATION_POLICY_MODIFIER = CF_POPULATION_POLICY_MODIFIER(0u16);
+impl ::core::marker::Copy for CF_POPULATION_POLICY_MODIFIER {}
+impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_POPULATION_POLICY_MODIFIER").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_POPULATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_POPULATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_POPULATION_POLICY_MODIFIER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_POPULATION_POLICY_MODIFIER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_POPULATION_POLICY_MODIFIER_USHORT {
@@ -1964,13 +3721,34 @@ impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER_USHORT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_POPULATION_POLICY_PRIMARY = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_POPULATION_POLICY_PRIMARY(pub u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_POPULATION_POLICY_PARTIAL: CF_POPULATION_POLICY_PRIMARY = 0u16;
+pub const CF_POPULATION_POLICY_PARTIAL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(0u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY = 2u16;
+pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(2u16);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_POPULATION_POLICY_ALWAYS_FULL: CF_POPULATION_POLICY_PRIMARY = 3u16;
+pub const CF_POPULATION_POLICY_ALWAYS_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(3u16);
+impl ::core::marker::Copy for CF_POPULATION_POLICY_PRIMARY {}
+impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_POPULATION_POLICY_PRIMARY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
@@ -2046,35 +3824,231 @@ impl ::core::default::Default for CF_PROCESS_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_REGISTER_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_REGISTER_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_REGISTER_FLAG_NONE: CF_REGISTER_FLAGS = 0u32;
+pub const CF_REGISTER_FLAG_NONE: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_REGISTER_FLAG_UPDATE: CF_REGISTER_FLAGS = 1u32;
+pub const CF_REGISTER_FLAG_UPDATE: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_REGISTER_FLAG_DISABLE_ON_DEMAND_POPULATION_ON_ROOT: CF_REGISTER_FLAGS = 2u32;
+pub const CF_REGISTER_FLAG_DISABLE_ON_DEMAND_POPULATION_ON_ROOT: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_REGISTER_FLAG_MARK_IN_SYNC_ON_ROOT: CF_REGISTER_FLAGS = 4u32;
+pub const CF_REGISTER_FLAG_MARK_IN_SYNC_ON_ROOT: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(4u32);
+impl ::core::marker::Copy for CF_REGISTER_FLAGS {}
+impl ::core::clone::Clone for CF_REGISTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_REGISTER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_REGISTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_REGISTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_REGISTER_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_REGISTER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_REGISTER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_REGISTER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_REGISTER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_REGISTER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_REQUEST_KEY_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_REVERT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_REVERT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_REVERT_FLAG_NONE: CF_REVERT_FLAGS = 0u32;
+pub const CF_REVERT_FLAG_NONE: CF_REVERT_FLAGS = CF_REVERT_FLAGS(0u32);
+impl ::core::marker::Copy for CF_REVERT_FLAGS {}
+impl ::core::clone::Clone for CF_REVERT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_REVERT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_REVERT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_REVERT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_REVERT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_REVERT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_REVERT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_REVERT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_REVERT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_REVERT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_SET_IN_SYNC_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_SET_IN_SYNC_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SET_IN_SYNC_FLAG_NONE: CF_SET_IN_SYNC_FLAGS = 0u32;
+pub const CF_SET_IN_SYNC_FLAG_NONE: CF_SET_IN_SYNC_FLAGS = CF_SET_IN_SYNC_FLAGS(0u32);
+impl ::core::marker::Copy for CF_SET_IN_SYNC_FLAGS {}
+impl ::core::clone::Clone for CF_SET_IN_SYNC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_SET_IN_SYNC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_SET_IN_SYNC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_SET_IN_SYNC_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_SET_IN_SYNC_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_SET_IN_SYNC_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_SET_IN_SYNC_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_SET_IN_SYNC_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_SET_IN_SYNC_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_SET_PIN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_SET_PIN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SET_PIN_FLAG_NONE: CF_SET_PIN_FLAGS = 0u32;
+pub const CF_SET_PIN_FLAG_NONE: CF_SET_PIN_FLAGS = CF_SET_PIN_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SET_PIN_FLAG_RECURSE: CF_SET_PIN_FLAGS = 1u32;
+pub const CF_SET_PIN_FLAG_RECURSE: CF_SET_PIN_FLAGS = CF_SET_PIN_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SET_PIN_FLAG_RECURSE_ONLY: CF_SET_PIN_FLAGS = 2u32;
+pub const CF_SET_PIN_FLAG_RECURSE_ONLY: CF_SET_PIN_FLAGS = CF_SET_PIN_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SET_PIN_FLAG_RECURSE_STOP_ON_ERROR: CF_SET_PIN_FLAGS = 4u32;
+pub const CF_SET_PIN_FLAG_RECURSE_STOP_ON_ERROR: CF_SET_PIN_FLAGS = CF_SET_PIN_FLAGS(4u32);
+impl ::core::marker::Copy for CF_SET_PIN_FLAGS {}
+impl ::core::clone::Clone for CF_SET_PIN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_SET_PIN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_SET_PIN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_SET_PIN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_SET_PIN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_SET_PIN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_SET_PIN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_SET_PIN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_SET_PIN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_SYNC_POLICIES {
@@ -2111,29 +4085,78 @@ impl ::core::default::Default for CF_SYNC_POLICIES {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_SYNC_PROVIDER_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_DISCONNECTED: CF_SYNC_PROVIDER_STATUS = 0u32;
+pub const CF_PROVIDER_STATUS_DISCONNECTED: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_IDLE: CF_SYNC_PROVIDER_STATUS = 1u32;
+pub const CF_PROVIDER_STATUS_IDLE: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_POPULATE_NAMESPACE: CF_SYNC_PROVIDER_STATUS = 2u32;
+pub const CF_PROVIDER_STATUS_POPULATE_NAMESPACE: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_POPULATE_METADATA: CF_SYNC_PROVIDER_STATUS = 4u32;
+pub const CF_PROVIDER_STATUS_POPULATE_METADATA: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_POPULATE_CONTENT: CF_SYNC_PROVIDER_STATUS = 8u32;
+pub const CF_PROVIDER_STATUS_POPULATE_CONTENT: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(8u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_SYNC_INCREMENTAL: CF_SYNC_PROVIDER_STATUS = 16u32;
+pub const CF_PROVIDER_STATUS_SYNC_INCREMENTAL: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(16u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_SYNC_FULL: CF_SYNC_PROVIDER_STATUS = 32u32;
+pub const CF_PROVIDER_STATUS_SYNC_FULL: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(32u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS = 64u32;
+pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(64u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS = 2147483648u32;
+pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(2147483648u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_TERMINATED: CF_SYNC_PROVIDER_STATUS = 3221225473u32;
+pub const CF_PROVIDER_STATUS_TERMINATED: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(3221225473u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_PROVIDER_STATUS_ERROR: CF_SYNC_PROVIDER_STATUS = 3221225474u32;
+pub const CF_PROVIDER_STATUS_ERROR: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(3221225474u32);
+impl ::core::marker::Copy for CF_SYNC_PROVIDER_STATUS {}
+impl ::core::clone::Clone for CF_SYNC_PROVIDER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_SYNC_PROVIDER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_SYNC_PROVIDER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_SYNC_PROVIDER_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_SYNC_PROVIDER_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_SYNC_PROVIDER_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_SYNC_PROVIDER_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_SYNC_PROVIDER_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_SYNC_PROVIDER_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2210,13 +4233,34 @@ impl ::core::default::Default for CF_SYNC_ROOT_BASIC_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_SYNC_ROOT_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SYNC_ROOT_INFO_BASIC: CF_SYNC_ROOT_INFO_CLASS = 0i32;
+pub const CF_SYNC_ROOT_INFO_BASIC: CF_SYNC_ROOT_INFO_CLASS = CF_SYNC_ROOT_INFO_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SYNC_ROOT_INFO_STANDARD: CF_SYNC_ROOT_INFO_CLASS = 1i32;
+pub const CF_SYNC_ROOT_INFO_STANDARD: CF_SYNC_ROOT_INFO_CLASS = CF_SYNC_ROOT_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_SYNC_ROOT_INFO_PROVIDER: CF_SYNC_ROOT_INFO_CLASS = 2i32;
+pub const CF_SYNC_ROOT_INFO_PROVIDER: CF_SYNC_ROOT_INFO_CLASS = CF_SYNC_ROOT_INFO_CLASS(2i32);
+impl ::core::marker::Copy for CF_SYNC_ROOT_INFO_CLASS {}
+impl ::core::clone::Clone for CF_SYNC_ROOT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_SYNC_ROOT_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_SYNC_ROOT_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_SYNC_ROOT_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_SYNC_ROOT_PROVIDER_INFO {
@@ -2335,31 +4379,80 @@ impl ::core::default::Default for CF_SYNC_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub type CF_UPDATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CF_UPDATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_NONE: CF_UPDATE_FLAGS = 0u32;
+pub const CF_UPDATE_FLAG_NONE: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_VERIFY_IN_SYNC: CF_UPDATE_FLAGS = 1u32;
+pub const CF_UPDATE_FLAG_VERIFY_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_MARK_IN_SYNC: CF_UPDATE_FLAGS = 2u32;
+pub const CF_UPDATE_FLAG_MARK_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_DEHYDRATE: CF_UPDATE_FLAGS = 4u32;
+pub const CF_UPDATE_FLAG_DEHYDRATE: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_ENABLE_ON_DEMAND_POPULATION: CF_UPDATE_FLAGS = 8u32;
+pub const CF_UPDATE_FLAG_ENABLE_ON_DEMAND_POPULATION: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_UPDATE_FLAGS = 16u32;
+pub const CF_UPDATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_REMOVE_FILE_IDENTITY: CF_UPDATE_FLAGS = 32u32;
+pub const CF_UPDATE_FLAG_REMOVE_FILE_IDENTITY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_CLEAR_IN_SYNC: CF_UPDATE_FLAGS = 64u32;
+pub const CF_UPDATE_FLAG_CLEAR_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_REMOVE_PROPERTY: CF_UPDATE_FLAGS = 128u32;
+pub const CF_UPDATE_FLAG_REMOVE_PROPERTY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_PASSTHROUGH_FS_METADATA: CF_UPDATE_FLAGS = 256u32;
+pub const CF_UPDATE_FLAG_PASSTHROUGH_FS_METADATA: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_ALWAYS_FULL: CF_UPDATE_FLAGS = 512u32;
+pub const CF_UPDATE_FLAG_ALWAYS_FULL: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
-pub const CF_UPDATE_FLAG_ALLOW_PARTIAL: CF_UPDATE_FLAGS = 1024u32;
+pub const CF_UPDATE_FLAG_ALLOW_PARTIAL: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(1024u32);
+impl ::core::marker::Copy for CF_UPDATE_FLAGS {}
+impl ::core::clone::Clone for CF_UPDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CF_UPDATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CF_UPDATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CF_UPDATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CF_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CF_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CF_UPDATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CF_UPDATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CF_UPDATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2884,3 +4977,5 @@ pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

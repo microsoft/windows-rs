@@ -84,19 +84,68 @@ impl ::core::default::Default for CONNECTDLGSTRUCTW {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type CONNECTDLGSTRUCT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u32;
+pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u32;
+pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u32;
+pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u32;
+pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u32;
+pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u32;
+pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(32u32);
+impl ::core::marker::Copy for CONNECTDLGSTRUCT_FLAGS {}
+impl ::core::clone::Clone for CONNECTDLGSTRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONNECTDLGSTRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONNECTDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONNECTDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONNECTDLGSTRUCT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONNECTDLGSTRUCT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const CONNECT_CRED_RESET: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
@@ -202,11 +251,60 @@ impl ::core::default::Default for DISCDLGSTRUCTW {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type DISCDLGSTRUCT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISCDLGSTRUCT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
+pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
+pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
+impl ::core::marker::Copy for DISCDLGSTRUCT_FLAGS {}
+impl ::core::clone::Clone for DISCDLGSTRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISCDLGSTRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DISCDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DISCDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DISCDLGSTRUCT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DISCDLGSTRUCT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DISCDLGSTRUCT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -317,13 +415,62 @@ impl ::core::default::Default for NETINFOSTRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NETINFOSTRUCT_CHARACTERISTICS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = 1u32;
+pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u32;
+pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = 8u32;
+pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
+impl ::core::marker::Copy for NETINFOSTRUCT_CHARACTERISTICS {}
+impl ::core::clone::Clone for NETINFOSTRUCT_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETINFOSTRUCT_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NETINFOSTRUCT_CHARACTERISTICS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NETINFOSTRUCT_CHARACTERISTICS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NETINFOSTRUCT_CHARACTERISTICS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NETINFOSTRUCT_CHARACTERISTICS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
 #[repr(C)]
@@ -417,49 +564,245 @@ impl ::core::default::Default for NETRESOURCEW {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NETWORK_NAME_FORMAT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = 1u32;
+pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = 2u32;
+pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(2u32);
+impl ::core::marker::Copy for NETWORK_NAME_FORMAT_FLAGS {}
+impl ::core::clone::Clone for NETWORK_NAME_FORMAT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_NAME_FORMAT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETWORK_NAME_FORMAT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NETWORK_NAME_FORMAT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NETWORK_NAME_FORMAT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NETWORK_NAME_FORMAT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NETWORK_NAME_FORMAT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NETWORK_NAME_FORMAT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NET_RESOURCE_SCOPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_RESOURCE_SCOPE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = 1u32;
+pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = 5u32;
+pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(5u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = 2u32;
+pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = 3u32;
+pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(3u32);
+impl ::core::marker::Copy for NET_RESOURCE_SCOPE {}
+impl ::core::clone::Clone for NET_RESOURCE_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_RESOURCE_SCOPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_RESOURCE_SCOPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NET_RESOURCE_SCOPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NET_RESOURCE_SCOPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NET_RESOURCE_SCOPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NET_RESOURCE_SCOPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NET_RESOURCE_SCOPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NET_RESOURCE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_RESOURCE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = 0u32;
+pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = 1u32;
+pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = 2u32;
+pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(2u32);
+impl ::core::marker::Copy for NET_RESOURCE_TYPE {}
+impl ::core::clone::Clone for NET_RESOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_RESOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_RESOURCE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_RESOURCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_RESOURCE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NET_RESOURCE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NET_RESOURCE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NET_RESOURCE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NET_RESOURCE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NET_RESOURCE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NET_USE_CONNECT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_USE_CONNECT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = 8u32;
+pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = 16u32;
+pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = 128u32;
+pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = 1u32;
+pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = 2048u32;
+pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = 4096u32;
+pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = 4u32;
+pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = 1024u32;
+pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = 2u32;
+pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2u32);
+impl ::core::marker::Copy for NET_USE_CONNECT_FLAGS {}
+impl ::core::clone::Clone for NET_USE_CONNECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_USE_CONNECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_USE_CONNECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NET_USE_CONNECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NET_USE_CONNECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NET_USE_CONNECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NET_USE_CONNECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NET_USE_CONNECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -668,13 +1011,62 @@ pub unsafe fn NPCloseEnum<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NPDIRECTORY_NOTIFY_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = 1u32;
+pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = 2u32;
+pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = 3u32;
+pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(3u32);
+impl ::core::marker::Copy for NPDIRECTORY_NOTIFY_OPERATION {}
+impl ::core::clone::Clone for NPDIRECTORY_NOTIFY_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NPDIRECTORY_NOTIFY_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NPDIRECTORY_NOTIFY_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NPDIRECTORY_NOTIFY_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NPDIRECTORY_NOTIFY_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NPDIRECTORY_NOTIFY_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NPDIRECTORY_NOTIFY_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NPDIRECTORY_NOTIFY_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -855,13 +1247,62 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type NP_PROPERTY_DIALOG_SELECTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = 0u32;
+pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = 1u32;
+pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = 2u32;
+pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
+impl ::core::marker::Copy for NP_PROPERTY_DIALOG_SELECTION {}
+impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NP_PROPERTY_DIALOG_SELECTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NP_PROPERTY_DIALOG_SELECTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NP_PROPERTY_DIALOG_SELECTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NP_PROPERTY_DIALOG_SELECTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NP_PROPERTY_DIALOG_SELECTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NP_PROPERTY_DIALOG_SELECTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetEnumHandle(pub isize);
@@ -1091,11 +1532,60 @@ pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const RESOURCE_RECENT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type UNC_INFO_LEVEL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UNC_INFO_LEVEL(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 1u32;
+pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 2u32;
+pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
+impl ::core::marker::Copy for UNC_INFO_LEVEL {}
+impl ::core::clone::Clone for UNC_INFO_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UNC_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UNC_INFO_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UNC_INFO_LEVEL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UNC_INFO_LEVEL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UNC_INFO_LEVEL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UNC_INFO_LEVEL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UNC_INFO_LEVEL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UNC_INFO_LEVEL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1185,17 +1675,66 @@ pub const WNDT_NETWORK: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const WNDT_NORMAL: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type WNET_OPEN_ENUM_USAGE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WNET_OPEN_ENUM_USAGE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = 0u32;
+pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = 1u32;
+pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = 2u32;
+pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = 16u32;
+pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = 19u32;
+pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(19u32);
+impl ::core::marker::Copy for WNET_OPEN_ENUM_USAGE {}
+impl ::core::clone::Clone for WNET_OPEN_ENUM_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WNET_OPEN_ENUM_USAGE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WNET_OPEN_ENUM_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WNET_OPEN_ENUM_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WNET_OPEN_ENUM_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WNET_OPEN_ENUM_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WNET_OPEN_ENUM_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const WNFMT_CONNECTION: u32 = 32u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
@@ -1281,13 +1820,62 @@ pub const WNPERMC_OWNER: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const WNPERMC_PERM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub type WNPERM_DLG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WNPERM_DLG(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPERM_DLG_PERM: WNPERM_DLG = 0u32;
+pub const WNPERM_DLG_PERM: WNPERM_DLG = WNPERM_DLG(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPERM_DLG_AUDIT: WNPERM_DLG = 1u32;
+pub const WNPERM_DLG_AUDIT: WNPERM_DLG = WNPERM_DLG(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
-pub const WNPERM_DLG_OWNER: WNPERM_DLG = 2u32;
+pub const WNPERM_DLG_OWNER: WNPERM_DLG = WNPERM_DLG(2u32);
+impl ::core::marker::Copy for WNPERM_DLG {}
+impl ::core::clone::Clone for WNPERM_DLG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WNPERM_DLG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WNPERM_DLG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WNPERM_DLG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WNPERM_DLG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WNPERM_DLG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WNPERM_DLG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WNPERM_DLG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WNPERM_DLG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WNPERM_DLG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
 pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WNet'*"]
@@ -1985,3 +2573,5 @@ pub unsafe fn WNetUseConnectionW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

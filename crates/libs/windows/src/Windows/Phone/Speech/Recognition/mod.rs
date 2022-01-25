@@ -16,6 +16,11 @@ impl ::core::clone::Clone for SpeechRecognitionUIStatus {
         *self
     }
 }
+impl ::core::default::Default for SpeechRecognitionUIStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for SpeechRecognitionUIStatus {
     type Abi = Self;
 }
@@ -30,3 +35,5 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionUIStatus {
 impl ::windows::core::DefaultType for SpeechRecognitionUIStatus {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

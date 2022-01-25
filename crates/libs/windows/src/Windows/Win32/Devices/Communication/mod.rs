@@ -60,17 +60,66 @@ pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type CLEAR_COMM_ERROR_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
+pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
+pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;
+pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = 1u32;
+pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = 4u32;
+pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
+impl ::core::marker::Copy for CLEAR_COMM_ERROR_FLAGS {}
+impl ::core::clone::Clone for CLEAR_COMM_ERROR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLEAR_COMM_ERROR_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLEAR_COMM_ERROR_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLEAR_COMM_ERROR_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -183,23 +232,72 @@ impl ::core::default::Default for COMMPROP {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type COMMPROP_STOP_PARITY = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMMPROP_STOP_PARITY(pub u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const STOPBITS_10: COMMPROP_STOP_PARITY = 1u16;
+pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const STOPBITS_15: COMMPROP_STOP_PARITY = 2u16;
+pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const STOPBITS_20: COMMPROP_STOP_PARITY = 4u16;
+pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PARITY_NONE: COMMPROP_STOP_PARITY = 256u16;
+pub const PARITY_NONE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(256u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PARITY_ODD: COMMPROP_STOP_PARITY = 512u16;
+pub const PARITY_ODD: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(512u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PARITY_EVEN: COMMPROP_STOP_PARITY = 1024u16;
+pub const PARITY_EVEN: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1024u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PARITY_MARK: COMMPROP_STOP_PARITY = 2048u16;
+pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PARITY_SPACE: COMMPROP_STOP_PARITY = 4096u16;
+pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
+impl ::core::marker::Copy for COMMPROP_STOP_PARITY {}
+impl ::core::clone::Clone for COMMPROP_STOP_PARITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMMPROP_STOP_PARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMMPROP_STOP_PARITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMMPROP_STOP_PARITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMMPROP_STOP_PARITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COMMPROP_STOP_PARITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 pub struct COMMTIMEOUTS {
@@ -235,33 +333,82 @@ impl ::core::default::Default for COMMTIMEOUTS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type COMM_EVENT_MASK = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMM_EVENT_MASK(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_BREAK: COMM_EVENT_MASK = 64u32;
+pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_CTS: COMM_EVENT_MASK = 8u32;
+pub const EV_CTS: COMM_EVENT_MASK = COMM_EVENT_MASK(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_DSR: COMM_EVENT_MASK = 16u32;
+pub const EV_DSR: COMM_EVENT_MASK = COMM_EVENT_MASK(16u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_ERR: COMM_EVENT_MASK = 128u32;
+pub const EV_ERR: COMM_EVENT_MASK = COMM_EVENT_MASK(128u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_EVENT1: COMM_EVENT_MASK = 2048u32;
+pub const EV_EVENT1: COMM_EVENT_MASK = COMM_EVENT_MASK(2048u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_EVENT2: COMM_EVENT_MASK = 4096u32;
+pub const EV_EVENT2: COMM_EVENT_MASK = COMM_EVENT_MASK(4096u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_PERR: COMM_EVENT_MASK = 512u32;
+pub const EV_PERR: COMM_EVENT_MASK = COMM_EVENT_MASK(512u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_RING: COMM_EVENT_MASK = 256u32;
+pub const EV_RING: COMM_EVENT_MASK = COMM_EVENT_MASK(256u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_RLSD: COMM_EVENT_MASK = 32u32;
+pub const EV_RLSD: COMM_EVENT_MASK = COMM_EVENT_MASK(32u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_RX80FULL: COMM_EVENT_MASK = 1024u32;
+pub const EV_RX80FULL: COMM_EVENT_MASK = COMM_EVENT_MASK(1024u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_RXCHAR: COMM_EVENT_MASK = 1u32;
+pub const EV_RXCHAR: COMM_EVENT_MASK = COMM_EVENT_MASK(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_RXFLAG: COMM_EVENT_MASK = 2u32;
+pub const EV_RXFLAG: COMM_EVENT_MASK = COMM_EVENT_MASK(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const EV_TXEMPTY: COMM_EVENT_MASK = 4u32;
+pub const EV_TXEMPTY: COMM_EVENT_MASK = COMM_EVENT_MASK(4u32);
+impl ::core::marker::Copy for COMM_EVENT_MASK {}
+impl ::core::clone::Clone for COMM_EVENT_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMM_EVENT_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMM_EVENT_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMM_EVENT_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMM_EVENT_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for COMM_EVENT_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COMM_EVENT_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COMM_EVENT_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COMM_EVENT_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COMM_EVENT_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 pub struct COMSTAT {
@@ -423,23 +570,72 @@ impl ::core::default::Default for DCB {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type ESCAPE_COMM_FUNCTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ESCAPE_COMM_FUNCTION(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CLRBREAK: ESCAPE_COMM_FUNCTION = 9u32;
+pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CLRDTR: ESCAPE_COMM_FUNCTION = 6u32;
+pub const CLRDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(6u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const CLRRTS: ESCAPE_COMM_FUNCTION = 4u32;
+pub const CLRRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(4u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const SETBREAK: ESCAPE_COMM_FUNCTION = 8u32;
+pub const SETBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const SETDTR: ESCAPE_COMM_FUNCTION = 5u32;
+pub const SETDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(5u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const SETRTS: ESCAPE_COMM_FUNCTION = 3u32;
+pub const SETRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(3u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const SETXOFF: ESCAPE_COMM_FUNCTION = 1u32;
+pub const SETXOFF: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const SETXON: ESCAPE_COMM_FUNCTION = 2u32;
+pub const SETXON: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(2u32);
+impl ::core::marker::Copy for ESCAPE_COMM_FUNCTION {}
+impl ::core::clone::Clone for ESCAPE_COMM_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESCAPE_COMM_FUNCTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESCAPE_COMM_FUNCTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESCAPE_COMM_FUNCTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ESCAPE_COMM_FUNCTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ESCAPE_COMM_FUNCTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ESCAPE_COMM_FUNCTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ESCAPE_COMM_FUNCTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ESCAPE_COMM_FUNCTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -842,31 +1038,178 @@ impl ::core::default::Default for MODEMDEVCAPS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = 64u32;
+pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = 256u32;
+pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(256u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = 128u32;
+pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(128u32);
+impl ::core::marker::Copy for MODEMDEVCAPS_DIAL_OPTIONS {}
+impl ::core::clone::Clone for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_DIAL_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = 8u32;
+pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = 2u32;
+pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = 1u32;
+pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = 4u32;
+pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(4u32);
+impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_MODE {}
+impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_SPEAKER_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = 4u32;
+pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = 1u32;
+pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = 2u32;
+pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(2u32);
+impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_VOLUME {}
+impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_SPEAKER_VOLUME").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 pub struct MODEMSETTINGS {
@@ -922,33 +1265,180 @@ impl ::core::default::Default for MODEMSETTINGS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEMSETTINGS_SPEAKER_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = 8u32;
+pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = 2u32;
+pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = 1u32;
+pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = 4u32;
+pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(4u32);
+impl ::core::marker::Copy for MODEMSETTINGS_SPEAKER_MODE {}
+impl ::core::clone::Clone for MODEMSETTINGS_SPEAKER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEMSETTINGS_SPEAKER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMSETTINGS_SPEAKER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEMSETTINGS_SPEAKER_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEMSETTINGS_SPEAKER_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEMSETTINGS_SPEAKER_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEMSETTINGS_SPEAKER_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEM_SPEAKER_VOLUME = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEM_SPEAKER_VOLUME(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = 2u32;
+pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = 0u32;
+pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(0u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = 1u32;
+pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(1u32);
+impl ::core::marker::Copy for MODEM_SPEAKER_VOLUME {}
+impl ::core::clone::Clone for MODEM_SPEAKER_VOLUME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEM_SPEAKER_VOLUME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEM_SPEAKER_VOLUME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEM_SPEAKER_VOLUME").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEM_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEM_SPEAKER_VOLUME {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEM_SPEAKER_VOLUME {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEM_SPEAKER_VOLUME {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEM_SPEAKER_VOLUME {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type MODEM_STATUS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODEM_STATUS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MS_CTS_ON: MODEM_STATUS_FLAGS = 16u32;
+pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MS_DSR_ON: MODEM_STATUS_FLAGS = 32u32;
+pub const MS_DSR_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MS_RING_ON: MODEM_STATUS_FLAGS = 64u32;
+pub const MS_RING_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = 128u32;
+pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(128u32);
+impl ::core::marker::Copy for MODEM_STATUS_FLAGS {}
+impl ::core::clone::Clone for MODEM_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODEM_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODEM_STATUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODEM_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODEM_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODEM_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -965,15 +1455,64 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub type PURGE_COMM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PURGE_COMM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PURGE_RXABORT: PURGE_COMM_FLAGS = 2u32;
+pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = 8u32;
+pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PURGE_TXABORT: PURGE_COMM_FLAGS = 1u32;
+pub const PURGE_TXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
-pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = 4u32;
+pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(4u32);
+impl ::core::marker::Copy for PURGE_COMM_FLAGS {}
+impl ::core::clone::Clone for PURGE_COMM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PURGE_COMM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PURGE_COMM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PURGE_COMM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PURGE_COMM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PURGE_COMM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PURGE_COMM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PURGE_COMM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Communication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1140,3 +1679,5 @@ pub unsafe fn WaitCommEvent<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

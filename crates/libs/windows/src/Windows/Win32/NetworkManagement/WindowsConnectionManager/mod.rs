@@ -207,23 +207,44 @@ impl ::core::default::Default for WCM_BILLING_CYCLE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub type WCM_CONNECTION_COST = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WCM_CONNECTION_COST(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0i32;
+pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = WCM_CONNECTION_COST(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1i32;
+pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = WCM_CONNECTION_COST(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_FIXED: WCM_CONNECTION_COST = 2i32;
+pub const WCM_CONNECTION_COST_FIXED: WCM_CONNECTION_COST = WCM_CONNECTION_COST(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4i32;
+pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = WCM_CONNECTION_COST(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = 65536i32;
+pub const WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = WCM_CONNECTION_COST(65536i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = 131072i32;
+pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = WCM_CONNECTION_COST(131072i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_ROAMING: WCM_CONNECTION_COST = 262144i32;
+pub const WCM_CONNECTION_COST_ROAMING: WCM_CONNECTION_COST = WCM_CONNECTION_COST(262144i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288i32;
+pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = WCM_CONNECTION_COST(524288i32);
+impl ::core::marker::Copy for WCM_CONNECTION_COST {}
+impl ::core::clone::Clone for WCM_CONNECTION_COST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WCM_CONNECTION_COST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WCM_CONNECTION_COST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WCM_CONNECTION_COST").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub struct WCM_CONNECTION_COST_DATA {
@@ -256,15 +277,36 @@ impl ::core::default::Default for WCM_CONNECTION_COST_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub type WCM_CONNECTION_COST_SOURCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE = 0i32;
+pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE = 1i32;
+pub const WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE = 2i32;
+pub const WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE = 3i32;
+pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(3i32);
+impl ::core::marker::Copy for WCM_CONNECTION_COST_SOURCE {}
+impl ::core::clone::Clone for WCM_CONNECTION_COST_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WCM_CONNECTION_COST_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WCM_CONNECTION_COST_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WCM_CONNECTION_COST_SOURCE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -312,19 +354,40 @@ impl ::core::default::Default for WCM_DATAPLAN_STATUS {
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub type WCM_MEDIA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WCM_MEDIA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_unknown: WCM_MEDIA_TYPE = 0i32;
+pub const wcm_media_unknown: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_ethernet: WCM_MEDIA_TYPE = 1i32;
+pub const wcm_media_ethernet: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_wlan: WCM_MEDIA_TYPE = 2i32;
+pub const wcm_media_wlan: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_mbn: WCM_MEDIA_TYPE = 3i32;
+pub const wcm_media_mbn: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_invalid: WCM_MEDIA_TYPE = 4i32;
+pub const wcm_media_invalid: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_media_max: WCM_MEDIA_TYPE = 5i32;
+pub const wcm_media_max: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(5i32);
+impl ::core::marker::Copy for WCM_MEDIA_TYPE {}
+impl ::core::clone::Clone for WCM_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WCM_MEDIA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WCM_MEDIA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WCM_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WCM_MEDIA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -428,21 +491,42 @@ impl ::core::default::Default for WCM_PROFILE_INFO_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub type WCM_PROPERTY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WCM_PROPERTY(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_global_property_domain_policy: WCM_PROPERTY = 0i32;
+pub const wcm_global_property_domain_policy: WCM_PROPERTY = WCM_PROPERTY(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_global_property_minimize_policy: WCM_PROPERTY = 1i32;
+pub const wcm_global_property_minimize_policy: WCM_PROPERTY = WCM_PROPERTY(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_global_property_roaming_policy: WCM_PROPERTY = 2i32;
+pub const wcm_global_property_roaming_policy: WCM_PROPERTY = WCM_PROPERTY(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_global_property_powermanagement_policy: WCM_PROPERTY = 3i32;
+pub const wcm_global_property_powermanagement_policy: WCM_PROPERTY = WCM_PROPERTY(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_intf_property_connection_cost: WCM_PROPERTY = 4i32;
+pub const wcm_intf_property_connection_cost: WCM_PROPERTY = WCM_PROPERTY(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_intf_property_dataplan_status: WCM_PROPERTY = 5i32;
+pub const wcm_intf_property_dataplan_status: WCM_PROPERTY = WCM_PROPERTY(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
-pub const wcm_intf_property_hotspot_profile: WCM_PROPERTY = 6i32;
+pub const wcm_intf_property_hotspot_profile: WCM_PROPERTY = WCM_PROPERTY(6i32);
+impl ::core::marker::Copy for WCM_PROPERTY {}
+impl ::core::clone::Clone for WCM_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WCM_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WCM_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WCM_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WCM_PROPERTY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub struct WCM_TIME_INTERVAL {
@@ -593,3 +677,5 @@ pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -9479,13 +9479,16 @@ pub const PINDIR_INPUT: PIN_DIRECTION = 0i32;
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
+#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct PIN_INFO {
     pub pFilter: IBaseFilter,
     pub dir: PIN_DIRECTION,
     pub achName: [u16; 128],
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for PIN_INFO {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for PIN_INFO {
     fn clone(&self) -> Self {
         *self

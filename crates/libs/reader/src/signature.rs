@@ -49,4 +49,8 @@ impl Signature {
             self.kind.size()
         }
     }
+
+    pub fn is_primitive(&self) -> bool {
+        self.pointers > 0 || self.kind.is_primitive()
+    }
 }

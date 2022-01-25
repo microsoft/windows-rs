@@ -9,3 +9,5 @@ pub mod Pdf;
 pub mod Text;
 #[cfg(feature = "Data_Xml")]
 pub mod Xml;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

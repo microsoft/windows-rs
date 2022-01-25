@@ -92,26 +92,6 @@ impl ::core::default::Default for DisplayId {
 #[repr(transparent)]
 pub struct IGeometrySource2D(::windows::core::IUnknown);
 impl IGeometrySource2D {}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeometrySource2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeometrySource2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
     fn from(value: IGeometrySource2D) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -129,6 +109,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeometry
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGeometrySource2D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: &IGeometrySource2D) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -152,19 +152,14 @@ unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
 unsafe impl ::windows::core::Interface for IGeometrySource2D {
-    type Vtable = IGeometrySource2DVtbl;
+    type Vtable = IGeometrySource2D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeometrySource2DVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IGeometrySource2D_Vtbl {
+    pub base: ::windows::core::IInspectableVtbl,
+}
 #[repr(C)]
 #[doc = "*Required features: 'Graphics'*"]
 pub struct PointInt32 {
@@ -278,3 +273,5 @@ impl ::core::default::Default for SizeInt32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

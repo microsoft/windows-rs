@@ -1,12 +1,33 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
-pub type CreateProcessMethod = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CreateProcessMethod(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
-pub const CpCreateProcess: CreateProcessMethod = 0i32;
+pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
-pub const CpCreateProcessAsUser: CreateProcessMethod = 1i32;
+pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = 2i32;
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
+impl ::core::marker::Copy for CreateProcessMethod {}
+impl ::core::clone::Clone for CreateProcessMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CreateProcessMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CreateProcessMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CreateProcessMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateProcessMethod").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 #[repr(transparent)]
 pub struct IDDEInitializer(::windows::core::IUnknown);
@@ -25,7 +46,7 @@ impl IDDEInitializer {
         arguments: Param7,
         verb: Param8,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
@@ -65,15 +86,17 @@ impl ::core::fmt::Debug for IDDEInitializer {
     }
 }
 unsafe impl ::windows::core::Interface for IDDEInitializer {
-    type Vtable = IDDEInitializerVtbl;
+    type Vtable = IDDEInitializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDDEInitializerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))] usize,
-);
+pub struct IDDEInitializer_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))]
+    Initialize: usize,
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

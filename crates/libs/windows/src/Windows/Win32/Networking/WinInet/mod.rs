@@ -90,13 +90,34 @@ pub const APP_CACHE_ENTRY_TYPE_MANIFEST: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const APP_CACHE_ENTRY_TYPE_MASTER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type APP_CACHE_FINALIZE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = 0i32;
+pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = 1i32;
+pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = 2i32;
+pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
+impl ::core::marker::Copy for APP_CACHE_FINALIZE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for APP_CACHE_FINALIZE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for APP_CACHE_FINALIZE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APP_CACHE_FINALIZE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APP_CACHE_FINALIZE_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -179,15 +200,36 @@ impl ::core::default::Default for APP_CACHE_GROUP_LIST {
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type APP_CACHE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct APP_CACHE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = 0i32;
+pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = 1i32;
+pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = 2i32;
+pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = APP_CACHE_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = 3i32;
+pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = APP_CACHE_STATE(3i32);
+impl ::core::marker::Copy for APP_CACHE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for APP_CACHE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for APP_CACHE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APP_CACHE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APP_CACHE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const AUTH_FLAG_DISABLE_BASIC_CLEARCHANNEL: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -624,27 +666,76 @@ pub const CACHEGROUP_SEARCH_BYURL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const CACHEGROUP_TYPE_INVALID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type CACHE_CONFIG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CACHE_CONFIG(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = 32u32;
+pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = CACHE_CONFIG(32u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_DISK_CACHE_PATHS_FC: CACHE_CONFIG = 64u32;
+pub const CACHE_CONFIG_DISK_CACHE_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(64u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_SYNC_MODE_FC: CACHE_CONFIG = 128u32;
+pub const CACHE_CONFIG_SYNC_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(128u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_CONTENT_PATHS_FC: CACHE_CONFIG = 256u32;
+pub const CACHE_CONFIG_CONTENT_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(256u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_HISTORY_PATHS_FC: CACHE_CONFIG = 1024u32;
+pub const CACHE_CONFIG_HISTORY_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(1024u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_COOKIES_PATHS_FC: CACHE_CONFIG = 512u32;
+pub const CACHE_CONFIG_COOKIES_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(512u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = 2048u32;
+pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = CACHE_CONFIG(2048u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = 4096u32;
+pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(4096u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = 8192u32;
+pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(8192u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = 16384u32;
+pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(16384u32);
+impl ::core::marker::Copy for CACHE_CONFIG {}
+impl ::core::clone::Clone for CACHE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CACHE_CONFIG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CACHE_CONFIG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CACHE_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CACHE_CONFIG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CACHE_CONFIG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CACHE_CONFIG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CACHE_CONFIG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CACHE_CONFIG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CACHE_CONFIG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -1495,31 +1586,122 @@ pub const FLAGS_ERROR_UI_SHOW_IDN_HOSTNAME: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const FLAG_ICC_FORCE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type FORTCMD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FORTCMD(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FORTCMD_LOGON: FORTCMD = 1i32;
+pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FORTCMD_LOGOFF: FORTCMD = 2i32;
+pub const FORTCMD_LOGOFF: FORTCMD = FORTCMD(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FORTCMD_CHG_PERSONALITY: FORTCMD = 3i32;
+pub const FORTCMD_CHG_PERSONALITY: FORTCMD = FORTCMD(3i32);
+impl ::core::marker::Copy for FORTCMD {}
+impl ::core::clone::Clone for FORTCMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FORTCMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FORTCMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FORTCMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FORTCMD").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type FORTSTAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FORTSTAT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FORTSTAT_INSTALLED: FORTSTAT = 1i32;
+pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FORTSTAT_LOGGEDON: FORTSTAT = 2i32;
+pub const FORTSTAT_LOGGEDON: FORTSTAT = FORTSTAT(2i32);
+impl ::core::marker::Copy for FORTSTAT {}
+impl ::core::clone::Clone for FORTSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FORTSTAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FORTSTAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FORTSTAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FORTSTAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type FTP_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FTP_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = 1u32;
+pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = 2u32;
+pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = 0u32;
+pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = FTP_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = 1u32;
+pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = 2u32;
+pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
+impl ::core::marker::Copy for FTP_FLAGS {}
+impl ::core::clone::Clone for FTP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FTP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FTP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FTP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FTP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FTP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FTP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FTP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FTP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FTP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2795,55 +2977,104 @@ impl ::core::default::Default for GOPHER_TTL_ATTRIBUTE_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type GOPHER_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GOPHER_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_ASK: GOPHER_TYPE = 1073741824u32;
+pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_BINARY: GOPHER_TYPE = 512u32;
+pub const GOPHER_TYPE_BINARY: GOPHER_TYPE = GOPHER_TYPE(512u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_BITMAP: GOPHER_TYPE = 16384u32;
+pub const GOPHER_TYPE_BITMAP: GOPHER_TYPE = GOPHER_TYPE(16384u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_CALENDAR: GOPHER_TYPE = 524288u32;
+pub const GOPHER_TYPE_CALENDAR: GOPHER_TYPE = GOPHER_TYPE(524288u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_CSO: GOPHER_TYPE = 4u32;
+pub const GOPHER_TYPE_CSO: GOPHER_TYPE = GOPHER_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_DIRECTORY: GOPHER_TYPE = 2u32;
+pub const GOPHER_TYPE_DIRECTORY: GOPHER_TYPE = GOPHER_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_DOS_ARCHIVE: GOPHER_TYPE = 32u32;
+pub const GOPHER_TYPE_DOS_ARCHIVE: GOPHER_TYPE = GOPHER_TYPE(32u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_ERROR: GOPHER_TYPE = 8u32;
+pub const GOPHER_TYPE_ERROR: GOPHER_TYPE = GOPHER_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_GIF: GOPHER_TYPE = 4096u32;
+pub const GOPHER_TYPE_GIF: GOPHER_TYPE = GOPHER_TYPE(4096u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_GOPHER_PLUS: GOPHER_TYPE = 2147483648u32;
+pub const GOPHER_TYPE_GOPHER_PLUS: GOPHER_TYPE = GOPHER_TYPE(2147483648u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_HTML: GOPHER_TYPE = 131072u32;
+pub const GOPHER_TYPE_HTML: GOPHER_TYPE = GOPHER_TYPE(131072u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_IMAGE: GOPHER_TYPE = 8192u32;
+pub const GOPHER_TYPE_IMAGE: GOPHER_TYPE = GOPHER_TYPE(8192u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_INDEX_SERVER: GOPHER_TYPE = 128u32;
+pub const GOPHER_TYPE_INDEX_SERVER: GOPHER_TYPE = GOPHER_TYPE(128u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_INLINE: GOPHER_TYPE = 1048576u32;
+pub const GOPHER_TYPE_INLINE: GOPHER_TYPE = GOPHER_TYPE(1048576u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_MAC_BINHEX: GOPHER_TYPE = 16u32;
+pub const GOPHER_TYPE_MAC_BINHEX: GOPHER_TYPE = GOPHER_TYPE(16u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_MOVIE: GOPHER_TYPE = 32768u32;
+pub const GOPHER_TYPE_MOVIE: GOPHER_TYPE = GOPHER_TYPE(32768u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_PDF: GOPHER_TYPE = 262144u32;
+pub const GOPHER_TYPE_PDF: GOPHER_TYPE = GOPHER_TYPE(262144u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_REDUNDANT: GOPHER_TYPE = 1024u32;
+pub const GOPHER_TYPE_REDUNDANT: GOPHER_TYPE = GOPHER_TYPE(1024u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_SOUND: GOPHER_TYPE = 65536u32;
+pub const GOPHER_TYPE_SOUND: GOPHER_TYPE = GOPHER_TYPE(65536u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_TELNET: GOPHER_TYPE = 256u32;
+pub const GOPHER_TYPE_TELNET: GOPHER_TYPE = GOPHER_TYPE(256u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = 1u32;
+pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = GOPHER_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = 2048u32;
+pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = GOPHER_TYPE(2048u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = 64u32;
+pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = GOPHER_TYPE(64u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = 536870912u32;
+pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = GOPHER_TYPE(536870912u32);
+impl ::core::marker::Copy for GOPHER_TYPE {}
+impl ::core::clone::Clone for GOPHER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GOPHER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GOPHER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GOPHER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GOPHER_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GOPHER_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GOPHER_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GOPHER_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GOPHER_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GOPHER_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
@@ -3308,19 +3539,68 @@ pub const HSR_USE_CONTEXT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_1_1_CACHE_ENTRY: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_ADDREQ_FLAG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_ADDREQ_FLAG(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = 536870912u32;
+pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(536870912u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = 268435456u32;
+pub const HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(268435456u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = 1073741824u32;
+pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = 1073741824u32;
+pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = 16777216u32;
+pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = 2147483648u32;
+pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
+impl ::core::marker::Copy for HTTP_ADDREQ_FLAG {}
+impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_ADDREQ_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_ADDREQ_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_ADDREQ_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_ADDREQ_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HTTP_ADDREQ_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HTTP_ADDREQ_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HTTP_ADDREQ_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HTTP_ADDREQ_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HTTP_ADDREQ_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -3348,17 +3628,59 @@ pub type HTTP_POLICY_EXTENSION_INIT = ::core::option::Option<unsafe extern "syst
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub type HTTP_POLICY_EXTENSION_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_POLICY_EXTENSION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = 0i32;
+pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = 1i32;
+pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = 2i32;
+pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_TYPE {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_POLICY_EXTENSION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_POLICY_EXTENSION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_POLICY_EXTENSION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_POLICY_EXTENSION_VERSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = 1i32;
+pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_POLICY_EXTENSION_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_POLICY_EXTENSION_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_POLICY_EXTENSION_VERSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -3468,13 +3790,34 @@ unsafe impl ::windows::core::Abi for HTTP_PUSH_WAIT_HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_PUSH_WAIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = 0i32;
+pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = 1i32;
+pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = 2i32;
+pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
+impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_PUSH_WAIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_PUSH_WAIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_PUSH_WAIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_PUSH_WAIT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_QUERY_ACCEPT: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -3752,59 +4095,122 @@ impl ::core::default::Default for HTTP_WEB_SOCKET_ASYNC_RESULT {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_WEB_SOCKET_BUFFER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 0i32;
+pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 1i32;
+pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 2i32;
+pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 3i32;
+pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 4i32;
+pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = 5i32;
+pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_BUFFER_TYPE {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_WEB_SOCKET_BUFFER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_WEB_SOCKET_CLOSE_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1000i32;
+pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1001i32;
+pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1002i32;
+pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1003i32;
+pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1005i32;
+pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1006i32;
+pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1007i32;
+pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1008i32;
+pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1009i32;
+pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1010i32;
+pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1011i32;
+pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = 1015i32;
+pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_CLOSE_STATUS {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_WEB_SOCKET_CLOSE_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type HTTP_WEB_SOCKET_OPERATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = 0i32;
+pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = 1i32;
+pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = 2i32;
+pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = 3i32;
+pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HTTP_WEB_SOCKET_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_WEB_SOCKET_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_WEB_SOCKET_OPERATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4253,13 +4659,13 @@ impl IDialBranding {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzconnectoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__: super::super::Graphics::Gdi::HBITMAP = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Interface::vtable(self).GetBitmap)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IDialBranding> for ::windows::core::IUnknown {
@@ -4299,20 +4705,22 @@ impl ::core::fmt::Debug for IDialBranding {
     }
 }
 unsafe impl ::windows::core::Interface for IDialBranding {
-    type Vtable = IDialBrandingVtbl;
+    type Vtable = IDialBranding_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialBrandingVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
-);
+pub struct IDialBranding_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Initialize: usize,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub GetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    GetBitmap: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IDialEngine(::windows::core::IUnknown);
@@ -4320,35 +4728,35 @@ impl IDialEngine {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IDialEventSink>>(&self, pwzconnectoid: Param0, pides: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn Dial(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Dial)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn HangUp(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).HangUp)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IDialEngine> for ::windows::core::IUnknown {
@@ -4388,33 +4796,37 @@ impl ::core::fmt::Debug for IDialEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IDialEngine {
-    type Vtable = IDialEngineVtbl;
+    type Vtable = IDialEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEngineVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows::core::HRESULT,
-);
+pub struct IDialEngine_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Initialize: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetProperty: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetProperty: usize,
+    pub Dial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HangUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetConnectedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+    pub GetConnectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IDialEventSink(::windows::core::IUnknown);
 impl IDialEventSink {
     #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
     }
 }
 impl ::core::convert::From<IDialEventSink> for ::windows::core::IUnknown {
@@ -4454,12 +4866,15 @@ impl ::core::fmt::Debug for IDialEventSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDialEventSink {
-    type Vtable = IDialEventSinkVtbl;
+    type Vtable = IDialEventSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEventSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT);
+pub struct IDialEventSink_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -4471,13 +4886,62 @@ pub const INTERENT_GOONLINE_NOPROMPT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERENT_GOONLINE_REFRESH: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_ACCESS_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_ACCESS_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = 1u32;
+pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = 0u32;
+pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = 3u32;
+pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(3u32);
+impl ::core::marker::Copy for INTERNET_ACCESS_TYPE {}
+impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_ACCESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_ACCESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_ACCESS_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_ACCESS_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_ACCESS_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_ACCESS_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_ACCESS_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct INTERNET_ASYNC_RESULT {
@@ -4557,15 +5021,64 @@ pub const INTERNET_AUTH_SCHEME_PASSPORT: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_AUTH_SCHEME_UNKNOWN: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_AUTODIAL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_AUTODIAL(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = 4u32;
+pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AUTODIAL(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = 1u32;
+pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = INTERNET_AUTODIAL(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = 2u32;
+pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = INTERNET_AUTODIAL(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = 8u32;
+pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = INTERNET_AUTODIAL(8u32);
+impl ::core::marker::Copy for INTERNET_AUTODIAL {}
+impl ::core::clone::Clone for INTERNET_AUTODIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_AUTODIAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_AUTODIAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_AUTODIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_AUTODIAL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_AUTODIAL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_AUTODIAL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_AUTODIAL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_AUTODIAL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_AUTODIAL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_AUTOPROXY_INIT_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -5477,21 +5990,70 @@ impl ::core::default::Default for INTERNET_CONNECTED_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_CONNECTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_CONNECTION(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = 64u32;
+pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_LAN_: INTERNET_CONNECTION = 2u32;
+pub const INTERNET_CONNECTION_LAN_: INTERNET_CONNECTION = INTERNET_CONNECTION(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = 1u32;
+pub const INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = INTERNET_CONNECTION(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = 8u32;
+pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECTION(8u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_OFFLINE_: INTERNET_CONNECTION = 32u32;
+pub const INTERNET_CONNECTION_OFFLINE_: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = 4u32;
+pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = 16u32;
+pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
+impl ::core::marker::Copy for INTERNET_CONNECTION {}
+impl ::core::clone::Clone for INTERNET_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_CONNECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_CONNECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_CONNECTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_CONNECTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_CONNECTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_CONNECTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_CONNECTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_CONNECTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_CONNECTION_LAN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -5599,13 +6161,62 @@ pub const INTERNET_COOKIE_EDGE_COOKIES: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_COOKIE_EVALUATE_P3P: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_COOKIE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_COOKIE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = 8192u32;
+pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = 16u32;
+pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = 131072u32;
+pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(131072u32);
+impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
+impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_COOKIE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_COOKIE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_COOKIE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_COOKIE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_COOKIE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_COOKIE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_COOKIE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_COOKIE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_COOKIE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_COOKIE_HOST_ONLY: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -6410,25 +7021,74 @@ pub const INTERNET_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_OPTION_WWA_MODE: u32 = 125u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_PER_CONN = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_PER_CONN(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = 4u32;
+pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: INTERNET_PER_CONN = 5u32;
+pub const INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(5u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = 1u32;
+pub const INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = 3u32;
+pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = INTERNET_PER_CONN(3u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = 2u32;
+pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = INTERNET_PER_CONN(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = 6u32;
+pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(6u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = 7u32;
+pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = 8u32;
+pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = 9u32;
+pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
+impl ::core::marker::Copy for INTERNET_PER_CONN {}
+impl ::core::clone::Clone for INTERNET_PER_CONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_PER_CONN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_PER_CONN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_PER_CONN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_PER_CONN").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_PER_CONN {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_PER_CONN {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_PER_CONN {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_PER_CONN {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_PER_CONN {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
 #[repr(C)]
@@ -6741,39 +7401,60 @@ pub const INTERNET_RFC1123_BUFSIZE: u32 = 30u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_RFC1123_FORMAT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_SCHEME = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_SCHEME(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = -2i32;
+pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = INTERNET_SCHEME(-2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = -1i32;
+pub const INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = INTERNET_SCHEME(-1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_DEFAULT: INTERNET_SCHEME = 0i32;
+pub const INTERNET_SCHEME_DEFAULT: INTERNET_SCHEME = INTERNET_SCHEME(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_FTP: INTERNET_SCHEME = 1i32;
+pub const INTERNET_SCHEME_FTP: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_GOPHER: INTERNET_SCHEME = 2i32;
+pub const INTERNET_SCHEME_GOPHER: INTERNET_SCHEME = INTERNET_SCHEME(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_HTTP: INTERNET_SCHEME = 3i32;
+pub const INTERNET_SCHEME_HTTP: INTERNET_SCHEME = INTERNET_SCHEME(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_HTTPS: INTERNET_SCHEME = 4i32;
+pub const INTERNET_SCHEME_HTTPS: INTERNET_SCHEME = INTERNET_SCHEME(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_FILE: INTERNET_SCHEME = 5i32;
+pub const INTERNET_SCHEME_FILE: INTERNET_SCHEME = INTERNET_SCHEME(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_NEWS: INTERNET_SCHEME = 6i32;
+pub const INTERNET_SCHEME_NEWS: INTERNET_SCHEME = INTERNET_SCHEME(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_MAILTO: INTERNET_SCHEME = 7i32;
+pub const INTERNET_SCHEME_MAILTO: INTERNET_SCHEME = INTERNET_SCHEME(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_SOCKS: INTERNET_SCHEME = 8i32;
+pub const INTERNET_SCHEME_SOCKS: INTERNET_SCHEME = INTERNET_SCHEME(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_JAVASCRIPT: INTERNET_SCHEME = 9i32;
+pub const INTERNET_SCHEME_JAVASCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = 10i32;
+pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = 11i32;
+pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = 1i32;
+pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = 11i32;
+pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
+impl ::core::marker::Copy for INTERNET_SCHEME {}
+impl ::core::clone::Clone for INTERNET_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_SCHEME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_SCHEME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_SCHEME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_SCHEME").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation', 'Win32_Security_Authentication_Identity'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
@@ -6913,17 +7594,66 @@ pub const INTERNET_SERVICE_HTTP: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_SERVICE_URL: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type INTERNET_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERNET_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = 1u32;
+pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = INTERNET_STATE(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = 2u32;
+pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = INTERNET_STATE(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = 16u32;
+pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = INTERNET_STATE(16u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_STATE_IDLE: INTERNET_STATE = 256u32;
+pub const INTERNET_STATE_IDLE: INTERNET_STATE = INTERNET_STATE(256u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const INTERNET_STATE_BUSY: INTERNET_STATE = 512u32;
+pub const INTERNET_STATE_BUSY: INTERNET_STATE = INTERNET_STATE(512u32);
+impl ::core::marker::Copy for INTERNET_STATE {}
+impl ::core::clone::Clone for INTERNET_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INTERNET_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INTERNET_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERNET_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERNET_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INTERNET_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INTERNET_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INTERNET_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INTERNET_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INTERNET_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const INTERNET_STATUS_CLOSING_CONNECTION: u32 = 50u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -7070,7 +7800,7 @@ impl IProofOfPossessionCookieInfoManager {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookieInfoForUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoForUri)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
@@ -7110,18 +7840,18 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager {
     }
 }
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
-    type Vtable = IProofOfPossessionCookieInfoManagerVtbl;
+    type Vtable = IProofOfPossessionCookieInfoManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManagerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IProofOfPossessionCookieInfoManager_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCookieInfoForUri: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager2(::windows::core::IUnknown);
@@ -7129,7 +7859,7 @@ impl IProofOfPossessionCookieInfoManager2 {
     #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookieInfoWithUriForAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, webaccount: Param0, uri: Param1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::core::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {
@@ -7169,18 +7899,18 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
     }
 }
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
-    type Vtable = IProofOfPossessionCookieInfoManager2Vtbl;
+    type Vtable = IProofOfPossessionCookieInfoManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManager2Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCookieInfoWithUriForAccount: usize,
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const IRF_ASYNC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -7627,21 +8357,42 @@ impl ::core::default::Default for InternetCookieHistory {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type InternetCookieState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct InternetCookieState(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_UNKNOWN: InternetCookieState = 0i32;
+pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_ACCEPT: InternetCookieState = 1i32;
+pub const COOKIE_STATE_ACCEPT: InternetCookieState = InternetCookieState(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_PROMPT: InternetCookieState = 2i32;
+pub const COOKIE_STATE_PROMPT: InternetCookieState = InternetCookieState(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_LEASH: InternetCookieState = 3i32;
+pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = 4i32;
+pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_REJECT: InternetCookieState = 5i32;
+pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const COOKIE_STATE_MAX: InternetCookieState = 5i32;
+pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
+impl ::core::marker::Copy for InternetCookieState {}
+impl ::core::clone::Clone for InternetCookieState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InternetCookieState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InternetCookieState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InternetCookieState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InternetCookieState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation', 'Win32_Networking_WinHttp'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinHttp"))]
 #[inline]
@@ -9074,11 +9825,60 @@ pub const PRIVACY_TYPE_FIRST_PARTY: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type PROXY_AUTO_DETECT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = 1u32;
+pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = 2u32;
+pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(2u32);
+impl ::core::marker::Copy for PROXY_AUTO_DETECT_TYPE {}
+impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROXY_AUTO_DETECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROXY_AUTO_DETECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROXY_AUTO_DETECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXY_AUTO_DETECT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PROXY_AUTO_DETECT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PROXY_AUTO_DETECT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PROXY_AUTO_DETECT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PROXY_AUTO_DETECT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PROXY_AUTO_DETECT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
@@ -9192,21 +9992,42 @@ pub const ProofOfPossessionCookieInfoManager: ::windows::core::GUID = ::windows:
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type REQUEST_TIMES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REQUEST_TIMES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const NameResolutionStart: REQUEST_TIMES = 0i32;
+pub const NameResolutionStart: REQUEST_TIMES = REQUEST_TIMES(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const NameResolutionEnd: REQUEST_TIMES = 1i32;
+pub const NameResolutionEnd: REQUEST_TIMES = REQUEST_TIMES(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const ConnectionEstablishmentStart: REQUEST_TIMES = 2i32;
+pub const ConnectionEstablishmentStart: REQUEST_TIMES = REQUEST_TIMES(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const ConnectionEstablishmentEnd: REQUEST_TIMES = 3i32;
+pub const ConnectionEstablishmentEnd: REQUEST_TIMES = REQUEST_TIMES(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const TLSHandshakeStart: REQUEST_TIMES = 4i32;
+pub const TLSHandshakeStart: REQUEST_TIMES = REQUEST_TIMES(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const TLSHandshakeEnd: REQUEST_TIMES = 5i32;
+pub const TLSHandshakeEnd: REQUEST_TIMES = REQUEST_TIMES(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const HttpRequestTimeMax: REQUEST_TIMES = 32i32;
+pub const HttpRequestTimeMax: REQUEST_TIMES = REQUEST_TIMES(32i32);
+impl ::core::marker::Copy for REQUEST_TIMES {}
+impl ::core::clone::Clone for REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REQUEST_TIMES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REQUEST_TIMES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REQUEST_TIMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REQUEST_TIMES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -9669,17 +10490,38 @@ impl ::core::default::Default for URLCACHE_ENTRY_INFO {
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type URL_CACHE_LIMIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct URL_CACHE_LIMIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = 0i32;
+pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = 1i32;
+pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = 2i32;
+pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = 3i32;
+pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = 4i32;
+pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(4i32);
+impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
+impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for URL_CACHE_LIMIT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for URL_CACHE_LIMIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for URL_CACHE_LIMIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("URL_CACHE_LIMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10256,25 +11098,67 @@ impl ::core::default::Default for WININET_PROXY_INFO_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type WININET_SYNC_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WININET_SYNC_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = 0i32;
+pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_ON_EXPIRY: WININET_SYNC_MODE = 1i32;
+pub const WININET_SYNC_MODE_ON_EXPIRY: WININET_SYNC_MODE = WININET_SYNC_MODE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = 2i32;
+pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = WININET_SYNC_MODE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = 3i32;
+pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = WININET_SYNC_MODE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = 4i32;
+pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = 4i32;
+pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
+impl ::core::marker::Copy for WININET_SYNC_MODE {}
+impl ::core::clone::Clone for WININET_SYNC_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WININET_SYNC_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WININET_SYNC_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WININET_SYNC_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WININET_SYNC_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub type WPAD_CACHE_DELETE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WPAD_CACHE_DELETE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = 0i32;
+pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
-pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = 1i32;
+pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
+impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
+impl ::core::clone::Clone for WPAD_CACHE_DELETE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WPAD_CACHE_DELETE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WPAD_CACHE_DELETE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WPAD_CACHE_DELETE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WPAD_CACHE_DELETE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
@@ -10286,3 +11170,5 @@ pub type pfnInternetGetProxyInfo = ::core::option::Option<unsafe extern "system"
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetInitializeAutoProxyDll = ::core::option::Option<unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -220,23 +220,72 @@ pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type FILE_MAP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FILE_MAP(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_WRITE: FILE_MAP = 2u32;
+pub const FILE_MAP_WRITE: FILE_MAP = FILE_MAP(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_READ: FILE_MAP = 4u32;
+pub const FILE_MAP_READ: FILE_MAP = FILE_MAP(4u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_ALL_ACCESS: FILE_MAP = 983071u32;
+pub const FILE_MAP_ALL_ACCESS: FILE_MAP = FILE_MAP(983071u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_EXECUTE: FILE_MAP = 32u32;
+pub const FILE_MAP_EXECUTE: FILE_MAP = FILE_MAP(32u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_COPY: FILE_MAP = 1u32;
+pub const FILE_MAP_COPY: FILE_MAP = FILE_MAP(1u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_RESERVE: FILE_MAP = 2147483648u32;
+pub const FILE_MAP_RESERVE: FILE_MAP = FILE_MAP(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_TARGETS_INVALID: FILE_MAP = 1073741824u32;
+pub const FILE_MAP_TARGETS_INVALID: FILE_MAP = FILE_MAP(1073741824u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const FILE_MAP_LARGE_PAGES: FILE_MAP = 536870912u32;
+pub const FILE_MAP_LARGE_PAGES: FILE_MAP = FILE_MAP(536870912u32);
+impl ::core::marker::Copy for FILE_MAP {}
+impl ::core::clone::Clone for FILE_MAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_MAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_MAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILE_MAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_MAP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FILE_MAP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILE_MAP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILE_MAP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILE_MAP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILE_MAP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -268,17 +317,66 @@ pub unsafe fn FreeUserPhysicalPages<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type GLOBAL_ALLOC_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GLOBAL_ALLOC_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const GHND: GLOBAL_ALLOC_FLAGS = 66u32;
+pub const GHND: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(66u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const GMEM_FIXED: GLOBAL_ALLOC_FLAGS = 0u32;
+pub const GMEM_FIXED: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const GMEM_MOVEABLE: GLOBAL_ALLOC_FLAGS = 2u32;
+pub const GMEM_MOVEABLE: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const GMEM_ZEROINIT: GLOBAL_ALLOC_FLAGS = 64u32;
+pub const GMEM_ZEROINIT: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const GPTR: GLOBAL_ALLOC_FLAGS = 64u32;
+pub const GPTR: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(64u32);
+impl ::core::marker::Copy for GLOBAL_ALLOC_FLAGS {}
+impl ::core::clone::Clone for GLOBAL_ALLOC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBAL_ALLOC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBAL_ALLOC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBAL_ALLOC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBAL_ALLOC_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GLOBAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GLOBAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GLOBAL_ALLOC_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GLOBAL_ALLOC_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GLOBAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 #[inline]
 pub unsafe fn GetLargePageMinimum() -> usize {
@@ -494,51 +592,121 @@ pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type HEAP_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HEAP_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_NONE: HEAP_FLAGS = 0u32;
+pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = 1u32;
+pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = HEAP_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_GROWABLE: HEAP_FLAGS = 2u32;
+pub const HEAP_GROWABLE: HEAP_FLAGS = HEAP_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_GENERATE_EXCEPTIONS: HEAP_FLAGS = 4u32;
+pub const HEAP_GENERATE_EXCEPTIONS: HEAP_FLAGS = HEAP_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_ZERO_MEMORY: HEAP_FLAGS = 8u32;
+pub const HEAP_ZERO_MEMORY: HEAP_FLAGS = HEAP_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = 16u32;
+pub const HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = HEAP_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = 32u32;
+pub const HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = HEAP_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_FREE_CHECKING_ENABLED: HEAP_FLAGS = 64u32;
+pub const HEAP_FREE_CHECKING_ENABLED: HEAP_FLAGS = HEAP_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_DISABLE_COALESCE_ON_FREE: HEAP_FLAGS = 128u32;
+pub const HEAP_DISABLE_COALESCE_ON_FREE: HEAP_FLAGS = HEAP_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_CREATE_ALIGN_16: HEAP_FLAGS = 65536u32;
+pub const HEAP_CREATE_ALIGN_16: HEAP_FLAGS = HEAP_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_CREATE_ENABLE_TRACING: HEAP_FLAGS = 131072u32;
+pub const HEAP_CREATE_ENABLE_TRACING: HEAP_FLAGS = HEAP_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_CREATE_ENABLE_EXECUTE: HEAP_FLAGS = 262144u32;
+pub const HEAP_CREATE_ENABLE_EXECUTE: HEAP_FLAGS = HEAP_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_MAXIMUM_TAG: HEAP_FLAGS = 4095u32;
+pub const HEAP_MAXIMUM_TAG: HEAP_FLAGS = HEAP_FLAGS(4095u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = 32768u32;
+pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = HEAP_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_TAG_SHIFT: HEAP_FLAGS = 18u32;
+pub const HEAP_TAG_SHIFT: HEAP_FLAGS = HEAP_FLAGS(18u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = 256u32;
+pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = HEAP_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = 512u32;
+pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = HEAP_FLAGS(512u32);
+impl ::core::marker::Copy for HEAP_FLAGS {}
+impl ::core::clone::Clone for HEAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEAP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEAP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEAP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HEAP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HEAP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HEAP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HEAP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HEAP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type HEAP_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HEAP_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = 0i32;
+pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = 1i32;
+pub const HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HeapOptimizeResources: HEAP_INFORMATION_CLASS = 3i32;
+pub const HeapOptimizeResources: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HeapTag: HEAP_INFORMATION_CLASS = 7i32;
+pub const HeapTag: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(7i32);
+impl ::core::marker::Copy for HEAP_INFORMATION_CLASS {}
+impl ::core::clone::Clone for HEAP_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEAP_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEAP_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEAP_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEAP_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub struct HEAP_SUMMARY {
@@ -888,21 +1056,70 @@ pub unsafe fn IsBadWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type LOCAL_ALLOC_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOCAL_ALLOC_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LHND: LOCAL_ALLOC_FLAGS = 66u32;
+pub const LHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(66u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LMEM_FIXED: LOCAL_ALLOC_FLAGS = 0u32;
+pub const LMEM_FIXED: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LMEM_MOVEABLE: LOCAL_ALLOC_FLAGS = 2u32;
+pub const LMEM_MOVEABLE: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LMEM_ZEROINIT: LOCAL_ALLOC_FLAGS = 64u32;
+pub const LMEM_ZEROINIT: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LPTR: LOCAL_ALLOC_FLAGS = 64u32;
+pub const LPTR: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const NONZEROLHND: LOCAL_ALLOC_FLAGS = 2u32;
+pub const NONZEROLHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const NONZEROLPTR: LOCAL_ALLOC_FLAGS = 0u32;
+pub const NONZEROLPTR: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(0u32);
+impl ::core::marker::Copy for LOCAL_ALLOC_FLAGS {}
+impl ::core::clone::Clone for LOCAL_ALLOC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LOCAL_ALLOC_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LOCAL_ALLOC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCAL_ALLOC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCAL_ALLOC_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LOCAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LOCAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LOCAL_ALLOC_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LOCAL_ALLOC_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LOCAL_ALLOC_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 #[inline]
 pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
@@ -1182,11 +1399,32 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION64 {
     }
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type MEMORY_RESOURCE_NOTIFICATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0i32;
+pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = MEMORY_RESOURCE_NOTIFICATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 1i32;
+pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = MEMORY_RESOURCE_NOTIFICATION_TYPE(1i32);
+impl ::core::marker::Copy for MEMORY_RESOURCE_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MEMORY_RESOURCE_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MEMORY_RESOURCE_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1295,23 +1533,44 @@ impl ::core::default::Default for MEM_EXTENDED_PARAMETER_1 {
     }
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type MEM_EXTENDED_PARAMETER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = 0i32;
+pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE = 1i32;
+pub const MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE = 2i32;
+pub const MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE = 3i32;
+pub const MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE = 4i32;
+pub const MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = 5i32;
+pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = 6i32;
+pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = 7i32;
+pub const MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(7i32);
+impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_TYPE {}
+impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MEM_EXTENDED_PARAMETER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MEM_EXTENDED_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1448,15 +1707,36 @@ pub unsafe fn MapViewOfFileNuma2<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type OFFER_PRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFER_PRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = 1i32;
+pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = OFFER_PRIORITY(1i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const VmOfferPriorityLow: OFFER_PRIORITY = 2i32;
+pub const VmOfferPriorityLow: OFFER_PRIORITY = OFFER_PRIORITY(2i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const VmOfferPriorityBelowNormal: OFFER_PRIORITY = 3i32;
+pub const VmOfferPriorityBelowNormal: OFFER_PRIORITY = OFFER_PRIORITY(3i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const VmOfferPriorityNormal: OFFER_PRIORITY = 4i32;
+pub const VmOfferPriorityNormal: OFFER_PRIORITY = OFFER_PRIORITY(4i32);
+impl ::core::marker::Copy for OFFER_PRIORITY {}
+impl ::core::clone::Clone for OFFER_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OFFER_PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OFFER_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFER_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFER_PRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 #[inline]
 pub unsafe fn OfferVirtualMemory(virtualaddress: *mut ::core::ffi::c_void, size: usize, priority: OFFER_PRIORITY) -> u32 {
@@ -1532,93 +1812,191 @@ pub unsafe fn OpenFileMappingW<'a, Param1: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type PAGE_PROTECTION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PAGE_PROTECTION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_NOACCESS: PAGE_PROTECTION_FLAGS = 1u32;
+pub const PAGE_NOACCESS: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_READONLY: PAGE_PROTECTION_FLAGS = 2u32;
+pub const PAGE_READONLY: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_READWRITE: PAGE_PROTECTION_FLAGS = 4u32;
+pub const PAGE_READWRITE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_WRITECOPY: PAGE_PROTECTION_FLAGS = 8u32;
+pub const PAGE_WRITECOPY: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_EXECUTE: PAGE_PROTECTION_FLAGS = 16u32;
+pub const PAGE_EXECUTE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_EXECUTE_READ: PAGE_PROTECTION_FLAGS = 32u32;
+pub const PAGE_EXECUTE_READ: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = 64u32;
+pub const PAGE_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_EXECUTE_WRITECOPY: PAGE_PROTECTION_FLAGS = 128u32;
+pub const PAGE_EXECUTE_WRITECOPY: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GUARD: PAGE_PROTECTION_FLAGS = 256u32;
+pub const PAGE_GUARD: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_NOCACHE: PAGE_PROTECTION_FLAGS = 512u32;
+pub const PAGE_NOCACHE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_WRITECOMBINE: PAGE_PROTECTION_FLAGS = 1024u32;
+pub const PAGE_WRITECOMBINE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_NOACCESS: PAGE_PROTECTION_FLAGS = 2048u32;
+pub const PAGE_GRAPHICS_NOACCESS: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_READONLY: PAGE_PROTECTION_FLAGS = 4096u32;
+pub const PAGE_GRAPHICS_READONLY: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_READWRITE: PAGE_PROTECTION_FLAGS = 8192u32;
+pub const PAGE_GRAPHICS_READWRITE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_EXECUTE: PAGE_PROTECTION_FLAGS = 16384u32;
+pub const PAGE_GRAPHICS_EXECUTE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_EXECUTE_READ: PAGE_PROTECTION_FLAGS = 32768u32;
+pub const PAGE_GRAPHICS_EXECUTE_READ: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = 65536u32;
+pub const PAGE_GRAPHICS_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_COHERENT: PAGE_PROTECTION_FLAGS = 131072u32;
+pub const PAGE_GRAPHICS_COHERENT: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_GRAPHICS_NOCACHE: PAGE_PROTECTION_FLAGS = 262144u32;
+pub const PAGE_GRAPHICS_NOCACHE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_THREAD_CONTROL: PAGE_PROTECTION_FLAGS = 2147483648u32;
+pub const PAGE_ENCLAVE_THREAD_CONTROL: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_REVERT_TO_FILE_MAP: PAGE_PROTECTION_FLAGS = 2147483648u32;
+pub const PAGE_REVERT_TO_FILE_MAP: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_TARGETS_NO_UPDATE: PAGE_PROTECTION_FLAGS = 1073741824u32;
+pub const PAGE_TARGETS_NO_UPDATE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_TARGETS_INVALID: PAGE_PROTECTION_FLAGS = 1073741824u32;
+pub const PAGE_TARGETS_INVALID: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_UNVALIDATED: PAGE_PROTECTION_FLAGS = 536870912u32;
+pub const PAGE_ENCLAVE_UNVALIDATED: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(536870912u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_MASK: PAGE_PROTECTION_FLAGS = 268435456u32;
+pub const PAGE_ENCLAVE_MASK: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_DECOMMIT: PAGE_PROTECTION_FLAGS = 268435456u32;
+pub const PAGE_ENCLAVE_DECOMMIT: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_SS_FIRST: PAGE_PROTECTION_FLAGS = 268435457u32;
+pub const PAGE_ENCLAVE_SS_FIRST: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(268435457u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const PAGE_ENCLAVE_SS_REST: PAGE_PROTECTION_FLAGS = 268435458u32;
+pub const PAGE_ENCLAVE_SS_REST: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(268435458u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_PARTITION_OWNER_HANDLE: PAGE_PROTECTION_FLAGS = 262144u32;
+pub const SEC_PARTITION_OWNER_HANDLE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_64K_PAGES: PAGE_PROTECTION_FLAGS = 524288u32;
+pub const SEC_64K_PAGES: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_FILE: PAGE_PROTECTION_FLAGS = 8388608u32;
+pub const SEC_FILE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(8388608u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_IMAGE: PAGE_PROTECTION_FLAGS = 16777216u32;
+pub const SEC_IMAGE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(16777216u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_PROTECTED_IMAGE: PAGE_PROTECTION_FLAGS = 33554432u32;
+pub const SEC_PROTECTED_IMAGE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(33554432u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_RESERVE: PAGE_PROTECTION_FLAGS = 67108864u32;
+pub const SEC_RESERVE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(67108864u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_COMMIT: PAGE_PROTECTION_FLAGS = 134217728u32;
+pub const SEC_COMMIT: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(134217728u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_NOCACHE: PAGE_PROTECTION_FLAGS = 268435456u32;
+pub const SEC_NOCACHE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_WRITECOMBINE: PAGE_PROTECTION_FLAGS = 1073741824u32;
+pub const SEC_WRITECOMBINE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_LARGE_PAGES: PAGE_PROTECTION_FLAGS = 2147483648u32;
+pub const SEC_LARGE_PAGES: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const SEC_IMAGE_NO_EXECUTE: PAGE_PROTECTION_FLAGS = 285212672u32;
+pub const SEC_IMAGE_NO_EXECUTE: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(285212672u32);
+impl ::core::marker::Copy for PAGE_PROTECTION_FLAGS {}
+impl ::core::clone::Clone for PAGE_PROTECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAGE_PROTECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAGE_PROTECTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAGE_PROTECTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAGE_PROTECTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PAGE_PROTECTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PAGE_PROTECTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PAGE_PROTECTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PAGE_PROTECTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PAGE_PROTECTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type PAGE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PAGE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_PRIVATE: PAGE_TYPE = 131072u32;
+pub const MEM_PRIVATE: PAGE_TYPE = PAGE_TYPE(131072u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_MAPPED: PAGE_TYPE = 262144u32;
+pub const MEM_MAPPED: PAGE_TYPE = PAGE_TYPE(262144u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_IMAGE: PAGE_TYPE = 16777216u32;
+pub const MEM_IMAGE: PAGE_TYPE = PAGE_TYPE(16777216u32);
+impl ::core::marker::Copy for PAGE_TYPE {}
+impl ::core::clone::Clone for PAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAGE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PAGE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PAGE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PAGE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PAGE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PAGE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[repr(C)]
@@ -2009,13 +2387,62 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type UNMAP_VIEW_OF_FILE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = 0u32;
+pub const MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = UNMAP_VIEW_OF_FILE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: UNMAP_VIEW_OF_FILE_FLAGS = 1u32;
+pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: UNMAP_VIEW_OF_FILE_FLAGS = UNMAP_VIEW_OF_FILE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_PRESERVE_PLACEHOLDER: UNMAP_VIEW_OF_FILE_FLAGS = 2u32;
+pub const MEM_PRESERVE_PLACEHOLDER: UNMAP_VIEW_OF_FILE_FLAGS = UNMAP_VIEW_OF_FILE_FLAGS(2u32);
+impl ::core::marker::Copy for UNMAP_VIEW_OF_FILE_FLAGS {}
+impl ::core::clone::Clone for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UNMAP_VIEW_OF_FILE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UNMAP_VIEW_OF_FILE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UNMAP_VIEW_OF_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UNMAP_VIEW_OF_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UNMAP_VIEW_OF_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UNMAP_VIEW_OF_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2077,29 +2504,127 @@ pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::core:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type VIRTUAL_ALLOCATION_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VIRTUAL_ALLOCATION_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_COMMIT: VIRTUAL_ALLOCATION_TYPE = 4096u32;
+pub const MEM_COMMIT: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(4096u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_RESERVE: VIRTUAL_ALLOCATION_TYPE = 8192u32;
+pub const MEM_RESERVE: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(8192u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_RESET: VIRTUAL_ALLOCATION_TYPE = 524288u32;
+pub const MEM_RESET: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(524288u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_RESET_UNDO: VIRTUAL_ALLOCATION_TYPE = 16777216u32;
+pub const MEM_RESET_UNDO: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(16777216u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_REPLACE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = 16384u32;
+pub const MEM_REPLACE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(16384u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_LARGE_PAGES: VIRTUAL_ALLOCATION_TYPE = 536870912u32;
+pub const MEM_LARGE_PAGES: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(536870912u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_RESERVE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = 262144u32;
+pub const MEM_RESERVE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(262144u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_FREE: VIRTUAL_ALLOCATION_TYPE = 65536u32;
+pub const MEM_FREE: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(65536u32);
+impl ::core::marker::Copy for VIRTUAL_ALLOCATION_TYPE {}
+impl ::core::clone::Clone for VIRTUAL_ALLOCATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_ALLOCATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VIRTUAL_ALLOCATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VIRTUAL_ALLOCATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIRTUAL_ALLOCATION_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for VIRTUAL_ALLOCATION_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for VIRTUAL_ALLOCATION_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for VIRTUAL_ALLOCATION_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for VIRTUAL_ALLOCATION_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for VIRTUAL_ALLOCATION_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type VIRTUAL_FREE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VIRTUAL_FREE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_DECOMMIT: VIRTUAL_FREE_TYPE = 16384u32;
+pub const MEM_DECOMMIT: VIRTUAL_FREE_TYPE = VIRTUAL_FREE_TYPE(16384u32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MEM_RELEASE: VIRTUAL_FREE_TYPE = 32768u32;
+pub const MEM_RELEASE: VIRTUAL_FREE_TYPE = VIRTUAL_FREE_TYPE(32768u32);
+impl ::core::marker::Copy for VIRTUAL_FREE_TYPE {}
+impl ::core::clone::Clone for VIRTUAL_FREE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_FREE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VIRTUAL_FREE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VIRTUAL_FREE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIRTUAL_FREE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for VIRTUAL_FREE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for VIRTUAL_FREE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for VIRTUAL_FREE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for VIRTUAL_FREE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for VIRTUAL_FREE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 #[inline]
 pub unsafe fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void {
@@ -2338,9 +2863,30 @@ pub unsafe fn VirtualUnlockEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = 0i32;
+pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = WIN32_MEMORY_INFORMATION_CLASS(0i32);
+impl ::core::marker::Copy for WIN32_MEMORY_INFORMATION_CLASS {}
+impl ::core::clone::Clone for WIN32_MEMORY_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WIN32_MEMORY_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WIN32_MEMORY_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIN32_MEMORY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIN32_MEMORY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
@@ -2406,11 +2952,32 @@ impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0i32;
+pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = WIN32_MEMORY_PARTITION_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_Memory'*"]
-pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 1i32;
+pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = WIN32_MEMORY_PARTITION_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIN32_MEMORY_PARTITION_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
@@ -2527,3 +3094,5 @@ impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

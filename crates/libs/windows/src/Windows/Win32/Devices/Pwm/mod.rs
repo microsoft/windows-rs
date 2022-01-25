@@ -322,8 +322,31 @@ impl ::core::default::Default for PWM_PIN_SET_POLARITY_INPUT {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
-pub type PWM_POLARITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PWM_POLARITY(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
-pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
-pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);
+impl ::core::marker::Copy for PWM_POLARITY {}
+impl ::core::clone::Clone for PWM_POLARITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PWM_POLARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PWM_POLARITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PWM_POLARITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PWM_POLARITY").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -38,7 +38,7 @@ impl IDirect3DDxgiInterfaceAccess {
     #[doc = "*Required features: 'Win32_System_WinRT_Direct3D11'*"]
     pub unsafe fn GetInterface<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetInterface)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDirect3DDxgiInterfaceAccess> for ::windows::core::IUnknown {
@@ -78,9 +78,14 @@ impl ::core::fmt::Debug for IDirect3DDxgiInterfaceAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
-    type Vtable = IDirect3DDxgiInterfaceAccessVtbl;
+    type Vtable = IDirect3DDxgiInterfaceAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDxgiInterfaceAccessVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub struct IDirect3DDxgiInterfaceAccess_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

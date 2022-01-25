@@ -6,18 +6,7 @@ pub fn gen_ident(name: &str) -> TokenStream {
         "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do" | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv" | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await" | "dyn" => format!("r#{}", name).into(),
         "Self" | "self" => format!("{}_", name).into(),
         "_" => "unused".into(),
-        _ => name.into(),
-    }
-}
-
-pub fn gen_type_ident2(def: &TypeDef) -> TokenStream {
-    let mut name = gen_ident(def.name());
-
-    if def.generics.is_empty() {
-        name
-    } else {
-        name.0.truncate(name.0.len() - 2);
-        name
+        _ => trim_tick(name).into(),
     }
 }
 
@@ -28,32 +17,30 @@ pub fn gen_type_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 // TODO: use above instead
 pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_type_ident_impl(def, gen, "Vtbl")
+    gen_type_ident_impl(def, gen, "_Vtbl")
+}
+
+// TODO: use above instead
+pub fn gen_impl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "_Impl")
 }
 
 fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
     let mut name = gen_ident(def.name());
+    name.push_str(vtbl);
 
-    if def.generics.is_empty() {
-        name.push_str(vtbl);
+    if gen.sys || def.generics.is_empty() {
         name
     } else {
-        name.0.truncate(name.0.len() - 2);
-        name.push_str(vtbl);
+        name.push('<');
 
-        if gen.sys {
-            name
-        } else {
-            name.push('<');
-
-            for g in &def.generics {
-                name.push_str(gen_element_name(g, gen).as_str());
-                name.push(',');
-            }
-
-            name.push('>');
-            name
+        for g in &def.generics {
+            name.push_str(gen_element_name(g, gen).as_str());
+            name.push(',');
         }
+
+        name.push('>');
+        name
     }
 }
 
@@ -63,6 +50,16 @@ pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
         .map(|g| {
             let name = gen_element_name(g, gen);
             quote! { ::core::marker::PhantomData::<#name>, }
+        })
+        .collect()
+}
+
+pub fn gen_named_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name: ::core::marker::PhantomData::<#name>, }
         })
         .collect()
 }

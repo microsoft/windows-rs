@@ -6699,3 +6699,5 @@ pub unsafe fn sqlite3_win32_set_directory8<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

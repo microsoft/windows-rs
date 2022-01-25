@@ -490,3 +490,5 @@ impl ::core::default::Default for MapiRecipDescW {
 }
 #[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub const SUCCESS_SUCCESS: u32 = 0u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

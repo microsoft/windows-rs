@@ -912,11 +912,32 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_AXIS_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_AXIS_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = 0i32;
+pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = 1i32;
+pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(1i32);
+impl ::core::marker::Copy for DML_AXIS_DIRECTION {}
+impl ::core::clone::Clone for DML_AXIS_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_AXIS_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_AXIS_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_AXIS_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_AXIS_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
@@ -1119,13 +1140,34 @@ impl ::core::default::Default for DML_BINDING_TABLE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_BINDING_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_BINDING_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = 0i32;
+pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = 1i32;
+pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = DML_BINDING_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = 2i32;
+pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = DML_BINDING_TYPE(2i32);
+impl ::core::marker::Copy for DML_BINDING_TYPE {}
+impl ::core::clone::Clone for DML_BINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_BINDING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_BINDING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_BINDING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_BINDING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1271,11 +1313,32 @@ impl ::core::default::Default for DML_CAST_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_CONVOLUTION_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_CONVOLUTION_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = 0i32;
+pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = 1i32;
+pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
+impl ::core::marker::Copy for DML_CONVOLUTION_DIRECTION {}
+impl ::core::clone::Clone for DML_CONVOLUTION_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_CONVOLUTION_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_CONVOLUTION_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_CONVOLUTION_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_CONVOLUTION_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
@@ -1329,11 +1392,32 @@ impl ::core::default::Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_CONVOLUTION_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_CONVOLUTION_MODE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = 0i32;
+pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = 1i32;
+pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(1i32);
+impl ::core::marker::Copy for DML_CONVOLUTION_MODE {}
+impl ::core::clone::Clone for DML_CONVOLUTION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_CONVOLUTION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_CONVOLUTION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_CONVOLUTION_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
@@ -1393,11 +1477,60 @@ impl ::core::default::Default for DML_CONVOLUTION_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_CREATE_DEVICE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = 0u32;
+pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = 1u32;
+pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1u32);
+impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
+impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_CREATE_DEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_CREATE_DEVICE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_CREATE_DEVICE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_CREATE_DEVICE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DML_CREATE_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DML_CREATE_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DML_CREATE_DEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DML_CREATE_DEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DML_CREATE_DEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1483,11 +1616,32 @@ impl ::core::default::Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_DEPTH_SPACE_ORDER = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_DEPTH_SPACE_ORDER(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = 0i32;
+pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = 1i32;
+pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
+impl ::core::marker::Copy for DML_DEPTH_SPACE_ORDER {}
+impl ::core::clone::Clone for DML_DEPTH_SPACE_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_DEPTH_SPACE_ORDER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_DEPTH_SPACE_ORDER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_DEPTH_SPACE_ORDER").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
@@ -3615,21 +3769,91 @@ impl ::core::default::Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_EXECUTION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_EXECUTION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = 0u32;
+pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = 1u32;
+pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = 2u32;
+pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = 4u32;
+pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4u32);
+impl ::core::marker::Copy for DML_EXECUTION_FLAGS {}
+impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_EXECUTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_EXECUTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_EXECUTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_EXECUTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DML_EXECUTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DML_EXECUTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DML_EXECUTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DML_EXECUTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DML_EXECUTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_FEATURE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_FEATURE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = 0i32;
+pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = 1i32;
+pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = DML_FEATURE(1i32);
+impl ::core::marker::Copy for DML_FEATURE {}
+impl ::core::clone::Clone for DML_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_FEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_FEATURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_FEATURE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
@@ -3699,19 +3923,40 @@ impl ::core::default::Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_FEATURE_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_FEATURE_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = 4096i32;
+pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_2_0: DML_FEATURE_LEVEL = 8192i32;
+pub const DML_FEATURE_LEVEL_2_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8192i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = 8448i32;
+pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8448i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = 12288i32;
+pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = 12544i32;
+pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = 16384i32;
+pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
+impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
+impl ::core::clone::Clone for DML_FEATURE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_FEATURE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_FEATURE_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_FEATURE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_FEATURE_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
@@ -4073,15 +4318,36 @@ impl ::core::default::Default for DML_GRAPH_EDGE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_GRAPH_EDGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_GRAPH_EDGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = 0i32;
+pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = 1i32;
+pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = 2i32;
+pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = 3i32;
+pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(3i32);
+impl ::core::marker::Copy for DML_GRAPH_EDGE_TYPE {}
+impl ::core::clone::Clone for DML_GRAPH_EDGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_GRAPH_EDGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_GRAPH_EDGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_GRAPH_EDGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_GRAPH_EDGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GRAPH_NODE_DESC {
@@ -4114,11 +4380,32 @@ impl ::core::default::Default for DML_GRAPH_NODE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_GRAPH_NODE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_GRAPH_NODE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = 0i32;
+pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = 1i32;
+pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(1i32);
+impl ::core::marker::Copy for DML_GRAPH_NODE_TYPE {}
+impl ::core::clone::Clone for DML_GRAPH_NODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_GRAPH_NODE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_GRAPH_NODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_GRAPH_NODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_GRAPH_NODE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4265,19 +4552,61 @@ impl ::core::default::Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_INTERPOLATION_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_INTERPOLATION_MODE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = 0i32;
+pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = 1i32;
+pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
+impl ::core::marker::Copy for DML_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for DML_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_INTERPOLATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_IS_INFINITY_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_IS_INFINITY_MODE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = 0i32;
+pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = 1i32;
+pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = 2i32;
+pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(2i32);
+impl ::core::marker::Copy for DML_IS_INFINITY_MODE {}
+impl ::core::clone::Clone for DML_IS_INFINITY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_IS_INFINITY_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_IS_INFINITY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_IS_INFINITY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_IS_INFINITY_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_JOIN_OPERATOR_DESC {
@@ -4578,11 +4907,32 @@ impl ::core::default::Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_MATRIX_TRANSFORM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_MATRIX_TRANSFORM(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = 0i32;
+pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = 1i32;
+pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(1i32);
+impl ::core::marker::Copy for DML_MATRIX_TRANSFORM {}
+impl ::core::clone::Clone for DML_MATRIX_TRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_MATRIX_TRANSFORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_MATRIX_TRANSFORM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_MATRIX_TRANSFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_MATRIX_TRANSFORM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
@@ -4991,309 +5341,330 @@ impl ::core::default::Default for DML_OPERATOR_GRAPH_NODE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_OPERATOR_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_OPERATOR_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = 0i32;
+pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IDENTITY: DML_OPERATOR_TYPE = 1i32;
+pub const DML_OPERATOR_ELEMENT_WISE_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ABS: DML_OPERATOR_TYPE = 2i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ABS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ACOS: DML_OPERATOR_TYPE = 3i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ACOS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ADD: DML_OPERATOR_TYPE = 4i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(4i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ASIN: DML_OPERATOR_TYPE = 5i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ASIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(5i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATAN: DML_OPERATOR_TYPE = 6i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(6i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = 7i32;
+pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(7i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = 8i32;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(8i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = 9i32;
+pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(9i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DIVIDE: DML_OPERATOR_TYPE = 10i32;
+pub const DML_OPERATOR_ELEMENT_WISE_DIVIDE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(10i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_EXP: DML_OPERATOR_TYPE = 11i32;
+pub const DML_OPERATOR_ELEMENT_WISE_EXP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(11i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = 12i32;
+pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(12i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = 13i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(13i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = 14i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(14i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = 15i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(15i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = 16i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(16i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = 17i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(17i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = 18i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(18i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = 19i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(19i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR: DML_OPERATOR_TYPE = 20i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(20i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MAX: DML_OPERATOR_TYPE = 21i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(21i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MEAN: DML_OPERATOR_TYPE = 22i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MEAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(22i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = 23i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(23i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = 24i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(24i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = 25i32;
+pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(25i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = 26i32;
+pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(26i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_RECIP: DML_OPERATOR_TYPE = 27i32;
+pub const DML_OPERATOR_ELEMENT_WISE_RECIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(27i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SIN: DML_OPERATOR_TYPE = 28i32;
+pub const DML_OPERATOR_ELEMENT_WISE_SIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(28i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SQRT: DML_OPERATOR_TYPE = 29i32;
+pub const DML_OPERATOR_ELEMENT_WISE_SQRT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(29i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SUBTRACT: DML_OPERATOR_TYPE = 30i32;
+pub const DML_OPERATOR_ELEMENT_WISE_SUBTRACT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(30i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_TAN: DML_OPERATOR_TYPE = 31i32;
+pub const DML_OPERATOR_ELEMENT_WISE_TAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(31i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_THRESHOLD: DML_OPERATOR_TYPE = 32i32;
+pub const DML_OPERATOR_ELEMENT_WISE_THRESHOLD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(32i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = 33i32;
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(33i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR: DML_OPERATOR_TYPE = 34i32;
+pub const DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(34i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = 35i32;
+pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(35i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_HARDMAX: DML_OPERATOR_TYPE = 36i32;
+pub const DML_OPERATOR_ACTIVATION_HARDMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(36i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_HARD_SIGMOID: DML_OPERATOR_TYPE = 37i32;
+pub const DML_OPERATOR_ACTIVATION_HARD_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(37i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_IDENTITY: DML_OPERATOR_TYPE = 38i32;
+pub const DML_OPERATOR_ACTIVATION_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(38i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_LEAKY_RELU: DML_OPERATOR_TYPE = 39i32;
+pub const DML_OPERATOR_ACTIVATION_LEAKY_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(39i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_LINEAR: DML_OPERATOR_TYPE = 40i32;
+pub const DML_OPERATOR_ACTIVATION_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(40i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_LOG_SOFTMAX: DML_OPERATOR_TYPE = 41i32;
+pub const DML_OPERATOR_ACTIVATION_LOG_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(41i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU: DML_OPERATOR_TYPE = 42i32;
+pub const DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(42i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS: DML_OPERATOR_TYPE = 43i32;
+pub const DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(43i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_RELU: DML_OPERATOR_TYPE = 44i32;
+pub const DML_OPERATOR_ACTIVATION_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(44i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SCALED_ELU: DML_OPERATOR_TYPE = 45i32;
+pub const DML_OPERATOR_ACTIVATION_SCALED_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(45i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SCALED_TANH: DML_OPERATOR_TYPE = 46i32;
+pub const DML_OPERATOR_ACTIVATION_SCALED_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(46i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SIGMOID: DML_OPERATOR_TYPE = 47i32;
+pub const DML_OPERATOR_ACTIVATION_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(47i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTMAX: DML_OPERATOR_TYPE = 48i32;
+pub const DML_OPERATOR_ACTIVATION_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(48i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTPLUS: DML_OPERATOR_TYPE = 49i32;
+pub const DML_OPERATOR_ACTIVATION_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(49i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTSIGN: DML_OPERATOR_TYPE = 50i32;
+pub const DML_OPERATOR_ACTIVATION_SOFTSIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(50i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_TANH: DML_OPERATOR_TYPE = 51i32;
+pub const DML_OPERATOR_ACTIVATION_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(51i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU: DML_OPERATOR_TYPE = 52i32;
+pub const DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(52i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = 53i32;
+pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(53i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = 54i32;
+pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(54i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_REDUCE: DML_OPERATOR_TYPE = 55i32;
+pub const DML_OPERATOR_REDUCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(55i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = 56i32;
+pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(56i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_LP_POOLING: DML_OPERATOR_TYPE = 57i32;
+pub const DML_OPERATOR_LP_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(57i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MAX_POOLING: DML_OPERATOR_TYPE = 58i32;
+pub const DML_OPERATOR_MAX_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(58i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = 59i32;
+pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(59i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SLICE: DML_OPERATOR_TYPE = 60i32;
+pub const DML_OPERATOR_SLICE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(60i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = 61i32;
+pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(61i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SPLIT: DML_OPERATOR_TYPE = 62i32;
+pub const DML_OPERATOR_SPLIT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(62i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_JOIN: DML_OPERATOR_TYPE = 63i32;
+pub const DML_OPERATOR_JOIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(63i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = 64i32;
+pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(64i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = 65i32;
+pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(65i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = 66i32;
+pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(66i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GATHER: DML_OPERATOR_TYPE = 67i32;
+pub const DML_OPERATOR_GATHER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(67i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SPACE_TO_DEPTH: DML_OPERATOR_TYPE = 68i32;
+pub const DML_OPERATOR_SPACE_TO_DEPTH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(68i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = 69i32;
+pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(69i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_TILE: DML_OPERATOR_TYPE = 70i32;
+pub const DML_OPERATOR_TILE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(70i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_TOP_K: DML_OPERATOR_TYPE = 71i32;
+pub const DML_OPERATOR_TOP_K: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(71i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = 72i32;
+pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(72i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION: DML_OPERATOR_TYPE = 73i32;
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(73i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION: DML_OPERATOR_TYPE = 74i32;
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(74i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_LP_NORMALIZATION: DML_OPERATOR_TYPE = 75i32;
+pub const DML_OPERATOR_LP_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(75i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = 76i32;
+pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(76i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_LSTM: DML_OPERATOR_TYPE = 77i32;
+pub const DML_OPERATOR_LSTM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(77i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GRU: DML_OPERATOR_TYPE = 78i32;
+pub const DML_OPERATOR_GRU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(78i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SIGN: DML_OPERATOR_TYPE = 79i32;
+pub const DML_OPERATOR_ELEMENT_WISE_SIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(79i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IS_NAN: DML_OPERATOR_TYPE = 80i32;
+pub const DML_OPERATOR_ELEMENT_WISE_IS_NAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(80i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ERF: DML_OPERATOR_TYPE = 81i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ERF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(81i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SINH: DML_OPERATOR_TYPE = 82i32;
+pub const DML_OPERATOR_ELEMENT_WISE_SINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(82i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = 83i32;
+pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(83i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_TANH: DML_OPERATOR_TYPE = 84i32;
+pub const DML_OPERATOR_ELEMENT_WISE_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(84i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ASINH: DML_OPERATOR_TYPE = 85i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ASINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(85i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ACOSH: DML_OPERATOR_TYPE = 86i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ACOSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(86i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATANH: DML_OPERATOR_TYPE = 87i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ATANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(87i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IF: DML_OPERATOR_TYPE = 88i32;
+pub const DML_OPERATOR_ELEMENT_WISE_IF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(88i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ADD1: DML_OPERATOR_TYPE = 89i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ADD1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(89i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_SHRINK: DML_OPERATOR_TYPE = 90i32;
+pub const DML_OPERATOR_ACTIVATION_SHRINK: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(90i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MAX_POOLING1: DML_OPERATOR_TYPE = 91i32;
+pub const DML_OPERATOR_MAX_POOLING1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(91i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MAX_UNPOOLING: DML_OPERATOR_TYPE = 92i32;
+pub const DML_OPERATOR_MAX_UNPOOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(92i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_DIAGONAL_MATRIX: DML_OPERATOR_TYPE = 93i32;
+pub const DML_OPERATOR_DIAGONAL_MATRIX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(93i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = 94i32;
+pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = 94i32;
+pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = 95i32;
+pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(95i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_RESAMPLE: DML_OPERATOR_TYPE = 96i32;
+pub const DML_OPERATOR_RESAMPLE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(96i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT: DML_OPERATOR_TYPE = 97i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(97i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = 98i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(98i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ROUND: DML_OPERATOR_TYPE = 99i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ROUND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(99i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IS_INFINITY: DML_OPERATOR_TYPE = 100i32;
+pub const DML_OPERATOR_ELEMENT_WISE_IS_INFINITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(100i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = 101i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(101i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = 102i32;
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(102i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_FILL_VALUE_CONSTANT: DML_OPERATOR_TYPE = 103i32;
+pub const DML_OPERATOR_FILL_VALUE_CONSTANT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(103i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_FILL_VALUE_SEQUENCE: DML_OPERATOR_TYPE = 104i32;
+pub const DML_OPERATOR_FILL_VALUE_SEQUENCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(104i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = 105i32;
+pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(105i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = 106i32;
+pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(106i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GATHER_ELEMENTS: DML_OPERATOR_TYPE = 107i32;
+pub const DML_OPERATOR_GATHER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(107i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = 108i32;
+pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(108i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SCATTER_ND: DML_OPERATOR_TYPE = 109i32;
+pub const DML_OPERATOR_SCATTER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(109i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MAX_POOLING2: DML_OPERATOR_TYPE = 110i32;
+pub const DML_OPERATOR_MAX_POOLING2: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(110i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SLICE1: DML_OPERATOR_TYPE = 111i32;
+pub const DML_OPERATOR_SLICE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(111i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_TOP_K1: DML_OPERATOR_TYPE = 112i32;
+pub const DML_OPERATOR_TOP_K1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(112i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = 113i32;
+pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(113i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = 114i32;
+pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(114i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = 115i32;
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(115i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = 116i32;
+pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(116i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = 117i32;
+pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(117i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = 118i32;
+pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(118i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = 119i32;
+pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(119i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = 120i32;
+pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(120i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = 121i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(121i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = 122i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(122i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = 123i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(123i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = 124i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(124i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = 125i32;
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(125i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = 126i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(126i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = 127i32;
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(127i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = 128i32;
+pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(128i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = 129i32;
+pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(129i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = 130i32;
+pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(130i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_MAX_POOLING_GRAD: DML_OPERATOR_TYPE = 131i32;
+pub const DML_OPERATOR_MAX_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(131i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = 132i32;
+pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(132i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = 133i32;
+pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(133i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_RESAMPLE_GRAD: DML_OPERATOR_TYPE = 134i32;
+pub const DML_OPERATOR_RESAMPLE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(134i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_SLICE_GRAD: DML_OPERATOR_TYPE = 135i32;
+pub const DML_OPERATOR_SLICE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(135i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ADAM_OPTIMIZER: DML_OPERATOR_TYPE = 136i32;
+pub const DML_OPERATOR_ADAM_OPTIMIZER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(136i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ARGMIN: DML_OPERATOR_TYPE = 137i32;
+pub const DML_OPERATOR_ARGMIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(137i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ARGMAX: DML_OPERATOR_TYPE = 138i32;
+pub const DML_OPERATOR_ARGMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(138i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = 139i32;
+pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(139i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = 140i32;
+pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(140i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = 141i32;
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(141i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = 142i32;
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(142i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = 143i32;
+pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(143i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = 144i32;
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(144i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = 145i32;
+pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(145i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = 146i32;
+pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(146i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = 147i32;
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = 148i32;
+pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = 149i32;
+pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
+impl ::core::marker::Copy for DML_OPERATOR_TYPE {}
+impl ::core::clone::Clone for DML_OPERATOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_OPERATOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_OPERATOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_OPERATOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_OPERATOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5336,15 +5707,36 @@ impl ::core::default::Default for DML_OUTPUT_GRAPH_EDGE_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_PADDING_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_PADDING_MODE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = 0i32;
+pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = 1i32;
+pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = DML_PADDING_MODE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = 2i32;
+pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = DML_PADDING_MODE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = 3i32;
+pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = DML_PADDING_MODE(3i32);
+impl ::core::marker::Copy for DML_PADDING_MODE {}
+impl ::core::clone::Clone for DML_PADDING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_PADDING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_PADDING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_PADDING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_PADDING_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_PADDING_OPERATOR_DESC {
@@ -5517,43 +5909,106 @@ impl ::core::default::Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_RANDOM_GENERATOR_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = 0i32;
+pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
+impl ::core::marker::Copy for DML_RANDOM_GENERATOR_TYPE {}
+impl ::core::clone::Clone for DML_RANDOM_GENERATOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_RANDOM_GENERATOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_RANDOM_GENERATOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_RANDOM_GENERATOR_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_RECURRENT_NETWORK_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = 0i32;
+pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = 1i32;
+pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = 2i32;
+pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
+impl ::core::marker::Copy for DML_RECURRENT_NETWORK_DIRECTION {}
+impl ::core::clone::Clone for DML_RECURRENT_NETWORK_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_RECURRENT_NETWORK_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_RECURRENT_NETWORK_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_RECURRENT_NETWORK_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_RECURRENT_NETWORK_DIRECTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_REDUCE_FUNCTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_REDUCE_FUNCTION(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = 0i32;
+pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_ARGMIN: DML_REDUCE_FUNCTION = 1i32;
+pub const DML_REDUCE_FUNCTION_ARGMIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_AVERAGE: DML_REDUCE_FUNCTION = 2i32;
+pub const DML_REDUCE_FUNCTION_AVERAGE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_L1: DML_REDUCE_FUNCTION = 3i32;
+pub const DML_REDUCE_FUNCTION_L1: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_L2: DML_REDUCE_FUNCTION = 4i32;
+pub const DML_REDUCE_FUNCTION_L2: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(4i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_LOG_SUM: DML_REDUCE_FUNCTION = 5i32;
+pub const DML_REDUCE_FUNCTION_LOG_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(5i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_LOG_SUM_EXP: DML_REDUCE_FUNCTION = 6i32;
+pub const DML_REDUCE_FUNCTION_LOG_SUM_EXP: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(6i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_MAX: DML_REDUCE_FUNCTION = 7i32;
+pub const DML_REDUCE_FUNCTION_MAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(7i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = 8i32;
+pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(8i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = 9i32;
+pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(9i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = 10i32;
+pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(10i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = 11i32;
+pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(11i32);
+impl ::core::marker::Copy for DML_REDUCE_FUNCTION {}
+impl ::core::clone::Clone for DML_REDUCE_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_REDUCE_FUNCTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_REDUCE_FUNCTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_REDUCE_FUNCTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_REDUCE_FUNCTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_REDUCE_OPERATOR_DESC {
@@ -5932,13 +6387,34 @@ impl ::core::default::Default for DML_ROI_POOLING_OPERATOR_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_ROUNDING_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_ROUNDING_MODE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = 0i32;
+pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = 1i32;
+pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = DML_ROUNDING_MODE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = 2i32;
+pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = DML_ROUNDING_MODE(2i32);
+impl ::core::marker::Copy for DML_ROUNDING_MODE {}
+impl ::core::clone::Clone for DML_ROUNDING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_ROUNDING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_ROUNDING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_ROUNDING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_ROUNDING_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub union DML_SCALAR_UNION {
@@ -6313,31 +6789,52 @@ pub const DML_TARGET_VERSION: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_TENSOR_DATA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_TENSOR_DATA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = 0i32;
+pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = 1i32;
+pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = 2i32;
+pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_UINT32: DML_TENSOR_DATA_TYPE = 3i32;
+pub const DML_TENSOR_DATA_TYPE_UINT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_UINT16: DML_TENSOR_DATA_TYPE = 4i32;
+pub const DML_TENSOR_DATA_TYPE_UINT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(4i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = 5i32;
+pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(5i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_INT32: DML_TENSOR_DATA_TYPE = 6i32;
+pub const DML_TENSOR_DATA_TYPE_INT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(6i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_INT16: DML_TENSOR_DATA_TYPE = 7i32;
+pub const DML_TENSOR_DATA_TYPE_INT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(7i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = 8i32;
+pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(8i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = 9i32;
+pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(9i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = 10i32;
+pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(10i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = 11i32;
+pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(11i32);
+impl ::core::marker::Copy for DML_TENSOR_DATA_TYPE {}
+impl ::core::clone::Clone for DML_TENSOR_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_TENSOR_DATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_TENSOR_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_TENSOR_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TENSOR_DESC {
@@ -6374,17 +6871,87 @@ pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_TENSOR_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_TENSOR_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = 0u32;
+pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = 1u32;
+pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1u32);
+impl ::core::marker::Copy for DML_TENSOR_FLAGS {}
+impl ::core::clone::Clone for DML_TENSOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_TENSOR_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_TENSOR_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_TENSOR_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_TENSOR_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DML_TENSOR_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DML_TENSOR_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DML_TENSOR_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DML_TENSOR_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DML_TENSOR_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub type DML_TENSOR_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DML_TENSOR_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = 0i32;
+pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = 1i32;
+pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
+impl ::core::marker::Copy for DML_TENSOR_TYPE {}
+impl ::core::clone::Clone for DML_TENSOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DML_TENSOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DML_TENSOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DML_TENSOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DML_TENSOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TILE_OPERATOR_DESC {
@@ -6560,65 +7127,65 @@ pub struct IDMLBindingTable(::windows::core::IUnknown);
 impl IDMLBindingTable {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
+        (::windows::core::Interface::vtable(self).BindInputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
+        (::windows::core::Interface::vtable(self).BindOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
+        (::windows::core::Interface::vtable(self).BindTemporaryResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
+        (::windows::core::Interface::vtable(self).BindPersistentResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc)).ok()
     }
 }
-impl ::core::convert::From<IDMLBindingTable> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLBindingTable> for ::windows::core::IUnknown {
     fn from(value: IDMLBindingTable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLBindingTable> for ::windows::core::IUnknown {
     fn from(value: &IDMLBindingTable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLBindingTable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLBindingTable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6642,23 +7209,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLBindingTable {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLBindingTable> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLBindingTable> for IDMLDeviceChild {
     fn from(value: IDMLBindingTable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLBindingTable> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
     fn from(value: &IDMLBindingTable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLBindingTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLBindingTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6679,77 +7246,71 @@ impl ::core::fmt::Debug for IDMLBindingTable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLBindingTable {
-    type Vtable = IDMLBindingTableVtbl;
+    type Vtable = IDMLBindingTable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLBindingTableVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-);
+pub struct IDMLBindingTable_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
+    pub BindInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
+    pub BindOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
+    pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
+    pub BindPersistentResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    Reset: usize,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLCommandRecorder(::windows::core::IUnknown);
 impl IDMLCommandRecorder {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn RecordDispatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandList>, Param1: ::windows::core::IntoParam<'a, IDMLDispatchable>, Param2: ::windows::core::IntoParam<'a, IDMLBindingTable>>(&self, commandlist: Param0, dispatchable: Param1, bindings: Param2) {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi())
+        (::windows::core::Interface::vtable(self).RecordDispatch)(::core::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi())
     }
 }
-impl ::core::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLCommandRecorder> for ::windows::core::IUnknown {
     fn from(value: IDMLCommandRecorder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLCommandRecorder> for ::windows::core::IUnknown {
     fn from(value: &IDMLCommandRecorder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecorder {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLCommandRecorder {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCommandRecorder {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6773,23 +7334,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLCommandRecorder {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLCommandRecorder> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
     fn from(value: IDMLCommandRecorder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLCommandRecorder> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
     fn from(value: &IDMLCommandRecorder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLCommandRecorder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecorder {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCommandRecorder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6810,114 +7371,68 @@ impl ::core::fmt::Debug for IDMLCommandRecorder {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
-    type Vtable = IDMLCommandRecorderVtbl;
+    type Vtable = IDMLCommandRecorder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLCommandRecorderVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-);
+pub struct IDMLCommandRecorder_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub RecordDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    RecordDispatch: usize,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLCompiledOperator(::windows::core::IUnknown);
 impl IDMLCompiledOperator {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
+        (::windows::core::Interface::vtable(self).base.GetBindingProperties)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
+impl ::core::convert::From<IDMLCompiledOperator> for ::windows::core::IUnknown {
     fn from(value: IDMLCompiledOperator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
+impl ::core::convert::From<&IDMLCompiledOperator> for ::windows::core::IUnknown {
     fn from(value: &IDMLCompiledOperator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLPageable {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLPageable {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6941,23 +7456,63 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLCompiledOperator {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLCompiledOperator> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
     fn from(value: IDMLCompiledOperator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLCompiledOperator> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
     fn from(value: &IDMLCompiledOperator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCompiledOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLPageable {
+    fn from(value: IDMLCompiledOperator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLPageable {
+    fn from(value: &IDMLCompiledOperator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
+    fn from(value: IDMLCompiledOperator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
+    fn from(value: &IDMLCompiledOperator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6978,23 +7533,14 @@ impl ::core::fmt::Debug for IDMLCompiledOperator {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
-    type Vtable = IDMLCompiledOperatorVtbl;
+    type Vtable = IDMLCompiledOperator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLCompiledOperatorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
-);
+pub struct IDMLCompiledOperator_Vtbl {
+    pub base: IDMLDispatchable_Vtbl,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLDebugDevice(::windows::core::IUnknown);
@@ -7002,7 +7548,7 @@ impl IDMLDebugDevice {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, mute: Param0) {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), mute.into_param().abi())
+        (::windows::core::Interface::vtable(self).SetMuteDebugOutput)(::core::mem::transmute_copy(self), mute.into_param().abi())
     }
 }
 impl ::core::convert::From<IDMLDebugDevice> for ::windows::core::IUnknown {
@@ -7042,103 +7588,83 @@ impl ::core::fmt::Debug for IDMLDebugDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDebugDevice {
-    type Vtable = IDMLDebugDeviceVtbl;
+    type Vtable = IDMLDebugDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDebugDeviceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IDMLDebugDevice_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetMuteDebugOutput: usize,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLDevice(::windows::core::IUnknown);
 impl IDMLDevice {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateOperator<T: ::windows::core::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CreateOperator)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CompileOperator<'a, Param0: ::windows::core::IntoParam<'a, IDMLOperator>, T: ::windows::core::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileOperator)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateOperatorInitializer)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateCommandRecorder)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateBindingTable<T: ::windows::core::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateBindingTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
+        (::windows::core::Interface::vtable(self).Evict)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
+        (::windows::core::Interface::vtable(self).MakeResident)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceRemovedReason)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetParentDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-}
-impl ::core::convert::From<IDMLDevice> for IDMLObject {
-    fn from(value: IDMLDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice> for IDMLObject {
-    fn from(value: &IDMLDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        (::windows::core::Interface::vtable(self).GetParentDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDMLDevice> for ::windows::core::IUnknown {
@@ -7161,6 +7687,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDMLDevice> for IDMLObject {
+    fn from(value: IDMLDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLDevice> for IDMLObject {
+    fn from(value: &IDMLDevice) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IDMLDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7178,120 +7724,115 @@ impl ::core::fmt::Debug for IDMLDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDevice {
-    type Vtable = IDMLDeviceVtbl;
+    type Vtable = IDMLDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDeviceVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDMLDevice_Vtbl {
+    pub base: IDMLObject_Vtbl,
+    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    CreateBindingTable: usize,
+    pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MakeResident: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetDeviceRemovedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetParentDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLDevice1(::windows::core::IUnknown);
 impl IDMLDevice1 {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+        (::windows::core::Interface::vtable(self).base.CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateOperator<T: ::windows::core::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).base.CreateOperator)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CompileOperator<'a, Param0: ::windows::core::IntoParam<'a, IDMLOperator>, T: ::windows::core::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).base.CompileOperator)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.CreateOperatorInitializer)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.CreateCommandRecorder)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateBindingTable<T: ::windows::core::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.CreateBindingTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
+        (::windows::core::Interface::vtable(self).base.Evict)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
+        (::windows::core::Interface::vtable(self).base.MakeResident)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base.GetDeviceRemovedReason)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetParentDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetParentDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CompileGraph<T: ::windows::core::Interface>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileGraph)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-impl ::core::convert::From<IDMLDevice1> for IDMLDevice {
+impl ::core::convert::From<IDMLDevice1> for ::windows::core::IUnknown {
     fn from(value: IDMLDevice1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLDevice1> for IDMLDevice {
+impl ::core::convert::From<&IDMLDevice1> for ::windows::core::IUnknown {
     fn from(value: &IDMLDevice1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDevice> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDevice> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7315,23 +7856,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDevice1 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLDevice1> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLDevice1> for IDMLDevice {
     fn from(value: IDMLDevice1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLDevice1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLDevice1> for IDMLDevice {
     fn from(value: &IDMLDevice1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDevice> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7352,78 +7893,40 @@ impl ::core::fmt::Debug for IDMLDevice1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDevice1 {
-    type Vtable = IDMLDevice1Vtbl;
+    type Vtable = IDMLDevice1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDevice1Vtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDMLDevice1_Vtbl {
+    pub base: IDMLDevice_Vtbl,
+    pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLDeviceChild(::windows::core::IUnknown);
 impl IDMLDeviceChild {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-}
-impl ::core::convert::From<IDMLDeviceChild> for IDMLObject {
-    fn from(value: IDMLDeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDeviceChild> for IDMLObject {
-    fn from(value: &IDMLDeviceChild) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDMLDeviceChild> for ::windows::core::IUnknown {
@@ -7446,6 +7949,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDMLDeviceChild> for IDMLObject {
+    fn from(value: IDMLDeviceChild) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLDeviceChild> for IDMLObject {
+    fn from(value: &IDMLDeviceChild) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IDMLDeviceChild {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7463,92 +7986,65 @@ impl ::core::fmt::Debug for IDMLDeviceChild {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDeviceChild {
-    type Vtable = IDMLDeviceChildVtbl;
+    type Vtable = IDMLDeviceChild_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDeviceChildVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDMLDeviceChild_Vtbl {
+    pub base: IDMLObject_Vtbl,
+    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLDispatchable(::windows::core::IUnknown);
 impl IDMLDispatchable {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
+        (::windows::core::Interface::vtable(self).GetBindingProperties)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
-impl ::core::convert::From<IDMLDispatchable> for IDMLPageable {
+impl ::core::convert::From<IDMLDispatchable> for ::windows::core::IUnknown {
     fn from(value: IDMLDispatchable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLDispatchable> for IDMLPageable {
+impl ::core::convert::From<&IDMLDispatchable> for ::windows::core::IUnknown {
     fn from(value: &IDMLDispatchable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDMLDispatchable> for IDMLDeviceChild {
-    fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
-    fn from(value: &IDMLDispatchable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7572,23 +8068,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDispatchable {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLDispatchable> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLDispatchable> for IDMLDeviceChild {
     fn from(value: IDMLDispatchable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLDispatchable> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
     fn from(value: &IDMLDispatchable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDispatchable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDMLDispatchable> for IDMLPageable {
+    fn from(value: IDMLDispatchable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLDispatchable> for IDMLPageable {
+    fn from(value: &IDMLDispatchable) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7609,43 +8125,35 @@ impl ::core::fmt::Debug for IDMLDispatchable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDispatchable {
-    type Vtable = IDMLDispatchableVtbl;
+    type Vtable = IDMLDispatchable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDispatchableVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
-);
+pub struct IDMLDispatchable_Vtbl {
+    pub base: IDMLPageable_Vtbl,
+    pub GetBindingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLObject(::windows::core::IUnknown);
 impl IDMLObject {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDMLObject> for ::windows::core::IUnknown {
@@ -7685,65 +8193,65 @@ impl ::core::fmt::Debug for IDMLObject {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLObject {
-    type Vtable = IDMLObjectVtbl;
+    type Vtable = IDMLObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLObjectVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-);
+pub struct IDMLObject_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetName: usize,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLOperator(::windows::core::IUnknown);
 impl IDMLOperator {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLOperator> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLOperator> for ::windows::core::IUnknown {
     fn from(value: IDMLOperator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLOperator> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLOperator> for ::windows::core::IUnknown {
     fn from(value: &IDMLOperator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7767,23 +8275,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLOperator {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLOperator> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLOperator> for IDMLDeviceChild {
     fn from(value: IDMLOperator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLOperator> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLOperator> for IDMLDeviceChild {
     fn from(value: &IDMLOperator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7804,116 +8312,68 @@ impl ::core::fmt::Debug for IDMLOperator {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLOperator {
-    type Vtable = IDMLOperatorVtbl;
+    type Vtable = IDMLOperator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLOperatorVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDMLOperator_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLOperatorInitializer(::windows::core::IUnknown);
 impl IDMLOperatorInitializer {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
+        (::windows::core::Interface::vtable(self).base.GetBindingProperties)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn Reset(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators)).ok()
     }
 }
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
+impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::core::IUnknown {
     fn from(value: IDMLOperatorInitializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
+impl ::core::convert::From<&IDMLOperatorInitializer> for ::windows::core::IUnknown {
     fn from(value: &IDMLOperatorInitializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLPageable {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7937,23 +8397,63 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLOperatorInitializer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
     fn from(value: IDMLOperatorInitializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLOperatorInitializer> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
     fn from(value: &IDMLOperatorInitializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperatorInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLPageable {
+    fn from(value: IDMLOperatorInitializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
+    fn from(value: &IDMLOperatorInitializer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
+    fn from(value: IDMLOperatorInitializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
+    fn from(value: &IDMLOperatorInitializer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7974,68 +8474,59 @@ impl ::core::fmt::Debug for IDMLOperatorInitializer {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
-    type Vtable = IDMLOperatorInitializerVtbl;
+    type Vtable = IDMLOperatorInitializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLOperatorInitializerVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDMLOperatorInitializer_Vtbl {
+    pub base: IDMLDispatchable_Vtbl,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
 pub struct IDMLPageable(::windows::core::IUnknown);
 impl IDMLPageable {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLPageable> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLPageable> for ::windows::core::IUnknown {
     fn from(value: IDMLPageable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLPageable> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLPageable> for ::windows::core::IUnknown {
     fn from(value: &IDMLPageable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLPageable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
-    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLPageable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8059,23 +8550,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLPageable {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDMLPageable> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDMLPageable> for IDMLDeviceChild {
     fn from(value: IDMLPageable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDMLPageable> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDMLPageable> for IDMLDeviceChild {
     fn from(value: &IDMLPageable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLPageable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLPageable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
+    fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8096,19 +8587,13 @@ impl ::core::fmt::Debug for IDMLPageable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLPageable {
-    type Vtable = IDMLPageableVtbl;
+    type Vtable = IDMLPageable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLPageableVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
+pub struct IDMLPageable_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
+}
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

@@ -1007,13 +1007,62 @@ impl ::core::default::Default for WLX_SC_NOTIFICATION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
-pub type WLX_SHUTDOWN_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WLX_SHUTDOWN_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
-pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = 5u32;
+pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
-pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = 11u32;
+pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
-pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = 10u32;
+pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
+impl ::core::marker::Copy for WLX_SHUTDOWN_TYPE {}
+impl ::core::clone::Clone for WLX_SHUTDOWN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLX_SHUTDOWN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLX_SHUTDOWN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLX_SHUTDOWN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLX_SHUTDOWN_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WLX_SHUTDOWN_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WLX_SHUTDOWN_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WLX_SHUTDOWN_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WLX_SHUTDOWN_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WLX_SHUTDOWN_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub struct WLX_TERMINAL_SERVICES_DATA {
@@ -1058,3 +1107,5 @@ pub const WLX_VERSION_1_3: u32 = 65539u32;
 pub const WLX_VERSION_1_4: u32 = 65540u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_WM_SAS: u32 = 1625u32;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

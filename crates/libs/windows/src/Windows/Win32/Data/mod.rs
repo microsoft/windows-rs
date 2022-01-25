@@ -5,3 +5,5 @@ pub mod HtmlHelp;
 pub mod RightsManagement;
 #[cfg(feature = "Win32_Data_Xml")]
 pub mod Xml;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

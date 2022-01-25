@@ -20,7 +20,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let has_default = def.default_interface().is_some();
     let interfaces = def.class_interfaces();
     let mut methods = quote! {};
-    let mut method_names = BTreeMap::<String, u32>::new();
+    let mut method_names = MethodNames::new();
 
     let cfg = gen.type_cfg(def);
     let features = cfg.gen(gen);
@@ -31,10 +31,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             continue;
         }
 
-        let mut vtable_offset = 6;
+        let mut virtual_names = MethodNames::new();
+
         for method in def.methods() {
-            methods.combine(&gen_winrt_method(def, *kind, &method, vtable_offset, &mut method_names, gen));
-            vtable_offset += 1;
+            methods.combine(&gen_winrt_method(def, *kind, &method, &mut method_names, &mut virtual_names, gen));
         }
     }
 
@@ -138,19 +138,6 @@ fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         }
     } else {
         TokenStream::new()
-    }
-}
-
-fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
-    let runtime_name = format!("{}", def.type_name());
-    let cfg = cfg.gen(gen);
-
-    quote! {
-        #cfg
-        impl ::windows::core::RuntimeName for #name {
-            const NAME: &'static str = #runtime_name;
-        }
     }
 }
 

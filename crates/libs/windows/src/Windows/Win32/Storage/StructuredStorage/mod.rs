@@ -169,3 +169,5 @@ impl ::core::fmt::Debug for JET_TABLEID {
 unsafe impl ::windows::core::Abi for JET_TABLEID {
     type Abi = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

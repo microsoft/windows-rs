@@ -40,3 +40,5 @@ pub type PFNCHECKCONNECTIONWIZARD = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: 'Win32_NetworkManagement_InternetConnectionWizard', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSETSHELLNEXT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> u32>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

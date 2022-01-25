@@ -23,6 +23,11 @@ impl ::core::clone::Clone for AudioRenderCategory {
         *self
     }
 }
+impl ::core::default::Default for AudioRenderCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
 unsafe impl ::windows::core::Abi for AudioRenderCategory {
     type Abi = Self;
 }
@@ -37,3 +42,5 @@ unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
 impl ::windows::core::DefaultType for AudioRenderCategory {
     type DefaultType = Self;
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

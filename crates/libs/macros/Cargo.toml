@@ -11,7 +11,5 @@ repository = "https://github.com/microsoft/windows-rs"
 proc-macro = true
 
 [dependencies]
-gen = { package = "windows_gen", path = "../gen", version = "0.30.0" }
-reader = { package = "windows_reader", path = "../reader", version = "0.30.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
 quote = { package = "windows_quote", path = "../quote", version = "0.30.0" }

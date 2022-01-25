@@ -351,11 +351,32 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows::core::HRESULT = ::windows
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145845239i32);
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
-pub type REGISTRATION_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
-pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = 1i32;
+pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
-pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = 2i32;
+pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for REGISTRATION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REGISTRATION_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REGISTRATION_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REGISTRATION_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -490,3 +511,5 @@ pub unsafe fn UnregisterDeviceWithManagement<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

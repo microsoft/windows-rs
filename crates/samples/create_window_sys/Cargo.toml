@@ -1,0 +1,13 @@
+[package]
+name = "create_window_sys"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader",
+    "Win32_UI_WindowsAndMessaging",
+]

@@ -108,8 +108,4 @@ impl MethodDef {
 
         MethodSignature { params, return_sig, return_param }
     }
-
-    pub fn include_dependencies(&self) {
-        self.signature(&[]).include_dependencies(TypeInclude::Minimal)
-    }
 }

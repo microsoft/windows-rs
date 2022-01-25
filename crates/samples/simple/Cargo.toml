@@ -1,0 +1,10 @@
+[package]
+name = "simple"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "UI",
+]

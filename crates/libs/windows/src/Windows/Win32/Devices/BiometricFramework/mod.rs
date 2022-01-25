@@ -480,23 +480,65 @@ impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0i32;
+pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1i32;
+pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
+impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY_ACTION {}
+impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_ANTI_SPOOF_POLICY_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
+impl ::core::marker::Copy for WINBIO_ASYNC_NOTIFICATION_METHOD {}
+impl ::core::clone::Clone for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_ASYNC_NOTIFICATION_METHOD").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1786,33 +1828,145 @@ impl ::core::default::Default for WINBIO_CAPTURE_PARAMETERS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_COMPONENT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_COMPONENT(pub u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
+impl ::core::marker::Copy for WINBIO_COMPONENT {}
+impl ::core::clone::Clone for WINBIO_COMPONENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_COMPONENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_COMPONENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_COMPONENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_COMPONENT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINBIO_COMPONENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINBIO_COMPONENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINBIO_COMPONENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINBIO_COMPONENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINBIO_COMPONENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_CREDENTIAL_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
+impl ::core::marker::Copy for WINBIO_CREDENTIAL_FORMAT {}
+impl ::core::clone::Clone for WINBIO_CREDENTIAL_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_CREDENTIAL_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_CREDENTIAL_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_CREDENTIAL_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_CREDENTIAL_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
+impl ::core::marker::Copy for WINBIO_CREDENTIAL_STATE {}
+impl ::core::clone::Clone for WINBIO_CREDENTIAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_CREDENTIAL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_CREDENTIAL_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_CREDENTIAL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
+impl ::core::marker::Copy for WINBIO_CREDENTIAL_TYPE {}
+impl ::core::clone::Clone for WINBIO_CREDENTIAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_CREDENTIAL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_CREDENTIAL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub struct WINBIO_DATA {
@@ -3910,21 +4064,91 @@ impl ::core::default::Default for WINBIO_PIPELINE {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_POLICY_SOURCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_POLICY_SOURCE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
+impl ::core::marker::Copy for WINBIO_POLICY_SOURCE {}
+impl ::core::clone::Clone for WINBIO_POLICY_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_POLICY_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_POLICY_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_POLICY_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_POLICY_SOURCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_POOL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_POOL(pub u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
+impl ::core::marker::Copy for WINBIO_POOL {}
+impl ::core::clone::Clone for WINBIO_POOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_POOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_POOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_POOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_POOL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINBIO_POOL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINBIO_POOL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINBIO_POOL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINBIO_POOL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINBIO_POOL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4532,15 +4756,64 @@ impl ::core::default::Default for WINBIO_SENSOR_INTERFACE {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub type WINBIO_SETTING_SOURCE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINBIO_SETTING_SOURCE(pub u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
+impl ::core::marker::Copy for WINBIO_SETTING_SOURCE {}
+impl ::core::clone::Clone for WINBIO_SETTING_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINBIO_SETTING_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SETTING_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINBIO_SETTING_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINBIO_SETTING_SOURCE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINBIO_SETTING_SOURCE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINBIO_SETTING_SOURCE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINBIO_SETTING_SOURCE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINBIO_SETTING_SOURCE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINBIO_SETTING_SOURCE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub struct WINBIO_SET_INDICATOR {
@@ -5673,3 +5946,5 @@ pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
 pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
 #[repr(C)]
 pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

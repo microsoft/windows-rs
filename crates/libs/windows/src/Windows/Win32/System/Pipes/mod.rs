@@ -255,27 +255,76 @@ pub unsafe fn ImpersonateNamedPipeClient<'a, Param0: ::windows::core::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub type NAMED_PIPE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NAMED_PIPE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_WAIT: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_NOWAIT: NAMED_PIPE_MODE = 1u32;
+pub const PIPE_NOWAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_READMODE_BYTE: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_READMODE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = 2u32;
+pub const PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(2u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_CLIENT_END: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_CLIENT_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_SERVER_END: NAMED_PIPE_MODE = 1u32;
+pub const PIPE_SERVER_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = 4u32;
+pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
-pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 8u32;
+pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(8u32);
+impl ::core::marker::Copy for NAMED_PIPE_MODE {}
+impl ::core::clone::Clone for NAMED_PIPE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NAMED_PIPE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NAMED_PIPE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAMED_PIPE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAMED_PIPE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NAMED_PIPE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NAMED_PIPE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NAMED_PIPE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NAMED_PIPE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NAMED_PIPE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Pipes'*"]
@@ -359,3 +408,5 @@ pub unsafe fn WaitNamedPipeW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

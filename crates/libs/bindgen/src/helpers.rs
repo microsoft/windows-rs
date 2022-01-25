@@ -35,15 +35,15 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let cfg = cfg.gen(gen);
     if let Some(default) = def.default_interface() {
         let name = gen_type_ident(def, gen);
+        let default_name = gen_type_ident(&default, gen);
         let vtbl = gen_vtbl_ident(&default, gen);
-        let guid = gen_type_guid(&default, gen, &"Self".into());
         let namespace = gen.namespace(default.namespace());
 
         quote! {
             #cfg
             unsafe impl ::windows::core::Interface for #name {
                 type Vtable = #namespace #vtbl;
-                const IID: ::windows::core::GUID = #guid;
+                const IID: ::windows::core::GUID = <#namespace #default_name as ::windows::core::Interface>::IID;
             }
         }
     } else {
@@ -148,65 +148,56 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 }
 
 pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    // TODO: consider using parent field to avoid duplicating inherited vfptrs.
-    // And then consider naming them to simplify traits and debugging.
-    // Should the first param be the Vtbl type?
-
     let cfg = cfg.gen(gen);
     let vtbl = gen_vtbl_ident(def, gen);
-    let guid = gen_element_name(&ElementType::GUID, gen);
-    let hresult = gen_element_name(&ElementType::HRESULT, gen);
-    let phantoms = gen_phantoms(def, gen);
+    let phantoms = gen_named_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
+    let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(def);
 
-    for def in def.vtable_types() {
-        match def {
-            ElementType::TypeDef(def) => {
-                for method in def.methods() {
-                    if method.name() == ".ctor" {
-                        continue;
-                    }
+    match def.vtable_types().last() {
+        Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
+        Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
+        Some(ElementType::TypeDef(def)) => {
+            let vtbl = gen_vtbl_ident(def, gen);
+            let namespace = gen.namespace(def.namespace());
+            methods.combine(&quote! { pub base: #namespace #vtbl, });
+        }
+        _ => {}
+    }
 
-                    let signature = gen_vtbl_signature(&def, &method, gen);
-                    let cfg = gen.method_cfg(&def, &method);
-                    let cfg_all = cfg.gen(gen);
-                    let cfg_not = cfg.gen_not(gen);
+    for method in def.methods() {
+        if method.name() == ".ctor" {
+            continue;
+        }
 
-                    let signature = quote! { pub unsafe extern "system" fn #signature, };
+        let name = method_names.add(&method);
+        let signature = gen_vtbl_signature(def, &method, gen);
+        let cfg = gen.method_cfg(def, &method);
+        let cfg_all = cfg.gen(gen);
+        let cfg_not = cfg.gen_not(gen);
 
-                    if cfg_all.is_empty() {
-                        methods.combine(&signature);
-                    } else {
-                        methods.combine(&quote! {
-                            #cfg_all
-                            #signature
-                            #cfg_not
-                            usize,
-                        });
-                    }
-                }
-            }
-            ElementType::IInspectable => methods.combine(&quote! {
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut #guid) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> #hresult,
-            }),
-            ElementType::IUnknown => methods.combine(&quote! {
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &#guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-            }),
-            _ => unimplemented!(),
+        let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
+
+        if cfg_all.is_empty() {
+            methods.combine(&signature);
+        } else {
+            methods.combine(&quote! {
+                #cfg_all
+                #signature
+                #cfg_not
+                #name: usize,
+            });
         }
     }
 
     quote! {
         #cfg
-        #[repr(C)] #[doc(hidden)] pub struct #vtbl (
+        #[repr(C)] #[doc(hidden)] pub struct #vtbl where #(#constraints)* {
             #methods
             #(pub #phantoms)*
-        ) where #(#constraints)*;
+        }
     }
 }
 
@@ -289,6 +280,73 @@ pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
     }
 }
 
+pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    let name = gen_type_ident(def, gen);
+    let cfg = cfg.gen(gen);
+
+    if def.is_winrt() {
+        let constraints = gen_type_constraints(def, gen);
+        let runtime_name = format!("{}", def.type_name());
+
+        quote! {
+            #cfg
+            impl<#(#constraints)*> ::windows::core::RuntimeName for #name {
+                const NAME: &'static str = #runtime_name;
+            }
+        }
+    } else if def.vtable_types().iter().any(|e| e == &ElementType::IInspectable) {
+        quote! {
+            #cfg
+            impl ::windows::core::RuntimeName for #name {
+                const NAME: &'static str = "";
+            }
+        }
+    } else {
+        quote! {}
+    }
+}
+
+pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
+    match sig.kind() {
+        SignatureKind::ResultValue => {
+            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(gen_win32_invoke_arg);
+
+            let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
+
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::core::result::Result::Ok(ok__) => {
+                        *#result = ::core::mem::transmute(ok__);
+                        ::windows::core::HRESULT(0)
+                    }
+                    ::core::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => {
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
+
+            quote! {
+                #inner(#(#invoke_args,)*).into()
+            }
+        }
+        SignatureKind::ReturnStruct => {
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
+
+            quote! {
+                *result__ = #inner(#(#invoke_args,)*)
+            }
+        }
+        _ => {
+            let invoke_args = sig.params.iter().map(gen_win32_invoke_arg);
+
+            quote! {
+                #inner(#(#invoke_args,)*)
+            }
+        }
+    }
+}
+
 pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
     let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param, gen));
 
@@ -324,9 +382,21 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     }
 }
 
+fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
+    let name = gen_param_name(&param.param);
+
+    if param.signature.pointers == 0 && param.signature.kind.is_nullable() {
+        quote! { ::core::mem::transmute(&#name) }
+    } else {
+        quote! { ::core::mem::transmute_copy(&#name) }
+    }
+}
+
 fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_element_name(&param.signature.kind, gen);
+
+    // TODO: probably simplify this once the trait is called since the target type can be inferred safely
 
     if param.signature.is_array {
         let abi_size_name: TokenStream = format!("{}_array_size", param.param.name()).into();
@@ -341,6 +411,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
+            // TODO: probably don't need the explicit type casts s here anymore since we have traits to auto deduce
         } else if param.signature.is_const {
             quote! { &*(#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         } else {
@@ -348,5 +419,108 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
+    }
+}
+
+pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
+    let signature = method.signature(&def.generics);
+
+    if def.is_winrt() {
+        let is_delegate = def.kind() == TypeKind::Delegate;
+        let params = signature.params.iter().map(|p| gen_winrt_produce_type(p, !is_delegate, gen));
+
+        let return_sig = if let Some(return_sig) = &signature.return_sig {
+            let tokens = gen_element_name(&return_sig.kind, gen);
+
+            if return_sig.is_array {
+                quote! { ::windows::core::Array<#tokens> }
+            } else {
+                tokens
+            }
+        } else {
+            quote! { () }
+        };
+
+        let this = if is_delegate {
+            quote! {}
+        } else {
+            quote! { &mut self, }
+        };
+
+        quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
+    } else {
+        let signature_kind = signature.kind();
+        let mut params = quote! {};
+
+        if signature_kind == SignatureKind::ResultValue {
+            for param in &signature.params[..signature.params.len() - 1] {
+                params.combine(&gen_win32_produce_type(param, gen));
+            }
+        } else {
+            for param in &signature.params {
+                params.combine(&gen_win32_produce_type(param, gen));
+            }
+        }
+
+        let return_sig = match signature_kind {
+            SignatureKind::ReturnVoid => quote! {},
+            SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+            SignatureKind::ResultValue => {
+                let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
+                return_sig.pointers -= 1;
+                let return_sig = gen_result_sig(&return_sig, gen);
+
+                quote! { -> ::windows::core::Result<#return_sig> }
+            }
+            _ => gen_return_sig(&signature, gen),
+        };
+
+        quote! { (&mut self, #params) #return_sig }
+    }
+}
+
+fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
+    let name = gen_param_name(&param.param);
+    let kind = gen_param_sig(param, gen);
+
+    if param.param.is_input() && !param.signature.is_primitive() {
+        quote! { #name: &#kind, }
+    } else {
+        quote! { #name: #kind, }
+    }
+}
+
+fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
+    let tokens = gen_element_name(&param.signature.kind, gen);
+
+    let sig = if param.signature.is_array {
+        if param.param.is_input() {
+            quote! { &[<#tokens as ::windows::core::DefaultType>::DefaultType] }
+        } else if param.signature.by_ref {
+            quote! { &mut ::windows::core::Array<#tokens> }
+        } else {
+            quote! { &mut [<#tokens as ::windows::core::DefaultType>::DefaultType] }
+        }
+    } else if param.param.is_input() {
+        if let ElementType::GenericParam(_) = param.signature.kind {
+            quote! { &<#tokens as ::windows::core::DefaultType>::DefaultType }
+        } else if param.signature.kind.is_primitive() {
+            quote! { #tokens }
+        } else if param.signature.kind.is_nullable() {
+            quote! { &::core::option::Option<#tokens> }
+        } else {
+            quote! { &#tokens }
+        }
+    } else if param.signature.kind.is_nullable() {
+        quote! { &mut ::core::option::Option<#tokens> }
+    } else {
+        quote! { &mut #tokens }
+    };
+
+    if include_param_names {
+        let name = gen_param_name(&param.param);
+        quote! { #name: #sig }
+    } else {
+        sig
     }
 }

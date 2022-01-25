@@ -1,0 +1,12 @@
+[package]
+name = "rss"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Foundation_Collections",
+    "Web_Syndication",
+]

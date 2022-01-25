@@ -106,11 +106,60 @@ pub const ANSI_CHARSET: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ARABIC_CHARSET: u32 = 178u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type ARC_DIRECTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ARC_DIRECTION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = 1u32;
+pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const AD_CLOCKWISE: ARC_DIRECTION = 2u32;
+pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2u32);
+impl ::core::marker::Copy for ARC_DIRECTION {}
+impl ::core::clone::Clone for ARC_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ARC_DIRECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ARC_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ARC_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ARC_DIRECTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ARC_DIRECTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ARC_DIRECTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ARC_DIRECTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ARC_DIRECTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ARC_DIRECTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
@@ -407,11 +456,60 @@ pub unsafe fn ArcTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type BACKGROUND_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BACKGROUND_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OPAQUE: BACKGROUND_MODE = 2u32;
+pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TRANSPARENT: BACKGROUND_MODE = 1u32;
+pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
+impl ::core::marker::Copy for BACKGROUND_MODE {}
+impl ::core::clone::Clone for BACKGROUND_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BACKGROUND_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BACKGROUND_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BACKGROUND_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BACKGROUND_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BACKGROUND_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BACKGROUND_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BACKGROUND_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BACKGROUND_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BACKGROUND_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BALTIC_CHARSET: u32 = 186u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -910,29 +1008,78 @@ pub const CC_WIDE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_WIDESTYLED: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type CDS_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CDS_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_FULLSCREEN: CDS_TYPE = 4u32;
+pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_GLOBAL: CDS_TYPE = 8u32;
+pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_NORESET: CDS_TYPE = 268435456u32;
+pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_RESET: CDS_TYPE = 1073741824u32;
+pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_SET_PRIMARY: CDS_TYPE = 16u32;
+pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_TEST: CDS_TYPE = 2u32;
+pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_UPDATEREGISTRY: CDS_TYPE = 1u32;
+pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_VIDEOPARAMETERS: CDS_TYPE = 32u32;
+pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = 256u32;
+pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = 512u32;
+pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CDS_RESET_EX: CDS_TYPE = 536870912u32;
+pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
+impl ::core::marker::Copy for CDS_TYPE {}
+impl ::core::clone::Clone for CDS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CDS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CDS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CDS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CDS_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CDS_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CDS_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CDS_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CDS_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CDS_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CFP_ALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -1169,25 +1316,172 @@ pub const CP_REGION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type CREATE_FONT_PACKAGE_SUBSET_ENCODING = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 1u32;
+pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1u32);
+impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_ENCODING {}
+impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_ENCODING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type CREATE_FONT_PACKAGE_SUBSET_PLATFORM = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 0u32;
+pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 2u32;
+pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2u32);
+impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {}
+impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_PLATFORM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type CREATE_POLYGON_RGN_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREATE_POLYGON_RGN_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = 1u32;
+pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const WINDING: CREATE_POLYGON_RGN_MODE = 2u32;
+pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2u32);
+impl ::core::marker::Copy for CREATE_POLYGON_RGN_MODE {}
+impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREATE_POLYGON_RGN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREATE_POLYGON_RGN_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREATE_POLYGON_RGN_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CREATE_POLYGON_RGN_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREATE_POLYGON_RGN_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREATE_POLYGON_RGN_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREATE_POLYGON_RGN_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREATE_POLYGON_RGN_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2152,11 +2446,60 @@ pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DC_LAYOUT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DC_LAYOUT(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u32;
+pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LAYOUT_RTL: DC_LAYOUT = 1u32;
+pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
+impl ::core::marker::Copy for DC_LAYOUT {}
+impl ::core::clone::Clone for DC_LAYOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DC_LAYOUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DC_LAYOUT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DC_LAYOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DC_LAYOUT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DC_LAYOUT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DC_LAYOUT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DC_LAYOUT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DC_LAYOUT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DC_LAYOUT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_MANUFACTURER: u32 = 23u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -2620,79 +2963,177 @@ impl ::core::default::Default for DEVMODEW_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DFCS_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DFCS_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CAPTIONCLOSE: DFCS_STATE = 0u32;
+pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CAPTIONMIN: DFCS_STATE = 1u32;
+pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CAPTIONMAX: DFCS_STATE = 2u32;
+pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CAPTIONRESTORE: DFCS_STATE = 3u32;
+pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CAPTIONHELP: DFCS_STATE = 4u32;
+pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_MENUARROW: DFCS_STATE = 0u32;
+pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_MENUCHECK: DFCS_STATE = 1u32;
+pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_MENUBULLET: DFCS_STATE = 2u32;
+pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_MENUARROWRIGHT: DFCS_STATE = 4u32;
+pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLUP: DFCS_STATE = 0u32;
+pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLDOWN: DFCS_STATE = 1u32;
+pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLLEFT: DFCS_STATE = 2u32;
+pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLRIGHT: DFCS_STATE = 3u32;
+pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = 5u32;
+pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = 8u32;
+pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = 16u32;
+pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTONCHECK: DFCS_STATE = 0u32;
+pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = 1u32;
+pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = 2u32;
+pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTONRADIO: DFCS_STATE = 4u32;
+pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTON3STATE: DFCS_STATE = 8u32;
+pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_BUTTONPUSH: DFCS_STATE = 16u32;
+pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_INACTIVE: DFCS_STATE = 256u32;
+pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_PUSHED: DFCS_STATE = 512u32;
+pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_CHECKED: DFCS_STATE = 1024u32;
+pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_TRANSPARENT: DFCS_STATE = 2048u32;
+pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_HOT: DFCS_STATE = 4096u32;
+pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_ADJUSTRECT: DFCS_STATE = 8192u32;
+pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_FLAT: DFCS_STATE = 16384u32;
+pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFCS_MONO: DFCS_STATE = 32768u32;
+pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
+impl ::core::marker::Copy for DFCS_STATE {}
+impl ::core::clone::Clone for DFCS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DFCS_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DFCS_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DFCS_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DFCS_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DFCS_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DFCS_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DFCS_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DFCS_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DFCS_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DFC_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DFC_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFC_CAPTION: DFC_TYPE = 1u32;
+pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFC_MENU: DFC_TYPE = 2u32;
+pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFC_SCROLL: DFC_TYPE = 3u32;
+pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFC_BUTTON: DFC_TYPE = 4u32;
+pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DFC_POPUPMENU: DFC_TYPE = 5u32;
+pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
+impl ::core::marker::Copy for DFC_TYPE {}
+impl ::core::clone::Clone for DFC_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DFC_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DFC_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DFC_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DFC_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DFC_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DFC_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DFC_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DFC_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DFC_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2736,25 +3177,95 @@ impl ::core::default::Default for DIBSECTION {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DIB_USAGE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DIB_USAGE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DIB_RGB_COLORS: DIB_USAGE = 0u32;
+pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DIB_PAL_COLORS: DIB_USAGE = 1u32;
+pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
+impl ::core::marker::Copy for DIB_USAGE {}
+impl ::core::clone::Clone for DIB_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIB_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIB_USAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIB_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIB_USAGE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DIB_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIB_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIB_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIB_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIB_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DISPLAYCONFIG_COLOR_ENCODING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = 0i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 2i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = 3i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = 4i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = -1i32;
+pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
+impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISPLAYCONFIG_COLOR_ENCODING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_COLOR_ENCODING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_COLOR_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_COLOR_ENCODING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -2898,23 +3409,44 @@ pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DISP_CHANGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISP_CHANGE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = 0i32;
+pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_RESTART: DISP_CHANGE = 1i32;
+pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_FAILED: DISP_CHANGE = -1i32;
+pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_BADMODE: DISP_CHANGE = -2i32;
+pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = -3i32;
+pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = -4i32;
+pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = -5i32;
+pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = -6i32;
+pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
+impl ::core::marker::Copy for DISP_CHANGE {}
+impl ::core::clone::Clone for DISP_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DISP_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DISP_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISP_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISP_CHANGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DI_APPBANDING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -3381,62 +3913,160 @@ pub unsafe fn DPtoLP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRAFTMODE: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DRAWEDGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRAWEDGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = 1u32;
+pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = 2u32;
+pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = 4u32;
+pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = 8u32;
+pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_OUTER: DRAWEDGE_FLAGS = 3u32;
+pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_INNER: DRAWEDGE_FLAGS = 12u32;
+pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_RAISED: DRAWEDGE_FLAGS = 5u32;
+pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BDR_SUNKEN: DRAWEDGE_FLAGS = 10u32;
+pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EDGE_RAISED: DRAWEDGE_FLAGS = 5u32;
+pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = 10u32;
+pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EDGE_ETCHED: DRAWEDGE_FLAGS = 6u32;
+pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EDGE_BUMP: DRAWEDGE_FLAGS = 9u32;
+pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
+impl ::core::marker::Copy for DRAWEDGE_FLAGS {}
+impl ::core::clone::Clone for DRAWEDGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAWEDGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAWEDGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAWEDGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAWEDGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DRAWEDGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DRAWEDGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DRAWEDGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DRAWSTATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRAWSTATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DST_COMPLEX: DRAWSTATE_FLAGS = 0u32;
+pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DST_TEXT: DRAWSTATE_FLAGS = 1u32;
+pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = 2u32;
+pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DST_ICON: DRAWSTATE_FLAGS = 3u32;
+pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DST_BITMAP: DRAWSTATE_FLAGS = 4u32;
+pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_NORMAL: DRAWSTATE_FLAGS = 0u32;
+pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_UNION: DRAWSTATE_FLAGS = 16u32;
+pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_DISABLED: DRAWSTATE_FLAGS = 32u32;
+pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_MONO: DRAWSTATE_FLAGS = 128u32;
+pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = 512u32;
+pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = 1024u32;
+pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSS_RIGHT: DRAWSTATE_FLAGS = 32768u32;
+pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
+impl ::core::marker::Copy for DRAWSTATE_FLAGS {}
+impl ::core::clone::Clone for DRAWSTATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAWSTATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAWSTATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAWSTATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAWSTATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DRAWSTATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DRAWSTATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DRAWSTATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DRAWTEXTPARAMS {
@@ -3472,111 +4102,258 @@ impl ::core::default::Default for DRAWTEXTPARAMS {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DRAW_CAPTION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRAW_CAPTION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = 1u32;
+pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = 4096u32;
+pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = 32u32;
+pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_ICON: DRAW_CAPTION_FLAGS = 4u32;
+pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = 16u32;
+pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = 2u32;
+pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_TEXT: DRAW_CAPTION_FLAGS = 8u32;
+pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
+impl ::core::marker::Copy for DRAW_CAPTION_FLAGS {}
+impl ::core::clone::Clone for DRAW_CAPTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAW_CAPTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAW_CAPTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAW_CAPTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAW_CAPTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DRAW_CAPTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DRAW_CAPTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DRAW_CAPTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DRAW_EDGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRAW_EDGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_ADJUST: DRAW_EDGE_FLAGS = 8192u32;
+pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_BOTTOM: DRAW_EDGE_FLAGS = 8u32;
+pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = 9u32;
+pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = 12u32;
+pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = 16u32;
+pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = 25u32;
+pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = 28u32;
+pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = 19u32;
+pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = 22u32;
+pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_FLAT: DRAW_EDGE_FLAGS = 16384u32;
+pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_LEFT: DRAW_EDGE_FLAGS = 1u32;
+pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_MIDDLE: DRAW_EDGE_FLAGS = 2048u32;
+pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_MONO: DRAW_EDGE_FLAGS = 32768u32;
+pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_RECT: DRAW_EDGE_FLAGS = 15u32;
+pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_RIGHT: DRAW_EDGE_FLAGS = 4u32;
+pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_SOFT: DRAW_EDGE_FLAGS = 4096u32;
+pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_TOP: DRAW_EDGE_FLAGS = 2u32;
+pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = 3u32;
+pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = 6u32;
+pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
+impl ::core::marker::Copy for DRAW_EDGE_FLAGS {}
+impl ::core::clone::Clone for DRAW_EDGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAW_EDGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAW_EDGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAW_EDGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAW_EDGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DRAW_EDGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DRAW_EDGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DRAW_EDGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type DRAW_TEXT_FORMAT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DRAW_TEXT_FORMAT(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_BOTTOM: DRAW_TEXT_FORMAT = 8u32;
+pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_CALCRECT: DRAW_TEXT_FORMAT = 1024u32;
+pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_CENTER: DRAW_TEXT_FORMAT = 1u32;
+pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = 8192u32;
+pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = 32768u32;
+pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = 64u32;
+pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = 512u32;
+pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = 1048576u32;
+pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_INTERNAL: DRAW_TEXT_FORMAT = 4096u32;
+pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_LEFT: DRAW_TEXT_FORMAT = 0u32;
+pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = 65536u32;
+pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_NOCLIP: DRAW_TEXT_FORMAT = 256u32;
+pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = 524288u32;
+pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = 2048u32;
+pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = 16384u32;
+pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = 2097152u32;
+pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_RIGHT: DRAW_TEXT_FORMAT = 2u32;
+pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_RTLREADING: DRAW_TEXT_FORMAT = 131072u32;
+pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = 32u32;
+pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_TABSTOP: DRAW_TEXT_FORMAT = 128u32;
+pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_TOP: DRAW_TEXT_FORMAT = 0u32;
+pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_VCENTER: DRAW_TEXT_FORMAT = 4u32;
+pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = 16u32;
+pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = 262144u32;
+pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
+impl ::core::marker::Copy for DRAW_TEXT_FORMAT {}
+impl ::core::clone::Clone for DRAW_TEXT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAW_TEXT_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAW_TEXT_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAW_TEXT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAW_TEXT_FORMAT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DRAW_TEXT_FORMAT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DRAW_TEXT_FORMAT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DRAW_TEXT_FORMAT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_CHARSTREAM: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -3840,21 +4617,119 @@ pub const ELF_VENDOR_SIZE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ELF_VERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type EMBEDDED_FONT_PRIV_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = 1u32;
+pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = 2u32;
+pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = 3u32;
+pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = 4u32;
+pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
+impl ::core::marker::Copy for EMBEDDED_FONT_PRIV_STATUS {}
+impl ::core::clone::Clone for EMBEDDED_FONT_PRIV_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EMBEDDED_FONT_PRIV_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EMBEDDED_FONT_PRIV_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EMBEDDED_FONT_PRIV_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EMBEDDED_FONT_PRIV_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EMBEDDED_FONT_PRIV_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EMBEDDED_FONT_PRIV_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EMBEDDED_FONT_PRIV_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EMBEDDED_FONT_PRIV_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type EMBED_FONT_CHARSET = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EMBED_FONT_CHARSET(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = 1u32;
+pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = 2u32;
+pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
+impl ::core::marker::Copy for EMBED_FONT_CHARSET {}
+impl ::core::clone::Clone for EMBED_FONT_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EMBED_FONT_CHARSET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EMBED_FONT_CHARSET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EMBED_FONT_CHARSET").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EMBED_FONT_CHARSET {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EMBED_FONT_CHARSET {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EMBED_FONT_CHARSET {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EMBED_FONT_CHARSET {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EMBED_FONT_CHARSET {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMR {
@@ -7124,11 +7999,60 @@ pub const ENUMPAPERBINS: u32 = 31u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENUMPAPERMETRICS: u32 = 34u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type ENUM_DISPLAY_SETTINGS_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967295u32;
+pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967294u32;
+pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
+impl ::core::marker::Copy for ENUM_DISPLAY_SETTINGS_MODE {}
+impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_DISPLAY_SETTINGS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_DISPLAY_SETTINGS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_DISPLAY_SETTINGS_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENUM_DISPLAY_SETTINGS_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENUM_DISPLAY_SETTINGS_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EPSPRINTING: u32 = 33u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -7280,25 +8204,74 @@ pub const ERR_WRITECONTROL: u32 = 1004u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type ETO_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ETO_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_OPAQUE: ETO_OPTIONS = 2u32;
+pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_CLIPPED: ETO_OPTIONS = 4u32;
+pub const ETO_CLIPPED: ETO_OPTIONS = ETO_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_GLYPH_INDEX: ETO_OPTIONS = 16u32;
+pub const ETO_GLYPH_INDEX: ETO_OPTIONS = ETO_OPTIONS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_RTLREADING: ETO_OPTIONS = 128u32;
+pub const ETO_RTLREADING: ETO_OPTIONS = ETO_OPTIONS(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = 1024u32;
+pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = ETO_OPTIONS(1024u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_NUMERICSLATIN: ETO_OPTIONS = 2048u32;
+pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = 4096u32;
+pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_PDY: ETO_OPTIONS = 8192u32;
+pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = 65536u32;
+pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
+impl ::core::marker::Copy for ETO_OPTIONS {}
+impl ::core::clone::Clone for ETO_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ETO_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ETO_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ETO_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ETO_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ETO_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ETO_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ETO_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ETO_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ETO_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7462,11 +8435,60 @@ pub const EXTTEXTOUT: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type EXT_FLOOD_FILL_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXT_FLOOD_FILL_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = 0u32;
+pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = 1u32;
+pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
+impl ::core::marker::Copy for EXT_FLOOD_FILL_TYPE {}
+impl ::core::clone::Clone for EXT_FLOOD_FILL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXT_FLOOD_FILL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXT_FLOOD_FILL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXT_FLOOD_FILL_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EXT_FLOOD_FILL_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXT_FLOOD_FILL_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXT_FLOOD_FILL_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXT_FLOOD_FILL_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXT_FLOOD_FILL_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ADDFONTFAILED: i32 = 512i32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -8079,91 +9101,385 @@ pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_CLIP_PRECISION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_CLIP_PRECISION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = 1u32;
+pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = 0u32;
+pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = 64u32;
+pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = 128u32;
+pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = 16u32;
+pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_MASK: FONT_CLIP_PRECISION = 15u32;
+pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = 2u32;
+pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = 32u32;
+pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u32);
+impl ::core::marker::Copy for FONT_CLIP_PRECISION {}
+impl ::core::clone::Clone for FONT_CLIP_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_CLIP_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_CLIP_PRECISION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_CLIP_PRECISION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_CLIP_PRECISION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_CLIP_PRECISION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_CLIP_PRECISION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_CLIP_PRECISION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_LICENSE_PRIVS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_LICENSE_PRIVS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = 4u32;
+pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = 8u32;
+pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = 0u32;
+pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = 2u32;
+pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = 0u32;
+pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
+impl ::core::marker::Copy for FONT_LICENSE_PRIVS {}
+impl ::core::clone::Clone for FONT_LICENSE_PRIVS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_LICENSE_PRIVS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_LICENSE_PRIVS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_LICENSE_PRIVS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_LICENSE_PRIVS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_LICENSE_PRIVS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_LICENSE_PRIVS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_LICENSE_PRIVS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_LICENSE_PRIVS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_OUTPUT_PRECISION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_OUTPUT_PRECISION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = 2u32;
+pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = 0u32;
+pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = 5u32;
+pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = 8u32;
+pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 10u32;
+pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = 6u32;
+pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = 1u32;
+pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = 3u32;
+pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 7u32;
+pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = 4u32;
+pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u32);
+impl ::core::marker::Copy for FONT_OUTPUT_PRECISION {}
+impl ::core::clone::Clone for FONT_OUTPUT_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_OUTPUT_PRECISION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_OUTPUT_PRECISION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_OUTPUT_PRECISION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_OUTPUT_PRECISION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_OUTPUT_PRECISION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_OUTPUT_PRECISION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_OUTPUT_PRECISION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_OUTPUT_PRECISION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_PITCH_AND_FAMILY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_PITCH_AND_FAMILY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = 80u32;
+pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(80u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_DONTCARE: FONT_PITCH_AND_FAMILY = 0u32;
+pub const FF_DONTCARE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_MODERN: FONT_PITCH_AND_FAMILY = 48u32;
+pub const FF_MODERN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(48u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_ROMAN: FONT_PITCH_AND_FAMILY = 16u32;
+pub const FF_ROMAN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_SCRIPT: FONT_PITCH_AND_FAMILY = 64u32;
+pub const FF_SCRIPT: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FF_SWISS: FONT_PITCH_AND_FAMILY = 32u32;
+pub const FF_SWISS: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(32u32);
+impl ::core::marker::Copy for FONT_PITCH_AND_FAMILY {}
+impl ::core::clone::Clone for FONT_PITCH_AND_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_PITCH_AND_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_PITCH_AND_FAMILY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_PITCH_AND_FAMILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_PITCH_AND_FAMILY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_PITCH_AND_FAMILY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_PITCH_AND_FAMILY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_PITCH_AND_FAMILY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_PITCH_AND_FAMILY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_PITCH_AND_FAMILY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_QUALITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_QUALITY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ANTIALIASED_QUALITY: FONT_QUALITY = 4u32;
+pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLEARTYPE_QUALITY: FONT_QUALITY = 5u32;
+pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DEFAULT_QUALITY: FONT_QUALITY = 0u32;
+pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DRAFT_QUALITY: FONT_QUALITY = 1u32;
+pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NONANTIALIASED_QUALITY: FONT_QUALITY = 3u32;
+pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PROOF_QUALITY: FONT_QUALITY = 2u32;
+pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u32);
+impl ::core::marker::Copy for FONT_QUALITY {}
+impl ::core::clone::Clone for FONT_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_QUALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_QUALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_QUALITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_QUALITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_QUALITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_QUALITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_QUALITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_QUALITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type FONT_RESOURCE_CHARACTERISTICS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = 16u32;
+pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = 32u32;
+pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
+impl ::core::marker::Copy for FONT_RESOURCE_CHARACTERISTICS {}
+impl ::core::clone::Clone for FONT_RESOURCE_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_RESOURCE_CHARACTERISTICS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_RESOURCE_CHARACTERISTICS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_RESOURCE_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FONT_RESOURCE_CHARACTERISTICS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FONT_RESOURCE_CHARACTERISTICS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FONT_RESOURCE_CHARACTERISTICS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FONT_RESOURCE_CHARACTERISTICS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FONT_RESOURCE_CHARACTERISTICS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_ARABIC: i32 = 64i32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -8537,207 +9853,452 @@ pub const GETVECTORBRUSHSIZE: u32 = 27u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETVECTORPENSIZE: u32 = 26u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GET_CHARACTER_PLACEMENT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = 524288u32;
+pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = 256u32;
+pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = 4194304u32;
+pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(4194304u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(65536u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1024u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(32u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1048576u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(33554432u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16777216u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(67108864u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(134217728u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
+impl ::core::marker::Copy for GET_CHARACTER_PLACEMENT_FLAGS {}
+impl ::core::clone::Clone for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_CHARACTER_PLACEMENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_DCX_FLAGS(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = 16u32;
+pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = 65536u32;
+pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = 1024u32;
+pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
+impl ::core::marker::Copy for GET_DCX_FLAGS {}
+impl ::core::clone::Clone for GET_DCX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_DCX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_DCX_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_DCX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_DCX_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_DCX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_DCX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_DCX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_DCX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_DCX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = 32u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_DEVICE_CAPS_INDEX(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = 1048576u32;
+pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 33554432u32;
+pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 16777216u32;
+pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = 67108864u32;
+pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = 134217728u32;
+pub const HORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = 2u32;
+pub const VERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = 8388608u32;
+pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = 8u32;
+pub const PLANES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(14u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GET_DCX_FLAGS = u32;
+pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_WINDOW: GET_DCX_FLAGS = 1u32;
+pub const NUMPENS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(18u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(20u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(22u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(24u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(26u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const LINECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(30u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(32u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(34u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_CACHE: GET_DCX_FLAGS = 2u32;
+pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(38u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_PARENTCLIP: GET_DCX_FLAGS = 32u32;
+pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = 16u32;
+pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = 8u32;
+pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_NORESETATTRS: GET_DCX_FLAGS = 4u32;
+pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(88u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = 1024u32;
+pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(90u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = 64u32;
+pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(104u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = 128u32;
+pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(106u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = 512u32;
+pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCX_VALIDATE: GET_DCX_FLAGS = 2097152u32;
+pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(110u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GET_DEVICE_CAPS_INDEX = u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HORZRES: GET_DEVICE_CAPS_INDEX = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VERTRES: GET_DEVICE_CAPS_INDEX = 10u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = 12u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PLANES: GET_DEVICE_CAPS_INDEX = 14u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMPENS: GET_DEVICE_CAPS_INDEX = 18u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = 20u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = 22u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = 24u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = 26u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = 28u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LINECAPS: GET_DEVICE_CAPS_INDEX = 30u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = 32u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = 34u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = 36u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = 38u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ASPECTX: GET_DEVICE_CAPS_INDEX = 40u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ASPECTY: GET_DEVICE_CAPS_INDEX = 42u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = 44u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = 88u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = 90u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = 104u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = 106u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const COLORRES: GET_DEVICE_CAPS_INDEX = 108u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = 110u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = 111u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = 112u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = 113u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = 114u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = 115u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VREFRESH: GET_DEVICE_CAPS_INDEX = 116u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = 117u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = 118u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = 119u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = 120u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = 121u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GET_GLYPH_OUTLINE_FORMAT = u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = 128u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = 256u32;
+pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(111u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(112u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(113u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(114u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(115u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const VREFRESH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(116u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(120u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
+impl ::core::marker::Copy for GET_DEVICE_CAPS_INDEX {}
+impl ::core::clone::Clone for GET_DEVICE_CAPS_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_DEVICE_CAPS_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_DEVICE_CAPS_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_DEVICE_CAPS_INDEX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_DEVICE_CAPS_INDEX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_DEVICE_CAPS_INDEX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_DEVICE_CAPS_INDEX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_DEVICE_CAPS_INDEX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_DEVICE_CAPS_INDEX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(128u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
+impl ::core::marker::Copy for GET_GLYPH_OUTLINE_FORMAT {}
+impl ::core::clone::Clone for GET_GLYPH_OUTLINE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_GLYPH_OUTLINE_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_GLYPH_OUTLINE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_GLYPH_OUTLINE_FORMAT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_GLYPH_OUTLINE_FORMAT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_GLYPH_OUTLINE_FORMAT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_GLYPH_OUTLINE_FORMAT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_GLYPH_OUTLINE_FORMAT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_GLYPH_OUTLINE_FORMAT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GET_STOCK_OBJECT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_STOCK_OBJECT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = 4u32;
+pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 3u32;
+pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = 18u32;
+pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 2u32;
+pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = 5u32;
+pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 1u32;
+pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = 5u32;
+pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = 0u32;
+pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = 7u32;
+pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = 19u32;
+pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = 8u32;
+pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = 6u32;
+pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 11u32;
+pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = 12u32;
+pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = 14u32;
+pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = 17u32;
+pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 10u32;
+pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = 13u32;
+pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 16u32;
+pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = 15u32;
+pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15u32);
+impl ::core::marker::Copy for GET_STOCK_OBJECT_FLAGS {}
+impl ::core::clone::Clone for GET_STOCK_OBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_STOCK_OBJECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_STOCK_OBJECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_STOCK_OBJECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_STOCK_OBJECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_STOCK_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_STOCK_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_STOCK_OBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_STOCK_OBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_STOCK_OBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 #[repr(C)]
@@ -8822,13 +10383,62 @@ pub const GM_LAST: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GRADIENT_FILL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GRADIENT_FILL(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = 0u32;
+pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = 1u32;
+pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = 2u32;
+pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
+impl ::core::marker::Copy for GRADIENT_FILL {}
+impl ::core::clone::Clone for GRADIENT_FILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GRADIENT_FILL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GRADIENT_FILL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GRADIENT_FILL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GRADIENT_FILL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GRADIENT_FILL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GRADIENT_FILL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GRADIENT_FILL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GRADIENT_FILL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GRADIENT_FILL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[repr(C)]
@@ -8895,11 +10505,60 @@ impl ::core::default::Default for GRADIENT_TRIANGLE {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type GRAPHICS_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GRAPHICS_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GM_COMPATIBLE: GRAPHICS_MODE = 1u32;
+pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const GM_ADVANCED: GRAPHICS_MODE = 2u32;
+pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2u32);
+impl ::core::marker::Copy for GRAPHICS_MODE {}
+impl ::core::clone::Clone for GRAPHICS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GRAPHICS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GRAPHICS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GRAPHICS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GRAPHICS_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GRAPHICS_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GRAPHICS_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GRAPHICS_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GRAPHICS_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GRAPHICS_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
@@ -10698,19 +12357,68 @@ pub const HANGEUL_CHARSET: u32 = 129u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HANGUL_CHARSET: u32 = 129u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type HATCH_BRUSH_STYLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HATCH_BRUSH_STYLE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = 3u32;
+pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_CROSS: HATCH_BRUSH_STYLE = 4u32;
+pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = 5u32;
+pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = 2u32;
+pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = 0u32;
+pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HS_VERTICAL: HATCH_BRUSH_STYLE = 1u32;
+pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1u32);
+impl ::core::marker::Copy for HATCH_BRUSH_STYLE {}
+impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HATCH_BRUSH_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HATCH_BRUSH_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HATCH_BRUSH_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HATCH_BRUSH_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HATCH_BRUSH_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HATCH_BRUSH_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HATCH_BRUSH_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HATCH_BRUSH_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HBITMAP(pub isize);
@@ -10824,23 +12532,72 @@ unsafe impl ::windows::core::Abi for HDC {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type HDC_MAP_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDC_MAP_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_ANISOTROPIC: HDC_MAP_MODE = 8u32;
+pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_HIENGLISH: HDC_MAP_MODE = 5u32;
+pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_HIMETRIC: HDC_MAP_MODE = 3u32;
+pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_ISOTROPIC: HDC_MAP_MODE = 7u32;
+pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_LOENGLISH: HDC_MAP_MODE = 4u32;
+pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_LOMETRIC: HDC_MAP_MODE = 2u32;
+pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_TEXT: HDC_MAP_MODE = 1u32;
+pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MM_TWIPS: HDC_MAP_MODE = 6u32;
+pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6u32);
+impl ::core::marker::Copy for HDC_MAP_MODE {}
+impl ::core::clone::Clone for HDC_MAP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDC_MAP_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HDC_MAP_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HDC_MAP_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDC_MAP_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HDC_MAP_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HDC_MAP_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HDC_MAP_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HDC_MAP_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HDC_MAP_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(transparent)]
@@ -12065,13 +13822,62 @@ pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type MODIFY_WORLD_TRANSFORM_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = 1u32;
+pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 2u32;
+pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 3u32;
+pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
+impl ::core::marker::Copy for MODIFY_WORLD_TRANSFORM_MODE {}
+impl ::core::clone::Clone for MODIFY_WORLD_TRANSFORM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MODIFY_WORLD_TRANSFORM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MODIFY_WORLD_TRANSFORM_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MODIFY_WORLD_TRANSFORM_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MODIFY_WORLD_TRANSFORM_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MODIFY_WORLD_TRANSFORM_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MODIFY_WORLD_TRANSFORM_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MODIFY_WORLD_TRANSFORM_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MODIFY_WORLD_TRANSFORM_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MODIFY_WORLD_TRANSFORM_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -12195,13 +14001,62 @@ impl ::core::default::Default for MONITORINFOEXW {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type MONITOR_FROM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MONITOR_FROM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2u32;
+pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = 0u32;
+pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = 1u32;
+pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
+impl ::core::marker::Copy for MONITOR_FROM_FLAGS {}
+impl ::core::clone::Clone for MONITOR_FROM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MONITOR_FROM_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MONITOR_FROM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MONITOR_FROM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MONITOR_FROM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MONITOR_FROM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MONITOR_FROM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MONITOR_FROM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MONITOR_FROM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MONITOR_FROM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MONO_FONT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -12521,35 +14376,56 @@ pub const NTM_TYPE1: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NULLREGION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type OBJ_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OBJ_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_PEN: OBJ_TYPE = 1i32;
+pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_BRUSH: OBJ_TYPE = 2i32;
+pub const OBJ_BRUSH: OBJ_TYPE = OBJ_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_DC: OBJ_TYPE = 3i32;
+pub const OBJ_DC: OBJ_TYPE = OBJ_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_METADC: OBJ_TYPE = 4i32;
+pub const OBJ_METADC: OBJ_TYPE = OBJ_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_PAL: OBJ_TYPE = 5i32;
+pub const OBJ_PAL: OBJ_TYPE = OBJ_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_FONT: OBJ_TYPE = 6i32;
+pub const OBJ_FONT: OBJ_TYPE = OBJ_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_BITMAP: OBJ_TYPE = 7i32;
+pub const OBJ_BITMAP: OBJ_TYPE = OBJ_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_REGION: OBJ_TYPE = 8i32;
+pub const OBJ_REGION: OBJ_TYPE = OBJ_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_METAFILE: OBJ_TYPE = 9i32;
+pub const OBJ_METAFILE: OBJ_TYPE = OBJ_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_MEMDC: OBJ_TYPE = 10i32;
+pub const OBJ_MEMDC: OBJ_TYPE = OBJ_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_EXTPEN: OBJ_TYPE = 11i32;
+pub const OBJ_EXTPEN: OBJ_TYPE = OBJ_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_ENHMETADC: OBJ_TYPE = 12i32;
+pub const OBJ_ENHMETADC: OBJ_TYPE = OBJ_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_ENHMETAFILE: OBJ_TYPE = 13i32;
+pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const OBJ_COLORSPACE: OBJ_TYPE = 14i32;
+pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
+impl ::core::marker::Copy for OBJ_TYPE {}
+impl ::core::clone::Clone for OBJ_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OBJ_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OBJ_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OBJ_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OBJ_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OEM_CHARSET: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -13229,49 +15105,98 @@ impl ::core::default::Default for PELARRAY {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type PEN_STYLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEN_STYLE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_GEOMETRIC: PEN_STYLE = 65536u32;
+pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_COSMETIC: PEN_STYLE = 0u32;
+pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_SOLID: PEN_STYLE = 0u32;
+pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_DASH: PEN_STYLE = 1u32;
+pub const PS_DASH: PEN_STYLE = PEN_STYLE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_DOT: PEN_STYLE = 2u32;
+pub const PS_DOT: PEN_STYLE = PEN_STYLE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_DASHDOT: PEN_STYLE = 3u32;
+pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_DASHDOTDOT: PEN_STYLE = 4u32;
+pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_NULL: PEN_STYLE = 5u32;
+pub const PS_NULL: PEN_STYLE = PEN_STYLE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_INSIDEFRAME: PEN_STYLE = 6u32;
+pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_USERSTYLE: PEN_STYLE = 7u32;
+pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_ALTERNATE: PEN_STYLE = 8u32;
+pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_STYLE_MASK: PEN_STYLE = 15u32;
+pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_ENDCAP_ROUND: PEN_STYLE = 0u32;
+pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_ENDCAP_SQUARE: PEN_STYLE = 256u32;
+pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_ENDCAP_FLAT: PEN_STYLE = 512u32;
+pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_ENDCAP_MASK: PEN_STYLE = 3840u32;
+pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_JOIN_ROUND: PEN_STYLE = 0u32;
+pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_JOIN_BEVEL: PEN_STYLE = 4096u32;
+pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_JOIN_MITER: PEN_STYLE = 8192u32;
+pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_JOIN_MASK: PEN_STYLE = 61440u32;
+pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PS_TYPE_MASK: PEN_STYLE = 983040u32;
+pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040u32);
+impl ::core::marker::Copy for PEN_STYLE {}
+impl ::core::clone::Clone for PEN_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PEN_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PEN_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEN_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEN_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PEN_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PEN_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PEN_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PEN_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PEN_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -13854,41 +15779,62 @@ pub const QUERYESCSUPPORT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QUERYROPSUPPORT: u32 = 40u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type R2_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct R2_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_BLACK: R2_MODE = 1i32;
+pub const R2_BLACK: R2_MODE = R2_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOTMERGEPEN: R2_MODE = 2i32;
+pub const R2_NOTMERGEPEN: R2_MODE = R2_MODE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MASKNOTPEN: R2_MODE = 3i32;
+pub const R2_MASKNOTPEN: R2_MODE = R2_MODE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOTCOPYPEN: R2_MODE = 4i32;
+pub const R2_NOTCOPYPEN: R2_MODE = R2_MODE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MASKPENNOT: R2_MODE = 5i32;
+pub const R2_MASKPENNOT: R2_MODE = R2_MODE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOT: R2_MODE = 6i32;
+pub const R2_NOT: R2_MODE = R2_MODE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_XORPEN: R2_MODE = 7i32;
+pub const R2_XORPEN: R2_MODE = R2_MODE(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOTMASKPEN: R2_MODE = 8i32;
+pub const R2_NOTMASKPEN: R2_MODE = R2_MODE(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MASKPEN: R2_MODE = 9i32;
+pub const R2_MASKPEN: R2_MODE = R2_MODE(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOTXORPEN: R2_MODE = 10i32;
+pub const R2_NOTXORPEN: R2_MODE = R2_MODE(10i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_NOP: R2_MODE = 11i32;
+pub const R2_NOP: R2_MODE = R2_MODE(11i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MERGENOTPEN: R2_MODE = 12i32;
+pub const R2_MERGENOTPEN: R2_MODE = R2_MODE(12i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_COPYPEN: R2_MODE = 13i32;
+pub const R2_COPYPEN: R2_MODE = R2_MODE(13i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MERGEPENNOT: R2_MODE = 14i32;
+pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_MERGEPEN: R2_MODE = 15i32;
+pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_WHITE: R2_MODE = 16i32;
+pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const R2_LAST: R2_MODE = 16i32;
+pub const R2_LAST: R2_MODE = R2_MODE(16i32);
+impl ::core::marker::Copy for R2_MODE {}
+impl ::core::clone::Clone for R2_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for R2_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for R2_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for R2_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("R2_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct RASTERIZER_STATUS {
@@ -13960,31 +15906,80 @@ pub const RDH_RECTANGLES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type REDRAW_WINDOW_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REDRAW_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = 1u32;
+pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = 2u32;
+pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = 4u32;
+pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = 8u32;
+pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = 16u32;
+pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = 32u32;
+pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = 64u32;
+pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = 128u32;
+pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = 256u32;
+pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = 512u32;
+pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = 1024u32;
+pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = 2048u32;
+pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
+impl ::core::marker::Copy for REDRAW_WINDOW_FLAGS {}
+impl ::core::clone::Clone for REDRAW_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REDRAW_WINDOW_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REDRAW_WINDOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REDRAW_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REDRAW_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REDRAW_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REDRAW_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REDRAW_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RELATIVE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -14136,59 +16131,129 @@ impl ::core::default::Default for RGNDATAHEADER {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type RGN_COMBINE_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RGN_COMBINE_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_AND: RGN_COMBINE_MODE = 1i32;
+pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_OR: RGN_COMBINE_MODE = 2i32;
+pub const RGN_OR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_XOR: RGN_COMBINE_MODE = 3i32;
+pub const RGN_XOR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_DIFF: RGN_COMBINE_MODE = 4i32;
+pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_COPY: RGN_COMBINE_MODE = 5i32;
+pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_MIN: RGN_COMBINE_MODE = 1i32;
+pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const RGN_MAX: RGN_COMBINE_MODE = 5i32;
+pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
+impl ::core::marker::Copy for RGN_COMBINE_MODE {}
+impl ::core::clone::Clone for RGN_COMBINE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RGN_COMBINE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RGN_COMBINE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RGN_COMBINE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RGN_COMBINE_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_ERROR: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type ROP_CODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ROP_CODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SRCCOPY: ROP_CODE = 13369376u32;
+pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SRCPAINT: ROP_CODE = 15597702u32;
+pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SRCAND: ROP_CODE = 8913094u32;
+pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SRCINVERT: ROP_CODE = 6684742u32;
+pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SRCERASE: ROP_CODE = 4457256u32;
+pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NOTSRCCOPY: ROP_CODE = 3342344u32;
+pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NOTSRCERASE: ROP_CODE = 1114278u32;
+pub const NOTSRCERASE: ROP_CODE = ROP_CODE(1114278u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MERGECOPY: ROP_CODE = 12583114u32;
+pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const MERGEPAINT: ROP_CODE = 12255782u32;
+pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PATCOPY: ROP_CODE = 15728673u32;
+pub const PATCOPY: ROP_CODE = ROP_CODE(15728673u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PATPAINT: ROP_CODE = 16452105u32;
+pub const PATPAINT: ROP_CODE = ROP_CODE(16452105u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const PATINVERT: ROP_CODE = 5898313u32;
+pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DSTINVERT: ROP_CODE = 5570569u32;
+pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BLACKNESS: ROP_CODE = 66u32;
+pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const WHITENESS: ROP_CODE = 16711778u32;
+pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const NOMIRRORBITMAP: ROP_CODE = 2147483648u32;
+pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const CAPTUREBLT: ROP_CODE = 1073741824u32;
+pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
+impl ::core::marker::Copy for ROP_CODE {}
+impl ::core::clone::Clone for ROP_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ROP_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ROP_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ROP_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ROP_CODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ROP_CODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ROP_CODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ROP_CODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ROP_CODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ROP_CODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RUSSIAN_CHARSET: u32 = 204u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -14511,15 +16576,64 @@ pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_BOUNDS: u32 = 4109u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type SET_BOUNDS_RECT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = 2u32;
+pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = 8u32;
+pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = 4u32;
+pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = 1u32;
+pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
+impl ::core::marker::Copy for SET_BOUNDS_RECT_FLAGS {}
+impl ::core::clone::Clone for SET_BOUNDS_RECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SET_BOUNDS_RECT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SET_BOUNDS_RECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_BOUNDS_RECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_BOUNDS_RECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_BOUNDS_RECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_BOUNDS_RECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_BOUNDS_RECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_BOUNDS_RECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_CLIP_BOX: u32 = 4108u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -14555,23 +16669,72 @@ pub const STOCK_LAST: u32 = 19u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCHBLT: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type STRETCH_BLT_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRETCH_BLT_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const BLACKONWHITE: STRETCH_BLT_MODE = 1u32;
+pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const COLORONCOLOR: STRETCH_BLT_MODE = 3u32;
+pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const HALFTONE: STRETCH_BLT_MODE = 4u32;
+pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = 1u32;
+pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = 3u32;
+pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = 4u32;
+pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = 2u32;
+pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const WHITEONBLACK: STRETCH_BLT_MODE = 2u32;
+pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
+impl ::core::marker::Copy for STRETCH_BLT_MODE {}
+impl ::core::clone::Clone for STRETCH_BLT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STRETCH_BLT_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STRETCH_BLT_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRETCH_BLT_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRETCH_BLT_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STRETCH_BLT_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STRETCH_BLT_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STRETCH_BLT_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STRETCH_BLT_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STRETCH_BLT_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYMBOL_CHARSET: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -14579,13 +16742,62 @@ pub const SYSPAL_ERROR: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSRGN: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type SYSTEM_PALETTE_USE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_PALETTE_USE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = 2u32;
+pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = 3u32;
+pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = 1u32;
+pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
+impl ::core::marker::Copy for SYSTEM_PALETTE_USE {}
+impl ::core::clone::Clone for SYSTEM_PALETTE_USE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEM_PALETTE_USE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_PALETTE_USE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_PALETTE_USE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYSTEM_PALETTE_USE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYSTEM_PALETTE_USE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYSTEM_PALETTE_USE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYSTEM_PALETTE_USE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYSTEM_PALETTE_USE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SaveDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
@@ -15542,39 +17754,88 @@ impl ::core::default::Default for TEXTMETRICW {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type TEXT_ALIGN_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TEXT_ALIGN_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = 0u32;
+pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = 1u32;
+pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_LEFT: TEXT_ALIGN_OPTIONS = 0u32;
+pub const TA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = 2u32;
+pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_CENTER: TEXT_ALIGN_OPTIONS = 6u32;
+pub const TA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_TOP: TEXT_ALIGN_OPTIONS = 0u32;
+pub const TA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = 8u32;
+pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = 24u32;
+pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = 256u32;
+pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(256u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TA_MASK: TEXT_ALIGN_OPTIONS = 287u32;
+pub const TA_MASK: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(287u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = 24u32;
+pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = 8u32;
+pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = 0u32;
+pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = 6u32;
+pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = 2u32;
+pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const VTA_TOP: TEXT_ALIGN_OPTIONS = 0u32;
+pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+impl ::core::marker::Copy for TEXT_ALIGN_OPTIONS {}
+impl ::core::clone::Clone for TEXT_ALIGN_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TEXT_ALIGN_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TEXT_ALIGN_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXT_ALIGN_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXT_ALIGN_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const THAI_CHARSET: u32 = 222u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -15692,15 +17953,64 @@ pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type TTEMBED_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TTEMBED_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = 32u32;
+pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTEMBED_RAW: TTEMBED_FLAGS = 0u32;
+pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTEMBED_SUBSET: TTEMBED_FLAGS = 1u32;
+pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = 4u32;
+pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = TTEMBED_FLAGS(4u32);
+impl ::core::marker::Copy for TTEMBED_FLAGS {}
+impl ::core::clone::Clone for TTEMBED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TTEMBED_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TTEMBED_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TTEMBED_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TTEMBED_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TTEMBED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TTEMBED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TTEMBED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TTEMBED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TTEMBED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -15915,11 +18225,60 @@ impl ::core::default::Default for TTLOADINFO {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub type TTLOAD_EMBEDDED_FONT_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = 1u32;
+pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = 2u32;
+pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
+impl ::core::marker::Copy for TTLOAD_EMBEDDED_FONT_STATUS {}
+impl ::core::clone::Clone for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TTLOAD_EMBEDDED_FONT_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TTLOAD_EMBEDDED_FONT_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -16499,3 +18858,5 @@ pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

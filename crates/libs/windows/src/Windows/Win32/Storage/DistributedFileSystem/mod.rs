@@ -1010,13 +1010,34 @@ impl ::core::default::Default for DFS_INFO_9 {
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
+impl ::core::marker::Copy for DFS_NAMESPACE_VERSION_ORIGIN {}
+impl ::core::clone::Clone for DFS_NAMESPACE_VERSION_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DFS_NAMESPACE_VERSION_ORIGIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DFS_NAMESPACE_VERSION_ORIGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DFS_NAMESPACE_VERSION_ORIGIN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
@@ -1310,19 +1331,40 @@ impl ::core::default::Default for DFS_TARGET_PRIORITY {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub type DFS_TARGET_PRIORITY_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = -1i32;
+pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = 0i32;
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 1i32;
+pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 2i32;
+pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 3i32;
+pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
-pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 4i32;
+pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
+impl ::core::marker::Copy for DFS_TARGET_PRIORITY_CLASS {}
+impl ::core::clone::Clone for DFS_TARGET_PRIORITY_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DFS_TARGET_PRIORITY_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DFS_TARGET_PRIORITY_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DFS_TARGET_PRIORITY_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
@@ -1687,3 +1729,5 @@ pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

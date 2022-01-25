@@ -13,22 +13,23 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident2(def);
-    let vtbl = name.join("Vtbl");
+    let name = gen_ident(def.name());
+    let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
     let phantoms = gen_phantoms(def, gen);
+    let named_phantoms = gen_named_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let generics = gen_type_generics(def, gen);
 
     let method = def.invoke_method();
     let signature = method.signature(&def.generics);
-    let fn_constraint = gen_fn_constraint(&signature, gen);
+    let fn_constraint = gen_fn_constraint(def, &method, gen);
     let cfg = gen.type_cfg(def);
     let doc = cfg.gen_doc(gen);
     let features = cfg.gen(gen);
     let vtbl_signature = gen_vtbl_signature(def, &method, gen);
-    let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, 3, &mut BTreeMap::new(), gen);
+    let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, &mut MethodNames::new(), &mut MethodNames::new(), gen);
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     let mut tokens = quote! {
@@ -59,13 +60,11 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
         #features
         impl<#(#constraints)* #fn_constraint> #boxed<#(#generics)* F> {
-            const VTABLE: #vtbl<#(#generics)*> = #vtbl::<#(#generics)*>(
-                Self::QueryInterface,
-                Self::AddRef,
-                Self::Release,
-                Self::Invoke,
-                #(#phantoms)*
-            );
+            const VTABLE: #vtbl<#(#generics)*> = #vtbl::<#(#generics)*>{
+                base: ::windows::core::IUnknownVtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
+                Invoke: Self::Invoke,
+                #(#named_phantoms)*
+            };
             unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 let this = this as *mut ::windows::core::RawPtr as *mut Self;
 
@@ -115,48 +114,8 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_fn_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    let params = sig.params.iter().map(|p| gen_produce_type(p, gen));
+fn gen_fn_constraint(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
+    let signature = gen_impl_signature(def, method, gen);
 
-    let return_sig = if let Some(return_sig) = &sig.return_sig {
-        let tokens = gen_element_name(&return_sig.kind, gen);
-
-        if return_sig.is_array {
-            quote! { ::windows::core::Array<#tokens> }
-        } else {
-            tokens
-        }
-    } else {
-        quote! { () }
-    };
-
-    quote! { F: FnMut(#(#params),*) -> ::windows::core::Result<#return_sig> + 'static }
-}
-
-fn gen_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let tokens = gen_element_name(&param.signature.kind, gen);
-
-    if param.signature.is_array {
-        if param.param.is_input() {
-            quote! { &[<#tokens as ::windows::core::DefaultType>::DefaultType] }
-        } else if param.signature.by_ref {
-            quote! { &mut ::windows::core::Array<#tokens> }
-        } else {
-            quote! { &mut [<#tokens as ::windows::core::DefaultType>::DefaultType] }
-        }
-    } else if param.param.is_input() {
-        if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#tokens as ::windows::core::DefaultType>::DefaultType }
-        } else if param.signature.kind.is_primitive() {
-            quote! { #tokens }
-        } else if param.signature.kind.is_nullable() {
-            quote! { &::core::option::Option<#tokens> }
-        } else {
-            quote! { &#tokens }
-        }
-    } else if param.signature.kind.is_nullable() {
-        quote! { &mut ::core::option::Option<#tokens> }
-    } else {
-        quote! { &mut #tokens }
-    }
+    quote! { F: FnMut #signature + 'static }
 }

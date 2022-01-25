@@ -172,21 +172,42 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub type NS_CMD_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NS_CMD_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = NS_CMD_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for NS_CMD_FLAGS {}
+impl ::core::clone::Clone for NS_CMD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NS_CMD_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NS_CMD_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NS_CMD_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -305,17 +326,38 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub type NS_EVENTS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NS_EVENTS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
+pub const NS_EVENT_LAST_N: NS_EVENTS = NS_EVENTS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
+pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
+pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
+impl ::core::marker::Copy for NS_EVENTS {}
+impl ::core::clone::Clone for NS_EVENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NS_EVENTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NS_EVENTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NS_EVENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NS_EVENTS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub struct NS_HELPER_ATTRIBUTES {
@@ -402,27 +444,69 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub type NS_MODE_CHANGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NS_MODE_CHANGE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NETSH_COMMIT: NS_MODE_CHANGE = 0i32;
+pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NETSH_FLUSH: NS_MODE_CHANGE = 2i32;
+pub const NETSH_FLUSH: NS_MODE_CHANGE = NS_MODE_CHANGE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3i32;
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = NS_MODE_CHANGE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
+pub const NETSH_SAVE: NS_MODE_CHANGE = NS_MODE_CHANGE(4i32);
+impl ::core::marker::Copy for NS_MODE_CHANGE {}
+impl ::core::clone::Clone for NS_MODE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NS_MODE_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NS_MODE_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NS_MODE_CHANGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub type NS_REQS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NS_REQS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_REQ_ZERO: NS_REQS = 0i32;
+pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_REQ_PRESENT: NS_REQS = 1i32;
+pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
-pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
+impl ::core::marker::Copy for NS_REQS {}
+impl ::core::clone::Clone for NS_REQS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NS_REQS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NS_REQS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NS_REQS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NS_REQS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
@@ -616,3 +700,5 @@ impl ::core::default::Default for TOKEN_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");
