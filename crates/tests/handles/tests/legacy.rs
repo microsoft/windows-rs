@@ -1,4 +1,3 @@
-use windows::core::HRESULT;
 use windows::Win32::Foundation::*;
 use windows::Win32::System::Registry::*;
 
@@ -15,11 +14,9 @@ fn handle() {
     assert!(HANDLE(1).ok().unwrap() == HANDLE(1));
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE) };
-    assert!(HANDLE(0).ok().err().unwrap().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0));
     assert!(HANDLE(0).ok().err().unwrap().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
     unsafe { SetLastError(ERROR_FILE_NOT_FOUND) };
-    assert!(HANDLE(-1).ok().err().unwrap().code() == HRESULT::from_win32(ERROR_FILE_NOT_FOUND.0));
     assert!(HANDLE(-1).ok().err().unwrap().code() == ERROR_FILE_NOT_FOUND.into());
 
     assert!(core::mem::size_of::<HANDLE>() == core::mem::size_of::<usize>());

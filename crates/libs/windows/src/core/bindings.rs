@@ -1588,7 +1588,7 @@ impl ::core::fmt::Debug for WIN32_ERROR {
 }
 impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
-        Self::from_win32(value.0)
+        Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
     }
 }
 #[repr(C)]
