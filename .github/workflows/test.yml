@@ -102,6 +102,7 @@ jobs:
         cargo test --target ${{ matrix.other }} -p test_implement_map &&
         cargo test --target ${{ matrix.other }} -p test_implement_no_use &&
         cargo test --target ${{ matrix.other }} -p test_implement_null_result &&
+        cargo test --target ${{ matrix.other }} -p test_implement_properties &&
         cargo test --target ${{ matrix.other }} -p test_implement_winrt &&
         cargo test --target ${{ matrix.other }} -p com_uri &&
         cargo test --target ${{ matrix.other }} -p core_app &&
