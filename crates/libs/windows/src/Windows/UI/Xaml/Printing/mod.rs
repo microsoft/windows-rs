@@ -92,7 +92,7 @@ unsafe impl ::core::marker::Sync for AddPagesEventArgs {}
 #[repr(transparent)]
 pub struct AddPagesEventHandler(pub ::windows::core::IUnknown);
 impl AddPagesEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = AddPagesEventHandlerBox::<F> { vtable: &AddPagesEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -103,12 +103,12 @@ impl AddPagesEventHandler {
     }
 }
 #[repr(C)]
-struct AddPagesEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct AddPagesEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const AddPagesEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + 'static> AddPagesEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AddPagesEventHandlerBox<F> {
     const VTABLE: AddPagesEventHandler_Vtbl = AddPagesEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -258,7 +258,7 @@ unsafe impl ::core::marker::Sync for GetPreviewPageEventArgs {}
 #[repr(transparent)]
 pub struct GetPreviewPageEventHandler(pub ::windows::core::IUnknown);
 impl GetPreviewPageEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = GetPreviewPageEventHandlerBox::<F> { vtable: &GetPreviewPageEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -269,12 +269,12 @@ impl GetPreviewPageEventHandler {
     }
 }
 #[repr(C)]
-struct GetPreviewPageEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct GetPreviewPageEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const GetPreviewPageEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + 'static> GetPreviewPageEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> GetPreviewPageEventHandlerBox<F> {
     const VTABLE: GetPreviewPageEventHandler_Vtbl = GetPreviewPageEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -550,7 +550,7 @@ unsafe impl ::core::marker::Sync for PaginateEventArgs {}
 #[repr(transparent)]
 pub struct PaginateEventHandler(pub ::windows::core::IUnknown);
 impl PaginateEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = PaginateEventHandlerBox::<F> { vtable: &PaginateEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -561,12 +561,12 @@ impl PaginateEventHandler {
     }
 }
 #[repr(C)]
-struct PaginateEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct PaginateEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const PaginateEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + 'static> PaginateEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PaginateEventHandlerBox<F> {
     const VTABLE: PaginateEventHandler_Vtbl = PaginateEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

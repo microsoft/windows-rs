@@ -1753,7 +1753,7 @@ unsafe impl ::core::marker::Sync for PerceptionPropertyChangeRequest {}
 pub struct PerceptionStartFaceAuthenticationHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionStartFaceAuthenticationHandler {
-    pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = PerceptionStartFaceAuthenticationHandlerBox::<F> { vtable: &PerceptionStartFaceAuthenticationHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1769,13 +1769,13 @@ impl PerceptionStartFaceAuthenticationHandler {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-struct PerceptionStartFaceAuthenticationHandlerBox<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + 'static> {
+struct PerceptionStartFaceAuthenticationHandlerBox<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static> {
     vtable: *const PerceptionStartFaceAuthenticationHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "deprecated")]
-impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + 'static> PerceptionStartFaceAuthenticationHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + ::core::marker::Send + 'static> PerceptionStartFaceAuthenticationHandlerBox<F> {
     const VTABLE: PerceptionStartFaceAuthenticationHandler_Vtbl = PerceptionStartFaceAuthenticationHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -1856,7 +1856,7 @@ pub struct PerceptionStartFaceAuthenticationHandler_Vtbl {
 pub struct PerceptionStopFaceAuthenticationHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionStopFaceAuthenticationHandler {
-    pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = PerceptionStopFaceAuthenticationHandlerBox::<F> { vtable: &PerceptionStopFaceAuthenticationHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1869,13 +1869,13 @@ impl PerceptionStopFaceAuthenticationHandler {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
-struct PerceptionStopFaceAuthenticationHandlerBox<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + 'static> {
+struct PerceptionStopFaceAuthenticationHandlerBox<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const PerceptionStopFaceAuthenticationHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "deprecated")]
-impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + 'static> PerceptionStopFaceAuthenticationHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> PerceptionStopFaceAuthenticationHandlerBox<F> {
     const VTABLE: PerceptionStopFaceAuthenticationHandler_Vtbl = PerceptionStopFaceAuthenticationHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

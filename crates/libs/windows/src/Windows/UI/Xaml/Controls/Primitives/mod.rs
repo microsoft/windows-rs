@@ -3451,7 +3451,7 @@ unsafe impl ::core::marker::Sync for DragCompletedEventArgs {}
 #[repr(transparent)]
 pub struct DragCompletedEventHandler(pub ::windows::core::IUnknown);
 impl DragCompletedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DragCompletedEventHandlerBox::<F> { vtable: &DragCompletedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3462,12 +3462,12 @@ impl DragCompletedEventHandler {
     }
 }
 #[repr(C)]
-struct DragCompletedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct DragCompletedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DragCompletedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> DragCompletedEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragCompletedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragCompletedEventHandlerBox<F> {
     const VTABLE: DragCompletedEventHandler_Vtbl = DragCompletedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -3658,7 +3658,7 @@ unsafe impl ::core::marker::Sync for DragDeltaEventArgs {}
 #[repr(transparent)]
 pub struct DragDeltaEventHandler(pub ::windows::core::IUnknown);
 impl DragDeltaEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DragDeltaEventHandlerBox::<F> { vtable: &DragDeltaEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3669,12 +3669,12 @@ impl DragDeltaEventHandler {
     }
 }
 #[repr(C)]
-struct DragDeltaEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct DragDeltaEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DragDeltaEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + 'static> DragDeltaEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragDeltaEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragDeltaEventHandlerBox<F> {
     const VTABLE: DragDeltaEventHandler_Vtbl = DragDeltaEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -3865,7 +3865,7 @@ unsafe impl ::core::marker::Sync for DragStartedEventArgs {}
 #[repr(transparent)]
 pub struct DragStartedEventHandler(pub ::windows::core::IUnknown);
 impl DragStartedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DragStartedEventHandlerBox::<F> { vtable: &DragStartedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3876,12 +3876,12 @@ impl DragStartedEventHandler {
     }
 }
 #[repr(C)]
-struct DragStartedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct DragStartedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DragStartedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + 'static> DragStartedEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DragStartedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DragStartedEventHandlerBox<F> {
     const VTABLE: DragStartedEventHandler_Vtbl = DragStartedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -8916,7 +8916,7 @@ unsafe impl ::core::marker::Sync for ItemsChangedEventArgs {}
 #[repr(transparent)]
 pub struct ItemsChangedEventHandler(pub ::windows::core::IUnknown);
 impl ItemsChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ItemsChangedEventHandlerBox::<F> { vtable: &ItemsChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -8927,12 +8927,12 @@ impl ItemsChangedEventHandler {
     }
 }
 #[repr(C)]
-struct ItemsChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct ItemsChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ItemsChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + 'static> ItemsChangedEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ItemsChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ItemsChangedEventHandlerBox<F> {
     const VTABLE: ItemsChangedEventHandler_Vtbl = ItemsChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -15213,7 +15213,7 @@ unsafe impl ::core::marker::Sync for RangeBaseValueChangedEventArgs {}
 #[repr(transparent)]
 pub struct RangeBaseValueChangedEventHandler(pub ::windows::core::IUnknown);
 impl RangeBaseValueChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = RangeBaseValueChangedEventHandlerBox::<F> { vtable: &RangeBaseValueChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -15224,12 +15224,12 @@ impl RangeBaseValueChangedEventHandler {
     }
 }
 #[repr(C)]
-struct RangeBaseValueChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct RangeBaseValueChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const RangeBaseValueChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + 'static> RangeBaseValueChangedEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RangeBaseValueChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RangeBaseValueChangedEventHandlerBox<F> {
     const VTABLE: RangeBaseValueChangedEventHandler_Vtbl = RangeBaseValueChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -16016,7 +16016,7 @@ unsafe impl ::core::marker::Sync for ScrollEventArgs {}
 #[repr(transparent)]
 pub struct ScrollEventHandler(pub ::windows::core::IUnknown);
 impl ScrollEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ScrollEventHandlerBox::<F> { vtable: &ScrollEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -16027,12 +16027,12 @@ impl ScrollEventHandler {
     }
 }
 #[repr(C)]
-struct ScrollEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + 'static> {
+struct ScrollEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ScrollEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + 'static> ScrollEventHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ScrollEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ScrollEventHandlerBox<F> {
     const VTABLE: ScrollEventHandler_Vtbl = ScrollEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

@@ -1,5 +1,5 @@
 [package]
-name = "test_winrt_weak"
+name = "test_weak"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"

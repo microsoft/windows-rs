@@ -247,7 +247,7 @@ unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
 #[repr(transparent)]
 pub struct TimerDestroyedHandler(pub ::windows::core::IUnknown);
 impl TimerDestroyedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox::<F> { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -258,12 +258,12 @@ impl TimerDestroyedHandler {
     }
 }
 #[repr(C)]
-struct TimerDestroyedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> {
+struct TimerDestroyedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const TimerDestroyedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerDestroyedHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerDestroyedHandlerBox<F> {
     const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -325,7 +325,7 @@ pub struct TimerDestroyedHandler_Vtbl {
 #[repr(transparent)]
 pub struct TimerElapsedHandler(pub ::windows::core::IUnknown);
 impl TimerElapsedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox::<F> { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -336,12 +336,12 @@ impl TimerElapsedHandler {
     }
 }
 #[repr(C)]
-struct TimerElapsedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> {
+struct TimerElapsedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const TimerElapsedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerElapsedHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerElapsedHandlerBox<F> {
     const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
@@ -405,7 +405,7 @@ pub struct TimerElapsedHandler_Vtbl {
 pub struct WorkItemHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl WorkItemHandler {
-    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox::<F> { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -418,13 +418,13 @@ impl WorkItemHandler {
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]
-struct WorkItemHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static> {
+struct WorkItemHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const WorkItemHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "Foundation")]
-impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static> WorkItemHandlerBox<F> {
+impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WorkItemHandlerBox<F> {
     const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;

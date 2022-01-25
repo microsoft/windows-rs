@@ -117,5 +117,5 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
 fn gen_fn_constraint(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
     let signature = gen_impl_signature(def, method, gen);
 
-    quote! { F: FnMut #signature + 'static }
+    quote! { F: FnMut #signature + ::core::marker::Send + 'static }
 }
