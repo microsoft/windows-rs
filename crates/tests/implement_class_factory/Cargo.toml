@@ -1,5 +1,5 @@
 [package]
-name = "test_data_object"
+name = "test_implement_class_factory"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
@@ -8,7 +8,7 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
+    "Foundation",
     "Win32_Foundation",
-    "Win32_Graphics_Gdi",
-    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Com",
 ]

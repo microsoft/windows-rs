@@ -72,7 +72,7 @@ jobs:
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.other, 'windows-gnu')
 
-    - name: Test (${{ matrix.os }})
+    - name: Test stable (${{ matrix.os }})
       run: |
 "#
         .as_bytes(),
@@ -83,9 +83,42 @@ jobs:
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {
-                    yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", file.file_name().to_str().unwrap()).as_bytes()).unwrap();
+                    let name = file.file_name().to_str().unwrap().to_string();
+                    if !name.starts_with("implement_") {
+                      yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
+                    }
                 }
             }
         }
     }
+
+    yml.write_all(
+      r#"      if: contains(matrix.rust, 'stable')
+
+    - name: Test nightly (${{ matrix.os }})
+      run: |
+"#
+        .as_bytes(),
+    )
+    .unwrap();
+
+    if let Ok(files) = std::fs::read_dir(root.join("crates/tests")) {
+      for file in files.filter_map(|file| file.ok()) {
+          if let Ok(file_type) = file.file_type() {
+              if file_type.is_dir() {
+                  let name = file.file_name().to_str().unwrap().to_string();
+                  if name.starts_with("implement_") {
+                    yml.write_all(format!("        cargo test --target ${{{{ matrix.other }}}} -p test_{}\n", name).as_bytes()).unwrap();
+                  }
+              }
+          }
+      }
+  }
+
+  yml.write_all(
+    r#"      if: contains(matrix.rust, 'nightly')
+"#
+      .as_bytes(),
+  )
+  .unwrap();
 }
