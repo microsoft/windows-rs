@@ -1,6 +1,15 @@
 #![windows_subsystem = "windows"]
 
-use windows::{core::*, ApplicationModel::Core::*, Win32::System::Com::*, UI::Core::*};
+use windows::{
+    core::*,
+    ApplicationModel::{Core::*, Package},
+    Win32::{
+        Foundation::HWND,
+        System::Com::*,
+        UI::WindowsAndMessaging::{MessageBoxW, MB_ICONSTOP, MB_OK},
+    },
+    UI::Core::*,
+};
 
 #[implement(IFrameworkViewSource)]
 struct CoreApp();
@@ -48,6 +57,11 @@ impl IFrameworkView_Impl for CoreAppView {
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)?;
+
+        if let Err(result) = Package::Current() {
+            MessageBoxW(HWND::default(), "This sample must be registered (via register.cmd) and launched from Start.", "Error", MB_ICONSTOP | MB_OK);
+            return Err(result);
+        }
     }
 
     let app: IFrameworkViewSource = CoreApp().into();

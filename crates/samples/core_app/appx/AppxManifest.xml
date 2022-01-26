@@ -19,7 +19,7 @@
     <Resource Language="en-us" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="sample.exe" EntryPoint="CoreApp.App">
+    <Application Id="App" Executable="core_app.exe" EntryPoint="CoreApp.App">
       <uap:VisualElements DisplayName="Rust CoreApp" Description="Description"
         Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png" BackgroundColor="transparent">
         <uap:SplashScreen Image="SplashScreen.png" />
