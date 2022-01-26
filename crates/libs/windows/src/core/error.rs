@@ -130,11 +130,7 @@ impl core::convert::From<HRESULT> for Error {
 impl core::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
-        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message());
-        if let Some(win32) = self.win32_error() {
-            debug.field("win32_error", &format_args!("{}", win32.0));
-        }
-        debug.finish()
+        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message()).finish()
     }
 }
 
