@@ -49,8 +49,6 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         _ => quote! {},
     };
 
-    // TODO: don't use Interface::vtable trait for winrt/winrt calls - just stamp out vtable type directly
-
     let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
         if return_sig.is_array {
             (
@@ -108,8 +106,6 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
-        // TODO: for composable generate a different signature that lets you provide an Option<Composable> so non
-        // derived cases can just provide None for the derived type
         InterfaceKind::Static => {
             quote! {
                 #cfg
@@ -133,7 +129,6 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
-        InterfaceKind::Extend | InterfaceKind::Overridable => unimplemented!(), // TODO: should remove these flags
     }
 }
 

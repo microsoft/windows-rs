@@ -396,8 +396,6 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_element_name(&param.signature.kind, gen);
 
-    // TODO: probably simplify this once the trait is called since the target type can be inferred safely
-
     if param.signature.is_array {
         let abi_size_name: TokenStream = format!("{}_array_size", param.param.name()).into();
 
@@ -411,7 +409,6 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
-            // TODO: probably don't need the explicit type casts s here anymore since we have traits to auto deduce
         } else if param.signature.is_const {
             quote! { &*(#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         } else {
