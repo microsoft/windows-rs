@@ -162,11 +162,6 @@ impl Gen<'_> {
             }
             TypeKind::Struct => {
                 def.fields().for_each(|field| self.field_requirements(&field, Some(def), namespaces, keys));
-
-                // TODO: needed?
-                if let Some(def) = def.is_convertible_to() {
-                    self.add_namespace(def.type_name().namespace, namespaces);
-                }
             }
             TypeKind::Delegate => self.method_requirements(&def.invoke_method().signature(&[]), namespaces, keys),
             _ => {}
