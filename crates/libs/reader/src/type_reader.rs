@@ -10,7 +10,7 @@ pub struct TypeReader {
 }
 
 impl TypeReader {
-    pub fn get_mut() -> &'static mut Self {
+    pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
@@ -21,11 +21,7 @@ impl TypeReader {
         });
 
         // This is safe because `call_once` has already been called.
-        unsafe { &mut *VALUE.as_mut_ptr() }
-    }
-
-    pub fn get() -> &'static Self {
-        Self::get_mut()
+        unsafe { &*VALUE.as_mut_ptr() }
     }
 
     /// Insert WinRT metadata at the given paths

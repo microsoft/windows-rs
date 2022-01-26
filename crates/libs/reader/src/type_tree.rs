@@ -35,10 +35,6 @@ impl TypeTree {
         self.types.get(name)
     }
 
-    pub fn get_type_mut(&mut self, name: &str) -> Option<&mut Vec<ElementType>> {
-        self.types.get_mut(name)
-    }
-
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
         if let Some(next) = namespace.find('.') {
             self.namespaces.get(&namespace[..next]).and_then(|child| child.get_namespace(&namespace[next + 1..]))
