@@ -37,7 +37,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();
     let mut tokens = String::new();
 
-    for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.def.iter()) {
+    for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.iter()) {
         tokens.push_str(gen_element_type(def, gen).as_str());
     }
 
@@ -78,7 +78,7 @@ pub fn gen_namespace_impl(gen: &Gen) -> String {
     let mut tokens = TokenStream::new();
 
     for entry in tree.types.values() {
-        for def in &entry.def {
+        for def in entry {
             if let ElementType::TypeDef(def) = def {
                 let def = &def.clone().with_generics();
                 tokens.combine(&implements::gen(def, gen));
@@ -93,7 +93,7 @@ fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for entry in tree.types.values() {
-        for def in &entry.def {
+        for def in entry {
             tokens.combine(&gen_element_type(def, gen));
         }
     }

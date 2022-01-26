@@ -1,5 +1,4 @@
 [package]
-#TODO: rename to windows_tokens and rename quote! macro to tokens!
 name = "windows_quote"
 version = "0.30.0"
 authors = ["Microsoft"]

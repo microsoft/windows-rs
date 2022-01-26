@@ -37,7 +37,6 @@ impl TypeReader {
         let files = workspace_winmds();
         let mut nested = HashMap::<Row, BTreeMap<&'static str, TypeDef>>::new();
         let mut types = TypeTree::from_namespace("");
-        types.include = true;
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -92,21 +91,17 @@ impl TypeReader {
         Self { nested, types }
     }
 
-    /// Get all the namespace names that the [`TypeReader`] knows about
-    pub fn namespaces(&'static self) -> Vec<&'static str> {
-        self.types.namespaces()
-    }
-
     pub fn nested_types(&'static self, enclosing: &TypeDef) -> Option<&BTreeMap<&'static str, TypeDef>> {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&TypeEntry> {
+    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&Vec<ElementType>> {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name()))
     }
 
+    // tODO: need this?
     pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {
-        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.def.first())
+        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.first())
     }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&TypeTree> {
