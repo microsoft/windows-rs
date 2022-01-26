@@ -57,3 +57,16 @@ jobs:
       run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
+
+  cargo_clippy:
+    name: Check cargo clippy
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Switch to nightly
+      run: rustup update --no-self-update nightly && rustup default nightly
+    - name: Install clippy
+      run: rustup component add clippy
+    - name: Run clippy
+      run: cargo clippy --all -- -D warnings
