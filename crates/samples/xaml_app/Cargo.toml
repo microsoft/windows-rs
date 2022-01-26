@@ -6,9 +6,13 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
+    "alloc",
     "implement",
     "ApplicationModel_Activation",
-    "Win32_System_Com",
     "UI_Xaml_Controls",
     "UI_Xaml",
+    "Win32_Foundation",
+    "Win32_Storage_Packaging_Appx",
+    "Win32_System_Com",
+    "Win32_UI_WindowsAndMessaging",
 ]
