@@ -71,10 +71,11 @@ impl Error {
     }
 
     /// Returns the win32 error code if the underlying HRESULT's facility is win32
-    pub fn win32_error(&self) -> Option<u32> {
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn win32_error(&self) -> Option<crate::Win32::Foundation::WIN32_ERROR> {
         let hresult = self.code.0 as u32;
         if ((hresult >> 16) & 0x7FF) == 7 {
-            Some(hresult & 0xFFFF)
+            Some(crate::Win32::Foundation::WIN32_ERROR(hresult & 0xFFFF))
         } else {
             None
         }
@@ -129,11 +130,7 @@ impl core::convert::From<HRESULT> for Error {
 impl core::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
-        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message());
-        if let Some(win32) = self.win32_error() {
-            debug.field("win32_error", &format_args!("{}", win32));
-        }
-        debug.finish()
+        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message()).finish()
     }
 }
 

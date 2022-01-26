@@ -34,6 +34,11 @@ fn win32_error() {
     let h: HRESULT = ERROR_ACCESS_DENIED.into();
     assert!(h.is_err());
     assert!("WIN32_ERROR(5)" == format!("{:?}", e));
+
+    let e: Error = h.into();
+    assert_eq!("Error { code: 0x80070005, message: Access is denied.\r\n }", format!("{:?}", e));
+    let e: WIN32_ERROR = e.win32_error().unwrap();
+    assert!(e == ERROR_ACCESS_DENIED);
 }
 
 #[test]
