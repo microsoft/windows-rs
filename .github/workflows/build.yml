@@ -30,7 +30,7 @@ jobs:
       run: cargo doc --no-deps -p windows
 
   generation:
-    name: Check generation of `windows_${{ matrix.generator }}`
+    name: Check generation of `tool_${{ matrix.generator }}`
     runs-on: windows-latest
     strategy:
       matrix:
@@ -39,7 +39,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Run tool_${{ matrix.generator }}
-      run: cargo run -p windows_${{ matrix.generator }}
+      run: cargo run -p tool_${{ matrix.generator }}
     - name: Compare
       shell: bash
       run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
