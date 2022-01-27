@@ -3,7 +3,7 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        pub struct BSTR(*mut u16);
+        pub struct BSTR(*const u16);
         impl BSTR {
             pub fn new() -> Self {
                 Self(core::ptr::null_mut())
@@ -28,7 +28,7 @@ pub fn gen() -> TokenStream {
 
                 unsafe {
                     SysAllocStringLen(
-                        PWSTR(value.as_ptr() as *mut _),
+                        PWSTR(value.as_ptr()),
                         value.len() as u32,
                     )
                 }
@@ -39,7 +39,7 @@ pub fn gen() -> TokenStream {
                     return &[];
                 }
 
-                unsafe { ::core::slice::from_raw_parts(self.0 as *const u16, self.len()) }
+                unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
             }
         }
         impl ::core::clone::Clone for BSTR {
@@ -133,7 +133,6 @@ pub fn gen() -> TokenStream {
         unsafe impl ::windows::core::Abi for BSTR {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
-        pub type BSTR_abi = *mut u16;
         #[cfg(feature = "alloc")]
         impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
             fn into_param(self) -> ::windows::core::Param<'a, BSTR> {

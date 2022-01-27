@@ -232,7 +232,7 @@ unsafe impl ::windows::core::Abi for BOOLEAN {
     type Abi = Self;
 }
 #[repr(transparent)]
-pub struct BSTR(*mut u16);
+pub struct BSTR(*const u16);
 impl BSTR {
     pub fn new() -> Self {
         Self(core::ptr::null_mut())
@@ -251,13 +251,13 @@ impl BSTR {
         if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
-        unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
+        unsafe { SysAllocStringLen(PWSTR(value.as_ptr()), value.len() as u32) }
     }
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
             return &[];
         }
-        unsafe { ::core::slice::from_raw_parts(self.0 as *const u16, self.len()) }
+        unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
     }
 }
 impl ::core::clone::Clone for BSTR {
@@ -348,7 +348,7 @@ impl ::core::ops::Drop for BSTR {
 unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub type BSTR_abi = *mut u16;
+pub type BSTR_abi = *const u16;
 #[cfg(feature = "alloc")]
 impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
     fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
@@ -5885,7 +5885,7 @@ pub const PSINK_E_QUERY_ONLY: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const PSINK_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268179i32);
 #[repr(transparent)]
-pub struct PSTR(pub *mut u8);
+pub struct PSTR(pub *const u8);
 impl PSTR {
     pub fn is_null(&self) -> bool {
         self.0.is_null()
@@ -5919,7 +5919,7 @@ unsafe impl ::windows::core::Abi for PSTR {
     unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
         if let ::windows::core::Param::Boxed(value) = param {
             if !value.is_null() {
-                ::windows::core::alloc::boxed::Box::from_raw(value.0);
+                ::windows::core::alloc::boxed::Box::from_raw(value.0 as *mut u8);
             }
         }
     }
@@ -5937,7 +5937,7 @@ impl<'a> ::windows::core::IntoParam<'a, PSTR> for ::windows::core::alloc::string
     }
 }
 #[repr(transparent)]
-pub struct PWSTR(pub *mut u16);
+pub struct PWSTR(pub *const u16);
 impl PWSTR {
     pub fn is_null(&self) -> bool {
         self.0.is_null()
@@ -5971,7 +5971,7 @@ unsafe impl ::windows::core::Abi for PWSTR {
     unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
         if let ::windows::core::Param::Boxed(value) = param {
             if !value.is_null() {
-                ::windows::core::alloc::boxed::Box::from_raw(value.0);
+                ::windows::core::alloc::boxed::Box::from_raw(value.0 as *mut u16);
             }
         }
     }

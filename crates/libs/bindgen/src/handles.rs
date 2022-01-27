@@ -79,6 +79,7 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_signature(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+    let mut signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+    signature.is_const = true;
     gen_sig(&signature, gen)
 }
