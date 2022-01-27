@@ -101,7 +101,7 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-msvc'
+      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-gnu'
 "#,
     );
 
