@@ -203,4 +203,4 @@ jobs:
         cargo clippy -p tool_sys &&
         cargo clippy -p tool_windows &&
         cargo clippy -p tool_yml 
-      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-msvc'
+      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-gnu'
