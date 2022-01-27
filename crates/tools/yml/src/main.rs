@@ -46,7 +46,7 @@ jobs:
             linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
             ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
         "@
-        if: contains(matrix.target, 'windows-gnu')
+      if: contains(matrix.target, 'windows-gnu')
     - name: Configure environment for GNU toolchain
       shell: pwsh
       run: |
@@ -56,7 +56,7 @@ jobs:
             $MingwPath = "C:\msys64\mingw64\bin"
         }
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        if: contains(matrix.target, 'windows-gnu')
+      if: contains(matrix.target, 'windows-gnu')
     - name: Test stable
       run: |"#
         .to_string();
