@@ -102,7 +102,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     for method in def.methods() {
         let name = method_names.add(&method);
-        // TODO: can we use core::ptr::addr_of to avoid the need for const_fn_fn_ptr_basics?
         methods.combine(&quote! { #name: #name::<#(#generics)* Identity, Impl, OFFSET>, });
     }
 
