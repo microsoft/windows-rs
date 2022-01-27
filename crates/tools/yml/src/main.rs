@@ -5,8 +5,8 @@ fn main() {
 on:
   pull_request:
   push:
-  branches:
-    - master
+    branches:
+      - master
 
 env:
   RUSTFLAGS: -Dwarnings
