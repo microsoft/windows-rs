@@ -35,6 +35,8 @@ jobs:
       run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
     - name: Add toolchain target
       run: rustup target add ${{ matrix.target }}
+    - name: Install clippy
+      run: rustup component add clippy      
     - name: Configure Cargo for GNU toolchain
       shell: pwsh
       run: |
