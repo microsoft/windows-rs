@@ -63,7 +63,7 @@ jobs:
 
     for name in crates(&root) {
         if !name.contains("implement") {
-            yml.push_str(&format!("\n          cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
         }
     }
 
@@ -79,7 +79,7 @@ jobs:
 
     for name in crates(&root) {
         if name.contains("implement") {
-            yml.push_str(&format!("\n          cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
         }
     }
 
@@ -94,7 +94,7 @@ jobs:
     );
 
     for name in crates(&root) {
-        yml.push_str(&format!("\n          cargo clippy -p {} &&", name));
+        yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
     }
 
     yml.truncate(yml.len() - 2);
