@@ -78,7 +78,7 @@ pub use bindings::IAgileObject;
 pub type RawPtr = *mut core::ffi::c_void;
 
 #[cfg(feature = "implement")]
-pub use windows_macros::implement;
+pub use windows-implement::implement;
 
 extern "C" {
     #[doc(hidden)]

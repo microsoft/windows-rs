@@ -1,5 +1,5 @@
 fn main() {
-    let root = std::path::PathBuf::from(reader::workspace_dir());
+    let root = std::path::PathBuf::from(metadata::workspace_dir());
     let mut yml = r#"name: Test
 
 on:

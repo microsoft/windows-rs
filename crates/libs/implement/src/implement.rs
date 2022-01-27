@@ -1,4 +1,4 @@
-use quote::*;
+use tokens::*;
 use std::collections::*;
 use syn::parse::*;
 use syn::Ident;

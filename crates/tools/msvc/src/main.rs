@@ -1,4 +1,4 @@
-use reader::*;
+use metadata::*;
 use std::collections::BTreeMap;
 use std::io::prelude::*;
 
@@ -24,7 +24,7 @@ fn main() {
     let root = reader.types.get_namespace("Windows.Win32").unwrap();
     load_functions(root, &mut libraries);
 
-    let mut output = std::path::PathBuf::from(reader::workspace_dir());
+    let mut output = std::path::PathBuf::from(metadata::workspace_dir());
     output.push(format!("crates/targets/{}/lib", platform));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();

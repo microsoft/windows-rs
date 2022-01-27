@@ -28,9 +28,9 @@ use iterator::*;
 use method_names::*;
 use methods::*;
 use names::*;
-use quote::*;
+use tokens::*;
 use r#async::*;
-use reader::*;
+use metadata::*;
 use signatures::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {

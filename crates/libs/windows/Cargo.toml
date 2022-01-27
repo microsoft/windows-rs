@@ -45,13 +45,13 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.30.0" }
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.30.0" }
 
 [dependencies]
-windows_macros = { path = "../macros",  version = "0.30.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.30.0", optional = true }
 
 [features]
 default = []
 deprecated = []
 alloc = []
-implement = ["windows_macros"]
+implement = ["windows-implement"]
 AI = []
 AI_MachineLearning = ["AI"]
 AI_MachineLearning_Preview = ["AI_MachineLearning"]
