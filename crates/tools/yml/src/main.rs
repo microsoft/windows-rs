@@ -62,7 +62,7 @@ jobs:
         .to_string();
 
     for name in crates(&root) {
-      if !requires_nightly(&name) {
+        if !requires_nightly(&name) {
             yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
         }
     }
@@ -139,7 +139,7 @@ fn crates(root: &std::path::Path) -> Vec<String> {
 }
 
 fn requires_nightly(name: &str) -> bool {
-  name.contains("implement") || name.starts_with("sample")
+    name.contains("implement") || name.starts_with("sample")
 }
 
 fn dirs(root: &std::path::Path, path: &str) -> Vec<String> {
