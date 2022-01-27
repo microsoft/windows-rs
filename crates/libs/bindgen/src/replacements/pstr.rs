@@ -4,7 +4,7 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        pub struct PSTR(pub *mut u8);
+        pub struct PSTR(pub *const u8);
         impl PSTR {
             pub fn is_null(&self) -> bool {
                 self.0.is_null()
@@ -39,7 +39,7 @@ pub fn gen() -> TokenStream {
             unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
                 if let ::windows::core::Param::Boxed(value) = param {
                     if !value.is_null() {
-                        ::windows::core::alloc::boxed::Box::from_raw(value.0);
+                        ::windows::core::alloc::boxed::Box::from_raw(value.0 as *mut u8);
                     }
                 }
             }

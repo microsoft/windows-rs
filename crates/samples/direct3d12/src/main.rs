@@ -53,7 +53,7 @@ where
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance,
         hCursor: unsafe { LoadCursorW(None, IDC_ARROW) },
-        lpszClassName: PSTR(b"RustWindowClass\0".as_ptr() as _),
+        lpszClassName: PSTR(b"RustWindowClass\0".as_ptr()),
         ..Default::default()
     };
 
@@ -459,7 +459,7 @@ mod d3d12_hello_triangle {
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
-                SemanticName: PSTR(b"POSITION\0".as_ptr() as _),
+                SemanticName: PSTR(b"POSITION\0".as_ptr()),
                 SemanticIndex: 0,
                 Format: DXGI_FORMAT_R32G32B32_FLOAT,
                 InputSlot: 0,
@@ -468,7 +468,7 @@ mod d3d12_hello_triangle {
                 InstanceDataStepRate: 0,
             },
             D3D12_INPUT_ELEMENT_DESC {
-                SemanticName: PSTR(b"COLOR\0".as_ptr() as _),
+                SemanticName: PSTR(b"COLOR\0".as_ptr()),
                 SemanticIndex: 0,
                 Format: DXGI_FORMAT_R32G32B32A32_FLOAT,
                 InputSlot: 0,

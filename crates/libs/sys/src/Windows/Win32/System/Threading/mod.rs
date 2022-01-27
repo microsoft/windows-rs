@@ -869,7 +869,7 @@ impl ::core::clone::Clone for IO_COUNTERS {
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
-pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut ::core::ffi::c_void;
+pub type LPPROC_THREAD_ATTRIBUTE_LIST = *const ::core::ffi::c_void;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: 'Win32_System_Threading'*"]

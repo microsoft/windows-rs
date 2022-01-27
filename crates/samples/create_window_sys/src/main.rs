@@ -5,7 +5,7 @@ fn main() {
         let instance = GetModuleHandleA(std::ptr::null_mut());
         debug_assert!(instance != 0);
 
-        let window_class = b"window\0".as_ptr() as _;
+        let window_class = b"window\0".as_ptr();
 
         let wc = WNDCLASSA {
             hCursor: LoadCursorW(0, IDC_ARROW),
@@ -23,7 +23,7 @@ fn main() {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(0, window_class, b"This is a sample window".as_ptr() as _, WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null_mut());
+        CreateWindowExA(0, window_class, b"This is a sample window\0".as_ptr(), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null_mut());
 
         let mut message = std::mem::zeroed();
 
