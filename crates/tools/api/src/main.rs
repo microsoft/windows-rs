@@ -9,7 +9,7 @@ fn main() {
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let reader = reader::TypeReader::get_mut();
+    let reader = reader::TypeReader::get();
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();

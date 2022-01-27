@@ -50,7 +50,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         let interface_ident = implement.to_ident();
         let offset: TokenStream = format!("{}", enumerate).into();
         quote! {
-            impl <#constraints> From<#original_ident::<#(#generics,)*>> for #interface_ident {
+            impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                     unsafe {
                         let this = #impl_ident::<#(#generics,)*>::new(this);
@@ -154,8 +154,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 (inspectable, &mut (*this).base)
             }
         }
-        // tODO: From must be fully qualified
-        impl <#constraints> From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
+        impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 unsafe {
                     let this = #impl_ident::<#(#generics,)*>::new(this);
@@ -166,7 +165,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 }
             }
         }
-        impl <#constraints> From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable {
+        impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                 unsafe {
                     let this = #impl_ident::<#(#generics,)*>::new(this);

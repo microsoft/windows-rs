@@ -38,10 +38,10 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_function_if(entry: &TypeEntry, gen: &Gen) -> TokenStream {
+fn gen_function_if(entry: &Vec<ElementType>, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
-    for def in &entry.def {
+    for def in entry {
         if let ElementType::MethodDef(def) = def {
             tokens.combine(&gen_sys_function(def, gen));
         }

@@ -117,9 +117,6 @@ impl Gen<'_> {
 
     fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
         if !namespace.is_empty() && namespace != self.namespace {
-            //namespaces.insert(namespace);
-
-            // TODO: use the above instead to iclude parent dependencies
             if !self.namespace.starts_with(format!("{}.", namespace).as_str()) {
                 namespaces.insert(namespace);
             }
@@ -162,18 +159,13 @@ impl Gen<'_> {
             }
             TypeKind::Struct => {
                 def.fields().for_each(|field| self.field_requirements(&field, Some(def), namespaces, keys));
-
-                // TODO: needed?
-                if let Some(def) = def.is_convertible_to() {
-                    self.add_namespace(def.type_name().namespace, namespaces);
-                }
             }
             TypeKind::Delegate => self.method_requirements(&def.invoke_method().signature(&[]), namespaces, keys),
             _ => {}
         }
 
         if let Some(entry) = TypeReader::get().get_type_entry(def.type_name()) {
-            for def in &entry.def {
+            for def in entry {
                 if let ElementType::TypeDef(def) = def {
                     self.type_requirements(def, namespaces, keys);
                 }

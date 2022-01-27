@@ -106,25 +106,3 @@ impl core::fmt::Display for TypeName {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    #[test]
-    fn test() {
-        let reader = TypeReader::get();
-        reader.get_type_entry(TypeName::WIN32_ERROR).unwrap(); // TODO: remove
-        reader.get_type_entry(TypeName::NTSTATUS).unwrap();
-        reader.get_type_entry(TypeName::BOOL).unwrap();
-        reader.get_type_entry(TypeName::PWSTR).unwrap();
-        reader.get_type_entry(TypeName::PSTR).unwrap();
-        reader.get_type_entry(TypeName::BSTR).unwrap();
-        reader.get_type_entry(TypeName::HANDLE).unwrap();
-        reader.get_type_entry(TypeName::SysStringLen).unwrap();
-        reader.get_type_entry(TypeName::SysAllocStringLen).unwrap();
-        reader.get_type_entry(TypeName::SysFreeString).unwrap();
-        reader.get_type_entry(TypeName::IRestrictedErrorInfo).unwrap();
-        reader.get_type_entry(TypeName::IDispatch).unwrap();
-    }
-}

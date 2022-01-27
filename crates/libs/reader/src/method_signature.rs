@@ -1,5 +1,3 @@
-// TODO: split the parsing code from teh gen code
-
 use super::*;
 
 pub struct MethodSignature {
@@ -85,7 +83,7 @@ impl MethodParam {
 
         let flags = self.param.flags();
 
-        // TODO: NativeArrayInfo indicates and array parameter #479
+        // TODO: NativeArrayInfo indicates an array parameter #479
         if flags.input() || !flags.output() || self.param.array_info() {
             return false;
         }

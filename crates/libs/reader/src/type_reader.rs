@@ -10,7 +10,7 @@ pub struct TypeReader {
 }
 
 impl TypeReader {
-    pub fn get_mut() -> &'static mut Self {
+    pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
@@ -21,11 +21,7 @@ impl TypeReader {
         });
 
         // This is safe because `call_once` has already been called.
-        unsafe { &mut *VALUE.as_mut_ptr() }
-    }
-
-    pub fn get() -> &'static Self {
-        Self::get_mut()
+        unsafe { &*VALUE.as_mut_ptr() }
     }
 
     /// Insert WinRT metadata at the given paths
@@ -37,7 +33,6 @@ impl TypeReader {
         let files = workspace_winmds();
         let mut nested = HashMap::<Row, BTreeMap<&'static str, TypeDef>>::new();
         let mut types = TypeTree::from_namespace("");
-        types.include = true;
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -92,21 +87,16 @@ impl TypeReader {
         Self { nested, types }
     }
 
-    /// Get all the namespace names that the [`TypeReader`] knows about
-    pub fn namespaces(&'static self) -> Vec<&'static str> {
-        self.types.namespaces()
-    }
-
     pub fn nested_types(&'static self, enclosing: &TypeDef) -> Option<&BTreeMap<&'static str, TypeDef>> {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&TypeEntry> {
+    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&Vec<ElementType>> {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name()))
     }
 
     pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {
-        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.def.first())
+        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.first())
     }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&TypeTree> {
