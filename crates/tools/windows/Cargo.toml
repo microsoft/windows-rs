@@ -1,5 +1,5 @@
 [package]
-name = "windows_api"
+name = "tool_windows"
 version = "0.0.0"
 edition = "2018"
 publish = false

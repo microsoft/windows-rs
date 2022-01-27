@@ -1,5 +1,5 @@
 [package]
-name = "windows_sys"
+name = "tool_sys"
 version = "0.0.0"
 edition = "2018"
 publish = false

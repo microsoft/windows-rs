@@ -34,15 +34,15 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        generator: [bindings, api, sys, yml]
+        generator: [bindings, windows, sys, yml]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Run windows_${{ matrix.generator }}
+    - name: Run tool_${{ matrix.generator }}
       run: cargo run -p windows_${{ matrix.generator }}
     - name: Compare
       shell: bash
-      run: git diff --exit-code || (echo '::error::Generated `windows_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p windows_${{ matrix.generator }}`'; exit 1)
+      run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
 
   cargo_sys:
     name: Check windows-sys

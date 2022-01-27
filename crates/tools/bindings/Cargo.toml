@@ -1,5 +1,5 @@
 [package]
-name = "windows_bindings"
+name = "tool_bindings"
 version = "0.0.0"
 edition = "2018"
 publish = false
