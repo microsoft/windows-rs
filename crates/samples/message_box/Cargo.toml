@@ -1,5 +1,5 @@
 [package]
-name = "message_box"
+name = "sample_message_box"
 version = "0.0.0"
 edition = "2018"
 

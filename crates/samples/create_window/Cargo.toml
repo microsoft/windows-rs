@@ -1,5 +1,5 @@
 [package]
-name = "create_window"
+name = "sample_create_window"
 version = "0.0.0"
 edition = "2018"
 

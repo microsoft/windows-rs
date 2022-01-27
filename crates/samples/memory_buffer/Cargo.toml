@@ -1,5 +1,5 @@
 [package]
-name = "memory_buffer"
+name = "sample_memory_buffer"
 version = "0.0.0"
 edition = "2018"
 

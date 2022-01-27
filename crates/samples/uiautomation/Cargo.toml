@@ -1,5 +1,5 @@
 [package]
-name = "uiautomation"
+name = "sample_uiautomation"
 version = "0.0.0"
 edition = "2018"
 

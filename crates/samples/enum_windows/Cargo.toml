@@ -1,5 +1,5 @@
 [package]
-name = "enum_windows"
+name = "sample_enum_windows"
 version = "0.0.0"
 edition = "2018"
 

@@ -19,7 +19,7 @@
     <Resource Language="en-us" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="xaml_app.exe" EntryPoint="XamlApp.App">
+    <Application Id="App" Executable="sample_xaml_app.exe" EntryPoint="XamlApp.App">
       <uap:VisualElements DisplayName="Rust XamlApp" Description="Description" BackgroundColor="transparent"
         Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png">
         <uap:SplashScreen Image="SplashScreen.png" />
