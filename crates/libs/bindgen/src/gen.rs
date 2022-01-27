@@ -116,10 +116,8 @@ impl Gen<'_> {
     }
 
     fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
-        if !namespace.is_empty() && namespace != self.namespace {
-            if !self.namespace.starts_with(format!("{}.", namespace).as_str()) {
-                namespaces.insert(namespace);
-            }
+        if !namespace.is_empty() && namespace != self.namespace && !self.namespace.starts_with(format!("{}.", namespace).as_str()) {
+            namespaces.insert(namespace);
         }
     }
 
