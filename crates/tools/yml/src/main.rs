@@ -63,7 +63,7 @@ jobs:
 
     for name in crates(&root) {
         if !name.contains("implement") {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
         }
     }
 
@@ -71,7 +71,7 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'stable'
+      if: matrix.version == 'stable'
 
     - name: Test nightly
       run: |"#,
@@ -79,7 +79,7 @@ jobs:
 
     for name in crates(&root) {
         if name.contains("implement") {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
         }
     }
 
@@ -87,7 +87,7 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'nightly'
+      if: matrix.version == 'nightly'
 
     - name: Test clippy
       run: |"#,
@@ -101,7 +101,7 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'nightly' && matrix.other == 'x86_64-pc-windows-msvc'
+      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-msvc'
 "#,
     );
 
