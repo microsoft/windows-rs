@@ -13,62 +13,62 @@ env:
 
 jobs:
   test:
-  name: Test
-  runs-on: windows-latest
+    name: Test
+    runs-on: windows-latest
 
-  strategy:
-    matrix:
-      include:
-      - version: stable
-        target: x86_64-pc-windows-msvc
-      - version: nightly
-        target: i686-pc-windows-msvc
-      - version: nightly
-        target: x86_64-pc-windows-gnu
-      - version: stable
-        target: i686-pc-windows-gnu
+    strategy:
+      matrix:
+        include:
+        - version: stable
+          target: x86_64-pc-windows-msvc
+        - version: nightly
+          target: i686-pc-windows-msvc
+        - version: nightly
+          target: x86_64-pc-windows-gnu
+        - version: stable
+          target: i686-pc-windows-gnu
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Update toolchain
-      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
 
-    - name: Add toolchain target
-      run: rustup target add ${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
 
-    - name: Configure Cargo for GNU toolchain
-      shell: pwsh
-      run: |
-        Add-Content $env:USERPROFILE\.cargo\config @"
-            [target.x86_64-pc-windows-gnu]
-            linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
-            ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
-            [target.i686-pc-windows-gnu]
-            linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
-            ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
-        "@
-        if: contains(matrix.target, 'windows-gnu')
+      - name: Configure Cargo for GNU toolchain
+        shell: pwsh
+        run: |
+          Add-Content $env:USERPROFILE\.cargo\config @"
+              [target.x86_64-pc-windows-gnu]
+              linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
+              ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+              [target.i686-pc-windows-gnu]
+              linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
+              ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+          "@
+          if: contains(matrix.target, 'windows-gnu')
 
-    - name: Configure environment for GNU toolchain
-      shell: pwsh
-      run: |
-        if("${{ matrix.target }}" -eq "i686-pc-windows-gnu") {
-            $MingwPath = "C:\msys64\mingw32\bin"
-        } else {
-            $MingwPath = "C:\msys64\mingw64\bin"
-        }
-        $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-        if: contains(matrix.target, 'windows-gnu')
+      - name: Configure environment for GNU toolchain
+        shell: pwsh
+        run: |
+          if("${{ matrix.target }}" -eq "i686-pc-windows-gnu") {
+              $MingwPath = "C:\msys64\mingw32\bin"
+          } else {
+              $MingwPath = "C:\msys64\mingw64\bin"
+          }
+          $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          if: contains(matrix.target, 'windows-gnu')
 
-    - name: Test stable
-      run: |"#
+      - name: Test stable
+        run: |"#
         .to_string();
 
     for name in crates(&root) {
         if !name.contains("implement") {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n          cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
         }
     }
 
@@ -76,15 +76,15 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'stable'
+        if: matrix.rust == 'stable'
 
-    - name: Test nightly
-      run: |"#,
+      - name: Test nightly
+        run: |"#,
     );
 
     for name in crates(&root) {
         if name.contains("implement") {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
+            yml.push_str(&format!("\n          cargo test --target ${{{{ matrix.other }}}} -p {} &&", name));
         }
     }
 
@@ -92,21 +92,21 @@ jobs:
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'nightly'
+        if: matrix.rust == 'nightly'
 
-    - name: Test clippy
-      run: |"#,
+      - name: Test clippy
+        run: |"#,
     );
 
     for name in crates(&root) {
-        yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
+        yml.push_str(&format!("\n          cargo clippy -p {} &&", name));
     }
 
     yml.truncate(yml.len() - 2);
 
     yml.push_str(
         r#"
-      if: matrix.rust == 'nightly' && matrix.other == 'x86_64-pc-windows-msvc'
+        if: matrix.rust == 'nightly' && matrix.other == 'x86_64-pc-windows-msvc'
 "#,
     );
 
