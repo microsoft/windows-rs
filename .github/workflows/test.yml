@@ -62,25 +62,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p windows-sys &&
         cargo test --target ${{ matrix.target }} -p windows-tokens &&
         cargo test --target ${{ matrix.target }} -p windows &&
-        cargo test --target ${{ matrix.target }} -p sample_com_uri &&
-        cargo test --target ${{ matrix.target }} -p sample_core_app &&
-        cargo test --target ${{ matrix.target }} -p sample_create_window &&
-        cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
-        cargo test --target ${{ matrix.target }} -p sample_direct2d &&
-        cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
-        cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
-        cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
-        cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
-        cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
-        cargo test --target ${{ matrix.target }} -p sample_message_box &&
-        cargo test --target ${{ matrix.target }} -p sample_ocr &&
-        cargo test --target ${{ matrix.target }} -p sample_overlapped &&
-        cargo test --target ${{ matrix.target }} -p sample_rss &&
-        cargo test --target ${{ matrix.target }} -p sample_simple &&
-        cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
-        cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
-        cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
-        cargo test --target ${{ matrix.target }} -p sample_xml &&
         cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
         cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
         cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
@@ -121,6 +102,25 @@ jobs:
     - name: Test nightly
       run: |
         cargo test --target ${{ matrix.target }} -p windows-implement &&
+        cargo test --target ${{ matrix.target }} -p sample_com_uri &&
+        cargo test --target ${{ matrix.target }} -p sample_core_app &&
+        cargo test --target ${{ matrix.target }} -p sample_create_window &&
+        cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
+        cargo test --target ${{ matrix.target }} -p sample_direct2d &&
+        cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
+        cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
+        cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
+        cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
+        cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
+        cargo test --target ${{ matrix.target }} -p sample_message_box &&
+        cargo test --target ${{ matrix.target }} -p sample_ocr &&
+        cargo test --target ${{ matrix.target }} -p sample_overlapped &&
+        cargo test --target ${{ matrix.target }} -p sample_rss &&
+        cargo test --target ${{ matrix.target }} -p sample_simple &&
+        cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
+        cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
+        cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
+        cargo test --target ${{ matrix.target }} -p sample_xml &&
         cargo test --target ${{ matrix.target }} -p test_implement &&
         cargo test --target ${{ matrix.target }} -p test_implement_class_factory &&
         cargo test --target ${{ matrix.target }} -p test_implement_data_object &&
