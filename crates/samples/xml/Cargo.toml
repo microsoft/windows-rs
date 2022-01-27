@@ -1,5 +1,5 @@
 [package]
-name = "xml"
+name = "sample_xml"
 version = "0.0.0"
 edition = "2018"
 

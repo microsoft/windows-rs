@@ -1,5 +1,5 @@
 [package]
-name = "direct3d12"
+name = "sample_direct3d12"
 version = "0.0.0"
 edition = "2018"
 

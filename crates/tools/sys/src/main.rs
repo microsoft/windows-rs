@@ -4,12 +4,12 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
-    let mut output = std::path::PathBuf::from(reader::workspace_dir());
+    let mut output = std::path::PathBuf::from(metadata::workspace_dir());
     output.push("crates/libs/sys/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let reader = reader::TypeReader::get();
+    let reader = metadata::TypeReader::get();
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
@@ -90,7 +90,7 @@ deprecated = []
     }
 }
 
-fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
+fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
     if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
         return;
     }
@@ -102,7 +102,7 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
     std::fs::create_dir_all(&path).unwrap();
 }
 
-fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
+fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &metadata::TypeTree) {
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));

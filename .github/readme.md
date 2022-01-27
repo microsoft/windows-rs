@@ -43,7 +43,7 @@ fn main() -> Result<()> {
     assert!(root.InnerText()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), true, false, None);
+        let event = CreateEventW(std::ptr::null(), true, false, None);
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;

@@ -1,5 +1,5 @@
 [package]
-name = "windows_reader"
+name = "windows-tokens"
 version = "0.30.0"
 authors = ["Microsoft"]
 edition = "2018"

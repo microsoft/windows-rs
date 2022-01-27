@@ -5,122 +5,204 @@ on:
   push:
     branches:
       - master
+
 env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
   test:
     name: Test
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
+
     strategy:
       matrix:
         include:
-        - os: windows-latest
-          rust: stable
-          other: x86_64-pc-windows-msvc
-          platform: x64
-        - os: windows-latest
-          rust: nightly
-          other: i686-pc-windows-msvc
-          platform: x86
-        - os: windows-latest
-          rust: nightly
-          other: x86_64-pc-windows-gnu
-          platform: x64
-        - os: windows-latest
-          rust: stable
-          other: i686-pc-windows-gnu
-          platform: x86
+        - version: stable
+          target: x86_64-pc-windows-msvc
+        - version: nightly
+          target: i686-pc-windows-msvc
+        - version: nightly
+          target: x86_64-pc-windows-gnu
+        - version: stable
+          target: i686-pc-windows-gnu
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
     - name: Update toolchain
-      run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-
+      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
     - name: Add toolchain target
-      run: rustup target add ${{ matrix.other }}
-
+      run: rustup target add ${{ matrix.target }}
+    - name: Install clippy
+      run: rustup component add clippy      
     - name: Configure Cargo for GNU toolchain
       shell: pwsh
       run: |
         Add-Content $env:USERPROFILE\.cargo\config @"
-          [target.x86_64-pc-windows-gnu]
-          linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
-          ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
-          [target.i686-pc-windows-gnu]
-          linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
-          ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+            [target.x86_64-pc-windows-gnu]
+            linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
+            ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+            [target.i686-pc-windows-gnu]
+            linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
+            ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
         "@
-      if: contains(matrix.other, 'windows-gnu')
-
+      if: contains(matrix.target, 'windows-gnu')
     - name: Configure environment for GNU toolchain
       shell: pwsh
       run: |
-        if("${{ matrix.other }}" -eq "i686-pc-windows-gnu") {
-          $MingwPath = "C:\msys64\mingw32\bin"
+        if("${{ matrix.target }}" -eq "i686-pc-windows-gnu") {
+            $MingwPath = "C:\msys64\mingw32\bin"
         } else {
-          $MingwPath = "C:\msys64\mingw64\bin"
+            $MingwPath = "C:\msys64\mingw64\bin"
         }
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      if: contains(matrix.other, 'windows-gnu')
-
-    - name: Test stable (${{ matrix.os }})
+      if: contains(matrix.target, 'windows-gnu')
+    - name: Test stable
       run: |
-        cargo test --target ${{ matrix.other }} -p test_agile &&
-        cargo test --target ${{ matrix.other }} -p test_alternate_success_code &&
-        cargo test --target ${{ matrix.other }} -p test_arch &&
-        cargo test --target ${{ matrix.other }} -p test_arch_feature &&
-        cargo test --target ${{ matrix.other }} -p test_bstr &&
-        cargo test --target ${{ matrix.other }} -p test_core &&
-        cargo test --target ${{ matrix.other }} -p test_debug &&
-        cargo test --target ${{ matrix.other }} -p test_deprecated &&
-        cargo test --target ${{ matrix.other }} -p test_enums &&
-        cargo test --target ${{ matrix.other }} -p test_handles &&
-        cargo test --target ${{ matrix.other }} -p test_helpers &&
-        cargo test --target ${{ matrix.other }} -p test_interop &&
-        cargo test --target ${{ matrix.other }} -p test_lib &&
-        cargo test --target ${{ matrix.other }} -p test_matrix3x2 &&
-        cargo test --target ${{ matrix.other }} -p test_mshtml &&
-        cargo test --target ${{ matrix.other }} -p test_ntstatus &&
-        cargo test --target ${{ matrix.other }} -p test_pwstr &&
-        cargo test --target ${{ matrix.other }} -p test_return_struct &&
-        cargo test --target ${{ matrix.other }} -p test_structs &&
-        cargo test --target ${{ matrix.other }} -p test_sys &&
-        cargo test --target ${{ matrix.other }} -p test_unions &&
-        cargo test --target ${{ matrix.other }} -p test_weak &&
-        cargo test --target ${{ matrix.other }} -p test_win32 &&
-        cargo test --target ${{ matrix.other }} -p test_win32_arrays 
-      if: contains(matrix.rust, 'stable')
+        cargo test --target ${{ matrix.target }} -p windows-bindgen &&
+        cargo test --target ${{ matrix.target }} -p windows-metadata &&
+        cargo test --target ${{ matrix.target }} -p windows-sys &&
+        cargo test --target ${{ matrix.target }} -p windows-tokens &&
+        cargo test --target ${{ matrix.target }} -p windows &&
+        cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
+        cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
+        cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
+        cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
+        cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
+        cargo test --target ${{ matrix.target }} -p test_agile &&
+        cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
+        cargo test --target ${{ matrix.target }} -p test_arch &&
+        cargo test --target ${{ matrix.target }} -p test_arch_feature &&
+        cargo test --target ${{ matrix.target }} -p test_bstr &&
+        cargo test --target ${{ matrix.target }} -p test_core &&
+        cargo test --target ${{ matrix.target }} -p test_debug &&
+        cargo test --target ${{ matrix.target }} -p test_deprecated &&
+        cargo test --target ${{ matrix.target }} -p test_enums &&
+        cargo test --target ${{ matrix.target }} -p test_handles &&
+        cargo test --target ${{ matrix.target }} -p test_helpers &&
+        cargo test --target ${{ matrix.target }} -p test_interop &&
+        cargo test --target ${{ matrix.target }} -p test_lib &&
+        cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
+        cargo test --target ${{ matrix.target }} -p test_mshtml &&
+        cargo test --target ${{ matrix.target }} -p test_ntstatus &&
+        cargo test --target ${{ matrix.target }} -p test_pwstr &&
+        cargo test --target ${{ matrix.target }} -p test_return_struct &&
+        cargo test --target ${{ matrix.target }} -p test_structs &&
+        cargo test --target ${{ matrix.target }} -p test_sys &&
+        cargo test --target ${{ matrix.target }} -p test_unions &&
+        cargo test --target ${{ matrix.target }} -p test_weak &&
+        cargo test --target ${{ matrix.target }} -p test_win32 &&
+        cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
+        cargo test --target ${{ matrix.target }} -p tool_bindings &&
+        cargo test --target ${{ matrix.target }} -p tool_gnu &&
+        cargo test --target ${{ matrix.target }} -p tool_msvc &&
+        cargo test --target ${{ matrix.target }} -p tool_sys &&
+        cargo test --target ${{ matrix.target }} -p tool_windows &&
+        cargo test --target ${{ matrix.target }} -p tool_yml 
+      if: matrix.version == 'stable'
 
-    - name: Test nightly (${{ matrix.os }})
+    - name: Test nightly
       run: |
-        cargo test --target ${{ matrix.other }} -p test_implement &&
-        cargo test --target ${{ matrix.other }} -p test_implement_class_factory &&
-        cargo test --target ${{ matrix.other }} -p test_implement_data_object &&
-        cargo test --target ${{ matrix.other }} -p test_implement_identity &&
-        cargo test --target ${{ matrix.other }} -p test_implement_map &&
-        cargo test --target ${{ matrix.other }} -p test_implement_no_use &&
-        cargo test --target ${{ matrix.other }} -p test_implement_null_result &&
-        cargo test --target ${{ matrix.other }} -p test_implement_properties &&
-        cargo test --target ${{ matrix.other }} -p test_implement_winrt &&
-        cargo test --target ${{ matrix.other }} -p com_uri &&
-        cargo test --target ${{ matrix.other }} -p core_app &&
-        cargo test --target ${{ matrix.other }} -p create_window &&
-        cargo test --target ${{ matrix.other }} -p create_window_sys &&
-        cargo test --target ${{ matrix.other }} -p direct2d &&
-        cargo test --target ${{ matrix.other }} -p direct3d12 &&
-        cargo test --target ${{ matrix.other }} -p enum_windows &&
-        cargo test --target ${{ matrix.other }} -p enum_windows_sys &&
-        cargo test --target ${{ matrix.other }} -p kernel_event &&
-        cargo test --target ${{ matrix.other }} -p memory_buffer &&
-        cargo test --target ${{ matrix.other }} -p message_box &&
-        cargo test --target ${{ matrix.other }} -p ocr &&
-        cargo test --target ${{ matrix.other }} -p overlapped &&
-        cargo test --target ${{ matrix.other }} -p rss &&
-        cargo test --target ${{ matrix.other }} -p simple &&
-        cargo test --target ${{ matrix.other }} -p spellchecker &&
-        cargo test --target ${{ matrix.other }} -p uiautomation &&
-        cargo test --target ${{ matrix.other }} -p xaml_app &&
-        cargo test --target ${{ matrix.other }} -p xml 
-      if: contains(matrix.rust, 'nightly')
+        cargo test --target ${{ matrix.target }} -p windows-implement &&
+        cargo test --target ${{ matrix.target }} -p sample_com_uri &&
+        cargo test --target ${{ matrix.target }} -p sample_core_app &&
+        cargo test --target ${{ matrix.target }} -p sample_create_window &&
+        cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
+        cargo test --target ${{ matrix.target }} -p sample_direct2d &&
+        cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
+        cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
+        cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
+        cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
+        cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
+        cargo test --target ${{ matrix.target }} -p sample_message_box &&
+        cargo test --target ${{ matrix.target }} -p sample_ocr &&
+        cargo test --target ${{ matrix.target }} -p sample_overlapped &&
+        cargo test --target ${{ matrix.target }} -p sample_rss &&
+        cargo test --target ${{ matrix.target }} -p sample_simple &&
+        cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
+        cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
+        cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
+        cargo test --target ${{ matrix.target }} -p sample_xml &&
+        cargo test --target ${{ matrix.target }} -p test_implement &&
+        cargo test --target ${{ matrix.target }} -p test_implement_class_factory &&
+        cargo test --target ${{ matrix.target }} -p test_implement_data_object &&
+        cargo test --target ${{ matrix.target }} -p test_implement_identity &&
+        cargo test --target ${{ matrix.target }} -p test_implement_map &&
+        cargo test --target ${{ matrix.target }} -p test_implement_no_use &&
+        cargo test --target ${{ matrix.target }} -p test_implement_null_result &&
+        cargo test --target ${{ matrix.target }} -p test_implement_properties &&
+        cargo test --target ${{ matrix.target }} -p test_implement_winrt 
+      if: matrix.version == 'nightly'
+
+    - name: Test clippy
+      run: |
+        cargo clippy -p windows-bindgen &&
+        cargo clippy -p windows-implement &&
+        cargo clippy -p windows-metadata &&
+        cargo clippy -p windows-sys &&
+        cargo clippy -p windows-tokens &&
+        cargo clippy -p windows &&
+        cargo clippy -p sample_com_uri &&
+        cargo clippy -p sample_core_app &&
+        cargo clippy -p sample_create_window &&
+        cargo clippy -p sample_create_window_sys &&
+        cargo clippy -p sample_direct2d &&
+        cargo clippy -p sample_direct3d12 &&
+        cargo clippy -p sample_enum_windows &&
+        cargo clippy -p sample_enum_windows_sys &&
+        cargo clippy -p sample_kernel_event &&
+        cargo clippy -p sample_memory_buffer &&
+        cargo clippy -p sample_message_box &&
+        cargo clippy -p sample_ocr &&
+        cargo clippy -p sample_overlapped &&
+        cargo clippy -p sample_rss &&
+        cargo clippy -p sample_simple &&
+        cargo clippy -p sample_spellchecker &&
+        cargo clippy -p sample_uiautomation &&
+        cargo clippy -p sample_xaml_app &&
+        cargo clippy -p sample_xml &&
+        cargo clippy -p windows_aarch64_msvc &&
+        cargo clippy -p windows_i686_gnu &&
+        cargo clippy -p windows_i686_msvc &&
+        cargo clippy -p windows_x86_64_gnu &&
+        cargo clippy -p windows_x86_64_msvc &&
+        cargo clippy -p test_agile &&
+        cargo clippy -p test_alternate_success_code &&
+        cargo clippy -p test_arch &&
+        cargo clippy -p test_arch_feature &&
+        cargo clippy -p test_bstr &&
+        cargo clippy -p test_core &&
+        cargo clippy -p test_debug &&
+        cargo clippy -p test_deprecated &&
+        cargo clippy -p test_enums &&
+        cargo clippy -p test_handles &&
+        cargo clippy -p test_helpers &&
+        cargo clippy -p test_implement &&
+        cargo clippy -p test_implement_class_factory &&
+        cargo clippy -p test_implement_data_object &&
+        cargo clippy -p test_implement_identity &&
+        cargo clippy -p test_implement_map &&
+        cargo clippy -p test_implement_no_use &&
+        cargo clippy -p test_implement_null_result &&
+        cargo clippy -p test_implement_properties &&
+        cargo clippy -p test_implement_winrt &&
+        cargo clippy -p test_interop &&
+        cargo clippy -p test_lib &&
+        cargo clippy -p test_matrix3x2 &&
+        cargo clippy -p test_mshtml &&
+        cargo clippy -p test_ntstatus &&
+        cargo clippy -p test_pwstr &&
+        cargo clippy -p test_return_struct &&
+        cargo clippy -p test_structs &&
+        cargo clippy -p test_sys &&
+        cargo clippy -p test_unions &&
+        cargo clippy -p test_weak &&
+        cargo clippy -p test_win32 &&
+        cargo clippy -p test_win32_arrays &&
+        cargo clippy -p tool_bindings &&
+        cargo clippy -p tool_gnu &&
+        cargo clippy -p tool_msvc &&
+        cargo clippy -p tool_sys &&
+        cargo clippy -p tool_windows &&
+        cargo clippy -p tool_yml 
+      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-gnu'

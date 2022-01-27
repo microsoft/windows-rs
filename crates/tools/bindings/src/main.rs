@@ -64,7 +64,7 @@ fn main() -> std::io::Result<()> {
         tokens += &bindgen::gen_type(name, &gen);
     }
 
-    let mut path: std::path::PathBuf = reader::workspace_dir().into();
+    let mut path: std::path::PathBuf = metadata::workspace_dir().into();
     path.push("crates/libs/windows/src/core/bindings.rs");
 
     std::fs::write(&path, tokens)?;

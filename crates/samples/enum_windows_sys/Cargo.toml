@@ -1,5 +1,5 @@
 [package]
-name = "enum_windows_sys"
+name = "sample_enum_windows_sys"
 version = "0.0.0"
 edition = "2018"
 

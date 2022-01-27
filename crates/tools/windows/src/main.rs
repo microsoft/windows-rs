@@ -4,12 +4,12 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
-    let mut output = std::path::PathBuf::from(reader::workspace_dir());
+    let mut output = std::path::PathBuf::from(metadata::workspace_dir());
     output.push("crates/libs/windows/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let reader = reader::TypeReader::get();
+    let reader = metadata::TypeReader::get();
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
@@ -69,13 +69,13 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.30.0" }
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.30.0" }
 
 [dependencies]
-windows_macros = { path = "../macros",  version = "0.30.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.30.0", optional = true }
 
 [features]
 default = []
 deprecated = []
 alloc = []
-implement = ["windows_macros"]
+implement = ["windows-implement"]
 "#
         .as_bytes(),
     )
@@ -96,7 +96,7 @@ implement = ["windows_macros"]
     }
 }
 
-fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
+fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
     if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
         return;
     }
@@ -108,7 +108,7 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
     std::fs::create_dir_all(&path).unwrap();
 }
 
-fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
+fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &metadata::TypeTree) {
     println!("{}", tree.namespace);
 
     let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));

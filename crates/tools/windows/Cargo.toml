@@ -1,10 +1,10 @@
 [package]
-name = "windows_api"
+name = "tool_windows"
 version = "0.0.0"
 edition = "2018"
 publish = false
 
 [dependencies]
-reader = { package = "windows_reader", path = "../../libs/reader", version = "0.30.0" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.30.0" }
 bindgen = { package = "windows-bindgen", path = "../../libs/bindgen", version = "0.30.0" }
 rayon = "1.5.1"
