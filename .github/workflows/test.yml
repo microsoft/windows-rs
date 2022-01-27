@@ -18,27 +18,27 @@ jobs:
         matrix:
         include:
         - version: stable
-            target: x86_64-pc-windows-msvc
+          target: x86_64-pc-windows-msvc
         - version: nightly
-            target: i686-pc-windows-msvc
+          target: i686-pc-windows-msvc
         - version: nightly
-            target: x86_64-pc-windows-gnu
+          target: x86_64-pc-windows-gnu
         - version: stable
-            target: i686-pc-windows-gnu
+          target: i686-pc-windows-gnu
 
     steps:
     - name: Checkout
-        uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
+      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
 
     - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+      run: rustup target add ${{ matrix.target }}
 
     - name: Configure Cargo for GNU toolchain
-        shell: pwsh
-        run: |
+      shell: pwsh
+      run: |
         Add-Content $env:USERPROFILE\.cargo\config @"
             [target.x86_64-pc-windows-gnu]
             linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
@@ -50,8 +50,8 @@ jobs:
         if: contains(matrix.target, 'windows-gnu')
 
     - name: Configure environment for GNU toolchain
-        shell: pwsh
-        run: |
+      shell: pwsh
+      run: |
         if("${{ matrix.target }}" -eq "i686-pc-windows-gnu") {
             $MingwPath = "C:\msys64\mingw32\bin"
         } else {
