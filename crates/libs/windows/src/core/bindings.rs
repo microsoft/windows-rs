@@ -1292,7 +1292,6 @@ impl ::core::ops::Drop for BSTR {
 unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-pub type BSTR_abi = *const u16;
 #[cfg(feature = "alloc")]
 impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
     fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
