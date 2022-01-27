@@ -1,8 +1,8 @@
-use tokens::*;
 use std::collections::*;
 use syn::parse::*;
 use syn::Ident;
 use syn::*;
+use tokens::*;
 
 // New traits-based implement macro that doesn't rely on metadata
 // Also no support for overrides (Xaml) but developers can still implement overrides directly by implementning the necessary override interface

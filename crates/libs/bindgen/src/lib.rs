@@ -25,13 +25,13 @@ use functions::*;
 pub use gen::*;
 use helpers::*;
 use iterator::*;
+use metadata::*;
 use method_names::*;
 use methods::*;
 use names::*;
-use tokens::*;
 use r#async::*;
-use metadata::*;
 use signatures::*;
+use tokens::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();
