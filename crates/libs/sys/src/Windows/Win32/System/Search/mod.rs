@@ -5007,7 +5007,7 @@ pub const FAIL: u32 = 0u32;
 pub struct FILTERED_DATA_SOURCES {
     pub pwcsExtension: super::super::Foundation::PWSTR,
     pub pwcsMime: super::super::Foundation::PWSTR,
-    pub pClsid: *mut ::windows_sys::core::GUID,
+    pub pClsid: *const ::windows_sys::core::GUID,
     pub pwcsOverride: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6644,7 +6644,7 @@ pub const ODBC_USER_DSN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ODBC_VS_ARGS {
-    pub pguidEvent: *mut ::windows_sys::core::GUID,
+    pub pguidEvent: *const ::windows_sys::core::GUID,
     pub dwFlags: u32,
     pub Anonymous1: ODBC_VS_ARGS_0,
     pub Anonymous2: ODBC_VS_ARGS_1,

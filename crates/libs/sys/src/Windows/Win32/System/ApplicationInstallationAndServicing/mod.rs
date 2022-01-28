@@ -1356,7 +1356,7 @@ impl ::core::clone::Clone for DELTA_INPUT {
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DELTA_INPUT_0 {
-    pub lpcStart: *mut ::core::ffi::c_void,
+    pub lpcStart: *const ::core::ffi::c_void,
     pub lpStart: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -151,7 +151,7 @@ pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: super::super::Foundation::PWSTR,
     pub cPropertyCount: u32,
-    pub pProperties: *mut super::Properties::DEVPROPERTY,
+    pub pProperties: *const super::Properties::DEVPROPERTY,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::marker::Copy for DEV_OBJECT {}

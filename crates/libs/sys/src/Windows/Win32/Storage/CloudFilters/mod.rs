@@ -178,11 +178,11 @@ pub struct CF_CALLBACK_INFO {
     pub VolumeDosName: super::super::Foundation::PWSTR,
     pub VolumeSerialNumber: u32,
     pub SyncRootFileId: i64,
-    pub SyncRootIdentity: *mut ::core::ffi::c_void,
+    pub SyncRootIdentity: *const ::core::ffi::c_void,
     pub SyncRootIdentityLength: u32,
     pub FileId: i64,
     pub FileSize: i64,
-    pub FileIdentity: *mut ::core::ffi::c_void,
+    pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub NormalizedPath: super::super::Foundation::PWSTR,
     pub TransferKey: i64,
@@ -733,8 +733,8 @@ pub struct CF_OPERATION_INFO {
     pub Type: CF_OPERATION_TYPE,
     pub ConnectionKey: CF_CONNECTION_KEY,
     pub TransferKey: i64,
-    pub CorrelationVector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR,
-    pub SyncStatus: *mut CF_SYNC_STATUS,
+    pub CorrelationVector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR,
+    pub SyncStatus: *const CF_SYNC_STATUS,
     pub RequestKey: i64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -804,7 +804,7 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_0 {
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
-    pub FileIdentity: *mut ::core::ffi::c_void,
+    pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -850,8 +850,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
-    pub FsMetadata: *mut CF_FS_METADATA,
-    pub FileIdentity: *mut ::core::ffi::c_void,
+    pub FsMetadata: *const CF_FS_METADATA,
+    pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -886,7 +886,7 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_5 {
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *const ::core::ffi::c_void,
     pub Offset: i64,
     pub Length: i64,
 }
@@ -1003,7 +1003,7 @@ pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS = 
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: super::super::Foundation::PWSTR,
     pub FsMetadata: CF_FS_METADATA,
-    pub FileIdentity: *mut ::core::ffi::c_void,
+    pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub Flags: CF_PLACEHOLDER_CREATE_FLAGS,
     pub Result: ::windows_sys::core::HRESULT,
@@ -1237,9 +1237,9 @@ pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: super::super::Foundation::PWSTR,
     pub ProviderVersion: super::super::Foundation::PWSTR,
-    pub SyncRootIdentity: *mut ::core::ffi::c_void,
+    pub SyncRootIdentity: *const ::core::ffi::c_void,
     pub SyncRootIdentityLength: u32,
-    pub FileIdentity: *mut ::core::ffi::c_void,
+    pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub ProviderId: ::windows_sys::core::GUID,
 }

@@ -1402,10 +1402,10 @@ impl ::core::default::Default for MLOperatorAttributeNameValue {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MLOperatorAttributeNameValue_0 {
-    pub reserved: *mut ::core::ffi::c_void,
-    pub ints: *mut i64,
-    pub strings: *mut *mut i8,
-    pub floats: *mut f32,
+    pub reserved: *const ::core::ffi::c_void,
+    pub ints: *const i64,
+    pub strings: *const *const i8,
+    pub floats: *const f32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
@@ -1549,7 +1549,7 @@ impl ::core::fmt::Debug for MLOperatorEdgeType {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MLOperatorEdgeTypeConstraint {
     pub typeLabel: super::super::super::Foundation::PSTR,
-    pub allowedTypes: *mut MLOperatorEdgeDescription,
+    pub allowedTypes: *const MLOperatorEdgeDescription,
     pub allowedTypeCount: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1620,9 +1620,9 @@ pub struct MLOperatorKernelDescription {
     pub name: super::super::super::Foundation::PSTR,
     pub minimumOperatorSetVersion: i32,
     pub executionType: MLOperatorExecutionType,
-    pub typeConstraints: *mut MLOperatorEdgeTypeConstraint,
+    pub typeConstraints: *const MLOperatorEdgeTypeConstraint,
     pub typeConstraintCount: u32,
-    pub defaultAttributes: *mut MLOperatorAttributeNameValue,
+    pub defaultAttributes: *const MLOperatorAttributeNameValue,
     pub defaultAttributeCount: u32,
     pub options: MLOperatorKernelOptions,
     pub executionOptions: u32,
@@ -1787,15 +1787,15 @@ impl ::core::ops::Not for MLOperatorParameterOptions {
 pub struct MLOperatorSchemaDescription {
     pub name: super::super::super::Foundation::PSTR,
     pub operatorSetVersionAtLastChange: i32,
-    pub inputs: *mut MLOperatorSchemaEdgeDescription,
+    pub inputs: *const MLOperatorSchemaEdgeDescription,
     pub inputCount: u32,
-    pub outputs: *mut MLOperatorSchemaEdgeDescription,
+    pub outputs: *const MLOperatorSchemaEdgeDescription,
     pub outputCount: u32,
-    pub typeConstraints: *mut MLOperatorEdgeTypeConstraint,
+    pub typeConstraints: *const MLOperatorEdgeTypeConstraint,
     pub typeConstraintCount: u32,
-    pub attributes: *mut MLOperatorAttribute,
+    pub attributes: *const MLOperatorAttribute,
     pub attributeCount: u32,
-    pub defaultAttributes: *mut MLOperatorAttributeNameValue,
+    pub defaultAttributes: *const MLOperatorAttributeNameValue,
     pub defaultAttributeCount: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1881,7 +1881,7 @@ impl ::core::default::Default for MLOperatorSchemaEdgeDescription {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MLOperatorSchemaEdgeDescription_0 {
-    pub reserved: *mut ::core::ffi::c_void,
+    pub reserved: *const ::core::ffi::c_void,
     pub typeLabel: super::super::super::Foundation::PSTR,
     pub edgeDescription: MLOperatorEdgeDescription,
 }

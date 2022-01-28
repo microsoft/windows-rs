@@ -234,8 +234,8 @@ impl ::core::fmt::Debug for BP_BUFFERFORMAT {
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: BP_PAINTPARAMS_FLAGS,
-    pub prcExclude: *mut super::super::Foundation::RECT,
-    pub pBlendFunction: *mut super::super::Graphics::Gdi::BLENDFUNCTION,
+    pub prcExclude: *const super::super::Foundation::RECT,
+    pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for BP_PAINTPARAMS {}
@@ -12556,7 +12556,7 @@ impl ::core::default::Default for NMMOUSE {
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
     pub iItem: i32,
-    pub piid: *mut ::windows::core::GUID,
+    pub piid: *const ::windows::core::GUID,
     pub pObject: *mut ::core::ffi::c_void,
     pub hResult: ::windows::core::HRESULT,
     pub dwFlags: u32,
@@ -18239,10 +18239,10 @@ pub struct TASKDIALOGCONFIG {
     pub pszMainInstruction: super::super::Foundation::PWSTR,
     pub pszContent: super::super::Foundation::PWSTR,
     pub cButtons: u32,
-    pub pButtons: *mut TASKDIALOG_BUTTON,
+    pub pButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultButton: i32,
     pub cRadioButtons: u32,
-    pub pRadioButtons: *mut TASKDIALOG_BUTTON,
+    pub pRadioButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultRadioButton: i32,
     pub pszVerificationText: super::super::Foundation::PWSTR,
     pub pszExpandedInformation: super::super::Foundation::PWSTR,

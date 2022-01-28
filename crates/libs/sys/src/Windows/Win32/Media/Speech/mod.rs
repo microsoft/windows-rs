@@ -1486,7 +1486,7 @@ pub struct SPPHRASEELEMENT {
     pub ulRetainedSizeBytes: u32,
     pub pszDisplayText: super::super::Foundation::PWSTR,
     pub pszLexicalForm: super::super::Foundation::PWSTR,
-    pub pszPronunciation: *mut u16,
+    pub pszPronunciation: *const u16,
     pub bDisplayAttributes: u8,
     pub RequiredConfidence: i8,
     pub ActualConfidence: i8,
@@ -1511,8 +1511,8 @@ pub struct SPPHRASEPROPERTY {
     pub vValue: super::super::System::Com::VARIANT,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
-    pub pNextSibling: *mut SPPHRASEPROPERTY,
-    pub pFirstChild: *mut SPPHRASEPROPERTY,
+    pub pNextSibling: *const SPPHRASEPROPERTY,
+    pub pFirstChild: *const SPPHRASEPROPERTY,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
@@ -1590,8 +1590,8 @@ pub struct SPPHRASERULE {
     pub ulId: u32,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
-    pub pNextSibling: *mut SPPHRASERULE,
-    pub pFirstChild: *mut SPPHRASERULE,
+    pub pNextSibling: *const SPPHRASERULE,
+    pub pFirstChild: *const SPPHRASERULE,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
@@ -1617,13 +1617,13 @@ pub struct SPPHRASE_50 {
     pub ulRetainedSizeBytes: u32,
     pub ulAudioSizeTime: u32,
     pub Rule: SPPHRASERULE,
-    pub pProperties: *mut SPPHRASEPROPERTY,
-    pub pElements: *mut SPPHRASEELEMENT,
+    pub pProperties: *const SPPHRASEPROPERTY,
+    pub pElements: *const SPPHRASEELEMENT,
     pub cReplacements: u32,
-    pub pReplacements: *mut SPPHRASEREPLACEMENT,
+    pub pReplacements: *const SPPHRASEREPLACEMENT,
     pub SREngineID: ::windows_sys::core::GUID,
     pub ulSREnginePrivateDataSize: u32,
-    pub pSREnginePrivateData: *mut u8,
+    pub pSREnginePrivateData: *const u8,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASE_50 {}

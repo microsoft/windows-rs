@@ -556,7 +556,7 @@ impl ::core::clone::Clone for WSDXML_TEXT {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSDXML_TYPE {
     pub Uri: super::super::Foundation::PWSTR,
-    pub Table: *mut u8,
+    pub Table: *const u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSDXML_TYPE {}

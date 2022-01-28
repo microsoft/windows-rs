@@ -4136,7 +4136,7 @@ impl ::core::clone::Clone for DIOBJECTCALIBRATION {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIOBJECTDATAFORMAT {
-    pub pguid: *mut ::windows_sys::core::GUID,
+    pub pguid: *const ::windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,

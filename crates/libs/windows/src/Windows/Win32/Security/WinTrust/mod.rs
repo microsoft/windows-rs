@@ -237,7 +237,7 @@ pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: u32,
-    pub pCert: *mut super::Cryptography::CERT_CONTEXT,
+    pub pCert: *const super::Cryptography::CERT_CONTEXT,
     pub fCommercial: super::super::Foundation::BOOL,
     pub fTrustedRoot: super::super::Foundation::BOOL,
     pub fSelfSigned: super::super::Foundation::BOOL,
@@ -889,7 +889,7 @@ pub struct DRIVER_VER_INFO {
     pub dwVersion: u32,
     pub wszVersion: [u16; 260],
     pub wszSignedBy: [u16; 260],
-    pub pcSignerCertContext: *mut super::Cryptography::CERT_CONTEXT,
+    pub pcSignerCertContext: *const super::Cryptography::CERT_CONTEXT,
     pub sOSVersionLow: DRIVER_VER_MAJORMINOR,
     pub sOSVersionHigh: DRIVER_VER_MAJORMINOR,
     pub dwBuildNumberLow: u32,

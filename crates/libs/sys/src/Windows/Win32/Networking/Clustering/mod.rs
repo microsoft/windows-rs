@@ -2867,7 +2867,7 @@ pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
     pub wzName: super::super::Foundation::PWSTR,
-    pub lpData: *mut u8,
+    pub lpData: *const u8,
     pub cbData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3723,7 +3723,7 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub dwOptions: u32,
     pub wzSubkeyName: super::super::Foundation::PWSTR,
     pub wzValueName: super::super::Foundation::PWSTR,
-    pub lpData: *mut u8,
+    pub lpData: *const u8,
     pub cbData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]

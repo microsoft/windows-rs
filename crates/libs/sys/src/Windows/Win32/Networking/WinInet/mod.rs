@@ -1007,7 +1007,7 @@ impl ::core::clone::Clone for AUTO_PROXY_SCRIPT_BUFFER {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct AutoProxyHelperFunctions {
-    pub lpVtbl: *mut AutoProxyHelperVtbl,
+    pub lpVtbl: *const AutoProxyHelperVtbl,
 }
 impl ::core::marker::Copy for AutoProxyHelperFunctions {}
 impl ::core::clone::Clone for AutoProxyHelperFunctions {
@@ -3889,7 +3889,7 @@ impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
-    pub pCertificate: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
     pub pcCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,

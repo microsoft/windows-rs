@@ -932,7 +932,7 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub union RADIUS_ATTRIBUTE_0 {
     pub dwValue: u32,
-    pub lpValue: *mut u8,
+    pub lpValue: *const u8,
 }
 impl ::core::marker::Copy for RADIUS_ATTRIBUTE_0 {}
 impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
@@ -945,7 +945,7 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
-    pub AttributeAt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut RADIUS_ATTRIBUTE,
+    pub AttributeAt: *const *const *const *const *const *const *const *const *const *const RADIUS_ATTRIBUTE,
     pub GetSize: isize,
     pub InsertAt: isize,
     pub RemoveAt: isize,

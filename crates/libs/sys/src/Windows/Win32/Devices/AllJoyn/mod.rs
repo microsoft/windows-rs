@@ -2403,7 +2403,7 @@ impl ::core::clone::Clone for alljoyn_busobject_callbacks {
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_methodentry {
-    pub member: *mut alljoyn_interfacedescription_member,
+    pub member: *const alljoyn_interfacedescription_member,
     pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2475,7 +2475,7 @@ pub struct alljoyn_interfacedescription_member {
     pub signature: super::super::Foundation::PSTR,
     pub returnSignature: super::super::Foundation::PSTR,
     pub argNames: super::super::Foundation::PSTR,
-    pub internal_member: *mut ::core::ffi::c_void,
+    pub internal_member: *const ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for alljoyn_interfacedescription_member {}
@@ -2492,7 +2492,7 @@ pub struct alljoyn_interfacedescription_property {
     pub name: super::super::Foundation::PSTR,
     pub signature: super::super::Foundation::PSTR,
     pub access: u8,
-    pub internal_property: *mut ::core::ffi::c_void,
+    pub internal_property: *const ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for alljoyn_interfacedescription_property {}

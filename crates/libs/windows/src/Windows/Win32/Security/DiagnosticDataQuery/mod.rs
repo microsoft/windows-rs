@@ -327,9 +327,9 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub producerNames: *mut super::super::Foundation::PWSTR,
     pub producerNameCount: u32,
     pub textToMatch: super::super::Foundation::PWSTR,
-    pub categoryIds: *mut i32,
+    pub categoryIds: *const i32,
     pub categoryIdCount: u32,
-    pub privacyTags: *mut i32,
+    pub privacyTags: *const i32,
     pub privacyTagCount: u32,
     pub coreDataOnly: super::super::Foundation::BOOL,
 }

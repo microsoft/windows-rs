@@ -6224,14 +6224,14 @@ pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
     pub hdcDst: super::super::Graphics::Gdi::HDC,
-    pub pptDst: *mut super::super::Foundation::POINT,
-    pub psize: *mut super::super::Foundation::SIZE,
+    pub pptDst: *const super::super::Foundation::POINT,
+    pub psize: *const super::super::Foundation::SIZE,
     pub hdcSrc: super::super::Graphics::Gdi::HDC,
-    pub pptSrc: *mut super::super::Foundation::POINT,
+    pub pptSrc: *const super::super::Foundation::POINT,
     pub crKey: u32,
-    pub pblend: *mut super::super::Graphics::Gdi::BLENDFUNCTION,
+    pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
     pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
-    pub prcDirty: *mut super::super::Foundation::RECT,
+    pub prcDirty: *const super::super::Foundation::RECT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for UPDATELAYEREDWINDOWINFO {}

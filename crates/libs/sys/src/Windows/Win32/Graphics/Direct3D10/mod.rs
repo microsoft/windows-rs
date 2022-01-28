@@ -801,9 +801,9 @@ impl ::core::clone::Clone for D3D10_EFFECT_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_EFFECT_SHADER_DESC {
-    pub pInputSignature: *mut u8,
+    pub pInputSignature: *const u8,
     pub IsInline: super::super::Foundation::BOOL,
-    pub pBytecode: *mut u8,
+    pub pBytecode: *const u8,
     pub BytecodeLength: u32,
     pub SODecl: super::super::Foundation::PSTR,
     pub NumInputSignatureEntries: u32,
@@ -1188,7 +1188,7 @@ pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
     pub ID: D3D10_MESSAGE_ID,
-    pub pDescription: *mut u8,
+    pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
 impl ::core::marker::Copy for D3D10_MESSAGE {}
@@ -3272,7 +3272,7 @@ pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub struct D3D10_SUBRESOURCE_DATA {
-    pub pSysMem: *mut ::core::ffi::c_void,
+    pub pSysMem: *const ::core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }

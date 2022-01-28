@@ -7048,12 +7048,12 @@ pub const KSTIME_FORMAT_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::core:
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
-    pub Categories: *mut ::windows_sys::core::GUID,
+    pub Categories: *const ::windows_sys::core::GUID,
     pub TopologyNodesCount: u32,
-    pub TopologyNodes: *mut ::windows_sys::core::GUID,
+    pub TopologyNodes: *const ::windows_sys::core::GUID,
     pub TopologyConnectionsCount: u32,
-    pub TopologyConnections: *mut KSTOPOLOGY_CONNECTION,
-    pub TopologyNodesNames: *mut ::windows_sys::core::GUID,
+    pub TopologyConnections: *const KSTOPOLOGY_CONNECTION,
+    pub TopologyNodesNames: *const ::windows_sys::core::GUID,
     pub Reserved: u32,
 }
 impl ::core::marker::Copy for KSTOPOLOGY {}

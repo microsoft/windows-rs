@@ -13517,7 +13517,7 @@ impl ::core::fmt::Debug for MSHLFLAGS {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub struct MULTI_QI {
-    pub pIID: *mut ::windows::core::GUID,
+    pub pIID: *const ::windows::core::GUID,
     pub pItf: ::core::option::Option<::windows::core::IUnknown>,
     pub hr: ::windows::core::HRESULT,
 }

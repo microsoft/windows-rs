@@ -2170,7 +2170,7 @@ impl ::core::clone::Clone for JET_OBJECTLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: u32,
-    pub prgcolumndef: *mut JET_COLUMNDEF,
+    pub prgcolumndef: *const JET_COLUMNDEF,
     pub ccolumn: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
     pub grbit: u32,
@@ -2192,7 +2192,7 @@ impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
-    pub prgcolumndef: *mut JET_COLUMNDEF,
+    pub prgcolumndef: *const JET_COLUMNDEF,
     pub ccolumn: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX2,
     pub grbit: u32,
@@ -2579,7 +2579,7 @@ impl ::core::clone::Clone for JET_RSTMAP_W {
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_SETCOLUMN {
     pub columnid: u32,
-    pub pvData: *mut ::core::ffi::c_void,
+    pub pvData: *const ::core::ffi::c_void,
     pub cbData: u32,
     pub grbit: u32,
     pub ibLongValue: u32,

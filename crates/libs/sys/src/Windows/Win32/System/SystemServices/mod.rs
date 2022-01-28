@@ -3841,7 +3841,7 @@ impl ::core::clone::Clone for IMAGE_POLICY_ENTRY {
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union IMAGE_POLICY_ENTRY_0 {
-    pub None: *mut ::core::ffi::c_void,
+    pub None: *const ::core::ffi::c_void,
     pub BoolValue: super::super::Foundation::BOOLEAN,
     pub Int8Value: i8,
     pub UInt8Value: u8,

@@ -5451,7 +5451,7 @@ pub const SCH_CRED_X509_CERTCHAIN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SCH_EXTENSION_DATA {
     pub ExtensionType: u16,
-    pub pExtData: *mut u8,
+    pub pExtData: *const u8,
     pub cbExtData: u32,
 }
 impl ::core::marker::Copy for SCH_EXTENSION_DATA {}
@@ -8061,7 +8061,7 @@ pub const SL_MSCH_ZONE: u32 = 49152u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
-    pub pComponentId: *mut ::windows_sys::core::GUID,
+    pub pComponentId: *const ::windows_sys::core::GUID,
     pub hResultUI: ::windows_sys::core::HRESULT,
 }
 impl ::core::marker::Copy for SL_NONGENUINE_UI_OPTIONS {}

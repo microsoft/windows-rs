@@ -205,7 +205,7 @@ pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
 pub struct D3D_SHADER_DATA {
-    pub pBytecode: *mut ::core::ffi::c_void,
+    pub pBytecode: *const ::core::ffi::c_void,
     pub BytecodeLength: usize,
 }
 impl ::core::marker::Copy for D3D_SHADER_DATA {}

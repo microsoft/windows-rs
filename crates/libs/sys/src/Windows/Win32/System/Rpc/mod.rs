@@ -1468,7 +1468,7 @@ impl ::core::clone::Clone for MIDL_FORMAT_STRING {
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
     pub ProcString: *mut u8,
-    pub ProcFormatOffsetTable: *mut u16,
+    pub ProcFormatOffsetTable: *const u16,
     pub ProcCount: u32,
     pub TypeString: *mut u8,
 }
@@ -1482,7 +1482,7 @@ impl ::core::clone::Clone for MIDL_INTERCEPTION_INFO {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
-    pub MethodProperties: *mut *mut MIDL_METHOD_PROPERTY_MAP,
+    pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
 }
 impl ::core::marker::Copy for MIDL_INTERFACE_METHOD_PROPERTIES {}
 impl ::core::clone::Clone for MIDL_INTERFACE_METHOD_PROPERTIES {
@@ -1506,7 +1506,7 @@ impl ::core::clone::Clone for MIDL_METHOD_PROPERTY {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
-    pub Properties: *mut MIDL_METHOD_PROPERTY,
+    pub Properties: *const MIDL_METHOD_PROPERTY,
 }
 impl ::core::marker::Copy for MIDL_METHOD_PROPERTY_MAP {}
 impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
@@ -1519,10 +1519,10 @@ impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
-    pub DispatchTable: *mut SERVER_ROUTINE,
+    pub DispatchTable: *const SERVER_ROUTINE,
     pub ProcString: *mut u8,
-    pub FmtStringOffset: *mut u16,
-    pub ThunkTable: *mut STUB_THUNK,
+    pub FmtStringOffset: *const u16,
+    pub ThunkTable: *const STUB_THUNK,
     pub pTransferSyntax: *mut RPC_SYNTAX_IDENTIFIER,
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
@@ -1541,7 +1541,7 @@ impl ::core::clone::Clone for MIDL_SERVER_INFO {
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
     pub ProcFormatString: *mut u8,
-    pub FormatStringOffset: *mut u16,
+    pub FormatStringOffset: *const u16,
     pub pTransferSyntax: *mut RPC_SYNTAX_IDENTIFIER,
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
@@ -1562,22 +1562,22 @@ pub struct MIDL_STUB_DESC {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
-    pub apfnNdrRundownRoutines: *mut NDR_RUNDOWN,
-    pub aGenericBindingRoutinePairs: *mut GENERIC_BINDING_ROUTINE_PAIR,
-    pub apfnExprEval: *mut EXPR_EVAL,
-    pub aXmitQuintuple: *mut XMIT_ROUTINE_QUINTUPLE,
-    pub pFormatTypes: *mut u8,
+    pub apfnNdrRundownRoutines: *const NDR_RUNDOWN,
+    pub aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
+    pub apfnExprEval: *const EXPR_EVAL,
+    pub aXmitQuintuple: *const XMIT_ROUTINE_QUINTUPLE,
+    pub pFormatTypes: *const u8,
     pub fCheckBounds: i32,
     pub Version: u32,
     pub pMallocFreeStruct: *mut MALLOC_FREE_STRUCT,
     pub MIDLVersion: i32,
-    pub CommFaultOffsets: *mut COMM_FAULT_OFFSETS,
-    pub aUserMarshalQuadruple: *mut USER_MARSHAL_ROUTINE_QUADRUPLE,
-    pub NotifyRoutineTable: *mut NDR_NOTIFY_ROUTINE,
+    pub CommFaultOffsets: *const COMM_FAULT_OFFSETS,
+    pub aUserMarshalQuadruple: *const USER_MARSHAL_ROUTINE_QUADRUPLE,
+    pub NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
     pub mFlags: usize,
-    pub CsRoutineTables: *mut NDR_CS_ROUTINES,
+    pub CsRoutineTables: *const NDR_CS_ROUTINES,
     pub ProxyServerInfo: *mut ::core::ffi::c_void,
-    pub pExprInfo: *mut NDR_EXPR_DESC,
+    pub pExprInfo: *const NDR_EXPR_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUB_DESC {}
@@ -1635,7 +1635,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pPresentedType: *mut u8,
     pub pTransmitType: *mut u8,
     pub SavedHandle: *mut ::core::ffi::c_void,
-    pub StubDesc: *mut MIDL_STUB_DESC,
+    pub StubDesc: *const MIDL_STUB_DESC,
     pub FullPtrXlatTables: *mut FULL_PTR_XLAT_TABLES,
     pub FullPtrRefId: u32,
     pub PointerLength: u32,
@@ -1681,10 +1681,10 @@ pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
     pub ProcString: *mut u8,
-    pub FmtStringOffset: *mut u16,
+    pub FmtStringOffset: *const u16,
     pub TypeString: *mut u8,
-    pub aUserMarshalQuadruple: *mut ::core::ffi::c_void,
-    pub pMethodProperties: *mut MIDL_INTERFACE_METHOD_PROPERTIES,
+    pub aUserMarshalQuadruple: *const ::core::ffi::c_void,
+    pub pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
     pub pReserved2: usize,
 }
 impl ::core::marker::Copy for MIDL_SYNTAX_INFO {}
@@ -2676,7 +2676,7 @@ pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct NDR_EXPR_DESC {
-    pub pOffset: *mut u16,
+    pub pOffset: *const u16,
     pub pFormatExpr: *mut u8,
 }
 impl ::core::marker::Copy for NDR_EXPR_DESC {}
@@ -3303,7 +3303,7 @@ pub struct RPC_CLIENT_INTERFACE {
     pub RpcProtseqEndpointCount: u32,
     pub RpcProtseqEndpoint: *mut RPC_PROTSEQ_ENDPOINT,
     pub Reserved: usize,
-    pub InterpreterInfo: *mut ::core::ffi::c_void,
+    pub InterpreterInfo: *const ::core::ffi::c_void,
     pub Flags: u32,
 }
 impl ::core::marker::Copy for RPC_CLIENT_INTERFACE {}
@@ -4425,7 +4425,7 @@ pub struct RPC_SERVER_INTERFACE {
     pub RpcProtseqEndpointCount: u32,
     pub RpcProtseqEndpoint: *mut RPC_PROTSEQ_ENDPOINT,
     pub DefaultManagerEpv: *mut ::core::ffi::c_void,
-    pub InterpreterInfo: *mut ::core::ffi::c_void,
+    pub InterpreterInfo: *const ::core::ffi::c_void,
     pub Flags: u32,
 }
 impl ::core::marker::Copy for RPC_SERVER_INTERFACE {}

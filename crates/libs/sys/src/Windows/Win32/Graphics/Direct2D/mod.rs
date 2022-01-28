@@ -747,9 +747,9 @@ pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
-    pub shaderBufferWithInputSignature: *mut u8,
+    pub shaderBufferWithInputSignature: *const u8,
     pub shaderBufferSize: u32,
-    pub inputElements: *mut D2D1_INPUT_ELEMENT_DESC,
+    pub inputElements: *const D2D1_INPUT_ELEMENT_DESC,
     pub elementCount: u32,
     pub stride: u32,
 }
@@ -2109,12 +2109,12 @@ pub const D2D1_RENDER_TARGET_USAGE_FORCE_DWORD: D2D1_RENDER_TARGET_USAGE = 42949
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
-    pub extents: *mut u32,
+    pub extents: *const u32,
     pub dimensions: u32,
     pub bufferPrecision: D2D1_BUFFER_PRECISION,
     pub channelDepth: D2D1_CHANNEL_DEPTH,
     pub filter: D2D1_FILTER,
-    pub extendModes: *mut D2D1_EXTEND_MODE,
+    pub extendModes: *const D2D1_EXTEND_MODE,
 }
 impl ::core::marker::Copy for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
 impl ::core::clone::Clone for D2D1_RESOURCE_TEXTURE_PROPERTIES {
@@ -2793,7 +2793,7 @@ pub const D2D1_UNIT_MODE_FORCE_DWORD: D2D1_UNIT_MODE = 4294967295u32;
 pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
     pub inputCount: u32,
     pub usage: D2D1_VERTEX_USAGE,
-    pub data: *mut u8,
+    pub data: *const u8,
     pub byteWidth: u32,
 }
 impl ::core::marker::Copy for D2D1_VERTEX_BUFFER_PROPERTIES {}

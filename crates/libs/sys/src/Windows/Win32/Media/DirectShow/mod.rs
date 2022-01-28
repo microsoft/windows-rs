@@ -9731,7 +9731,7 @@ impl ::core::clone::Clone for REGFILTER2_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2_0_0 {
     pub cPins: u32,
-    pub rgPins: *mut REGFILTERPINS,
+    pub rgPins: *const REGFILTERPINS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REGFILTER2_0_0 {}
@@ -9746,7 +9746,7 @@ impl ::core::clone::Clone for REGFILTER2_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
-    pub rgPins2: *mut REGFILTERPINS2,
+    pub rgPins2: *const REGFILTERPINS2,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REGFILTER2_0_1 {}
@@ -9765,10 +9765,10 @@ pub struct REGFILTERPINS {
     pub bOutput: super::super::Foundation::BOOL,
     pub bZero: super::super::Foundation::BOOL,
     pub bMany: super::super::Foundation::BOOL,
-    pub clsConnectsToFilter: *mut ::windows_sys::core::GUID,
+    pub clsConnectsToFilter: *const ::windows_sys::core::GUID,
     pub strConnectsToPin: super::super::Foundation::PWSTR,
     pub nMediaTypes: u32,
-    pub lpMediaType: *mut REGPINTYPES,
+    pub lpMediaType: *const REGPINTYPES,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REGFILTERPINS {}
@@ -9784,10 +9784,10 @@ pub struct REGFILTERPINS2 {
     pub dwFlags: u32,
     pub cInstances: u32,
     pub nMediaTypes: u32,
-    pub lpMediaType: *mut REGPINTYPES,
+    pub lpMediaType: *const REGPINTYPES,
     pub nMediums: u32,
-    pub lpMedium: *mut REGPINMEDIUM,
-    pub clsPinCategory: *mut ::windows_sys::core::GUID,
+    pub lpMedium: *const REGPINMEDIUM,
+    pub clsPinCategory: *const ::windows_sys::core::GUID,
 }
 impl ::core::marker::Copy for REGFILTERPINS2 {}
 impl ::core::clone::Clone for REGFILTERPINS2 {
@@ -9811,8 +9811,8 @@ impl ::core::clone::Clone for REGPINMEDIUM {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub struct REGPINTYPES {
-    pub clsMajorType: *mut ::windows_sys::core::GUID,
-    pub clsMinorType: *mut ::windows_sys::core::GUID,
+    pub clsMajorType: *const ::windows_sys::core::GUID,
+    pub clsMinorType: *const ::windows_sys::core::GUID,
 }
 impl ::core::marker::Copy for REGPINTYPES {}
 impl ::core::clone::Clone for REGPINTYPES {
