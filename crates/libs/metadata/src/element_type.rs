@@ -199,10 +199,18 @@ impl ElementType {
         }
     }
 
-    pub fn has_explicit(&self) -> bool {
+    pub fn has_union(&self) -> bool {
         match self {
-            Self::TypeDef(t) => t.has_explicit(),
-            Self::Array((kind, _)) => kind.has_explicit(),
+            Self::TypeDef(t) => t.has_union(),
+            Self::Array((kind, _)) => kind.has_union(),
+            _ => false,
+        }
+    }
+
+    pub fn has_pack(&self) -> bool {
+        match self {
+            Self::TypeDef(t) => t.has_pack(),
+            Self::Array((kind, _)) => kind.has_pack(),
             _ => false,
         }
     }
