@@ -1313,9 +1313,9 @@ impl ::core::clone::Clone for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
-    pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub trustedIssuerCerts: *const *const super::super::Security::Cryptography::CERT_CONTEXT,
     pub trustedIssuerCertCount: u32,
-    pub decryptionCert: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub decryptionCert: *const super::super::Security::Cryptography::CERT_CONTEXT,
     pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
     pub samlValidatorCallbackState: *mut ::core::ffi::c_void,
 }
@@ -4304,9 +4304,9 @@ pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe exter
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_CONTRACT {
-    pub contractDescription: *mut WS_CONTRACT_DESCRIPTION,
+    pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
     pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
-    pub methodTable: *mut ::core::ffi::c_void,
+    pub methodTable: *const ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_SERVICE_CONTRACT {}
@@ -4323,10 +4323,10 @@ pub struct WS_SERVICE_ENDPOINT {
     pub address: WS_ENDPOINT_ADDRESS,
     pub channelBinding: WS_CHANNEL_BINDING,
     pub channelType: WS_CHANNEL_TYPE,
-    pub securityDescription: *mut WS_SECURITY_DESCRIPTION,
-    pub contract: *mut WS_SERVICE_CONTRACT,
+    pub securityDescription: *const WS_SECURITY_DESCRIPTION,
+    pub contract: *const WS_SERVICE_CONTRACT,
     pub authorizationCallback: WS_SERVICE_SECURITY_CALLBACK,
-    pub properties: *mut WS_SERVICE_ENDPOINT_PROPERTY,
+    pub properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
     pub propertyCount: u32,
     pub channelProperties: WS_CHANNEL_PROPERTIES,
 }

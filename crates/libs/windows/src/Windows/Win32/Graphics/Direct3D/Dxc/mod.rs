@@ -130,7 +130,7 @@ impl ::core::default::Default for DxcArgPair {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub struct DxcBuffer {
-    pub Ptr: *mut ::core::ffi::c_void,
+    pub Ptr: *const ::core::ffi::c_void,
     pub Size: usize,
     pub Encoding: u32,
 }

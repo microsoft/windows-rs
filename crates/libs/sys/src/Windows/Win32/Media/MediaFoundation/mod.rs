@@ -1614,7 +1614,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
     pub ResolutionsListCount: u32,
-    pub pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
     pub MaxReferenceFramesInDPB: u32,
     pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
     pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
@@ -1694,7 +1694,7 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMET
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub NodeIndex: u32,
     pub CommandId: ::windows_sys::core::GUID,
-    pub pCreationParameters: *mut ::core::ffi::c_void,
+    pub pCreationParameters: *const ::core::ffi::c_void,
     pub CreationParametersSizeInBytes: usize,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
@@ -1710,7 +1710,7 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub NodeIndex: u32,
     pub CommandId: ::windows_sys::core::GUID,
-    pub pInputData: *mut ::core::ffi::c_void,
+    pub pInputData: *const ::core::ffi::c_void,
     pub InputDataSizeInBytes: usize,
     pub pOutputData: *mut ::core::ffi::c_void,
     pub OutputDataSizeInBytes: usize,
@@ -1796,9 +1796,9 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
-    pub pOutputStreamDesc: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
     pub NumInputStreamDescs: u32,
-    pub pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
 }
@@ -1815,9 +1815,9 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
-    pub pOutputStreamDesc: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
     pub NumInputStreamDescs: u32,
-    pub pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
     pub Protected: super::super::Foundation::BOOL,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
@@ -2783,7 +2783,7 @@ pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
     pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
     pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
     pub ResolutionsListCount: u32,
-    pub pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
 }
 impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_HEAP_DESC {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_DESC {
@@ -3132,8 +3132,8 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
-    pub pSlicesPartition_H264: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
-    pub pSlicesPartition_HEVC: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+    pub pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+    pub pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
 }
 impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
@@ -3277,10 +3277,10 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PAR
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
-    pub pConfiguration_CQP: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
-    pub pConfiguration_CBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
-    pub pConfiguration_VBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR,
-    pub pConfiguration_QVBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR,
+    pub pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
+    pub pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
+    pub pConfiguration_VBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR,
+    pub pConfiguration_QVBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR,
 }
 impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {}
 impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {

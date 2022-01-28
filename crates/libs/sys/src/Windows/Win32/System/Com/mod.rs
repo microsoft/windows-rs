@@ -1517,7 +1517,7 @@ pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = 64i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com'*"]
 pub struct MULTI_QI {
-    pub pIID: *mut ::windows_sys::core::GUID,
+    pub pIID: *const ::windows_sys::core::GUID,
     pub pItf: ::windows_sys::core::IUnknown,
     pub hr: ::windows_sys::core::HRESULT,
 }

@@ -5559,7 +5559,7 @@ pub struct D3D11_MESSAGE {
     pub Category: D3D11_MESSAGE_CATEGORY,
     pub Severity: D3D11_MESSAGE_SEVERITY,
     pub ID: D3D11_MESSAGE_ID,
-    pub pDescription: *mut u8,
+    pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
 impl ::core::marker::Copy for D3D11_MESSAGE {}
@@ -10577,7 +10577,7 @@ pub const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_SUBRESOURCE_DATA {
-    pub pSysMem: *mut ::core::ffi::c_void,
+    pub pSysMem: *const ::core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }

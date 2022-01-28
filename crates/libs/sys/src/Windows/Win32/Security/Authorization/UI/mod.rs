@@ -117,7 +117,7 @@ impl ::core::clone::Clone for SID_INFO_LIST {
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SI_ACCESS {
-    pub pguid: *mut ::windows_sys::core::GUID,
+    pub pguid: *const ::windows_sys::core::GUID,
     pub mask: u32,
     pub pszName: super::super::super::Foundation::PWSTR,
     pub dwFlags: u32,
@@ -148,7 +148,7 @@ pub const SI_EDIT_PERMS: i32 = 0i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SI_INHERIT_TYPE {
-    pub pguid: *mut ::windows_sys::core::GUID,
+    pub pguid: *const ::windows_sys::core::GUID,
     pub dwFlags: super::super::ACE_FLAGS,
     pub pszName: super::super::super::Foundation::PWSTR,
 }

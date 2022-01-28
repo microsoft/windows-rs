@@ -3537,7 +3537,7 @@ pub const CERT_CHAIN_DISABLE_TIMESTAMP_WEAK_FLAG: u32 = 67108864u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
-    pub pCertContext: *mut CERT_CONTEXT,
+    pub pCertContext: *const CERT_CONTEXT,
     pub TrustStatus: CERT_TRUST_STATUS,
     pub pRevocationInfo: *mut CERT_REVOCATION_INFO,
     pub pIssuanceUsage: *mut CTL_USAGE,
@@ -4191,7 +4191,7 @@ impl ::core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_CRL_CONTEXT_PAIR {
-    pub pCertContext: *mut CERT_CONTEXT,
+    pub pCertContext: *const CERT_CONTEXT,
     pub pCrlContext: *mut CRL_CONTEXT,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7473,7 +7473,7 @@ impl ::core::default::Default for CERT_REVOCATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
-    pub pIssuerCert: *mut CERT_CONTEXT,
+    pub pIssuerCert: *const CERT_CONTEXT,
     pub cCertStore: u32,
     pub rgCertStore: *mut *mut ::core::ffi::c_void,
     pub hCrlStore: *mut ::core::ffi::c_void,
@@ -8089,7 +8089,7 @@ pub struct CERT_STORE_PROV_FIND_INFO {
     pub dwMsgAndCertEncodingType: u32,
     pub dwFindFlags: u32,
     pub dwFindType: u32,
-    pub pvFindPara: *mut ::core::ffi::c_void,
+    pub pvFindPara: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for CERT_STORE_PROV_FIND_INFO {}
 impl ::core::clone::Clone for CERT_STORE_PROV_FIND_INFO {
@@ -12146,8 +12146,8 @@ pub const CRL_FIND_ISSUED_FOR: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
-    pub pSubjectCert: *mut CERT_CONTEXT,
-    pub pIssuerCert: *mut CERT_CONTEXT,
+    pub pSubjectCert: *const CERT_CONTEXT,
+    pub pIssuerCert: *const CERT_CONTEXT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRL_FIND_ISSUED_FOR_PARA {}
@@ -16191,7 +16191,7 @@ pub const CRYPT_SIGN_ALG_OID_GROUP_ID: u32 = 4u32;
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
-    pub pSigningCert: *mut CERT_CONTEXT,
+    pub pSigningCert: *const CERT_CONTEXT,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut ::core::ffi::c_void,
     pub cMsgCert: u32,
@@ -18063,7 +18063,7 @@ pub const CRYPT_XML_OBJECTS_MAX: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
-    pub pvValue: *mut ::core::ffi::c_void,
+    pub pvValue: *const ::core::ffi::c_void,
     pub cbValue: u32,
 }
 impl ::core::marker::Copy for CRYPT_XML_PROPERTY {}

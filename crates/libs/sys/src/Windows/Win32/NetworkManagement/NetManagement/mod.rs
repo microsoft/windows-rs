@@ -1327,7 +1327,7 @@ pub const DNLEN: u32 = 15u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
-    pub pJoinCertificate: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
     pub pszDeviceId: super::super::Foundation::PWSTR,
     pub pszIdpDomain: super::super::Foundation::PWSTR,
     pub pszTenantId: super::super::Foundation::PWSTR,

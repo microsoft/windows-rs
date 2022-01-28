@@ -2190,7 +2190,7 @@ pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, s
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS_DESTADDR {
     pub ObjectHdr: QOS_OBJECT_HDR,
-    pub SocketAddress: *mut super::super::Networking::WinSock::SOCKADDR,
+    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
     pub SocketAddressLength: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

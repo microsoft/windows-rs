@@ -2065,7 +2065,7 @@ impl ::core::default::Default for HTTP_FILTER_VERSION {
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_CONFIGURATION {
-    pub pProviderGuid: *mut ::windows::core::GUID,
+    pub pProviderGuid: *const ::windows::core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
     pub fProviderEnabled: super::super::Foundation::BOOL,
@@ -2106,15 +2106,15 @@ impl ::core::default::Default for HTTP_TRACE_CONFIGURATION {
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT {
-    pub pProviderGuid: *mut ::windows::core::GUID,
+    pub pProviderGuid: *const ::windows::core::GUID,
     pub dwArea: u32,
-    pub pAreaGuid: *mut ::windows::core::GUID,
+    pub pAreaGuid: *const ::windows::core::GUID,
     pub dwEvent: u32,
     pub pszEventName: super::super::Foundation::PWSTR,
     pub dwEventVersion: u32,
     pub dwVerbosity: u32,
-    pub pActivityGuid: *mut ::windows::core::GUID,
-    pub pRelatedActivityGuid: *mut ::windows::core::GUID,
+    pub pActivityGuid: *const ::windows::core::GUID,
+    pub pRelatedActivityGuid: *const ::windows::core::GUID,
     pub dwTimeStamp: u32,
     pub dwFlags: u32,
     pub cEventItems: u32,

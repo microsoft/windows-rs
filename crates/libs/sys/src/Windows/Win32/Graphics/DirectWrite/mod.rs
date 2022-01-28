@@ -633,7 +633,7 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BLACK: DWRITE_FONT_WEIGHT = 950i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
-    pub imageData: *mut ::core::ffi::c_void,
+    pub imageData: *const ::core::ffi::c_void,
     pub imageDataSize: u32,
     pub uniqueDataId: u32,
     pub pixelsPerEm: u32,
@@ -717,9 +717,9 @@ pub struct DWRITE_GLYPH_RUN {
     pub fontFace: IDWriteFontFace,
     pub fontEmSize: f32,
     pub glyphCount: u32,
-    pub glyphIndices: *mut u16,
-    pub glyphAdvances: *mut f32,
-    pub glyphOffsets: *mut DWRITE_GLYPH_OFFSET,
+    pub glyphIndices: *const u16,
+    pub glyphAdvances: *const f32,
+    pub glyphOffsets: *const DWRITE_GLYPH_OFFSET,
     pub isSideways: super::super::Foundation::BOOL,
     pub bidiLevel: u32,
 }
@@ -738,7 +738,7 @@ pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub localeName: super::super::Foundation::PWSTR,
     pub string: super::super::Foundation::PWSTR,
     pub stringLength: u32,
-    pub clusterMap: *mut u16,
+    pub clusterMap: *const u16,
     pub textPosition: u32,
 }
 #[cfg(feature = "Win32_Foundation")]

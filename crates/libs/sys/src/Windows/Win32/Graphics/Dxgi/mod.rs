@@ -408,7 +408,7 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
     pub Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
     pub ID: i32,
-    pub pDescription: *mut u8,
+    pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
 impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE {}

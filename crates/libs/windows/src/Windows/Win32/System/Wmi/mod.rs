@@ -9116,7 +9116,7 @@ pub struct IWbemUnsecuredApartment_Vtbl {
 pub struct MI_Application {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_ApplicationFT,
+    pub ft: *const MI_ApplicationFT,
 }
 impl ::core::marker::Copy for MI_Application {}
 impl ::core::clone::Clone for MI_Application {
@@ -9531,10 +9531,10 @@ impl ::core::default::Default for MI_Char16Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Class {
-    pub ft: *mut MI_ClassFT,
-    pub classDecl: *mut MI_ClassDecl,
-    pub namespaceName: *mut u16,
-    pub serverName: *mut u16,
+    pub ft: *const MI_ClassFT,
+    pub classDecl: *const MI_ClassDecl,
+    pub namespaceName: *const u16,
+    pub serverName: *const u16,
     pub reserved: [isize; 4],
 }
 impl ::core::marker::Copy for MI_Class {}
@@ -9567,18 +9567,18 @@ impl ::core::default::Default for MI_Class {
 pub struct MI_ClassDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
-    pub properties: *mut *mut MI_PropertyDecl,
+    pub properties: *const *const MI_PropertyDecl,
     pub numProperties: u32,
     pub size: u32,
-    pub superClass: *mut u16,
-    pub superClassDecl: *mut MI_ClassDecl,
-    pub methods: *mut *mut MI_MethodDecl,
+    pub superClass: *const u16,
+    pub superClassDecl: *const MI_ClassDecl,
+    pub methods: *const *const MI_MethodDecl,
     pub numMethods: u32,
-    pub schema: *mut MI_SchemaDecl,
-    pub providerFT: *mut MI_ProviderFT,
+    pub schema: *const MI_SchemaDecl,
+    pub providerFT: *const MI_ProviderFT,
     pub owningClass: *mut MI_Class,
 }
 impl ::core::marker::Copy for MI_ClassDecl {}
@@ -9683,16 +9683,16 @@ impl ::core::default::Default for MI_ClassFT {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ClientFT_V1 {
-    pub applicationFT: *mut MI_ApplicationFT,
-    pub sessionFT: *mut MI_SessionFT,
-    pub operationFT: *mut MI_OperationFT,
-    pub hostedProviderFT: *mut MI_HostedProviderFT,
-    pub serializerFT: *mut MI_SerializerFT,
-    pub deserializerFT: *mut MI_DeserializerFT,
-    pub subscribeDeliveryOptionsFT: *mut MI_SubscriptionDeliveryOptionsFT,
-    pub destinationOptionsFT: *mut MI_DestinationOptionsFT,
-    pub operationOptionsFT: *mut MI_OperationOptionsFT,
-    pub utilitiesFT: *mut MI_UtilitiesFT,
+    pub applicationFT: *const MI_ApplicationFT,
+    pub sessionFT: *const MI_SessionFT,
+    pub operationFT: *const MI_OperationFT,
+    pub hostedProviderFT: *const MI_HostedProviderFT,
+    pub serializerFT: *const MI_SerializerFT,
+    pub deserializerFT: *const MI_DeserializerFT,
+    pub subscribeDeliveryOptionsFT: *const MI_SubscriptionDeliveryOptionsFT,
+    pub destinationOptionsFT: *const MI_DestinationOptionsFT,
+    pub operationOptionsFT: *const MI_OperationOptionsFT,
+    pub utilitiesFT: *const MI_UtilitiesFT,
 }
 impl ::core::marker::Copy for MI_ClientFT_V1 {}
 impl ::core::clone::Clone for MI_ClientFT_V1 {
@@ -9733,7 +9733,7 @@ impl ::core::default::Default for MI_ClientFT_V1 {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstBooleanA {
-    pub data: *mut u8,
+    pub data: *const u8,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstBooleanA {}
@@ -9828,7 +9828,7 @@ impl ::core::default::Default for MI_ConstBooleanField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstChar16A {
-    pub data: *mut u16,
+    pub data: *const u16,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstChar16A {}
@@ -9923,7 +9923,7 @@ impl ::core::default::Default for MI_ConstChar16Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstDatetimeA {
-    pub data: *mut MI_Datetime,
+    pub data: *const MI_Datetime,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstDatetimeA {}
@@ -10013,7 +10013,7 @@ impl ::core::default::Default for MI_ConstDatetimeField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstInstanceA {
-    pub data: *mut *mut MI_Instance,
+    pub data: *const *const MI_Instance,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstInstanceA {}
@@ -10076,7 +10076,7 @@ impl ::core::default::Default for MI_ConstInstanceAField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstInstanceField {
-    pub value: *mut MI_Instance,
+    pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
@@ -10108,7 +10108,7 @@ impl ::core::default::Default for MI_ConstInstanceField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstReal32A {
-    pub data: *mut f32,
+    pub data: *const f32,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstReal32A {}
@@ -10203,7 +10203,7 @@ impl ::core::default::Default for MI_ConstReal32Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstReal64A {
-    pub data: *mut f64,
+    pub data: *const f64,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstReal64A {}
@@ -10298,7 +10298,7 @@ impl ::core::default::Default for MI_ConstReal64Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstReferenceA {
-    pub data: *mut *mut MI_Instance,
+    pub data: *const *const MI_Instance,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstReferenceA {}
@@ -10361,7 +10361,7 @@ impl ::core::default::Default for MI_ConstReferenceAField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstReferenceField {
-    pub value: *mut MI_Instance,
+    pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
@@ -10393,7 +10393,7 @@ impl ::core::default::Default for MI_ConstReferenceField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstSint16A {
-    pub data: *mut i16,
+    pub data: *const i16,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstSint16A {}
@@ -10488,7 +10488,7 @@ impl ::core::default::Default for MI_ConstSint16Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstSint32A {
-    pub data: *mut i32,
+    pub data: *const i32,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstSint32A {}
@@ -10583,7 +10583,7 @@ impl ::core::default::Default for MI_ConstSint32Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstSint64A {
-    pub data: *mut i64,
+    pub data: *const i64,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstSint64A {}
@@ -10678,7 +10678,7 @@ impl ::core::default::Default for MI_ConstSint64Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstSint8A {
-    pub data: *mut i8,
+    pub data: *const i8,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstSint8A {}
@@ -10773,7 +10773,7 @@ impl ::core::default::Default for MI_ConstSint8Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstStringA {
-    pub data: *mut *mut u16,
+    pub data: *const *const u16,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstStringA {}
@@ -10836,7 +10836,7 @@ impl ::core::default::Default for MI_ConstStringAField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstStringField {
-    pub value: *mut u16,
+    pub value: *const u16,
     pub exists: u8,
     pub flags: u8,
 }
@@ -10868,7 +10868,7 @@ impl ::core::default::Default for MI_ConstStringField {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstUint16A {
-    pub data: *mut u16,
+    pub data: *const u16,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstUint16A {}
@@ -10963,7 +10963,7 @@ impl ::core::default::Default for MI_ConstUint16Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstUint32A {
-    pub data: *mut u32,
+    pub data: *const u32,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstUint32A {}
@@ -11058,7 +11058,7 @@ impl ::core::default::Default for MI_ConstUint32Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstUint64A {
-    pub data: *mut u64,
+    pub data: *const u64,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstUint64A {}
@@ -11153,7 +11153,7 @@ impl ::core::default::Default for MI_ConstUint64Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_ConstUint8A {
-    pub data: *mut u8,
+    pub data: *const u8,
     pub size: u32,
 }
 impl ::core::marker::Copy for MI_ConstUint8A {}
@@ -11248,7 +11248,7 @@ impl ::core::default::Default for MI_ConstUint8Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Context {
-    pub ft: *mut MI_ContextFT,
+    pub ft: *const MI_ContextFT,
     pub reserved: [isize; 3],
 }
 impl ::core::marker::Copy for MI_Context {}
@@ -11581,7 +11581,7 @@ pub type MI_Deserializer_ClassObjectNeeded = ::core::option::Option<unsafe exter
 pub struct MI_DestinationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_DestinationOptionsFT,
+    pub ft: *const MI_DestinationOptionsFT,
 }
 impl ::core::marker::Copy for MI_DestinationOptions {}
 impl ::core::clone::Clone for MI_DestinationOptions {
@@ -11851,8 +11851,8 @@ pub const MI_FLAG_VERSION: u32 = 469762048u32;
 pub struct MI_FeatureDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
 }
 impl ::core::marker::Copy for MI_FeatureDecl {}
@@ -11883,7 +11883,7 @@ impl ::core::default::Default for MI_FeatureDecl {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Filter {
-    pub ft: *mut MI_FilterFT,
+    pub ft: *const MI_FilterFT,
     pub reserved: [isize; 3],
 }
 impl ::core::marker::Copy for MI_Filter {}
@@ -11947,7 +11947,7 @@ impl ::core::default::Default for MI_FilterFT {
 pub struct MI_HostedProvider {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_HostedProviderFT,
+    pub ft: *const MI_HostedProviderFT,
 }
 impl ::core::marker::Copy for MI_HostedProvider {}
 impl ::core::clone::Clone for MI_HostedProvider {
@@ -12008,10 +12008,10 @@ impl ::core::default::Default for MI_HostedProviderFT {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Instance {
-    pub ft: *mut MI_InstanceFT,
-    pub classDecl: *mut MI_ClassDecl,
-    pub serverName: *mut u16,
-    pub nameSpace: *mut u16,
+    pub ft: *const MI_InstanceFT,
+    pub classDecl: *const MI_ClassDecl,
+    pub serverName: *const u16,
+    pub nameSpace: *const u16,
     pub reserved: [isize; 4],
 }
 impl ::core::marker::Copy for MI_Instance {}
@@ -12324,16 +12324,16 @@ pub type MI_MainFunction = ::core::option::Option<unsafe extern "system" fn(serv
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
-    pub parameters: *mut *mut MI_ParameterDecl,
+    pub parameters: *const *const MI_ParameterDecl,
     pub numParameters: u32,
     pub size: u32,
     pub returnType: u32,
-    pub origin: *mut u16,
-    pub propagator: *mut u16,
-    pub schema: *mut MI_SchemaDecl,
+    pub origin: *const u16,
+    pub propagator: *const u16,
+    pub schema: *const MI_SchemaDecl,
     pub function: MI_MethodDecl_Invoke,
 }
 impl ::core::marker::Copy for MI_MethodDecl {}
@@ -12387,7 +12387,7 @@ pub struct MI_Module {
     pub schemaDecl: *mut MI_SchemaDecl,
     pub Load: MI_Module_Load,
     pub Unload: MI_Module_Unload,
-    pub dynamicProviderFT: *mut MI_ProviderFT,
+    pub dynamicProviderFT: *const MI_ProviderFT,
 }
 impl ::core::marker::Copy for MI_Module {}
 impl ::core::clone::Clone for MI_Module {
@@ -12447,10 +12447,10 @@ pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 pub struct MI_ObjectDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
-    pub properties: *mut *mut MI_PropertyDecl,
+    pub properties: *const *const MI_PropertyDecl,
     pub numProperties: u32,
     pub size: u32,
 }
@@ -12484,7 +12484,7 @@ impl ::core::default::Default for MI_ObjectDecl {
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_OperationFT,
+    pub ft: *const MI_OperationFT,
 }
 impl ::core::marker::Copy for MI_Operation {}
 impl ::core::clone::Clone for MI_Operation {
@@ -12646,7 +12646,7 @@ impl ::core::default::Default for MI_OperationFT {
 pub struct MI_OperationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_OperationOptionsFT,
+    pub ft: *const MI_OperationOptionsFT,
 }
 impl ::core::marker::Copy for MI_OperationOptions {}
 impl ::core::clone::Clone for MI_OperationOptions {
@@ -12734,11 +12734,11 @@ impl ::core::default::Default for MI_OperationOptionsFT {
 pub struct MI_ParameterDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
     pub r#type: u32,
-    pub className: *mut u16,
+    pub className: *const u16,
     pub subscript: u32,
     pub offset: u32,
 }
@@ -12772,7 +12772,7 @@ impl ::core::default::Default for MI_ParameterDecl {
 pub struct MI_ParameterSet {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_ParameterSetFT,
+    pub ft: *const MI_ParameterSetFT,
 }
 impl ::core::marker::Copy for MI_ParameterSet {}
 impl ::core::clone::Clone for MI_ParameterSet {
@@ -12864,16 +12864,16 @@ impl ::core::fmt::Debug for MI_PromptType {
 pub struct MI_PropertyDecl {
     pub flags: u32,
     pub code: u32,
-    pub name: *mut u16,
-    pub qualifiers: *mut *mut MI_Qualifier,
+    pub name: *const u16,
+    pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
     pub r#type: u32,
-    pub className: *mut u16,
+    pub className: *const u16,
     pub subscript: u32,
     pub offset: u32,
-    pub origin: *mut u16,
-    pub propagator: *mut u16,
-    pub value: *mut ::core::ffi::c_void,
+    pub origin: *const u16,
+    pub propagator: *const u16,
+    pub value: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for MI_PropertyDecl {}
 impl ::core::clone::Clone for MI_PropertyDecl {
@@ -12903,7 +12903,7 @@ impl ::core::default::Default for MI_PropertyDecl {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_PropertySet {
-    pub ft: *mut MI_PropertySetFT,
+    pub ft: *const MI_PropertySetFT,
     pub reserved: [isize; 3],
 }
 impl ::core::marker::Copy for MI_PropertySet {}
@@ -13084,10 +13084,10 @@ pub type MI_ProviderFT_Unsubscribe = ::core::option::Option<unsafe extern "syste
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Qualifier {
-    pub name: *mut u16,
+    pub name: *const u16,
     pub r#type: u32,
     pub flavor: u32,
-    pub value: *mut ::core::ffi::c_void,
+    pub value: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for MI_Qualifier {}
 impl ::core::clone::Clone for MI_Qualifier {
@@ -13117,12 +13117,12 @@ impl ::core::default::Default for MI_Qualifier {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_QualifierDecl {
-    pub name: *mut u16,
+    pub name: *const u16,
     pub r#type: u32,
     pub scope: u32,
     pub flavor: u32,
     pub subscript: u32,
-    pub value: *mut ::core::ffi::c_void,
+    pub value: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for MI_QualifierDecl {}
 impl ::core::clone::Clone for MI_QualifierDecl {
@@ -13154,7 +13154,7 @@ impl ::core::default::Default for MI_QualifierDecl {
 pub struct MI_QualifierSet {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_QualifierSetFT,
+    pub ft: *const MI_QualifierSetFT,
 }
 impl ::core::marker::Copy for MI_QualifierSet {}
 impl ::core::clone::Clone for MI_QualifierSet {
@@ -13582,9 +13582,9 @@ pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_SchemaDecl {
-    pub qualifierDecls: *mut *mut MI_QualifierDecl,
+    pub qualifierDecls: *const *const MI_QualifierDecl,
     pub numQualifierDecls: u32,
-    pub classDecls: *mut *mut MI_ClassDecl,
+    pub classDecls: *const *const MI_ClassDecl,
     pub numClassDecls: u32,
 }
 impl ::core::marker::Copy for MI_SchemaDecl {}
@@ -13678,11 +13678,11 @@ impl ::core::default::Default for MI_SerializerFT {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_Server {
-    pub serverFT: *mut MI_ServerFT,
-    pub contextFT: *mut MI_ContextFT,
-    pub instanceFT: *mut MI_InstanceFT,
-    pub propertySetFT: *mut MI_PropertySetFT,
-    pub filterFT: *mut MI_FilterFT,
+    pub serverFT: *const MI_ServerFT,
+    pub contextFT: *const MI_ContextFT,
+    pub instanceFT: *const MI_InstanceFT,
+    pub propertySetFT: *const MI_PropertySetFT,
+    pub filterFT: *const MI_FilterFT,
 }
 impl ::core::marker::Copy for MI_Server {}
 impl ::core::clone::Clone for MI_Server {
@@ -13745,7 +13745,7 @@ impl ::core::default::Default for MI_ServerFT {
 pub struct MI_Session {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_SessionFT,
+    pub ft: *const MI_SessionFT,
 }
 impl ::core::marker::Copy for MI_Session {}
 impl ::core::clone::Clone for MI_Session {
@@ -14344,7 +14344,7 @@ impl ::core::default::Default for MI_StringField {
 pub struct MI_SubscriptionDeliveryOptions {
     pub reserved1: u64,
     pub reserved2: isize,
-    pub ft: *mut MI_SubscriptionDeliveryOptionsFT,
+    pub ft: *const MI_SubscriptionDeliveryOptionsFT,
 }
 impl ::core::marker::Copy for MI_SubscriptionDeliveryOptions {}
 impl ::core::clone::Clone for MI_SubscriptionDeliveryOptions {
@@ -14971,7 +14971,7 @@ impl ::core::default::Default for MI_Uint8Field {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_UserCredentials {
-    pub authenticationType: *mut u16,
+    pub authenticationType: *const u16,
     pub credentials: MI_UserCredentials_0,
 }
 impl ::core::marker::Copy for MI_UserCredentials {}
@@ -14998,7 +14998,7 @@ impl ::core::default::Default for MI_UserCredentials {
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
-    pub certificateThumbprint: *mut u16,
+    pub certificateThumbprint: *const u16,
 }
 impl ::core::marker::Copy for MI_UserCredentials_0 {}
 impl ::core::clone::Clone for MI_UserCredentials_0 {
@@ -15023,9 +15023,9 @@ impl ::core::default::Default for MI_UserCredentials_0 {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_UsernamePasswordCreds {
-    pub domain: *mut u16,
-    pub username: *mut u16,
-    pub password: *mut u16,
+    pub domain: *const u16,
+    pub username: *const u16,
+    pub password: *const u16,
 }
 impl ::core::marker::Copy for MI_UsernamePasswordCreds {}
 impl ::core::clone::Clone for MI_UsernamePasswordCreds {

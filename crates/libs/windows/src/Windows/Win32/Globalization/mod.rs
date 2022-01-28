@@ -10520,7 +10520,7 @@ pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UCPTrie {
-    pub index: *mut u16,
+    pub index: *const u16,
     pub data: UCPTrieData,
     pub indexLength: i32,
     pub dataLength: i32,
@@ -10557,10 +10557,10 @@ impl ::core::default::Default for UCPTrie {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub union UCPTrieData {
-    pub ptr0: *mut ::core::ffi::c_void,
-    pub ptr16: *mut u16,
-    pub ptr32: *mut u32,
-    pub ptr8: *mut u8,
+    pub ptr0: *const ::core::ffi::c_void,
+    pub ptr16: *const u16,
+    pub ptr32: *const u32,
+    pub ptr8: *const u8,
 }
 impl ::core::marker::Copy for UCPTrieData {}
 impl ::core::clone::Clone for UCPTrieData {
@@ -11179,7 +11179,7 @@ pub type UCharEnumTypeRange = ::core::option::Option<unsafe extern "system" fn(c
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UCharIterator {
-    pub context: *mut ::core::ffi::c_void,
+    pub context: *const ::core::ffi::c_void,
     pub length: i32,
     pub start: i32,
     pub index: i32,
@@ -11597,8 +11597,8 @@ pub struct UConverterFromUnicodeArgs {
     pub size: u16,
     pub flush: i8,
     pub converter: *mut UConverter,
-    pub source: *mut u16,
-    pub sourceLimit: *mut u16,
+    pub source: *const u16,
+    pub sourceLimit: *const u16,
     pub target: super::Foundation::PSTR,
     pub targetLimit: super::Foundation::PSTR,
     pub offsets: *mut i32,
@@ -11677,7 +11677,7 @@ pub struct UConverterToUnicodeArgs {
     pub source: super::Foundation::PSTR,
     pub sourceLimit: super::Foundation::PSTR,
     pub target: *mut u16,
-    pub targetLimit: *mut u16,
+    pub targetLimit: *const u16,
     pub offsets: *mut i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16494,7 +16494,7 @@ impl ::core::fmt::Debug for USentenceBreakTag {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct USerializedSet {
-    pub array: *mut u16,
+    pub array: *const u16,
     pub bmpLength: i32,
     pub length: i32,
     pub staticArray: [u16; 8],
@@ -16789,13 +16789,13 @@ pub struct UText {
     pub chunkNativeStart: i64,
     pub chunkOffset: i32,
     pub chunkLength: i32,
-    pub chunkContents: *mut u16,
-    pub pFuncs: *mut UTextFuncs,
+    pub chunkContents: *const u16,
+    pub pFuncs: *const UTextFuncs,
     pub pExtra: *mut ::core::ffi::c_void,
-    pub context: *mut ::core::ffi::c_void,
-    pub p: *mut ::core::ffi::c_void,
-    pub q: *mut ::core::ffi::c_void,
-    pub r: *mut ::core::ffi::c_void,
+    pub context: *const ::core::ffi::c_void,
+    pub p: *const ::core::ffi::c_void,
+    pub q: *const ::core::ffi::c_void,
+    pub r: *const ::core::ffi::c_void,
     pub privP: *mut ::core::ffi::c_void,
     pub a: i64,
     pub b: i32,

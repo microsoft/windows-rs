@@ -32,8 +32,8 @@ pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_CELU_OPERATOR_DESC {}
@@ -64,8 +64,8 @@ impl ::core::default::Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_ELU_OPERATOR_DESC {}
@@ -96,8 +96,8 @@ impl ::core::default::Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
@@ -127,8 +127,8 @@ impl ::core::default::Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
@@ -160,8 +160,8 @@ impl ::core::default::Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
@@ -191,8 +191,8 @@ impl ::core::default::Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
@@ -223,8 +223,8 @@ impl ::core::default::Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
@@ -256,8 +256,8 @@ impl ::core::default::Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
@@ -287,9 +287,9 @@ impl ::core::default::Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub SlopeTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub SlopeTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
@@ -319,8 +319,8 @@ impl ::core::default::Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DES
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
@@ -352,9 +352,9 @@ impl ::core::default::Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DE
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
@@ -384,8 +384,8 @@ impl ::core::default::Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_RELU_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_RELU_OPERATOR_DESC {
@@ -415,8 +415,8 @@ impl ::core::default::Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Gamma: f32,
 }
@@ -448,8 +448,8 @@ impl ::core::default::Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
     pub Beta: f32,
 }
@@ -481,8 +481,8 @@ impl ::core::default::Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Bias: f32,
     pub Threshold: f32,
 }
@@ -514,8 +514,8 @@ impl ::core::default::Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
@@ -545,8 +545,8 @@ impl ::core::default::Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
@@ -576,8 +576,8 @@ impl ::core::default::Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Steepness: f32,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
@@ -608,8 +608,8 @@ impl ::core::default::Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
@@ -639,8 +639,8 @@ impl ::core::default::Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_TANH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ACTIVATION_TANH_OPERATOR_DESC {
@@ -670,8 +670,8 @@ impl ::core::default::Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Alpha: f32,
 }
 impl ::core::marker::Copy for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
@@ -702,14 +702,14 @@ impl ::core::default::Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC 
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    pub InputParametersTensor: *mut DML_TENSOR_DESC,
-    pub InputFirstMomentTensor: *mut DML_TENSOR_DESC,
-    pub InputSecondMomentTensor: *mut DML_TENSOR_DESC,
-    pub GradientTensor: *mut DML_TENSOR_DESC,
-    pub TrainingStepTensor: *mut DML_TENSOR_DESC,
-    pub OutputParametersTensor: *mut DML_TENSOR_DESC,
-    pub OutputFirstMomentTensor: *mut DML_TENSOR_DESC,
-    pub OutputSecondMomentTensor: *mut DML_TENSOR_DESC,
+    pub InputParametersTensor: *const DML_TENSOR_DESC,
+    pub InputFirstMomentTensor: *const DML_TENSOR_DESC,
+    pub InputSecondMomentTensor: *const DML_TENSOR_DESC,
+    pub GradientTensor: *const DML_TENSOR_DESC,
+    pub TrainingStepTensor: *const DML_TENSOR_DESC,
+    pub OutputParametersTensor: *const DML_TENSOR_DESC,
+    pub OutputFirstMomentTensor: *const DML_TENSOR_DESC,
+    pub OutputSecondMomentTensor: *const DML_TENSOR_DESC,
     pub LearningRate: f32,
     pub Beta1: f32,
     pub Beta2: f32,
@@ -756,10 +756,10 @@ impl ::core::default::Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ARGMAX_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub AxisCount: u32,
-    pub Axes: *mut u32,
+    pub Axes: *const u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 impl ::core::marker::Copy for DML_ARGMAX_OPERATOR_DESC {}
@@ -790,10 +790,10 @@ impl ::core::default::Default for DML_ARGMAX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ARGMIN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub AxisCount: u32,
-    pub Axes: *mut u32,
+    pub Axes: *const u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 impl ::core::marker::Copy for DML_ARGMIN_OPERATOR_DESC {}
@@ -825,13 +825,13 @@ impl ::core::default::Default for DML_ARGMIN_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
     pub IncludePadding: super::super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -870,13 +870,13 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
     pub IncludePadding: super::super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -941,14 +941,14 @@ impl ::core::fmt::Debug for DML_AXIS_DIRECTION {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub MeanTensor: *mut DML_TENSOR_DESC,
-    pub VarianceTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputScaleGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputBiasGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
     pub Epsilon: f32,
 }
 impl ::core::marker::Copy for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
@@ -990,15 +990,15 @@ impl ::core::default::Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub MeanTensor: *mut DML_TENSOR_DESC,
-    pub VarianceTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Spatial: super::super::super::Foundation::BOOL,
     pub Epsilon: f32,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
@@ -1036,7 +1036,7 @@ impl ::core::default::Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DML_BINDING_DESC {}
 impl ::core::clone::Clone for DML_BINDING_DESC {
@@ -1173,7 +1173,7 @@ impl ::core::fmt::Debug for DML_BINDING_TYPE {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
-    pub Bindings: *mut DML_BUFFER_BINDING,
+    pub Bindings: *const DML_BUFFER_BINDING,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for DML_BUFFER_ARRAY_BINDING {}
@@ -1251,8 +1251,8 @@ pub struct DML_BUFFER_TENSOR_DESC {
     pub DataType: DML_TENSOR_DATA_TYPE,
     pub Flags: DML_TENSOR_FLAGS,
     pub DimensionCount: u32,
-    pub Sizes: *mut u32,
-    pub Strides: *mut u32,
+    pub Sizes: *const u32,
+    pub Strides: *const u32,
     pub TotalTensorSizeInBytes: u64,
     pub GuaranteedBaseOffsetAlignment: u32,
 }
@@ -1284,8 +1284,8 @@ impl ::core::default::Default for DML_BUFFER_TENSOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_CAST_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_CAST_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_CAST_OPERATOR_DESC {
@@ -1342,16 +1342,16 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_DIRECTION {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub FilterTensor: *mut DML_TENSOR_DESC,
-    pub FilterZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub FilterZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub Dilations: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
     pub GroupCount: u32,
 }
 impl ::core::marker::Copy for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
@@ -1421,20 +1421,20 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub FilterTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Mode: DML_CONVOLUTION_MODE,
     pub Direction: DML_CONVOLUTION_DIRECTION,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub Dilations: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
-    pub OutputPadding: *mut u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub OutputPadding: *const u32,
     pub GroupCount: u32,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 impl ::core::marker::Copy for DML_CONVOLUTION_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_CONVOLUTION_OPERATOR_DESC {
@@ -1535,8 +1535,8 @@ impl ::core::ops::Not for DML_CREATE_DEVICE_FLAGS {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveProduct: super::super::super::Foundation::BOOL,
@@ -1577,8 +1577,8 @@ impl ::core::default::Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveSum: super::super::super::Foundation::BOOL,
@@ -1645,8 +1645,8 @@ impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
@@ -1678,8 +1678,8 @@ impl ::core::default::Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
 }
 impl ::core::marker::Copy for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
@@ -1710,7 +1710,7 @@ impl ::core::default::Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Offset: i32,
     pub Value: f32,
 }
@@ -1742,10 +1742,10 @@ impl ::core::default::Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub OutputScaleTensor: *mut DML_TENSOR_DESC,
-    pub OutputZeroPointTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
@@ -1775,9 +1775,9 @@ impl ::core::default::Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
@@ -1807,9 +1807,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
@@ -1839,9 +1839,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
@@ -1871,10 +1871,10 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
@@ -1904,9 +1904,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
@@ -1936,9 +1936,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
@@ -1968,9 +1968,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
@@ -2000,9 +2000,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
@@ -2032,9 +2032,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
@@ -2064,9 +2064,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
@@ -2096,9 +2096,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
@@ -2128,8 +2128,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
@@ -2159,8 +2159,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
@@ -2190,9 +2190,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
@@ -2222,9 +2222,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
@@ -2254,9 +2254,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC 
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
@@ -2286,9 +2286,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
@@ -2318,9 +2318,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
@@ -2350,9 +2350,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub Min: f32,
     pub Max: f32,
 }
@@ -2384,9 +2384,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
     pub Min: f32,
     pub Max: f32,
 }
@@ -2418,9 +2418,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
     pub Exponent: f32,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
@@ -2451,9 +2451,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
@@ -2483,9 +2483,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
@@ -2515,10 +2515,10 @@ impl ::core::default::Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub ZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub ZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
@@ -2548,9 +2548,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DE
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
@@ -2580,9 +2580,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DE
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
@@ -2612,9 +2612,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
@@ -2644,9 +2644,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
@@ -2676,9 +2676,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
@@ -2708,9 +2708,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
@@ -2740,10 +2740,10 @@ impl ::core::default::Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    pub ConditionTensor: *mut DML_TENSOR_DESC,
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ConditionTensor: *const DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
@@ -2773,8 +2773,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InfinityMode: DML_IS_INFINITY_MODE,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
@@ -2805,8 +2805,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
@@ -2836,9 +2836,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
@@ -2868,9 +2868,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
@@ -2900,9 +2900,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC 
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
@@ -2932,9 +2932,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
@@ -2964,9 +2964,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
@@ -2996,9 +2996,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DE
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
@@ -3028,8 +3028,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OP
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
@@ -3059,9 +3059,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
@@ -3091,9 +3091,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
@@ -3123,9 +3123,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
@@ -3155,9 +3155,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
@@ -3187,9 +3187,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
@@ -3219,9 +3219,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
@@ -3251,9 +3251,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
@@ -3283,9 +3283,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
@@ -3315,9 +3315,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DES
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
@@ -3347,10 +3347,10 @@ impl ::core::default::Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ExponentTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ExponentTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
@@ -3380,15 +3380,15 @@ impl ::core::default::Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub AScaleTensor: *mut DML_TENSOR_DESC,
-    pub AZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub BScaleTensor: *mut DML_TENSOR_DESC,
-    pub BZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputScaleTensor: *mut DML_TENSOR_DESC,
-    pub OutputZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AScaleTensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BScaleTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
@@ -3418,10 +3418,10 @@ impl ::core::default::Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub ZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub ZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
@@ -3451,9 +3451,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
@@ -3483,8 +3483,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub RoundingMode: DML_ROUNDING_MODE,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
@@ -3515,8 +3515,8 @@ impl ::core::default::Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
@@ -3546,9 +3546,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
@@ -3578,9 +3578,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
@@ -3610,9 +3610,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
@@ -3642,9 +3642,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
@@ -3674,9 +3674,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
@@ -3706,9 +3706,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
@@ -3738,9 +3738,9 @@ impl ::core::default::Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleBias: *mut DML_SCALE_BIAS,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
     pub Min: f32,
 }
 impl ::core::marker::Copy for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
@@ -3961,7 +3961,7 @@ impl ::core::fmt::Debug for DML_FEATURE_LEVEL {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevelCount: u32,
-    pub RequestedFeatureLevels: *mut DML_FEATURE_LEVEL,
+    pub RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
 }
 impl ::core::marker::Copy for DML_FEATURE_QUERY_FEATURE_LEVELS {}
 impl ::core::clone::Clone for DML_FEATURE_QUERY_FEATURE_LEVELS {
@@ -4021,7 +4021,7 @@ impl ::core::default::Default for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub Value: DML_SCALAR_UNION,
 }
@@ -4048,7 +4048,7 @@ impl ::core::default::Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub ValueStart: DML_SCALAR_UNION,
     pub ValueDelta: DML_SCALAR_UNION,
@@ -4076,9 +4076,9 @@ impl ::core::default::Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
@@ -4109,9 +4109,9 @@ impl ::core::default::Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InputDimensionCount: u32,
     pub IndicesDimensionCount: u32,
     pub BatchDimensionCount: u32,
@@ -4144,9 +4144,9 @@ impl ::core::default::Default for DML_GATHER_ND1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InputDimensionCount: u32,
     pub IndicesDimensionCount: u32,
 }
@@ -4178,9 +4178,9 @@ impl ::core::default::Default for DML_GATHER_ND_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GATHER_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub IndexDimensions: u32,
 }
@@ -4212,15 +4212,15 @@ impl ::core::default::Default for DML_GATHER_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GEMM_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub CTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub CTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub TransA: DML_MATRIX_TRANSFORM,
     pub TransB: DML_MATRIX_TRANSFORM,
     pub Alpha: f32,
     pub Beta: f32,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 impl ::core::marker::Copy for DML_GEMM_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_GEMM_OPERATOR_DESC {
@@ -4253,13 +4253,13 @@ pub struct DML_GRAPH_DESC {
     pub InputCount: u32,
     pub OutputCount: u32,
     pub NodeCount: u32,
-    pub Nodes: *mut DML_GRAPH_NODE_DESC,
+    pub Nodes: *const DML_GRAPH_NODE_DESC,
     pub InputEdgeCount: u32,
-    pub InputEdges: *mut DML_GRAPH_EDGE_DESC,
+    pub InputEdges: *const DML_GRAPH_EDGE_DESC,
     pub OutputEdgeCount: u32,
-    pub OutputEdges: *mut DML_GRAPH_EDGE_DESC,
+    pub OutputEdges: *const DML_GRAPH_EDGE_DESC,
     pub IntermediateEdgeCount: u32,
-    pub IntermediateEdges: *mut DML_GRAPH_EDGE_DESC,
+    pub IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
 }
 impl ::core::marker::Copy for DML_GRAPH_DESC {}
 impl ::core::clone::Clone for DML_GRAPH_DESC {
@@ -4290,7 +4290,7 @@ impl ::core::default::Default for DML_GRAPH_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GRAPH_EDGE_DESC {
     pub Type: DML_GRAPH_EDGE_TYPE,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DML_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_GRAPH_EDGE_DESC {
@@ -4352,7 +4352,7 @@ impl ::core::fmt::Debug for DML_GRAPH_EDGE_TYPE {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DML_GRAPH_NODE_DESC {}
 impl ::core::clone::Clone for DML_GRAPH_NODE_DESC {
@@ -4410,16 +4410,16 @@ impl ::core::fmt::Debug for DML_GRAPH_NODE_TYPE {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_GRU_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub WeightTensor: *mut DML_TENSOR_DESC,
-    pub RecurrenceTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub HiddenInitTensor: *mut DML_TENSOR_DESC,
-    pub SequenceLengthsTensor: *mut DML_TENSOR_DESC,
-    pub OutputSequenceTensor: *mut DML_TENSOR_DESC,
-    pub OutputSingleTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
     pub ActivationDescCount: u32,
-    pub ActivationDescs: *mut DML_OPERATOR_DESC,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub LinearBeforeReset: super::super::super::Foundation::BOOL,
 }
@@ -4611,8 +4611,8 @@ impl ::core::fmt::Debug for DML_IS_INFINITY_MODE {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_JOIN_OPERATOR_DESC {
     pub InputCount: u32,
-    pub InputTensors: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensors: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_JOIN_OPERATOR_DESC {}
@@ -4644,9 +4644,9 @@ impl ::core::default::Default for DML_JOIN_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: super::super::super::Foundation::BOOL,
     pub LocalSize: u32,
     pub Alpha: f32,
@@ -4689,8 +4689,8 @@ impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: super::super::super::Foundation::BOOL,
     pub LocalSize: u32,
     pub Alpha: f32,
@@ -4732,8 +4732,8 @@ impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub Epsilon: f32,
     pub P: u32,
@@ -4766,13 +4766,13 @@ impl ::core::default::Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
     pub P: u32,
 }
 impl ::core::marker::Copy for DML_LP_POOLING_OPERATOR_DESC {}
@@ -4804,19 +4804,19 @@ impl ::core::default::Default for DML_LP_POOLING_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_LSTM_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub WeightTensor: *mut DML_TENSOR_DESC,
-    pub RecurrenceTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub HiddenInitTensor: *mut DML_TENSOR_DESC,
-    pub CellMemInitTensor: *mut DML_TENSOR_DESC,
-    pub SequenceLengthsTensor: *mut DML_TENSOR_DESC,
-    pub PeepholeTensor: *mut DML_TENSOR_DESC,
-    pub OutputSequenceTensor: *mut DML_TENSOR_DESC,
-    pub OutputSingleTensor: *mut DML_TENSOR_DESC,
-    pub OutputCellSingleTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub CellMemInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub PeepholeTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
+    pub OutputCellSingleTensor: *const DML_TENSOR_DESC,
     pub ActivationDescCount: u32,
-    pub ActivationDescs: *mut DML_OPERATOR_DESC,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub ClipThreshold: f32,
     pub UseClipThreshold: super::super::super::Foundation::BOOL,
@@ -4875,11 +4875,11 @@ impl ::core::default::Default for DML_LSTM_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub AZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub BZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
@@ -4936,14 +4936,14 @@ impl ::core::fmt::Debug for DML_MATRIX_TRANSFORM {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub OutputIndicesTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputIndicesTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
 }
 impl ::core::marker::Copy for DML_MAX_POOLING1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_POOLING1_OPERATOR_DESC {
@@ -4973,15 +4973,15 @@ impl ::core::default::Default for DML_MAX_POOLING1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub OutputIndicesTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputIndicesTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
-    pub Dilations: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub Dilations: *const u32,
 }
 impl ::core::marker::Copy for DML_MAX_POOLING2_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_POOLING2_OPERATOR_DESC {
@@ -5011,15 +5011,15 @@ impl ::core::default::Default for DML_MAX_POOLING2_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
-    pub Dilations: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+    pub Dilations: *const u32,
 }
 impl ::core::marker::Copy for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
@@ -5049,13 +5049,13 @@ impl ::core::default::Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub WindowSize: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub WindowSize: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
 }
 impl ::core::marker::Copy for DML_MAX_POOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_POOLING_OPERATOR_DESC {
@@ -5085,9 +5085,9 @@ impl ::core::default::Default for DML_MAX_POOLING_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_MAX_UNPOOLING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_MAX_UNPOOLING_OPERATOR_DESC {
@@ -5118,15 +5118,15 @@ impl ::core::default::Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub AxisCount: u32,
-    pub Axes: *mut u32,
+    pub Axes: *const u32,
     pub NormalizeVariance: super::super::super::Foundation::BOOL,
     pub Epsilon: f32,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
@@ -5164,14 +5164,14 @@ impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ScaleTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: super::super::super::Foundation::BOOL,
     pub NormalizeVariance: super::super::super::Foundation::BOOL,
     pub Epsilon: f32,
-    pub FusedActivation: *mut DML_OPERATOR_DESC,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
@@ -5210,9 +5210,9 @@ pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputCountTensor: *mut DML_TENSOR_DESC,
-    pub OutputCoordinatesTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputCountTensor: *const DML_TENSOR_DESC,
+    pub OutputCoordinatesTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_NONZERO_COORDINATES_OPERATOR_DESC {
@@ -5242,9 +5242,9 @@ impl ::core::default::Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub ValuesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub ValuesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_ONE_HOT_OPERATOR_DESC {}
@@ -5276,7 +5276,7 @@ impl ::core::default::Default for DML_ONE_HOT_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_OPERATOR_DESC {
     pub Type: DML_OPERATOR_TYPE,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DML_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_OPERATOR_DESC {
@@ -5740,13 +5740,13 @@ impl ::core::fmt::Debug for DML_PADDING_MODE {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_PADDING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub PaddingMode: DML_PADDING_MODE,
     pub PaddingValue: f32,
     pub DimensionCount: u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
 }
 impl ::core::marker::Copy for DML_PADDING_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_PADDING_OPERATOR_DESC {
@@ -5778,21 +5778,21 @@ pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub InputScaleTensor: *mut DML_TENSOR_DESC,
-    pub InputZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub FilterTensor: *mut DML_TENSOR_DESC,
-    pub FilterScaleTensor: *mut DML_TENSOR_DESC,
-    pub FilterZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub OutputScaleTensor: *mut DML_TENSOR_DESC,
-    pub OutputZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputScaleTensor: *const DML_TENSOR_DESC,
+    pub InputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub FilterTensor: *const DML_TENSOR_DESC,
+    pub FilterScaleTensor: *const DML_TENSOR_DESC,
+    pub FilterZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Strides: *mut u32,
-    pub Dilations: *mut u32,
-    pub StartPadding: *mut u32,
-    pub EndPadding: *mut u32,
+    pub Strides: *const u32,
+    pub Dilations: *const u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
     pub GroupCount: u32,
 }
 impl ::core::marker::Copy for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
@@ -5840,15 +5840,15 @@ impl ::core::default::Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    pub ATensor: *mut DML_TENSOR_DESC,
-    pub AScaleTensor: *mut DML_TENSOR_DESC,
-    pub AZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub BTensor: *mut DML_TENSOR_DESC,
-    pub BScaleTensor: *mut DML_TENSOR_DESC,
-    pub BZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputScaleTensor: *mut DML_TENSOR_DESC,
-    pub OutputZeroPointTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub ATensor: *const DML_TENSOR_DESC,
+    pub AScaleTensor: *const DML_TENSOR_DESC,
+    pub AZeroPointTensor: *const DML_TENSOR_DESC,
+    pub BTensor: *const DML_TENSOR_DESC,
+    pub BScaleTensor: *const DML_TENSOR_DESC,
+    pub BZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
 }
 impl ::core::marker::Copy for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
@@ -5878,9 +5878,9 @@ impl ::core::default::Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    pub InputStateTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
-    pub OutputStateTensor: *mut DML_TENSOR_DESC,
+    pub InputStateTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputStateTensor: *const DML_TENSOR_DESC,
     pub Type: DML_RANDOM_GENERATOR_TYPE,
 }
 impl ::core::marker::Copy for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
@@ -6013,10 +6013,10 @@ impl ::core::fmt::Debug for DML_REDUCE_FUNCTION {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub AxisCount: u32,
-    pub Axes: *mut u32,
+    pub Axes: *const u32,
 }
 impl ::core::marker::Copy for DML_REDUCE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_REDUCE_OPERATOR_DESC {
@@ -6046,13 +6046,13 @@ impl ::core::default::Default for DML_REDUCE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub DimensionCount: u32,
-    pub Scales: *mut f32,
-    pub InputPixelOffsets: *mut f32,
-    pub OutputPixelOffsets: *mut f32,
+    pub Scales: *const f32,
+    pub InputPixelOffsets: *const f32,
+    pub OutputPixelOffsets: *const f32,
 }
 impl ::core::marker::Copy for DML_RESAMPLE1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RESAMPLE1_OPERATOR_DESC {
@@ -6082,13 +6082,13 @@ impl ::core::default::Default for DML_RESAMPLE1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub DimensionCount: u32,
-    pub Scales: *mut f32,
-    pub InputPixelOffsets: *mut f32,
-    pub OutputPixelOffsets: *mut f32,
+    pub Scales: *const f32,
+    pub InputPixelOffsets: *const f32,
+    pub OutputPixelOffsets: *const f32,
 }
 impl ::core::marker::Copy for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RESAMPLE_GRAD_OPERATOR_DESC {
@@ -6118,11 +6118,11 @@ impl ::core::default::Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub ScaleCount: u32,
-    pub Scales: *mut f32,
+    pub Scales: *const f32,
 }
 impl ::core::marker::Copy for DML_RESAMPLE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_RESAMPLE_OPERATOR_DESC {
@@ -6152,9 +6152,9 @@ impl ::core::default::Default for DML_RESAMPLE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub SequenceLengthsTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
@@ -6185,16 +6185,16 @@ impl ::core::default::Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_RNN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub WeightTensor: *mut DML_TENSOR_DESC,
-    pub RecurrenceTensor: *mut DML_TENSOR_DESC,
-    pub BiasTensor: *mut DML_TENSOR_DESC,
-    pub HiddenInitTensor: *mut DML_TENSOR_DESC,
-    pub SequenceLengthsTensor: *mut DML_TENSOR_DESC,
-    pub OutputSequenceTensor: *mut DML_TENSOR_DESC,
-    pub OutputSingleTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub WeightTensor: *const DML_TENSOR_DESC,
+    pub RecurrenceTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub HiddenInitTensor: *const DML_TENSOR_DESC,
+    pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
+    pub OutputSequenceTensor: *const DML_TENSOR_DESC,
+    pub OutputSingleTensor: *const DML_TENSOR_DESC,
     pub ActivationDescCount: u32,
-    pub ActivationDescs: *mut DML_OPERATOR_DESC,
+    pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
 }
 impl ::core::marker::Copy for DML_RNN_OPERATOR_DESC {}
@@ -6238,10 +6238,10 @@ impl ::core::default::Default for DML_RNN_OPERATOR_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ROITensor: *mut DML_TENSOR_DESC,
-    pub BatchIndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub SpatialScaleX: f32,
@@ -6303,10 +6303,10 @@ impl ::core::default::Default for DML_ROI_ALIGN1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ROITensor: *mut DML_TENSOR_DESC,
-    pub BatchIndicesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
     pub SpatialScaleX: f32,
@@ -6355,9 +6355,9 @@ impl ::core::default::Default for DML_ROI_ALIGN_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub ROITensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub SpatialScale: f32,
     pub PooledSize: DML_SIZE_2D,
 }
@@ -6484,10 +6484,10 @@ impl ::core::default::Default for DML_SCALE_BIAS {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub UpdatesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub UpdatesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub InputDimensionCount: u32,
     pub IndicesDimensionCount: u32,
 }
@@ -6519,10 +6519,10 @@ impl ::core::default::Default for DML_SCATTER_ND_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SCATTER_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub IndicesTensor: *mut DML_TENSOR_DESC,
-    pub UpdatesTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub IndicesTensor: *const DML_TENSOR_DESC,
+    pub UpdatesTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_SCATTER_OPERATOR_DESC {}
@@ -6584,12 +6584,12 @@ impl ::core::default::Default for DML_SIZE_2D {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SLICE1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub InputWindowOffsets: *mut u32,
-    pub InputWindowSizes: *mut u32,
-    pub InputWindowStrides: *mut i32,
+    pub InputWindowOffsets: *const u32,
+    pub InputWindowSizes: *const u32,
+    pub InputWindowStrides: *const i32,
 }
 impl ::core::marker::Copy for DML_SLICE1_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SLICE1_OPERATOR_DESC {
@@ -6619,12 +6619,12 @@ impl ::core::default::Default for DML_SLICE1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
-    pub InputGradientTensor: *mut DML_TENSOR_DESC,
-    pub OutputGradientTensor: *mut DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub InputWindowOffsets: *mut u32,
-    pub InputWindowSizes: *mut u32,
-    pub InputWindowStrides: *mut i32,
+    pub InputWindowOffsets: *const u32,
+    pub InputWindowSizes: *const u32,
+    pub InputWindowStrides: *const i32,
 }
 impl ::core::marker::Copy for DML_SLICE_GRAD_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SLICE_GRAD_OPERATOR_DESC {
@@ -6654,12 +6654,12 @@ impl ::core::default::Default for DML_SLICE_GRAD_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SLICE_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub DimensionCount: u32,
-    pub Offsets: *mut u32,
-    pub Sizes: *mut u32,
-    pub Strides: *mut u32,
+    pub Offsets: *const u32,
+    pub Sizes: *const u32,
+    pub Strides: *const u32,
 }
 impl ::core::marker::Copy for DML_SLICE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_SLICE_OPERATOR_DESC {
@@ -6689,8 +6689,8 @@ impl ::core::default::Default for DML_SLICE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
@@ -6722,8 +6722,8 @@ impl ::core::default::Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub BlockSize: u32,
 }
 impl ::core::marker::Copy for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
@@ -6754,9 +6754,9 @@ impl ::core::default::Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_SPLIT_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputCount: u32,
-    pub OutputTensors: *mut DML_TENSOR_DESC,
+    pub OutputTensors: *const DML_TENSOR_DESC,
     pub Axis: u32,
 }
 impl ::core::marker::Copy for DML_SPLIT_OPERATOR_DESC {}
@@ -6839,7 +6839,7 @@ impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
-    pub Desc: *mut ::core::ffi::c_void,
+    pub Desc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DML_TENSOR_DESC {}
 impl ::core::clone::Clone for DML_TENSOR_DESC {
@@ -6955,10 +6955,10 @@ impl ::core::fmt::Debug for DML_TENSOR_TYPE {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TILE_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub RepeatsCount: u32,
-    pub Repeats: *mut u32,
+    pub Repeats: *const u32,
 }
 impl ::core::marker::Copy for DML_TILE_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_TILE_OPERATOR_DESC {
@@ -6988,9 +6988,9 @@ impl ::core::default::Default for DML_TILE_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TOP_K1_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputValueTensor: *mut DML_TENSOR_DESC,
-    pub OutputIndexTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputValueTensor: *const DML_TENSOR_DESC,
+    pub OutputIndexTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub K: u32,
     pub AxisDirection: DML_AXIS_DIRECTION,
@@ -7023,9 +7023,9 @@ impl ::core::default::Default for DML_TOP_K1_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_TOP_K_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputValueTensor: *mut DML_TENSOR_DESC,
-    pub OutputIndexTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputValueTensor: *const DML_TENSOR_DESC,
+    pub OutputIndexTensor: *const DML_TENSOR_DESC,
     pub Axis: u32,
     pub K: u32,
 }
@@ -7057,8 +7057,8 @@ impl ::core::default::Default for DML_TOP_K_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleSize: DML_SIZE_2D,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
 }
@@ -7090,11 +7090,11 @@ impl ::core::default::Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    pub InputTensor: *mut DML_TENSOR_DESC,
-    pub OutputTensor: *mut DML_TENSOR_DESC,
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
     pub Scale: f32,
     pub ChannelCount: u32,
-    pub Bias: *mut f32,
+    pub Bias: *const f32,
 }
 impl ::core::marker::Copy for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
 impl ::core::clone::Clone for DML_VALUE_SCALE_2D_OPERATOR_DESC {

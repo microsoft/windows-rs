@@ -1827,7 +1827,7 @@ pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
-    pub pFormat: *mut super::WAVEFORMATEX,
+    pub pFormat: *const super::WAVEFORMATEX,
     pub MaxFrameCount: u32,
 }
 impl ::core::marker::Copy for XAPO_LOCKFORPROCESS_PARAMETERS {}
@@ -2177,7 +2177,7 @@ pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
 pub struct XAUDIO2_BUFFER {
     pub Flags: u32,
     pub AudioBytes: u32,
-    pub pAudioData: *mut u8,
+    pub pAudioData: *const u8,
     pub PlayBegin: u32,
     pub PlayLength: u32,
     pub LoopBegin: u32,
@@ -2208,7 +2208,7 @@ impl ::core::default::Default for XAUDIO2_BUFFER {
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub struct XAUDIO2_BUFFER_WMA {
-    pub pDecodedPacketCumulativeBytes: *mut u32,
+    pub pDecodedPacketCumulativeBytes: *const u32,
     pub PacketCount: u32,
 }
 impl ::core::marker::Copy for XAUDIO2_BUFFER_WMA {}

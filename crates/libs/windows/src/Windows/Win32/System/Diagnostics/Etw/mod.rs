@@ -5663,7 +5663,7 @@ impl ::core::default::Default for TRACE_GUID_PROPERTIES {
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_REGISTRATION {
-    pub Guid: *mut ::windows::core::GUID,
+    pub Guid: *const ::windows::core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]

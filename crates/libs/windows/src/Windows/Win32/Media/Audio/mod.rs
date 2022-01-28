@@ -11218,7 +11218,7 @@ impl ::core::default::Default for SpatialAudioClientActivationParams {
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioHrtfActivationParams {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11252,7 +11252,7 @@ impl ::core::default::Default for SpatialAudioHrtfActivationParams {
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioHrtfActivationParams2 {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11599,7 +11599,7 @@ impl ::core::fmt::Debug for SpatialAudioMetadataWriterOverflowMode {
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11629,7 +11629,7 @@ impl ::core::default::Default for SpatialAudioObjectRenderStreamActivationParams
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11660,7 +11660,7 @@ impl ::core::default::Default for SpatialAudioObjectRenderStreamActivationParams
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11668,7 +11668,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u16,
-    pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -11693,7 +11693,7 @@ impl ::core::default::Default for SpatialAudioObjectRenderStreamForMetadataActiv
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
-    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
     pub MinDynamicObjectCount: u32,
     pub MaxDynamicObjectCount: u32,
@@ -11701,7 +11701,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u32,
-    pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }

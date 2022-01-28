@@ -47,16 +47,16 @@ pub const D3D12_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_AUTO_BREADCRUMB_NODE {
-    pub pCommandListDebugNameA: *mut u8,
+    pub pCommandListDebugNameA: *const u8,
     pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
-    pub pCommandQueueDebugNameA: *mut u8,
+    pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
     pub pCommandList: ID3D12GraphicsCommandList,
     pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
-    pub pLastBreadcrumbValue: *mut u32,
-    pub pCommandHistory: *mut D3D12_AUTO_BREADCRUMB_OP,
-    pub pNext: *mut D3D12_AUTO_BREADCRUMB_NODE,
+    pub pLastBreadcrumbValue: *const u32,
+    pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
+    pub pNext: *const D3D12_AUTO_BREADCRUMB_NODE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_AUTO_BREADCRUMB_NODE {}
@@ -70,16 +70,16 @@ impl ::core::clone::Clone for D3D12_AUTO_BREADCRUMB_NODE {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
-    pub pCommandListDebugNameA: *mut u8,
+    pub pCommandListDebugNameA: *const u8,
     pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
-    pub pCommandQueueDebugNameA: *mut u8,
+    pub pCommandQueueDebugNameA: *const u8,
     pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
     pub pCommandList: ID3D12GraphicsCommandList,
     pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
-    pub pLastBreadcrumbValue: *mut u32,
-    pub pCommandHistory: *mut D3D12_AUTO_BREADCRUMB_OP,
-    pub pNext: *mut D3D12_AUTO_BREADCRUMB_NODE1,
+    pub pLastBreadcrumbValue: *const u32,
+    pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
+    pub pNext: *const D3D12_AUTO_BREADCRUMB_NODE1,
     pub BreadcrumbContextsCount: u32,
     pub pBreadcrumbContexts: *mut D3D12_DRED_BREADCRUMB_CONTEXT,
 }
@@ -374,8 +374,8 @@ impl ::core::clone::Clone for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPU
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub InstanceDescs: u64,
-    pub pGeometryDescs: *mut D3D12_RAYTRACING_GEOMETRY_DESC,
-    pub ppGeometryDescs: *mut *mut D3D12_RAYTRACING_GEOMETRY_DESC,
+    pub pGeometryDescs: *const D3D12_RAYTRACING_GEOMETRY_DESC,
+    pub ppGeometryDescs: *const *const D3D12_RAYTRACING_GEOMETRY_DESC,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {}
@@ -400,7 +400,7 @@ impl ::core::clone::Clone for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOL
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_CACHED_PIPELINE_STATE {
-    pub pCachedBlob: *mut ::core::ffi::c_void,
+    pub pCachedBlob: *const ::core::ffi::c_void,
     pub CachedBlobSizeInBytes: usize,
 }
 impl ::core::marker::Copy for D3D12_CACHED_PIPELINE_STATE {}
@@ -540,7 +540,7 @@ pub const D3D12_COMMAND_RECORDER_FLAG_NONE: D3D12_COMMAND_RECORDER_FLAGS = 0u32;
 pub struct D3D12_COMMAND_SIGNATURE_DESC {
     pub ByteStride: u32,
     pub NumArgumentDescs: u32,
-    pub pArgumentDescs: *mut D3D12_INDIRECT_ARGUMENT_DESC,
+    pub pArgumentDescs: *const D3D12_INDIRECT_ARGUMENT_DESC,
     pub NodeMask: u32,
 }
 impl ::core::marker::Copy for D3D12_COMMAND_SIGNATURE_DESC {}
@@ -1227,7 +1227,7 @@ impl ::core::clone::Clone for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DISCARD_REGION {
     pub NumRects: u32,
-    pub pRects: *mut super::super::Foundation::RECT,
+    pub pRects: *const super::super::Foundation::RECT,
     pub FirstSubresource: u32,
     pub NumSubresources: u32,
 }
@@ -1315,10 +1315,10 @@ impl ::core::clone::Clone for D3D12_DRAW_INDEXED_ARGUMENTS {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_ALLOCATION_NODE {
-    pub ObjectNameA: *mut u8,
+    pub ObjectNameA: *const u8,
     pub ObjectNameW: super::super::Foundation::PWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
-    pub pNext: *mut D3D12_DRED_ALLOCATION_NODE,
+    pub pNext: *const D3D12_DRED_ALLOCATION_NODE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_ALLOCATION_NODE {}
@@ -1332,10 +1332,10 @@ impl ::core::clone::Clone for D3D12_DRED_ALLOCATION_NODE {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_ALLOCATION_NODE1 {
-    pub ObjectNameA: *mut u8,
+    pub ObjectNameA: *const u8,
     pub ObjectNameW: super::super::Foundation::PWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
-    pub pNext: *mut D3D12_DRED_ALLOCATION_NODE1,
+    pub pNext: *const D3D12_DRED_ALLOCATION_NODE1,
     pub pObject: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1410,7 +1410,7 @@ pub const D3D12_DRED_ALLOCATION_TYPE_INVALID: D3D12_DRED_ALLOCATION_TYPE = -1i32
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
-    pub pHeadAutoBreadcrumbNode: *mut D3D12_AUTO_BREADCRUMB_NODE,
+    pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {}
@@ -1424,7 +1424,7 @@ impl ::core::clone::Clone for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
-    pub pHeadAutoBreadcrumbNode: *mut D3D12_AUTO_BREADCRUMB_NODE1,
+    pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE1,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {}
@@ -1484,8 +1484,8 @@ pub const D3D12_DRED_PAGE_FAULT_FLAGS_NONE: D3D12_DRED_PAGE_FAULT_FLAGS = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT {
     pub PageFaultVA: u64,
-    pub pHeadExistingAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE,
-    pub pHeadRecentFreedAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE,
+    pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
+    pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_PAGE_FAULT_OUTPUT {}
@@ -1500,8 +1500,8 @@ impl ::core::clone::Clone for D3D12_DRED_PAGE_FAULT_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     pub PageFaultVA: u64,
-    pub pHeadExistingAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE1,
-    pub pHeadRecentFreedAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE1,
+    pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
+    pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_PAGE_FAULT_OUTPUT1 {}
@@ -1516,8 +1516,8 @@ impl ::core::clone::Clone for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     pub PageFaultVA: u64,
-    pub pHeadExistingAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE1,
-    pub pHeadRecentFreedAllocationNode: *mut D3D12_DRED_ALLOCATION_NODE1,
+    pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
+    pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
     pub PageFaultFlags: D3D12_DRED_PAGE_FAULT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2068,7 +2068,7 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_EXISTING_HEAPS {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_FEATURE_DATA_FEATURE_LEVELS {
     pub NumFeatureLevels: u32,
-    pub pFeatureLevelsRequested: *mut super::Direct3D::D3D_FEATURE_LEVEL,
+    pub pFeatureLevelsRequested: *const super::Direct3D::D3D_FEATURE_LEVEL,
     pub MaxSupportedFeatureLevel: super::Direct3D::D3D_FEATURE_LEVEL,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2181,7 +2181,7 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE
 pub struct D3D12_FEATURE_DATA_QUERY_META_COMMAND {
     pub CommandId: ::windows_sys::core::GUID,
     pub NodeMask: u32,
-    pub pQueryInputData: *mut ::core::ffi::c_void,
+    pub pQueryInputData: *const ::core::ffi::c_void,
     pub QueryInputDataSizeInBytes: usize,
     pub pQueryOutputData: *mut ::core::ffi::c_void,
     pub QueryOutputDataSizeInBytes: usize,
@@ -3115,7 +3115,7 @@ impl ::core::clone::Clone for D3D12_INPUT_ELEMENT_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_INPUT_LAYOUT_DESC {
-    pub pInputElementDescs: *mut D3D12_INPUT_ELEMENT_DESC,
+    pub pInputElementDescs: *const D3D12_INPUT_ELEMENT_DESC,
     pub NumElements: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3274,7 +3274,7 @@ pub struct D3D12_MESSAGE {
     pub Category: D3D12_MESSAGE_CATEGORY,
     pub Severity: D3D12_MESSAGE_SEVERITY,
     pub ID: D3D12_MESSAGE_ID,
-    pub pDescription: *mut u8,
+    pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
 impl ::core::marker::Copy for D3D12_MESSAGE {}
@@ -6094,7 +6094,7 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSrcResource: ID3D12Resource,
     pub pDstResource: ID3D12Resource,
     pub SubresourceCount: u32,
-    pub pSubresourceParameters: *mut D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
+    pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ResolveMode: D3D12_RESOLVE_MODE,
     pub PreserveResolveSource: super::super::Foundation::BOOL,
@@ -6632,7 +6632,7 @@ pub const D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC: D3D12_ROOT_DESCRIPTOR_FLAGS = 
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE {
     pub NumDescriptorRanges: u32,
-    pub pDescriptorRanges: *mut D3D12_DESCRIPTOR_RANGE,
+    pub pDescriptorRanges: *const D3D12_DESCRIPTOR_RANGE,
 }
 impl ::core::marker::Copy for D3D12_ROOT_DESCRIPTOR_TABLE {}
 impl ::core::clone::Clone for D3D12_ROOT_DESCRIPTOR_TABLE {
@@ -6644,7 +6644,7 @@ impl ::core::clone::Clone for D3D12_ROOT_DESCRIPTOR_TABLE {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE1 {
     pub NumDescriptorRanges: u32,
-    pub pDescriptorRanges: *mut D3D12_DESCRIPTOR_RANGE1,
+    pub pDescriptorRanges: *const D3D12_DESCRIPTOR_RANGE1,
 }
 impl ::core::marker::Copy for D3D12_ROOT_DESCRIPTOR_TABLE1 {}
 impl ::core::clone::Clone for D3D12_ROOT_DESCRIPTOR_TABLE1 {
@@ -6720,9 +6720,9 @@ pub const D3D12_ROOT_PARAMETER_TYPE_UAV: D3D12_ROOT_PARAMETER_TYPE = 4i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_ROOT_SIGNATURE_DESC {
     pub NumParameters: u32,
-    pub pParameters: *mut D3D12_ROOT_PARAMETER,
+    pub pParameters: *const D3D12_ROOT_PARAMETER,
     pub NumStaticSamplers: u32,
-    pub pStaticSamplers: *mut D3D12_STATIC_SAMPLER_DESC,
+    pub pStaticSamplers: *const D3D12_STATIC_SAMPLER_DESC,
     pub Flags: D3D12_ROOT_SIGNATURE_FLAGS,
 }
 impl ::core::marker::Copy for D3D12_ROOT_SIGNATURE_DESC {}
@@ -6735,9 +6735,9 @@ impl ::core::clone::Clone for D3D12_ROOT_SIGNATURE_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_ROOT_SIGNATURE_DESC1 {
     pub NumParameters: u32,
-    pub pParameters: *mut D3D12_ROOT_PARAMETER1,
+    pub pParameters: *const D3D12_ROOT_PARAMETER1,
     pub NumStaticSamplers: u32,
-    pub pStaticSamplers: *mut D3D12_STATIC_SAMPLER_DESC,
+    pub pStaticSamplers: *const D3D12_STATIC_SAMPLER_DESC,
     pub Flags: D3D12_ROOT_SIGNATURE_FLAGS,
 }
 impl ::core::marker::Copy for D3D12_ROOT_SIGNATURE_DESC1 {}
@@ -6904,7 +6904,7 @@ impl ::core::clone::Clone for D3D12_SHADER_BUFFER_DESC {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_SHADER_BYTECODE {
-    pub pShaderBytecode: *mut ::core::ffi::c_void,
+    pub pShaderBytecode: *const ::core::ffi::c_void,
     pub BytecodeLength: usize,
 }
 impl ::core::marker::Copy for D3D12_SHADER_BYTECODE {}
@@ -7399,7 +7399,7 @@ impl ::core::clone::Clone for D3D12_STATE_OBJECT_CONFIG {
 pub struct D3D12_STATE_OBJECT_DESC {
     pub Type: D3D12_STATE_OBJECT_TYPE,
     pub NumSubobjects: u32,
-    pub pSubobjects: *mut D3D12_STATE_SUBOBJECT,
+    pub pSubobjects: *const D3D12_STATE_SUBOBJECT,
 }
 impl ::core::marker::Copy for D3D12_STATE_OBJECT_DESC {}
 impl ::core::clone::Clone for D3D12_STATE_OBJECT_DESC {
@@ -7427,7 +7427,7 @@ pub const D3D12_STATE_OBJECT_TYPE_RAYTRACING_PIPELINE: D3D12_STATE_OBJECT_TYPE =
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_STATE_SUBOBJECT {
     pub Type: D3D12_STATE_SUBOBJECT_TYPE,
-    pub pDesc: *mut ::core::ffi::c_void,
+    pub pDesc: *const ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for D3D12_STATE_SUBOBJECT {}
 impl ::core::clone::Clone for D3D12_STATE_SUBOBJECT {
@@ -7529,9 +7529,9 @@ impl ::core::clone::Clone for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_STREAM_OUTPUT_DESC {
-    pub pSODeclaration: *mut D3D12_SO_DECLARATION_ENTRY,
+    pub pSODeclaration: *const D3D12_SO_DECLARATION_ENTRY,
     pub NumEntries: u32,
-    pub pBufferStrides: *mut u32,
+    pub pBufferStrides: *const u32,
     pub NumStrides: u32,
     pub RasterizedStream: u32,
 }
@@ -7547,7 +7547,7 @@ impl ::core::clone::Clone for D3D12_STREAM_OUTPUT_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
-    pub pSubobjectToAssociate: *mut D3D12_STATE_SUBOBJECT,
+    pub pSubobjectToAssociate: *const D3D12_STATE_SUBOBJECT,
     pub NumExports: u32,
     pub pExports: *mut super::super::Foundation::PWSTR,
 }
@@ -7564,7 +7564,7 @@ pub const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_SUBRESOURCE_DATA {
-    pub pData: *mut ::core::ffi::c_void,
+    pub pData: *const ::core::ffi::c_void,
     pub RowPitch: isize,
     pub SlicePitch: isize,
 }
@@ -8333,7 +8333,7 @@ impl ::core::clone::Clone for D3D12_VIEW_INSTANCE_LOCATION {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_VIEW_INSTANCING_DESC {
     pub ViewInstanceCount: u32,
-    pub pViewInstanceLocations: *mut D3D12_VIEW_INSTANCE_LOCATION,
+    pub pViewInstanceLocations: *const D3D12_VIEW_INSTANCE_LOCATION,
     pub Flags: D3D12_VIEW_INSTANCING_FLAGS,
 }
 impl ::core::marker::Copy for D3D12_VIEW_INSTANCING_DESC {}

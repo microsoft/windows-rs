@@ -795,7 +795,7 @@ impl ::core::clone::Clone for HTTP_FILTER_VERSION {
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_CONFIGURATION {
-    pub pProviderGuid: *mut ::windows_sys::core::GUID,
+    pub pProviderGuid: *const ::windows_sys::core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
     pub fProviderEnabled: super::super::Foundation::BOOL,
@@ -812,15 +812,15 @@ impl ::core::clone::Clone for HTTP_TRACE_CONFIGURATION {
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT {
-    pub pProviderGuid: *mut ::windows_sys::core::GUID,
+    pub pProviderGuid: *const ::windows_sys::core::GUID,
     pub dwArea: u32,
-    pub pAreaGuid: *mut ::windows_sys::core::GUID,
+    pub pAreaGuid: *const ::windows_sys::core::GUID,
     pub dwEvent: u32,
     pub pszEventName: super::super::Foundation::PWSTR,
     pub dwEventVersion: u32,
     pub dwVerbosity: u32,
-    pub pActivityGuid: *mut ::windows_sys::core::GUID,
-    pub pRelatedActivityGuid: *mut ::windows_sys::core::GUID,
+    pub pActivityGuid: *const ::windows_sys::core::GUID,
+    pub pRelatedActivityGuid: *const ::windows_sys::core::GUID,
     pub dwTimeStamp: u32,
     pub dwFlags: u32,
     pub cEventItems: u32,

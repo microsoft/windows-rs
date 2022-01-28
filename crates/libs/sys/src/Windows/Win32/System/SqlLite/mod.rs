@@ -665,8 +665,8 @@ impl ::core::clone::Clone for Fts5ExtensionApi {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct Fts5PhraseIter {
-    pub a: *mut u8,
-    pub b: *mut u8,
+    pub a: *const u8,
+    pub b: *const u8,
 }
 impl ::core::marker::Copy for Fts5PhraseIter {}
 impl ::core::clone::Clone for Fts5PhraseIter {
@@ -2014,7 +2014,7 @@ pub type sqlite3_destructor_type = ::core::option::Option<unsafe extern "system"
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_file {
-    pub pMethods: *mut sqlite3_io_methods,
+    pub pMethods: *const sqlite3_io_methods,
 }
 impl ::core::marker::Copy for sqlite3_file {}
 impl ::core::clone::Clone for sqlite3_file {
@@ -2357,7 +2357,7 @@ impl ::core::clone::Clone for sqlite3_vfs {
 #[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vtab {
-    pub pModule: *mut sqlite3_module,
+    pub pModule: *const sqlite3_module,
     pub nRef: i32,
     pub zErrMsg: super::super::Foundation::PSTR,
 }

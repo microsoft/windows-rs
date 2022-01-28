@@ -89,11 +89,11 @@ pub struct SW_DEVICE_CREATE_INFO {
     pub pszInstanceId: super::super::super::Foundation::PWSTR,
     pub pszzHardwareIds: super::super::super::Foundation::PWSTR,
     pub pszzCompatibleIds: super::super::super::Foundation::PWSTR,
-    pub pContainerId: *mut ::windows_sys::core::GUID,
+    pub pContainerId: *const ::windows_sys::core::GUID,
     pub CapabilityFlags: u32,
     pub pszDeviceDescription: super::super::super::Foundation::PWSTR,
     pub pszDeviceLocation: super::super::super::Foundation::PWSTR,
-    pub pSecurityDescriptor: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
+    pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for SW_DEVICE_CREATE_INFO {}

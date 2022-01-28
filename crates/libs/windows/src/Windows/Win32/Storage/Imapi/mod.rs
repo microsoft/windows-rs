@@ -12504,7 +12504,7 @@ pub const tagIMMPID_CPV_STRUCT: ::windows::core::GUID = ::windows::core::GUID::f
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 pub struct tagIMMPID_GUIDLIST_ITEM {
-    pub pguid: *mut ::windows::core::GUID,
+    pub pguid: *const ::windows::core::GUID,
     pub dwStart: u32,
     pub dwLast: u32,
 }

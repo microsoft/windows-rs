@@ -4294,7 +4294,7 @@ pub struct DEFCONTEXTMENU {
     pub apidl: *mut *mut Common::ITEMIDLIST,
     pub punkAssociationInfo: ::windows_sys::core::IUnknown,
     pub cKeys: u32,
-    pub aKeys: *mut super::super::System::Registry::HKEY,
+    pub aKeys: *const super::super::System::Registry::HKEY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 impl ::core::marker::Copy for DEFCONTEXTMENU {}
@@ -8215,7 +8215,7 @@ pub struct QCMINFO {
     pub indexMenu: u32,
     pub idCmdFirst: u32,
     pub idCmdLast: u32,
-    pub pIdMap: *mut QCMINFO_IDMAP,
+    pub pIdMap: *const QCMINFO_IDMAP,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for QCMINFO {}
@@ -8256,7 +8256,7 @@ pub const QCMINFO_PLACE_BEFORE: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub struct QITAB {
-    pub piid: *mut ::windows_sys::core::GUID,
+    pub piid: *const ::windows_sys::core::GUID,
     pub dwOffset: u32,
 }
 impl ::core::marker::Copy for QITAB {}
@@ -11301,7 +11301,7 @@ pub struct SV2CVW2_PARAMS {
     pub pfs: *mut FOLDERSETTINGS,
     pub psbOwner: IShellBrowser,
     pub prcView: *mut super::super::Foundation::RECT,
-    pub pvid: *mut ::windows_sys::core::GUID,
+    pub pvid: *const ::windows_sys::core::GUID,
     pub hwndView: super::super::Foundation::HWND,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]

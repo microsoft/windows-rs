@@ -13768,7 +13768,7 @@ pub const WDBGEXTS_ADDRESS_SEG32: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
-    pub Iid: *mut ::windows_sys::core::GUID,
+    pub Iid: *const ::windows_sys::core::GUID,
     pub Iface: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WDBGEXTS_CLR_DATA_INTERFACE {}
@@ -13816,7 +13816,7 @@ impl ::core::clone::Clone for WDBGEXTS_MODULE_IN_RANGE {
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_QUERY_INTERFACE {
-    pub Iid: *mut ::windows_sys::core::GUID,
+    pub Iid: *const ::windows_sys::core::GUID,
     pub Iface: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WDBGEXTS_QUERY_INTERFACE {}
