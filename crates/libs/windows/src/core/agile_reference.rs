@@ -8,9 +8,9 @@ pub struct AgileReference<T> {
 }
 
 impl<T: Interface> AgileReference<T> {
-    pub fn new<'a, R>(from_ref: R) -> Result<Self>
+    pub fn new<'a>(from_ref: &'a T) -> Result<Self>
     where
-        R: IntoParam<'a, T> + IntoParam<'a, IUnknown>,
+        &'a T: IntoParam<'a, IUnknown>,
     {
         let reference = unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, from_ref)? };
         Ok(Self { reference, _marker: Default::default() })
