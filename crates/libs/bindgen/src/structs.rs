@@ -52,7 +52,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
         let mut sig = f.signature(Some(def));
         sig.is_const = sig.is_const || f.is_const();
         let sig = gen_sig(&sig, gen);
-    
+
         if f.is_literal() {
             quote! {}
         } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {

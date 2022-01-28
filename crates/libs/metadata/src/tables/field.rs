@@ -44,7 +44,7 @@ impl Field {
     pub fn is_const(&self) -> bool {
         self.has_attribute("ConstAttribute")
     }
-    
+
     fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
     }
