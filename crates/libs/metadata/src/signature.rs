@@ -18,20 +18,12 @@ impl Signature {
         self.pointers == 0 && self.kind.is_udt()
     }
 
-    pub fn has_explicit(&self) -> bool {
-        self.pointers == 0 && self.kind.has_explicit()
+    pub fn has_union(&self) -> bool {
+        self.pointers == 0 && self.kind.has_union()
     }
 
-    pub fn is_packed(&self) -> bool {
-        if self.pointers > 0 {
-            return false;
-        }
-
-        match &self.kind {
-            ElementType::TypeDef(def) => def.is_packed(),
-            ElementType::Array((signature, _)) => signature.is_packed(),
-            _ => false,
-        }
+    pub fn has_pack(&self) -> bool {
+        self.pointers == 0 && self.kind.has_pack()
     }
 
     pub fn is_callback(&self) -> bool {

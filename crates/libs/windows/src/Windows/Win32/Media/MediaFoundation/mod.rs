@@ -9076,12 +9076,6 @@ impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for D3DCONTENTPROTECTIONCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DCONTENTPROTECTIONCAPS").field("Caps", &self.Caps).field("KeyExchangeType", &self.KeyExchangeType).field("BufferAlignmentStart", &self.BufferAlignmentStart).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }

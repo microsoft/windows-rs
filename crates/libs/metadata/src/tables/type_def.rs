@@ -141,18 +141,6 @@ impl TypeDef {
         result
     }
 
-    pub fn is_packed(&self) -> bool {
-        if self.kind() != TypeKind::Struct {
-            return false;
-        }
-
-        if self.class_layout().is_some() {
-            return true;
-        }
-
-        self.fields().any(|field| field.signature(Some(self)).is_packed())
-    }
-
     pub fn size(&self) -> usize {
         if self.kind() == TypeKind::Struct {
             self.fields().fold(0, |sum, field| sum + field.signature(Some(self)).size())
@@ -237,16 +225,64 @@ impl TypeDef {
         self.row.u32(0) & 0b1_0000 != 0
     }
 
-    pub fn has_explicit(&self) -> bool {
-        if self.kind() != TypeKind::Struct {
-            return false;
+    pub fn has_union(&self) -> bool {
+        fn has_union(def: &TypeDef) -> bool {
+            if def.kind() != TypeKind::Struct {
+                return false;
+            }
+
+            if def.is_union() {
+                true
+            } else {
+                def.fields().any(|f| f.signature(Some(def)).has_union())
+            }
         }
 
-        if self.is_union() {
-            true
-        } else {
-            self.fields().any(|f| f.signature(Some(self)).has_explicit())
+        if has_union(self) {
+            return true;
         }
+
+        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+            for def in entry {
+                if let ElementType::TypeDef(def) = def {
+                    if has_union(def) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        false
+    }
+
+    pub fn has_pack(&self) -> bool {
+        fn has_pack(def: &TypeDef) -> bool {
+            if def.kind() != TypeKind::Struct {
+                return false;
+            }
+
+            if def.class_layout().is_some() {
+                true
+            } else {
+                def.fields().any(|f| f.signature(Some(def)).has_pack())
+            }
+        }
+
+        if has_pack(self) {
+            return true;
+        }
+
+        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+            for def in entry {
+                if let ElementType::TypeDef(def) = def {
+                    if has_pack(def) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        false
     }
 
     pub fn type_signature(&self) -> String {

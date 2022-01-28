@@ -2917,12 +2917,6 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for JET_OBJECTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_OBJECTINFO").field("cbStruct", &self.cbStruct).field("objtyp", &self.objtyp).field("dtCreate", &self.dtCreate).field("dtUpdate", &self.dtUpdate).field("grbit", &self.grbit).field("flags", &self.flags).field("cRecord", &self.cRecord).field("cPage", &self.cPage).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
@@ -3493,12 +3487,6 @@ impl ::core::clone::Clone for JET_RECSIZE {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for JET_RECSIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RECSIZE").field("cbData", &self.cbData).field("cbLongValueData", &self.cbLongValueData).field("cbOverhead", &self.cbOverhead).field("cbLongValueOverhead", &self.cbLongValueOverhead).field("cNonTaggedColumns", &self.cNonTaggedColumns).field("cTaggedColumns", &self.cTaggedColumns).field("cLongValues", &self.cLongValues).field("cMultiValues", &self.cMultiValues).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for JET_RECSIZE {
     type Abi = Self;
 }
@@ -3577,24 +3565,6 @@ impl ::core::marker::Copy for JET_RECSIZE2 {}
 impl ::core::clone::Clone for JET_RECSIZE2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for JET_RECSIZE2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_RECSIZE2")
-            .field("cbData", &self.cbData)
-            .field("cbLongValueData", &self.cbLongValueData)
-            .field("cbOverhead", &self.cbOverhead)
-            .field("cbLongValueOverhead", &self.cbLongValueOverhead)
-            .field("cNonTaggedColumns", &self.cNonTaggedColumns)
-            .field("cTaggedColumns", &self.cTaggedColumns)
-            .field("cLongValues", &self.cLongValues)
-            .field("cMultiValues", &self.cMultiValues)
-            .field("cCompressedColumns", &self.cCompressedColumns)
-            .field("cbDataCompressed", &self.cbDataCompressed)
-            .field("cbLongValueDataCompressed", &self.cbLongValueDataCompressed)
-            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4776,12 +4746,6 @@ impl ::core::marker::Copy for JET_THREADSTATS2 {}
 impl ::core::clone::Clone for JET_THREADSTATS2 {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for JET_THREADSTATS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JET_THREADSTATS2").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).field("cusecPageCacheMiss", &self.cusecPageCacheMiss).field("cPageCacheMiss", &self.cPageCacheMiss).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

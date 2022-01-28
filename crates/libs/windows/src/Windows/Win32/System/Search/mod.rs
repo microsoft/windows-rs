@@ -1055,12 +1055,6 @@ impl ::core::clone::Clone for DBBINDEXT {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBBINDEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBBINDEXT").field("pExtension", &self.pExtension).field("ulExtension", &self.ulExtension).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBBINDEXT {
     type Abi = Self;
 }
@@ -1178,29 +1172,6 @@ impl ::core::clone::Clone for DBBINDING {
             bPrecision: self.bPrecision,
             bScale: self.bScale,
         }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for DBBINDING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBBINDING")
-            .field("iOrdinal", &self.iOrdinal)
-            .field("obValue", &self.obValue)
-            .field("obLength", &self.obLength)
-            .field("obStatus", &self.obStatus)
-            .field("pTypeInfo", &self.pTypeInfo)
-            .field("pObject", &self.pObject)
-            .field("pBindExt", &self.pBindExt)
-            .field("dwPart", &self.dwPart)
-            .field("dwMemOwner", &self.dwMemOwner)
-            .field("eParamIO", &self.eParamIO)
-            .field("cbMaxLen", &self.cbMaxLen)
-            .field("dwFlags", &self.dwFlags)
-            .field("wType", &self.wType)
-            .field("bPrecision", &self.bPrecision)
-            .field("bScale", &self.bScale)
-            .finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2096,28 +2067,6 @@ impl ::core::clone::Clone for DBCONSTRAINTDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBCONSTRAINTDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCONSTRAINTDESC")
-            .field("pConstraintID", &self.pConstraintID)
-            .field("ConstraintType", &self.ConstraintType)
-            .field("cColumns", &self.cColumns)
-            .field("rgColumnList", &self.rgColumnList)
-            .field("pReferencedTableID", &self.pReferencedTableID)
-            .field("cForeignKeyColumns", &self.cForeignKeyColumns)
-            .field("rgForeignKeyColumnList", &self.rgForeignKeyColumnList)
-            .field("pwszConstraintText", &self.pwszConstraintText)
-            .field("UpdateRule", &self.UpdateRule)
-            .field("DeleteRule", &self.DeleteRule)
-            .field("MatchType", &self.MatchType)
-            .field("Deferrability", &self.Deferrability)
-            .field("cReserved", &self.cReserved)
-            .field("rgReserved", &self.rgReserved)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
 }
@@ -2324,12 +2273,6 @@ impl ::core::marker::Copy for DBCOST {}
 impl ::core::clone::Clone for DBCOST {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBCOST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBCOST").field("eKind", &self.eKind).field("dwUnits", &self.dwUnits).field("lValue", &self.lValue).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2641,12 +2584,6 @@ impl ::core::clone::Clone for DBFAILUREINFO {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBFAILUREINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBFAILUREINFO").field("hRow", &self.hRow).field("iColumn", &self.iColumn).field("failure", &self.failure).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
@@ -2715,12 +2652,6 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBIMPLICITSESSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBIMPLICITSESSION").field("pUnkOuter", &self.pUnkOuter).field("piid", &self.piid).field("pSession", &self.pSession).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBIMPLICITSESSION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -2780,13 +2711,6 @@ impl ::core::marker::Copy for DBINDEXCOLUMNDESC {}
 impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for DBINDEXCOLUMNDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBINDEXCOLUMNDESC").field("pColumnID", &self.pColumnID).field("eIndexColOrder", &self.eIndexColOrder).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3033,13 +2957,6 @@ impl ::core::clone::Clone for DBLITERALINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DBLITERALINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBLITERALINFO").field("pwszLiteralValue", &self.pwszLiteralValue).field("pwszInvalidChars", &self.pwszInvalidChars).field("pwszInvalidStartingChars", &self.pwszInvalidStartingChars).field("lt", &self.lt).field("fSupported", &self.fSupported).field("cchMaxLen", &self.cchMaxLen).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBLITERALINFO {
     type Abi = Self;
 }
@@ -3211,12 +3128,6 @@ impl ::core::clone::Clone for DBOBJECT {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBOBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBOBJECT").field("dwFlags", &self.dwFlags).field("iid", &self.iid).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBOBJECT {
     type Abi = Self;
 }
@@ -3287,13 +3198,6 @@ impl ::core::marker::Copy for DBPARAMBINDINFO {}
 impl ::core::clone::Clone for DBPARAMBINDINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DBPARAMBINDINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPARAMBINDINFO").field("pwszDataSourceType", &self.pwszDataSourceType).field("pwszName", &self.pwszName).field("ulParamSize", &self.ulParamSize).field("dwFlags", &self.dwFlags).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3452,13 +3356,6 @@ impl ::core::clone::Clone for DBPARAMINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for DBPARAMINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPARAMINFO").field("dwFlags", &self.dwFlags).field("iOrdinal", &self.iOrdinal).field("pwszName", &self.pwszName).field("pTypeInfo", &self.pTypeInfo).field("ulParamSize", &self.ulParamSize).field("wType", &self.wType).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for DBPARAMINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -3558,12 +3455,6 @@ impl ::core::marker::Copy for DBPARAMS {}
 impl ::core::clone::Clone for DBPARAMS {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPARAMS").field("pData", &self.pData).field("cParamSets", &self.cParamSets).field("hAccessor", &self.hAccessor).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4675,12 +4566,6 @@ impl ::core::clone::Clone for DBPROPIDSET {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBPROPIDSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROPIDSET").field("rgPropertyIDs", &self.rgPropertyIDs).field("cPropertyIDs", &self.cPropertyIDs).field("guidPropertySet", &self.guidPropertySet).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBPROPIDSET {
     type Abi = Self;
 }
@@ -4832,13 +4717,6 @@ impl ::core::clone::Clone for DBPROPINFOSET {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROPINFOSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROPINFOSET").field("rgPropertyInfos", &self.rgPropertyInfos).field("cPropertyInfos", &self.cPropertyInfos).field("guidPropertySet", &self.guidPropertySet).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for DBPROPINFOSET {
     type Abi = Self;
 }
@@ -4946,13 +4824,6 @@ impl ::core::marker::Copy for DBPROPSET {}
 impl ::core::clone::Clone for DBPROPSET {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DBPROPSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBPROPSET").field("rgProperties", &self.rgProperties).field("cProperties", &self.cProperties).field("guidPropertySet", &self.guidPropertySet).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6254,12 +6125,6 @@ impl ::core::clone::Clone for DBTIMESTAMP {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBTIMESTAMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBTIMESTAMP").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
@@ -6506,12 +6371,6 @@ impl ::core::marker::Copy for DBVECTOR {}
 impl ::core::clone::Clone for DBVECTOR {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for DBVECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DBVECTOR").field("size", &self.size).field("ptr", &self.ptr).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -7589,12 +7448,6 @@ impl ::core::marker::Copy for ERRORINFO {}
 impl ::core::clone::Clone for ERRORINFO {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for ERRORINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ERRORINFO").field("hrError", &self.hrError).field("dwMinor", &self.dwMinor).field("clsid", &self.clsid).field("iid", &self.iid).field("dispid", &self.dispid).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -23678,13 +23531,6 @@ impl ::core::clone::Clone for MDAXISINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MDAXISINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MDAXISINFO").field("cbSize", &self.cbSize).field("iAxis", &self.iAxis).field("cDimensions", &self.cDimensions).field("cCoordinates", &self.cCoordinates).field("rgcColumns", &self.rgcColumns).field("rgpwszDimensionNames", &self.rgpwszDimensionNames).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MDAXISINFO {
     type Abi = Self;
 }
@@ -25534,28 +25380,6 @@ impl ::core::clone::Clone for RMTPACK {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for RMTPACK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RMTPACK")
-            .field("pISeqStream", &self.pISeqStream)
-            .field("cbData", &self.cbData)
-            .field("cBSTR", &self.cBSTR)
-            .field("rgBSTR", &self.rgBSTR)
-            .field("cVARIANT", &self.cVARIANT)
-            .field("rgVARIANT", &self.rgVARIANT)
-            .field("cIDISPATCH", &self.cIDISPATCH)
-            .field("rgIDISPATCH", &self.rgIDISPATCH)
-            .field("cIUNKNOWN", &self.cIUNKNOWN)
-            .field("rgIUNKNOWN", &self.rgIUNKNOWN)
-            .field("cPROPVARIANT", &self.cPROPVARIANT)
-            .field("rgPROPVARIANT", &self.rgPROPVARIANT)
-            .field("cArray", &self.cArray)
-            .field("rgArray", &self.rgArray)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for RMTPACK {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -26103,13 +25927,6 @@ impl ::core::marker::Copy for SEC_OBJECT {}
 impl ::core::clone::Clone for SEC_OBJECT {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
-impl ::core::fmt::Debug for SEC_OBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SEC_OBJECT").field("cObjects", &self.cObjects).field("prgObjects", &self.prgObjects).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -32713,12 +32530,6 @@ impl ::core::clone::Clone for SSVARIANT_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for SSVARIANT_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SSVARIANT_0_0").field("dbobj", &self.dbobj).field("pUnk", &self.pUnk).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for SSVARIANT_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -34301,12 +34112,6 @@ impl ::core::marker::Copy for tagDBROWWATCHRANGE {}
 impl ::core::clone::Clone for tagDBROWWATCHRANGE {
     fn clone(&self) -> Self {
         *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for tagDBROWWATCHRANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("tagDBROWWATCHRANGE").field("hRegion", &self.hRegion).field("eChangeKind", &self.eChangeKind).field("hRow", &self.hRow).field("iRow", &self.iRow).finish()
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
