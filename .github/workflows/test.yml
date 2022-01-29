@@ -70,6 +70,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
         cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
         cargo test --target ${{ matrix.target }} -p test_agile &&
+        cargo test --target ${{ matrix.target }} -p test_agile_reference &&
         cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
         cargo test --target ${{ matrix.target }} -p test_arch &&
         cargo test --target ${{ matrix.target }} -p test_arch_feature &&
@@ -136,4 +137,3 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_implement_properties &&
         cargo test --target ${{ matrix.target }} -p test_implement_winrt 
       if: matrix.version == 'nightly'
-    

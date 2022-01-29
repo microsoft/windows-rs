@@ -1,5 +1,5 @@
 [package]
-name = "agile_reference"
+name = "test_agile_reference"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
