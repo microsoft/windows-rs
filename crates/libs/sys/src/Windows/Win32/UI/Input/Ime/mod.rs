@@ -2476,6 +2476,32 @@ impl ::core::clone::Clone for REGISTERWORDW {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_CHGKEYMAP: &'static str = "MSIMEChangeKeyMap";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_DOCUMENTFEED: &'static str = "MSIMEDocumentFeed";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_KEYMAP: &'static str = "MSIMEKeyMap";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_MODEBIAS: &'static str = "MSIMEModeBias";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_MOUSE: &'static str = "MSIMEMouseOperation";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_NTFYKEYMAP: &'static str = "MSIMENotifyKeyMap";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_QUERYPOSITION: &'static str = "MSIMEQueryPosition";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_RECONVERT: &'static str = "MSIMEReconvert";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_RECONVERTOPTIONS: &'static str = "MSIMEReconvertOptions";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_RECONVERTREQUEST: &'static str = "MSIMEReconvertRequest";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_SERVICE: &'static str = "MSIMEService";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_SHOWIMEPAD: &'static str = "MSIMEShowImePad";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const RWM_UIREADY: &'static str = "MSIMEUIReady";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_CAP_MAKEREAD: u32 = 2u32;
@@ -2648,11 +2674,21 @@ impl ::core::clone::Clone for WDD_1 {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const cbCommentMax: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFECommonInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const szImeChina: &'static str = "MSIME.China";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const szImeJapan: &'static str = "MSIME.Japan";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const szImeKorea: &'static str = "MSIME.Korea";
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const szImeTaiwan: &'static str = "MSIME.Taiwan";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct tabIMEFAREASTINFO {
@@ -2681,3 +2717,5 @@ impl ::core::clone::Clone for tabIMESTRINGINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+pub const wchPrivate1: u32 = 57344u32;

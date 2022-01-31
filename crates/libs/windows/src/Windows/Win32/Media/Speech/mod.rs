@@ -16935,6 +16935,8 @@ impl ::core::fmt::Debug for SPADAPTATIONSETTINGS {
         f.debug_tuple("SPADAPTATIONSETTINGS").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPALTERNATESCLSID: &'static str = "AlternatesCLSID";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPAUDIOBUFFERINFO {
@@ -17123,6 +17125,22 @@ impl ::core::fmt::Debug for SPBOOKMARKOPTIONS {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_APPLEXICONS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_AUDIOIN: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_AUDIOOUT: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_PHONECONVERTERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_RECOGNIZERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_RECOPROFILES: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_TEXTNORMALIZERS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\TextNormalizers";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCAT_VOICES: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPCFGRULEATTRIBUTES(pub i32);
@@ -17220,6 +17238,10 @@ impl ::core::fmt::Debug for SPCONTEXTSTATE {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCURRENT_USER_LEXICON_TOKEN_ID: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPDATAKEYLOCATION(pub i32);
@@ -17250,6 +17272,8 @@ impl ::core::fmt::Debug for SPDATAKEYLOCATION {
         f.debug_tuple("SPDATAKEYLOCATION").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDICTATION: &'static str = "*";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17364,6 +17388,26 @@ impl ::core::fmt::Debug for SPDISPLYATTRIBUTES {
         f.debug_tuple("SPDISPLYATTRIBUTES").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_AddRemoveWord: &'static str = "AddRemoveWord";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_AudioProperties: &'static str = "AudioProperties";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_AudioVolume: &'static str = "AudioVolume";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_EngineProperties: &'static str = "EngineProperties";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_MicTraining: &'static str = "MicTraining";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_RecoProfileProperties: &'static str = "RecoProfileProperties";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_ShareData: &'static str = "ShareData";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_Tutorial: &'static str = "Tutorial";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_UserEnrollment: &'static str = "UserEnrollment";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPDUI_UserTraining: &'static str = "UserTraining";
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -17842,6 +17886,8 @@ impl ::core::fmt::Debug for SPGRAMMARWORDTYPE {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPINFDICTATION: &'static str = "*+";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPINTERFERENCE(pub i32);
@@ -18031,6 +18077,10 @@ impl ::core::fmt::Debug for SPMATCHINGMODE {
         f.debug_tuple("SPMATCHINGMODE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPMMSYS_AUDIO_IN_TOKEN_ID: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPNORMALIZATIONLIST {
@@ -18605,6 +18655,26 @@ impl ::core::default::Default for SPPROPERTYINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_ADAPTATION_ON: &'static str = "AdaptationOn";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_COMPLEX_RESPONSE_SPEED: &'static str = "ComplexResponseSpeed";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_HIGH_CONFIDENCE_THRESHOLD: &'static str = "HighConfidenceThreshold";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_LOW_CONFIDENCE_THRESHOLD: &'static str = "LowConfidenceThreshold";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_NORMAL_CONFIDENCE_THRESHOLD: &'static str = "NormalConfidenceThreshold";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_PERSISTED_BACKGROUND_ADAPTATION: &'static str = "PersistedBackgroundAdaptation";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION: &'static str = "PersistedLanguageModelAdaptation";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_RESOURCE_USAGE: &'static str = "ResourceUsage";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_RESPONSE_SPEED: &'static str = "ResponseSpeed";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPPROP_UX_IS_LISTENING: &'static str = "UXIsListening";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPRECOCONTEXTSTATUS {
@@ -18675,6 +18745,8 @@ impl ::core::fmt::Debug for SPRECOEVENTFLAGS {
         f.debug_tuple("SPRECOEVENTFLAGS").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPRECOEXTENSION: &'static str = "RecoExtension";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPRECOGNIZERSTATUS {
@@ -18786,6 +18858,12 @@ impl ::core::fmt::Debug for SPRECOSTATE {
         f.debug_tuple("SPRECOSTATE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPREG_LOCAL_MACHINE_ROOT: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPREG_SAFE_USER_TOKENS: &'static str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\UserTokens";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPREG_USER_ROOT: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRP_NORMAL: u32 = 0u32;
 #[repr(C)]
@@ -19439,6 +19517,24 @@ impl ::core::default::Default for SPTEXTSELECTIONINFO {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_ATTRIBUTES: &'static str = "Attributes";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_TRUNCATE: &'static str = "LatencyTruncateThreshold";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL: &'static str = "LatencyUpdateInterval";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_AUDIO_LATENCY_WARNING: &'static str = "LatencyWarningThreshold";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_FILES: &'static str = "Files";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_RETAINEDAUDIO: &'static str = "SecondsPerRetainedAudioEvent";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENKEY_UI: &'static str = "UI";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOKENVALUE_CLSID: &'static str = "CLSID";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPTOPIC_SPELLING: &'static str = "Spelling";
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SPVACTIONS(pub i32);
@@ -19681,6 +19777,8 @@ impl ::core::fmt::Debug for SPVLIMITS {
         f.debug_tuple("SPVLIMITS").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPVOICECATEGORY_TTSRATE: &'static str = "DefaultTTSRate";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPVOICESTATUS {
@@ -19872,6 +19970,8 @@ impl ::core::fmt::Debug for SPWAVEFORMATTYPE {
         f.debug_tuple("SPWAVEFORMATTYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SPWILDCARD: &'static str = "...";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20121,6 +20221,8 @@ pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
+pub const SR_LOCALIZED_DESCRIPTION: &'static str = "Description";
 pub const SpAudioFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef96870_e160_4792_820d_48cf0649e4ec);
 pub const SpCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90903716_2f42_11d3_9c26_00c04f8ef87c);
 pub const SpCustomStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dbef13f_1948_4aa8_8cf0_048eebed95d8);

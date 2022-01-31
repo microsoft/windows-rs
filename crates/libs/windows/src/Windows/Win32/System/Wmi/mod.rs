@@ -69,12 +69,12 @@ impl IEnumWbemClassObject {
         (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Wmi'*"]
-    pub unsafe fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut ::core::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltimeout), ::core::mem::transmute(ucount), ::core::mem::transmute(apobjects), ::core::mem::transmute(pureturned)))
+    pub unsafe fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut ::core::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltimeout), ::core::mem::transmute(ucount), ::core::mem::transmute(apobjects), ::core::mem::transmute(pureturned)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Wmi'*"]
-    pub unsafe fn NextAsync<'a, Param1: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, ucount: u32, psink: Param1) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).NextAsync)(::core::mem::transmute_copy(self), ::core::mem::transmute(ucount), psink.into_param().abi()))
+    pub unsafe fn NextAsync<'a, Param1: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, ucount: u32, psink: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NextAsync)(::core::mem::transmute_copy(self), ::core::mem::transmute(ucount), psink.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Wmi'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWbemClassObject> {
@@ -82,8 +82,8 @@ impl IEnumWbemClassObject {
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Wmi'*"]
-    pub unsafe fn Skip(&self, ltimeout: i32, ncount: u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltimeout), ::core::mem::transmute(ncount)))
+    pub unsafe fn Skip(&self, ltimeout: i32, ncount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltimeout), ::core::mem::transmute(ncount)).ok()
     }
 }
 impl ::core::convert::From<IEnumWbemClassObject> for ::windows::core::IUnknown {
@@ -13579,6 +13579,10 @@ impl ::core::fmt::Debug for MI_Result {
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_SchemaDecl {

@@ -810,6 +810,14 @@ impl ::core::fmt::Debug for AUTHENTICATION_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_AUTHORIZATION_VALUE_W: &'static str = "AuthorizationDLLs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: &'static str = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_EXTENSIONS_VALUE_W: &'static str = "ExtensionDLLs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_PARAMETERS_KEY_W: &'static str = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CLIENTPROPERTIES(pub i32);
@@ -2832,7 +2840,7 @@ impl ::core::default::Default for RADIUS_ATTRIBUTE_0 {
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
-    pub AttributeAt: *const *const *const *const *const *const *const *const *const *const RADIUS_ATTRIBUTE,
+    pub AttributeAt: isize,
     pub GetSize: isize,
     pub InsertAt: isize,
     pub RemoveAt: isize,
@@ -3193,6 +3201,10 @@ impl ::core::default::Default for RADIUS_EXTENSION_CONTROL_BLOCK {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: &'static str = "RadiusExtensionFreeAttributes";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_INIT: &'static str = "RadiusExtensionInit";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
@@ -3219,6 +3231,14 @@ impl ::core::fmt::Debug for RADIUS_EXTENSION_POINT {
         f.debug_tuple("RADIUS_EXTENSION_POINT").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS: &'static str = "RadiusExtensionProcess";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS2: &'static str = "RadiusExtensionProcess2";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS_EX: &'static str = "RadiusExtensionProcessEx";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_TERM: &'static str = "RadiusExtensionTerm";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]

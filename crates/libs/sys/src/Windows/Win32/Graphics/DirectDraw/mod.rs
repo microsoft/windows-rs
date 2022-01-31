@@ -1446,6 +1446,8 @@ impl ::core::clone::Clone for DDHAL_ADDATTACHEDSURFACEDATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+pub const DDHAL_APP_DLLNAME: &'static str = "DDRAW.DLL";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2035,6 +2037,8 @@ impl ::core::clone::Clone for DDHAL_DESTROYVPORTDATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+pub const DDHAL_DRIVER_DLLNAME: &'static str = "DDRAW16.DLL";
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
@@ -7974,6 +7978,12 @@ impl ::core::clone::Clone for PROCESS_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+pub const REGSTR_KEY_DDHW_DESCRIPTION: &'static str = "Description";
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+pub const REGSTR_KEY_DDHW_DRIVERNAME: &'static str = "DriverName";
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+pub const REGSTR_PATH_DDHW: &'static str = "Hardware\\DirectDrawDrivers";
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]

@@ -12,6 +12,8 @@ extern "system" {
     pub fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ISecurityInformation, usipage: SI_PAGE_TYPE) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
+pub const CFSTR_ACLUI_SID_INFO_LIST: &'static str = "CFSTR_ACLUI_SID_INFO_LIST";
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_RES_CONT: i32 = 1i32;

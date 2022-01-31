@@ -16149,6 +16149,8 @@ impl ::core::fmt::Debug for STORAGE_COUNTER_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const STORAGE_CRASH_TELEMETRY_REGKEY: &'static str = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry";
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
@@ -16933,6 +16935,8 @@ impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const STORAGE_DEVICE_TELEMETRY_REGKEY: &'static str = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
@@ -21415,6 +21419,10 @@ impl ::core::default::Default for TAPE_STATISTICS {
 }
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const TC_PUBLIC_DATA_TYPE_ATAGP: &'static str = "ATAGPLogPages";
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const TC_PUBLIC_DATA_TYPE_ATASMART: &'static str = "ATASMARTPages";
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]

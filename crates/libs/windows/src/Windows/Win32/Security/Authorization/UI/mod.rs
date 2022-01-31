@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
+pub const CFSTR_ACLUI_SID_INFO_LIST: &'static str = "CFSTR_ACLUI_SID_INFO_LIST";
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_UI_Controls'*"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]

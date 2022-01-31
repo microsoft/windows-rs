@@ -525,6 +525,16 @@ pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_ATTESTATION_TYPE_NONE: &'static str = "none";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_ATTESTATION_TYPE_PACKED: &'static str = "packed";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_ATTESTATION_TYPE_TPM: &'static str = "tpm";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_ATTESTATION_TYPE_U2F: &'static str = "fido-u2f";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_ATTESTATION_VER_TPM_2_0: &'static str = "2.0";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
@@ -814,6 +824,8 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: &'static str = "public-key";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
@@ -918,6 +930,20 @@ impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: &'static str = "credBlob";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: &'static str = "credProtect";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: &'static str = "hmac-secret";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: &'static str = "minPinLength";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: &'static str = "SHA-256";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: &'static str = "SHA-384";
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: &'static str = "SHA-512";
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -3266,12 +3292,15 @@ impl ::core::clone::Clone for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     pub keyHandle: WS_SECURITY_KEY_HANDLE,
-    pub asymmetricKey: usize,
+    pub asymmetricKey: super::super::Security::Cryptography::NCRYPT_KEY_HANDLE,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn clone(&self) -> Self {
         *self

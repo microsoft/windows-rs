@@ -1426,6 +1426,38 @@ impl ::core::fmt::Debug for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Memory'*"]
+pub struct MEM_ADDRESS_REQUIREMENTS {
+    pub LowestStartingAddress: *mut ::core::ffi::c_void,
+    pub HighestEndingAddress: *mut ::core::ffi::c_void,
+    pub Alignment: usize,
+}
+impl ::core::marker::Copy for MEM_ADDRESS_REQUIREMENTS {}
+impl ::core::clone::Clone for MEM_ADDRESS_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MEM_ADDRESS_REQUIREMENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MEM_ADDRESS_REQUIREMENTS").field("LowestStartingAddress", &self.LowestStartingAddress).field("HighestEndingAddress", &self.HighestEndingAddress).field("Alignment", &self.Alignment).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_ADDRESS_REQUIREMENTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_ADDRESS_REQUIREMENTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_ADDRESS_REQUIREMENTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_ADDRESS_REQUIREMENTS {}
+impl ::core::default::Default for MEM_ADDRESS_REQUIREMENTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER {

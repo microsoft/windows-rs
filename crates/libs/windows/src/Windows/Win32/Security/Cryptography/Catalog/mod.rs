@@ -269,6 +269,8 @@ pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
+pub const CRYPTCAT_FILEEXT: &'static str = "CAT";
+#[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
@@ -880,5 +882,11 @@ pub unsafe fn IsCatalogFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: super::super::super::Foundation::PWSTR)>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
+pub const szOID_CATALOG_LIST: &'static str = "1.3.6.1.4.1.311.12.1.1";
+#[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
+pub const szOID_CATALOG_LIST_MEMBER: &'static str = "1.3.6.1.4.1.311.12.1.2";
+#[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
+pub const szOID_CATALOG_LIST_MEMBER2: &'static str = "1.3.6.1.4.1.311.12.1.3";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

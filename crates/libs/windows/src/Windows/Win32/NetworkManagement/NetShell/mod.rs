@@ -130,6 +130,8 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
+pub const GET_RESOURCE_STRING_FN_NAME: &'static str = "GetResourceString";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -161,6 +163,10 @@ pub unsafe fn MatchToken<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
+pub const NETSH_ARG_DELIMITER: &'static str = "=";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
+pub const NETSH_CMD_DELIMITER: &'static str = " ";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
@@ -358,6 +364,8 @@ impl ::core::fmt::Debug for NS_EVENTS {
         f.debug_tuple("NS_EVENTS").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
+pub const NS_GET_EVENT_IDS_FN_NAME: &'static str = "GetEventIds";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub struct NS_HELPER_ATTRIBUTES {

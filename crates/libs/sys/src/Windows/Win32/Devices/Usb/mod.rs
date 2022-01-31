@@ -454,6 +454,10 @@ impl ::core::clone::Clone for IO_BLOCK_EX {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
+pub const KREGMANUSBFNENUMPATH: &'static str = "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\";
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
+pub const KREGUSBFNENUMPATH: &'static str = "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\";
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const LowSpeed: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAXIMUM_TRANSFER_SIZE: u32 = 8u32;
@@ -479,6 +483,8 @@ pub const MAX_USB_STRING_LENGTH: u32 = 255u32;
 pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
+pub const MS_OS_STRING_SIGNATURE: &'static str = "MSFT100";
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
 #[repr(C)]
@@ -787,6 +793,10 @@ pub const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24u32;
 pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
+pub const UREGMANUSBFNENUMPATH: &'static str = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\";
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
+pub const UREGUSBFNENUMPATH: &'static str = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\";
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBDI_VERSION: u32 = 1536u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]

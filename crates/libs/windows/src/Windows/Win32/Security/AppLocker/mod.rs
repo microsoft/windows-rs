@@ -585,6 +585,28 @@ impl ::core::default::Default for SAFER_URLZONE_IDENTIFICATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_APPX: &'static str = "APPX";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_DLL: &'static str = "DLL";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_EXE: &'static str = "EXE";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_MANAGEDINSTALLER: &'static str = "MANAGEDINSTALLER";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_MSI: &'static str = "MSI";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_NOV2: &'static str = "IGNORESRPV2";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_SCRIPT: &'static str = "SCRIPT";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_SHELL: &'static str = "SHELL";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_WLDPCONFIGCI: &'static str = "WLDPCONFIGCI";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_WLDPMSI: &'static str = "WLDPMSI";
+#[doc = "*Required features: 'Win32_Security_AppLocker'*"]
+pub const SRP_POLICY_WLDPSCRIPT: &'static str = "WLDPSCRIPT";
 #[doc = "*Required features: 'Win32_Security_AppLocker', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

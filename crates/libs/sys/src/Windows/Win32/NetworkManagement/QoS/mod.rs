@@ -221,6 +221,8 @@ impl ::core::clone::Clone for CtrlLoadFlowspec {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const DD_TCP_DEVICE_NAME: &'static str = "\\Device\\Tcp";
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
@@ -2521,6 +2523,70 @@ impl ::core::clone::Clone for WBCL_LogHdr {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_ADSPEC: u32 = 13u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_CONFIRM: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_ERROR_SPEC: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_FILTER_SPEC: u32 = 10u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_FLOWSPEC: u32 = 9u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_INTEGRITY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_IS_FLOWSPEC: u32 = 9u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_MAX: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_NULL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_POLICY_DATA: u32 = 14u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_RSVP_HOP: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_SCOPE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_SENDER_TEMPLATE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_SENDER_TSPEC: u32 = 12u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_SESSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_SESSION_GROUP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_STYLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const class_TIME_VALUES: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_ADSPEC_INTSERV: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_ERROR_SPEC_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_FILTER_SPEC_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_FILTER_SPEC_ipv4GPI: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_FLOWSPEC_Intserv0: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_POLICY_DATA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_RSVP_HOP_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SCOPE_list_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SENDER_TEMPLATE_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SENDER_TEMPLATE_ipv4GPI: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SENDER_TSPEC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SESSION_ipv4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_SESSION_ipv4GPI: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ctype_STYLE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2580,6 +2646,8 @@ pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = 10i32;
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = 127i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = 128i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const ioctl_code: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2597,6 +2665,14 @@ impl ::core::clone::Clone for lpmiptable {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const mCOMPANY: u32 = 402653184u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const mIOC_IN: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const mIOC_OUT: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+pub const mIOC_VENDOR: u32 = 67108864u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct policy_decision {

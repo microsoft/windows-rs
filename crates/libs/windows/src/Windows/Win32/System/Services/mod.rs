@@ -1313,6 +1313,8 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SC_AGGREGATE_STORAGE_KEY: &'static str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
+#[doc = "*Required features: 'Win32_System_Services'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SC_ENUM_TYPE(pub i32);
@@ -1405,6 +1407,18 @@ impl ::core::fmt::Debug for SC_STATUS_TYPE {
         f.debug_tuple("SC_STATUS_TYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_ACTIVE_DATABASE: &'static str = "ServicesActive";
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_ACTIVE_DATABASEA: &'static str = "ServicesActive";
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_ACTIVE_DATABASEW: &'static str = "ServicesActive";
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_FAILED_DATABASE: &'static str = "ServicesFailed";
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_FAILED_DATABASEA: &'static str = "ServicesFailed";
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICES_FAILED_DATABASEW: &'static str = "ServicesFailed";
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -3122,6 +3136,8 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
         f.debug_tuple("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
+pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &'static str = "TriggerStarted";
 #[doc = "*Required features: 'Win32_System_Services'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

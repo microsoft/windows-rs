@@ -1,9 +1,9 @@
 pub trait IEnumWbemClassObject_Impl: Sized {
     fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self, ltimeout: i32, ucount: u32, apobjects: *mut ::core::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::core::HRESULT;
-    fn NextAsync(&mut self, ucount: u32, psink: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::HRESULT;
+    fn Next(&mut self, ltimeout: i32, ucount: u32, apobjects: *mut ::core::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::core::Result<()>;
+    fn NextAsync(&mut self, ucount: u32, psink: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumWbemClassObject>;
-    fn Skip(&mut self, ltimeout: i32, ncount: u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, ltimeout: i32, ncount: u32) -> ::windows::core::Result<()>;
 }
 impl IEnumWbemClassObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>() -> IEnumWbemClassObject_Vtbl {
@@ -15,12 +15,12 @@ impl IEnumWbemClassObject_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltimeout: i32, ucount: u32, apobjects: *mut ::windows::core::RawPtr, pureturned: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&ltimeout), ::core::mem::transmute_copy(&ucount), ::core::mem::transmute_copy(&apobjects), ::core::mem::transmute_copy(&pureturned))
+            (*this).Next(::core::mem::transmute_copy(&ltimeout), ::core::mem::transmute_copy(&ucount), ::core::mem::transmute_copy(&apobjects), ::core::mem::transmute_copy(&pureturned)).into()
         }
         unsafe extern "system" fn NextAsync<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ucount: u32, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NextAsync(::core::mem::transmute_copy(&ucount), ::core::mem::transmute(&psink))
+            (*this).NextAsync(::core::mem::transmute_copy(&ucount), ::core::mem::transmute(&psink)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -36,7 +36,7 @@ impl IEnumWbemClassObject_Vtbl {
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltimeout: i32, ncount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&ltimeout), ::core::mem::transmute_copy(&ncount))
+            (*this).Skip(::core::mem::transmute_copy(&ltimeout), ::core::mem::transmute_copy(&ncount)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

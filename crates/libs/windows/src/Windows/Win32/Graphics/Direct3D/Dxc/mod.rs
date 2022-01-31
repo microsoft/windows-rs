@@ -11,6 +11,44 @@ pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
 pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_ALL_RESOURCES_BOUND: &'static str = "-all_resources_bound";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_AVOID_FLOW_CONTROL: &'static str = "-Gfa";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_DEBUG: &'static str = "-Zi";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_DEBUG_NAME_FOR_BINARY: &'static str = "-Zsb";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_DEBUG_NAME_FOR_SOURCE: &'static str = "-Zss";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_ENABLE_BACKWARDS_COMPATIBILITY: &'static str = "-Gec";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_ENABLE_STRICTNESS: &'static str = "-Ges";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_IEEE_STRICTNESS: &'static str = "-Gis";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL0: &'static str = "-O0";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL1: &'static str = "-O1";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL2: &'static str = "-O2";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_OPTIMIZATION_LEVEL3: &'static str = "-O3";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_PACK_MATRIX_COLUMN_MAJOR: &'static str = "-Zpc";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_PACK_MATRIX_ROW_MAJOR: &'static str = "-Zpr";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_PREFER_FLOW_CONTROL: &'static str = "-Gfp";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_RESOURCES_MAY_ALIAS: &'static str = "-res_may_alias";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_SKIP_OPTIMIZATIONS: &'static str = "-Od";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_SKIP_VALIDATION: &'static str = "-Vd";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_ARG_WARNINGS_ARE_ERRORS: &'static str = "-WX";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DXC_CP(pub u32);
@@ -39,6 +77,10 @@ impl ::core::fmt::Debug for DXC_CP {
         f.debug_tuple("DXC_CP").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_EXTRA_OUTPUT_NAME_STDERR: &'static str = "*stderr*";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
+pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: &'static str = "*stdout*";
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]

@@ -512,8 +512,8 @@ pub struct DCB {
     pub XonLim: u16,
     pub XoffLim: u16,
     pub ByteSize: u8,
-    pub Parity: u8,
-    pub StopBits: u8,
+    pub Parity: DCB_PARITY,
+    pub StopBits: DCB_STOP_BITS,
     pub XonChar: super::super::Foundation::CHAR,
     pub XoffChar: super::super::Foundation::CHAR,
     pub ErrorChar: super::super::Foundation::CHAR,
@@ -567,6 +567,68 @@ impl ::core::cmp::Eq for DCB {}
 impl ::core::default::Default for DCB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCB_PARITY(pub u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const EVENPARITY: DCB_PARITY = DCB_PARITY(2u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const MARKPARITY: DCB_PARITY = DCB_PARITY(3u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const NOPARITY: DCB_PARITY = DCB_PARITY(0u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ODDPARITY: DCB_PARITY = DCB_PARITY(1u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const SPACEPARITY: DCB_PARITY = DCB_PARITY(4u8);
+impl ::core::marker::Copy for DCB_PARITY {}
+impl ::core::clone::Clone for DCB_PARITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DCB_PARITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DCB_PARITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCB_PARITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCB_PARITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCB_STOP_BITS(pub u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ONESTOPBIT: DCB_STOP_BITS = DCB_STOP_BITS(0u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ONE5STOPBITS: DCB_STOP_BITS = DCB_STOP_BITS(1u8);
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const TWOSTOPBITS: DCB_STOP_BITS = DCB_STOP_BITS(2u8);
+impl ::core::marker::Copy for DCB_STOP_BITS {}
+impl ::core::clone::Clone for DCB_STOP_BITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DCB_STOP_BITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DCB_STOP_BITS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCB_STOP_BITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCB_STOP_BITS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]

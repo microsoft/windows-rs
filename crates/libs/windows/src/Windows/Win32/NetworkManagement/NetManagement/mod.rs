@@ -165,6 +165,8 @@ impl ::core::default::Default for ACCESS_INFO_1002 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ACCESS_LETTERS: &'static str = "RWCXDAP         ";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1043,7 +1045,19 @@ impl ::core::ops::Not for AF_OP {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERTER_MAILSLOT: &'static str = "\\\\.\\MAILSLOT\\Alerter";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const ALERTSZ: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERT_ADMIN_EVENT: &'static str = "ADMIN";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERT_ERRORLOG_EVENT: &'static str = "ERRORLOG";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERT_MESSAGE_EVENT: &'static str = "MESSAGE";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERT_PRINT_EVENT: &'static str = "PRINTING";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const ALERT_USER_EVENT: &'static str = "USER";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const ALIGN_SIZE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -1168,6 +1182,8 @@ impl ::core::default::Default for AUDIT_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const BACKUP_MSG_FILENAME: &'static str = "BAK.MSG";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3011,6 +3027,14 @@ impl ::core::default::Default for GROUP_INFO_3 {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const GROUP_NAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const GROUP_SPECIALGRP_ADMINS: &'static str = "ADMINS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const GROUP_SPECIALGRP_GUESTS: &'static str = "GUESTS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const GROUP_SPECIALGRP_LOCAL: &'static str = "LOCAL";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const GROUP_SPECIALGRP_USERS: &'static str = "USERS";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3135,6 +3159,8 @@ impl ::core::default::Default for HARDWARE_ADDRESS {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const HELP_MSG_FILENAME: &'static str = "NETH";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct HLOG {
@@ -5576,6 +5602,8 @@ pub const MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const MESSAGE_FILENAME: &'static str = "NETMSG";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const MFE_BOUNDARY_REACHED: u32 = 6u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const MFE_IIF: u32 = 8u32;
@@ -7084,6 +7112,8 @@ pub const NERR_WriteFault: u32 = 2295u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETBIOS_NAME_LEN: u32 = 16u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_CLIENT_CID_MS_MSClient: &'static str = "ms_msclient";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_E_ACTIVE_RAS_CONNECTIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180506i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_E_ADAPTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180505i32);
@@ -7106,6 +7136,14 @@ pub const NETCFG_E_NO_WRITE_LOCK: ::windows::core::HRESULT = ::windows::core::HR
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180502i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_SERVICE_CID_MS_NETBIOS: &'static str = "ms_netbios";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_SERVICE_CID_MS_PSCHED: &'static str = "ms_pschedpc";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_SERVICE_CID_MS_SERVER: &'static str = "ms_server";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_SERVICE_CID_MS_WLBS: &'static str = "ms_wlbs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_S_CAUSED_SETUP_CHANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(303140i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_S_COMMIT_NOW: ::windows::core::HRESULT = ::windows::core::HRESULT(303141i32);
@@ -7115,6 +7153,18 @@ pub const NETCFG_S_DISABLE_QUERY: ::windows::core::HRESULT = ::windows::core::HR
 pub const NETCFG_S_REBOOT: ::windows::core::HRESULT = ::windows::core::HRESULT(303136i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETCFG_S_STILL_REFERENCED: ::windows::core::HRESULT = ::windows::core::HRESULT(303139i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_APPLETALK: &'static str = "ms_appletalk";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_NETBEUI: &'static str = "ms_netbeui";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_NETMON: &'static str = "ms_netmon";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_NWIPX: &'static str = "ms_nwipx";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_NWSPX: &'static str = "ms_nwspx";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NETCFG_TRANS_CID_MS_TCPIP: &'static str = "ms_tcpip";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETLOGON_CONTROL_BACKUP_CHANGE_LOG: u32 = 65532u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -8465,6 +8515,10 @@ pub const NTFRSPRF_REGISTRY_ERROR_SET: i32 = -1073728287i32;
 pub const NTFRSPRF_VIRTUALALLOC_ERROR_CONN: i32 = -1073728288i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NTFRSPRF_VIRTUALALLOC_ERROR_SET: i32 = -1073728289i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NULL_USERSETINFO_PASSWD: &'static str = "              ";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const NWSAP_DISPLAY_NAME: &'static str = "NW Sap Agent";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NWSAP_EVENT_BADWANFILTER_VALUE: i32 = -1073733302i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -10570,6 +10624,8 @@ impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const OS2MSG_FILENAME: &'static str = "BASE";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const PARMNUM_ALL: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const PARMNUM_BASE_INFOLEVEL: u32 = 1000u32;
@@ -10774,6 +10830,8 @@ impl ::core::default::Default for RASCON_IPUI {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: &'static str = "RegisterProtocol";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11591,6 +11649,10 @@ pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVCE_LM20_W32TIME: &'static str = "w32time";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVER_DISPLAY_NAME: &'static str = "Server";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15685,7 +15747,19 @@ pub const SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: i32 = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_ACCOUNT_PASSWORD: &'static str = "_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_ACCOUNT_SECRET_PREFIX: &'static str = "_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_ADWS: &'static str = "ADWS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_AFP: &'static str = "AFP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_ALERTER: &'static str = "ALERTER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_BASE: u32 = 3050u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_BROWSER: &'static str = "BROWSER";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_CCP_CHKPT_NUM: u32 = 255u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -15708,6 +15782,14 @@ pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
 pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_DHCP: &'static str = "DHCP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_DNS_CACHE: &'static str = "DnsCache";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_DOS_ENCRYPTION: &'static str = "ENCRYPT";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_DSROLE: &'static str = "DsRoleSvc";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15848,15 +15930,103 @@ pub const SERVICE_IP_WAITTIME_SHIFT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_IP_WAIT_TIME: u32 = 65280u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_ISMSERV: &'static str = "IsmServ";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_KDC: &'static str = "kdc";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_AFP: &'static str = "AFP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_ALERTER: &'static str = "ALERTER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_BROWSER: &'static str = "BROWSER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_DHCP: &'static str = "DHCP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_DSROLE: &'static str = "DsRoleSvc";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_ISMSERV: &'static str = "IsmServ";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_KDC: &'static str = "kdc";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_LMHOSTS: &'static str = "LMHOSTS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_MESSENGER: &'static str = "MESSENGER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NBT: &'static str = "NBT";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NETLOGON: &'static str = "NETLOGON";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NETPOPUP: &'static str = "NETPOPUP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NETRUN: &'static str = "NETRUN";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NTDS: &'static str = "NTDS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NTFRS: &'static str = "NtFrs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_NWSAP: &'static str = "NwSapAgent";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_REPL: &'static str = "REPLICATOR";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_RIPL: &'static str = "REMOTEBOOT";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_RPCLOCATOR: &'static str = "RPCLOCATOR";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_SCHEDULE: &'static str = "Schedule";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_SERVER: &'static str = "SERVER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_SPOOLER: &'static str = "SPOOLER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_SQLSERVER: &'static str = "SQLSERVER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_TCPIP: &'static str = "TCPIP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_TELNET: &'static str = "Telnet";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_TIMESOURCE: &'static str = "TIMESOURCE";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_TRKSVR: &'static str = "TrkSvr";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_TRKWKS: &'static str = "TrkWks";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_UPS: &'static str = "UPS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_WORKSTATION: &'static str = "WORKSTATION";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LM20_XACTSRV: &'static str = "XACTSRV";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_LMHOSTS: &'static str = "LMHOSTS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_MAXTIME: u32 = 255u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_MESSENGER: &'static str = "MESSENGER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NBT: &'static str = "NBT";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NETLOGON: &'static str = "NETLOGON";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NETPOPUP: &'static str = "NETPOPUP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NETRUN: &'static str = "NETRUN";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_NOT_PAUSABLE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_NOT_UNINSTALLABLE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NTDS: &'static str = "NTDS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NTFRS: &'static str = "NtFrs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_NTIP_WAITTIME_SHIFT: u32 = 12u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NTLMSSP: &'static str = "NtLmSsp";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_NT_MAXTIME: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NWCS: &'static str = "NWCWorkstation";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_NWSAP: &'static str = "NwSapAgent";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_PAUSABLE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -15870,7 +16040,31 @@ pub const SERVICE_REDIR_PAUSED: u32 = 1792u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_REDIR_PRINT_PAUSED: u32 = 512u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_REPL: &'static str = "REPLICATOR";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_RESRV_MASK: u32 = 131071u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_RIPL: &'static str = "REMOTEBOOT";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_RPCLOCATOR: &'static str = "RPCLOCATOR";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_SCHEDULE: &'static str = "Schedule";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_SERVER: &'static str = "LanmanServer";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_SPOOLER: &'static str = "SPOOLER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_SQLSERVER: &'static str = "SQLSERVER";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_TCPIP: &'static str = "TCPIP";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_TELNET: &'static str = "Telnet";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_TIMESOURCE: &'static str = "TIMESOURCE";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_TRKSVR: &'static str = "TrkSvr";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_TRKWKS: &'static str = "TrkWks";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_UIC_AMBIGPARM: u32 = 3058u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -15973,6 +16167,14 @@ pub const SERVICE_UNINSTALLABLE: u32 = 16u32;
 pub const SERVICE_UNINSTALLED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_UNINSTALL_PENDING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_UPS: &'static str = "UPS";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_W32TIME: &'static str = "w32time";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_WORKSTATION: &'static str = "LanmanWorkstation";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const SERVICE_XACTSRV: &'static str = "XACTSRV";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SESSION_CRYPT_KLEN: u32 = 21u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -21134,6 +21336,8 @@ pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
 pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub type WORKERFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+pub const WORKSTATION_DISPLAY_NAME: &'static str = "Workstation";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]

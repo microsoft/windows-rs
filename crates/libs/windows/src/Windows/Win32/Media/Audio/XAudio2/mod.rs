@@ -1922,6 +1922,12 @@ impl ::core::default::Default for XAPO_REGISTRATION_PROPERTIES {
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2D_DLL: &'static str = "xaudio2_9d.dll";
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2D_DLL_A: &'static str = "xaudio2_9d.dll";
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2D_DLL_W: &'static str = "xaudio2_9d.dll";
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_REAR_DELAY: u32 = 20u32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_SIDE_DELAY: u32 = 5u32;
@@ -2286,6 +2292,12 @@ pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
 pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2_DLL: &'static str = "xaudio2_9.dll";
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2_DLL_A: &'static str = "xaudio2_9.dll";
+#[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+pub const XAUDIO2_DLL_W: &'static str = "xaudio2_9.dll";
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

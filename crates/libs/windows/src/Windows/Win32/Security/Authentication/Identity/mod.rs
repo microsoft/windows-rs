@@ -910,6 +910,10 @@ impl ::core::default::Default for CLEAR_BLOCK {
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const CLOUDAP_NAME: &'static str = "CloudAP";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const CLOUDAP_NAME_W: &'static str = "CloudAP";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type COMPLETE_AUTH_TOKEN_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32>;
@@ -990,6 +994,8 @@ pub unsafe fn ChangeAccountPasswordW<'a, Param5: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const ClOUDAP_NAME_A: &'static str = "CloudAP";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -1053,6 +1059,12 @@ pub type CrediUnmarshalandDecodeStringFn = ::core::option::Option<unsafe extern 
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type DECRYPT_MESSAGE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32>;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const DEFAULT_TLS_SSP_NAME: &'static str = "Default TLS SSP";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const DEFAULT_TLS_SSP_NAME_A: &'static str = "Default TLS SSP";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const DEFAULT_TLS_SSP_NAME_W: &'static str = "Default TLS SSP";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type DELETE_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
@@ -1587,6 +1599,8 @@ pub struct ICcgDomainAuthCredentials_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPasswordCredentials: usize,
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const ID_CAP_SLAPI: &'static str = "slapiQueryLicenseValue";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
@@ -5232,6 +5246,8 @@ pub const KERB_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERN_CONTEXT_CERT_INFO_V1: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const KRB_ANONYMOUS_STRING: &'static str = "ANONYMOUS";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KRB_NT_ENTERPRISE_PRINCIPAL: u32 = 10u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KRB_NT_ENT_PRINCIPAL_AND_ID: i32 = -130i32;
@@ -5261,6 +5277,8 @@ pub const KRB_NT_UNKNOWN: u32 = 0u32;
 pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const KRB_WELLKNOWN_STRING: &'static str = "WELLKNOWN";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5436,6 +5454,26 @@ pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1u32;
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_ADT_LEGACY_SECURITY_SOURCE_NAME: &'static str = "Security";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_ADT_SECURITY_SOURCE_NAME: &'static str = "Microsoft-Windows-Security-Auditing";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_CALL_PACKAGE: &'static str = "LsaApCallPackage\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: &'static str = "LsaApCallPackagePassthrough\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: &'static str = "LsaApCallPackageUntrusted\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_INITIALIZE_PACKAGE: &'static str = "LsaApInitializePackage\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_LOGON_TERMINATED: &'static str = "LsaApLogonTerminated\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_LOGON_USER: &'static str = "LsaApLogonUser\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_LOGON_USER_EX: &'static str = "LsaApLogonUserEx\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_AP_NAME_LOGON_USER_EX2: &'static str = "LsaApLogonUserEx2\u{0}";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LSA_AP_POST_LOGON_USER = ::core::option::Option<unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> super::super::super::Foundation::NTSTATUS>;
@@ -5927,6 +5965,8 @@ pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_GLOBAL_SECRET_PREFIX: &'static str = "G$";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -5960,6 +6000,8 @@ impl ::core::default::Default for LSA_LAST_INTER_LOGON_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_LOCAL_SECRET_PREFIX: &'static str = "L$";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -5995,6 +6037,8 @@ impl ::core::fmt::Debug for LSA_LOOKUP_DOMAIN_INFO_CLASS {
 pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_LOOKUP_PREFER_INTERNET_NAMES: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const LSA_MACHINE_SECRET_PREFIX: &'static str = "M$";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_MAXIMUM_ENUMERATION_LENGTH: u32 = 32000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -7252,6 +7296,12 @@ pub const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MAX_USER_RECORDS: u32 = 1000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MICROSOFT_KERBEROS_NAME: &'static str = "Kerberos";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MICROSOFT_KERBEROS_NAME_A: &'static str = "Kerberos";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MICROSOFT_KERBEROS_NAME_W: &'static str = "Kerberos";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MSV1_0(pub u32);
@@ -7869,6 +7919,10 @@ impl ::core::default::Default for MSV1_0_NTLM3_RESPONSE {
 pub const MSV1_0_NTLM3_RESPONSE_LENGTH: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MSV1_0_PACKAGE_NAME: &'static str = "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MSV1_0_PACKAGE_NAMEW: &'static str = "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8136,6 +8190,10 @@ pub const MSV1_0_SUBAUTHENTICATION_DLL_RAS: u32 = 2u32;
 pub const MSV1_0_SUBAUTHENTICATION_DLL_SHIFT: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_SUBAUTHENTICATION_FLAGS: u32 = 4278190080u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MSV1_0_SUBAUTHENTICATION_KEY: &'static str = "SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const MSV1_0_SUBAUTHENTICATION_VALUE: &'static str = "Auth";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_SUBAUTH_ACCOUNT_DISABLED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -8615,6 +8673,12 @@ pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHand
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const NEGOSSP_NAME: &'static str = "Negotiate";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const NEGOSSP_NAME_A: &'static str = "Negotiate";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const NEGOSSP_NAME_W: &'static str = "Negotiate";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
@@ -9074,6 +9138,16 @@ pub const NOTIFY_CLASS_ROLE_CHANGE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const NO_LONG_NAMES: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const NTLMSP_NAME: &'static str = "NTLM";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const NTLMSP_NAME_A: &'static str = "NTLM";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PCT1SP_NAME: &'static str = "Microsoft PCT 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PCT1SP_NAME_A: &'static str = "Microsoft PCT 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PCT1SP_NAME_W: &'static str = "Microsoft PCT 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const PER_USER_AUDIT_FAILURE_EXCLUDE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const PER_USER_AUDIT_FAILURE_INCLUDE: u32 = 4u32;
@@ -9237,6 +9311,12 @@ impl ::core::fmt::Debug for PKU2U_LOGON_SUBMIT_TYPE {
         f.debug_tuple("PKU2U_LOGON_SUBMIT_TYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PKU2U_PACKAGE_NAME: &'static str = "pku2u";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PKU2U_PACKAGE_NAME_A: &'static str = "pku2u";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const PKU2U_PACKAGE_NAME_W: &'static str = "pku2u";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
@@ -10732,7 +10812,21 @@ pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: &'static str = "CredentialUpdateFree";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: &'static str = "CredentialUpdateNotify";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: &'static str = "RegisterMappedEntrypoints";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: &'static str = "CredentialUpdateRegister";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SAM_DAYS_PER_WEEK: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_INIT_NOTIFICATION_ROUTINE: &'static str = "InitializeChangeNotify";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: &'static str = "PasswordChangeNotify";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SAM_PASSWORD_FILTER_ROUTINE: &'static str = "PasswordFilter";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11055,7 +11149,7 @@ pub struct SCHANNEL_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
     pub paCred: *mut *mut super::super::Cryptography::CERT_CONTEXT,
-    pub hRootStore: *mut ::core::ffi::c_void,
+    pub hRootStore: super::super::Cryptography::HCERTSTORE,
     pub cMappers: u32,
     pub aphMappers: *mut *mut _HMAPPER,
     pub cSupportedAlgs: u32,
@@ -11201,6 +11295,12 @@ impl ::core::ops::Not for SCHANNEL_CRED_FLAGS {
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SCHANNEL_NAME: &'static str = "Schannel";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SCHANNEL_NAME_A: &'static str = "Schannel";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SCHANNEL_NAME_W: &'static str = "Schannel";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SCHANNEL_RENEGOTIATE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -12977,6 +13077,8 @@ impl ::core::default::Default for SECPKG_KERNEL_FUNCTION_TABLE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECPKG_LSAMODEINIT_NAME: &'static str = "SpLsaModeInitialize";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -13720,6 +13822,8 @@ impl ::core::default::Default for SECPKG_TARGETINFO {
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECPKG_USERMODEINIT_NAME: &'static str = "SpUserModeInitialize";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13834,6 +13938,16 @@ pub const SECQOP_WRAP_OOB_DATA: u32 = 1073741824u32;
 pub const SECRET_QUERY_VALUE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECRET_SET_VALUE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECURITY_ENTRYPOINT: &'static str = "INITSECURITYINTERFACEA";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECURITY_ENTRYPOINT16: &'static str = "INITSECURITYINTERFACEA";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECURITY_ENTRYPOINT_ANSI: &'static str = "InitSecurityInterfaceW";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECURITY_ENTRYPOINT_ANSIA: &'static str = "InitSecurityInterfaceA";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SECURITY_ENTRYPOINT_ANSIW: &'static str = "InitSecurityInterfaceW";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15223,9 +15337,29 @@ pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_BATCH_LOGON_NAME: &'static str = "SeBatchLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_DENY_BATCH_LOGON_NAME: &'static str = "SeDenyBatchLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_DENY_INTERACTIVE_LOGON_NAME: &'static str = "SeDenyInteractiveLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_DENY_NETWORK_LOGON_NAME: &'static str = "SeDenyNetworkLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: &'static str = "SeDenyRemoteInteractiveLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_DENY_SERVICE_LOGON_NAME: &'static str = "SeDenyServiceLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_INTERACTIVE_LOGON_NAME: &'static str = "SeInteractiveLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_NETWORK_LOGON_NAME: &'static str = "SeNetworkLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_REMOTE_INTERACTIVE_LOGON_NAME: &'static str = "SeRemoteInteractiveLogonRight";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SE_SERVICE_LOGON_NAME: &'static str = "SeServiceLogonRight";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -16038,6 +16172,14 @@ impl ::core::default::Default for SL_AD_ACTIVATION_INFO {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: &'static str = "msft:spp/migrationencryptor/tokenact/1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_EVENT_LICENSING_STATE_CHANGED: &'static str = "msft:rm/event/licensingstatechanged";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_EVENT_POLICY_CHANGED: &'static str = "msft:rm/event/policychanged";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_EVENT_USER_NOTIFICATION: &'static str = "msft:rm/event/usernotification";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_E_ACTIVATION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073422296i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_E_APPLICATION_POLICIES_MISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073418126i32);
@@ -16639,6 +16781,76 @@ impl ::core::fmt::Debug for SL_GENUINE_STATE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_ACTIVE_PLUGINS: &'static str = "ActivePlugins";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_AUTHOR: &'static str = "Author";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_BIOS_OA2_MINOR_VERSION: &'static str = "BiosOA2MinorVersion";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_BIOS_PKEY: &'static str = "BiosProductKey";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_BIOS_PKEY_DESCRIPTION: &'static str = "BiosProductKeyDescription";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_BIOS_PKEY_PKPN: &'static str = "BiosProductKeyPkPn";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_BIOS_SLIC_STATE: &'static str = "BiosSlicState";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_CHANNEL: &'static str = "Channel";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_DESCRIPTION: &'static str = "Description";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_DIGITAL_PID: &'static str = "DigitalPID";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_DIGITAL_PID2: &'static str = "DigitalPID2";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_IS_KMS: &'static str = "IsKeyManagementService";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_IS_PRS: &'static str = "IsPRS";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_CURRENT_COUNT: &'static str = "KeyManagementServiceCurrentCount";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_FAILED_REQUESTS: &'static str = "KeyManagementServiceFailedRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_LICENSED_REQUESTS: &'static str = "KeyManagementServiceLicensedRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_NON_GENUINE_GRACE_REQUESTS: &'static str = "KeyManagementServiceNonGenuineGraceRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_NOTIFICATION_REQUESTS: &'static str = "KeyManagementServiceNotificationRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_OOB_GRACE_REQUESTS: &'static str = "KeyManagementServiceOOBGraceRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_OOT_GRACE_REQUESTS: &'static str = "KeyManagementServiceOOTGraceRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_REQUIRED_CLIENT_COUNT: &'static str = "KeyManagementServiceRequiredClientCount";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_TOTAL_REQUESTS: &'static str = "KeyManagementServiceTotalRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_KMS_UNLICENSED_REQUESTS: &'static str = "KeyManagementServiceUnlicensedRequests";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_LICENSE_TYPE: &'static str = "LicenseType";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_LICENSOR_URL: &'static str = "LicensorUrl";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_NAME: &'static str = "Name";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_PARTIAL_PRODUCT_KEY: &'static str = "PartialProductKey";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_PRODUCT_KEY_ACTIVATION_URL: &'static str = "PKCURL";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_PRODUCT_SKU_ID: &'static str = "ProductSkuId";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_RIGHT_ACCOUNT_ACTIVATION_URL: &'static str = "RACURL";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_SECURE_PROCESSOR_ACTIVATION_URL: &'static str = "SPCURL";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_SECURE_STORE_ID: &'static str = "SecureStoreId";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_SYSTEM_STATE: &'static str = "SystemState";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: &'static str = "EULURL";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_INFO_KEY_VERSION: &'static str = "Version";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_I_NONGENUINE_GRACE_PERIOD: ::windows::core::HRESULT = ::windows::core::HRESULT(1074065509i32);
@@ -16727,6 +16939,34 @@ impl ::core::default::Default for SL_NONGENUINE_UI_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PKEY_DETECT: &'static str = "msft:rm/algorithm/pkey/detect";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PKEY_MS2005: &'static str = "msft:rm/algorithm/pkey/2005";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PKEY_MS2009: &'static str = "msft:rm/algorithm/pkey/2009";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_POLICY_EVALUATION_MODE_ENABLED: &'static str = "Security-SPP-EvaluationModeEnabled";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_ACTIVATION_VALIDATION_IN_PROGRESS: &'static str = "SL_ACTIVATION_VALIDATION_IN_PROGRESS";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_BRT_COMMIT: &'static str = "SL_BRT_COMMIT";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_BRT_DATA: &'static str = "SL_BRT_DATA";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_GENUINE_RESULT: &'static str = "SL_GENUINE_RESULT";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_GET_GENUINE_AUTHZ: &'static str = "SL_GET_GENUINE_AUTHZ";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_GET_GENUINE_SERVER_AUTHZ: &'static str = "SL_GET_GENUINE_SERVER_AUTHZ";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_LAST_ACT_ATTEMPT_HRESULT: &'static str = "SL_LAST_ACT_ATTEMPT_HRESULT";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_LAST_ACT_ATTEMPT_SERVER_FLAGS: &'static str = "SL_LAST_ACT_ATTEMPT_SERVER_FLAGS";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_LAST_ACT_ATTEMPT_TIME: &'static str = "SL_LAST_ACT_ATTEMPT_TIME";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SL_PROP_NONGENUINE_GRACE_FLAG: &'static str = "SL_NONGENUINE_GRACE_FLAG";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_REARM_REBOOT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -17003,6 +17243,8 @@ pub const SPP_MIGRATION_GATHER_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SPP_MIGRATION_GATHER_MIGRATABLE_APPS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SP_ACCEPT_CREDENTIALS_NAME: &'static str = "SpAcceptCredentials\u{0}";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SP_PROT_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SP_PROT_DTLS1_0_CLIENT: u32 = 131072u32;
@@ -17089,9 +17331,23 @@ impl ::core::default::Default for SR_SECURITY_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL2SP_NAME: &'static str = "Microsoft SSL 2.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL2SP_NAME_A: &'static str = "Microsoft SSL 2.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL2SP_NAME_W: &'static str = "Microsoft SSL 2.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL3SP_NAME: &'static str = "Microsoft SSL 3.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL3SP_NAME_A: &'static str = "Microsoft SSL 3.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL3SP_NAME_W: &'static str = "Microsoft SSL 3.0";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_CRACK_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL_CRACK_CERTIFICATE_NAME: &'static str = "SslCrackCertificate";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17143,6 +17399,8 @@ pub type SSL_EMPTY_CACHE_FN_W = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_FREE_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pcertificate: *mut X509Certificate)>;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const SSL_FREE_CERTIFICATE_NAME: &'static str = "SslFreeCertificate";
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SSL_SESSION_RECONNECT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -20950,6 +21208,12 @@ pub unsafe fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u3
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const TLS1SP_NAME: &'static str = "Microsoft TLS 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const TLS1SP_NAME_A: &'static str = "Microsoft TLS 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const TLS1SP_NAME_W: &'static str = "Microsoft TLS 1.0";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const TLS1_ALERT_ACCESS_DENIED: u32 = 49u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const TLS1_ALERT_BAD_CERTIFICATE: u32 = 42u32;
@@ -21988,6 +22252,12 @@ pub unsafe fn TranslateNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const UNDERSTANDS_LONG_NAMES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const UNISP_NAME: &'static str = "Microsoft Unified Security Protocol Provider";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const UNISP_NAME_A: &'static str = "Microsoft Unified Security Protocol Provider";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const UNISP_NAME_W: &'static str = "Microsoft Unified Security Protocol Provider";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const UNISP_RPC_ID: u32 = 14u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const USER_ACCOUNT_AUTO_LOCKED: u32 = 1024u32;
@@ -22155,6 +22425,12 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const WDIGEST_SP_NAME: &'static str = "WDigest";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const WDIGEST_SP_NAME_A: &'static str = "WDigest";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
+pub const WDIGEST_SP_NAME_W: &'static str = "WDigest";
 pub const WINDOWS_SLID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]

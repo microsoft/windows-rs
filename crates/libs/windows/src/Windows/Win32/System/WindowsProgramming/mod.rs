@@ -1830,8 +1830,6 @@ pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurf
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const ER_ICMP: u32 = 896u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const EVENPARITY: u32 = 2u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
 pub const EditionUpgradeBroker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
 pub const EditionUpgradeHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
@@ -2426,6 +2424,24 @@ pub unsafe fn FileTimeToDosDateTime(lpfiletime: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &'static str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: &'static str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: &'static str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: &'static str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: &'static str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: &'static str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: &'static str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: &'static str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: &'static str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const GMEM_DDESHARE: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
@@ -4910,8 +4926,6 @@ pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const MARKPARITY: u32 = 3u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const MAXINTATOM: u32 = 49152u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
@@ -4949,8 +4963,6 @@ pub unsafe fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const NOPARITY: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5231,13 +5243,7 @@ impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
     }
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ODDPARITY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const OFS_MAXPATHNAME: u32 = 128u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ONE5STOPBITS: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ONESTOPBIT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const OPERATION_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
@@ -5444,69 +5450,6 @@ pub const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4u32;
 pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct PROC_THREAD_ATTRIBUTE_NUM(pub i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(0i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(2i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(3i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(4i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(5i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(6i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(7i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(9i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(11i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(13i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(14i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(15i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(16i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(17i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(18i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(22i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(24i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(25i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(26i32);
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(27i32);
-impl ::core::marker::Copy for PROC_THREAD_ATTRIBUTE_NUM {}
-impl ::core::clone::Clone for PROC_THREAD_ATTRIBUTE_NUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROC_THREAD_ATTRIBUTE_NUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PROC_THREAD_ATTRIBUTE_NUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PROC_THREAD_ATTRIBUTE_NUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROC_THREAD_ATTRIBUTE_NUM").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
@@ -5779,6 +5722,10 @@ pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: super::super::Foundation::PSTR, psttable: *mut STRTABLEA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const REG_RESTORE_LOG_KEY: &'static str = "RegRestoreLogFile";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const REG_SAVE_LOG_KEY: &'static str = "RegSaveLogFile";
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
@@ -6395,8 +6342,6 @@ pub const SCS_THIS_PLATFORM_BINARY: u32 = 6u32;
 pub const SCS_WOW_BINARY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const SHUTDOWN_NORETRY: u32 = 1u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const SPACEPARITY: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const STARTF_HOLOGRAPHIC: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
@@ -7586,8 +7531,6 @@ impl ::core::default::Default for THREAD_NAME_INFORMATION {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
-pub const TWOSTOPBITS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7976,7 +7919,11 @@ impl ::core::default::Default for WLDP_DEVICE_SECURITY_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_DLL: &'static str = "WLDP.DLL";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_GETLOCKDOWNPOLICY_FN: &'static str = "WldpGetLockdownPolicy";
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8091,6 +8038,16 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: &'static str = "WldpIsAppApprovedByPolicy";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_ISCLASSINAPPROVEDLIST_FN: &'static str = "WldpIsClassInApprovedList";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: &'static str = "WldpIsDynamicCodePolicyEnabled";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &'static str = "WldpIsProductionConfiguration";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &'static str = "WldpIsWcosProductionConfiguration";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WLDP_KEY(pub i32);
@@ -8160,6 +8117,28 @@ impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
         f.debug_tuple("WLDP_POLICY_SETTING").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYDANAMICCODETRUST_FN: &'static str = "WldpQueryDynamicCodeTrust";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: &'static str = "WldpQueryDeviceSecurityInformation";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYDYNAMICCODETRUST_FN: &'static str = "WldpQueryDynamicCodeTrust";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: &'static str = "WldpQueryPolicySettingEnabled2";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: &'static str = "WldpQueryPolicySettingEnabled";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: &'static str = "WldpQueryWindowsLockdownMode";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: &'static str = "WldpQueryWindowsLockdownRestriction";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: &'static str = "WldpResetProductionConfiguration";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: &'static str = "WldpResetWcosProductionConfiguration";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_SETDYNAMICCODETRUST_FN: &'static str = "WldpSetDynamicCodeTrust";
+#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &'static str = "WldpSetWindowsLockdownRestriction";
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

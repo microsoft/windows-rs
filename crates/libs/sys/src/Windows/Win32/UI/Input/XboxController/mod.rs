@@ -102,6 +102,12 @@ pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
+pub const XINPUT_DLL: &'static str = "xinput1_4.dll";
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
+pub const XINPUT_DLL_A: &'static str = "xinput1_4.dll";
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
+pub const XINPUT_DLL_W: &'static str = "xinput1_4.dll";
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]

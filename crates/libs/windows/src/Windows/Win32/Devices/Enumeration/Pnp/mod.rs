@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
+pub const ADDRESS_FAMILY_VALUE_NAME: &'static str = "AddressFamily";
+#[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
@@ -2433,6 +2435,8 @@ pub struct IUPnPServices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Item: usize,
 }
+#[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
+pub const REMOTE_ADDRESS_VALUE_NAME: &'static str = "RemoteAddress";
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

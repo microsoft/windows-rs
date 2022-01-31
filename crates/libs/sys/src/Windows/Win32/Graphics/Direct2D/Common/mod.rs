@@ -1,5 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub type D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
+pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
 pub type D2D1_ALPHA_MODE = u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
 pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = 0u32;

@@ -1110,6 +1110,24 @@ pub const DIALENG_RedialAttempt: u32 = 65537u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const DIALENG_RedialWait: u32 = 65538u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_DOMAIN: &'static str = "Domain";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_LASTERROR: &'static str = "LastError";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_PASSWORD: &'static str = "Password";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_PHONENUMBER: &'static str = "PhoneNumber";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_REDIALCOUNT: &'static str = "RedialCount";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_REDIALINTERVAL: &'static str = "RedialInterval";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_RESOLVEDPHONE: &'static str = "ResolvedPhone";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_SAVEPASSWORD: &'static str = "SavePassword";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const DIALPROP_USERNAME: &'static str = "UserName";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const DLG_FLAGS_INSECURE_FALLBACK: u32 = 4194304u32;
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const DLG_FLAGS_INVALID_CA: u32 = 16777216u32;
@@ -2290,6 +2308,8 @@ pub unsafe fn FtpSetCurrentDirectoryW<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_ABSTRACT_ATTRIBUTE: &'static str = "Abstract";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
@@ -2321,6 +2341,10 @@ impl ::core::default::Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_ABSTRACT_CATEGORY: &'static str = "+ABSTRACT";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_ADMIN_ATTRIBUTE: &'static str = "Admin";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
@@ -2352,6 +2376,8 @@ impl ::core::default::Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_ADMIN_CATEGORY: &'static str = "+ADMIN";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
@@ -2641,6 +2667,12 @@ impl ::core::default::Default for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_GEOG_ATTRIBUTE: &'static str = "Geog";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_INFO_CATEGORY: &'static str = "+INFO";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_LOCATION_ATTRIBUTE: &'static str = "Loc";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
@@ -2671,6 +2703,8 @@ impl ::core::default::Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_MOD_DATE_ATTRIBUTE: &'static str = "Mod-Date";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2739,6 +2773,10 @@ impl ::core::default::Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_ORG_ATTRIBUTE: &'static str = "Org";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_PROVIDER_ATTRIBUTE: &'static str = "Provider";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
@@ -2769,6 +2807,10 @@ impl ::core::default::Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_RANGE_ATTRIBUTE: &'static str = "Score-range";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_SCORE_ATTRIBUTE: &'static str = "Score";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
@@ -2830,6 +2872,8 @@ impl ::core::default::Default for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_SITE_ATTRIBUTE: &'static str = "Site";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
@@ -2860,6 +2904,8 @@ impl ::core::default::Default for GOPHER_SITE_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_TIMEZONE_ATTRIBUTE: &'static str = "TZ";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
@@ -2890,6 +2936,10 @@ impl ::core::default::Default for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_TREEWALK_ATTRIBUTE: &'static str = "treewalk";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_TTL_ATTRIBUTE: &'static str = "TTL";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
@@ -3059,6 +3109,10 @@ impl ::core::default::Default for GOPHER_VERONICA_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_VERONICA_CATEGORY: &'static str = "+VERONICA";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_VERSION_ATTRIBUTE: &'static str = "Version";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
@@ -3089,6 +3143,10 @@ impl ::core::default::Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_VIEWS_CATEGORY: &'static str = "+VIEWS";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const GOPHER_VIEW_ATTRIBUTE: &'static str = "View";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
@@ -3977,6 +4035,10 @@ impl ::core::default::Default for HTTP_REQUEST_TIMES {
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const HTTP_STATUS_MISDIRECTED_REQUEST: u32 = 421u32;
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const HTTP_VERSIONA: &'static str = "HTTP/1.0";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const HTTP_VERSIONW: &'static str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
@@ -9485,6 +9547,10 @@ pub unsafe fn IsUrlCacheEntryExpiredW<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const LOCAL_NAMESPACE_PREFIX: &'static str = "Local\\";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const LOCAL_NAMESPACE_PREFIX_W: &'static str = "Local\\";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub type LPINTERNET_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9767,6 +9833,10 @@ impl ::core::default::Default for ProofOfPossessionCookieInfo {
 pub const ProofOfPossessionCookieInfoManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const REGSTR_DIAL_AUTOCONNECT: &'static str = "AutoConnect";
+#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+pub const REGSTR_LEASH_LEGACY_COOKIES: &'static str = "LeashLegacyCookies";
 #[doc = "*Required features: 'Win32_Networking_WinInet'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

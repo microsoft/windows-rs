@@ -7812,6 +7812,8 @@ pub const StorageCounterTypeFlushLatency100NSMax: STORAGE_COUNTER_TYPE = 20i32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const StorageCounterTypeMax: STORAGE_COUNTER_TYPE = 21i32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const STORAGE_CRASH_TELEMETRY_REGKEY: &'static str = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry";
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub type STORAGE_CRYPTO_ALGORITHM_ID = i32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID = 0i32;
@@ -8156,6 +8158,8 @@ impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const STORAGE_DEVICE_TELEMETRY_REGKEY: &'static str = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
@@ -10241,6 +10245,10 @@ impl ::core::clone::Clone for TAPE_STATISTICS {
 }
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const TC_PUBLIC_DATA_TYPE_ATAGP: &'static str = "ATAGPLogPages";
+#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+pub const TC_PUBLIC_DATA_TYPE_ATASMART: &'static str = "ATASMARTPages";
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
