@@ -201,6 +201,17 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
+fn gen_string_literal(value: &str) -> TokenStream {
+    let mut tokens = "\"".to_string();
+
+    for u in value.chars() {
+        tokens.push_str(&format!("{}", u.escape_default()));
+    }
+
+    tokens.push_str("\"");
+    tokens.into()
+}
+
 fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
@@ -231,7 +242,10 @@ pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
         ConstantValue::I64(value) => quote! { i64 = #value },
         ConstantValue::F32(value) => quote! { f32 = #value },
         ConstantValue::F64(value) => quote! { f64 = #value },
-        ConstantValue::String(value) => quote! { &'static str = #value },
+        ConstantValue::String(value) => {
+            let value = gen_string_literal(&value);
+             quote! { &'static str = #value }
+        }
         _ => unimplemented!(),
     }
 }
@@ -275,7 +289,7 @@ pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
         ConstantValue::I64(value) => quote! { #value },
         ConstantValue::F32(value) => quote! { #value },
         ConstantValue::F64(value) => quote! { #value },
-        ConstantValue::String(value) => quote! { #value },
+        ConstantValue::String(value) => gen_string_literal(&value),
         _ => unimplemented!(),
     }
 }
