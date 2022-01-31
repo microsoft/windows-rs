@@ -12,8 +12,7 @@ impl<T: Interface> AgileReference<T> {
     where
         &'a T: IntoParam<'a, IUnknown>,
     {
-        let reference = unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, from_ref)? };
-        Ok(Self { reference, _marker: Default::default() })
+        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, from_ref).map(|reference| Self { reference, _marker: Default::default() }) }
     }
 
     pub fn resolve(&self) -> Result<T> {
