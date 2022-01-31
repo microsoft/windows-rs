@@ -208,7 +208,7 @@ fn gen_string_literal(value: &str) -> TokenStream {
         tokens.push_str(&format!("{}", u.escape_default()));
     }
 
-    tokens.push_str("\"");
+    tokens.push('\"');
     tokens.into()
 }
 
@@ -243,7 +243,7 @@ pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
         ConstantValue::F32(value) => quote! { f32 = #value },
         ConstantValue::F64(value) => quote! { f64 = #value },
         ConstantValue::String(value) => {
-            let value = gen_string_literal(&value);
+            let value = gen_string_literal(value);
             quote! { &'static str = #value }
         }
         _ => unimplemented!(),
@@ -289,7 +289,7 @@ pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
         ConstantValue::I64(value) => quote! { #value },
         ConstantValue::F32(value) => quote! { #value },
         ConstantValue::F64(value) => quote! { #value },
-        ConstantValue::String(value) => gen_string_literal(&value),
+        ConstantValue::String(value) => gen_string_literal(value),
         _ => unimplemented!(),
     }
 }
