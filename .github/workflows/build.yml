@@ -101,6 +101,7 @@ jobs:
         cargo clippy -p windows_x86_64_gnu &&
         cargo clippy -p windows_x86_64_msvc &&
         cargo clippy -p test_agile &&
+        cargo clippy -p test_agile_reference &&
         cargo clippy -p test_alternate_success_code &&
         cargo clippy -p test_arch &&
         cargo clippy -p test_arch_feature &&
