@@ -126,6 +126,7 @@ jobs:
         cargo clippy -p test_lib &&
         cargo clippy -p test_matrix3x2 &&
         cargo clippy -p test_mshtml &&
+        cargo clippy -p test_not_dll &&
         cargo clippy -p test_ntstatus &&
         cargo clippy -p test_pwstr &&
         cargo clippy -p test_return_struct &&
