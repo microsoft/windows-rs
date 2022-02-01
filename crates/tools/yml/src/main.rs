@@ -93,10 +93,10 @@ jobs:
     yml.truncate(yml.len() - 2);
 
     yml.push_str(
-      r#"
+        r#"
     if: matrix.version == 'nightly'
-    "#
-  );
+    "#,
+    );
 
     std::fs::write(root.join(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
 }
