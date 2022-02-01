@@ -4,5 +4,7 @@ use windows_sys::Win32::System::Diagnostics::Debug::FatalExit;
 
 #[allow(dead_code)]
 fn test() -> i32 {
-    unsafe { FatalExit(123); }
+    unsafe {
+        FatalExit(123);
+    }
 }
