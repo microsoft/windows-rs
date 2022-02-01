@@ -69,6 +69,10 @@ impl MethodDef {
         self.has_attribute("DeprecatedAttribute")
     }
 
+    pub fn does_not_return(&self) -> bool {
+        self.has_attribute("DoesNotReturnAttribute")
+    }
+
     pub fn static_lib(&self) -> Option<String> {
         self.attributes()
             .filter_map(|attribute| match attribute.name() {

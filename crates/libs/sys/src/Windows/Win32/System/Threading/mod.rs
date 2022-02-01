@@ -247,9 +247,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn ExitProcess(uexitcode: u32);
+    pub fn ExitProcess(uexitcode: u32) -> !;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn ExitThread(dwexitcode: u32);
+    pub fn ExitThread(dwexitcode: u32) -> !;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]

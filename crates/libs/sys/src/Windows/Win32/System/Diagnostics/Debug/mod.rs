@@ -110,7 +110,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn FatalAppExitW(uaction: u32, lpmessagetext: super::super::super::Foundation::PWSTR);
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
-    pub fn FatalExit(exitcode: i32);
+    pub fn FatalExit(exitcode: i32) -> !;
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindDebugInfoFile(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
@@ -276,7 +276,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn OutputDebugStringW(lpoutputstring: super::super::super::Foundation::PWSTR);
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
-    pub fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize);
+    pub fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize) -> !;
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, pcontextrecord: *const CONTEXT, dwflags: u32);
@@ -368,7 +368,7 @@ extern "system" {
     pub fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD);
+    pub fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) -> !;
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD);
