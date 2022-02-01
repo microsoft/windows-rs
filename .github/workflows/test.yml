@@ -78,6 +78,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_core &&
         cargo test --target ${{ matrix.target }} -p test_debug &&
         cargo test --target ${{ matrix.target }} -p test_deprecated &&
+        cargo test --target ${{ matrix.target }} -p test_does_not_return &&
         cargo test --target ${{ matrix.target }} -p test_enums &&
         cargo test --target ${{ matrix.target }} -p test_handles &&
         cargo test --target ${{ matrix.target }} -p test_helpers &&
@@ -176,6 +177,7 @@ jobs:
         cargo clippy -p test_core &&
         cargo clippy -p test_debug &&
         cargo clippy -p test_deprecated &&
+        cargo clippy -p test_does_not_return &&
         cargo clippy -p test_enums &&
         cargo clippy -p test_handles &&
         cargo clippy -p test_helpers &&
