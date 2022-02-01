@@ -134,5 +134,5 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_implement_null_result &&
         cargo test --target ${{ matrix.target }} -p test_implement_properties &&
         cargo test --target ${{ matrix.target }} -p test_implement_winrt 
-    if: matrix.version == 'nightly'
+      if: matrix.version == 'nightly'
     
