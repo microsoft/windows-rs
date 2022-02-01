@@ -2,27 +2,20 @@ use super::*;
 use bindings::*;
 use core::marker::PhantomData;
 
-/// A safe wrapper around WinRT interfaces.
-///
-/// Some interfaces are not marked as agile thus then don't implement [`Send`].
-/// These interfaces can be made agile through this `AgileReference`.
-pub struct AgileReference<T> {
-    reference: IAgileReference,
-    _marker: PhantomData<T>,
-}
+/// A type representing an agile reference to a COM/WinRT object.
+#[repr(transparent)]
+#[derive(Clone, PartialEq, Eq)]
+pub struct AgileReference<T>(IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
-    /// Creates a new wrapper around the reference
-    pub fn new<'a>(from_ref: &'a T) -> Result<Self>
-    where
-        &'a T: IntoParam<'a, IUnknown>,
-    {
-        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, from_ref).map(|reference| Self { reference, _marker: Default::default() }) }
+    /// Creates an agile reference to the object.
+    pub fn new<'a, O: IntoParam<'a, IUnknown>>(object: O) -> Result<Self> {
+        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object).map(|reference| Self(reference, Default::default())) }
     }
 
-    /// Resolves the reference for the current thread.
+    /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
     pub fn resolve(&self) -> Result<T> {
-        unsafe { self.reference.Resolve() }
+        unsafe { self.0.Resolve() }
     }
 }
 
