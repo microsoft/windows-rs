@@ -2338,6 +2338,70 @@ impl ::core::fmt::Debug for EventMask {
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const FACILITY_INK: u32 = 40u32;
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_BOPOMOFO: &'static str = "BOPOMOFO";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_CHINESESIMPLECOMMON: &'static str = "CHS_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_CHINESETRADITIONALCOMMON: &'static str = "CHT_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_CURRENCY: &'static str = "CURRENCY";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_DATE: &'static str = "DATE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_DEFAULT: &'static str = "DEFAULT";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_DIGIT: &'static str = "DIGIT";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_EMAIL: &'static str = "EMAIL";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_FILENAME: &'static str = "FILENAME";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_HANGULCOMMON: &'static str = "HANGUL_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_HANGULRARE: &'static str = "HANGUL_RARE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_HIRAGANA: &'static str = "HIRAGANA";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_JAMO: &'static str = "JAMO";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_JAPANESECOMMON: &'static str = "JPN_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_KANJICOMMON: &'static str = "KANJI_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_KANJIRARE: &'static str = "KANJI_RARE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_KATAKANA: &'static str = "KATAKANA";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_KOREANCOMMON: &'static str = "KOR_COMMON";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_LOWERCHAR: &'static str = "LOWERCHAR";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_NONE: &'static str = "NONE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_NUMBER: &'static str = "NUMBER";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_NUMBERSIMPLE: &'static str = "NUMSIMPLE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_ONECHAR: &'static str = "ONECHAR";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_PERCENT: &'static str = "PERCENT";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_POSTALCODE: &'static str = "POSTALCODE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_PUNCCHAR: &'static str = "PUNCCHAR";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_SYSTEMDICTIONARY: &'static str = "SYSDICT";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_TELEPHONE: &'static str = "TELEPHONE";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_TIME: &'static str = "TIME";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_UPPERCHAR: &'static str = "UPPERCHAR";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_WEB: &'static str = "WEB";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const FACTOID_WORDLIST: &'static str = "WORDLIST";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
@@ -12136,6 +12200,10 @@ pub struct IMathInputControl_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetHoverIcon: usize,
 }
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKEDIT_CLASS: &'static str = "INKEDIT";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKEDIT_CLASSW: &'static str = "INKEDIT";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub struct INKMETRIC {
@@ -12170,6 +12238,24 @@ impl ::core::default::Default for INKMETRIC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_BOXNUMBER: &'static str = "{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: &'static str = "{7DFE11A7-FB5D-4958-8765-154ADF0D833F}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_HOTPOINT: &'static str = "{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_LINEMETRICS: &'static str = "{8CC24B27-30A9-4b96-9056-2D3A90DA0727}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_LINENUMBER: &'static str = "{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: &'static str = "{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_POINTSPERINCH: &'static str = "{7ED16B76-889C-468e-8276-0021B770187E}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INKRECOGNITIONPROPERTY_SEGMENTATION: &'static str = "{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const INK_SERIALIZED_FORMAT: &'static str = "Ink Serialized Format";
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const IP_CURSOR_DOWN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
@@ -15665,6 +15751,8 @@ pub const MAX_PACKET_PROPERTY_COUNT: u32 = 32u32;
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const MAX_VENDORNAME: u32 = 32u32;
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: &'static str = "Microsoft PenInputPanel 1.5";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: &'static str = "Microsoft TIP ComboBox List Window Identifier";
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: &'static str = "Microsoft TIP No Insert Option";
@@ -16517,6 +16605,48 @@ impl ::core::default::Default for STROKE_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_ALTITUDEORIENTATION: &'static str = "{82DEC5C7-F6BA-4906-894F-66D68DFC456C}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_AZIMUTHORIENTATION: &'static str = "{029123B4-8828-410B-B250-A0536595E5DC}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_BUTTONPRESSURE: &'static str = "{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_DEVICE_CONTACT_ID: &'static str = "{02585B91-049B-4750-9615-DF8948AB3C9C}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_FINGERCONTACTCONFIDENCE: &'static str = "{E706C804-57F0-4F00-8A0C-853D57789BE9}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_HEIGHT: &'static str = "{E61858D2-E447-4218-9D3F-18865C203DF4}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_NORMALPRESSURE: &'static str = "{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_PAKETSTATUS: &'static str = "{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_PITCHROTATION: &'static str = "{7F7E57B7-BE37-4BE1-A356-7A84160E1893}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_ROLLROTATION: &'static str = "{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_SERIALNUMBER: &'static str = "{78A81B56-0935-4493-BAAE-00541A8A16C4}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_TANGENTPRESSURE: &'static str = "{6DA4488B-5244-41EC-905B-32D89AB80809}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_TIMERTICK: &'static str = "{436510C5-FED3-45D1-8B76-71D3EA7A829D}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_TWISTORIENTATION: &'static str = "{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_WIDTH: &'static str = "{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_X: &'static str = "{598A6A8F-52C0-4BA0-93AF-AF357411A561}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_XTILTORIENTATION: &'static str = "{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_Y: &'static str = "{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_YAWROTATION: &'static str = "{6A849980-7C3A-45B7-AA82-90A262950E89}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_YTILTORIENTATION: &'static str = "{0E932389-1D77-43AF-AC00-5B950D6D4B2D}";
+#[doc = "*Required features: 'Win32_UI_TabletPC'*"]
+pub const STR_GUID_Z: &'static str = "{735ADB30-0EBB-4788-A0E4-0F316490055D}";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub struct SYSTEM_EVENT_DATA {

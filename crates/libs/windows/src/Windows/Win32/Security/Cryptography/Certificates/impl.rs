@@ -5425,9 +5425,9 @@ pub trait IEnroll_Impl: Sized {
     fn createPKCS10WStr(&mut self, dnname: super::super::super::Foundation::PWSTR, usage: super::super::super::Foundation::PWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
     fn acceptPKCS7Blob(&mut self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
     fn getCertContextFromPKCS7(&mut self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> *mut super::CERT_CONTEXT;
-    fn getMyStore(&mut self) -> *mut ::core::ffi::c_void;
-    fn getCAStore(&mut self) -> *mut ::core::ffi::c_void;
-    fn getROOTHStore(&mut self) -> *mut ::core::ffi::c_void;
+    fn getMyStore(&mut self) -> super::HCERTSTORE;
+    fn getCAStore(&mut self) -> super::HCERTSTORE;
+    fn getROOTHStore(&mut self) -> super::HCERTSTORE;
     fn enumProvidersWStr(&mut self, dwindex: i32, dwflags: i32, pbstrprovname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn enumContainersWStr(&mut self, dwindex: i32, pbstr: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn freeRequestInfoBlob(&mut self, pkcs7orpkcs10: &super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
@@ -5519,17 +5519,17 @@ impl IEnroll_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).getCertContextFromPKCS7(::core::mem::transmute_copy(&pblobpkcs7))
         }
-        unsafe extern "system" fn getMyStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+        unsafe extern "system" fn getMyStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getMyStore()
         }
-        unsafe extern "system" fn getCAStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+        unsafe extern "system" fn getCAStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getCAStore()
         }
-        unsafe extern "system" fn getROOTHStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+        unsafe extern "system" fn getROOTHStore<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getROOTHStore()
@@ -5934,10 +5934,10 @@ pub trait IEnroll2_Impl: Sized + IEnroll_Impl {
     fn ReuseHardwareKeyIfUnableToGenNew(&mut self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetHashAlgID(&mut self, hashalgid: i32) -> ::windows::core::Result<()>;
     fn HashAlgID(&mut self, hashalgid: *mut i32) -> ::windows::core::Result<()>;
-    fn SetHStoreMy(&mut self, hstore: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetHStoreCA(&mut self, hstore: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetHStoreROOT(&mut self, hstore: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetHStoreRequest(&mut self, hstore: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetHStoreMy(&mut self, hstore: super::HCERTSTORE) -> ::windows::core::Result<()>;
+    fn SetHStoreCA(&mut self, hstore: super::HCERTSTORE) -> ::windows::core::Result<()>;
+    fn SetHStoreROOT(&mut self, hstore: super::HCERTSTORE) -> ::windows::core::Result<()>;
+    fn SetHStoreRequest(&mut self, hstore: super::HCERTSTORE) -> ::windows::core::Result<()>;
     fn SetLimitExchangeKeyToEncipherment(&mut self, flimitexchangekeytoencipherment: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn LimitExchangeKeyToEncipherment(&mut self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetEnableSMIMECapabilities(&mut self, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -5996,22 +5996,22 @@ impl IEnroll2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).HashAlgID(::core::mem::transmute_copy(&hashalgid)).into()
         }
-        unsafe extern "system" fn SetHStoreMy<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHStoreMy<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: super::HCERTSTORE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHStoreMy(::core::mem::transmute_copy(&hstore)).into()
         }
-        unsafe extern "system" fn SetHStoreCA<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHStoreCA<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: super::HCERTSTORE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHStoreCA(::core::mem::transmute_copy(&hstore)).into()
         }
-        unsafe extern "system" fn SetHStoreROOT<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHStoreROOT<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: super::HCERTSTORE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHStoreROOT(::core::mem::transmute_copy(&hstore)).into()
         }
-        unsafe extern "system" fn SetHStoreRequest<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHStoreRequest<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstore: super::HCERTSTORE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHStoreRequest(::core::mem::transmute_copy(&hstore)).into()

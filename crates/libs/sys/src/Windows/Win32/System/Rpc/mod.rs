@@ -4985,6 +4985,8 @@ impl ::core::clone::Clone for _NDR_SCONTEXT {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
+pub const cbNDRContext: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type system_handle_t = i32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const SYSTEM_HANDLE_FILE: system_handle_t = 0i32;

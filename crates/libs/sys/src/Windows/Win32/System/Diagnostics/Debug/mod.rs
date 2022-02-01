@@ -4388,7 +4388,19 @@ pub const DEBUG_OUTPUT_EXTENSION_WARNING: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEBUG_OUTPUT_IDENTITY_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_NAME_END: &'static str = "**NAME**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_NAME_END_T: &'static str = "**NAME**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_NAME_END_WIDE: &'static str = "**NAME**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEBUG_OUTPUT_NORMAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_OFFSET_END: &'static str = "**OFF**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_OFFSET_END_T: &'static str = "**OFF**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_OFFSET_END_WIDE: &'static str = "**OFF**";
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEBUG_OUTPUT_PROMPT: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
@@ -4407,6 +4419,18 @@ pub const DEBUG_OUTPUT_SYMBOLS_NO_OFFSETS: u32 = 2u32;
 pub const DEBUG_OUTPUT_SYMBOLS_NO_TYPES: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEBUG_OUTPUT_SYMBOLS_NO_VALUES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_TYPE_END: &'static str = "**TYPE**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_TYPE_END_T: &'static str = "**TYPE**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_TYPE_END_WIDE: &'static str = "**TYPE**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_VALUE_END: &'static str = "**VALUE**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_VALUE_END_T: &'static str = "**VALUE**";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const DEBUG_OUTPUT_VALUE_END_WIDE: &'static str = "**VALUE**";
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEBUG_OUTPUT_VERBOSE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
@@ -12221,6 +12245,12 @@ impl ::core::clone::Clone for READ_WRITE_MSR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const RESTORE_LAST_ERROR_NAME: &'static str = "RestoreLastError";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const RESTORE_LAST_ERROR_NAME_A: &'static str = "RestoreLastError";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+pub const RESTORE_LAST_ERROR_NAME_W: &'static str = "RestoreLastError";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct RIP_INFO {

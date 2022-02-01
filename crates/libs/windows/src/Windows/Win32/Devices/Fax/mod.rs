@@ -1,4 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const CF_MSFAXSRV_DEVICE_ID: &'static str = "FAXSRV_DeviceID";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const CF_MSFAXSRV_FSP_GUID: &'static str = "FAXSRV_FSPGuid";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const CF_MSFAXSRV_ROUTEEXT_NAME: &'static str = "FAXSRV_RoutingExtName";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const CF_MSFAXSRV_ROUTING_METHOD_GUID: &'static str = "FAXSRV_RoutingMethodGuid";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const CF_MSFAXSRV_SERVER_NAME: &'static str = "FAXSRV_ServerName";
 pub const CLSID_Sti: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14885,6 +14895,8 @@ pub struct IFaxServerNotify2_Vtbl {
     pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const IS_DIGITAL_CAMERA_STR: &'static str = "IsDigitalCamera";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 #[repr(transparent)]
@@ -15555,6 +15567,12 @@ pub const JT_SEND: u32 = 1u32;
 pub const JT_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const MAX_NOTIFICATION_DATA: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const MS_FAXROUTE_EMAIL_GUID: &'static str = "{6bbf7bfe-9af2-11d0-abf7-00c04fd91a4e}";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const MS_FAXROUTE_FOLDER_GUID: &'static str = "{92041a90-9af2-11d0-abf7-00c04fd91a4e}";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const MS_FAXROUTE_PRINTING_GUID: &'static str = "{aec1b37c-9af2-11d0-abf7-00c04fd91a4e}";
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXABORT = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL>;
@@ -15826,6 +15844,50 @@ pub type PFAX_SEND_CALLBACK = ::core::option::Option<unsafe extern "system" fn(f
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_SERVICE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, deviceid: u32, param1: usize, param2: usize, param3: usize) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_BAUDRATE: &'static str = "BaudRate";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_BAUDRATE_A: &'static str = "BaudRate";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DATA_W: &'static str = "DeviceData";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DEVICESUBTYPE_W: &'static str = "DeviceSubType";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DEVICETYPE_W: &'static str = "DeviceType";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DEVICE_NAME_W: &'static str = "DriverDesc";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DEV_NAME_W: &'static str = "DeviceName";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_DRIVER_DESC_W: &'static str = "DriverDesc";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_FRIENDLY_NAME_W: &'static str = "FriendlyName";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_GENERIC_CAPS_W: &'static str = "Capabilities";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_GUID: &'static str = "GUID";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_GUID_W: &'static str = "GUID";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_HARDWARE: &'static str = "HardwareConfig";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_HARDWARE_W: &'static str = "HardwareConfig";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_LAUNCHABLE: &'static str = "Launchable";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_LAUNCHABLE_W: &'static str = "Launchable";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_LAUNCH_APPS: &'static str = "LaunchApplications";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_LAUNCH_APPS_W: &'static str = "LaunchApplications";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_SHUTDOWNDELAY: &'static str = "ShutdownIfUnusedDelay";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_SHUTDOWNDELAY_W: &'static str = "ShutdownIfUnusedDelay";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_TYPE_W: &'static str = "Type";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const REGSTR_VAL_VENDOR_NAME_W: &'static str = "Vendor";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STIEDFL_ATTACHEDONLY: u32 = 1u32;
@@ -15948,6 +16010,10 @@ impl ::core::default::Default for STISUBSCRIBE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_ADD_DEVICE_BROADCAST_ACTION: &'static str = "Arrival";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_ADD_DEVICE_BROADCAST_STRING: &'static str = "STI\\";
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
@@ -16085,6 +16151,30 @@ impl ::core::default::Default for STI_DEVICE_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP: &'static str = "DefaultLaunchApp";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_DEFAULT_LAUNCHAPP_A: &'static str = "DefaultLaunchApp";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS: &'static str = "DisableNotifications";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_DISABLE_NOTIFICATIONS_A: &'static str = "DisableNotifications";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_ICM_PROFILE: &'static str = "ICMProfile";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_ICM_PROFILE_A: &'static str = "ICMProfile";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_ISIS_NAME: &'static str = "ISISDriverName";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_ISIS_NAME_A: &'static str = "ISISDriverName";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_TIMEOUT: &'static str = "PollTimeout";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_TIMEOUT_A: &'static str = "PollTimeout";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_TWAIN_NAME: &'static str = "TwainDS";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_DEVICE_VALUE_TWAIN_NAME_A: &'static str = "TwainDS";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1u32;
@@ -16221,6 +16311,10 @@ pub const STI_ONLINESTATE_WARMING_UP: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_RAW_RESERVED: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_REMOVE_DEVICE_BROADCAST_ACTION: &'static str = "Removal";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const STI_REMOVE_DEVICE_BROADCAST_STRING: &'static str = "STI\\";
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_SUBSCRIBE_FLAG_EVENT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_SUBSCRIBE_FLAG_WINDOW: u32 = 1u32;
@@ -16337,6 +16431,8 @@ impl ::core::default::Default for STI_WIA_DEVICE_INFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const SUPPORTS_MSCPLUS_STR: &'static str = "SupportsMSCPlus";
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
@@ -16980,6 +17076,8 @@ pub struct _IFaxServerNotify2_Vtbl {
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const lDEFAULT_PREFETCH_SIZE: i32 = 100i32;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub const prv_DEFAULT_PREFETCH_SIZE: u32 = 100u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const wcharREASSIGN_RECIPIENTS_DELIMITER: u16 = 59u16;
 #[cfg(feature = "implement")]

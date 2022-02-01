@@ -322,5 +322,17 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegKeyPolicyTimeProviders: &'static str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegKeyTimeProviders: &'static str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegValueDllName: &'static str = "DllName";
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegValueEnabled: &'static str = "Enabled";
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegValueInputProvider: &'static str = "InputProvider";
+#[doc = "*Required features: 'Win32_System_Time'*"]
+pub const wszW32TimeRegValueMetaDataProvider: &'static str = "MetaDataProvider";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -2346,6 +2346,8 @@ pub const HttpVerbUNLOCK: HTTP_VERB = 18i32;
 pub const HttpVerbSEARCH: HTTP_VERB = 19i32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HttpVerbMaximum: HTTP_VERB = 20i32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
+pub const HTTP_VERSION: &'static str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_VERSION {

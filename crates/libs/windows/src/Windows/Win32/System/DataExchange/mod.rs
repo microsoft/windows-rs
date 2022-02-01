@@ -2397,6 +2397,22 @@ pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_FORMATS: &'static str = "Formats";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_HELP: &'static str = "Help";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_RTNMSG: &'static str = "ReturnMessage";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_STATUS: &'static str = "Status";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_SYSITEMS: &'static str = "SysItems";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_ITEM_TOPICS: &'static str = "Topics";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDESYS_TOPIC: &'static str = "System";
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
+pub const SZDDE_ITEM_ITEMLIST: &'static str = "TopicItemList";
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

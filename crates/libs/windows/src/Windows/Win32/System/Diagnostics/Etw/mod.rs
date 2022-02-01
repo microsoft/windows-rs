@@ -140,6 +140,10 @@ impl ::core::fmt::Debug for DECODING_SOURCE {
         f.debug_tuple("DECODING_SOURCE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const DIAG_LOGGER_NAMEA: &'static str = "DiagLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const DIAG_LOGGER_NAMEW: &'static str = "DiagLog";
 pub const DefaultTraceSecurityGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[repr(transparent)]
@@ -1979,6 +1983,12 @@ impl ::core::default::Default for EVENT_INSTANCE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAME: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAMEA: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAMEW: &'static str = "EventLog";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_MAP_ENTRY {
@@ -3952,6 +3962,12 @@ pub unsafe fn FlushTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAME: &'static str = "GlobalLogger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAMEA: &'static str = "GlobalLogger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAMEW: &'static str = "GlobalLogger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
 pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
     #[cfg(windows)]
@@ -4284,6 +4300,12 @@ pub struct ITraceRelogger_Vtbl {
     SetCompressionMode: usize,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAME: &'static str = "NT Kernel Logger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAMEA: &'static str = "NT Kernel Logger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAMEW: &'static str = "NT Kernel Logger";
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

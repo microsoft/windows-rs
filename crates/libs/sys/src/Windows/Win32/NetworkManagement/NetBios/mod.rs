@@ -56,6 +56,8 @@ impl ::core::clone::Clone for ADAPTER_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
+pub const ALL_TRANSPORTS: &'static str = "M\u{0}\u{0}\u{0}";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const ASYNCH: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const CALL_PENDING: u32 = 2u32;
@@ -116,6 +118,8 @@ impl ::core::clone::Clone for LANA_ENUM {
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const MAX_LANA: u32 = 254u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
+pub const MS_NBF: &'static str = "MNBF";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct NAME_BUFFER {

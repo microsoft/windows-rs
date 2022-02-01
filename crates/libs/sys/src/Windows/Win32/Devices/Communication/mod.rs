@@ -237,8 +237,8 @@ pub struct DCB {
     pub XonLim: u16,
     pub XoffLim: u16,
     pub ByteSize: u8,
-    pub Parity: u8,
-    pub StopBits: u8,
+    pub Parity: DCB_PARITY,
+    pub StopBits: DCB_STOP_BITS,
     pub XonChar: super::super::Foundation::CHAR,
     pub XoffChar: super::super::Foundation::CHAR,
     pub ErrorChar: super::super::Foundation::CHAR,
@@ -254,6 +254,26 @@ impl ::core::clone::Clone for DCB {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub type DCB_PARITY = u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const EVENPARITY: DCB_PARITY = 2u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const MARKPARITY: DCB_PARITY = 3u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const NOPARITY: DCB_PARITY = 0u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ODDPARITY: DCB_PARITY = 1u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const SPACEPARITY: DCB_PARITY = 4u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub type DCB_STOP_BITS = u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ONESTOPBIT: DCB_STOP_BITS = 0u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const ONE5STOPBITS: DCB_STOP_BITS = 1u8;
+#[doc = "*Required features: 'Win32_Devices_Communication'*"]
+pub const TWOSTOPBITS: DCB_STOP_BITS = 2u8;
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 pub type ESCAPE_COMM_FUNCTION = u32;
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]

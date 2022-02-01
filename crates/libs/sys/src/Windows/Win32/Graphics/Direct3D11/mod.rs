@@ -66,6 +66,10 @@ pub const D3D11_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_APPNAME_STRING: &'static str = "Name";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_APPSIZE_STRING: &'static str = "Size";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub type D3D11_ASYNC_GETDATA_FLAG = i32;
@@ -680,6 +684,14 @@ impl ::core::clone::Clone for D3D11_BOX {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_BREAKON_CATEGORY: &'static str = "BreakOn_CATEGORY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_BREAKON_ID_DECIMAL: &'static str = "BreakOn_ID_%d";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_BREAKON_ID_STRING: &'static str = "BreakOn_ID_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_BREAKON_SEVERITY: &'static str = "BreakOn_SEVERITY_%s";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_BUFFEREX_SRV {
@@ -1552,6 +1564,8 @@ pub const D3D11_DS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_ENABLE_BREAK_ON_MESSAGE: &'static str = "EnableBreakOnMessage";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_ENCRYPTED_BLOCK_INFO {
@@ -2075,6 +2089,10 @@ pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_FORCE_DEBUGGABLE: &'static str = "ForceDebuggable";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: &'static str = "ForceShaderSkipOptimization";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub type D3D11_FORMAT_SUPPORT = i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_FORMAT_SUPPORT_BUFFER: D3D11_FORMAT_SUPPORT = 1i32;
@@ -2382,6 +2400,8 @@ pub const D3D11_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32u32;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: &'static str = "InfoQueueStorageFilterOverride";
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
@@ -5336,6 +5356,16 @@ pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_MUTE_CATEGORY: &'static str = "Mute_CATEGORY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_MUTE_DEBUG_OUTPUT: &'static str = "MuteDebugOutput";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_MUTE_ID_DECIMAL: &'static str = "Mute_ID_%d";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_MUTE_ID_STRING: &'static str = "Mute_ID_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_MUTE_SEVERITY: &'static str = "Mute_SEVERITY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
@@ -5642,6 +5672,8 @@ impl ::core::clone::Clone for D3D11_RASTERIZER_DESC2 {
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_REGKEY_PATH: &'static str = "Software\\Microsoft\\Direct3D";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7350,6 +7382,8 @@ pub const D3D11_UAV_DIMENSION_TEXTURE2DARRAY: D3D11_UAV_DIMENSION = 5i32;
 pub const D3D11_UAV_DIMENSION_TEXTURE3D: D3D11_UAV_DIMENSION = 8i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3D11_UNMUTE_SEVERITY_INFO: &'static str = "Unmute_SEVERITY_INFO";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8261,6 +8295,12 @@ pub const D3D11_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
 pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3DCSX_DLL: &'static str = "d3dcsx_47.dll";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3DCSX_DLL_A: &'static str = "d3dcsx_47.dll";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+pub const D3DCSX_DLL_W: &'static str = "d3dcsx_47.dll";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3DX11_FFT_BUFFER_INFO {

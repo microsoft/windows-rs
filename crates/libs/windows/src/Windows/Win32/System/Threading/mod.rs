@@ -33,6 +33,39 @@ impl ::core::default::Default for APP_MEMORY_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AVRT_PRIORITY(pub i32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const AVRT_PRIORITY_VERYLOW: AVRT_PRIORITY = AVRT_PRIORITY(-2i32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const AVRT_PRIORITY_LOW: AVRT_PRIORITY = AVRT_PRIORITY(-1i32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const AVRT_PRIORITY_NORMAL: AVRT_PRIORITY = AVRT_PRIORITY(0i32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const AVRT_PRIORITY_HIGH: AVRT_PRIORITY = AVRT_PRIORITY(1i32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const AVRT_PRIORITY_CRITICAL: AVRT_PRIORITY = AVRT_PRIORITY(2i32);
+impl ::core::marker::Copy for AVRT_PRIORITY {}
+impl ::core::clone::Clone for AVRT_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AVRT_PRIORITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AVRT_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AVRT_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AVRT_PRIORITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 #[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
     #[cfg(windows)]
@@ -101,6 +134,216 @@ pub unsafe fn AttachThreadInput<'a, Param2: ::windows::core::IntoParam<'a, super
             fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(AttachThreadInput(::core::mem::transmute(idattach), ::core::mem::transmute(idattachto), fattach.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvQuerySystemResponsiveness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvQuerySystemResponsiveness(avrthandle: super::super::Foundation::HANDLE, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvQuerySystemResponsiveness(avrthandle.into_param().abi(), ::core::mem::transmute(systemresponsivenessvalue)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRevertMmThreadCharacteristics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRevertMmThreadCharacteristics(avrthandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRevertMmThreadCharacteristics(avrthandle.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtCreateThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtCreateThreadOrderingGroupExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: Param4) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtCreateThreadOrderingGroupExA(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtCreateThreadOrderingGroupExA(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtCreateThreadOrderingGroupExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: Param4) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtCreateThreadOrderingGroupExW(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtCreateThreadOrderingGroupExW(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtDeleteThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtDeleteThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtDeleteThreadOrderingGroup(context.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtJoinThreadOrderingGroup<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: Param2) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtJoinThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtJoinThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(threadorderingguid), before.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtLeaveThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtLeaveThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtLeaveThreadOrderingGroup(context.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvRtWaitOnThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvRtWaitOnThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvRtWaitOnThreadOrderingGroup(context.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvSetMmMaxThreadCharacteristicsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(firsttask: Param0, secondtask: Param1, taskindex: *mut u32) -> super::super::Foundation::HANDLE {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvSetMmMaxThreadCharacteristicsA(firsttask: super::super::Foundation::PSTR, secondtask: super::super::Foundation::PSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
+        }
+        ::core::mem::transmute(AvSetMmMaxThreadCharacteristicsA(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvSetMmMaxThreadCharacteristicsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(firsttask: Param0, secondtask: Param1, taskindex: *mut u32) -> super::super::Foundation::HANDLE {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvSetMmMaxThreadCharacteristicsW(firsttask: super::super::Foundation::PWSTR, secondtask: super::super::Foundation::PWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
+        }
+        ::core::mem::transmute(AvSetMmMaxThreadCharacteristicsW(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvSetMmThreadCharacteristicsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(taskname: Param0, taskindex: *mut u32) -> super::super::Foundation::HANDLE {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvSetMmThreadCharacteristicsA(taskname: super::super::Foundation::PSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
+        }
+        ::core::mem::transmute(AvSetMmThreadCharacteristicsA(taskname.into_param().abi(), ::core::mem::transmute(taskindex)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvSetMmThreadCharacteristicsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(taskname: Param0, taskindex: *mut u32) -> super::super::Foundation::HANDLE {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvSetMmThreadCharacteristicsW(taskname: super::super::Foundation::PWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
+        }
+        ::core::mem::transmute(AvSetMmThreadCharacteristicsW(taskname.into_param().abi(), ::core::mem::transmute(taskindex)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn AvSetMmThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn AvSetMmThreadPriority(avrthandle: super::super::Foundation::HANDLE, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into_param().abi(), ::core::mem::transmute(priority)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4307,7 +4550,108 @@ impl ::core::default::Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY: u32 = 131087u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY: u32 = 131086u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER: u32 = 131098u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY: u32 = 131090u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES: u32 = 196635u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY: u32 = 196611u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_HANDLE_LIST: u32 = 131074u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR: u32 = 196613u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_JOB_LIST: u32 = 131085u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_MACHINE_TYPE: u32 = 131097u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY: u32 = 131096u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY: u32 = 131079u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROC_THREAD_ATTRIBUTE_NUM(pub u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(0u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(2u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(3u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(4u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(5u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(6u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(7u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(9u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(11u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(13u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(14u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(15u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(16u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(17u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(18u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(22u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(24u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(25u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(26u32);
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(27u32);
+impl ::core::marker::Copy for PROC_THREAD_ATTRIBUTE_NUM {}
+impl ::core::clone::Clone for PROC_THREAD_ATTRIBUTE_NUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROC_THREAD_ATTRIBUTE_NUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROC_THREAD_ATTRIBUTE_NUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROC_THREAD_ATTRIBUTE_NUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROC_THREAD_ATTRIBUTE_NUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_PARENT_PROCESS: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_PREFERRED_NODE: u32 = 131076u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL: u32 = 131083u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE: u32 = 131094u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES: u32 = 131081u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_UMS_THREAD: u32 = 196614u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
+pub const PROC_THREAD_ATTRIBUTE_WIN32K_FILTER: u32 = 131088u32;
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_System_SystemServices'*"]
 #[cfg(feature = "Win32_System_SystemServices")]
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;

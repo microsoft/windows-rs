@@ -1191,6 +1191,8 @@ pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const DRIVERS_SECTION: &'static str = "DRIVERS32";
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Media_Audio'*"]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2671,6 +2673,8 @@ pub const JOY_CAL_READYONLY: i32 = 2097152i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const JOY_CAL_READZONLY: i32 = 16777216i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const JOY_CONFIGCHANGED_MSGSTRING: &'static str = "MSJSTICK_VJOYD_MSGSTR";
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const JOY_POVBACKWARD: u32 = 18000u32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const JOY_POVFORWARD: u32 = 0u32;
@@ -3121,6 +3125,8 @@ pub const MCIWNDOPENF_NEW: u32 = 1u32;
 pub const MCIWND_END: i32 = -2i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const MCIWND_START: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const MCIWND_WINDOW_CLASS: &'static str = "MCIWndClass";
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385i32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
@@ -5151,6 +5157,8 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const MCI_SECTION: &'static str = "MCI32";
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const MCI_SEEK: u32 = 2055u32;
 #[repr(C, packed(1))]
@@ -11562,6 +11570,10 @@ impl ::core::clone::Clone for SONARCWAVEFORMAT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const TARGET_DEVICE_FRIENDLY_NAME: &'static str = "TargetDeviceFriendlyName";
+#[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+pub const TARGET_DEVICE_OPEN_EXCLUSIVELY: &'static str = "TargetDeviceOpenExclusively";
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const TASKERR_NOTASKSUPPORT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]

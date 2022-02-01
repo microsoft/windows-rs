@@ -1192,6 +1192,12 @@ impl ::core::clone::Clone for WSMAN_CERTIFICATE_DETAILS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: &'static str = "WINRS_CODEPAGE";
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: &'static str = "WINRS_CONSOLEMODE_STDIN";
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: &'static str = "WINRS_SKIP_CMD_SHELL";
 #[repr(C)]
 pub struct WSMAN_COMMAND(pub u8);
 #[repr(C)]
@@ -1704,6 +1710,10 @@ impl ::core::clone::Clone for WSMAN_SHELL_DISCONNECT_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_SHELL_NS: &'static str = "http://schemas.microsoft.com/wbem/wsman/1/windows/shell";
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_SHELL_OPTION_NOPROFILE: &'static str = "WINRS_NOPROFILE";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1752,6 +1762,12 @@ impl ::core::clone::Clone for WSMAN_STREAM_ID_SET {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_STREAM_ID_STDERR: &'static str = "stderr";
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_STREAM_ID_STDIN: &'static str = "stdin";
+#[doc = "*Required features: 'Win32_System_RemoteManagement'*"]
+pub const WSMAN_STREAM_ID_STDOUT: &'static str = "stdout";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

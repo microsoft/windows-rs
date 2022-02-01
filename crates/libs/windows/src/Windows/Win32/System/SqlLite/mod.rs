@@ -723,6 +723,8 @@ pub const SQLITE_SHM_SHARED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_SHM_UNLOCK: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
+pub const SQLITE_SOURCE_ID: &'static str = "2019-07-10 17:32:03 fc82b73eaac8b36950e527f12c4b5dc1e147e6f4ad2217ae43ad82882a88bfa6";
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_STATUS_MALLOC_COUNT: u32 = 9u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_STATUS_MALLOC_SIZE: u32 = 5u32;
@@ -857,6 +859,8 @@ pub const SQLITE_UTF16_ALIGNED: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_UTF8: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
+pub const SQLITE_VERSION: &'static str = "3.29.0";
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_VERSION_NUMBER: u32 = 3029000u32;
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub const SQLITE_VTAB_CONSTRAINT_SUPPORT: u32 = 1u32;
@@ -970,9 +974,8 @@ pub unsafe fn sqlite3_aggregate_count(param0: *mut sqlite3_context) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_api_routines {
     pub aggregate_context: isize,
     pub aggregate_count: isize,
@@ -1013,7 +1016,7 @@ pub struct sqlite3_api_routines {
     pub column_text: isize,
     pub column_text16: isize,
     pub column_type: isize,
-    pub column_value: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub column_value: isize,
     pub commit_hook: isize,
     pub complete: isize,
     pub complete16: isize,
@@ -1023,7 +1026,7 @@ pub struct sqlite3_api_routines {
     pub create_function16: isize,
     pub create_module: isize,
     pub data_count: isize,
-    pub db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub db_handle: isize,
     pub declare_vtab: isize,
     pub enable_shared_cache: isize,
     pub errcode: isize,
@@ -1104,7 +1107,7 @@ pub struct sqlite3_api_routines {
     pub file_control: isize,
     pub memory_highwater: isize,
     pub memory_used: isize,
-    pub mutex_alloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub mutex_alloc: isize,
     pub mutex_enter: isize,
     pub mutex_free: isize,
     pub mutex_leave: isize,
@@ -1115,7 +1118,7 @@ pub struct sqlite3_api_routines {
     pub result_error_toobig: isize,
     pub sleep: isize,
     pub soft_heap_limit: isize,
-    pub vfs_find: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_vfs,
+    pub vfs_find: isize,
     pub vfs_register: isize,
     pub vfs_unregister: isize,
     pub xthreadsafe: isize,
@@ -1123,14 +1126,14 @@ pub struct sqlite3_api_routines {
     pub result_error_code: isize,
     pub test_control: isize,
     pub randomness: isize,
-    pub context_db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub context_db_handle: isize,
     pub extended_result_codes: isize,
     pub limit: isize,
-    pub next_stmt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_stmt,
+    pub next_stmt: isize,
     pub sql: isize,
     pub status: isize,
     pub backup_finish: isize,
-    pub backup_init: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_backup,
+    pub backup_init: isize,
     pub backup_pagecount: isize,
     pub backup_remaining: isize,
     pub backup_step: isize,
@@ -1138,7 +1141,7 @@ pub struct sqlite3_api_routines {
     pub compileoption_used: isize,
     pub create_function_v2: isize,
     pub db_config: isize,
-    pub db_mutex: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub db_mutex: isize,
     pub db_status: isize,
     pub extended_errcode: isize,
     pub log: isize,
@@ -1178,7 +1181,7 @@ pub struct sqlite3_api_routines {
     pub result_blob64: isize,
     pub result_text64: isize,
     pub strglob: isize,
-    pub value_dup: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub value_dup: isize,
     pub value_free: isize,
     pub result_zeroblob64: isize,
     pub bind_zeroblob64: isize,
@@ -1202,7 +1205,7 @@ pub struct sqlite3_api_routines {
     pub keyword_count: isize,
     pub keyword_name: isize,
     pub keyword_check: isize,
-    pub str_new: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_str,
+    pub str_new: isize,
     pub str_finish: isize,
     pub str_appendf: isize,
     pub str_vappendf: isize,
@@ -1225,21 +1228,18 @@ pub struct sqlite3_api_routines {
     pub filename_wal: isize,
     pub create_filename: isize,
     pub free_filename: isize,
-    pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
+    pub database_file_object: isize,
     pub txn_state: isize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_api_routines {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_api_routines {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_api_routines {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_api_routines")
@@ -1500,31 +1500,26 @@ impl ::core::fmt::Debug for sqlite3_api_routines {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_api_routines>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_api_routines {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_api_routines {
     pub aggregate_context: isize,
     pub aggregate_count: isize,
@@ -1565,7 +1560,7 @@ pub struct sqlite3_api_routines {
     pub column_text: isize,
     pub column_text16: isize,
     pub column_type: isize,
-    pub column_value: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub column_value: isize,
     pub commit_hook: isize,
     pub complete: isize,
     pub complete16: isize,
@@ -1575,7 +1570,7 @@ pub struct sqlite3_api_routines {
     pub create_function16: isize,
     pub create_module: isize,
     pub data_count: isize,
-    pub db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub db_handle: isize,
     pub declare_vtab: isize,
     pub enable_shared_cache: isize,
     pub errcode: isize,
@@ -1656,7 +1651,7 @@ pub struct sqlite3_api_routines {
     pub file_control: isize,
     pub memory_highwater: isize,
     pub memory_used: isize,
-    pub mutex_alloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub mutex_alloc: isize,
     pub mutex_enter: isize,
     pub mutex_free: isize,
     pub mutex_leave: isize,
@@ -1667,7 +1662,7 @@ pub struct sqlite3_api_routines {
     pub result_error_toobig: isize,
     pub sleep: isize,
     pub soft_heap_limit: isize,
-    pub vfs_find: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_vfs,
+    pub vfs_find: isize,
     pub vfs_register: isize,
     pub vfs_unregister: isize,
     pub xthreadsafe: isize,
@@ -1675,14 +1670,14 @@ pub struct sqlite3_api_routines {
     pub result_error_code: isize,
     pub test_control: isize,
     pub randomness: isize,
-    pub context_db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub context_db_handle: isize,
     pub extended_result_codes: isize,
     pub limit: isize,
-    pub next_stmt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_stmt,
+    pub next_stmt: isize,
     pub sql: isize,
     pub status: isize,
     pub backup_finish: isize,
-    pub backup_init: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_backup,
+    pub backup_init: isize,
     pub backup_pagecount: isize,
     pub backup_remaining: isize,
     pub backup_step: isize,
@@ -1690,7 +1685,7 @@ pub struct sqlite3_api_routines {
     pub compileoption_used: isize,
     pub create_function_v2: isize,
     pub db_config: isize,
-    pub db_mutex: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub db_mutex: isize,
     pub db_status: isize,
     pub extended_errcode: isize,
     pub log: isize,
@@ -1730,7 +1725,7 @@ pub struct sqlite3_api_routines {
     pub result_blob64: isize,
     pub result_text64: isize,
     pub strglob: isize,
-    pub value_dup: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub value_dup: isize,
     pub value_free: isize,
     pub result_zeroblob64: isize,
     pub bind_zeroblob64: isize,
@@ -1754,7 +1749,7 @@ pub struct sqlite3_api_routines {
     pub keyword_count: isize,
     pub keyword_name: isize,
     pub keyword_check: isize,
-    pub str_new: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_str,
+    pub str_new: isize,
     pub str_finish: isize,
     pub str_appendf: isize,
     pub str_vappendf: isize,
@@ -1777,21 +1772,18 @@ pub struct sqlite3_api_routines {
     pub filename_wal: isize,
     pub create_filename: isize,
     pub free_filename: isize,
-    pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
+    pub database_file_object: isize,
     pub txn_state: isize,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_api_routines {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_api_routines {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_api_routines {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_api_routines")
@@ -2052,22 +2044,18 @@ impl ::core::fmt::Debug for sqlite3_api_routines {
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_api_routines>()) == 0 }
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_api_routines {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4113,8 +4101,7 @@ pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub type sqlite3_loadext_entry = ::core::option::Option<unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32>;
 #[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4408,7 +4395,7 @@ pub unsafe fn sqlite3_mutex_leave(param0: *mut sqlite3_mutex) {
 pub struct sqlite3_mutex_methods {
     pub xMutexInit: isize,
     pub xMutexEnd: isize,
-    pub xMutexAlloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub xMutexAlloc: isize,
     pub xMutexFree: isize,
     pub xMutexEnter: isize,
     pub xMutexTry: isize,
@@ -4564,7 +4551,7 @@ pub struct sqlite3_pcache_methods {
     pub pArg: *mut ::core::ffi::c_void,
     pub xInit: isize,
     pub xShutdown: isize,
-    pub xCreate: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache,
+    pub xCreate: isize,
     pub xCachesize: isize,
     pub xPagecount: isize,
     pub xFetch: isize,
@@ -4605,10 +4592,10 @@ pub struct sqlite3_pcache_methods2 {
     pub pArg: *mut ::core::ffi::c_void,
     pub xInit: isize,
     pub xShutdown: isize,
-    pub xCreate: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache,
+    pub xCreate: isize,
     pub xCachesize: isize,
     pub xPagecount: isize,
-    pub xFetch: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache_page,
+    pub xFetch: isize,
     pub xUnpin: isize,
     pub xRekey: isize,
     pub xTruncate: isize,

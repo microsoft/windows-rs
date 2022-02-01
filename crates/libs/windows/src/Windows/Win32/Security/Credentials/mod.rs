@@ -469,6 +469,8 @@ pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CREDSSP_NAME: &'static str = "CREDSSP";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
@@ -1024,6 +1026,76 @@ impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_SESSION_WILDCARD_NAME: &'static str = "*Session";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_SESSION_WILDCARD_NAME_A: &'static str = "*Session";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_SESSION_WILDCARD_NAME_W: &'static str = "*Session";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH: &'static str = "batch";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_A: &'static str = "batch";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_BATCH_W: &'static str = "batch";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE: &'static str = "cachedinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_A: &'static str = "cachedinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_CACHEDINTERACTIVE_W: &'static str = "cachedinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE: &'static str = "interactive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_A: &'static str = "interactive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_INTERACTIVE_W: &'static str = "interactive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME: &'static str = "name";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_A: &'static str = "name";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NAME_W: &'static str = "name";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK: &'static str = "network";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT: &'static str = "networkcleartext";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_A: &'static str = "networkcleartext";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORKCLEARTEXT_W: &'static str = "networkcleartext";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_A: &'static str = "network";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_NETWORK_W: &'static str = "network";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE: &'static str = "remoteinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_A: &'static str = "remoteinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_REMOTEINTERACTIVE_W: &'static str = "remoteinteractive";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE: &'static str = "service";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_A: &'static str = "service";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_SERVICE_W: &'static str = "service";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET: &'static str = "target";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_A: &'static str = "target";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_ATTRIBUTE_TARGET_W: &'static str = "target";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE: &'static str = "Domain";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_A: &'static str = "Domain";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_DOMAIN_NAMESPACE_W: &'static str = "Domain";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_A: &'static str = "LegacyGeneric";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const CRED_TARGETNAME_LEGACYGENERIC_NAMESPACE_W: &'static str = "LegacyGeneric";
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2664,6 +2736,8 @@ impl ::core::default::Default for READER_SEL_RESPONSE {
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_ABSENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const SCARD_ALL_READERS: &'static str = "SCard$AllReaders\u{0}00";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub struct SCARD_ATRMASK {
@@ -2727,6 +2801,8 @@ pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_COLD_RESET: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const SCARD_DEFAULT_READERS: &'static str = "SCard$DefaultReaders\u{0}00";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2761,6 +2837,8 @@ impl ::core::default::Default for SCARD_IO_REQUEST {
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const SCARD_LOCAL_READERS: &'static str = "SCard$LocalReaders\u{0}00";
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_NEGOTIABLE: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2995,6 +3073,8 @@ impl ::core::fmt::Debug for SCARD_STATE {
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SWALLOWED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const SCARD_SYSTEM_READERS: &'static str = "SCard$SystemReaders\u{0}00";
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[repr(C)]
@@ -4326,6 +4406,10 @@ impl ::core::default::Default for SecPkgContext_ClientCreds {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const TS_SSP_NAME: &'static str = "TSSSP";
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const TS_SSP_NAME_A: &'static str = "TSSSP";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4364,5 +4448,7 @@ impl ::core::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
+pub const szOID_TS_KP_TS_SERVER_AUTH: &'static str = "1.3.6.1.4.1.311.54.1.2";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

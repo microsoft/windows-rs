@@ -14,6 +14,10 @@ impl MethodDef {
         self.0.u32(2) & 0b1000_0000_0000 != 0
     }
 
+    pub fn preserve_sig(&self) -> bool {
+        self.0.u32(1) & 0b1000_0000 != 0
+    }
+
     pub fn params(&self) -> impl Iterator<Item = Param> {
         self.0.list(5, TableIndex::Param).map(Param)
     }
@@ -94,6 +98,7 @@ impl MethodDef {
 
         let return_sig = reader.signature_from_blob(&mut blob, None, generics);
         let mut return_param = None;
+        let preserve_sig = self.preserve_sig();
 
         let params = params
             .filter_map(|param| {
@@ -106,6 +111,6 @@ impl MethodDef {
             })
             .collect();
 
-        MethodSignature { params, return_sig, return_param }
+        MethodSignature { params, return_sig, return_param, preserve_sig }
     }
 }

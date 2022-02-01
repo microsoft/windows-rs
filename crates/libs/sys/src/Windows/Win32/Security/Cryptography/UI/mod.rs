@@ -9,7 +9,7 @@ extern "system" {
     pub fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptUIDlgSelectCertificateFromStore(hcertstore: *const ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, pwszdisplaystring: super::super::super::Foundation::PWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
+    pub fn CryptUIDlgSelectCertificateFromStore(hcertstore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, pwszdisplaystring: super::super::super::Foundation::PWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
     #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
@@ -30,7 +30,7 @@ extern "system" {
     pub fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072u32;
@@ -80,7 +80,7 @@ pub const CERT_FILTER_VALID_TIME_RANGE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECTUI_INPUT {
-    pub hStore: *mut ::core::ffi::c_void,
+    pub hStore: super::HCERTSTORE,
     pub prgpChain: *mut *mut super::CERT_CHAIN_CONTEXT,
     pub cChain: u32,
 }
@@ -103,7 +103,7 @@ pub struct CERT_SELECT_STRUCT_A {
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
     pub szTitle: super::super::super::Foundation::PSTR,
     pub cCertStore: u32,
-    pub arrayCertStore: *mut *mut ::core::ffi::c_void,
+    pub arrayCertStore: *mut super::HCERTSTORE,
     pub szPurposeOid: super::super::super::Foundation::PSTR,
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
@@ -147,7 +147,7 @@ pub struct CERT_SELECT_STRUCT_W {
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
     pub szTitle: super::super::super::Foundation::PWSTR,
     pub cCertStore: u32,
-    pub arrayCertStore: *mut *mut ::core::ffi::c_void,
+    pub arrayCertStore: *mut super::HCERTSTORE,
     pub szPurposeOid: super::super::super::Foundation::PSTR,
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
@@ -226,11 +226,11 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub pszUsageOid: super::super::super::Foundation::PSTR,
     pub hprov: usize,
     pub cRootStores: u32,
-    pub rghstoreRoots: *mut *mut ::core::ffi::c_void,
+    pub rghstoreRoots: *mut super::HCERTSTORE,
     pub cStores: u32,
-    pub rghstoreCAs: *mut *mut ::core::ffi::c_void,
+    pub rghstoreCAs: *mut super::HCERTSTORE,
     pub cTrustStores: u32,
-    pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
+    pub rghstoreTrust: *mut super::HCERTSTORE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub pfnTrustHelper: PFNTRUSTHELPER,
     pub pcChain: *mut u32,
@@ -259,11 +259,11 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub arrayPurposes: *mut super::super::super::Foundation::PSTR,
     pub cArrayPurposes: u32,
     pub cRootStores: u32,
-    pub rghstoreRoots: *mut *mut ::core::ffi::c_void,
+    pub rghstoreRoots: *mut super::HCERTSTORE,
     pub cStores: u32,
-    pub rghstoreCAs: *mut *mut ::core::ffi::c_void,
+    pub rghstoreCAs: *mut super::HCERTSTORE,
     pub cTrustStores: u32,
-    pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
+    pub rghstoreTrust: *mut super::HCERTSTORE,
     pub hprov: usize,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub dwPad: u32,
@@ -316,11 +316,11 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub arrayPurposes: *mut super::super::super::Foundation::PSTR,
     pub cArrayPurposes: u32,
     pub cRootStores: u32,
-    pub rghstoreRoots: *mut *mut ::core::ffi::c_void,
+    pub rghstoreRoots: *mut super::HCERTSTORE,
     pub cStores: u32,
-    pub rghstoreCAs: *mut *mut ::core::ffi::c_void,
+    pub rghstoreCAs: *mut super::HCERTSTORE,
     pub cTrustStores: u32,
-    pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
+    pub rghstoreTrust: *mut super::HCERTSTORE,
     pub hprov: usize,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub dwPad: u32,
@@ -501,7 +501,7 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub fCounterSigner: super::super::super::Foundation::BOOL,
     pub idxCounterSigner: u32,
     pub cStores: u32,
-    pub rghStores: *mut *mut ::core::ffi::c_void,
+    pub rghStores: *mut super::HCERTSTORE,
     pub cPropSheetPages: u32,
     pub rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
     pub nStartPage: u32,
@@ -547,7 +547,7 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub fCounterSigner: super::super::super::Foundation::BOOL,
     pub idxCounterSigner: u32,
     pub cStores: u32,
-    pub rghStores: *mut *mut ::core::ffi::c_void,
+    pub rghStores: *mut super::HCERTSTORE,
     pub cPropSheetPages: u32,
     pub rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEW,
     pub nStartPage: u32,
@@ -668,7 +668,7 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub pwszMoreInfoLocation: super::super::super::Foundation::PWSTR,
     pub pszHashAlg: super::super::super::Foundation::PSTR,
     pub pwszSigningCertDisplayString: super::super::super::Foundation::PWSTR,
-    pub hAdditionalCertStore: *mut ::core::ffi::c_void,
+    pub hAdditionalCertStore: super::HCERTSTORE,
     pub psAuthenticated: *mut super::CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut super::CRYPT_ATTRIBUTES,
 }
@@ -769,7 +769,7 @@ pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
-    pub rghCertStore: *mut *mut ::core::ffi::c_void,
+    pub rghCertStore: *mut super::HCERTSTORE,
     pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut ::core::ffi::c_void,
 }
@@ -833,7 +833,7 @@ pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub dwSubjectChoice: CRYPTUI_WIZ_EXPORT_SUBJECT,
     pub Anonymous: CRYPTUI_WIZ_EXPORT_INFO_0,
     pub cStores: u32,
-    pub rghStores: *mut *mut ::core::ffi::c_void,
+    pub rghStores: *mut super::HCERTSTORE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_INFO {}
@@ -850,7 +850,7 @@ pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
     pub pCertContext: *const super::CERT_CONTEXT,
     pub pCTLContext: *mut super::CTL_CONTEXT,
     pub pCRLContext: *mut super::CRL_CONTEXT,
-    pub hCertStore: *mut ::core::ffi::c_void,
+    pub hCertStore: super::HCERTSTORE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_INFO_0 {}
@@ -924,7 +924,7 @@ pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pCertContext: *const super::CERT_CONTEXT,
     pub pCTLContext: *mut super::CTL_CONTEXT,
     pub pCRLContext: *mut super::CRL_CONTEXT,
-    pub hCertStore: *mut ::core::ffi::c_void,
+    pub hCertStore: super::HCERTSTORE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {}
@@ -1004,3 +1004,5 @@ pub const SELCERT_SERIAL_NUM: u32 = 106u32;
 pub const SELCERT_THUMBPRINT: u32 = 107u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_VALIDITY: u32 = 104u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
+pub const szCERT_CERTIFICATE_ACTION_VERIFY: &'static str = "{7801ebd0-cf4b-11d0-851f-0060979387ea}";

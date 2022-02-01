@@ -1484,6 +1484,12 @@ impl ::core::default::Default for DHCP_BOOTP_IP_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+pub const DHCP_CALLOUT_ENTRY_POINT: &'static str = "DhcpServerCalloutEntry";
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+pub const DHCP_CALLOUT_LIST_KEY: &'static str = "System\\CurrentControlSet\\Services\\DHCPServer\\Parameters";
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+pub const DHCP_CALLOUT_LIST_VALUE: &'static str = "CalloutDlls";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

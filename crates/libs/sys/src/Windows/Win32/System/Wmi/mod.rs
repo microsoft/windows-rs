@@ -2079,6 +2079,10 @@ pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = 28i32;
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct MI_SchemaDecl {

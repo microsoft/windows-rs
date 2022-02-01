@@ -4,6 +4,7 @@ pub struct MethodSignature {
     pub params: Vec<MethodParam>,
     pub return_sig: Option<Signature>,
     pub return_param: Option<Param>,
+    pub preserve_sig: bool,
 }
 
 #[derive(Clone)]
@@ -26,7 +27,7 @@ impl MethodSignature {
     }
 
     pub fn kind(&self) -> SignatureKind {
-        if self.return_param.as_ref().map_or(false, |param| param.has_alternate_success_code()) {
+        if self.preserve_sig {
             return SignatureKind::PreserveSig;
         }
 

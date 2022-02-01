@@ -277,11 +277,13 @@ impl ::core::default::Default for FDICABINETINFO {
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct FDICREATE_CPU_TYPE(pub u32);
+pub struct FDICREATE_CPU_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
-pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0u32);
+pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1i32);
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
-pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1u32);
+pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0i32);
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1i32);
 impl ::core::marker::Copy for FDICREATE_CPU_TYPE {}
 impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
     fn clone(&self) -> Self {
@@ -874,5 +876,49 @@ pub type PFNWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, 
 pub const _A_EXEC: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const _A_NAME_IS_UTF: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const statusCabinet: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const statusFile: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const statusFolder: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompBAD: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompLZX_WINDOW_HI: u32 = 5376u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompLZX_WINDOW_LO: u32 = 3840u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompMASK_LZX_WINDOW: u32 = 7936u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompMASK_QUANTUM_LEVEL: u32 = 240u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompMASK_QUANTUM_MEM: u32 = 7936u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompMASK_RESERVED: u32 = 57344u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompMASK_TYPE: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompQUANTUM_LEVEL_HI: u32 = 112u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompQUANTUM_LEVEL_LO: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompQUANTUM_MEM_HI: u32 = 5376u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompQUANTUM_MEM_LO: u32 = 2560u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompSHIFT_LZX_WINDOW: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompSHIFT_QUANTUM_LEVEL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompSHIFT_QUANTUM_MEM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompTYPE_LZX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompTYPE_MSZIP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompTYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
+pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

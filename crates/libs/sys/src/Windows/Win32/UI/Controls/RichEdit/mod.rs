@@ -97,6 +97,10 @@ impl ::core::clone::Clone for CARET_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const CERICHEDIT_CLASSA: &'static str = "RichEditCEA";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const CERICHEDIT_CLASSW: &'static str = "RichEditCEW";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub type CFE_EFFECTS = u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const CFE_ALLCAPS: CFE_EFFECTS = 128u32;
@@ -236,6 +240,12 @@ pub const CFM_MATH: CFM_MASK = 268435456u32;
 pub const CFM_MATHORDINARY: CFM_MASK = 536870912u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const CFM_ALLEFFECTS: CFM_MASK = 2115207167u32;
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const CF_RETEXTOBJ: &'static str = "RichEdit Text and Objects";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const CF_RTF: &'static str = "Rich Text Format";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const CF_RTFNOOBJS: &'static str = "Rich Text Format Without Objects";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct CHANGENOTIFY {
@@ -1323,6 +1333,8 @@ pub const MOPENA: MANCODE = 12i32;
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const MAX_TAB_STOPS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const MSFTEDIT_CLASS: &'static str = "RICHEDIT50W";
 #[repr(C, packed(4))]
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1767,6 +1779,16 @@ impl ::core::clone::Clone for REQRESIZE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const RICHEDIT60_CLASS: &'static str = "RICHEDIT60W";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const RICHEDIT_CLASS: &'static str = "RichEdit20W";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const RICHEDIT_CLASS10A: &'static str = "RICHEDIT";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const RICHEDIT_CLASSA: &'static str = "RichEdit20A";
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const RICHEDIT_CLASSW: &'static str = "RichEdit20W";
 #[repr(C, packed(4))]
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2257,6 +2279,8 @@ impl ::core::clone::Clone for _grouptypingchange {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const cchTextLimitDefault: u32 = 32767u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct hyphresult {
@@ -2270,6 +2294,8 @@ impl ::core::clone::Clone for hyphresult {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const lDefaultTab: u32 = 720u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub type tomConstants = i32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
@@ -3440,3 +3466,5 @@ pub const tomRowApplyDefault: tomConstants = 0i32;
 pub const tomCellStructureChangeOnly: tomConstants = 1i32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const tomRowHeightActual: tomConstants = 2059i32;
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub const yHeightCharPtsMost: u32 = 1638u32;

@@ -8451,6 +8451,10 @@ pub struct IJolietDiscMaster_Vtbl {
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
+pub const IMAPI2FS_FullVersion_STR: &'static str = "1.0";
+#[doc = "*Required features: 'Win32_Storage_Imapi'*"]
+pub const IMAPI2FS_FullVersion_WSTR: &'static str = "1.0";
+#[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
 pub const IMAPI2FS_MinorVersion: u32 = 0u32;
@@ -12483,6 +12487,8 @@ impl ::core::default::Default for SPropAttrArray {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Imapi'*"]
+pub const SZ_PROGID_SMTPCAT: &'static str = "Smtp.Cat";
 #[doc = "*Required features: 'Win32_Storage_Imapi', 'Win32_System_AddressBook'*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]

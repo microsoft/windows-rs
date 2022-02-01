@@ -2680,6 +2680,8 @@ impl ::core::clone::Clone for WTS_PROCESS_INFO_EXW {
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
+pub const WTS_PROPERTY_DEFAULT_CONFIG: &'static str = "DefaultConfig";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -408,6 +408,10 @@ impl ::core::clone::Clone for DRM_CLIENT_VERSION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
+pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: &'static str = "PassportAuthProvider";
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
+pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: &'static str = "WindowsAuthProvider";
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub type DRM_DISTRIBUTION_POINT_INFO = i32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = 0i32;

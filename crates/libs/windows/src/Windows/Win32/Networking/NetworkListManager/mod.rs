@@ -1266,6 +1266,32 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub ConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_AllowMerge: &'static str = "NA_AllowMerge";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_CategoryReadOnly: &'static str = "NA_CategoryReadOnly";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_CategorySetByPolicy: &'static str = "NA_CategorySetByPolicy";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_DescriptionReadOnly: &'static str = "NA_DescriptionReadOnly";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_DescriptionSetByPolicy: &'static str = "NA_DescriptionSetByPolicy";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_DomainAuthenticationFailed: &'static str = "NA_DomainAuthenticationFailed";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_IconReadOnly: &'static str = "NA_IconReadOnly";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_IconSetByPolicy: &'static str = "NA_IconSetByPolicy";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_InternetConnectivityV4: &'static str = "NA_InternetConnectivityV4";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_InternetConnectivityV6: &'static str = "NA_InternetConnectivityV6";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_NameReadOnly: &'static str = "NA_NameReadOnly";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_NameSetByPolicy: &'static str = "NA_NameSetByPolicy";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
+pub const NA_NetworkClass: &'static str = "NA_NetworkClass";
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NLM_CONNECTION_COST(pub i32);

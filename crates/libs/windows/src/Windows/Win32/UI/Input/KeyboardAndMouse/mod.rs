@@ -3102,5 +3102,39 @@ impl ::core::default::Default for tagKbdNlsLayer {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszACUTE: &'static str = "\u{301}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszBREVE: &'static str = "\u{306}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszCEDILLA: &'static str = "\u{327}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszCIRCUMFLEX: &'static str = "\u{302}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszDIARESIS_TONOS: &'static str = "\u{385}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszDOT_ABOVE: &'static str = "\u{307}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszDOUBLE_ACUTE: &'static str = "\u{30b}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszGRAVE: &'static str = "\u{300}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszHACEK: &'static str = "\u{30c}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszHOOK_ABOVE: &'static str = "\u{309}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszMACRON: &'static str = "\u{304}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszOGONEK: &'static str = "\u{328}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszOVERSCORE: &'static str = "\u{305}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszRING: &'static str = "\u{30a}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszTILDE: &'static str = "\u{303}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszTONOS: &'static str = "\u{384}";
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+pub const wszUMLAUT: &'static str = "\u{308}";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

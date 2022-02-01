@@ -739,5 +739,31 @@ impl ::core::default::Default for SystemHealthAgentState {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const failureCategoryCount: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const freshSoHRequest: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxConnectionCountPerEnforcer: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxEnforcerCount: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxNetworkSoHSize: u32 = 4000u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxPrivateDataSize: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxSoHAttributeCount: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxSoHAttributeSize: u32 = 4000u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxStringLength: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const maxSystemHealthEntityCount: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const minNetworkSoHSize: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const percentageNotSupported: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
+pub const shaFixup: u32 = 1u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

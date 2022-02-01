@@ -1182,6 +1182,8 @@ impl ::core::clone::Clone for POOLTABLE {
 pub const POOL_CUE_NULL: i32 = -1i32;
 #[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
+pub const REGSTR_PATH_SOFTWARESYNTHS: &'static str = "Software\\Microsoft\\DirectMusic\\SoftwareSynths";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub struct RGNHEADER {

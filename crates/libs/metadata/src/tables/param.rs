@@ -40,8 +40,4 @@ impl Param {
         // TODO: replace bool return with actual array info from attribute
         self.has_attribute("NativeArrayInfoAttribute")
     }
-
-    pub fn has_alternate_success_code(&self) -> bool {
-        self.has_attribute("AlternateSuccessCodesAttribute")
-    }
 }
