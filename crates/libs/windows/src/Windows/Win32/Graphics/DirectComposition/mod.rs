@@ -602,8 +602,9 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
@@ -717,7 +718,10 @@ unsafe impl ::windows::core::Interface for IDCompositionAffineTransform2DEffect 
 #[doc(hidden)]
 pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     pub base: IDCompositionFilterEffect_Vtbl,
-    pub SetInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub SetInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
+    SetInterpolationMode: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]

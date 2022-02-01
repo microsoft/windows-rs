@@ -957,6 +957,8 @@ pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
 pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const DDI_ERROR: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Devices_Display'*"]
+pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: &'static str = "\\Device\\FSVideo";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct DEVHTADJDATA {
@@ -5334,6 +5336,8 @@ impl ::core::clone::Clone for VIDEO_CURSOR_POSITION {
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Display'*"]
+pub const VIDEO_DEVICE_NAME: &'static str = "DISPLAY%d";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct VIDEO_DEVICE_SESSION_STATUS {
@@ -5931,6 +5935,8 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Devices_Display'*"]
+pub const WVIDEO_DEVICE_NAME: &'static str = "DISPLAY%d";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]

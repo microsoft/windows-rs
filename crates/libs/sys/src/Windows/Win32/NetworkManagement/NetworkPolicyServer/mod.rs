@@ -642,6 +642,14 @@ pub const IAS_AUTH_MSCHAP2_CPW: AUTHENTICATION_TYPE = 10i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const IAS_AUTH_PEAP: AUTHENTICATION_TYPE = 11i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_AUTHORIZATION_VALUE_W: &'static str = "AuthorizationDLLs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: &'static str = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_EXTENSIONS_VALUE_W: &'static str = "ExtensionDLLs";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const AUTHSRV_PARAMETERS_KEY_W: &'static str = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub type CLIENTPROPERTIES = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const PROPERTY_CLIENT_REQUIRE_SIGNATURE: CLIENTPROPERTIES = 1024i32;
@@ -945,7 +953,7 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
-    pub AttributeAt: *const *const *const *const *const *const *const *const *const *const RADIUS_ATTRIBUTE,
+    pub AttributeAt: isize,
     pub GetSize: isize,
     pub InsertAt: isize,
     pub RemoveAt: isize,
@@ -1184,11 +1192,23 @@ impl ::core::clone::Clone for RADIUS_EXTENSION_CONTROL_BLOCK {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: &'static str = "RadiusExtensionFreeAttributes";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_INIT: &'static str = "RadiusExtensionInit";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub type RADIUS_EXTENSION_POINT = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const repAuthentication: RADIUS_EXTENSION_POINT = 0i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const repAuthorization: RADIUS_EXTENSION_POINT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS: &'static str = "RadiusExtensionProcess";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS2: &'static str = "RadiusExtensionProcess2";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_PROCESS_EX: &'static str = "RadiusExtensionProcessEx";
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
+pub const RADIUS_EXTENSION_TERM: &'static str = "RadiusExtensionTerm";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]

@@ -2308,6 +2308,8 @@ impl ::core::clone::Clone for WORD_BLOB {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com'*"]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &'static str = "_";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

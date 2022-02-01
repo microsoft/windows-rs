@@ -1,5 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const CCF_SCESVC_ATTACHMENT: &'static str = "CCF_SCESVC_ATTACHMENT";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const CCF_SCESVC_ATTACHMENT_DATA: &'static str = "CCF_SCESVC_ATTACHMENT_DATA";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 #[repr(transparent)]
 pub struct ISceSvcAttachmentData(::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
@@ -426,8 +430,22 @@ impl ::core::fmt::Debug for SCE_LOG_ERR_LEVEL {
         f.debug_tuple("SCE_LOG_ERR_LEVEL").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const SCE_ROOT_PATH: &'static str = "Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit";
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const lstruuidNodetypeSceAnalysisServices: &'static str = "{678050c7-1ff8-11d1-affb-00c04fb984f9}";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const lstruuidNodetypeSceEventLog: &'static str = "{2ce06698-4bf3-11d1-8c30-00c04fb984f9}";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const lstruuidNodetypeSceTemplateServices: &'static str = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const struuidNodetypeSceAnalysisServices: &'static str = "{678050c7-1ff8-11d1-affb-00c04fb984f9}";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const struuidNodetypeSceEventLog: &'static str = "{2ce06698-4bf3-11d1-8c30-00c04fb984f9}";
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
+pub const struuidNodetypeSceTemplateServices: &'static str = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

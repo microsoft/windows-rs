@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionAffineTransform2DEffect_Impl: Sized + IDCompositionEffect_Impl + IDCompositionFilterEffect_Impl {
-    fn SetInterpolationMode(&mut self, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()>;
+    fn SetInterpolationMode(&mut self, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()>;
     fn SetBorderMode(&mut self, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()>;
     fn SetTransformMatrix(&mut self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
     fn SetTransformMatrixElement(&mut self, row: i32, column: i32, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
@@ -11,7 +11,7 @@ pub trait IDCompositionAffineTransform2DEffect_Impl: Sized + IDCompositionEffect
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionAffineTransform2DEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>() -> IDCompositionAffineTransform2DEffect_Vtbl {
-        unsafe extern "system" fn SetInterpolationMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterpolationMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetInterpolationMode(::core::mem::transmute_copy(&interpolationmode)).into()

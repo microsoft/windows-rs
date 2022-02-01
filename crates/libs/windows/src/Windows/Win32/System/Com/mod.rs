@@ -15401,6 +15401,8 @@ impl ::core::default::Default for WORD_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com'*"]
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &'static str = "_";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

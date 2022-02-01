@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+pub const APPCRASH_EVENT: &'static str = "APPCRASH";
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -142,6 +144,8 @@ impl ::core::fmt::Debug for HREPORTSTORE {
 unsafe impl ::windows::core::Abi for HREPORTSTORE {
     type Abi = Self;
 }
+#[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+pub const PACKAGED_APPCRASH_EVENT: &'static str = "MoAppCrash";
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
@@ -1313,6 +1317,12 @@ impl ::core::fmt::Debug for WER_REPORT_UI {
         f.debug_tuple("WER_REPORT_UI").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: &'static str = "OutOfProcessExceptionEventDebuggerLaunchCallback";
+#[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: &'static str = "OutOfProcessExceptionEventCallback";
+#[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: &'static str = "OutOfProcessExceptionEventSignatureCallback";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]

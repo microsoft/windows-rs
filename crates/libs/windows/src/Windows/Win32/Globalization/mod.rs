@@ -6322,6 +6322,10 @@ pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const LOCALE_NAME_INVARIANT: &'static str = "";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const LOCALE_NAME_SYSTEM_DEFAULT: &'static str = "!x-sys-default-locale";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LOCALE_NEUTRALDATA: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LOCALE_NOUSEROVERRIDE: u32 = 2147483648u32;
@@ -9357,6 +9361,10 @@ pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwfl
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U16_MAX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U8_LEAD3_T1_BITS: &'static str = " 000000000000\u{10}00";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U8_LEAD4_T1_BITS: &'static str = "\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U8_MAX_LENGTH: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
@@ -10307,11 +10315,25 @@ impl ::core::fmt::Debug for UBreakIteratorType {
     }
 }
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCAL_UNKNOWN_ZONE_ID: &'static str = "Etc/Unknown";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_MIN_VALUE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_C: &'static str = "C";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_CSS2: &'static str = "S";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_JAVA: &'static str = "J";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_UNICODE: &'static str = "U";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_XML_DEC: &'static str = "D";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_ESCAPE_XML_HEX: &'static str = "X";
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -10373,11 +10395,21 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_LOCALE_OPTION_STRING: &'static str = ",locale=";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_OPTION_SEP_STRING: &'static str = ",";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_SI: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_SKIP_STOP_ON_ILLEGAL: &'static str = "i";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_SO: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_SUB_STOP_ON_ILLEGAL: &'static str = "i";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_SWAP_LFNL_OPTION_STRING: &'static str = ",swaplfnl";
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -10438,6 +10470,10 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, Param2: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_VALUE_SEP_STRING: &'static str = "=";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UCNV_VERSION_OPTION_STRING: &'static str = ",version=";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
@@ -11956,6 +11992,88 @@ impl ::core::fmt::Debug for UCurrencyUsage {
         f.debug_tuple("UCurrencyUsage").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_GENERIC_TZ: &'static str = "v";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_MONTH: &'static str = "MMM";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_MONTH_DAY: &'static str = "MMMd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_MONTH_WEEKDAY_DAY: &'static str = "MMMEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_QUARTER: &'static str = "QQQ";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_SPECIFIC_TZ: &'static str = "z";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_UTC_TZ: &'static str = "ZZZZ";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_ABBR_WEEKDAY: &'static str = "E";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_DAY: &'static str = "d";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_GENERIC_TZ: &'static str = "vvvv";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR: &'static str = "j";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR24: &'static str = "H";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR24_MINUTE: &'static str = "Hm";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR24_MINUTE_SECOND: &'static str = "Hms";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR_MINUTE: &'static str = "jm";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_HOUR_MINUTE_SECOND: &'static str = "jms";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_LOCATION_TZ: &'static str = "VVVV";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_MINUTE: &'static str = "m";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_MINUTE_SECOND: &'static str = "ms";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_MONTH: &'static str = "MMMM";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_MONTH_DAY: &'static str = "MMMMd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_MONTH_WEEKDAY_DAY: &'static str = "MMMMEEEEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_NUM_MONTH: &'static str = "M";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_NUM_MONTH_DAY: &'static str = "Md";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_NUM_MONTH_WEEKDAY_DAY: &'static str = "MEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_QUARTER: &'static str = "QQQQ";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_SECOND: &'static str = "s";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_SPECIFIC_TZ: &'static str = "zzzz";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_WEEKDAY: &'static str = "EEEE";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR: &'static str = "y";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_ABBR_MONTH: &'static str = "yMMM";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_ABBR_MONTH_DAY: &'static str = "yMMMd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: &'static str = "yMMMEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_ABBR_QUARTER: &'static str = "yQQQ";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_MONTH: &'static str = "yMMMM";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_MONTH_DAY: &'static str = "yMMMMd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_MONTH_WEEKDAY_DAY: &'static str = "yMMMMEEEEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_NUM_MONTH: &'static str = "yM";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_NUM_MONTH_DAY: &'static str = "yMd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: &'static str = "yMEd";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const UDAT_YEAR_QUARTER: &'static str = "yQQQQ";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -13837,9 +13955,35 @@ impl ::core::fmt::Debug for UJoiningType {
     }
 }
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_CANADA: &'static str = "en_CA";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_CANADA_FRENCH: &'static str = "fr_CA";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_CHINA: &'static str = "zh_CN";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_CHINESE: &'static str = "zh";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_ENGLISH: &'static str = "en";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_FRANCE: &'static str = "fr_FR";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_FRENCH: &'static str = "fr";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_GERMAN: &'static str = "de";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_GERMANY: &'static str = "de_DE";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_ITALIAN: &'static str = "it";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_ITALY: &'static str = "it_IT";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_JAPAN: &'static str = "ja_JP";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_JAPANESE: &'static str = "ja";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
@@ -13851,9 +13995,25 @@ pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_KOREA: &'static str = "ko_KR";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_KOREAN: &'static str = "ko";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_PRC: &'static str = "zh_CN";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_SIMPLIFIED_CHINESE: &'static str = "zh_CN";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_TAIWAN: &'static str = "zh_TW";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_TRADITIONAL_CHINESE: &'static str = "zh_TW";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_UK: &'static str = "en_GB";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const ULOC_US: &'static str = "en_US";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -17595,9 +17755,17 @@ pub const U_HIDE_OBSOLETE_API: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HIDE_OBSOLETE_UTF_OLD_H: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U_ICUDATA_TYPE_LETTER: &'static str = "e";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U_ICU_DATA_KEY: &'static str = "DataVersion";
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U_ICU_VERSION_BUNDLE: &'static str = "icuver";
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IOSTREAM_SOURCE: u32 = 199711u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IS_BIG_ENDIAN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U_LIB_SUFFIX_C_NAME_STRING: &'static str = "";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MAX_VERSION_LENGTH: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
@@ -17788,6 +17956,8 @@ pub const U_TITLECASE_NO_LOWERCASE: u32 = 256u32;
 pub const U_TITLECASE_SENTENCES: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_TITLECASE_WHOLE_STRING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
+pub const U_UNICODE_VERSION: &'static str = "8.0";
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_USING_ICU_NAMESPACE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Globalization'*"]

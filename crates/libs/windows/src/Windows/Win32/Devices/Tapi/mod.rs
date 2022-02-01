@@ -1127,6 +1127,8 @@ impl ::core::fmt::Debug for FULLDUPLEX_SUPPORT {
         f.debug_tuple("FULLDUPLEX_SUPPORT").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const GETTNEFSTREAMCODEPAGE: &'static str = "GetTnefStreamCodePage";
 #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -22600,6 +22602,10 @@ impl ::core::default::Default for NSID_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const OPENTNEFSTREAM: &'static str = "OpenTnefStream";
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const OPENTNEFSTREAMEX: &'static str = "OpenTnefStreamEx";
 #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
@@ -25098,6 +25104,16 @@ pub const atypNull: i32 = 0i32;
 pub const atypOle: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const atypPicture: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const cbDisplayName: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const cbEmailName: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const cbMaxIdData: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const cbSeverName: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const cbTYPE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -28612,6 +28628,12 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const prioHigh: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const prioLow: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+pub const prioNorm: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

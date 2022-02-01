@@ -5114,6 +5114,8 @@ impl ::core::fmt::Debug for HTTP_VERB {
         f.debug_tuple("HTTP_VERB").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
+pub const HTTP_VERSION: &'static str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_VERSION {

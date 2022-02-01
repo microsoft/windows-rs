@@ -4027,39 +4027,39 @@ impl ::core::fmt::Debug for PROPDESC_SORTDESCRIPTION {
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct PROPDESC_TYPE_FLAGS(pub i32);
+pub struct PROPDESC_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(0i32);
+pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_MULTIPLEVALUES: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1i32);
+pub const PDTF_MULTIPLEVALUES: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISINNATE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2i32);
+pub const PDTF_ISINNATE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISGROUP: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4i32);
+pub const PDTF_ISGROUP: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_CANGROUPBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(8i32);
+pub const PDTF_CANGROUPBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_CANSTACKBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(16i32);
+pub const PDTF_CANSTACKBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISTREEPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(32i32);
+pub const PDTF_ISTREEPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_INCLUDEINFULLTEXTQUERY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(64i32);
+pub const PDTF_INCLUDEINFULLTEXTQUERY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISVIEWABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(128i32);
+pub const PDTF_ISVIEWABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISQUERYABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(256i32);
+pub const PDTF_ISQUERYABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_CANBEPURGED: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(512i32);
+pub const PDTF_CANBEPURGED: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_SEARCHRAWVALUE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1024i32);
+pub const PDTF_SEARCHRAWVALUE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_DONTCOERCEEMPTYSTRINGS: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2048i32);
+pub const PDTF_DONTCOERCEEMPTYSTRINGS: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ALWAYSINSUPPLEMENTALSTORE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4096i32);
+pub const PDTF_ALWAYSINSUPPLEMENTALSTORE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_ISSYSTEMPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(-2147483648i32);
+pub const PDTF_ISSYSTEMPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
-pub const PDTF_MASK_ALL: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(-2147475457i32);
+pub const PDTF_MASK_ALL: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2147491839u32);
 impl ::core::marker::Copy for PROPDESC_TYPE_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_TYPE_FLAGS {
     fn clone(&self) -> Self {
@@ -4077,6 +4077,34 @@ unsafe impl ::windows::core::Abi for PROPDESC_TYPE_FLAGS {
 impl ::core::fmt::Debug for PROPDESC_TYPE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROPDESC_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PROPDESC_TYPE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PROPDESC_TYPE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PROPDESC_TYPE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PROPDESC_TYPE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PROPDESC_TYPE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]

@@ -225,6 +225,10 @@ pub const DecodingSourceWPP: DECODING_SOURCE = 2i32;
 pub const DecodingSourceTlg: DECODING_SOURCE = 3i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceMax: DECODING_SOURCE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const DIAG_LOGGER_NAMEA: &'static str = "DiagLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const DIAG_LOGGER_NAMEW: &'static str = "DiagLog";
 pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 135381423, data2: 31239, data3: 18950, data4: [130, 237, 134, 148, 85, 205, 247, 19] };
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ENABLECALLBACK_ENABLED_STATE = u32;
@@ -1104,6 +1108,12 @@ impl ::core::clone::Clone for EVENT_INSTANCE_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAME: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAMEA: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const EVENT_LOGGER_NAMEW: &'static str = "EventLog";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_MAP_ENTRY {
@@ -2064,9 +2074,21 @@ pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 pub const EventTraceConfigGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 25508453, data2: 16783, data3: 20278, data4: [174, 252, 220, 15, 29, 47, 210, 53] };
 pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1761466624, data2: 19006, data3: 4561, data4: [132, 244, 0, 0, 248, 4, 100, 227] };
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAME: &'static str = "GlobalLogger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAMEA: &'static str = "GlobalLogger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const GLOBAL_LOGGER_NAMEW: &'static str = "GlobalLogger";
 pub type ITraceEvent = *mut ::core::ffi::c_void;
 pub type ITraceEventCallback = *mut ::core::ffi::c_void;
 pub type ITraceRelogger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAME: &'static str = "NT Kernel Logger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAMEA: &'static str = "NT Kernel Logger";
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+pub const KERNEL_LOGGER_NAMEW: &'static str = "NT Kernel Logger";
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type MAP_FLAGS = i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]

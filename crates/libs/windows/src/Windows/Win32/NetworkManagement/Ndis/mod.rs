@@ -34,6 +34,8 @@ impl ::core::default::Default for BSSID_INFO {
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const DD_NDIS_DEVICE_NAME: &'static str = "\\Device\\NDIS";
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_ADAPTER_RESET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
@@ -1374,6 +1376,12 @@ pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows::core::GUID = ::windows::core::G
 pub const GUID_PM_WOL_PATTERN_LIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4022be37_7ee2_47be_a5a5_050fc79afc75);
 pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4054e80f_2bc1_4ccc_b033_4abc0c4a1e8c);
 pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaacfca7_954a_4632_a16e_a8a63793a9e5);
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const IHV_INIT_FUNCTION_NAME: &'static str = "Dot11ExtIhvInitService";
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const IHV_INIT_VS_FUNCTION_NAME: &'static str = "Dot11ExtIhvInitVirtualStation";
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const IHV_VERSION_FUNCTION_NAME: &'static str = "Dot11ExtIhvGetVersionInfo";
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub const IOCTL_NDIS_RESERVED5: u32 = 1507380u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
@@ -10236,5 +10244,25 @@ impl ::core::default::Default for WDIAG_IHV_WLAN_ID {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_ALLOW_READ: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_ALLOW_WRITE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_ANSI_STRING: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_ARRAY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_METHOD: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_NDIS_RESERVED: u32 = 256u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_SUPPORT_COMMON_HEADER: u32 = 512u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_TO_OID: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_TO_STATUS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
+pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

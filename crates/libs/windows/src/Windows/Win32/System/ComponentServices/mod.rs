@@ -14467,6 +14467,10 @@ pub const SharedProperty: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const SharedPropertyGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c0b_a5de_11cf_9e66_00aa00a3f464);
 pub const SharedPropertyGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
+pub const TRACKER_INIT_EVENT: &'static str = "Global\\COM+ Tracker Init Event";
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
+pub const TRACKER_STARTSTOP_EVENT: &'static str = "Global\\COM+ Tracker Push Event";
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TRACKING_COLL_TYPE(pub i32);

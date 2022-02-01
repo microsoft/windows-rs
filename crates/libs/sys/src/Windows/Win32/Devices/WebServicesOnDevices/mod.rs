@@ -675,6 +675,12 @@ impl ::core::clone::Clone for WSD_DATETIME {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+pub const WSD_DEFAULT_EVENTING_ADDRESS: &'static str = "http://*:5357/";
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+pub const WSD_DEFAULT_HOSTING_ADDRESS: &'static str = "http://*:5357/";
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
+pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: &'static str = "https://*:5358/";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1193,8 +1199,8 @@ impl ::core::clone::Clone for WSD_SCOPES {
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
-    pub hCertMatchStore: *mut ::core::ffi::c_void,
-    pub hCertIssuerStore: *mut ::core::ffi::c_void,
+    pub hCertMatchStore: super::super::Security::Cryptography::HCERTSTORE,
+    pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
     pub pszCNGHashAlgId: super::super::Foundation::PWSTR,
     pub pbCertHash: *mut u8,
@@ -1214,8 +1220,8 @@ impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION {
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
-    pub hCertMatchStore: *mut ::core::ffi::c_void,
-    pub hCertIssuerStore: *mut ::core::ffi::c_void,
+    pub hCertMatchStore: super::super::Security::Cryptography::HCERTSTORE,
+    pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1236,7 +1242,7 @@ pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
-    pub hSigningCertStore: *mut ::core::ffi::c_void,
+    pub hSigningCertStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwFlags: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]

@@ -695,6 +695,16 @@ pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO,
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const BIDI_ACCESS_USER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_ENUM_SCHEMA: &'static str = "EnumSchema";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET: &'static str = "Get";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET_ALL: &'static str = "GetAll";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET_WITH_ARGUMENT: &'static str = "GetWithArgument";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_SET: &'static str = "Set";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6925,269 +6935,327 @@ pub struct IBidiAsyncNotifyChannel_Vtbl {
     pub AsyncGetNotificationSendResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AsyncCloseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequest {
-    pub lpVtbl: *mut IBidiRequestVtbl,
+#[repr(transparent)]
+pub struct IBidiRequest(::windows::core::IUnknown);
+impl IBidiRequest {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetSchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszschema: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSchema)(::core::mem::transmute_copy(self), pszschema.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetInputData(&self, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInputData)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtype), ::core::mem::transmute(pdata), ::core::mem::transmute(usize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetResult(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetResult)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetOutputData(&self, dwindex: u32, ppszschema: *mut super::super::Foundation::PWSTR, pdwtype: *mut u32, ppdata: *mut *mut u8, usize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetOutputData)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(ppszschema), ::core::mem::transmute(pdwtype), ::core::mem::transmute(ppdata), ::core::mem::transmute(usize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetEnumCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetEnumCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
 }
-impl ::core::marker::Copy for IBidiRequest {}
+impl ::core::convert::From<IBidiRequest> for ::windows::core::IUnknown {
+    fn from(value: IBidiRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBidiRequest> for ::windows::core::IUnknown {
+    fn from(value: &IBidiRequest) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBidiRequest {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBidiRequest {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IBidiRequest {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IBidiRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiRequest").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiRequest {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IBidiRequest {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiRequest>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IBidiRequest {}
-impl ::core::default::Default for IBidiRequest {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IBidiRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBidiRequest").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IBidiRequest {
+    type Vtable = IBidiRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f348bd7_4b47_4755_8a9d_0f422df3dc89);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestContainer {
-    pub lpVtbl: *mut IBidiRequestContainerVtbl,
+#[doc(hidden)]
+pub struct IBidiRequest_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszschema: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetSchema: usize,
+    pub SetInputData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::HRESULT,
+    pub GetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetOutputData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppszschema: *mut super::super::Foundation::PWSTR, pdwtype: *mut u32, ppdata: *mut *mut u8, usize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetOutputData: usize,
+    pub GetEnumCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtotal: *mut u32) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IBidiRequestContainer {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IBidiRequestContainer(::windows::core::IUnknown);
+impl IBidiRequestContainer {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn AddRequest<'a, Param0: ::windows::core::IntoParam<'a, IBidiRequest>>(&self, prequest: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddRequest)(::core::mem::transmute_copy(self), prequest.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetEnumObject(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetEnumObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetRequestCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetRequestCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+}
+impl ::core::convert::From<IBidiRequestContainer> for ::windows::core::IUnknown {
+    fn from(value: IBidiRequestContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBidiRequestContainer> for ::windows::core::IUnknown {
+    fn from(value: &IBidiRequestContainer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBidiRequestContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBidiRequestContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IBidiRequestContainer {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IBidiRequestContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiRequestContainer").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiRequestContainer {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IBidiRequestContainer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiRequestContainer>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IBidiRequestContainer {}
-impl ::core::default::Default for IBidiRequestContainer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestContainerVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub AddRequest: isize,
-    pub GetEnumObject: isize,
-    pub GetRequestCount: isize,
-}
-impl ::core::marker::Copy for IBidiRequestContainerVtbl {}
-impl ::core::clone::Clone for IBidiRequestContainerVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IBidiRequestContainerVtbl {
+impl ::core::fmt::Debug for IBidiRequestContainer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiRequestContainerVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("AddRequest", &self.AddRequest).field("GetEnumObject", &self.GetEnumObject).field("GetRequestCount", &self.GetRequestCount).finish()
+        f.debug_tuple("IBidiRequestContainer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IBidiRequestContainerVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IBidiRequestContainerVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiRequestContainerVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IBidiRequestContainerVtbl {}
-impl ::core::default::Default for IBidiRequestContainerVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IBidiRequestContainer {
+    type Vtable = IBidiRequestContainer_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd752f6c0_94a8_4275_a77d_8f1d1a1121ae);
 }
 #[repr(C)]
+#[doc(hidden)]
+pub struct IBidiRequestContainer_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub AddRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetEnumObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetEnumObject: usize,
+    pub GetRequestCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SetSchema: isize,
-    pub SetInputData: isize,
-    pub GetResult: isize,
-    pub GetOutputData: isize,
-    pub GetEnumCount: isize,
-}
-impl ::core::marker::Copy for IBidiRequestVtbl {}
-impl ::core::clone::Clone for IBidiRequestVtbl {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+pub struct IBidiSpl(::windows::core::IUnknown);
+impl IBidiSpl {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn BindDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszdevicename: Param0, dwaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BindDevice)(::core::mem::transmute_copy(self), pszdevicename.into_param().abi(), ::core::mem::transmute(dwaccess)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn UnbindDevice(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnbindDevice)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SendRecv<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IBidiRequest>>(&self, pszaction: Param0, prequest: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendRecv)(::core::mem::transmute_copy(self), pszaction.into_param().abi(), prequest.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MultiSendRecv<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IBidiRequestContainer>>(&self, pszaction: Param0, prequestcontainer: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MultiSendRecv)(::core::mem::transmute_copy(self), pszaction.into_param().abi(), prequestcontainer.into_param().abi()).ok()
     }
 }
-impl ::core::fmt::Debug for IBidiRequestVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiRequestVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetSchema", &self.SetSchema).field("SetInputData", &self.SetInputData).field("GetResult", &self.GetResult).field("GetOutputData", &self.GetOutputData).field("GetEnumCount", &self.GetEnumCount).finish()
+impl ::core::convert::From<IBidiSpl> for ::windows::core::IUnknown {
+    fn from(value: IBidiSpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-unsafe impl ::windows::core::Abi for IBidiRequestVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IBidiRequestVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiRequestVtbl>()) == 0 }
+impl ::core::convert::From<&IBidiSpl> for ::windows::core::IUnknown {
+    fn from(value: &IBidiSpl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl ::core::cmp::Eq for IBidiRequestVtbl {}
-impl ::core::default::Default for IBidiRequestVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBidiSpl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl {
-    pub lpVtbl: *mut IBidiSplVtbl,
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBidiSpl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
 }
-impl ::core::marker::Copy for IBidiSpl {}
 impl ::core::clone::Clone for IBidiSpl {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IBidiSpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiSpl").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiSpl {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IBidiSpl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiSpl>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IBidiSpl {}
-impl ::core::default::Default for IBidiSpl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IBidiSpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBidiSpl").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IBidiSpl {
+    type Vtable = IBidiSpl_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd580dc0e_de39_4649_baa8_bf0b85a03a97);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl2 {
-    pub lpVtbl: *mut IBidiSpl2Vtbl,
+#[doc(hidden)]
+pub struct IBidiSpl_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub BindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    BindDevice: usize,
+    pub UnbindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SendRecv: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaction: super::super::Foundation::PWSTR, prequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SendRecv: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub MultiSendRecv: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaction: super::super::Foundation::PWSTR, prequestcontainer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    MultiSendRecv: usize,
 }
-impl ::core::marker::Copy for IBidiSpl2 {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IBidiSpl2(::windows::core::IUnknown);
+impl IBidiSpl2 {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn BindDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszdevicename: Param0, dwaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BindDevice)(::core::mem::transmute_copy(self), pszdevicename.into_param().abi(), ::core::mem::transmute(dwaccess)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn UnbindDevice(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnbindDevice)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SendRecvXMLString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrequest: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).SendRecvXMLString)(::core::mem::transmute_copy(self), bstrrequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn SendRecvXMLStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, psrequest: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).SendRecvXMLStream)(::core::mem::transmute_copy(self), psrequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+    }
+}
+impl ::core::convert::From<IBidiSpl2> for ::windows::core::IUnknown {
+    fn from(value: IBidiSpl2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBidiSpl2> for ::windows::core::IUnknown {
+    fn from(value: &IBidiSpl2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBidiSpl2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBidiSpl2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IBidiSpl2 {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IBidiSpl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiSpl2").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiSpl2 {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IBidiSpl2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiSpl2>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IBidiSpl2 {}
-impl ::core::default::Default for IBidiSpl2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IBidiSpl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBidiSpl2").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IBidiSpl2 {
+    type Vtable = IBidiSpl2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8f51b8_8273_4906_8e7b_be453ffd2e2b);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl2Vtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub BindDevice: isize,
-    pub UnbindDevice: isize,
-    pub SendRecvXMLString: isize,
-    pub SendRecvXMLStream: isize,
-}
-impl ::core::marker::Copy for IBidiSpl2Vtbl {}
-impl ::core::clone::Clone for IBidiSpl2Vtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IBidiSpl2Vtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiSpl2Vtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecvXMLString", &self.SendRecvXMLString).field("SendRecvXMLStream", &self.SendRecvXMLStream).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiSpl2Vtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IBidiSpl2Vtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiSpl2Vtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IBidiSpl2Vtbl {}
-impl ::core::default::Default for IBidiSpl2Vtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSplVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub BindDevice: isize,
-    pub UnbindDevice: isize,
-    pub SendRecv: isize,
-    pub MultiSendRecv: isize,
-}
-impl ::core::marker::Copy for IBidiSplVtbl {}
-impl ::core::clone::Clone for IBidiSplVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IBidiSplVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IBidiSplVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecv", &self.SendRecv).field("MultiSendRecv", &self.MultiSendRecv).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IBidiSplVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IBidiSplVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IBidiSplVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IBidiSplVtbl {}
-impl ::core::default::Default for IBidiSplVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IBidiSpl2_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub BindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    BindDevice: usize,
+    pub UnbindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SendRecvXMLString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrequest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrresponse: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SendRecvXMLString: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub SendRecvXMLStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrequest: ::windows::core::RawPtr, ppsresponse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    SendRecvXMLStream: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IDI_CPSUI_ADVANCE: u32 = 64058u32;
@@ -7803,445 +7871,638 @@ pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IDS_CPSUI_YES: u32 = 64729u32;
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocument {
-    pub lpVtbl: *mut IFixedDocumentVtbl,
+#[repr(transparent)]
+pub struct IFixedDocument(::windows::core::IUnknown);
+impl IFixedDocument {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetPrintTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPartPrintTicket>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, IPartPrintTicket>>(&self, pprintticket: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintTicket)(::core::mem::transmute_copy(self), pprintticket.into_param().abi()).ok()
+    }
 }
-impl ::core::marker::Copy for IFixedDocument {}
+impl ::core::convert::From<IFixedDocument> for ::windows::core::IUnknown {
+    fn from(value: IFixedDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IFixedDocument> for ::windows::core::IUnknown {
+    fn from(value: &IFixedDocument) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFixedDocument {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFixedDocument {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IFixedDocument {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IFixedDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedDocument").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IFixedDocument {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IFixedDocument {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedDocument>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IFixedDocument {}
-impl ::core::default::Default for IFixedDocument {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IFixedDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFixedDocument").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IFixedDocument {
+    type Vtable = IFixedDocument_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf222ca9f_9968_4db9_81bd_abaebf15f93f);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentSequence {
-    pub lpVtbl: *mut IFixedDocumentSequenceVtbl,
+#[doc(hidden)]
+pub struct IFixedDocument_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUri: usize,
+    pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IFixedDocumentSequence {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IFixedDocumentSequence(::windows::core::IUnknown);
+impl IFixedDocumentSequence {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetPrintTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPartPrintTicket>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, IPartPrintTicket>>(&self, pprintticket: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintTicket)(::core::mem::transmute_copy(self), pprintticket.into_param().abi()).ok()
+    }
+}
+impl ::core::convert::From<IFixedDocumentSequence> for ::windows::core::IUnknown {
+    fn from(value: IFixedDocumentSequence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IFixedDocumentSequence> for ::windows::core::IUnknown {
+    fn from(value: &IFixedDocumentSequence) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFixedDocumentSequence {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFixedDocumentSequence {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IFixedDocumentSequence {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IFixedDocumentSequence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedDocumentSequence").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IFixedDocumentSequence {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IFixedDocumentSequence {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedDocumentSequence>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IFixedDocumentSequence {}
-impl ::core::default::Default for IFixedDocumentSequence {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentSequenceVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetPrintTicket: isize,
-    pub SetPrintTicket: isize,
-}
-impl ::core::marker::Copy for IFixedDocumentSequenceVtbl {}
-impl ::core::clone::Clone for IFixedDocumentSequenceVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IFixedDocumentSequenceVtbl {
+impl ::core::fmt::Debug for IFixedDocumentSequence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedDocumentSequenceVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetPrintTicket", &self.GetPrintTicket).field("SetPrintTicket", &self.SetPrintTicket).finish()
+        f.debug_tuple("IFixedDocumentSequence").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IFixedDocumentSequenceVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IFixedDocumentSequenceVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedDocumentSequenceVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IFixedDocumentSequenceVtbl {}
-impl ::core::default::Default for IFixedDocumentSequenceVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IFixedDocumentSequence {
+    type Vtable = IFixedDocumentSequence_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8028d181_2c32_4249_8493_1bfb22045574);
 }
 #[repr(C)]
+#[doc(hidden)]
+pub struct IFixedDocumentSequence_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUri: usize,
+    pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetPrintTicket: isize,
-    pub SetPrintTicket: isize,
-}
-impl ::core::marker::Copy for IFixedDocumentVtbl {}
-impl ::core::clone::Clone for IFixedDocumentVtbl {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+pub struct IFixedPage(::windows::core::IUnknown);
+impl IFixedPage {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetPrintTicket)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPartPrintTicket>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetPagePart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetPagePart)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetWriteStream(&self) -> ::windows::core::Result<IPrintWriteStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetWriteStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintWriteStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, IPartPrintTicket>>(&self, ppprintticket: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintTicket)(::core::mem::transmute_copy(self), ppprintticket.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPagePart<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPagePart)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DeleteResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteResource)(::core::mem::transmute_copy(self), uri.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetXpsPartIterator(&self) -> ::windows::core::Result<IXpsPartIterator> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetXpsPartIterator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsPartIterator>(result__)
     }
 }
-impl ::core::fmt::Debug for IFixedDocumentVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedDocumentVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetPrintTicket", &self.GetPrintTicket).field("SetPrintTicket", &self.SetPrintTicket).finish()
+impl ::core::convert::From<IFixedPage> for ::windows::core::IUnknown {
+    fn from(value: IFixedPage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-unsafe impl ::windows::core::Abi for IFixedDocumentVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IFixedDocumentVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedDocumentVtbl>()) == 0 }
+impl ::core::convert::From<&IFixedPage> for ::windows::core::IUnknown {
+    fn from(value: &IFixedPage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl ::core::cmp::Eq for IFixedDocumentVtbl {}
-impl ::core::default::Default for IFixedDocumentVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFixedPage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedPage {
-    pub lpVtbl: *mut IFixedPageVtbl,
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFixedPage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
 }
-impl ::core::marker::Copy for IFixedPage {}
+impl ::core::convert::From<IFixedPage> for IPartBase {
+    fn from(value: IFixedPage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IFixedPage> for IPartBase {
+    fn from(value: &IFixedPage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IFixedPage {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IFixedPage {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IFixedPage {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IFixedPage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedPage").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IFixedPage {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IFixedPage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedPage>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IFixedPage {}
-impl ::core::default::Default for IFixedPage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedPageVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetPrintTicket: isize,
-    pub GetPagePart: isize,
-    pub GetWriteStream: isize,
-    pub SetPrintTicket: isize,
-    pub SetPagePart: isize,
-    pub DeleteResource: isize,
-    pub GetXpsPartIterator: isize,
-}
-impl ::core::marker::Copy for IFixedPageVtbl {}
-impl ::core::clone::Clone for IFixedPageVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IFixedPageVtbl {
+impl ::core::fmt::Debug for IFixedPage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IFixedPageVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .field("GetPrintTicket", &self.GetPrintTicket)
-            .field("GetPagePart", &self.GetPagePart)
-            .field("GetWriteStream", &self.GetWriteStream)
-            .field("SetPrintTicket", &self.SetPrintTicket)
-            .field("SetPagePart", &self.SetPagePart)
-            .field("DeleteResource", &self.DeleteResource)
-            .field("GetXpsPartIterator", &self.GetXpsPartIterator)
-            .finish()
+        f.debug_tuple("IFixedPage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IFixedPageVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IFixedPageVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFixedPageVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IFixedPageVtbl {}
-impl ::core::default::Default for IFixedPageVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IFixedPage {
+    type Vtable = IFixedPage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9f6448_7e95_4cb5_94fb_0180c2883a57);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgCreateErrorInfo {
-    pub lpVtbl: *mut IImgCreateErrorInfoVtbl,
+#[doc(hidden)]
+pub struct IFixedPage_Vtbl {
+    pub base: IPartBase_Vtbl,
+    pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPagePart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPagePart: usize,
+    pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwritestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPagePart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DeleteResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DeleteResource: usize,
+    pub GetXpsPartIterator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxpspartit: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IImgCreateErrorInfo {}
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Ole'*"]
+#[cfg(feature = "Win32_System_Ole")]
+#[repr(transparent)]
+pub struct IImgCreateErrorInfo(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Ole")]
+impl IImgCreateErrorInfo {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Ole'*"]
+    #[cfg(feature = "Win32_System_Ole")]
+    pub unsafe fn SetGUID(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szsource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSource)(::core::mem::transmute_copy(self), szsource.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDescription)(::core::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetHelpFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szhelpfile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetHelpFile)(::core::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Ole'*"]
+    #[cfg(feature = "Win32_System_Ole")]
+    pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AttachToErrorInfo(&self, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttachToErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(perrorinfo)).ok()
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::convert::From<IImgCreateErrorInfo> for ::windows::core::IUnknown {
+    fn from(value: IImgCreateErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::convert::From<&IImgCreateErrorInfo> for ::windows::core::IUnknown {
+    fn from(value: &IImgCreateErrorInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImgCreateErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImgCreateErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::convert::From<IImgCreateErrorInfo> for super::super::System::Ole::ICreateErrorInfo {
+    fn from(value: IImgCreateErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::convert::From<&IImgCreateErrorInfo> for super::super::System::Ole::ICreateErrorInfo {
+    fn from(value: &IImgCreateErrorInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Ole::ICreateErrorInfo> for IImgCreateErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Ole::ICreateErrorInfo> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Ole::ICreateErrorInfo> for &IImgCreateErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Ole::ICreateErrorInfo> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::clone::Clone for IImgCreateErrorInfo {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::fmt::Debug for IImgCreateErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IImgCreateErrorInfo").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IImgCreateErrorInfo {
-    type Abi = Self;
-}
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IImgCreateErrorInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IImgCreateErrorInfo>()) == 0 }
+        self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::Eq for IImgCreateErrorInfo {}
-impl ::core::default::Default for IImgCreateErrorInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgCreateErrorInfoVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SetGUID: isize,
-    pub SetSource: isize,
-    pub SetDescription: isize,
-    pub SetHelpFile: isize,
-    pub SetHelpContext: isize,
-    pub AttachToErrorInfo: isize,
-}
-impl ::core::marker::Copy for IImgCreateErrorInfoVtbl {}
-impl ::core::clone::Clone for IImgCreateErrorInfoVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IImgCreateErrorInfoVtbl {
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::fmt::Debug for IImgCreateErrorInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IImgCreateErrorInfoVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetGUID", &self.SetGUID).field("SetSource", &self.SetSource).field("SetDescription", &self.SetDescription).field("SetHelpFile", &self.SetHelpFile).field("SetHelpContext", &self.SetHelpContext).field("AttachToErrorInfo", &self.AttachToErrorInfo).finish()
+        f.debug_tuple("IImgCreateErrorInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IImgCreateErrorInfoVtbl {
-    type Abi = Self;
+#[cfg(feature = "Win32_System_Ole")]
+unsafe impl ::windows::core::Interface for IImgCreateErrorInfo {
+    type Vtable = IImgCreateErrorInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c55a64c_07cd_4fb5_90f7_b753d91f0c9e);
 }
-impl ::core::cmp::PartialEq for IImgCreateErrorInfoVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IImgCreateErrorInfoVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IImgCreateErrorInfoVtbl {}
-impl ::core::default::Default for IImgCreateErrorInfoVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "Win32_System_Ole")]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgErrorInfo {
-    pub lpVtbl: *mut IImgErrorInfoVtbl,
+#[doc(hidden)]
+pub struct IImgCreateErrorInfo_Vtbl {
+    pub base: super::super::System::Ole::ICreateErrorInfo_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub AttachToErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    AttachToErrorInfo: usize,
 }
-impl ::core::marker::Copy for IImgErrorInfo {}
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IImgErrorInfo(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IImgErrorInfo {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn GetHelpFile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHelpFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetHelpContext(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHelpContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeveloperDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetDeveloperDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetUserErrorId(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserErrorId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetUserParameterCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserParameterCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUserParameter(&self, cparam: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserParameter)(::core::mem::transmute_copy(self), ::core::mem::transmute(cparam), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUserFallback(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserFallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetExceptionId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DetachErrorInfo(&self) -> ::windows::core::Result<__MIDL___MIDL_itf_imgerror_0000_0000_0001> {
+        let mut result__: ::core::mem::ManuallyDrop<__MIDL___MIDL_itf_imgerror_0000_0000_0001> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).DetachErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<__MIDL___MIDL_itf_imgerror_0000_0000_0001>(result__)
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IImgErrorInfo> for ::windows::core::IUnknown {
+    fn from(value: IImgErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IImgErrorInfo> for ::windows::core::IUnknown {
+    fn from(value: &IImgErrorInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImgErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImgErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IImgErrorInfo> for super::super::System::Com::IErrorInfo {
+    fn from(value: IImgErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IImgErrorInfo> for super::super::System::Com::IErrorInfo {
+    fn from(value: &IImgErrorInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IErrorInfo> for IImgErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IErrorInfo> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IErrorInfo> for &IImgErrorInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IErrorInfo> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IImgErrorInfo {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::fmt::Debug for IImgErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IImgErrorInfo").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IImgErrorInfo {
-    type Abi = Self;
-}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IImgErrorInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IImgErrorInfo>()) == 0 }
+        self.0 == other.0
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for IImgErrorInfo {}
-impl ::core::default::Default for IImgErrorInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgErrorInfoVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetGUID: isize,
-    pub GetSource: isize,
-    pub GetDescription: isize,
-    pub GetHelpFile: isize,
-    pub GetHelpContext: isize,
-    pub GetDeveloperDescription: isize,
-    pub GetUserErrorId: isize,
-    pub GetUserParameterCount: isize,
-    pub GetUserParameter: isize,
-    pub GetUserFallback: isize,
-    pub GetExceptionId: isize,
-    pub DetachErrorInfo: isize,
-}
-impl ::core::marker::Copy for IImgErrorInfoVtbl {}
-impl ::core::clone::Clone for IImgErrorInfoVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IImgErrorInfoVtbl {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IImgErrorInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IImgErrorInfoVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetGUID", &self.GetGUID)
-            .field("GetSource", &self.GetSource)
-            .field("GetDescription", &self.GetDescription)
-            .field("GetHelpFile", &self.GetHelpFile)
-            .field("GetHelpContext", &self.GetHelpContext)
-            .field("GetDeveloperDescription", &self.GetDeveloperDescription)
-            .field("GetUserErrorId", &self.GetUserErrorId)
-            .field("GetUserParameterCount", &self.GetUserParameterCount)
-            .field("GetUserParameter", &self.GetUserParameter)
-            .field("GetUserFallback", &self.GetUserFallback)
-            .field("GetExceptionId", &self.GetExceptionId)
-            .field("DetachErrorInfo", &self.DetachErrorInfo)
-            .finish()
+        f.debug_tuple("IImgErrorInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IImgErrorInfoVtbl {
-    type Abi = Self;
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IImgErrorInfo {
+    type Vtable = IImgErrorInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bce4ece_d30e_445a_9423_6829be945ad8);
 }
-impl ::core::cmp::PartialEq for IImgErrorInfoVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IImgErrorInfoVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IImgErrorInfoVtbl {}
-impl ::core::default::Default for IImgErrorInfoVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IInterFilterCommunicator {
-    pub lpVtbl: *mut IInterFilterCommunicatorVtbl,
+#[doc(hidden)]
+pub struct IImgErrorInfo_Vtbl {
+    pub base: super::super::System::Com::IErrorInfo_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDeveloperDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDeveloperDescription: usize,
+    pub GetUserErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetUserParameterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcuserparams: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cparam: u32, pbstrparam: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserParameter: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfallback: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserFallback: usize,
+    pub GetExceptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionid: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DetachErrorInfo: usize,
 }
-impl ::core::marker::Copy for IInterFilterCommunicator {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IInterFilterCommunicator(::windows::core::IUnknown);
+impl IInterFilterCommunicator {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn RequestReader(&self, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestReader)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppireader)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn RequestWriter(&self, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestWriter)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppiwriter)).ok()
+    }
+}
+impl ::core::convert::From<IInterFilterCommunicator> for ::windows::core::IUnknown {
+    fn from(value: IInterFilterCommunicator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInterFilterCommunicator> for ::windows::core::IUnknown {
+    fn from(value: &IInterFilterCommunicator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInterFilterCommunicator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInterFilterCommunicator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IInterFilterCommunicator {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IInterFilterCommunicator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IInterFilterCommunicator").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IInterFilterCommunicator {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IInterFilterCommunicator {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IInterFilterCommunicator>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IInterFilterCommunicator {}
-impl ::core::default::Default for IInterFilterCommunicator {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IInterFilterCommunicator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInterFilterCommunicator").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IInterFilterCommunicator {
+    type Vtable = IInterFilterCommunicator_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4daf1e69_81fd_462d_940f_8cd3ddf56fca);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IInterFilterCommunicatorVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub RequestReader: isize,
-    pub RequestWriter: isize,
-}
-impl ::core::marker::Copy for IInterFilterCommunicatorVtbl {}
-impl ::core::clone::Clone for IInterFilterCommunicatorVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IInterFilterCommunicatorVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IInterFilterCommunicatorVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("RequestReader", &self.RequestReader).field("RequestWriter", &self.RequestWriter).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IInterFilterCommunicatorVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IInterFilterCommunicatorVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IInterFilterCommunicatorVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IInterFilterCommunicatorVtbl {}
-impl ::core::default::Default for IInterFilterCommunicatorVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IInterFilterCommunicator_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub RequestReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -8347,619 +8608,872 @@ pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartBase {
-    pub lpVtbl: *mut IPartBaseVtbl,
+#[repr(transparent)]
+pub struct IPartBase(::windows::core::IUnknown);
+impl IPartBase {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
 }
-impl ::core::marker::Copy for IPartBase {}
+impl ::core::convert::From<IPartBase> for ::windows::core::IUnknown {
+    fn from(value: IPartBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartBase> for ::windows::core::IUnknown {
+    fn from(value: &IPartBase) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartBase {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartBase").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartBase {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartBase {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartBase>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartBase {}
-impl ::core::default::Default for IPartBase {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartBaseVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartBaseVtbl {}
-impl ::core::clone::Clone for IPartBaseVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartBaseVtbl {
+impl ::core::fmt::Debug for IPartBase {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartBaseVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+        f.debug_tuple("IPartBase").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartBaseVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartBaseVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartBaseVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartBaseVtbl {}
-impl ::core::default::Default for IPartBaseVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartBase {
+    type Vtable = IPartBase_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36d51e28_369e_43ba_a666_9540c62c3f58);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartColorProfile {
-    pub lpVtbl: *mut IPartColorProfileVtbl,
+#[doc(hidden)]
+pub struct IPartBase_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUri: usize,
+    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetPartCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompression: *mut EXpsCompressionOptions) -> ::windows::core::HRESULT,
+    pub SetPartCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compression: EXpsCompressionOptions) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IPartColorProfile {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartColorProfile(::windows::core::IUnknown);
+impl IPartColorProfile {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+}
+impl ::core::convert::From<IPartColorProfile> for ::windows::core::IUnknown {
+    fn from(value: IPartColorProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartColorProfile> for ::windows::core::IUnknown {
+    fn from(value: &IPartColorProfile) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartColorProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartColorProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartColorProfile> for IPartBase {
+    fn from(value: IPartColorProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartColorProfile> for IPartBase {
+    fn from(value: &IPartColorProfile) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartColorProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartColorProfile {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartColorProfile {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartColorProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartColorProfile").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartColorProfile {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartColorProfile {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartColorProfile>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartColorProfile {}
-impl ::core::default::Default for IPartColorProfile {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartColorProfileVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartColorProfileVtbl {}
-impl ::core::clone::Clone for IPartColorProfileVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartColorProfileVtbl {
+impl ::core::fmt::Debug for IPartColorProfile {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartColorProfileVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+        f.debug_tuple("IPartColorProfile").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartColorProfileVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartColorProfileVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartColorProfileVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartColorProfileVtbl {}
-impl ::core::default::Default for IPartColorProfileVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartColorProfile {
+    type Vtable = IPartColorProfile_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cca95b_7d18_4762_b15e_98658693d24a);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartDiscardControl {
-    pub lpVtbl: *mut IPartDiscardControlVtbl,
+#[doc(hidden)]
+pub struct IPartColorProfile_Vtbl {
+    pub base: IPartBase_Vtbl,
 }
-impl ::core::marker::Copy for IPartDiscardControl {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartDiscardControl(::windows::core::IUnknown);
+impl IPartDiscardControl {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDiscardProperties(&self, urisentinelpage: *mut super::super::Foundation::BSTR, uriparttodiscard: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDiscardProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(urisentinelpage), ::core::mem::transmute(uriparttodiscard)).ok()
+    }
+}
+impl ::core::convert::From<IPartDiscardControl> for ::windows::core::IUnknown {
+    fn from(value: IPartDiscardControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartDiscardControl> for ::windows::core::IUnknown {
+    fn from(value: &IPartDiscardControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartDiscardControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartDiscardControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartDiscardControl {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartDiscardControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartDiscardControl").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartDiscardControl {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartDiscardControl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartDiscardControl>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartDiscardControl {}
-impl ::core::default::Default for IPartDiscardControl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartDiscardControlVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetDiscardProperties: isize,
-}
-impl ::core::marker::Copy for IPartDiscardControlVtbl {}
-impl ::core::clone::Clone for IPartDiscardControlVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartDiscardControlVtbl {
+impl ::core::fmt::Debug for IPartDiscardControl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartDiscardControlVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetDiscardProperties", &self.GetDiscardProperties).finish()
+        f.debug_tuple("IPartDiscardControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartDiscardControlVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartDiscardControlVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartDiscardControlVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartDiscardControlVtbl {}
-impl ::core::default::Default for IPartDiscardControlVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartDiscardControl {
+    type Vtable = IPartDiscardControl_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc350c00_095b_42a5_bf0f_c8780edadb3c);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont {
-    pub lpVtbl: *mut IPartFontVtbl,
+#[doc(hidden)]
+pub struct IPartDiscardControl_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetDiscardProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urisentinelpage: *mut super::super::Foundation::BSTR, uriparttodiscard: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetDiscardProperties: usize,
 }
-impl ::core::marker::Copy for IPartFont {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartFont(::windows::core::IUnknown);
+impl IPartFont {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFontProperties(&self, pcontenttype: *mut super::super::Foundation::BSTR, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFontProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontenttype), ::core::mem::transmute(pfontoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFontContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFontContent)(::core::mem::transmute_copy(self), pcontenttype.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetFontOptions(&self, options: EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFontOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(options)).ok()
+    }
+}
+impl ::core::convert::From<IPartFont> for ::windows::core::IUnknown {
+    fn from(value: IPartFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartFont> for ::windows::core::IUnknown {
+    fn from(value: &IPartFont) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartFont {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartFont {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartFont> for IPartBase {
+    fn from(value: IPartFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartFont> for IPartBase {
+    fn from(value: &IPartFont) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartFont {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartFont {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartFont {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartFont {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartFont").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartFont {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartFont {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartFont>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartFont {}
-impl ::core::default::Default for IPartFont {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPartFont {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPartFont").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPartFont {
+    type Vtable = IPartFont_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07fe0ab_1124_43d0_a865_e8ffb6a3ea82);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont2 {
-    pub lpVtbl: *mut IPartFont2Vtbl,
+#[doc(hidden)]
+pub struct IPartFont_Vtbl {
+    pub base: IPartBase_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetFontProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut super::super::Foundation::BSTR, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFontProperties: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetFontContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetFontContent: usize,
+    pub SetFontOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: EXpsFontOptions) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IPartFont2 {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartFont2(::windows::core::IUnknown);
+impl IPartFont2 {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFontProperties(&self, pcontenttype: *mut super::super::Foundation::BSTR, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFontProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcontenttype), ::core::mem::transmute(pfontoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFontContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetFontContent)(::core::mem::transmute_copy(self), pcontenttype.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetFontOptions(&self, options: EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetFontOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(options)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetFontRestriction(&self) -> ::windows::core::Result<EXpsFontRestriction> {
+        let mut result__: EXpsFontRestriction = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetFontRestriction)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsFontRestriction>(result__)
+    }
+}
+impl ::core::convert::From<IPartFont2> for ::windows::core::IUnknown {
+    fn from(value: IPartFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartFont2> for ::windows::core::IUnknown {
+    fn from(value: &IPartFont2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartFont2> for IPartBase {
+    fn from(value: IPartFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartFont2> for IPartBase {
+    fn from(value: &IPartFont2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartFont2> for IPartFont {
+    fn from(value: IPartFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartFont2> for IPartFont {
+    fn from(value: &IPartFont2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartFont> for IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartFont> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartFont> for &IPartFont2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartFont> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartFont2 {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartFont2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartFont2").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartFont2 {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartFont2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartFont2>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartFont2 {}
-impl ::core::default::Default for IPartFont2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont2Vtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetFontProperties: isize,
-    pub SetFontContent: isize,
-    pub SetFontOptions: isize,
-    pub GetFontRestriction: isize,
-}
-impl ::core::marker::Copy for IPartFont2Vtbl {}
-impl ::core::clone::Clone for IPartFont2Vtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartFont2Vtbl {
+impl ::core::fmt::Debug for IPartFont2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartFont2Vtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .field("GetFontProperties", &self.GetFontProperties)
-            .field("SetFontContent", &self.SetFontContent)
-            .field("SetFontOptions", &self.SetFontOptions)
-            .field("GetFontRestriction", &self.GetFontRestriction)
-            .finish()
+        f.debug_tuple("IPartFont2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartFont2Vtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartFont2Vtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartFont2Vtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartFont2Vtbl {}
-impl ::core::default::Default for IPartFont2Vtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartFont2 {
+    type Vtable = IPartFont2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511e025f_d6cb_43be_bf65_63fe88515a39);
 }
 #[repr(C)]
+#[doc(hidden)]
+pub struct IPartFont2_Vtbl {
+    pub base: IPartFont_Vtbl,
+    pub GetFontRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prestriction: *mut EXpsFontRestriction) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFontVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetFontProperties: isize,
-    pub SetFontContent: isize,
-    pub SetFontOptions: isize,
-}
-impl ::core::marker::Copy for IPartFontVtbl {}
-impl ::core::clone::Clone for IPartFontVtbl {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+pub struct IPartImage(::windows::core::IUnknown);
+impl IPartImage {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetImageProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetImageProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetImageContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImageContent)(::core::mem::transmute_copy(self), pcontenttype.into_param().abi()).ok()
     }
 }
-impl ::core::fmt::Debug for IPartFontVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartFontVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetFontProperties", &self.GetFontProperties).field("SetFontContent", &self.SetFontContent).field("SetFontOptions", &self.SetFontOptions).finish()
+impl ::core::convert::From<IPartImage> for ::windows::core::IUnknown {
+    fn from(value: IPartImage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-unsafe impl ::windows::core::Abi for IPartFontVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartFontVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartFontVtbl>()) == 0 }
+impl ::core::convert::From<&IPartImage> for ::windows::core::IUnknown {
+    fn from(value: &IPartImage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl ::core::cmp::Eq for IPartFontVtbl {}
-impl ::core::default::Default for IPartFontVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartImage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartImage {
-    pub lpVtbl: *mut IPartImageVtbl,
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartImage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
 }
-impl ::core::marker::Copy for IPartImage {}
+impl ::core::convert::From<IPartImage> for IPartBase {
+    fn from(value: IPartImage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartImage> for IPartBase {
+    fn from(value: &IPartImage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartImage {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartImage {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartImage {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartImage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartImage").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartImage {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartImage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartImage>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartImage {}
-impl ::core::default::Default for IPartImage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartImageVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetImageProperties: isize,
-    pub SetImageContent: isize,
-}
-impl ::core::marker::Copy for IPartImageVtbl {}
-impl ::core::clone::Clone for IPartImageVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartImageVtbl {
+impl ::core::fmt::Debug for IPartImage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartImageVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetImageProperties", &self.GetImageProperties).field("SetImageContent", &self.SetImageContent).finish()
+        f.debug_tuple("IPartImage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartImageVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartImageVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartImageVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartImageVtbl {}
-impl ::core::default::Default for IPartImageVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartImage {
+    type Vtable = IPartImage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x725f2e3c_401a_4705_9de0_fe6f1353b87f);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartPrintTicket {
-    pub lpVtbl: *mut IPartPrintTicketVtbl,
+#[doc(hidden)]
+pub struct IPartImage_Vtbl {
+    pub base: IPartBase_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetImageProperties: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetImageContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetImageContent: usize,
 }
-impl ::core::marker::Copy for IPartPrintTicket {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartPrintTicket(::windows::core::IUnknown);
+impl IPartPrintTicket {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+}
+impl ::core::convert::From<IPartPrintTicket> for ::windows::core::IUnknown {
+    fn from(value: IPartPrintTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartPrintTicket> for ::windows::core::IUnknown {
+    fn from(value: &IPartPrintTicket) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartPrintTicket {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartPrintTicket {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartPrintTicket> for IPartBase {
+    fn from(value: IPartPrintTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartPrintTicket> for IPartBase {
+    fn from(value: &IPartPrintTicket) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartPrintTicket {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartPrintTicket {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartPrintTicket {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartPrintTicket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartPrintTicket").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartPrintTicket {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartPrintTicket {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartPrintTicket>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartPrintTicket {}
-impl ::core::default::Default for IPartPrintTicket {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartPrintTicketVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartPrintTicketVtbl {}
-impl ::core::clone::Clone for IPartPrintTicketVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartPrintTicketVtbl {
+impl ::core::fmt::Debug for IPartPrintTicket {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartPrintTicketVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+        f.debug_tuple("IPartPrintTicket").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartPrintTicketVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartPrintTicketVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartPrintTicketVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartPrintTicketVtbl {}
-impl ::core::default::Default for IPartPrintTicketVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartPrintTicket {
+    type Vtable = IPartPrintTicket_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0f50f6_f9a2_41f0_99e7_5ae955be8e9e);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartResourceDictionary {
-    pub lpVtbl: *mut IPartResourceDictionaryVtbl,
+#[doc(hidden)]
+pub struct IPartPrintTicket_Vtbl {
+    pub base: IPartBase_Vtbl,
 }
-impl ::core::marker::Copy for IPartResourceDictionary {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartResourceDictionary(::windows::core::IUnknown);
+impl IPartResourceDictionary {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+}
+impl ::core::convert::From<IPartResourceDictionary> for ::windows::core::IUnknown {
+    fn from(value: IPartResourceDictionary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartResourceDictionary> for ::windows::core::IUnknown {
+    fn from(value: &IPartResourceDictionary) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartResourceDictionary {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartResourceDictionary {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartResourceDictionary> for IPartBase {
+    fn from(value: IPartResourceDictionary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartResourceDictionary> for IPartBase {
+    fn from(value: &IPartResourceDictionary) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartResourceDictionary {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartResourceDictionary {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartResourceDictionary {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartResourceDictionary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartResourceDictionary").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartResourceDictionary {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartResourceDictionary {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartResourceDictionary>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartResourceDictionary {}
-impl ::core::default::Default for IPartResourceDictionary {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartResourceDictionaryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartResourceDictionaryVtbl {}
-impl ::core::clone::Clone for IPartResourceDictionaryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartResourceDictionaryVtbl {
+impl ::core::fmt::Debug for IPartResourceDictionary {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartResourceDictionaryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
+        f.debug_tuple("IPartResourceDictionary").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPartResourceDictionaryVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartResourceDictionaryVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartResourceDictionaryVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartResourceDictionaryVtbl {}
-impl ::core::default::Default for IPartResourceDictionaryVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPartResourceDictionary {
+    type Vtable = IPartResourceDictionary_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16cfce6d_e744_4fb3_b474_f1d54f024a01);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartThumbnail {
-    pub lpVtbl: *mut IPartThumbnailVtbl,
+#[doc(hidden)]
+pub struct IPartResourceDictionary_Vtbl {
+    pub base: IPartBase_Vtbl,
 }
-impl ::core::marker::Copy for IPartThumbnail {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPartThumbnail(::windows::core::IUnknown);
+impl IPartThumbnail {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
+        let mut result__: EXpsCompressionOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<EXpsCompressionOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartCompression)(::core::mem::transmute_copy(self), ::core::mem::transmute(compression)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetThumbnailProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetThumbnailProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetThumbnailContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetThumbnailContent)(::core::mem::transmute_copy(self), pcontenttype.into_param().abi()).ok()
+    }
+}
+impl ::core::convert::From<IPartThumbnail> for ::windows::core::IUnknown {
+    fn from(value: IPartThumbnail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartThumbnail> for ::windows::core::IUnknown {
+    fn from(value: &IPartThumbnail) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPartThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPartThumbnail> for IPartBase {
+    fn from(value: IPartThumbnail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPartThumbnail> for IPartBase {
+    fn from(value: &IPartThumbnail) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for IPartThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPartBase> for &IPartThumbnail {
+    fn into_param(self) -> ::windows::core::Param<'a, IPartBase> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPartThumbnail {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPartThumbnail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartThumbnail").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartThumbnail {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPartThumbnail {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartThumbnail>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPartThumbnail {}
-impl ::core::default::Default for IPartThumbnail {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPartThumbnail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPartThumbnail").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPartThumbnail {
+    type Vtable = IPartThumbnail_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x027ed1c9_ba39_4cc5_aa55_7ec3a0de171a);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartThumbnailVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetThumbnailProperties: isize,
-    pub SetThumbnailContent: isize,
-}
-impl ::core::marker::Copy for IPartThumbnailVtbl {}
-impl ::core::clone::Clone for IPartThumbnailVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPartThumbnailVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPartThumbnailVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetThumbnailProperties", &self.GetThumbnailProperties).field("SetThumbnailContent", &self.SetThumbnailContent).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPartThumbnailVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPartThumbnailVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPartThumbnailVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPartThumbnailVtbl {}
-impl ::core::default::Default for IPartThumbnailVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IPartThumbnail_Vtbl {
+    pub base: IPartBase_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetThumbnailProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetThumbnailProperties: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetThumbnailContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetThumbnailContent: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
@@ -9563,68 +10077,64 @@ pub struct IPrintBidiAsyncNotifyRegistration_Vtbl {
     pub base: IPrintAsyncNotifyRegistration_Vtbl,
     pub AsyncGetNewChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintClassObjectFactory {
-    pub lpVtbl: *mut IPrintClassObjectFactoryVtbl,
+#[repr(transparent)]
+pub struct IPrintClassObjectFactory(::windows::core::IUnknown);
+impl IPrintClassObjectFactory {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetPrintClassObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszprintername: Param0, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPrintClassObject)(::core::mem::transmute_copy(self), pszprintername.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject)).ok()
+    }
 }
-impl ::core::marker::Copy for IPrintClassObjectFactory {}
+impl ::core::convert::From<IPrintClassObjectFactory> for ::windows::core::IUnknown {
+    fn from(value: IPrintClassObjectFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintClassObjectFactory> for ::windows::core::IUnknown {
+    fn from(value: &IPrintClassObjectFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintClassObjectFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintClassObjectFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintClassObjectFactory {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintClassObjectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintClassObjectFactory").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintClassObjectFactory {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintClassObjectFactory {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintClassObjectFactory>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintClassObjectFactory {}
-impl ::core::default::Default for IPrintClassObjectFactory {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintClassObjectFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintClassObjectFactory").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintClassObjectFactory {
+    type Vtable = IPrintClassObjectFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9af593dd_9b02_48a8_9bad_69ace423f88b);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintClassObjectFactoryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetPrintClassObject: isize,
-}
-impl ::core::marker::Copy for IPrintClassObjectFactoryVtbl {}
-impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintClassObjectFactoryVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintClassObjectFactoryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetPrintClassObject", &self.GetPrintClassObject).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintClassObjectFactoryVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintClassObjectFactoryVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintClassObjectFactoryVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintClassObjectFactoryVtbl {}
-impl ::core::default::Default for IPrintClassObjectFactoryVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IPrintClassObjectFactory_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetPrintClassObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprintername: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetPrintClassObject: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
@@ -11154,262 +11664,267 @@ pub struct IPrintOemUIMXDC_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     AdjustDPI: usize,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineFilter {
-    pub lpVtbl: *mut IPrintPipelineFilterVtbl,
+#[repr(transparent)]
+pub struct IPrintPipelineFilter(::windows::core::IUnknown);
+impl IPrintPipelineFilter {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn InitializeFilter<'a, Param0: ::windows::core::IntoParam<'a, IInterFilterCommunicator>, Param1: ::windows::core::IntoParam<'a, IPrintPipelinePropertyBag>, Param2: ::windows::core::IntoParam<'a, IPrintPipelineManagerControl>>(&self, pinegotiation: Param0, pipropertybag: Param1, pipipelinecontrol: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFilter)(::core::mem::transmute_copy(self), pinegotiation.into_param().abi(), pipropertybag.into_param().abi(), pipipelinecontrol.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn ShutdownOperation(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShutdownOperation)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn StartOperation(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartOperation)(::core::mem::transmute_copy(self)).ok()
+    }
 }
-impl ::core::marker::Copy for IPrintPipelineFilter {}
+impl ::core::convert::From<IPrintPipelineFilter> for ::windows::core::IUnknown {
+    fn from(value: IPrintPipelineFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintPipelineFilter> for ::windows::core::IUnknown {
+    fn from(value: &IPrintPipelineFilter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintPipelineFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintPipelineFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintPipelineFilter {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintPipelineFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineFilter").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintPipelineFilter {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintPipelineFilter {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineFilter>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintPipelineFilter {}
-impl ::core::default::Default for IPrintPipelineFilter {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineFilterVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub InitializeFilter: isize,
-    pub ShutdownOperation: isize,
-    pub StartOperation: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineFilterVtbl {}
-impl ::core::clone::Clone for IPrintPipelineFilterVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintPipelineFilterVtbl {
+impl ::core::fmt::Debug for IPrintPipelineFilter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineFilterVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("InitializeFilter", &self.InitializeFilter).field("ShutdownOperation", &self.ShutdownOperation).field("StartOperation", &self.StartOperation).finish()
+        f.debug_tuple("IPrintPipelineFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPrintPipelineFilterVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintPipelineFilterVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineFilterVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineFilterVtbl {}
-impl ::core::default::Default for IPrintPipelineFilterVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPrintPipelineFilter {
+    type Vtable = IPrintPipelineFilter_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb62fc0_8bed_434e_86fb_a2cae55f19ea);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineManagerControl {
-    pub lpVtbl: *mut IPrintPipelineManagerControlVtbl,
+#[doc(hidden)]
+pub struct IPrintPipelineFilter_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub InitializeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinegotiation: ::windows::core::RawPtr, pipropertybag: ::windows::core::RawPtr, pipipelinecontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShutdownOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IPrintPipelineManagerControl {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPrintPipelineManagerControl(::windows::core::IUnknown);
+impl IPrintPipelineManagerControl {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn RequestShutdown<'a, Param1: ::windows::core::IntoParam<'a, IImgErrorInfo>>(&self, hrreason: ::windows::core::HRESULT, preason: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestShutdown)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), preason.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn FilterFinished(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FilterFinished)(::core::mem::transmute_copy(self)).ok()
+    }
+}
+impl ::core::convert::From<IPrintPipelineManagerControl> for ::windows::core::IUnknown {
+    fn from(value: IPrintPipelineManagerControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintPipelineManagerControl> for ::windows::core::IUnknown {
+    fn from(value: &IPrintPipelineManagerControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintPipelineManagerControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintPipelineManagerControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintPipelineManagerControl {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintPipelineManagerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineManagerControl").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintPipelineManagerControl {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintPipelineManagerControl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineManagerControl>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintPipelineManagerControl {}
-impl ::core::default::Default for IPrintPipelineManagerControl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineManagerControlVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub RequestShutdown: isize,
-    pub FilterFinished: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineManagerControlVtbl {}
-impl ::core::clone::Clone for IPrintPipelineManagerControlVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintPipelineManagerControlVtbl {
+impl ::core::fmt::Debug for IPrintPipelineManagerControl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineManagerControlVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("RequestShutdown", &self.RequestShutdown).field("FilterFinished", &self.FilterFinished).finish()
+        f.debug_tuple("IPrintPipelineManagerControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPrintPipelineManagerControlVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintPipelineManagerControlVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineManagerControlVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineManagerControlVtbl {}
-impl ::core::default::Default for IPrintPipelineManagerControlVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPrintPipelineManagerControl {
+    type Vtable = IPrintPipelineManagerControl_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3e4910_5889_4681_91ef_823ad4ed4e44);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineProgressReport {
-    pub lpVtbl: *mut IPrintPipelineProgressReportVtbl,
+#[doc(hidden)]
+pub struct IPrintPipelineManagerControl_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub RequestShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT, preason: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RequestShutdown: usize,
+    pub FilterFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IPrintPipelineProgressReport {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPrintPipelineProgressReport(::windows::core::IUnknown);
+impl IPrintPipelineProgressReport {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn ReportProgress(&self, update: EXpsJobConsumption) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReportProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(update)).ok()
+    }
+}
+impl ::core::convert::From<IPrintPipelineProgressReport> for ::windows::core::IUnknown {
+    fn from(value: IPrintPipelineProgressReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintPipelineProgressReport> for ::windows::core::IUnknown {
+    fn from(value: &IPrintPipelineProgressReport) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintPipelineProgressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintPipelineProgressReport {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintPipelineProgressReport {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintPipelineProgressReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineProgressReport").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintPipelineProgressReport {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintPipelineProgressReport {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineProgressReport>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintPipelineProgressReport {}
-impl ::core::default::Default for IPrintPipelineProgressReport {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineProgressReportVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub ReportProgress: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineProgressReportVtbl {}
-impl ::core::clone::Clone for IPrintPipelineProgressReportVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintPipelineProgressReportVtbl {
+impl ::core::fmt::Debug for IPrintPipelineProgressReport {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelineProgressReportVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("ReportProgress", &self.ReportProgress).finish()
+        f.debug_tuple("IPrintPipelineProgressReport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPrintPipelineProgressReportVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintPipelineProgressReportVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelineProgressReportVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineProgressReportVtbl {}
-impl ::core::default::Default for IPrintPipelineProgressReportVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IPrintPipelineProgressReport {
+    type Vtable = IPrintPipelineProgressReport_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc12c7c_ed40_4ea5_96a6_5e4397497a61);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelinePropertyBag {
-    pub lpVtbl: *mut IPrintPipelinePropertyBagVtbl,
+#[doc(hidden)]
+pub struct IPrintPipelineProgressReport_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, update: EXpsJobConsumption) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IPrintPipelinePropertyBag {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPrintPipelinePropertyBag(::windows::core::IUnknown);
+impl IPrintPipelinePropertyBag {
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn AddProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddProperty)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DeleteProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).DeleteProperty)(::core::mem::transmute_copy(self), pszname.into_param().abi()))
+    }
+}
+impl ::core::convert::From<IPrintPipelinePropertyBag> for ::windows::core::IUnknown {
+    fn from(value: IPrintPipelinePropertyBag) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintPipelinePropertyBag> for ::windows::core::IUnknown {
+    fn from(value: &IPrintPipelinePropertyBag) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintPipelinePropertyBag {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintPipelinePropertyBag {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintPipelinePropertyBag {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintPipelinePropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelinePropertyBag").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintPipelinePropertyBag {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintPipelinePropertyBag {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelinePropertyBag>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintPipelinePropertyBag {}
-impl ::core::default::Default for IPrintPipelinePropertyBag {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintPipelinePropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintPipelinePropertyBag").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintPipelinePropertyBag {
+    type Vtable = IPrintPipelinePropertyBag_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8c99dc_7892_4a95_8a04_57422e9fbb47);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelinePropertyBagVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub AddProperty: isize,
-    pub GetProperty: isize,
-    pub DeleteProperty: isize,
-}
-impl ::core::marker::Copy for IPrintPipelinePropertyBagVtbl {}
-impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintPipelinePropertyBagVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintPipelinePropertyBagVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("AddProperty", &self.AddProperty).field("GetProperty", &self.GetProperty).field("DeleteProperty", &self.DeleteProperty).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintPipelinePropertyBagVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintPipelinePropertyBagVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintPipelinePropertyBagVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelinePropertyBagVtbl {}
-impl ::core::default::Default for IPrintPipelinePropertyBagVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IPrintPipelinePropertyBag_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    AddProperty: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    GetProperty: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DeleteProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DeleteProperty: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
@@ -11480,132 +11995,126 @@ pub struct IPrintPreviewDxgiPackageTarget_Vtbl {
     DrawPage: usize,
     pub InvalidatePreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStream {
-    pub lpVtbl: *mut IPrintReadStreamVtbl,
+#[repr(transparent)]
+pub struct IPrintReadStream(::windows::core::IUnknown);
+impl IPrintReadStream {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ReadBytes(&self, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbrequested), ::core::mem::transmute(pcbread), ::core::mem::transmute(pbendoffile)).ok()
+    }
 }
-impl ::core::marker::Copy for IPrintReadStream {}
+impl ::core::convert::From<IPrintReadStream> for ::windows::core::IUnknown {
+    fn from(value: IPrintReadStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintReadStream> for ::windows::core::IUnknown {
+    fn from(value: &IPrintReadStream) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintReadStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintReadStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintReadStream {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintReadStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintReadStream").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintReadStream {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintReadStream {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintReadStream>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintReadStream {}
-impl ::core::default::Default for IPrintReadStream {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintReadStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintReadStream").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintReadStream {
+    type Vtable = IPrintReadStream_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d47a67c_66cc_4430_850e_daf466fe5bc4);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamFactory {
-    pub lpVtbl: *mut IPrintReadStreamFactoryVtbl,
+#[doc(hidden)]
+pub struct IPrintReadStream_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ReadBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ReadBytes: usize,
 }
-impl ::core::marker::Copy for IPrintReadStreamFactory {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPrintReadStreamFactory(::windows::core::IUnknown);
+impl IPrintReadStreamFactory {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPrintReadStream>(result__)
+    }
+}
+impl ::core::convert::From<IPrintReadStreamFactory> for ::windows::core::IUnknown {
+    fn from(value: IPrintReadStreamFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintReadStreamFactory> for ::windows::core::IUnknown {
+    fn from(value: &IPrintReadStreamFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintReadStreamFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintReadStreamFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintReadStreamFactory {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintReadStreamFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintReadStreamFactory").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintReadStreamFactory {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintReadStreamFactory {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintReadStreamFactory>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintReadStreamFactory {}
-impl ::core::default::Default for IPrintReadStreamFactory {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintReadStreamFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintReadStreamFactory").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintReadStreamFactory {
+    type Vtable = IPrintReadStreamFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacb971e3_df8d_4fc2_bee6_0609d15f3cf9);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamFactoryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetStream: isize,
-}
-impl ::core::marker::Copy for IPrintReadStreamFactoryVtbl {}
-impl ::core::clone::Clone for IPrintReadStreamFactoryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintReadStreamFactoryVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintReadStreamFactoryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetStream", &self.GetStream).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintReadStreamFactoryVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintReadStreamFactoryVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintReadStreamFactoryVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintReadStreamFactoryVtbl {}
-impl ::core::default::Default for IPrintReadStreamFactoryVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub Seek: isize,
-    pub ReadBytes: isize,
-}
-impl ::core::marker::Copy for IPrintReadStreamVtbl {}
-impl ::core::clone::Clone for IPrintReadStreamVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintReadStreamVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintReadStreamVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("Seek", &self.Seek).field("ReadBytes", &self.ReadBytes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintReadStreamVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintReadStreamVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintReadStreamVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintReadStreamVtbl {}
-impl ::core::default::Default for IPrintReadStreamVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IPrintReadStreamFactory_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -14920,132 +15429,121 @@ pub struct IPrintUnidiAsyncNotifyRegistration_Vtbl {
     pub base: IPrintAsyncNotifyRegistration_Vtbl,
     pub AsyncGetNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStream {
-    pub lpVtbl: *mut IPrintWriteStreamVtbl,
+#[repr(transparent)]
+pub struct IPrintWriteStream(::windows::core::IUnknown);
+impl IPrintWriteStream {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn WriteBytes(&self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).WriteBytes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn Close(&self) {
+        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self))
+    }
 }
-impl ::core::marker::Copy for IPrintWriteStream {}
+impl ::core::convert::From<IPrintWriteStream> for ::windows::core::IUnknown {
+    fn from(value: IPrintWriteStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintWriteStream> for ::windows::core::IUnknown {
+    fn from(value: &IPrintWriteStream) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintWriteStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintWriteStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintWriteStream {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintWriteStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintWriteStream").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintWriteStream {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintWriteStream {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintWriteStream>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintWriteStream {}
-impl ::core::default::Default for IPrintWriteStream {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintWriteStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWriteStream").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintWriteStream {
+    type Vtable = IPrintWriteStream_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65bb7f1b_371e_4571_8ac7_912f510c1a38);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamFlush {
-    pub lpVtbl: *mut IPrintWriteStreamFlushVtbl,
+#[doc(hidden)]
+pub struct IPrintWriteStream_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub WriteBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-impl ::core::marker::Copy for IPrintWriteStreamFlush {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IPrintWriteStreamFlush(::windows::core::IUnknown);
+impl IPrintWriteStreamFlush {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn FlushData(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FlushData)(::core::mem::transmute_copy(self)).ok()
+    }
+}
+impl ::core::convert::From<IPrintWriteStreamFlush> for ::windows::core::IUnknown {
+    fn from(value: IPrintWriteStreamFlush) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintWriteStreamFlush> for ::windows::core::IUnknown {
+    fn from(value: &IPrintWriteStreamFlush) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintWriteStreamFlush {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintWriteStreamFlush {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IPrintWriteStreamFlush {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IPrintWriteStreamFlush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintWriteStreamFlush").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintWriteStreamFlush {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IPrintWriteStreamFlush {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintWriteStreamFlush>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IPrintWriteStreamFlush {}
-impl ::core::default::Default for IPrintWriteStreamFlush {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IPrintWriteStreamFlush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintWriteStreamFlush").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IPrintWriteStreamFlush {
+    type Vtable = IPrintWriteStreamFlush_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07d11ff8_1753_4873_b749_6cdaf068e4c3);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamFlushVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub FlushData: isize,
-}
-impl ::core::marker::Copy for IPrintWriteStreamFlushVtbl {}
-impl ::core::clone::Clone for IPrintWriteStreamFlushVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintWriteStreamFlushVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintWriteStreamFlushVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("FlushData", &self.FlushData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintWriteStreamFlushVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintWriteStreamFlushVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintWriteStreamFlushVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintWriteStreamFlushVtbl {}
-impl ::core::default::Default for IPrintWriteStreamFlushVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub WriteBytes: isize,
-    pub Close: isize,
-}
-impl ::core::marker::Copy for IPrintWriteStreamVtbl {}
-impl ::core::clone::Clone for IPrintWriteStreamVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IPrintWriteStreamVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IPrintWriteStreamVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("WriteBytes", &self.WriteBytes).field("Close", &self.Close).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IPrintWriteStreamVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IPrintWriteStreamVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPrintWriteStreamVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPrintWriteStreamVtbl {}
-impl ::core::default::Default for IPrintWriteStreamVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IPrintWriteStreamFlush_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub FlushData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
@@ -17669,278 +18167,289 @@ pub struct IPrinterScriptableStream_Vtbl {
     Seek: usize,
     pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsize: i32) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocument {
-    pub lpVtbl: *mut IXpsDocumentVtbl,
+#[repr(transparent)]
+pub struct IXpsDocument(::windows::core::IUnknown);
+impl IXpsDocument {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IPartThumbnail> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetThumbnail)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPartThumbnail>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, IPartThumbnail>>(&self, pthumbnail: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetThumbnail)(::core::mem::transmute_copy(self), pthumbnail.into_param().abi()).ok()
+    }
 }
-impl ::core::marker::Copy for IXpsDocument {}
+impl ::core::convert::From<IXpsDocument> for ::windows::core::IUnknown {
+    fn from(value: IXpsDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXpsDocument> for ::windows::core::IUnknown {
+    fn from(value: &IXpsDocument) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsDocument {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsDocument {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IXpsDocument {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IXpsDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocument").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IXpsDocument {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IXpsDocument {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocument>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IXpsDocument {}
-impl ::core::default::Default for IXpsDocument {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IXpsDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsDocument").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IXpsDocument {
+    type Vtable = IXpsDocument_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d907db_62a9_4a95_abe7_e01763dd30f8);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentConsumer {
-    pub lpVtbl: *mut IXpsDocumentConsumerVtbl,
+#[doc(hidden)]
+pub struct IXpsDocument_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppthumbnail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthumbnail: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
-impl ::core::marker::Copy for IXpsDocumentConsumer {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IXpsDocumentConsumer(::windows::core::IUnknown);
+impl IXpsDocumentConsumer {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SendXpsUnknown<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punknown: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendXpsUnknown)(::core::mem::transmute_copy(self), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SendXpsDocument<'a, Param0: ::windows::core::IntoParam<'a, IXpsDocument>>(&self, pixpsdocument: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendXpsDocument)(::core::mem::transmute_copy(self), pixpsdocument.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SendFixedDocumentSequence<'a, Param0: ::windows::core::IntoParam<'a, IFixedDocumentSequence>>(&self, pifixeddocumentsequence: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendFixedDocumentSequence)(::core::mem::transmute_copy(self), pifixeddocumentsequence.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SendFixedDocument<'a, Param0: ::windows::core::IntoParam<'a, IFixedDocument>>(&self, pifixeddocument: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendFixedDocument)(::core::mem::transmute_copy(self), pifixeddocument.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn SendFixedPage<'a, Param0: ::windows::core::IntoParam<'a, IFixedPage>>(&self, pifixedpage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendFixedPage)(::core::mem::transmute_copy(self), pifixedpage.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn CloseSender(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CloseSender)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNewEmptyPart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::core::option::Option<IPrintWriteStream>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetNewEmptyPart)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject), ::core::mem::transmute(ppwritestream)).ok()
+    }
+}
+impl ::core::convert::From<IXpsDocumentConsumer> for ::windows::core::IUnknown {
+    fn from(value: IXpsDocumentConsumer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXpsDocumentConsumer> for ::windows::core::IUnknown {
+    fn from(value: &IXpsDocumentConsumer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsDocumentConsumer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsDocumentConsumer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IXpsDocumentConsumer {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IXpsDocumentConsumer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocumentConsumer").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IXpsDocumentConsumer {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IXpsDocumentConsumer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocumentConsumer>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IXpsDocumentConsumer {}
-impl ::core::default::Default for IXpsDocumentConsumer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentConsumerVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SendXpsUnknown: isize,
-    pub SendXpsDocument: isize,
-    pub SendFixedDocumentSequence: isize,
-    pub SendFixedDocument: isize,
-    pub SendFixedPage: isize,
-    pub CloseSender: isize,
-    pub GetNewEmptyPart: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentConsumerVtbl {}
-impl ::core::clone::Clone for IXpsDocumentConsumerVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IXpsDocumentConsumerVtbl {
+impl ::core::fmt::Debug for IXpsDocumentConsumer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocumentConsumerVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("SendXpsUnknown", &self.SendXpsUnknown)
-            .field("SendXpsDocument", &self.SendXpsDocument)
-            .field("SendFixedDocumentSequence", &self.SendFixedDocumentSequence)
-            .field("SendFixedDocument", &self.SendFixedDocument)
-            .field("SendFixedPage", &self.SendFixedPage)
-            .field("CloseSender", &self.CloseSender)
-            .field("GetNewEmptyPart", &self.GetNewEmptyPart)
-            .finish()
+        f.debug_tuple("IXpsDocumentConsumer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IXpsDocumentConsumerVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IXpsDocumentConsumerVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocumentConsumerVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentConsumerVtbl {}
-impl ::core::default::Default for IXpsDocumentConsumerVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IXpsDocumentConsumer {
+    type Vtable = IXpsDocumentConsumer_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4368d8a2_4181_4a9f_b295_3d9a38bb9ba0);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentProvider {
-    pub lpVtbl: *mut IXpsDocumentProviderVtbl,
+#[doc(hidden)]
+pub struct IXpsDocumentConsumer_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub SendXpsUnknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SendXpsDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixpsdocument: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SendFixedDocumentSequence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifixeddocumentsequence: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SendFixedDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifixeddocument: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SendFixedPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifixedpage: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CloseSender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetNewEmptyPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetNewEmptyPart: usize,
 }
-impl ::core::marker::Copy for IXpsDocumentProvider {}
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+#[repr(transparent)]
+pub struct IXpsDocumentProvider(::windows::core::IUnknown);
+impl IXpsDocumentProvider {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn GetXpsPart(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetXpsPart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+}
+impl ::core::convert::From<IXpsDocumentProvider> for ::windows::core::IUnknown {
+    fn from(value: IXpsDocumentProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXpsDocumentProvider> for ::windows::core::IUnknown {
+    fn from(value: &IXpsDocumentProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsDocumentProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsDocumentProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
 impl ::core::clone::Clone for IXpsDocumentProvider {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IXpsDocumentProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocumentProvider").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IXpsDocumentProvider {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IXpsDocumentProvider {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocumentProvider>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IXpsDocumentProvider {}
-impl ::core::default::Default for IXpsDocumentProvider {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentProviderVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetXpsPart: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentProviderVtbl {}
-impl ::core::clone::Clone for IXpsDocumentProviderVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IXpsDocumentProviderVtbl {
+impl ::core::fmt::Debug for IXpsDocumentProvider {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocumentProviderVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetXpsPart", &self.GetXpsPart).finish()
+        f.debug_tuple("IXpsDocumentProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IXpsDocumentProviderVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IXpsDocumentProviderVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocumentProviderVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentProviderVtbl {}
-impl ::core::default::Default for IXpsDocumentProviderVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+unsafe impl ::windows::core::Interface for IXpsDocumentProvider {
+    type Vtable = IXpsDocumentProvider_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8cf8530_5562_47c4_ab67_b1f69ecf961e);
 }
 #[repr(C)]
+#[doc(hidden)]
+pub struct IXpsDocumentProvider_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub GetXpsPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetThumbnail: isize,
-    pub SetThumbnail: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentVtbl {}
-impl ::core::clone::Clone for IXpsDocumentVtbl {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+pub struct IXpsPartIterator(::windows::core::IUnknown);
+impl IXpsPartIterator {
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn Reset(&self) {
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Current(&self, puri: *mut super::super::Foundation::BSTR, ppxpspart: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Current)(::core::mem::transmute_copy(self), ::core::mem::transmute(puri), ::core::mem::transmute(ppxpspart)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsDone(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDone)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+    pub unsafe fn Next(&self) {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self))
     }
 }
-impl ::core::fmt::Debug for IXpsDocumentVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsDocumentVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetThumbnail", &self.GetThumbnail).field("SetThumbnail", &self.SetThumbnail).finish()
+impl ::core::convert::From<IXpsPartIterator> for ::windows::core::IUnknown {
+    fn from(value: IXpsPartIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-unsafe impl ::windows::core::Abi for IXpsDocumentVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IXpsDocumentVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsDocumentVtbl>()) == 0 }
+impl ::core::convert::From<&IXpsPartIterator> for ::windows::core::IUnknown {
+    fn from(value: &IXpsPartIterator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl ::core::cmp::Eq for IXpsDocumentVtbl {}
-impl ::core::default::Default for IXpsDocumentVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsPartIterator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsPartIterator {
-    pub lpVtbl: *mut IXpsPartIteratorVtbl,
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsPartIterator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
 }
-impl ::core::marker::Copy for IXpsPartIterator {}
 impl ::core::clone::Clone for IXpsPartIterator {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
-}
-impl ::core::fmt::Debug for IXpsPartIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsPartIterator").field("lpVtbl", &self.lpVtbl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IXpsPartIterator {
-    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IXpsPartIterator {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsPartIterator>()) == 0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for IXpsPartIterator {}
-impl ::core::default::Default for IXpsPartIterator {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::fmt::Debug for IXpsPartIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsPartIterator").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for IXpsPartIterator {
+    type Vtable = IXpsPartIterator_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0021d3cd_af6f_42ab_9999_14bc82a62d2e);
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsPartIteratorVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub Reset: isize,
-    pub Current: isize,
-    pub IsDone: isize,
-    pub Next: isize,
-}
-impl ::core::marker::Copy for IXpsPartIteratorVtbl {}
-impl ::core::clone::Clone for IXpsPartIteratorVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IXpsPartIteratorVtbl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IXpsPartIteratorVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("Reset", &self.Reset).field("Current", &self.Current).field("IsDone", &self.IsDone).field("Next", &self.Next).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IXpsPartIteratorVtbl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IXpsPartIteratorVtbl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IXpsPartIteratorVtbl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IXpsPartIteratorVtbl {}
-impl ::core::default::Default for IXpsPartIteratorVtbl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+#[doc(hidden)]
+pub struct IXpsPartIterator_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    #[cfg(feature = "Win32_Foundation")]
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: *mut super::super::Foundation::BSTR, ppxpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Current: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsDone: usize,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 #[repr(transparent)]
@@ -19510,6 +20019,8 @@ impl ::core::default::Default for MONITOR_INFO_2W {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const MS_PRINT_JOB_OUTPUT_FILE: &'static str = "MsPrintJobOutputFile";
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const MTYPE_ADD: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -25249,6 +25760,174 @@ impl ::core::default::Default for SPLCLIENT_INFO_3_VISTA {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_ASSET_NUMBER: &'static str = "assetNumber";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_BYTES_PER_MINUTE: &'static str = "bytesPerMinute";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DESCRIPTION: &'static str = "description";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_KEY: &'static str = "DsDriver";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_NAME: &'static str = "driverName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_VERSION: &'static str = "driverVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_FLAGS: &'static str = "flags";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_LOCATION: &'static str = "location";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PORT_NAME: &'static str = "portName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_CLASS: &'static str = "printQueue";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_LOCATIONS: &'static str = "printerLocations";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_MODEL: &'static str = "printerModel";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_NAME: &'static str = "printerName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_NAME_ALIASES: &'static str = "printerNameAliases";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_ATTRIBUTES: &'static str = "printAttributes";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_BIN_NAMES: &'static str = "printBinNames";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_COLLATE: &'static str = "printCollate";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_COLOR: &'static str = "printColor";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_DUPLEX_SUPPORTED: &'static str = "printDuplexSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_END_TIME: &'static str = "printEndTime";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: &'static str = "printKeepPrintedJobs";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_LANGUAGE: &'static str = "printLanguage";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAC_ADDRESS: &'static str = "printMACAddress";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: &'static str = "printMaxResolutionSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_X_EXTENT: &'static str = "printMaxXExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_Y_EXTENT: &'static str = "printMaxYExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEDIA_READY: &'static str = "printMediaReady";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEDIA_SUPPORTED: &'static str = "printMediaSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEMORY: &'static str = "printMemory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MIN_X_EXTENT: &'static str = "printMinXExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MIN_Y_EXTENT: &'static str = "printMinYExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NETWORK_ADDRESS: &'static str = "printNetworkAddress";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NOTIFY: &'static str = "printNotify";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NUMBER_UP: &'static str = "printNumberUp";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: &'static str = "printOrientationsSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_OWNER: &'static str = "printOwner";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_PAGES_PER_MINUTE: &'static str = "printPagesPerMinute";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_RATE: &'static str = "printRate";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_RATE_UNIT: &'static str = "printRateUnit";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SEPARATOR_FILE: &'static str = "printSeparatorFile";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SHARE_NAME: &'static str = "printShareName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SPOOLING: &'static str = "printSpooling";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_STAPLING_SUPPORTED: &'static str = "printStaplingSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_START_TIME: &'static str = "printStartTime";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_STATUS: &'static str = "printStatus";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRIORITY: &'static str = "priority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SERVER_NAME: &'static str = "serverName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SHORT_SERVER_NAME: &'static str = "shortServerName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SPOOLER_KEY: &'static str = "DsSpooler";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_UNC_NAME: &'static str = "uNCName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_URL: &'static str = "url";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_USER_KEY: &'static str = "DsUser";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_VERSION_NUMBER: &'static str = "versionNumber";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: &'static str = "SPLUserModePrinterDriver";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_ALLOW_USER_MANAGEFORMS: &'static str = "AllowUserManageForms";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_ARCHITECTURE: &'static str = "Architecture";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_BEEP_ENABLED: &'static str = "BeepEnabled";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: &'static str = "DefaultSpoolDirectory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DNS_MACHINE_NAME: &'static str = "DNSMachineName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DS_PRESENT: &'static str = "DsPresent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DS_PRESENT_FOR_USER: &'static str = "DsPresentForUser";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_EVENT_LOG: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_MAJOR_VERSION: &'static str = "MajorVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_MINOR_VERSION: &'static str = "MinorVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_NET_POPUP: &'static str = "NetPopup";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_NET_POPUP_TO_COMPUTER: &'static str = "NetPopupToComputer";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_OS_VERSION: &'static str = "OSVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_OS_VERSIONEX: &'static str = "OSVersionEx";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PORT_THREAD_PRIORITY: &'static str = "PortThreadPriority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: &'static str = "PortThreadPriorityDefault";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: &'static str = "PrintDriverIsolationExecutionPolicy";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: &'static str = "PrintDriverIsolationGroups";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: &'static str = "PrintDriverIsolationIdleTimeout";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: &'static str = "PrintDriverIsolationMaxobjsBeforeRecycle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: &'static str = "PrintDriverIsolationOverrideCompat";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: &'static str = "PrintDriverIsolationTimeBeforeRecycle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: &'static str = "PrintQueueV4DriverDirectory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_REMOTE_FAX: &'static str = "RemoteFax";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: &'static str = "RestartJobOnPoolEnabled";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: &'static str = "RestartJobOnPoolError";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RETRY_POPUP: &'static str = "RetryPopup";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY: &'static str = "SchedulerThreadPriority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: &'static str = "SchedulerThreadPriorityDefault";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_WEBSHAREMGMT: &'static str = "WebShareMgmt";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
@@ -26418,6 +27097,40 @@ impl ::core::fmt::Debug for XPSRAS_RENDERING_MODE {
         f.debug_tuple("XPSRAS_RENDERING_MODE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_DRIVER_PROPERTY_BAG: &'static str = "DriverPropertyBag";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_JOB_ID: &'static str = "PrintJobId";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_JOB_LEVEL_PRINTTICKET: &'static str = "JobPrintTicket";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MERGED_DATAFILE_PATH: &'static str = "MergedDataFilePath";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE: &'static str = "DriverMultiContentType";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: &'static str = "OpenXPS";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE_XPS: &'static str = "XPS";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_OUTPUT_FILE: &'static str = "PrintOutputFileName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTDEVICECAPABILITIES: &'static str = "PrintDeviceCapabilities";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTER_HANDLE: &'static str = "PrinterHandle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTER_NAME: &'static str = "PrinterName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINT_CLASS_FACTORY: &'static str = "PrintClassFactory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PROGRESS_REPORT: &'static str = "ProgressReport";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_QUEUE_PROPERTY_BAG: &'static str = "QueuePropertyBag";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_RESOURCE_DLL_PATHS: &'static str = "ResourceDLLPaths";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_USER_PRINT_TICKET: &'static str = "PerUserPrintTicket";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_USER_TOKEN: &'static str = "UserSecurityToken";
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

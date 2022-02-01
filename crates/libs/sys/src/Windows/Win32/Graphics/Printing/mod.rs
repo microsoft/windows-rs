@@ -770,6 +770,16 @@ impl ::core::clone::Clone for ATTRIBUTE_INFO_4 {
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const BIDI_ACCESS_USER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_ENUM_SCHEMA: &'static str = "EnumSchema";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET: &'static str = "Get";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET_ALL: &'static str = "GetAll";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_GET_WITH_ARGUMENT: &'static str = "GetWithArgument";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const BIDI_ACTION_SET: &'static str = "Set";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3091,118 +3101,10 @@ pub const GUID_DEVINTERFACE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys:
 pub type IAsyncGetSendNotificationCookie = *mut ::core::ffi::c_void;
 pub type IAsyncGetSrvReferralCookie = *mut ::core::ffi::c_void;
 pub type IBidiAsyncNotifyChannel = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequest {
-    pub lpVtbl: *mut IBidiRequestVtbl,
-}
-impl ::core::marker::Copy for IBidiRequest {}
-impl ::core::clone::Clone for IBidiRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestContainer {
-    pub lpVtbl: *mut IBidiRequestContainerVtbl,
-}
-impl ::core::marker::Copy for IBidiRequestContainer {}
-impl ::core::clone::Clone for IBidiRequestContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestContainerVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub AddRequest: isize,
-    pub GetEnumObject: isize,
-    pub GetRequestCount: isize,
-}
-impl ::core::marker::Copy for IBidiRequestContainerVtbl {}
-impl ::core::clone::Clone for IBidiRequestContainerVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiRequestVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SetSchema: isize,
-    pub SetInputData: isize,
-    pub GetResult: isize,
-    pub GetOutputData: isize,
-    pub GetEnumCount: isize,
-}
-impl ::core::marker::Copy for IBidiRequestVtbl {}
-impl ::core::clone::Clone for IBidiRequestVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl {
-    pub lpVtbl: *mut IBidiSplVtbl,
-}
-impl ::core::marker::Copy for IBidiSpl {}
-impl ::core::clone::Clone for IBidiSpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl2 {
-    pub lpVtbl: *mut IBidiSpl2Vtbl,
-}
-impl ::core::marker::Copy for IBidiSpl2 {}
-impl ::core::clone::Clone for IBidiSpl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSpl2Vtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub BindDevice: isize,
-    pub UnbindDevice: isize,
-    pub SendRecvXMLString: isize,
-    pub SendRecvXMLStream: isize,
-}
-impl ::core::marker::Copy for IBidiSpl2Vtbl {}
-impl ::core::clone::Clone for IBidiSpl2Vtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IBidiSplVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub BindDevice: isize,
-    pub UnbindDevice: isize,
-    pub SendRecv: isize,
-    pub MultiSendRecv: isize,
-}
-impl ::core::marker::Copy for IBidiSplVtbl {}
-impl ::core::clone::Clone for IBidiSplVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IBidiRequest = *mut ::core::ffi::c_void;
+pub type IBidiRequestContainer = *mut ::core::ffi::c_void;
+pub type IBidiSpl = *mut ::core::ffi::c_void;
+pub type IBidiSpl2 = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IDI_CPSUI_ADVANCE: u32 = 64058u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -3817,187 +3719,12 @@ pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IDS_CPSUI_YES: u32 = 64729u32;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocument {
-    pub lpVtbl: *mut IFixedDocumentVtbl,
-}
-impl ::core::marker::Copy for IFixedDocument {}
-impl ::core::clone::Clone for IFixedDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentSequence {
-    pub lpVtbl: *mut IFixedDocumentSequenceVtbl,
-}
-impl ::core::marker::Copy for IFixedDocumentSequence {}
-impl ::core::clone::Clone for IFixedDocumentSequence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentSequenceVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetPrintTicket: isize,
-    pub SetPrintTicket: isize,
-}
-impl ::core::marker::Copy for IFixedDocumentSequenceVtbl {}
-impl ::core::clone::Clone for IFixedDocumentSequenceVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedDocumentVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetPrintTicket: isize,
-    pub SetPrintTicket: isize,
-}
-impl ::core::marker::Copy for IFixedDocumentVtbl {}
-impl ::core::clone::Clone for IFixedDocumentVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedPage {
-    pub lpVtbl: *mut IFixedPageVtbl,
-}
-impl ::core::marker::Copy for IFixedPage {}
-impl ::core::clone::Clone for IFixedPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IFixedPageVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetPrintTicket: isize,
-    pub GetPagePart: isize,
-    pub GetWriteStream: isize,
-    pub SetPrintTicket: isize,
-    pub SetPagePart: isize,
-    pub DeleteResource: isize,
-    pub GetXpsPartIterator: isize,
-}
-impl ::core::marker::Copy for IFixedPageVtbl {}
-impl ::core::clone::Clone for IFixedPageVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgCreateErrorInfo {
-    pub lpVtbl: *mut IImgCreateErrorInfoVtbl,
-}
-impl ::core::marker::Copy for IImgCreateErrorInfo {}
-impl ::core::clone::Clone for IImgCreateErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgCreateErrorInfoVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SetGUID: isize,
-    pub SetSource: isize,
-    pub SetDescription: isize,
-    pub SetHelpFile: isize,
-    pub SetHelpContext: isize,
-    pub AttachToErrorInfo: isize,
-}
-impl ::core::marker::Copy for IImgCreateErrorInfoVtbl {}
-impl ::core::clone::Clone for IImgCreateErrorInfoVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgErrorInfo {
-    pub lpVtbl: *mut IImgErrorInfoVtbl,
-}
-impl ::core::marker::Copy for IImgErrorInfo {}
-impl ::core::clone::Clone for IImgErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IImgErrorInfoVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetGUID: isize,
-    pub GetSource: isize,
-    pub GetDescription: isize,
-    pub GetHelpFile: isize,
-    pub GetHelpContext: isize,
-    pub GetDeveloperDescription: isize,
-    pub GetUserErrorId: isize,
-    pub GetUserParameterCount: isize,
-    pub GetUserParameter: isize,
-    pub GetUserFallback: isize,
-    pub GetExceptionId: isize,
-    pub DetachErrorInfo: isize,
-}
-impl ::core::marker::Copy for IImgErrorInfoVtbl {}
-impl ::core::clone::Clone for IImgErrorInfoVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IInterFilterCommunicator {
-    pub lpVtbl: *mut IInterFilterCommunicatorVtbl,
-}
-impl ::core::marker::Copy for IInterFilterCommunicator {}
-impl ::core::clone::Clone for IInterFilterCommunicator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IInterFilterCommunicatorVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub RequestReader: isize,
-    pub RequestWriter: isize,
-}
-impl ::core::marker::Copy for IInterFilterCommunicatorVtbl {}
-impl ::core::clone::Clone for IInterFilterCommunicatorVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFixedDocument = *mut ::core::ffi::c_void;
+pub type IFixedDocumentSequence = *mut ::core::ffi::c_void;
+pub type IFixedPage = *mut ::core::ffi::c_void;
+pub type IImgCreateErrorInfo = *mut ::core::ffi::c_void;
+pub type IImgErrorInfo = *mut ::core::ffi::c_void;
+pub type IInterFilterCommunicator = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct INSERTPSUIPAGE_INFO {
@@ -4064,266 +3791,15 @@ pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartBase {
-    pub lpVtbl: *mut IPartBaseVtbl,
-}
-impl ::core::marker::Copy for IPartBase {}
-impl ::core::clone::Clone for IPartBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartBaseVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartBaseVtbl {}
-impl ::core::clone::Clone for IPartBaseVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartColorProfile {
-    pub lpVtbl: *mut IPartColorProfileVtbl,
-}
-impl ::core::marker::Copy for IPartColorProfile {}
-impl ::core::clone::Clone for IPartColorProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartColorProfileVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartColorProfileVtbl {}
-impl ::core::clone::Clone for IPartColorProfileVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartDiscardControl {
-    pub lpVtbl: *mut IPartDiscardControlVtbl,
-}
-impl ::core::marker::Copy for IPartDiscardControl {}
-impl ::core::clone::Clone for IPartDiscardControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartDiscardControlVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetDiscardProperties: isize,
-}
-impl ::core::marker::Copy for IPartDiscardControlVtbl {}
-impl ::core::clone::Clone for IPartDiscardControlVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont {
-    pub lpVtbl: *mut IPartFontVtbl,
-}
-impl ::core::marker::Copy for IPartFont {}
-impl ::core::clone::Clone for IPartFont {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont2 {
-    pub lpVtbl: *mut IPartFont2Vtbl,
-}
-impl ::core::marker::Copy for IPartFont2 {}
-impl ::core::clone::Clone for IPartFont2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFont2Vtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetFontProperties: isize,
-    pub SetFontContent: isize,
-    pub SetFontOptions: isize,
-    pub GetFontRestriction: isize,
-}
-impl ::core::marker::Copy for IPartFont2Vtbl {}
-impl ::core::clone::Clone for IPartFont2Vtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartFontVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetFontProperties: isize,
-    pub SetFontContent: isize,
-    pub SetFontOptions: isize,
-}
-impl ::core::marker::Copy for IPartFontVtbl {}
-impl ::core::clone::Clone for IPartFontVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartImage {
-    pub lpVtbl: *mut IPartImageVtbl,
-}
-impl ::core::marker::Copy for IPartImage {}
-impl ::core::clone::Clone for IPartImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartImageVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetImageProperties: isize,
-    pub SetImageContent: isize,
-}
-impl ::core::marker::Copy for IPartImageVtbl {}
-impl ::core::clone::Clone for IPartImageVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartPrintTicket {
-    pub lpVtbl: *mut IPartPrintTicketVtbl,
-}
-impl ::core::marker::Copy for IPartPrintTicket {}
-impl ::core::clone::Clone for IPartPrintTicket {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartPrintTicketVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartPrintTicketVtbl {}
-impl ::core::clone::Clone for IPartPrintTicketVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartResourceDictionary {
-    pub lpVtbl: *mut IPartResourceDictionaryVtbl,
-}
-impl ::core::marker::Copy for IPartResourceDictionary {}
-impl ::core::clone::Clone for IPartResourceDictionary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartResourceDictionaryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-}
-impl ::core::marker::Copy for IPartResourceDictionaryVtbl {}
-impl ::core::clone::Clone for IPartResourceDictionaryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartThumbnail {
-    pub lpVtbl: *mut IPartThumbnailVtbl,
-}
-impl ::core::marker::Copy for IPartThumbnail {}
-impl ::core::clone::Clone for IPartThumbnail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPartThumbnailVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetUri: isize,
-    pub GetStream: isize,
-    pub GetPartCompression: isize,
-    pub SetPartCompression: isize,
-    pub GetThumbnailProperties: isize,
-    pub SetThumbnailContent: isize,
-}
-impl ::core::marker::Copy for IPartThumbnailVtbl {}
-impl ::core::clone::Clone for IPartThumbnailVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPartBase = *mut ::core::ffi::c_void;
+pub type IPartColorProfile = *mut ::core::ffi::c_void;
+pub type IPartDiscardControl = *mut ::core::ffi::c_void;
+pub type IPartFont = *mut ::core::ffi::c_void;
+pub type IPartFont2 = *mut ::core::ffi::c_void;
+pub type IPartImage = *mut ::core::ffi::c_void;
+pub type IPartPrintTicket = *mut ::core::ffi::c_void;
+pub type IPartResourceDictionary = *mut ::core::ffi::c_void;
+pub type IPartThumbnail = *mut ::core::ffi::c_void;
 pub type IPrintAsyncCookie = *mut ::core::ffi::c_void;
 pub type IPrintAsyncNewChannelCookie = *mut ::core::ffi::c_void;
 pub type IPrintAsyncNotify = *mut ::core::ffi::c_void;
@@ -4333,31 +3809,7 @@ pub type IPrintAsyncNotifyDataObject = *mut ::core::ffi::c_void;
 pub type IPrintAsyncNotifyRegistration = *mut ::core::ffi::c_void;
 pub type IPrintAsyncNotifyServerReferral = *mut ::core::ffi::c_void;
 pub type IPrintBidiAsyncNotifyRegistration = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintClassObjectFactory {
-    pub lpVtbl: *mut IPrintClassObjectFactoryVtbl,
-}
-impl ::core::marker::Copy for IPrintClassObjectFactory {}
-impl ::core::clone::Clone for IPrintClassObjectFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintClassObjectFactoryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetPrintClassObject: isize,
-}
-impl ::core::marker::Copy for IPrintClassObjectFactoryVtbl {}
-impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintClassObjectFactory = *mut ::core::ffi::c_void;
 pub type IPrintCoreHelper = *mut ::core::ffi::c_void;
 pub type IPrintCoreHelperPS = *mut ::core::ffi::c_void;
 pub type IPrintCoreHelperUni = *mut ::core::ffi::c_void;
@@ -4370,163 +3822,13 @@ pub type IPrintOemDriverUI = *mut ::core::ffi::c_void;
 pub type IPrintOemUI = *mut ::core::ffi::c_void;
 pub type IPrintOemUI2 = *mut ::core::ffi::c_void;
 pub type IPrintOemUIMXDC = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineFilter {
-    pub lpVtbl: *mut IPrintPipelineFilterVtbl,
-}
-impl ::core::marker::Copy for IPrintPipelineFilter {}
-impl ::core::clone::Clone for IPrintPipelineFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineFilterVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub InitializeFilter: isize,
-    pub ShutdownOperation: isize,
-    pub StartOperation: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineFilterVtbl {}
-impl ::core::clone::Clone for IPrintPipelineFilterVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineManagerControl {
-    pub lpVtbl: *mut IPrintPipelineManagerControlVtbl,
-}
-impl ::core::marker::Copy for IPrintPipelineManagerControl {}
-impl ::core::clone::Clone for IPrintPipelineManagerControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineManagerControlVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub RequestShutdown: isize,
-    pub FilterFinished: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineManagerControlVtbl {}
-impl ::core::clone::Clone for IPrintPipelineManagerControlVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineProgressReport {
-    pub lpVtbl: *mut IPrintPipelineProgressReportVtbl,
-}
-impl ::core::marker::Copy for IPrintPipelineProgressReport {}
-impl ::core::clone::Clone for IPrintPipelineProgressReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelineProgressReportVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub ReportProgress: isize,
-}
-impl ::core::marker::Copy for IPrintPipelineProgressReportVtbl {}
-impl ::core::clone::Clone for IPrintPipelineProgressReportVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelinePropertyBag {
-    pub lpVtbl: *mut IPrintPipelinePropertyBagVtbl,
-}
-impl ::core::marker::Copy for IPrintPipelinePropertyBag {}
-impl ::core::clone::Clone for IPrintPipelinePropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintPipelinePropertyBagVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub AddProperty: isize,
-    pub GetProperty: isize,
-    pub DeleteProperty: isize,
-}
-impl ::core::marker::Copy for IPrintPipelinePropertyBagVtbl {}
-impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintPipelineFilter = *mut ::core::ffi::c_void;
+pub type IPrintPipelineManagerControl = *mut ::core::ffi::c_void;
+pub type IPrintPipelineProgressReport = *mut ::core::ffi::c_void;
+pub type IPrintPipelinePropertyBag = *mut ::core::ffi::c_void;
 pub type IPrintPreviewDxgiPackageTarget = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStream {
-    pub lpVtbl: *mut IPrintReadStreamVtbl,
-}
-impl ::core::marker::Copy for IPrintReadStream {}
-impl ::core::clone::Clone for IPrintReadStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamFactory {
-    pub lpVtbl: *mut IPrintReadStreamFactoryVtbl,
-}
-impl ::core::marker::Copy for IPrintReadStreamFactory {}
-impl ::core::clone::Clone for IPrintReadStreamFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamFactoryVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetStream: isize,
-}
-impl ::core::marker::Copy for IPrintReadStreamFactoryVtbl {}
-impl ::core::clone::Clone for IPrintReadStreamFactoryVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintReadStreamVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub Seek: isize,
-    pub ReadBytes: isize,
-}
-impl ::core::marker::Copy for IPrintReadStreamVtbl {}
-impl ::core::clone::Clone for IPrintReadStreamVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintReadStream = *mut ::core::ffi::c_void;
+pub type IPrintReadStreamFactory = *mut ::core::ffi::c_void;
 pub type IPrintSchemaAsyncOperation = *mut ::core::ffi::c_void;
 pub type IPrintSchemaAsyncOperationEvent = *mut ::core::ffi::c_void;
 pub type IPrintSchemaCapabilities = *mut ::core::ffi::c_void;
@@ -4546,57 +3848,8 @@ pub type IPrintSchemaTicket2 = *mut ::core::ffi::c_void;
 pub type IPrintTicketProvider = *mut ::core::ffi::c_void;
 pub type IPrintTicketProvider2 = *mut ::core::ffi::c_void;
 pub type IPrintUnidiAsyncNotifyRegistration = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStream {
-    pub lpVtbl: *mut IPrintWriteStreamVtbl,
-}
-impl ::core::marker::Copy for IPrintWriteStream {}
-impl ::core::clone::Clone for IPrintWriteStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamFlush {
-    pub lpVtbl: *mut IPrintWriteStreamFlushVtbl,
-}
-impl ::core::marker::Copy for IPrintWriteStreamFlush {}
-impl ::core::clone::Clone for IPrintWriteStreamFlush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamFlushVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub FlushData: isize,
-}
-impl ::core::marker::Copy for IPrintWriteStreamFlushVtbl {}
-impl ::core::clone::Clone for IPrintWriteStreamFlushVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IPrintWriteStreamVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub WriteBytes: isize,
-    pub Close: isize,
-}
-impl ::core::marker::Copy for IPrintWriteStreamVtbl {}
-impl ::core::clone::Clone for IPrintWriteStreamVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintWriteStream = *mut ::core::ffi::c_void;
+pub type IPrintWriteStreamFlush = *mut ::core::ffi::c_void;
 pub type IPrinterBidiSetRequestCallback = *mut ::core::ffi::c_void;
 pub type IPrinterExtensionAsyncOperation = *mut ::core::ffi::c_void;
 pub type IPrinterExtensionContext = *mut ::core::ffi::c_void;
@@ -4616,116 +3869,10 @@ pub type IPrinterScriptablePropertyBag = *mut ::core::ffi::c_void;
 pub type IPrinterScriptablePropertyBag2 = *mut ::core::ffi::c_void;
 pub type IPrinterScriptableSequentialStream = *mut ::core::ffi::c_void;
 pub type IPrinterScriptableStream = *mut ::core::ffi::c_void;
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocument {
-    pub lpVtbl: *mut IXpsDocumentVtbl,
-}
-impl ::core::marker::Copy for IXpsDocument {}
-impl ::core::clone::Clone for IXpsDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentConsumer {
-    pub lpVtbl: *mut IXpsDocumentConsumerVtbl,
-}
-impl ::core::marker::Copy for IXpsDocumentConsumer {}
-impl ::core::clone::Clone for IXpsDocumentConsumer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentConsumerVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub SendXpsUnknown: isize,
-    pub SendXpsDocument: isize,
-    pub SendFixedDocumentSequence: isize,
-    pub SendFixedDocument: isize,
-    pub SendFixedPage: isize,
-    pub CloseSender: isize,
-    pub GetNewEmptyPart: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentConsumerVtbl {}
-impl ::core::clone::Clone for IXpsDocumentConsumerVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentProvider {
-    pub lpVtbl: *mut IXpsDocumentProviderVtbl,
-}
-impl ::core::marker::Copy for IXpsDocumentProvider {}
-impl ::core::clone::Clone for IXpsDocumentProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentProviderVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetXpsPart: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentProviderVtbl {}
-impl ::core::clone::Clone for IXpsDocumentProviderVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsDocumentVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub GetThumbnail: isize,
-    pub SetThumbnail: isize,
-}
-impl ::core::marker::Copy for IXpsDocumentVtbl {}
-impl ::core::clone::Clone for IXpsDocumentVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsPartIterator {
-    pub lpVtbl: *mut IXpsPartIteratorVtbl,
-}
-impl ::core::marker::Copy for IXpsPartIterator {}
-impl ::core::clone::Clone for IXpsPartIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub struct IXpsPartIteratorVtbl {
-    pub QueryInterface: isize,
-    pub AddRef: isize,
-    pub Release: isize,
-    pub Reset: isize,
-    pub Current: isize,
-    pub IsDone: isize,
-    pub Next: isize,
-}
-impl ::core::marker::Copy for IXpsPartIteratorVtbl {}
-impl ::core::clone::Clone for IXpsPartIteratorVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IXpsDocument = *mut ::core::ffi::c_void;
+pub type IXpsDocumentConsumer = *mut ::core::ffi::c_void;
+pub type IXpsDocumentProvider = *mut ::core::ffi::c_void;
+pub type IXpsPartIterator = *mut ::core::ffi::c_void;
 pub type IXpsRasterizationFactory = *mut ::core::ffi::c_void;
 pub type IXpsRasterizationFactory1 = *mut ::core::ffi::c_void;
 pub type IXpsRasterizationFactory2 = *mut ::core::ffi::c_void;
@@ -5316,6 +4463,8 @@ impl ::core::clone::Clone for MONITOR_INFO_2W {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const MS_PRINT_JOB_OUTPUT_FILE: &'static str = "MsPrintJobOutputFile";
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const MTYPE_ADD: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -8012,6 +7161,174 @@ impl ::core::clone::Clone for SPLCLIENT_INFO_3_VISTA {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_ASSET_NUMBER: &'static str = "assetNumber";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_BYTES_PER_MINUTE: &'static str = "bytesPerMinute";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DESCRIPTION: &'static str = "description";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_KEY: &'static str = "DsDriver";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_NAME: &'static str = "driverName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_DRIVER_VERSION: &'static str = "driverVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_FLAGS: &'static str = "flags";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_LOCATION: &'static str = "location";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PORT_NAME: &'static str = "portName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_CLASS: &'static str = "printQueue";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_LOCATIONS: &'static str = "printerLocations";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_MODEL: &'static str = "printerModel";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_NAME: &'static str = "printerName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINTER_NAME_ALIASES: &'static str = "printerNameAliases";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_ATTRIBUTES: &'static str = "printAttributes";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_BIN_NAMES: &'static str = "printBinNames";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_COLLATE: &'static str = "printCollate";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_COLOR: &'static str = "printColor";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_DUPLEX_SUPPORTED: &'static str = "printDuplexSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_END_TIME: &'static str = "printEndTime";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: &'static str = "printKeepPrintedJobs";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_LANGUAGE: &'static str = "printLanguage";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAC_ADDRESS: &'static str = "printMACAddress";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_RESOLUTION_SUPPORTED: &'static str = "printMaxResolutionSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_X_EXTENT: &'static str = "printMaxXExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MAX_Y_EXTENT: &'static str = "printMaxYExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEDIA_READY: &'static str = "printMediaReady";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEDIA_SUPPORTED: &'static str = "printMediaSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MEMORY: &'static str = "printMemory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MIN_X_EXTENT: &'static str = "printMinXExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_MIN_Y_EXTENT: &'static str = "printMinYExtent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NETWORK_ADDRESS: &'static str = "printNetworkAddress";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NOTIFY: &'static str = "printNotify";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_NUMBER_UP: &'static str = "printNumberUp";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_ORIENTATIONS_SUPPORTED: &'static str = "printOrientationsSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_OWNER: &'static str = "printOwner";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_PAGES_PER_MINUTE: &'static str = "printPagesPerMinute";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_RATE: &'static str = "printRate";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_RATE_UNIT: &'static str = "printRateUnit";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SEPARATOR_FILE: &'static str = "printSeparatorFile";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SHARE_NAME: &'static str = "printShareName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_SPOOLING: &'static str = "printSpooling";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_STAPLING_SUPPORTED: &'static str = "printStaplingSupported";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_START_TIME: &'static str = "printStartTime";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRINT_STATUS: &'static str = "printStatus";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_PRIORITY: &'static str = "priority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SERVER_NAME: &'static str = "serverName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SHORT_SERVER_NAME: &'static str = "shortServerName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_SPOOLER_KEY: &'static str = "DsSpooler";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_UNC_NAME: &'static str = "uNCName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_URL: &'static str = "url";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_USER_KEY: &'static str = "DsUser";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLDS_VERSION_NUMBER: &'static str = "versionNumber";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLPRINTER_USER_MODE_PRINTER_DRIVER: &'static str = "SPLUserModePrinterDriver";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_ALLOW_USER_MANAGEFORMS: &'static str = "AllowUserManageForms";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_ARCHITECTURE: &'static str = "Architecture";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_BEEP_ENABLED: &'static str = "BeepEnabled";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DEFAULT_SPOOL_DIRECTORY: &'static str = "DefaultSpoolDirectory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DNS_MACHINE_NAME: &'static str = "DNSMachineName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DS_PRESENT: &'static str = "DsPresent";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_DS_PRESENT_FOR_USER: &'static str = "DsPresentForUser";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_EVENT_LOG: &'static str = "EventLog";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_MAJOR_VERSION: &'static str = "MajorVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_MINOR_VERSION: &'static str = "MinorVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_NET_POPUP: &'static str = "NetPopup";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_NET_POPUP_TO_COMPUTER: &'static str = "NetPopupToComputer";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_OS_VERSION: &'static str = "OSVersion";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_OS_VERSIONEX: &'static str = "OSVersionEx";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PORT_THREAD_PRIORITY: &'static str = "PortThreadPriority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PORT_THREAD_PRIORITY_DEFAULT: &'static str = "PortThreadPriorityDefault";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_EXECUTION_POLICY: &'static str = "PrintDriverIsolationExecutionPolicy";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_GROUPS: &'static str = "PrintDriverIsolationGroups";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_IDLE_TIMEOUT: &'static str = "PrintDriverIsolationIdleTimeout";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_MAX_OBJECTS_BEFORE_RECYCLE: &'static str = "PrintDriverIsolationMaxobjsBeforeRecycle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_OVERRIDE_POLICY: &'static str = "PrintDriverIsolationOverrideCompat";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_DRIVER_ISOLATION_TIME_BEFORE_RECYCLE: &'static str = "PrintDriverIsolationTimeBeforeRecycle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_PRINT_QUEUE_V4_DRIVER_DIRECTORY: &'static str = "PrintQueueV4DriverDirectory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_REMOTE_FAX: &'static str = "RemoteFax";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RESTART_JOB_ON_POOL_ENABLED: &'static str = "RestartJobOnPoolEnabled";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RESTART_JOB_ON_POOL_ERROR: &'static str = "RestartJobOnPoolError";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_RETRY_POPUP: &'static str = "RetryPopup";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY: &'static str = "SchedulerThreadPriority";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_SCHEDULER_THREAD_PRIORITY_DEFAULT: &'static str = "SchedulerThreadPriorityDefault";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SPLREG_WEBSHAREMGMT: &'static str = "WebShareMgmt";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
@@ -8353,6 +7670,40 @@ pub type XPSRAS_RENDERING_MODE = i32;
 pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_DRIVER_PROPERTY_BAG: &'static str = "DriverPropertyBag";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_JOB_ID: &'static str = "PrintJobId";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_JOB_LEVEL_PRINTTICKET: &'static str = "JobPrintTicket";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MERGED_DATAFILE_PATH: &'static str = "MergedDataFilePath";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE: &'static str = "DriverMultiContentType";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE_OPENXPS: &'static str = "OpenXPS";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_MS_CONTENT_TYPE_XPS: &'static str = "XPS";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_OUTPUT_FILE: &'static str = "PrintOutputFileName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTDEVICECAPABILITIES: &'static str = "PrintDeviceCapabilities";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTER_HANDLE: &'static str = "PrinterHandle";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINTER_NAME: &'static str = "PrinterName";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PRINT_CLASS_FACTORY: &'static str = "PrintClassFactory";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_PROGRESS_REPORT: &'static str = "ProgressReport";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_QUEUE_PROPERTY_BAG: &'static str = "QueuePropertyBag";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_RESOURCE_DLL_PATHS: &'static str = "ResourceDLLPaths";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_USER_PRINT_TICKET: &'static str = "PerUserPrintTicket";
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const XPS_FP_USER_TOKEN: &'static str = "UserSecurityToken";
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = ::core::option::Option<unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32>;

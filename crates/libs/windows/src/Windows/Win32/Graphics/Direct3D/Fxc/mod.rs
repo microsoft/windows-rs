@@ -1,5 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
+pub const D3DCOMPILER_DLL_A: &'static str = "d3dcompiler_47.dll";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
+pub const D3DCOMPILER_DLL_W: &'static str = "d3dcompiler_47.dll";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct D3DCOMPILER_STRIP_FLAGS(pub i32);

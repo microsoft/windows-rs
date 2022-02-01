@@ -502,6 +502,19 @@ pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0i3
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Memory'*"]
+pub struct MEM_ADDRESS_REQUIREMENTS {
+    pub LowestStartingAddress: *mut ::core::ffi::c_void,
+    pub HighestEndingAddress: *mut ::core::ffi::c_void,
+    pub Alignment: usize,
+}
+impl ::core::marker::Copy for MEM_ADDRESS_REQUIREMENTS {}
+impl ::core::clone::Clone for MEM_ADDRESS_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER {

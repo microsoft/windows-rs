@@ -1119,6 +1119,8 @@ impl ::core::clone::Clone for OBJECT_NOTIFICATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const OPENSTREAMONFILE: &'static str = "OpenStreamOnFile";
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
@@ -1742,6 +1744,10 @@ pub const WAB_DISPLAY_ISNTDS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const WAB_DLL_NAME: &'static str = "WAB32.DLL";
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const WAB_DLL_PATH_KEY: &'static str = "Software\\Microsoft\\WAB\\DLLPath";
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
@@ -1828,3 +1834,17 @@ impl ::core::clone::Clone for _flaglist {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const cchProfileNameMax: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const cchProfilePassMax: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const fMapiUnicode: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const hrSuccess: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const szHrDispatchNotifications: &'static str = "HrDispatchNotifications";
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const szMAPINotificationMsg: &'static str = "MAPI Notify window message";
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub const szScCreateConversationIndex: &'static str = "ScCreateConversationIndex";

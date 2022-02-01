@@ -14502,6 +14502,8 @@ impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
     }
 }
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_ENABLE_PROCESS_ATOM: &'static str = "_CTF_ENABLE_PROCESS_ATOM_";
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220218i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_E_COMPOSITION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220216i32);
@@ -14545,6 +14547,12 @@ pub const TF_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-21
 pub const TF_E_STACKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220223i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLE: &'static str = "TF_FloatingLangBar_WndTitle";
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLEA: &'static str = "TF_FloatingLangBar_WndTitle";
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLEW: &'static str = "TF_FloatingLangBar_WndTitle";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub struct TF_HALTCOND {
@@ -14979,6 +14987,8 @@ impl ::core::default::Default for TF_PRESERVEDKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_PROCESS_ATOM: &'static str = "_CTF_PROCESS_ATOM_";
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]

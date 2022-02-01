@@ -6719,8 +6719,8 @@ pub trait IFileDialog_Impl: Sized + IModalWindow_Impl {
     fn GetFileTypeIndex(&mut self) -> ::windows::core::Result<u32>;
     fn Advise(&mut self, pfde: &::core::option::Option<IFileDialogEvents>) -> ::windows::core::Result<u32>;
     fn Unadvise(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
-    fn SetOptions(&mut self, fos: u32) -> ::windows::core::Result<()>;
-    fn GetOptions(&mut self) -> ::windows::core::Result<u32>;
+    fn SetOptions(&mut self, fos: FILEOPENDIALOGOPTIONS) -> ::windows::core::Result<()>;
+    fn GetOptions(&mut self) -> ::windows::core::Result<FILEOPENDIALOGOPTIONS>;
     fn SetDefaultFolder(&mut self, psi: &::core::option::Option<IShellItem>) -> ::windows::core::Result<()>;
     fn SetFolder(&mut self, psi: &::core::option::Option<IShellItem>) -> ::windows::core::Result<()>;
     fn GetFolder(&mut self) -> ::windows::core::Result<IShellItem>;
@@ -6778,12 +6778,12 @@ impl IFileDialog_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Unadvise(::core::mem::transmute_copy(&dwcookie)).into()
         }
-        unsafe extern "system" fn SetOptions<Identity: ::windows::core::IUnknownImpl, Impl: IFileDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fos: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOptions<Identity: ::windows::core::IUnknownImpl, Impl: IFileDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fos: FILEOPENDIALOGOPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetOptions(::core::mem::transmute_copy(&fos)).into()
         }
-        unsafe extern "system" fn GetOptions<Identity: ::windows::core::IUnknownImpl, Impl: IFileDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfos: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOptions<Identity: ::windows::core::IUnknownImpl, Impl: IFileDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfos: *mut FILEOPENDIALOGOPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetOptions() {

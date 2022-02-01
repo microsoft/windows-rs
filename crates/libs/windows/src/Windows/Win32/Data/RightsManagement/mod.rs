@@ -1686,6 +1686,10 @@ impl ::core::default::Default for DRM_CLIENT_VERSION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
+pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: &'static str = "PassportAuthProvider";
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
+pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: &'static str = "WindowsAuthProvider";
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);

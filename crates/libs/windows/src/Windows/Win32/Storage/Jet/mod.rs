@@ -6787,6 +6787,12 @@ pub const JET_wrnTableInUseBySystem: u32 = 1327u32;
 pub const JET_wrnTargetInstanceRunning: u32 = 578u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_wrnUniqueKey: u32 = 345u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const JET_wszConfigStoreReadControl: &'static str = "CsReadControl";
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const JET_wszConfigStoreRelPathSysParamDefault: &'static str = "SysParamDefault";
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const JET_wszConfigStoreRelPathSysParamOverride: &'static str = "SysParamOverride";
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -10203,5 +10209,15 @@ pub unsafe fn JetUpdate2<'a, Param0: ::windows::core::IntoParam<'a, super::Struc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const cColumnInfoCols: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const cIndexInfoCols: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const cObjectInfoCols: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const wrnBTNotVisibleAccumulated: u32 = 353u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const wrnBTNotVisibleRejected: u32 = 352u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

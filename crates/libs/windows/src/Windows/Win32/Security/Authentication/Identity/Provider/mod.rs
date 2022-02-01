@@ -924,6 +924,14 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const IDENTITY_KEYWORD_ASSOCIATED: &'static str = "associated";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const IDENTITY_KEYWORD_CONNECTED: &'static str = "connected";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const IDENTITY_KEYWORD_HOMEGROUP: &'static str = "homegroup";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const IDENTITY_KEYWORD_LOCAL: &'static str = "local";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IDENTITY_TYPE(pub i32);
@@ -1458,5 +1466,19 @@ impl ::core::ops::Not for IdentityUpdateEvent {
     }
 }
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_COMPLETE_ACCOUNT: &'static str = "CompleteAccount";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_MODERN_SETTINGS_ADD_USER: &'static str = "ModernSettingsAddUser";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_NTH_USER_FIRST_AUTH: &'static str = "NthUserFirstAuth";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_OUT_OF_BOX_EXPERIENCE: &'static str = "OutOfBoxExperience";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_OUT_OF_BOX_UPGRADE_EXPERIENCE: &'static str = "OutOfBoxUpgradeExperience";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_PROPERTY_STORE: &'static str = "PropertyStore";
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
+pub const STR_USER_NAME: &'static str = "Username";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

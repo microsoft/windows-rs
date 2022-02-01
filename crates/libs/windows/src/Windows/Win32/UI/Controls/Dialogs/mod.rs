@@ -602,6 +602,12 @@ impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const COLOROKSTRING: &'static str = "commdlg_ColorOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const COLOROKSTRINGA: &'static str = "commdlg_ColorOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const COLOROKSTRINGW: &'static str = "commdlg_ColorOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_ADD: u32 = 712u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_BLUE: u32 = 708u32;
@@ -906,6 +912,18 @@ impl ::core::default::Default for DEVNAMES {
 pub const DLG_COLOR: u32 = 10u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const DN_DEFAULTPRN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FILEOKSTRING: &'static str = "commdlg_FileNameOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FILEOKSTRINGA: &'static str = "commdlg_FileNameOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FILEOKSTRINGW: &'static str = "commdlg_FileNameOK";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FINDMSGSTRING: &'static str = "commdlg_FindReplace";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FINDMSGSTRINGA: &'static str = "commdlg_FindReplace";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const FINDMSGSTRINGW: &'static str = "commdlg_FindReplace";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1324,6 +1342,12 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const HELPMSGSTRING: &'static str = "commdlg_help";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const HELPMSGSTRINGA: &'static str = "commdlg_help";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const HELPMSGSTRINGW: &'static str = "commdlg_help";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[repr(transparent)]
 pub struct IPrintDialogCallback(::windows::core::IUnknown);
 impl IPrintDialogCallback {
@@ -1469,6 +1493,12 @@ pub struct IPrintDialogServices_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetCurrentPortName: usize,
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const LBSELCHSTRING: &'static str = "commdlg_LBSelChangedNotify";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const LBSELCHSTRINGA: &'static str = "commdlg_LBSelChangedNotify";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const LBSELCHSTRINGW: &'static str = "commdlg_LBSelChangedNotify";
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
@@ -3589,6 +3619,18 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SETRGBSTRING: &'static str = "commdlg_SetRGBColor";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SETRGBSTRINGA: &'static str = "commdlg_SetRGBColor";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SETRGBSTRINGW: &'static str = "commdlg_SetRGBColor";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SHAREVISTRING: &'static str = "commdlg_ShareViolation";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SHAREVISTRINGA: &'static str = "commdlg_ShareViolation";
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
+pub const SHAREVISTRINGW: &'static str = "commdlg_ShareViolation";
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const START_PAGE_GENERAL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]

@@ -82,6 +82,7 @@ impl Error {
     }
 }
 
+// TODO: This should be the same as fast_error and the code that relies on this should be explicit (swap to optimize for fast)
 impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;

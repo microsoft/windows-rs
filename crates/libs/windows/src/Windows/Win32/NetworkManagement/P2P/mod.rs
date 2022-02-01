@@ -3782,6 +3782,8 @@ impl ::core::default::Default for PEER_PEOPLE_NEAR_ME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+pub const PEER_PNRP_ALL_LINK_CLOUDS: &'static str = "PEER_PNRP_ALL_LINKS";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7294,5 +7296,11 @@ pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
 pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+pub const WSZ_SCOPE_GLOBAL: &'static str = "GLOBAL";
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+pub const WSZ_SCOPE_LINKLOCAL: &'static str = "LINKLOCAL";
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+pub const WSZ_SCOPE_SITELOCAL: &'static str = "SITELOCAL";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

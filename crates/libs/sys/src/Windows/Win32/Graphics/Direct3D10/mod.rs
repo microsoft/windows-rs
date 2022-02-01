@@ -133,6 +133,10 @@ pub const D3D10_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_APPNAME_STRING: &'static str = "Name";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_APPSIZE_STRING: &'static str = "Size";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub type D3D10_ASYNC_GETDATA_FLAG = i32;
@@ -256,6 +260,14 @@ impl ::core::clone::Clone for D3D10_BOX {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_BREAKON_CATEGORY: &'static str = "BreakOn_CATEGORY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_BREAKON_ID_DECIMAL: &'static str = "BreakOn_ID_%d";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_BREAKON_ID_STRING: &'static str = "BreakOn_ID_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_BREAKON_SEVERITY: &'static str = "BreakOn_SEVERITY_%s";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub struct D3D10_BUFFER_DESC {
@@ -868,6 +880,8 @@ pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_ENABLE_BREAK_ON_MESSAGE: &'static str = "EnableBreakOnMessage";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub type D3D10_FEATURE_LEVEL1 = i32;
@@ -1065,6 +1079,8 @@ pub const D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 16u32;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_INFOQUEUE_STORAGE_FILTER_OVERRIDE: &'static str = "InfoQueueStorageFilterOverride";
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
@@ -2270,6 +2286,16 @@ pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_MUTE_CATEGORY: &'static str = "Mute_CATEGORY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_MUTE_DEBUG_OUTPUT: &'static str = "MuteDebugOutput";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_MUTE_ID_DECIMAL: &'static str = "Mute_ID_%d";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_MUTE_ID_STRING: &'static str = "Mute_ID_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_MUTE_SEVERITY: &'static str = "Mute_SEVERITY_%s";
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
@@ -2445,6 +2471,8 @@ impl ::core::clone::Clone for D3D10_RASTERIZER_DESC {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_REGKEY_PATH: &'static str = "Software\\Microsoft\\Direct3D";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3666,6 +3694,8 @@ pub const D3D10_TEXTURE_ADDRESS_MIRROR_ONCE: D3D10_TEXTURE_ADDRESS_MODE = 5i32;
 pub const D3D10_TEXT_1BIT_BIT: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
+pub const D3D10_UNMUTE_SEVERITY_INFO: &'static str = "Unmute_SEVERITY_INFO";
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub type D3D10_USAGE = i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]

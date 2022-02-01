@@ -1,6 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
+pub const GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ: &'static str = "{60824B4C-EED1-4C9C-B49C-1B961461A819}";
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub const IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: u32 = 262148u32;
 #[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub const IOCTL_PWM_CONTROLLER_GET_INFO: u32 = 262144u32;

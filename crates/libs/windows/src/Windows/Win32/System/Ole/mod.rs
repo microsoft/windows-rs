@@ -12885,6 +12885,8 @@ impl ::core::fmt::Debug for OLERENDER {
         f.debug_tuple("OLERENDER").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const OLESTDDELIM: &'static str = "\\";
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_Media'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
@@ -16925,6 +16927,8 @@ impl ::core::fmt::Debug for PROPPAGESTATUS {
     }
 }
 #[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const PROP_HWND_CHGICONDLG: &'static str = "HWND_CIDLG";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const PSF_DISABLEDISPLAYASICON: i32 = 16i32;
@@ -17380,6 +17384,28 @@ pub const STDOLE_LCID: u32 = 0u32;
 pub const STDOLE_MAJORVERNUM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 pub const STDOLE_MINORVERNUM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const STDOLE_TLB: &'static str = "stdole2.tlb";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const STDTYPE_TLB: &'static str = "stdole2.tlb";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_ADDCONTROL: &'static str = "OLEUI_MSG_ADDCONTROL";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_BROWSE: &'static str = "OLEUI_MSG_BROWSE";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_BROWSE_OFN: &'static str = "OLEUI_MSG_BROWSE_OFN";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_CHANGEICON: &'static str = "OLEUI_MSG_CHANGEICON";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_CHANGESOURCE: &'static str = "OLEUI_MSG_CHANGESOURCE";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_CLOSEBUSYDIALOG: &'static str = "OLEUI_MSG_CLOSEBUSYDIALOG";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_CONVERT: &'static str = "OLEUI_MSG_CONVERT";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_ENDDIALOG: &'static str = "OLEUI_MSG_ENDDIALOG";
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const SZOLEUI_MSG_HELP: &'static str = "OLEUI_MSG_HELP";
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -23475,5 +23501,49 @@ impl ::core::default::Default for _wireVARIANT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexEnumAll: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexEnumDefault: i32 = 1i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameCaseInsensitive: i32 = 8i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameCaseSensitive: i32 = 1i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameEnsure: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameImplicit: i32 = 4i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameInternal: i32 = 16i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexNameNoDynamicProperties: i32 = 32i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanCall: i32 = 256i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanConstruct: i32 = 1024i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanGet: i32 = 1i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanPut: i32 = 4i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanPutRef: i32 = 16i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCanSourceEvents: i32 = 4096i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotCall: i32 = 512i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotConstruct: i32 = 2048i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotGet: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotPut: i32 = 8i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotPutRef: i32 = 32i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropCannotSourceEvents: i32 = 8192i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropDynamicType: i32 = 128i32;
+#[doc = "*Required features: 'Win32_System_Ole'*"]
+pub const fdexPropNoSideEffects: i32 = 64i32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
