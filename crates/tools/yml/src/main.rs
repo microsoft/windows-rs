@@ -1,4 +1,9 @@
 fn main() {
+    test_yml();
+    build_yml();
+}
+
+fn test_yml() {
     let root = std::path::PathBuf::from(metadata::workspace_dir());
     let mut yml = r#"name: Test
 
@@ -88,26 +93,97 @@ jobs:
     yml.truncate(yml.len() - 2);
 
     yml.push_str(
-        r#"
-      if: matrix.version == 'nightly'
+      r#"
+    if: matrix.version == 'nightly'
+    "#
+  );
 
-    - name: Test clippy
-      run: |"#,
-    );
+    std::fs::write(root.join(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
+}
+
+fn build_yml() {
+    let root = std::path::PathBuf::from(metadata::workspace_dir());
+    let mut yml = r#"name: Build
+
+  on:
+    pull_request:
+    push:
+      branches:
+        - master
+  
+  env:
+    RUSTFLAGS: -Dwarnings
+  
+  jobs:
+   
+    cargo_fmt:
+      name: Check cargo formatting
+      runs-on: windows-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run cargo fmt
+        run: cargo fmt --all -- --check
+  
+    cargo_doc:
+      name: Check cargo docs
+      runs-on: windows-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run cargo doc
+        run: cargo doc --no-deps -p windows
+  
+    generation:
+      name: Check generation of `tool_${{ matrix.generator }}`
+      runs-on: windows-latest
+      strategy:
+        matrix:
+          generator: [bindings, windows, sys, yml]
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run tool_${{ matrix.generator }}
+        run: cargo run -p tool_${{ matrix.generator }}
+      - name: Compare
+        shell: bash
+        run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
+  
+    cargo_sys:
+      name: Check windows-sys
+      runs-on: windows-latest
+      strategy:
+        matrix:
+          rust: [1.46.0, stable, nightly]
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+      - name: Run cargo check
+        run: cargo check -p windows-sys --all-features
+  
+    cargo_clippy
+      name: Check clippy
+      runs-on: windows-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update toolchain
+        run: rustup update --no-self-update nightly && rustup default nightly
+      - name: Install clippy
+        run: rustup component add clippy      
+      - name: Run cargo clippy
+        run: |"#
+        .to_string();
 
     for name in crates(&root) {
-        yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
+        yml.push_str(&format!("\n           cargo clippy -p {} &&", name));
     }
 
     yml.truncate(yml.len() - 2);
 
-    yml.push_str(
-        r#"
-      if: matrix.version == 'nightly' && matrix.target == 'x86_64-pc-windows-gnu'
-"#,
-    );
-
-    std::fs::write(root.join(".github/workflows/test.yml"), yml.as_bytes()).unwrap();
+    std::fs::write(root.join(".github/workflows/build.yml"), yml.as_bytes()).unwrap();
 }
 
 fn crates(root: &std::path::Path) -> Vec<String> {
