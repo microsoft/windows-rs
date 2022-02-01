@@ -163,7 +163,7 @@ jobs:
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
 
-  cargo_clippy
+  cargo_clippy:
     name: Check clippy
     runs-on: windows-latest
     steps:
