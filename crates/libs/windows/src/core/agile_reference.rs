@@ -16,14 +16,7 @@ impl<T: Interface> AgileReference<T> {
     }
 
     pub fn resolve(&self) -> Result<T> {
-        unsafe {
-            let mut ptr = core::ptr::null_mut();
-            self.reference.Resolve(&T::IID, &mut ptr)?;
-
-            let resolved = IUnknown(core::ptr::NonNull::new(ptr).ok_or_else(|| Error::from(E_NOINTERFACE))?);
-
-            resolved.cast()
-        }
+        unsafe { self.reference.Resolve() }
     }
 }
 
