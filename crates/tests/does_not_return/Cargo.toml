@@ -1,0 +1,17 @@
+[package]
+name = "test_does_not_return"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_System_Diagnostics_Debug",
+]
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_System_Diagnostics_Debug",
+]

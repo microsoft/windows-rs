@@ -1540,12 +1540,12 @@ pub unsafe fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::su
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 #[inline]
-pub unsafe fn ExitProcess(uexitcode: u32) {
+pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ExitProcess(uexitcode: u32);
+            fn ExitProcess(uexitcode: u32) -> !;
         }
         ExitProcess(::core::mem::transmute(uexitcode))
     }
@@ -1554,12 +1554,12 @@ pub unsafe fn ExitProcess(uexitcode: u32) {
 }
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 #[inline]
-pub unsafe fn ExitThread(dwexitcode: u32) {
+pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ExitThread(dwexitcode: u32);
+            fn ExitThread(dwexitcode: u32) -> !;
         }
         ExitThread(::core::mem::transmute(dwexitcode))
     }
