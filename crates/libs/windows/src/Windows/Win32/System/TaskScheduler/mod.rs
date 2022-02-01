@@ -1302,12 +1302,12 @@ pub struct IEnumWorkItems(::windows::core::IUnknown);
 impl IEnumWorkItems {
     #[doc = "*Required features: 'Win32_System_TaskScheduler', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Next(&self, celt: u32, rgpwsznames: *mut *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgpwsznames), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgpwsznames: *mut *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgpwsznames), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
     }
     #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {

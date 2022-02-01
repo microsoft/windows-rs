@@ -13998,7 +13998,7 @@ impl IShellFavoritesNameSpace_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait IShellFolder_Impl: Sized {
     fn ParseDisplayName(&mut self, hwnd: super::super::Foundation::HWND, pbc: &::core::option::Option<super::super::System::Com::IBindCtx>, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumObjects(&mut self, hwnd: super::super::Foundation::HWND, grfflags: u32) -> ::windows::core::Result<IEnumIDList>;
+    fn EnumObjects(&mut self, hwnd: super::super::Foundation::HWND, grfflags: u32, ppenumidlist: *mut ::core::option::Option<IEnumIDList>) -> ::windows::core::HRESULT;
     fn BindToObject(&mut self, pidl: *const Common::ITEMIDLIST, pbc: &::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn BindToStorage(&mut self, pidl: *const Common::ITEMIDLIST, pbc: &::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CompareIDs(&mut self, lparam: super::super::Foundation::LPARAM, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> ::windows::core::Result<()>;
@@ -14019,13 +14019,7 @@ impl IShellFolder_Vtbl {
         unsafe extern "system" fn EnumObjects<Identity: ::windows::core::IUnknownImpl, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, grfflags: u32, ppenumidlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumObjects(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&grfflags)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *ppenumidlist = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).EnumObjects(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&grfflags), ::core::mem::transmute_copy(&ppenumidlist))
         }
         unsafe extern "system" fn BindToObject<Identity: ::windows::core::IUnknownImpl, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pbc: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -4342,8 +4342,8 @@ impl IADsPropertyEntry_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PropertyCount(&mut self) -> ::windows::core::Result<i32>;
-    fn Next(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Skip(&mut self, celements: i32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celements: i32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetPropertyItem(&mut self, bstrname: &super::super::Foundation::BSTR, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -4368,18 +4368,12 @@ impl IADsPropertyList_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Next() {
-                ::core::result::Result::Ok(ok__) => {
-                    *pvariant = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).Next(::core::mem::transmute_copy(&pvariant))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celements: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celements)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celements))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6938,10 +6932,10 @@ pub trait IDirectorySearch_Impl: Sized {
     fn SetSearchPreference(&mut self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()>;
     fn ExecuteSearch(&mut self, pszsearchfilter: super::super::Foundation::PWSTR, pattributenames: *const super::super::Foundation::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>;
     fn AbandonSearch(&mut self, phsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetFirstRow(&mut self, hsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetNextRow(&mut self, hsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetPreviousRow(&mut self, hsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetNextColumnName(&mut self, hsearchhandle: isize) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetFirstRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetNextRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetPreviousRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetNextColumnName(&mut self, hsearchhandle: isize, ppszcolumnname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
     fn GetColumn(&mut self, hsearchresult: isize, szcolumnname: super::super::Foundation::PWSTR) -> ::windows::core::Result<ads_search_column>;
     fn FreeColumn(&mut self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()>;
     fn CloseSearchHandle(&mut self, hsearchresult: isize) -> ::windows::core::Result<()>;
@@ -6973,28 +6967,22 @@ impl IDirectorySearch_Vtbl {
         unsafe extern "system" fn GetFirstRow<Identity: ::windows::core::IUnknownImpl, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFirstRow(::core::mem::transmute_copy(&hsearchresult)).into()
+            (*this).GetFirstRow(::core::mem::transmute_copy(&hsearchresult))
         }
         unsafe extern "system" fn GetNextRow<Identity: ::windows::core::IUnknownImpl, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNextRow(::core::mem::transmute_copy(&hsearchresult)).into()
+            (*this).GetNextRow(::core::mem::transmute_copy(&hsearchresult))
         }
         unsafe extern "system" fn GetPreviousRow<Identity: ::windows::core::IUnknownImpl, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPreviousRow(::core::mem::transmute_copy(&hsearchresult)).into()
+            (*this).GetPreviousRow(::core::mem::transmute_copy(&hsearchresult))
         }
         unsafe extern "system" fn GetNextColumnName<Identity: ::windows::core::IUnknownImpl, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchhandle: isize, ppszcolumnname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNextColumnName(::core::mem::transmute_copy(&hsearchhandle)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *ppszcolumnname = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).GetNextColumnName(::core::mem::transmute_copy(&hsearchhandle), ::core::mem::transmute_copy(&ppszcolumnname))
         }
         unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize, szcolumnname: super::super::Foundation::PWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -1054,8 +1054,8 @@ impl IEnumOleUndoUnits_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IEnumVARIANT_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumVARIANT>;
 }
@@ -1065,12 +1065,12 @@ impl IEnumVARIANT_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

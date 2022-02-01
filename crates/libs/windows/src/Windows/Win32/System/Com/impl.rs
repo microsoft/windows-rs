@@ -1791,8 +1791,8 @@ impl IEnumFORMATETC_Vtbl {
     }
 }
 pub trait IEnumGUID_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumGUID>;
 }
@@ -1801,12 +1801,12 @@ impl IEnumGUID_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumGUID_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumGUID_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumGUID_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1837,8 +1837,8 @@ impl IEnumGUID_Vtbl {
     }
 }
 pub trait IEnumMoniker_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IMoniker>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IMoniker>, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumMoniker>;
 }
@@ -1847,12 +1847,12 @@ impl IEnumMoniker_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1930,8 +1930,8 @@ impl IEnumSTATDATA_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumString_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgelt: *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumString>;
 }
@@ -1941,12 +1941,12 @@ impl IEnumString_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

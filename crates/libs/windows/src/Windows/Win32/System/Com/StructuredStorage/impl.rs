@@ -33,8 +33,8 @@ impl IDirectWriterLock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATPROPSETSTG_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
 }
@@ -44,12 +44,12 @@ impl IEnumSTATPROPSETSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -81,8 +81,8 @@ impl IEnumSTATPROPSETSTG_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATPROPSTG_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
 }
@@ -92,12 +92,12 @@ impl IEnumSTATPROPSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
+            (*this).Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

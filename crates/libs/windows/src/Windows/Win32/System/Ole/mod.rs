@@ -991,14 +991,14 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::core::IntoParam<'a, super::Com::
 #[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DoDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn DoDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DoDragDrop(pdataobj: ::windows::core::RawPtr, pdropsource: ::windows::core::RawPtr, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT;
         }
-        DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)).ok()
+        ::core::mem::transmute(DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3823,12 +3823,12 @@ pub struct IEnumVARIANT(::windows::core::IUnknown);
 impl IEnumVARIANT {
     #[doc = "*Required features: 'Win32_System_Ole', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Next(&self, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgvar), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgvar), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
     }
     #[doc = "*Required features: 'Win32_System_Ole'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {

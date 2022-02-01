@@ -351,12 +351,12 @@ pub struct IEnumPortableDeviceObjectIDs(::windows::core::IUnknown);
 impl IEnumPortableDeviceObjectIDs {
     #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Next(&self, cobjects: u32, pobjids: *mut super::super::Foundation::PWSTR, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(pobjids), ::core::mem::transmute(pcfetched)).ok()
+    pub unsafe fn Next(&self, cobjects: u32, pobjids: *mut super::super::Foundation::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects), ::core::mem::transmute(pobjids), ::core::mem::transmute(pcfetched)))
     }
     #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
-    pub unsafe fn Skip(&self, cobjects: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects)).ok()
+    pub unsafe fn Skip(&self, cobjects: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cobjects)))
     }
     #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
