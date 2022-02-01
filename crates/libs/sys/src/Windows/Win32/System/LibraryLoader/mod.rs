@@ -72,7 +72,7 @@ extern "system" {
     pub fn FreeLibrary(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32);
+    pub fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32) -> !;
     #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL;

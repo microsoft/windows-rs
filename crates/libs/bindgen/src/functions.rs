@@ -53,8 +53,12 @@ fn gen_function_if(entry: &[ElementType], gen: &Gen) -> TokenStream {
 fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let signature = def.signature(&[]);
-    let return_type = gen_return_sig(&signature, gen);
     let cfg = gen.function_cfg(def).gen_with_doc(gen);
+    let mut return_type = gen_return_sig(&signature, gen);
+
+    if return_type.is_empty() {
+        return_type = does_not_return(def);
+    }
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
@@ -214,16 +218,17 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         SignatureKind::ReturnVoid => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
+            let does_not_return = does_not_return(def);
 
             quote! {
                 #cfg
                 #[inline]
-                pub unsafe fn #name<#constraints>(#params) {
+                pub unsafe fn #name<#constraints>(#params) #does_not_return {
                     #[cfg(windows)]
                     {
                         #link_attr
                         extern "system" {
-                            fn #name(#(#abi_params),*);
+                            fn #name(#(#abi_params),*) #does_not_return;
                         }
                         #name(#(#args),*)
                     }
@@ -232,5 +237,13 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
         }
+    }
+}
+
+fn does_not_return(def: &MethodDef) -> TokenStream {
+    if def.does_not_return() {
+        quote! { -> ! }
+    } else {
+        quote! {}
     }
 }
