@@ -232,7 +232,7 @@ impl<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::core:
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, signalnotifier: ::windows::core::RawPtr, timedout: bool) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&signalnotifier as *const <SignalNotifier as ::windows::core::Abi>::Abi as *const <SignalNotifier as ::windows::core::DefaultType>::DefaultType), timedout).into()
+        ((*this).invoke)(::core::mem::transmute(&signalnotifier), timedout).into()
     }
 }
 impl ::core::clone::Clone for SignalHandler {

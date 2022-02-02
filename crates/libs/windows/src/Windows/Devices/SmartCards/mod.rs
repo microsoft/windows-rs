@@ -5142,7 +5142,7 @@ impl<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::O
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <SmartCardProvisioning as ::windows::core::Abi>::Abi as *const <SmartCardProvisioning as ::windows::core::DefaultType>::DefaultType), &*(&request as *const <SmartCardPinResetRequest as ::windows::core::Abi>::Abi as *const <SmartCardPinResetRequest as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&request)).into()
     }
 }
 impl ::core::clone::Clone for SmartCardPinResetHandler {

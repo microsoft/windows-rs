@@ -136,7 +136,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ComponentLoadFailedEventArgs as ::windows::core::Abi>::Abi as *const <ComponentLoadFailedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for ComponentLoadFailedEventHandler {
@@ -1233,7 +1233,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::cor
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
     }
 }
 impl ::core::clone::Clone for RebootNeededEventHandler {
@@ -1714,7 +1714,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ServiceRequestedEventArgs as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for ServiceRequestedEventHandler {

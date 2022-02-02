@@ -14,12 +14,12 @@ impl IAppBarOverrides_Vtbl {
         unsafe extern "system" fn OnClosed<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnClosed(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnClosed(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnOpened<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOpened(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnOpened(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarOverrides, OFFSET>(),
@@ -47,12 +47,12 @@ impl IAppBarOverrides3_Vtbl {
         unsafe extern "system" fn OnClosing<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarOverrides3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnClosing(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnClosing(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnOpening<Identity: ::windows::core::IUnknownImpl, Impl: IAppBarOverrides3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOpening(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnOpening(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IAppBarOverrides3, OFFSET>(),
@@ -80,12 +80,12 @@ impl IComboBoxOverrides_Vtbl {
         unsafe extern "system" fn OnDropDownClosed<Identity: ::windows::core::IUnknownImpl, Impl: IComboBoxOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDropDownClosed(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDropDownClosed(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDropDownOpened<Identity: ::windows::core::IUnknownImpl, Impl: IComboBoxOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDropDownOpened(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDropDownOpened(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IComboBoxOverrides, OFFSET>(),
@@ -202,17 +202,17 @@ impl IContentControlOverrides_Vtbl {
         unsafe extern "system" fn OnContentChanged<Identity: ::windows::core::IUnknownImpl, Impl: IContentControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontent: *mut ::core::ffi::c_void, newcontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnContentChanged(&*(&oldcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&newcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnContentChanged(::core::mem::transmute(&oldcontent), ::core::mem::transmute(&newcontent)).into()
         }
         unsafe extern "system" fn OnContentTemplateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IContentControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontenttemplate: ::windows::core::RawPtr, newcontenttemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnContentTemplateChanged(&*(&oldcontenttemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType), &*(&newcontenttemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnContentTemplateChanged(::core::mem::transmute(&oldcontenttemplate), ::core::mem::transmute(&newcontenttemplate)).into()
         }
         unsafe extern "system" fn OnContentTemplateSelectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IContentControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontenttemplateselector: ::windows::core::RawPtr, newcontenttemplateselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnContentTemplateSelectorChanged(&*(&oldcontenttemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType), &*(&newcontenttemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnContentTemplateSelectorChanged(::core::mem::transmute(&oldcontenttemplateselector), ::core::mem::transmute(&newcontenttemplateselector)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IContentControlOverrides, OFFSET>(),
@@ -241,12 +241,12 @@ impl IContentPresenterOverrides_Vtbl {
         unsafe extern "system" fn OnContentTemplateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IContentPresenterOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontenttemplate: ::windows::core::RawPtr, newcontenttemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnContentTemplateChanged(&*(&oldcontenttemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType), &*(&newcontenttemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnContentTemplateChanged(::core::mem::transmute(&oldcontenttemplate), ::core::mem::transmute(&newcontenttemplate)).into()
         }
         unsafe extern "system" fn OnContentTemplateSelectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IContentPresenterOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontenttemplateselector: ::windows::core::RawPtr, newcontenttemplateselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnContentTemplateSelectorChanged(&*(&oldcontenttemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType), &*(&newcontenttemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnContentTemplateSelectorChanged(::core::mem::transmute(&oldcontenttemplateselector), ::core::mem::transmute(&newcontenttemplateselector)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IContentPresenterOverrides, OFFSET>(),
@@ -346,127 +346,127 @@ impl IControlOverrides_Vtbl {
         unsafe extern "system" fn OnPointerEntered<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerEntered(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerEntered(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerPressed<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerPressed(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerPressed(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerMoved<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerMoved(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerMoved(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerReleased<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerReleased(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerReleased(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerExited<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerExited(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerExited(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerCaptureLost<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerCaptureLost(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerCaptureLost(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerCanceled<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerCanceled(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerCanceled(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPointerWheelChanged<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPointerWheelChanged(&*(&e as *const <super::Input::PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPointerWheelChanged(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnTapped<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnTapped(&*(&e as *const <super::Input::TappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::TappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnTapped(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDoubleTapped<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDoubleTapped(&*(&e as *const <super::Input::DoubleTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::DoubleTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDoubleTapped(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnHolding<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnHolding(&*(&e as *const <super::Input::HoldingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::HoldingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnHolding(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnRightTapped<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnRightTapped(&*(&e as *const <super::Input::RightTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::RightTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnRightTapped(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnManipulationStarting<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnManipulationStarting(&*(&e as *const <super::Input::ManipulationStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::ManipulationStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnManipulationStarting(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnManipulationInertiaStarting<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnManipulationInertiaStarting(&*(&e as *const <super::Input::ManipulationInertiaStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::ManipulationInertiaStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnManipulationInertiaStarting(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnManipulationStarted<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnManipulationStarted(&*(&e as *const <super::Input::ManipulationStartedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::ManipulationStartedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnManipulationStarted(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnManipulationDelta<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnManipulationDelta(&*(&e as *const <super::Input::ManipulationDeltaRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::ManipulationDeltaRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnManipulationDelta(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnManipulationCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnManipulationCompleted(&*(&e as *const <super::Input::ManipulationCompletedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::ManipulationCompletedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnManipulationCompleted(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnKeyUp<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnKeyUp(&*(&e as *const <super::Input::KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnKeyUp(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnKeyDown<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnKeyDown(&*(&e as *const <super::Input::KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnKeyDown(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnGotFocus<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnGotFocus(&*(&e as *const <super::RoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::RoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnGotFocus(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnLostFocus<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnLostFocus(&*(&e as *const <super::RoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::RoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnLostFocus(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDragEnter<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDragEnter(&*(&e as *const <super::DragEventArgs as ::windows::core::Abi>::Abi as *const <super::DragEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDragEnter(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDragLeave<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDragLeave(&*(&e as *const <super::DragEventArgs as ::windows::core::Abi>::Abi as *const <super::DragEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDragLeave(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDragOver<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDragOver(&*(&e as *const <super::DragEventArgs as ::windows::core::Abi>::Abi as *const <super::DragEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDragOver(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnDrop<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDrop(&*(&e as *const <super::DragEventArgs as ::windows::core::Abi>::Abi as *const <super::DragEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnDrop(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IControlOverrides, OFFSET>(),
@@ -523,17 +523,17 @@ impl IControlOverrides6_Vtbl {
         unsafe extern "system" fn OnPreviewKeyDown<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPreviewKeyDown(&*(&e as *const <super::Input::KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPreviewKeyDown(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnPreviewKeyUp<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPreviewKeyUp(&*(&e as *const <super::Input::KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnPreviewKeyUp(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnCharacterReceived<Identity: ::windows::core::IUnknownImpl, Impl: IControlOverrides6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnCharacterReceived(&*(&e as *const <super::Input::CharacterReceivedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <super::Input::CharacterReceivedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnCharacterReceived(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IControlOverrides6, OFFSET>(),
@@ -557,7 +557,7 @@ impl IDataTemplateSelectorOverrides_Vtbl {
         unsafe extern "system" fn SelectTemplateCore<Identity: ::windows::core::IUnknownImpl, Impl: IDataTemplateSelectorOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, container: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SelectTemplateCore(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&container as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).SelectTemplateCore(::core::mem::transmute(&item), ::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -586,7 +586,7 @@ impl IDataTemplateSelectorOverrides2_Vtbl {
         unsafe extern "system" fn SelectTemplateForItemCore<Identity: ::windows::core::IUnknownImpl, Impl: IDataTemplateSelectorOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SelectTemplateForItemCore(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).SelectTemplateForItemCore(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -615,7 +615,7 @@ impl IGroupStyleSelectorOverrides_Vtbl {
         unsafe extern "system" fn SelectGroupStyleCore<Identity: ::windows::core::IUnknownImpl, Impl: IGroupStyleSelectorOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: *mut ::core::ffi::c_void, level: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SelectGroupStyleCore(&*(&group as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), level) {
+            match (*this).SelectGroupStyleCore(::core::mem::transmute(&group), level) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -647,7 +647,7 @@ impl IInkToolbarCustomPenOverrides_Vtbl {
         unsafe extern "system" fn CreateInkDrawingAttributesCore<Identity: ::windows::core::IUnknownImpl, Impl: IInkToolbarCustomPenOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brush: ::windows::core::RawPtr, strokewidth: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateInkDrawingAttributesCore(&*(&brush as *const <super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::Media::Brush as ::windows::core::DefaultType>::DefaultType), strokewidth) {
+            match (*this).CreateInkDrawingAttributesCore(::core::mem::transmute(&brush), strokewidth) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -679,7 +679,7 @@ impl IInsertionPanel_Vtbl {
         unsafe extern "system" fn GetInsertionIndexes<Identity: ::windows::core::IUnknownImpl, Impl: IInsertionPanel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, first: *mut i32, second: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetInsertionIndexes(&*(&position as *const <super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&first), ::core::mem::transmute_copy(&second)).into()
+            (*this).GetInsertionIndexes(::core::mem::transmute(&position), ::core::mem::transmute_copy(&first), ::core::mem::transmute_copy(&second)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IInsertionPanel, OFFSET>(),
@@ -704,7 +704,7 @@ impl IItemContainerMapping_Vtbl {
         unsafe extern "system" fn ItemFromContainer<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, container: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemFromContainer(&*(&container as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).ItemFromContainer(::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -716,7 +716,7 @@ impl IItemContainerMapping_Vtbl {
         unsafe extern "system" fn ContainerFromItem<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ContainerFromItem(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).ContainerFromItem(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -728,7 +728,7 @@ impl IItemContainerMapping_Vtbl {
         unsafe extern "system" fn IndexFromContainer<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, container: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexFromContainer(&*(&container as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).IndexFromContainer(::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -797,7 +797,7 @@ impl IItemsControlOverrides_Vtbl {
         unsafe extern "system" fn IsItemItsOwnContainerOverride<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsItemItsOwnContainerOverride(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).IsItemItsOwnContainerOverride(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -821,42 +821,42 @@ impl IItemsControlOverrides_Vtbl {
         unsafe extern "system" fn ClearContainerForItemOverride<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, item: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearContainerForItemOverride(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).ClearContainerForItemOverride(::core::mem::transmute(&element), ::core::mem::transmute(&item)).into()
         }
         unsafe extern "system" fn PrepareContainerForItemOverride<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, item: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PrepareContainerForItemOverride(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).PrepareContainerForItemOverride(::core::mem::transmute(&element), ::core::mem::transmute(&item)).into()
         }
         unsafe extern "system" fn OnItemsChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemsChanged(&*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemsChanged(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnItemContainerStyleChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olditemcontainerstyle: ::windows::core::RawPtr, newitemcontainerstyle: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemContainerStyleChanged(&*(&olditemcontainerstyle as *const <super::Style as ::windows::core::Abi>::Abi as *const <super::Style as ::windows::core::DefaultType>::DefaultType), &*(&newitemcontainerstyle as *const <super::Style as ::windows::core::Abi>::Abi as *const <super::Style as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemContainerStyleChanged(::core::mem::transmute(&olditemcontainerstyle), ::core::mem::transmute(&newitemcontainerstyle)).into()
         }
         unsafe extern "system" fn OnItemContainerStyleSelectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olditemcontainerstyleselector: ::windows::core::RawPtr, newitemcontainerstyleselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemContainerStyleSelectorChanged(&*(&olditemcontainerstyleselector as *const <StyleSelector as ::windows::core::Abi>::Abi as *const <StyleSelector as ::windows::core::DefaultType>::DefaultType), &*(&newitemcontainerstyleselector as *const <StyleSelector as ::windows::core::Abi>::Abi as *const <StyleSelector as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemContainerStyleSelectorChanged(::core::mem::transmute(&olditemcontainerstyleselector), ::core::mem::transmute(&newitemcontainerstyleselector)).into()
         }
         unsafe extern "system" fn OnItemTemplateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olditemtemplate: ::windows::core::RawPtr, newitemtemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemTemplateChanged(&*(&olditemtemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType), &*(&newitemtemplate as *const <super::DataTemplate as ::windows::core::Abi>::Abi as *const <super::DataTemplate as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemTemplateChanged(::core::mem::transmute(&olditemtemplate), ::core::mem::transmute(&newitemtemplate)).into()
         }
         unsafe extern "system" fn OnItemTemplateSelectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olditemtemplateselector: ::windows::core::RawPtr, newitemtemplateselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemTemplateSelectorChanged(&*(&olditemtemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType), &*(&newitemtemplateselector as *const <DataTemplateSelector as ::windows::core::Abi>::Abi as *const <DataTemplateSelector as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemTemplateSelectorChanged(::core::mem::transmute(&olditemtemplateselector), ::core::mem::transmute(&newitemtemplateselector)).into()
         }
         unsafe extern "system" fn OnGroupStyleSelectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsControlOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldgroupstyleselector: ::windows::core::RawPtr, newgroupstyleselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnGroupStyleSelectorChanged(&*(&oldgroupstyleselector as *const <GroupStyleSelector as ::windows::core::Abi>::Abi as *const <GroupStyleSelector as ::windows::core::DefaultType>::DefaultType), &*(&newgroupstyleselector as *const <GroupStyleSelector as ::windows::core::Abi>::Abi as *const <GroupStyleSelector as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnGroupStyleSelectorChanged(::core::mem::transmute(&oldgroupstyleselector), ::core::mem::transmute(&newgroupstyleselector)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IItemsControlOverrides, OFFSET>(),
@@ -890,7 +890,7 @@ impl INavigate_Vtbl {
         unsafe extern "system" fn Navigate<Identity: ::windows::core::IUnknownImpl, Impl: INavigate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Navigate(&*(&sourcepagetype as *const <super::Interop::TypeName as ::windows::core::Abi>::Abi as *const <super::Interop::TypeName as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).Navigate(::core::mem::transmute(&sourcepagetype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -927,17 +927,17 @@ impl IPageOverrides_Vtbl {
         unsafe extern "system" fn OnNavigatedFrom<Identity: ::windows::core::IUnknownImpl, Impl: IPageOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnNavigatedFrom(&*(&e as *const <super::Navigation::NavigationEventArgs as ::windows::core::Abi>::Abi as *const <super::Navigation::NavigationEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnNavigatedFrom(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnNavigatedTo<Identity: ::windows::core::IUnknownImpl, Impl: IPageOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnNavigatedTo(&*(&e as *const <super::Navigation::NavigationEventArgs as ::windows::core::Abi>::Abi as *const <super::Navigation::NavigationEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnNavigatedTo(::core::mem::transmute(&e)).into()
         }
         unsafe extern "system" fn OnNavigatingFrom<Identity: ::windows::core::IUnknownImpl, Impl: IPageOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnNavigatingFrom(&*(&e as *const <super::Navigation::NavigatingCancelEventArgs as ::windows::core::Abi>::Abi as *const <super::Navigation::NavigatingCancelEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnNavigatingFrom(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IPageOverrides, OFFSET>(),
@@ -975,12 +975,12 @@ impl IScrollAnchorProvider_Vtbl {
         unsafe extern "system" fn RegisterAnchorCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IScrollAnchorProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterAnchorCandidate(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).RegisterAnchorCandidate(::core::mem::transmute(&element)).into()
         }
         unsafe extern "system" fn UnregisterAnchorCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IScrollAnchorProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterAnchorCandidate(&*(&element as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).UnregisterAnchorCandidate(::core::mem::transmute(&element)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IScrollAnchorProvider, OFFSET>(),
@@ -1028,7 +1028,7 @@ impl ISemanticZoomInformation_Vtbl {
         unsafe extern "system" fn SetSemanticZoomOwner<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSemanticZoomOwner(&*(&value as *const <SemanticZoom as ::windows::core::Abi>::Abi as *const <SemanticZoom as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetSemanticZoomOwner(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn IsActiveView<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1077,27 +1077,27 @@ impl ISemanticZoomInformation_Vtbl {
         unsafe extern "system" fn MakeVisible<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).MakeVisible(&*(&item as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).MakeVisible(::core::mem::transmute(&item)).into()
         }
         unsafe extern "system" fn StartViewChangeFrom<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartViewChangeFrom(&*(&source as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType), &*(&destination as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).StartViewChangeFrom(::core::mem::transmute(&source), ::core::mem::transmute(&destination)).into()
         }
         unsafe extern "system" fn StartViewChangeTo<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartViewChangeTo(&*(&source as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType), &*(&destination as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).StartViewChangeTo(::core::mem::transmute(&source), ::core::mem::transmute(&destination)).into()
         }
         unsafe extern "system" fn CompleteViewChangeFrom<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CompleteViewChangeFrom(&*(&source as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType), &*(&destination as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).CompleteViewChangeFrom(::core::mem::transmute(&source), ::core::mem::transmute(&destination)).into()
         }
         unsafe extern "system" fn CompleteViewChangeTo<Identity: ::windows::core::IUnknownImpl, Impl: ISemanticZoomInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CompleteViewChangeTo(&*(&source as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType), &*(&destination as *const <SemanticZoomLocation as ::windows::core::Abi>::Abi as *const <SemanticZoomLocation as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).CompleteViewChangeTo(::core::mem::transmute(&source), ::core::mem::transmute(&destination)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, ISemanticZoomInformation, OFFSET>(),
@@ -1131,7 +1131,7 @@ impl IStyleSelectorOverrides_Vtbl {
         unsafe extern "system" fn SelectStyleCore<Identity: ::windows::core::IUnknownImpl, Impl: IStyleSelectorOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, container: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SelectStyleCore(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&container as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).SelectStyleCore(::core::mem::transmute(&item), ::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -1176,17 +1176,17 @@ impl IToggleSwitchOverrides_Vtbl {
         unsafe extern "system" fn OnOnContentChanged<Identity: ::windows::core::IUnknownImpl, Impl: IToggleSwitchOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontent: *mut ::core::ffi::c_void, newcontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOnContentChanged(&*(&oldcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&newcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnOnContentChanged(::core::mem::transmute(&oldcontent), ::core::mem::transmute(&newcontent)).into()
         }
         unsafe extern "system" fn OnOffContentChanged<Identity: ::windows::core::IUnknownImpl, Impl: IToggleSwitchOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontent: *mut ::core::ffi::c_void, newcontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOffContentChanged(&*(&oldcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&newcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnOffContentChanged(::core::mem::transmute(&oldcontent), ::core::mem::transmute(&newcontent)).into()
         }
         unsafe extern "system" fn OnHeaderChanged<Identity: ::windows::core::IUnknownImpl, Impl: IToggleSwitchOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldcontent: *mut ::core::ffi::c_void, newcontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnHeaderChanged(&*(&oldcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&newcontent as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnHeaderChanged(::core::mem::transmute(&oldcontent), ::core::mem::transmute(&newcontent)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IToggleSwitchOverrides, OFFSET>(),
@@ -1222,7 +1222,7 @@ impl IVirtualizingPanelOverrides_Vtbl {
         unsafe extern "system" fn OnItemsChanged<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizingPanelOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemsChanged(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <Primitives::ItemsChangedEventArgs as ::windows::core::Abi>::Abi as *const <Primitives::ItemsChangedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnItemsChanged(::core::mem::transmute(&sender), ::core::mem::transmute(&args)).into()
         }
         unsafe extern "system" fn OnClearChildren<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizingPanelOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1258,7 +1258,7 @@ impl IVirtualizingStackPanelOverrides_Vtbl {
         unsafe extern "system" fn OnCleanUpVirtualizedItem<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizingStackPanelOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnCleanUpVirtualizedItem(&*(&e as *const <CleanUpVirtualizedItemEventArgs as ::windows::core::Abi>::Abi as *const <CleanUpVirtualizedItemEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnCleanUpVirtualizedItem(::core::mem::transmute(&e)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IVirtualizingStackPanelOverrides, OFFSET>(),

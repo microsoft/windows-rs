@@ -1575,7 +1575,7 @@ impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::wind
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&args as *const <Print3DTaskSourceRequestedArgs as ::windows::core::Abi>::Abi as *const <Print3DTaskSourceRequestedArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&args)).into()
     }
 }
 impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {

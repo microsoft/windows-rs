@@ -511,7 +511,7 @@ impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Re
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <CredentialCommand as ::windows::core::Abi>::Abi as *const <CredentialCommand as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&command)).into()
     }
 }
 impl ::core::clone::Clone for CredentialCommandCredentialDeletedHandler {
@@ -1721,7 +1721,7 @@ impl<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Optio
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <WebAccountCommand as ::windows::core::Abi>::Abi as *const <WebAccountCommand as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <WebAccountInvokedArgs as ::windows::core::Abi>::Abi as *const <WebAccountInvokedArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&command), ::core::mem::transmute(&args)).into()
     }
 }
 impl ::core::clone::Clone for WebAccountCommandInvokedHandler {
@@ -1979,7 +1979,7 @@ impl<F: FnMut(&::core::option::Option<WebAccountProviderCommand>) -> ::windows::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <WebAccountProviderCommand as ::windows::core::Abi>::Abi as *const <WebAccountProviderCommand as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&command)).into()
     }
 }
 impl ::core::clone::Clone for WebAccountProviderCommandInvokedHandler {

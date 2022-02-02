@@ -289,7 +289,7 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::core::Abi>::Abi as *const <ThreadPoolTimer as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&timer)).into()
     }
 }
 impl ::core::clone::Clone for TimerDestroyedHandler {
@@ -367,7 +367,7 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::core::Abi>::Abi as *const <ThreadPoolTimer as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&timer)).into()
     }
 }
 impl ::core::clone::Clone for TimerElapsedHandler {
@@ -450,7 +450,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&operation as *const <super::super::Foundation::IAsyncAction as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IAsyncAction as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&operation)).into()
     }
 }
 #[cfg(feature = "Foundation")]

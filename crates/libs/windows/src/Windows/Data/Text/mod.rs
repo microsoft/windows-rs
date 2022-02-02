@@ -611,11 +611,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: ::windows::core::RawPtr, words: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&precedingwords as *const <super::super::Foundation::Collections::IIterable<SelectableWordSegment> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<SelectableWordSegment> as ::windows::core::DefaultType>::DefaultType),
-            &*(&words as *const <super::super::Foundation::Collections::IIterable<SelectableWordSegment> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<SelectableWordSegment> as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1834,7 +1830,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: ::windows::core::RawPtr, words: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&precedingwords as *const <super::super::Foundation::Collections::IIterable<WordSegment> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<WordSegment> as ::windows::core::DefaultType>::DefaultType), &*(&words as *const <super::super::Foundation::Collections::IIterable<WordSegment> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<WordSegment> as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]

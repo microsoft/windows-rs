@@ -126,7 +126,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::core::Abi>::Abi as *const <ProximityDevice as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
     }
 }
 impl ::core::clone::Clone for DeviceArrivedEventHandler {
@@ -204,7 +204,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::core::Abi>::Abi as *const <ProximityDevice as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
     }
 }
 impl ::core::clone::Clone for DeviceDepartedEventHandler {
@@ -573,7 +573,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, message: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::core::Abi>::Abi as *const <ProximityDevice as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <ProximityMessage as ::windows::core::Abi>::Abi as *const <ProximityMessage as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&message)).into()
     }
 }
 impl ::core::clone::Clone for MessageReceivedHandler {
@@ -651,7 +651,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core:
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, messageid: i64) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::core::Abi>::Abi as *const <ProximityDevice as ::windows::core::DefaultType>::DefaultType), messageid).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), messageid).into()
     }
 }
 impl ::core::clone::Clone for MessageTransmittedHandler {

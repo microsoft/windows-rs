@@ -25,7 +25,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         unsafe extern "system" fn SetPlaybackSource<Identity: ::windows::core::IUnknownImpl, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlaybackSource(&*(&source as *const <IMediaPlaybackSource as ::windows::core::Abi>::Abi as *const <IMediaPlaybackSource as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetPlaybackSource(::core::mem::transmute(&source)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),

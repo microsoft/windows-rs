@@ -1188,7 +1188,7 @@ impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCa
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType), reason).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), reason).into()
     }
 }
 impl ::core::clone::Clone for BackgroundTaskCanceledEventHandler {
@@ -1395,7 +1395,7 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <BackgroundTaskRegistration as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistration as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <BackgroundTaskCompletedEventArgs as ::windows::core::Abi>::Abi as *const <BackgroundTaskCompletedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&args)).into()
     }
 }
 impl ::core::clone::Clone for BackgroundTaskCompletedEventHandler {
@@ -1640,7 +1640,7 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <BackgroundTaskRegistration as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistration as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <BackgroundTaskProgressEventArgs as ::windows::core::Abi>::Abi as *const <BackgroundTaskProgressEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&args)).into()
     }
 }
 impl ::core::clone::Clone for BackgroundTaskProgressEventHandler {
