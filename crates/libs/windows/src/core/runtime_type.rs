@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: DefaultType is only for WinRT types so just merge it into the RuntimeType trait. 
 pub trait DefaultType: Sized + Clone + PartialEq {
     type DefaultType: Sized + Clone + PartialEq;
 
