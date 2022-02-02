@@ -167,7 +167,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
         }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn GetMany(&self, items: &mut [T]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1109,7 +1109,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [T]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1117,7 +1117,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn ReplaceAll(&self, items: &[T]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1551,7 +1551,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [T]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1559,7 +1559,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn ReplaceAll(&self, items: &[T]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1832,7 +1832,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
         }
     }
     #[doc = "*Required features: 'Foundation_Collections'*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [T]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
