@@ -9,7 +9,10 @@ pub struct AgileReference<T>(IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
-    pub fn new<'a, O: IntoParam<'a, IUnknown>>(object: O) -> Result<Self> {
+    pub fn new<'a>(object: &'a T) -> Result<Self>
+    where
+        &'a T: IntoParam<'a, IUnknown>,
+    {
         unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object).map(|reference| Self(reference, Default::default())) }
     }
 

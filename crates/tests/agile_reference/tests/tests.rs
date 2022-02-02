@@ -4,7 +4,7 @@ use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 #[test]
 fn test() -> Result<()> {
     let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.get()?;
-    let reference = AgileReference::<GlobalSystemMediaTransportControlsSessionManager>::new(&manager)?;
+    let reference = AgileReference::new(&manager)?;
 
     let handle = std::thread::spawn(move || {
         let manager = reference.resolve()?;
