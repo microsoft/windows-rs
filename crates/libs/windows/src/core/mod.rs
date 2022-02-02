@@ -1,5 +1,6 @@
 mod abi;
 mod activation_factory;
+mod agile_reference;
 mod array;
 pub(crate) mod bindings;
 mod compose;
@@ -28,6 +29,7 @@ mod weak_ref_count;
 pub use abi::*;
 #[doc(hidden)]
 pub use activation_factory::*;
+pub use agile_reference::*;
 pub use array::*;
 #[doc(hidden)]
 pub use compose::*;

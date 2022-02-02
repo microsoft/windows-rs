@@ -2098,6 +2098,98 @@ pub unsafe fn WaitForSingleObject<'a, Param0: ::windows::core::IntoParam<'a, HAN
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
+pub struct IAgileReference(::windows::core::IUnknown);
+impl IAgileReference {
+    pub unsafe fn Resolve<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).Resolve)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+}
+impl ::core::convert::From<IAgileReference> for ::windows::core::IUnknown {
+    fn from(value: IAgileReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IAgileReference> for ::windows::core::IUnknown {
+    fn from(value: &IAgileReference) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAgileReference {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAgileReference {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IAgileReference {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IAgileReference {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAgileReference {}
+impl ::core::fmt::Debug for IAgileReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAgileReference").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAgileReference {
+    type Vtable = IAgileReference_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAgileReference_Vtbl {
+    pub base: ::windows::core::IUnknownVtbl,
+    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AgileReferenceOptions(pub i32);
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
+pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
+impl ::core::marker::Copy for AgileReferenceOptions {}
+impl ::core::clone::Clone for AgileReferenceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AgileReferenceOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AgileReferenceOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AgileReferenceOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
+    }
+}
+#[inline]
+pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+        }
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        RoGetAgileReference(::core::mem::transmute(options), ::core::mem::transmute(riid), punk.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAgileReference>(result__)
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
