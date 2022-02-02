@@ -3,7 +3,7 @@ pub trait ISmsBinaryMessage_Impl: Sized + ISmsMessage_Impl {
     fn Format(&mut self) -> ::windows::core::Result<SmsDataFormat>;
     fn SetFormat(&mut self, value: SmsDataFormat) -> ::windows::core::Result<()>;
     fn GetData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetData(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, value: &[u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ISmsBinaryMessage {

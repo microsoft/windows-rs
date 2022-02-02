@@ -30,12 +30,12 @@ impl II2cControllerProvider_Vtbl {
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn WritePartial(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn Read(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn ReadPartial(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn WriteRead(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn WriteReadPartial(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn Write(&mut self, buffer: &[u8]) -> ::windows::core::Result<()>;
+    fn WritePartial(&mut self, buffer: &[u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn Read(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn ReadPartial(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn WriteRead(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn WriteReadPartial(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for II2cDeviceProvider {

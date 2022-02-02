@@ -28,7 +28,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     }
 }
 pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized {
-    fn CallExtension(&mut self, extensionid: &::windows::core::GUID, context: &::core::option::Option<CoreAutomationRemoteOperationContext>, operandids: &[<AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn CallExtension(&mut self, extensionid: &::windows::core::GUID, context: &::core::option::Option<CoreAutomationRemoteOperationContext>, operandids: &[AutomationRemoteOperationOperandId]) -> ::windows::core::Result<()>;
     fn IsExtensionSupported(&mut self, extensionid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvider {

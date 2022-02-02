@@ -283,7 +283,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
     }
 }
 pub trait IVpnInterfaceIdFactory_Impl: Sized {
-    fn CreateVpnInterfaceId(&mut self, address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId>;
+    fn CreateVpnInterfaceId(&mut self, address: &[u8]) -> ::windows::core::Result<VpnInterfaceId>;
 }
 impl ::windows::core::RuntimeName for IVpnInterfaceIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";

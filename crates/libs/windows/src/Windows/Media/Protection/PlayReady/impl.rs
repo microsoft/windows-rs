@@ -109,7 +109,7 @@ impl INDCustomData_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDDownloadEngine_Impl: Sized {
-    fn Open(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Open(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows::core::Result<()>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
@@ -219,9 +219,9 @@ impl INDDownloadEngine_Vtbl {
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngineNotifier_Impl: Sized {
     fn OnStreamOpened(&mut self) -> ::windows::core::Result<()>;
-    fn OnPlayReadyObjectReceived(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnPlayReadyObjectReceived(&mut self, databytes: &[u8]) -> ::windows::core::Result<()>;
     fn OnContentIDReceived(&mut self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
-    fn OnDataReceived(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], bytesreceived: u32) -> ::windows::core::Result<()>;
+    fn OnDataReceived(&mut self, databytes: &[u8], bytesreceived: u32) -> ::windows::core::Result<()>;
     fn OnEndOfStream(&mut self) -> ::windows::core::Result<()>;
     fn OnNetworkError(&mut self) -> ::windows::core::Result<()>;
 }
@@ -410,10 +410,10 @@ impl INDLicenseFetchResult_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDMessenger_Impl: Sized {
-    fn SendRegistrationRequestAsync(&mut self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionStartAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionResponseAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendLicenseFetchRequestAsync(&mut self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendRegistrationRequestAsync(&mut self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionStartAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionResponseAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendLicenseFetchRequestAsync(&mut self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDMessenger {
@@ -674,7 +674,7 @@ impl INDStorageFileHelper_Vtbl {
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParser_Impl: Sized {
-    fn ParseData(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ParseData(&mut self, databytes: &[u8]) -> ::windows::core::Result<()>;
     fn GetStreamInformation(&mut self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>;
     fn BeginOfStream(&mut self) -> ::windows::core::Result<()>;
     fn EndOfStream(&mut self) -> ::windows::core::Result<()>;
@@ -743,8 +743,8 @@ impl INDStreamParser_Vtbl {
 pub trait INDStreamParserNotifier_Impl: Sized {
     fn OnContentIDReceived(&mut self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
     fn OnMediaStreamDescriptorCreated(&mut self, audiostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn OnSampleParsed(&mut self, streamid: u32, streamtype: NDMediaStreamType, streamsample: &::core::option::Option<super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn OnBeginSetupDecryptor(&mut self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnSampleParsed(&mut self, streamid: u32, streamtype: NDMediaStreamType, streamsample: &::core::option::Option<super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows::core::Result<()>;
+    fn OnBeginSetupDecryptor(&mut self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStreamParserNotifier {
@@ -1391,7 +1391,7 @@ pub trait IPlayReadyServiceRequest_Impl: Sized + super::IMediaProtectionServiceR
     fn BeginServiceRequest(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn NextServiceRequest(&mut self) -> ::windows::core::Result<IPlayReadyServiceRequest>;
     fn GenerateManualEnablingChallenge(&mut self) -> ::windows::core::Result<PlayReadySoapMessage>;
-    fn ProcessManualEnablingResponse(&mut self, responsebytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ProcessManualEnablingResponse(&mut self, responsebytes: &[u8]) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadyServiceRequest {

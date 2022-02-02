@@ -361,8 +361,8 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
     }
 }
 
-pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
-    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param, gen));
+pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
+    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param));
 
     match &sig.return_sig {
         Some(return_sig) if return_sig.is_array => {
@@ -406,7 +406,7 @@ fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     }
 }
 
-fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
+fn gen_winrt_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
 
     if param.signature.is_array {
@@ -505,18 +505,20 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
 
     let sig = if param.signature.is_array {
         if param.signature.by_ref {
-            result.combine(&quote! { &mut ::windows::core::Array<#kind> });
+            quote! { &mut ::windows::core::Array<#kind> }
         } else {
-            let kind = if param.signature.kind.is_nullable() {
+            let kind = if let ElementType::GenericParam(_) = param.signature.kind {
+                quote! { <#kind as ::windows::core::DefaultType>::DefaultType }
+            } else if param.signature.kind.is_nullable() {
                 quote! { ::core::option::Option<#kind> }
             } else {
                 kind
             };
 
             if param.param.is_input() {
-                result.combine(&quote! { &[#kind] });
+                quote! { &[#kind] }
             } else {
-                result.combine(&quote! { &mut [#kind] });
+                quote! { &mut [#kind] }
             }
         }
     } else if param.param.is_input() {

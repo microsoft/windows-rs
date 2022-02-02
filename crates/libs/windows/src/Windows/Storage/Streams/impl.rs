@@ -84,7 +84,7 @@ pub trait IDataReader_Impl: Sized {
     fn InputStreamOptions(&mut self) -> ::windows::core::Result<InputStreamOptions>;
     fn SetInputStreamOptions(&mut self, value: InputStreamOptions) -> ::windows::core::Result<()>;
     fn ReadByte(&mut self) -> ::windows::core::Result<u8>;
-    fn ReadBytes(&mut self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ReadBytes(&mut self, value: &mut [u8]) -> ::windows::core::Result<()>;
     fn ReadBuffer(&mut self, length: u32) -> ::windows::core::Result<IBuffer>;
     fn ReadBoolean(&mut self) -> ::windows::core::Result<bool>;
     fn ReadGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -436,7 +436,7 @@ pub trait IDataWriter_Impl: Sized {
     fn ByteOrder(&mut self) -> ::windows::core::Result<ByteOrder>;
     fn SetByteOrder(&mut self, value: ByteOrder) -> ::windows::core::Result<()>;
     fn WriteByte(&mut self, value: u8) -> ::windows::core::Result<()>;
-    fn WriteBytes(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn WriteBytes(&mut self, value: &[u8]) -> ::windows::core::Result<()>;
     fn WriteBuffer(&mut self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
     fn WriteBufferRange(&mut self, buffer: &::core::option::Option<IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
     fn WriteBoolean(&mut self, value: bool) -> ::windows::core::Result<()>;

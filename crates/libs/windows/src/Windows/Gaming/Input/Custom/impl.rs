@@ -157,7 +157,7 @@ impl IGameControllerProvider_Vtbl {
 }
 pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnKeyReceived(&mut self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
-    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGipGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerInputSink";
@@ -185,7 +185,7 @@ impl IGipGameControllerInputSink_Vtbl {
     }
 }
 pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IHidGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerInputSink";
@@ -207,7 +207,7 @@ impl IHidGameControllerInputSink_Vtbl {
     }
 }
 pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXusbGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";
