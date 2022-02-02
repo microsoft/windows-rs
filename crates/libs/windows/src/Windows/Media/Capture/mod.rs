@@ -12372,7 +12372,7 @@ impl<F: FnMut(&::core::option::Option<MediaCapture>, &::core::option::Option<Med
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, erroreventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaCapture as ::windows::core::Abi>::Abi as *const <MediaCapture as ::windows::core::DefaultType>::DefaultType), &*(&erroreventargs as *const <MediaCaptureFailedEventArgs as ::windows::core::Abi>::Abi as *const <MediaCaptureFailedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&erroreventargs)).into()
     }
 }
 impl ::core::clone::Clone for MediaCaptureFailedEventHandler {
@@ -14217,7 +14217,7 @@ impl<F: FnMut(&::core::option::Option<MediaCapture>) -> ::windows::core::Result<
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaCapture as ::windows::core::Abi>::Abi as *const <MediaCapture as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
     }
 }
 impl ::core::clone::Clone for RecordLimitationExceededEventHandler {

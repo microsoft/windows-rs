@@ -6600,7 +6600,7 @@ impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&e as *const <IdleDispatchedHandlerArgs as ::windows::core::Abi>::Abi as *const <IdleDispatchedHandlerArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for IdleDispatchedHandler {
@@ -7263,7 +7263,7 @@ impl TouchHitTestingEventArgs {
     }
     #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CoreProximityEvaluation> {
+    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[super::super::Foundation::Point]) -> ::windows::core::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
             let mut result__: CoreProximityEvaluation = ::core::mem::zeroed();

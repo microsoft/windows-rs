@@ -2036,7 +2036,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, event: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <IObservableMap<K, V> as ::windows::core::Abi>::Abi as *const <IObservableMap<K, V> as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <IMapChangedEventArgs<K> as ::windows::core::Abi>::Abi as *const <IMapChangedEventArgs<K> as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for MapChangedEventHandler<K, V> {
@@ -2872,7 +2872,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, event: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <IObservableVector<T> as ::windows::core::Abi>::Abi as *const <IObservableVector<T> as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <IVectorChangedEventArgs as ::windows::core::Abi>::Abi as *const <IVectorChangedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for VectorChangedEventHandler<T> {

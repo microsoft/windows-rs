@@ -24,7 +24,7 @@ impl INavigationTransitionInfoOverrides_Vtbl {
         unsafe extern "system" fn SetNavigationStateCore<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNavigationStateCore(&*(&navigationstate as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetNavigationStateCore(::core::mem::transmute(&navigationstate)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationTransitionInfoOverrides, OFFSET>(),

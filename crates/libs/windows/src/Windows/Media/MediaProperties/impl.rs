@@ -39,7 +39,7 @@ impl IMediaEncodingProperties_Vtbl {
         unsafe extern "system" fn SetSubtype<Identity: ::windows::core::IUnknownImpl, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSubtype(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetSubtype(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Subtype<Identity: ::windows::core::IUnknownImpl, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

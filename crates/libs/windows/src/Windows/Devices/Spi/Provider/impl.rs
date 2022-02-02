@@ -9,7 +9,7 @@ impl ISpiControllerProvider_Vtbl {
         unsafe extern "system" fn GetDeviceProvider<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDeviceProvider(&*(&settings as *const <ProviderSpiConnectionSettings as ::windows::core::Abi>::Abi as *const <ProviderSpiConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).GetDeviceProvider(::core::mem::transmute(&settings)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -31,10 +31,10 @@ impl ISpiControllerProvider_Vtbl {
 pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ConnectionSettings(&mut self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
-    fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn Read(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn TransferSequential(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn TransferFullDuplex(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Write(&mut self, buffer: &[u8]) -> ::windows::core::Result<()>;
+    fn Read(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn TransferSequential(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn TransferFullDuplex(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISpiDeviceProvider {

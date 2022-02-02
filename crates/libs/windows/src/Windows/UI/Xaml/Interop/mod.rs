@@ -45,7 +45,7 @@ impl<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::optio
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, vector: ::windows::core::RawPtr, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&vector as *const <IBindableObservableVector as ::windows::core::Abi>::Abi as *const <IBindableObservableVector as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&vector), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for BindableVectorChangedEventHandler {
@@ -1115,7 +1115,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <NotifyCollectionChangedEventArgs as ::windows::core::Abi>::Abi as *const <NotifyCollectionChangedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for NotifyCollectionChangedEventHandler {

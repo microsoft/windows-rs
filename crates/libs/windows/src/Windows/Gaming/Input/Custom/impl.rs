@@ -11,7 +11,7 @@ impl ICustomGameControllerFactory_Vtbl {
         unsafe extern "system" fn CreateGameController<Identity: ::windows::core::IUnknownImpl, Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateGameController(&*(&provider as *const <IGameControllerProvider as ::windows::core::Abi>::Abi as *const <IGameControllerProvider as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).CreateGameController(::core::mem::transmute(&provider)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -23,12 +23,12 @@ impl ICustomGameControllerFactory_Vtbl {
         unsafe extern "system" fn OnGameControllerAdded<Identity: ::windows::core::IUnknownImpl, Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnGameControllerAdded(&*(&value as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnGameControllerAdded(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn OnGameControllerRemoved<Identity: ::windows::core::IUnknownImpl, Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnGameControllerRemoved(&*(&value as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).OnGameControllerRemoved(::core::mem::transmute(&value)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, ICustomGameControllerFactory, OFFSET>(),
@@ -157,7 +157,7 @@ impl IGameControllerProvider_Vtbl {
 }
 pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnKeyReceived(&mut self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
-    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGipGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerInputSink";
@@ -185,7 +185,7 @@ impl IGipGameControllerInputSink_Vtbl {
     }
 }
 pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IHidGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerInputSink";
@@ -207,7 +207,7 @@ impl IHidGameControllerInputSink_Vtbl {
     }
 }
 pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXusbGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";

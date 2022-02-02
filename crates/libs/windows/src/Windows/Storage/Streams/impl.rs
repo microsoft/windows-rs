@@ -84,7 +84,7 @@ pub trait IDataReader_Impl: Sized {
     fn InputStreamOptions(&mut self) -> ::windows::core::Result<InputStreamOptions>;
     fn SetInputStreamOptions(&mut self, value: InputStreamOptions) -> ::windows::core::Result<()>;
     fn ReadByte(&mut self) -> ::windows::core::Result<u8>;
-    fn ReadBytes(&mut self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ReadBytes(&mut self, value: &mut [u8]) -> ::windows::core::Result<()>;
     fn ReadBuffer(&mut self, length: u32) -> ::windows::core::Result<IBuffer>;
     fn ReadBoolean(&mut self) -> ::windows::core::Result<bool>;
     fn ReadGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -436,7 +436,7 @@ pub trait IDataWriter_Impl: Sized {
     fn ByteOrder(&mut self) -> ::windows::core::Result<ByteOrder>;
     fn SetByteOrder(&mut self, value: ByteOrder) -> ::windows::core::Result<()>;
     fn WriteByte(&mut self, value: u8) -> ::windows::core::Result<()>;
-    fn WriteBytes(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn WriteBytes(&mut self, value: &[u8]) -> ::windows::core::Result<()>;
     fn WriteBuffer(&mut self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
     fn WriteBufferRange(&mut self, buffer: &::core::option::Option<IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
     fn WriteBoolean(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -524,12 +524,12 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteBuffer(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).WriteBuffer(::core::mem::transmute(&buffer)).into()
         }
         unsafe extern "system" fn WriteBufferRange<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, start: u32, count: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteBufferRange(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType), start, count).into()
+            (*this).WriteBufferRange(::core::mem::transmute(&buffer), start, count).into()
         }
         unsafe extern "system" fn WriteBoolean<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -539,7 +539,7 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteGuid<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteGuid(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).WriteGuid(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn WriteInt16<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -584,17 +584,17 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteDateTime<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteDateTime(&*(&value as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).WriteDateTime(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn WriteTimeSpan<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteTimeSpan(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).WriteTimeSpan(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn WriteString<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WriteString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).WriteString(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -606,7 +606,7 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn MeasureString<Identity: ::windows::core::IUnknownImpl, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).MeasureString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).MeasureString(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -712,7 +712,7 @@ impl IInputStream_Vtbl {
         unsafe extern "system" fn ReadAsync<Identity: ::windows::core::IUnknownImpl, Impl: IInputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, count: u32, options: InputStreamOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ReadAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType), count, options) {
+            match (*this).ReadAsync(::core::mem::transmute(&buffer), count, options) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -774,7 +774,7 @@ impl IOutputStream_Vtbl {
         unsafe extern "system" fn WriteAsync<Identity: ::windows::core::IUnknownImpl, Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WriteAsync(&*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).WriteAsync(::core::mem::transmute(&buffer)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -820,7 +820,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Serialize<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Serialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
+            match (*this).Serialize(::core::mem::transmute(&propertyset)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -832,7 +832,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Deserialize(&*(&propertyset as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <IBuffer as ::windows::core::Abi>::Abi as *const <IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).Deserialize(::core::mem::transmute(&propertyset), ::core::mem::transmute(&buffer)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySetSerializer, OFFSET>(),

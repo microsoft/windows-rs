@@ -1018,7 +1018,7 @@ pub struct IVpnInterfaceId_Vtbl {
 pub struct IVpnInterfaceIdFactory(::windows::core::IUnknown);
 impl IVpnInterfaceIdFactory {
     #[doc = "*Required features: 'Networking_Vpn'*"]
-    pub fn CreateVpnInterfaceId(&self, address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId> {
+    pub fn CreateVpnInterfaceId(&self, address: &[u8]) -> ::windows::core::Result<VpnInterfaceId> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5212,7 +5212,7 @@ impl VpnInterfaceId {
         unsafe { (::windows::core::Interface::vtable(this).GetAddressInfo)(::core::mem::transmute_copy(this), id.set_abi_len(), id as *mut _ as _).ok() }
     }
     #[doc = "*Required features: 'Networking_Vpn'*"]
-    pub fn CreateVpnInterfaceId(address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId> {
+    pub fn CreateVpnInterfaceId(address: &[u8]) -> ::windows::core::Result<VpnInterfaceId> {
         Self::IVpnInterfaceIdFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateVpnInterfaceId)(::core::mem::transmute_copy(this), address.len() as u32, ::core::mem::transmute(address.as_ptr()), &mut result__).from_abi::<VpnInterfaceId>(result__)

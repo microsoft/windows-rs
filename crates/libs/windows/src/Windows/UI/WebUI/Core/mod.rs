@@ -562,7 +562,7 @@ impl<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> :
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&eventargs as *const <WebUICommandBarSizeChangedEventArgs as ::windows::core::Abi>::Abi as *const <WebUICommandBarSizeChangedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&eventargs)).into()
     }
 }
 impl ::core::clone::Clone for SizeChangedEventHandler {

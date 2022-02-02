@@ -1035,7 +1035,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<(
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::core::Abi>::Abi as *const <CallControl as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
     }
 }
 impl ::core::clone::Clone for CallControlEventHandler {
@@ -1880,7 +1880,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Dial
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::core::Abi>::Abi as *const <CallControl as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <DialRequestedEventArgs as ::windows::core::Abi>::Abi as *const <DialRequestedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for DialRequestedEventHandler {
@@ -5490,7 +5490,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Keyp
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::core::Abi>::Abi as *const <CallControl as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <KeypadPressedEventArgs as ::windows::core::Abi>::Abi as *const <KeypadPressedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for KeypadPressedEventHandler {
@@ -6844,7 +6844,7 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Redi
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::core::Abi>::Abi as *const <CallControl as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <RedialRequestedEventArgs as ::windows::core::Abi>::Abi as *const <RedialRequestedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
 impl ::core::clone::Clone for RedialRequestedEventHandler {
@@ -7725,7 +7725,7 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: 'Media_Devices', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
+    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7733,7 +7733,7 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: 'Media_Devices'*"]
-    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], propertyvalue: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
+    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__: VideoDeviceControllerSetDevicePropertyStatus = ::core::mem::zeroed();

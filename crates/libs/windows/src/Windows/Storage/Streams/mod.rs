@@ -247,7 +247,7 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: 'Storage_Streams'*"]
-    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReadBytes(&self, value: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReadBytes)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute_copy(&value)).ok() }
     }
@@ -826,7 +826,7 @@ impl DataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteByte)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Storage_Streams'*"]
-    pub fn WriteBytes(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn WriteBytes(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteBytes)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
@@ -2241,7 +2241,7 @@ impl IDataReader {
         }
     }
     #[doc = "*Required features: 'Storage_Streams'*"]
-    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReadBytes(&self, value: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReadBytes)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute_copy(&value)).ok() }
     }
@@ -2558,7 +2558,7 @@ impl IDataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteByte)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'Storage_Streams'*"]
-    pub fn WriteBytes(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn WriteBytes(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteBytes)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
