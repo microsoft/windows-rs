@@ -362,7 +362,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
 }
 
 pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
-    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param));
+    let invoke_args = sig.params.iter().map(gen_winrt_invoke_arg);
 
     match &sig.return_sig {
         Some(return_sig) if return_sig.is_array => {
