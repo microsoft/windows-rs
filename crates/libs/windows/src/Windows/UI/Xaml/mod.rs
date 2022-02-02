@@ -3162,7 +3162,7 @@ impl DependencyObjectCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<DependencyObject as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<DependencyObject>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<DependencyObject>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -3171,7 +3171,7 @@ impl DependencyObjectCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<DependencyObject as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<DependencyObject>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<DependencyObject>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -14001,7 +14001,7 @@ impl SetterBaseCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<SetterBase as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<SetterBase>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<SetterBase>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -14010,7 +14010,7 @@ impl SetterBaseCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<SetterBase as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<SetterBase>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<SetterBase>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -15561,7 +15561,7 @@ impl TriggerActionCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<TriggerAction as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<TriggerAction>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -15570,7 +15570,7 @@ impl TriggerActionCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<TriggerAction as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<TriggerAction>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -15909,7 +15909,7 @@ impl TriggerCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<TriggerBase as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<TriggerBase>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -15918,7 +15918,7 @@ impl TriggerCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<TriggerBase as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<TriggerBase>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -18375,7 +18375,7 @@ impl UIElementWeakCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<UIElement as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<UIElement>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<UIElement>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -18384,7 +18384,7 @@ impl UIElementWeakCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<UIElement as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<UIElement>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<UIElement>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }

@@ -6306,7 +6306,7 @@ impl XmlNamedNodeMap {
     }
     #[doc = "*Required features: 'Data_Xml_Dom', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -6556,7 +6556,7 @@ impl XmlNodeList {
     }
     #[doc = "*Required features: 'Data_Xml_Dom', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();

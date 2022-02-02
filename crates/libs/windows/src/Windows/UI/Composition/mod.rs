@@ -7244,7 +7244,7 @@ impl CompositionColorGradientStopCollection {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionColorGradientStop as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CompositionColorGradientStop>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -7253,7 +7253,7 @@ impl CompositionColorGradientStopCollection {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<CompositionColorGradientStop as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionColorGradientStop>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -18060,7 +18060,7 @@ impl CompositionShapeCollection {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionShape as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CompositionShape>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -18069,7 +18069,7 @@ impl CompositionShapeCollection {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<CompositionShape as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionShape>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }

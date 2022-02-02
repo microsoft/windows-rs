@@ -1475,7 +1475,7 @@ impl ICollectionView {
     }
     #[doc = "*Required features: 'UI_Xaml_Data', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<::windows::core::IInspectable>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1484,7 +1484,7 @@ impl ICollectionView {
     }
     #[doc = "*Required features: 'UI_Xaml_Data', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<::windows::core::IInspectable>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }

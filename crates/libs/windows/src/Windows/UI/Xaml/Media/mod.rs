@@ -1322,7 +1322,7 @@ impl BrushCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Brush as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Brush>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1331,7 +1331,7 @@ impl BrushCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<Brush as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<Brush>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -3123,7 +3123,7 @@ impl GeometryCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Geometry as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Geometry>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -3132,7 +3132,7 @@ impl GeometryCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<Geometry as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<Geometry>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -3958,7 +3958,7 @@ impl GradientStopCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<GradientStop as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<GradientStop>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -3967,7 +3967,7 @@ impl GradientStopCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<GradientStop as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<GradientStop>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -8551,7 +8551,7 @@ impl PathFigureCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<PathFigure as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PathFigure>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -8560,7 +8560,7 @@ impl PathFigureCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<PathFigure as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<PathFigure>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -9073,7 +9073,7 @@ impl PathSegmentCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<PathSegment as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PathSegment>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -9082,7 +9082,7 @@ impl PathSegmentCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<PathSegment as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<PathSegment>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -13526,7 +13526,7 @@ impl TimelineMarkerCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<TimelineMarker as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<TimelineMarker>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -13535,7 +13535,7 @@ impl TimelineMarkerCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<TimelineMarker as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<TimelineMarker>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -14092,7 +14092,7 @@ impl TransformCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Transform as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Transform>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -14101,7 +14101,7 @@ impl TransformCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<Transform as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<Transform>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }

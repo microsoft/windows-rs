@@ -629,7 +629,7 @@ impl ResourceCandidateVectorView {
     }
     #[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceCandidate as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ResourceCandidate>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1629,7 +1629,7 @@ impl ResourceMapIterator {
     }
     #[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource> as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [::core::option::Option<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1985,7 +1985,7 @@ impl ResourceMapMapViewIterator {
     }
     #[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap> as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [::core::option::Option<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -2763,7 +2763,7 @@ impl ResourceQualifierVectorView {
     }
     #[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceQualifier as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ResourceQualifier>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();

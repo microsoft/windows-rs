@@ -3205,7 +3205,7 @@ impl MediaPlaybackAudioTrackList {
     }
     #[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<super::Core::AudioTrack as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::AudioTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -6687,7 +6687,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     }
     #[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<super::Core::TimedMetadataTrack as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::TimedMetadataTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -6922,7 +6922,7 @@ impl MediaPlaybackVideoTrackList {
     }
     #[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<super::Core::VideoTrack as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::VideoTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();

@@ -267,7 +267,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                 result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
             } else {
                 let kind = if param.signature.kind.is_nullable() {
-                    quote! { <#kind as ::windows::core::DefaultType>::DefaultType }
+                    quote! { ::core::option::Option<#kind> }
                 } else {
                     kind
                 };

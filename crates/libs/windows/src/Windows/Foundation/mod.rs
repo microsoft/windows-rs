@@ -4222,7 +4222,7 @@ impl PropertyValue {
         })
     }
     #[doc = "*Required features: 'Foundation'*"]
-    pub fn CreateInspectableArray(value: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateInspectableArray(value: &[::core::option::Option<::windows::core::IInspectable>]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInspectableArray)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
@@ -4837,7 +4837,7 @@ impl WwwFormUrlDecoder {
     }
     #[doc = "*Required features: 'Foundation', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<IWwwFormUrlDecoderEntry as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();

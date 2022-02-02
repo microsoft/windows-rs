@@ -311,7 +311,7 @@ impl BlockCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Block as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Block>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -320,7 +320,7 @@ impl BlockCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<Block as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<Block>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1539,7 +1539,7 @@ impl ContentLinkProviderCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ContentLinkProvider as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ContentLinkProvider>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -1548,7 +1548,7 @@ impl ContentLinkProviderCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<ContentLinkProvider as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<ContentLinkProvider>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -4224,7 +4224,7 @@ impl InlineCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Inline as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<Inline>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -4233,7 +4233,7 @@ impl InlineCollection {
     }
     #[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<Inline as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[::core::option::Option<Inline>]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }

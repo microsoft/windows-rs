@@ -423,10 +423,8 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
-        } else if param.signature.is_const {
-            quote! { &*(#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         } else {
-            quote! { &*(&#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
+            quote! { ::core::mem::transmute_copy(&#name) }
         }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
