@@ -7263,7 +7263,7 @@ impl TouchHitTestingEventArgs {
     }
     #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CoreProximityEvaluation> {
+    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[super::super::Foundation::Point]) -> ::windows::core::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
             let mut result__: CoreProximityEvaluation = ::core::mem::zeroed();

@@ -263,12 +263,20 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
         let kind = gen_element_name(&param.signature.kind, gen);
 
         if param.signature.is_array {
-            if param.param.is_input() {
-                result.combine(&quote! { #name: &[<#kind as ::windows::core::DefaultType>::DefaultType], });
-            } else if param.signature.by_ref {
+            if param.signature.by_ref {
                 result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
             } else {
-                result.combine(&quote! { #name: &mut [<#kind as ::windows::core::DefaultType>::DefaultType], });
+                let kind = if param.signature.kind.is_nullable() {
+                    quote! { <#kind as ::windows::core::DefaultType>::DefaultType }
+                } else {
+                    kind
+                };
+
+                if param.param.is_input() {
+                    result.combine(&quote! { #name: &[#kind], });
+                } else {
+                    result.combine(&quote! { #name: &mut [#kind], });
+                }
             }
         } else if param.param.is_input() {
             if param.is_convertible() {

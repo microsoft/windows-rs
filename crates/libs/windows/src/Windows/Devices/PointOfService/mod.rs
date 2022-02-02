@@ -4323,7 +4323,7 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4332,7 +4332,7 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

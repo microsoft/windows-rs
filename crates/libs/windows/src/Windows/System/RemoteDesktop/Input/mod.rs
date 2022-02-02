@@ -63,7 +63,7 @@ impl RemoteTextConnection {
         unsafe { (::windows::core::Interface::vtable(this).UnregisterThread)(::core::mem::transmute_copy(this), threadid).ok() }
     }
     #[doc = "*Required features: 'System_RemoteDesktop_Input'*"]
-    pub fn ReportDataReceived(&self, pdudata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReportDataReceived(&self, pdudata: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::core::mem::transmute_copy(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
@@ -183,7 +183,7 @@ impl RemoteTextConnectionDataHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: 'System_RemoteDesktop_Input'*"]
-    pub fn Invoke(&self, pdudata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> {
+    pub fn Invoke(&self, pdudata: &[u8]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();

@@ -533,7 +533,7 @@ impl CertificateExtension {
         }
     }
     #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
-    pub fn SetValue(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn SetValue(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
@@ -845,7 +845,7 @@ impl CertificateQuery {
         }
     }
     #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
-    pub fn SetThumbprint(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn SetThumbprint(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbprint)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
@@ -1159,7 +1159,7 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
-    pub fn SetCurveParameters(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn SetCurveParameters(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCurveParameters)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }

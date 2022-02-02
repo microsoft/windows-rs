@@ -19059,7 +19059,7 @@ impl CompositionStrokeDashArray {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [f32]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -19068,7 +19068,7 @@ impl CompositionStrokeDashArray {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReplaceAll(&self, items: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[f32]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
@@ -20749,7 +20749,7 @@ impl CompositionVirtualDrawingSurface {
     }
     #[doc = "*Required features: 'UI_Composition', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
-    pub fn Trim(&self, rects: &[<super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
+    pub fn Trim(&self, rects: &[super::super::Graphics::RectInt32]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Trim)(::core::mem::transmute_copy(this), rects.len() as u32, ::core::mem::transmute(rects.as_ptr())).ok() }
     }
@@ -22960,7 +22960,7 @@ impl DelegatedInkTrailVisual {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddTrailPoints(&self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn AddTrailPoints(&self, inkpoints: &[InkTrailPoint]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -22969,7 +22969,7 @@ impl DelegatedInkTrailVisual {
     }
     #[doc = "*Required features: 'UI_Composition', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddTrailPointsWithPrediction(&self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
+    pub fn AddTrailPointsWithPrediction(&self, inkpoints: &[InkTrailPoint], predictedinkpoints: &[InkTrailPoint]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
