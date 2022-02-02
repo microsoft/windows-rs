@@ -1,15 +1,16 @@
-use windows::core::AgileReference;
+use windows::core::{AgileReference, Result};
 use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 
 #[test]
-fn test() {
-    let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().unwrap().get().unwrap();
-    let reference = AgileReference::<GlobalSystemMediaTransportControlsSessionManager>::new(&manager).unwrap();
+fn test() -> Result<()> {
+    let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.get()?;
+    let reference = AgileReference::<GlobalSystemMediaTransportControlsSessionManager>::new(&manager)?;
 
     let handle = std::thread::spawn(move || {
-        let manager = reference.resolve().unwrap();
+        let manager = reference.resolve()?;
 
-        manager.GetSessions().unwrap();
+        manager.GetSessions()?;
+        Ok(())
     });
-    handle.join().unwrap();
+    handle.join().unwrap()
 }
