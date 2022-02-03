@@ -24,7 +24,7 @@ use super::*;
 // }
 
 #[doc(hidden)]
-pub unsafe trait RuntimeType: Abi + PartialEq {
+pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
     const SIGNATURE: ConstBuffer;
     type DefaultType;
 }
