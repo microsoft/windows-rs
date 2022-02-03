@@ -326,6 +326,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSource {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSource;{4c7332ef-d39f-4396-b4d9-043957a7c964})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSource {
     type Vtable = IAdaptiveMediaSource_Vtbl;
@@ -494,6 +495,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceAdvancedSettings {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings;{55db1680-1aeb-47dc-aa08-9a11610ba45a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceAdvancedSettings {
     type Vtable = IAdaptiveMediaSourceAdvancedSettings_Vtbl;
@@ -594,6 +596,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCorrelatedTimes {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes;{05108787-e032-48e1-ab8d-002b0b3051df})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCorrelatedTimes {
     type Vtable = IAdaptiveMediaSourceCorrelatedTimes_Vtbl;
@@ -700,6 +703,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCreationResult {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult;{4686b6b2-800f-4e31-9093-76d4782013e7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCreationResult {
     type Vtable = IAdaptiveMediaSourceCreationResult_Vtbl;
@@ -784,8 +788,6 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for AdaptiveMediaSourceCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
@@ -916,6 +918,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs;{3af64f06-6d9c-494a-b7a9-b3a5dee6ad68})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl;
@@ -1002,8 +1005,6 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
-}
-impl ::windows::core::DefaultType for AdaptiveMediaSourceDiagnosticType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
@@ -1044,6 +1045,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnostics {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnostics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics;{9b24ee68-962e-448c-aebf-b29b56098e23})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnostics {
     type Vtable = IAdaptiveMediaSourceDiagnostics_Vtbl;
@@ -1141,6 +1143,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs;{670c0a44-e04e-4eff-816a-17399f78f4ba})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl;
@@ -1225,8 +1228,6 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
-}
-impl ::windows::core::DefaultType for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
@@ -1338,6 +1339,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadCompletedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs;{19240dc3-5b37-4a1a-8970-d621cb6ca83b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadCompletedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl;
@@ -1505,6 +1507,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadFailedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs;{37739048-f4ab-40a4-b135-c6dfd8bd7ff1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadFailedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl;
@@ -1583,6 +1586,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral;{05c68f64-fa20-4dbd-9821-4bf4c9bf77ab})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedDeferral {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl;
@@ -1741,6 +1745,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs;{c83fdffd-44a9-47a2-bf96-03398b4bfaaf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl;
@@ -1915,6 +1920,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadResult {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult;{f4afdc73-bcee-4a6a-9f0a-fec41e2339b0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadResult {
     type Vtable = IAdaptiveMediaSourceDownloadResult_Vtbl;
@@ -2023,6 +2029,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadStatistics {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics;{a306cefb-e96a-4dff-a9b8-1ae08c01ae98})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadStatistics {
     type Vtable = IAdaptiveMediaSourceDownloadStatistics_Vtbl;
@@ -2120,6 +2127,7 @@ impl ::core::fmt::Debug for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs;{23a29f6d-7dda-4a51-87a9-6fa8c5b292be})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl;
@@ -2203,8 +2211,6 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
-}
-impl ::windows::core::DefaultType for AdaptiveMediaSourceResourceType {
     type DefaultType = Self;
 }
 #[doc(hidden)]

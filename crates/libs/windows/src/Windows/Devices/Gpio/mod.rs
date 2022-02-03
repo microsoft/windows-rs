@@ -29,9 +29,6 @@ unsafe impl ::windows::core::Abi for GpioChangeCount {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for GpioChangeCount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
-}
-#[cfg(feature = "Foundation")]
-impl ::windows::core::DefaultType for GpioChangeCount {
     type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
@@ -138,6 +135,7 @@ impl ::core::fmt::Debug for GpioChangeCounter {
 }
 unsafe impl ::windows::core::RuntimeType for GpioChangeCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeCounter;{cb5ec0de-6801-43ff-803d-4576628a8b26})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioChangeCounter {
     type Vtable = IGpioChangeCounter_Vtbl;
@@ -244,8 +242,6 @@ impl ::core::fmt::Debug for GpioChangePolarity {
 }
 unsafe impl ::windows::core::RuntimeType for GpioChangePolarity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
-}
-impl ::windows::core::DefaultType for GpioChangePolarity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
@@ -400,6 +396,7 @@ impl ::core::fmt::Debug for GpioChangeReader {
 }
 unsafe impl ::windows::core::RuntimeType for GpioChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeReader;{0abc885f-e031-48e8-8590-70de78363c6d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioChangeReader {
     type Vtable = IGpioChangeReader_Vtbl;
@@ -504,9 +501,6 @@ unsafe impl ::windows::core::Abi for GpioChangeRecord {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for GpioChangeRecord {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
-}
-#[cfg(feature = "Foundation")]
-impl ::windows::core::DefaultType for GpioChangeRecord {
     type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
@@ -611,6 +605,7 @@ impl ::core::fmt::Debug for GpioController {
 }
 unsafe impl ::windows::core::RuntimeType for GpioController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioController;{284012e3-7461-469c-a8bc-61d69d08a53c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioController {
     type Vtable = IGpioController_Vtbl;
@@ -693,8 +688,6 @@ impl ::core::fmt::Debug for GpioOpenStatus {
 }
 unsafe impl ::windows::core::RuntimeType for GpioOpenStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
-}
-impl ::windows::core::DefaultType for GpioOpenStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
@@ -806,6 +799,7 @@ impl ::core::fmt::Debug for GpioPin {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPin;{11d9b087-afae-4790-9ee9-e0eac942d201})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioPin {
     type Vtable = IGpioPin_Vtbl;
@@ -917,8 +911,6 @@ impl ::core::fmt::Debug for GpioPinDriveMode {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPinDriveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
-}
-impl ::windows::core::DefaultType for GpioPinDriveMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
@@ -950,8 +942,6 @@ impl ::core::fmt::Debug for GpioPinEdge {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPinEdge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
-}
-impl ::windows::core::DefaultType for GpioPinEdge {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
@@ -983,8 +973,6 @@ impl ::core::fmt::Debug for GpioPinValue {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPinValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
-}
-impl ::windows::core::DefaultType for GpioPinValue {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
@@ -1018,6 +1006,7 @@ impl ::core::fmt::Debug for GpioPinValueChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPinValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPinValueChangedEventArgs;{3137aae1-703d-4059-bd24-b5b25dffb84e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
@@ -1097,8 +1086,6 @@ impl ::core::fmt::Debug for GpioSharingMode {
 }
 unsafe impl ::windows::core::RuntimeType for GpioSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
-}
-impl ::windows::core::DefaultType for GpioSharingMode {
     type DefaultType = Self;
 }
 #[doc(hidden)]

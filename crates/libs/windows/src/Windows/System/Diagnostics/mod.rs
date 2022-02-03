@@ -45,6 +45,7 @@ impl ::core::fmt::Debug for DiagnosticActionResult {
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticActionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_Vtbl;
@@ -129,8 +130,6 @@ impl ::core::fmt::Debug for DiagnosticActionState {
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
-}
-impl ::windows::core::DefaultType for DiagnosticActionState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_Diagnostics'*"]
@@ -200,6 +199,7 @@ impl ::core::fmt::Debug for DiagnosticInvoker {
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticInvoker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_Vtbl;
@@ -621,6 +621,7 @@ impl ::core::fmt::Debug for ProcessCpuUsage {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessCpuUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsage;{0bbb2472-c8bf-423a-a810-b559ae4354e2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessCpuUsage {
     type Vtable = IProcessCpuUsage_Vtbl;
@@ -712,6 +713,7 @@ impl ::core::fmt::Debug for ProcessCpuUsageReport {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessCpuUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsageReport;{8a6d9cac-3987-4e2f-a119-6b5fa214f1b4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_Vtbl;
@@ -891,6 +893,7 @@ impl ::core::fmt::Debug for ProcessDiagnosticInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_Vtbl;
@@ -972,6 +975,7 @@ impl ::core::fmt::Debug for ProcessDiskUsage {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessDiskUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsage;{5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessDiskUsage {
     type Vtable = IProcessDiskUsage_Vtbl;
@@ -1093,6 +1097,7 @@ impl ::core::fmt::Debug for ProcessDiskUsageReport {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessDiskUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_Vtbl;
@@ -1174,6 +1179,7 @@ impl ::core::fmt::Debug for ProcessMemoryUsage {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsage;{f50b229b-827c-42b7-b07c-0e32627e6b3e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_Vtbl;
@@ -1343,6 +1349,7 @@ impl ::core::fmt::Debug for ProcessMemoryUsageReport {
 }
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_Vtbl;
@@ -1424,6 +1431,7 @@ impl ::core::fmt::Debug for SystemCpuUsage {
 }
 unsafe impl ::windows::core::RuntimeType for SystemCpuUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsage;{6037b3ac-02d6-4234-8362-7fe3adc81f5f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemCpuUsage {
     type Vtable = ISystemCpuUsage_Vtbl;
@@ -1524,6 +1532,7 @@ impl ::core::fmt::Debug for SystemCpuUsageReport {
 }
 unsafe impl ::windows::core::RuntimeType for SystemCpuUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsageReport;{2c26d0b2-9483-4f62-ab57-82b29d9719b8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_Vtbl;
@@ -1644,6 +1653,7 @@ impl ::core::fmt::Debug for SystemDiagnosticInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SystemDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_Vtbl;
@@ -1725,6 +1735,7 @@ impl ::core::fmt::Debug for SystemMemoryUsage {
 }
 unsafe impl ::windows::core::RuntimeType for SystemMemoryUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsage;{17ffc595-1702-49cf-aa27-2f0a32591404})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_Vtbl;
@@ -1822,6 +1833,7 @@ impl ::core::fmt::Debug for SystemMemoryUsageReport {
 }
 unsafe impl ::windows::core::RuntimeType for SystemMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_Vtbl;

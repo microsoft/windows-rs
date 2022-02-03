@@ -35,6 +35,7 @@ impl ::core::fmt::Debug for ApplicationDataManager {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Core.ApplicationDataManager;{74d10432-2e99-4000-9a3a-64307e858129})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;

@@ -42,6 +42,7 @@ impl ::core::fmt::Debug for CompositionDebugHeatMaps {
 }
 unsafe impl ::windows::core::RuntimeType for CompositionDebugHeatMaps {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps;{e49c90ac-2ff3-5805-718c-b725ee07650f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_Vtbl;
@@ -156,8 +157,6 @@ impl ::core::ops::Not for CompositionDebugOverdrawContentKinds {
 }
 unsafe impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
-}
-impl ::windows::core::DefaultType for CompositionDebugOverdrawContentKinds {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
@@ -203,6 +202,7 @@ impl ::core::fmt::Debug for CompositionDebugSettings {
 }
 unsafe impl ::windows::core::RuntimeType for CompositionDebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugSettings;{2831987e-1d82-4d38-b7b7-efd11c7bc3d1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_Vtbl;

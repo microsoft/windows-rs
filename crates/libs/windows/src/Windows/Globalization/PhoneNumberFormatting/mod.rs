@@ -110,8 +110,6 @@ impl ::core::fmt::Debug for PhoneNumberFormat {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
-}
-impl ::windows::core::DefaultType for PhoneNumberFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
@@ -214,6 +212,7 @@ impl ::core::fmt::Debug for PhoneNumberFormatter {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter;{1556b49e-bad4-4b4a-900d-4407adb7c981})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
@@ -391,6 +390,7 @@ impl ::core::fmt::Debug for PhoneNumberInfo {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNumberInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo;{1c7ce4dd-c8b4-4ea3-9aef-b342e2c5b417})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;
@@ -498,8 +498,6 @@ impl ::core::fmt::Debug for PhoneNumberMatchResult {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
-}
-impl ::windows::core::DefaultType for PhoneNumberMatchResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
@@ -534,8 +532,6 @@ impl ::core::fmt::Debug for PhoneNumberParseResult {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
-}
-impl ::windows::core::DefaultType for PhoneNumberParseResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
@@ -577,8 +573,6 @@ impl ::core::fmt::Debug for PredictedPhoneNumberKind {
 }
 unsafe impl ::windows::core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
-}
-impl ::windows::core::DefaultType for PredictedPhoneNumberKind {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

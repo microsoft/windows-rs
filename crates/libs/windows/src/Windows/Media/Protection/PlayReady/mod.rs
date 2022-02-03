@@ -194,6 +194,7 @@ impl ::core::fmt::Debug for INDClosedCaptionDataReceivedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4738d29f-c345-4649-8468-b8c5fc357190}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDClosedCaptionDataReceivedEventArgs {
@@ -314,6 +315,7 @@ impl ::core::fmt::Debug for INDCustomData {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDCustomData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDCustomData {
@@ -497,6 +499,7 @@ impl ::core::fmt::Debug for INDDownloadEngine {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDDownloadEngine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d223d65-c4b6-4438-8d46-b96e6d0fb21f}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDDownloadEngine {
@@ -659,6 +662,7 @@ impl ::core::fmt::Debug for INDDownloadEngineNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDDownloadEngineNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d720b4d4-f4b8-4530-a809-9193a571e7fc}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDDownloadEngineNotifier {
@@ -782,6 +786,7 @@ impl ::core::fmt::Debug for INDLicenseFetchCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee30a1a-11b2-4558-8865-e3a516922517}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDLicenseFetchCompletedEventArgs {
@@ -909,6 +914,7 @@ impl ::core::fmt::Debug for INDLicenseFetchDescriptor {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5498d33a-e686-4935-a567-7ca77ad20fa4}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDLicenseFetchDescriptor {
@@ -1043,6 +1049,7 @@ impl ::core::fmt::Debug for INDLicenseFetchResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDLicenseFetchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{21d39698-aa62-45ff-a5ff-8037e5433825}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDLicenseFetchResult {
@@ -1173,6 +1180,7 @@ impl ::core::fmt::Debug for INDMessenger {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDMessenger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d42df95d-a75b-47bf-8249-bc83820da38a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDMessenger {
@@ -1288,6 +1296,7 @@ impl ::core::fmt::Debug for INDProximityDetectionCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDProximityDetectionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a706328-da25-4f8c-9eb7-5d0fc3658bca}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDProximityDetectionCompletedEventArgs {
@@ -1415,6 +1424,7 @@ impl ::core::fmt::Debug for INDRegistrationCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDRegistrationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e39b64d-ab5b-4905-acdc-787a77c6374d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDRegistrationCompletedEventArgs {
@@ -1530,6 +1540,7 @@ impl ::core::fmt::Debug for INDSendResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDSendResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e3685517-a584-479d-90b7-d689c7bf7c80}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDSendResult {
@@ -1633,6 +1644,7 @@ impl ::core::fmt::Debug for INDStartResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStartResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79f6e96e-f50f-4015-8ba4-c2bc344ebd4e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDStartResult {
@@ -1736,6 +1748,7 @@ impl ::core::fmt::Debug for INDStorageFileHelper {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStorageFileHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDStorageFileHelper {
@@ -1866,6 +1879,7 @@ impl ::core::fmt::Debug for INDStreamParser {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStreamParser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0baa198-9796-41c9-8695-59437e67e66a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDStreamParser {
@@ -2000,6 +2014,7 @@ impl ::core::fmt::Debug for INDStreamParserNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDStreamParserNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c167acd0-2ce6-426c-ace5-5e9275fea715}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDStreamParserNotifier {
@@ -2224,6 +2239,7 @@ impl ::core::fmt::Debug for INDTransmitterProperties {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for INDTransmitterProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e536af23-ac4f-4adc-8c66-4ff7c2702dd6}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for INDTransmitterProperties {
@@ -2476,6 +2492,7 @@ impl ::core::fmt::Debug for IPlayReadyDomain {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyDomain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyDomain {
     type Vtable = IPlayReadyDomain_Vtbl;
@@ -2692,6 +2709,7 @@ impl ::core::fmt::Debug for IPlayReadyLicense {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyLicense {
     type Vtable = IPlayReadyLicense_Vtbl;
@@ -2946,6 +2964,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseAcquisitionServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_Vtbl;
@@ -3097,6 +3116,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseSession {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a1723a39-87fa-4fdd-abbb-a9720e845259}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_Vtbl;
@@ -3216,6 +3236,7 @@ impl ::core::fmt::Debug for IPlayReadyLicenseSession2 {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyLicenseSession2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4909be3a-3aed-4656-8ad7-ee0fd7799510}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession2 {
     type Vtable = IPlayReadyLicenseSession2_Vtbl;
@@ -3522,6 +3543,7 @@ impl ::core::fmt::Debug for IPlayReadySecureStopServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadySecureStopServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b5501ee5-01bf-4401-9677-05630a6a4cc8}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_Vtbl;
@@ -3727,6 +3749,7 @@ impl ::core::fmt::Debug for IPlayReadyServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for IPlayReadyServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8bad2836-a703-45a6-a180-76f3565aa725}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPlayReadyServiceRequest {
     type Vtable = IPlayReadyServiceRequest_Vtbl;
@@ -3900,9 +3923,6 @@ impl ::core::fmt::Debug for NDCertificateFeature {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDCertificateFeature {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -3952,9 +3972,6 @@ impl ::core::fmt::Debug for NDCertificatePlatformID {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDCertificatePlatformID {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4005,9 +4022,6 @@ impl ::core::fmt::Debug for NDCertificateType {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDCertificateType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4162,6 +4176,7 @@ impl ::core::fmt::Debug for NDClient {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDClient;{3bd6781b-61b8-46e2-99a5-8abcb6b9f7d6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDClient {
@@ -4258,9 +4273,6 @@ impl ::core::fmt::Debug for NDClosedCaptionFormat {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDClosedCaptionFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4301,9 +4313,6 @@ impl ::core::fmt::Debug for NDContentIDType {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDContentIDType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDContentIDType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4368,6 +4377,7 @@ impl ::core::fmt::Debug for NDCustomData {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCustomData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDCustomData;{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDCustomData {
@@ -4525,6 +4535,7 @@ impl ::core::fmt::Debug for NDDownloadEngineNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDDownloadEngineNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier;{d720b4d4-f4b8-4530-a809-9193a571e7fc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDDownloadEngineNotifier {
@@ -4686,6 +4697,7 @@ impl ::core::fmt::Debug for NDLicenseFetchDescriptor {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDLicenseFetchDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor;{5498d33a-e686-4935-a567-7ca77ad20fa4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDLicenseFetchDescriptor {
@@ -4807,9 +4819,6 @@ impl ::core::fmt::Debug for NDMediaStreamType {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDMediaStreamType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4850,9 +4859,6 @@ impl ::core::fmt::Debug for NDProximityDetectionType {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDProximityDetectionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4892,9 +4898,6 @@ impl ::core::fmt::Debug for NDStartAsyncOptions {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStartAsyncOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for NDStartAsyncOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
@@ -4943,6 +4946,7 @@ impl ::core::fmt::Debug for NDStorageFileHelper {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStorageFileHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStorageFileHelper;{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDStorageFileHelper {
@@ -5088,6 +5092,7 @@ impl ::core::fmt::Debug for NDStreamParserNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStreamParserNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDStreamParserNotifier;{c167acd0-2ce6-426c-ace5-5e9275fea715})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDStreamParserNotifier {
@@ -5252,6 +5257,7 @@ impl ::core::fmt::Debug for NDTCPMessenger {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDTCPMessenger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.NDTCPMessenger;{d42df95d-a75b-47bf-8249-bc83820da38a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDTCPMessenger {
@@ -5498,6 +5504,7 @@ impl ::core::fmt::Debug for PlayReadyContentHeader {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyContentHeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyContentHeader;{9a438a6a-7f4c-452e-88bd-0148c6387a2c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeader_Vtbl;
@@ -5594,8 +5601,6 @@ impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyDecryptorSetup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup;i4)");
-}
-impl ::windows::core::DefaultType for PlayReadyDecryptorSetup {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
@@ -5662,6 +5667,7 @@ impl ::core::fmt::Debug for PlayReadyDomain {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomain;{adcc93ac-97e6-43ef-95e4-d7868f3b16a9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomain {
     type Vtable = IPlayReadyDomain_Vtbl;
@@ -5784,6 +5790,7 @@ impl ::core::fmt::Debug for PlayReadyDomainIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyDomainIterable {
@@ -5950,6 +5957,7 @@ impl ::core::fmt::Debug for PlayReadyDomainIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyDomainIterator {
@@ -6188,6 +6196,7 @@ impl ::core::fmt::Debug for PlayReadyDomainJoinServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainJoinServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest;{171b4a5a-405f-4739-b040-67b9f0c38758})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequest_Vtbl;
@@ -6421,6 +6430,7 @@ impl ::core::fmt::Debug for PlayReadyDomainLeaveServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest;{062d58be-97ad-4917-aa03-46d4c252d464})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequest_Vtbl;
@@ -6546,8 +6556,6 @@ impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for PlayReadyEncryptionAlgorithm {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
@@ -6580,8 +6588,6 @@ impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures;i4)");
-}
-impl ::windows::core::DefaultType for PlayReadyHardwareDRMFeatures {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
@@ -6613,8 +6619,6 @@ impl ::core::fmt::Debug for PlayReadyITADataFormat {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.PlayReadyITADataFormat;i4)");
-}
-impl ::windows::core::DefaultType for PlayReadyITADataFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
@@ -6656,6 +6660,7 @@ impl ::core::fmt::Debug for PlayReadyITADataGenerator {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyITADataGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator;{24446b8e-10b9-4530-b25b-901a8029a9b2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGenerator_Vtbl;
@@ -6819,6 +6824,7 @@ impl ::core::fmt::Debug for PlayReadyIndividualizationServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyIndividualizationServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest;{21f5a86b-008c-4611-ab2f-aaa6c69f0e24})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyIndividualizationServiceRequest {
     type Vtable = IPlayReadyIndividualizationServiceRequest_Vtbl;
@@ -7023,6 +7029,7 @@ impl ::core::fmt::Debug for PlayReadyLicense {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicense;{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicense {
     type Vtable = IPlayReadyLicense_Vtbl;
@@ -7251,6 +7258,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseAcquisitionServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest;{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_Vtbl;
@@ -7424,6 +7432,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyLicenseIterable {
@@ -7590,6 +7599,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyLicenseIterator {
@@ -7752,6 +7762,7 @@ impl ::core::fmt::Debug for PlayReadyLicenseSession {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyLicenseSession;{a1723a39-87fa-4fdd-abbb-a9720e845259})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_Vtbl;
@@ -7972,6 +7983,7 @@ impl ::core::fmt::Debug for PlayReadyMeteringReportServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyMeteringReportServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest;{c12b231c-0ecd-4f11-a185-1e24a4a67fb7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyMeteringReportServiceRequest {
     type Vtable = IPlayReadyMeteringReportServiceRequest_Vtbl;
@@ -8179,6 +8191,7 @@ impl ::core::fmt::Debug for PlayReadyRevocationServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadyRevocationServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest;{543d66ac-faf0-4560-84a5-0e4acec939e4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequest_Vtbl;
@@ -8323,6 +8336,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable;pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadySecureStopIterable {
@@ -8489,6 +8503,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};{b5501ee5-01bf-4401-9677-05630a6a4cc8}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadySecureStopIterator {
@@ -8742,6 +8757,7 @@ impl ::core::fmt::Debug for PlayReadySecureStopServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest;{b5501ee5-01bf-4401-9677-05630a6a4cc8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_Vtbl;
@@ -8905,6 +8921,7 @@ impl ::core::fmt::Debug for PlayReadySoapMessage {
 }
 unsafe impl ::windows::core::RuntimeType for PlayReadySoapMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.PlayReady.PlayReadySoapMessage;{b659fcb5-ce41-41ba-8a0d-61df5fffa139})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessage_Vtbl;

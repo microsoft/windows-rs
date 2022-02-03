@@ -155,6 +155,7 @@ impl ::core::fmt::Debug for BluetoothAdapter {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothAdapter;{7974f04c-5f7a-4a34-9225-a855f84b1a8b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
@@ -235,8 +236,6 @@ impl ::core::fmt::Debug for BluetoothAddressType {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothAddressType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothAddressType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -268,8 +267,6 @@ impl ::core::fmt::Debug for BluetoothCacheMode {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothCacheMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothCacheMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -346,6 +343,7 @@ impl ::core::fmt::Debug for BluetoothClassOfDevice {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothClassOfDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothClassOfDevice;{d640227e-d7d7-4661-9454-65039ca17a2b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
@@ -425,8 +423,6 @@ impl ::core::fmt::Debug for BluetoothConnectionStatus {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothConnectionStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -725,6 +721,7 @@ impl ::core::fmt::Debug for BluetoothDevice {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDevice;{2335b156-90d2-4a04-aef5-0e20b9e6b707})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
@@ -860,6 +857,7 @@ impl ::core::fmt::Debug for BluetoothDeviceId {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothDeviceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDeviceId;{c17949af-57c1-4642-bcce-e6c06b20ae76})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
@@ -947,8 +945,6 @@ impl ::core::fmt::Debug for BluetoothError {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothError {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -1017,6 +1013,7 @@ impl ::core::fmt::Debug for BluetoothLEAppearance {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAppearance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEAppearance;{5d2079f2-66a8-4258-985e-02b4d9509f18})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
@@ -1488,6 +1485,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionParameters {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionParameters;{33cb0771-8da9-508f-a366-1ca388c929ab})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
@@ -1577,6 +1575,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionPhy {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhy;{781e5e48-621e-5a7e-8be6-1b9561ff63c9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
@@ -1674,6 +1673,7 @@ impl ::core::fmt::Debug for BluetoothLEConnectionPhyInfo {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo;{9a100bdd-602e-5c27-a1ae-b230015a6394})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
@@ -2080,6 +2080,7 @@ impl ::core::fmt::Debug for BluetoothLEDevice {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEDevice;{b5ee2f7b-4ad8-4642-ac48-80a0b500e887})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
@@ -2237,6 +2238,7 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParameters {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters;{f2f44344-7372-5f7b-9b34-29c944f5a715})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
@@ -2324,6 +2326,7 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest;{8a375276-a528-5266-b661-cce6a5ff9739})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
@@ -2431,8 +2434,6 @@ impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatu
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothLEPreferredConnectionParametersRequestStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -2472,8 +2473,6 @@ impl ::core::fmt::Debug for BluetoothMajorClass {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothMajorClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothMajorClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -2574,8 +2573,6 @@ impl ::core::fmt::Debug for BluetoothMinorClass {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothMinorClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
-}
-impl ::windows::core::DefaultType for BluetoothMinorClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -2643,8 +2640,6 @@ impl ::core::ops::Not for BluetoothServiceCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothServiceCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
-}
-impl ::windows::core::DefaultType for BluetoothServiceCapabilities {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
@@ -2737,6 +2732,7 @@ impl ::core::fmt::Debug for BluetoothSignalStrengthFilter {
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothSignalStrengthFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter;{df7b7391-6bb5-4cfe-90b1-5d7324edcf7f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;

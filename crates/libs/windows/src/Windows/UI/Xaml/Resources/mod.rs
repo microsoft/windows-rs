@@ -58,6 +58,7 @@ impl ::core::fmt::Debug for CustomXamlResourceLoader {
 }
 unsafe impl ::windows::core::RuntimeType for CustomXamlResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Resources.CustomXamlResourceLoader;{511a84ab-4a88-419f-852e-54083b90b078})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CustomXamlResourceLoader {
     type Vtable = ICustomXamlResourceLoader_Vtbl;

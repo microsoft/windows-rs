@@ -140,6 +140,7 @@ impl ::core::fmt::Debug for AudioDeviceInputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioDeviceInputNode {
     type Vtable = IAudioDeviceInputNode_Vtbl;
@@ -314,8 +315,6 @@ impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for AudioDeviceNodeCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -440,6 +439,7 @@ impl ::core::fmt::Debug for AudioDeviceOutputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceOutputNode;{362edbff-ff1c-4434-9e0f-bd2ef522ac82})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioDeviceOutputNode {
     type Vtable = IAudioDeviceOutputNode_Vtbl;
@@ -798,6 +798,7 @@ impl ::core::fmt::Debug for AudioFileInputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFileInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioFileInputNode {
     type Vtable = IAudioFileInputNode_Vtbl;
@@ -972,8 +973,6 @@ impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for AudioFileNodeCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -1103,6 +1102,7 @@ impl ::core::fmt::Debug for AudioFileOutputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFileOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioFileOutputNode {
     type Vtable = IAudioFileOutputNode_Vtbl;
@@ -1232,6 +1232,7 @@ impl ::core::fmt::Debug for AudioFrameCompletedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameCompletedEventArgs;{dc7c829e-0208-4504-a5a8-f0f268920a65})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioFrameCompletedEventArgs {
     type Vtable = IAudioFrameCompletedEventArgs_Vtbl;
@@ -1475,6 +1476,7 @@ impl ::core::fmt::Debug for AudioFrameInputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFrameInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioFrameInputNode {
     type Vtable = IAudioFrameInputNode_Vtbl;
@@ -1725,6 +1727,7 @@ impl ::core::fmt::Debug for AudioFrameOutputNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioFrameOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameOutputNode;{b847371b-3299-45f5-88b3-c9d12a3f1cc8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioFrameOutputNode {
     type Vtable = IAudioFrameOutputNode_Vtbl;
@@ -2152,6 +2155,7 @@ impl ::core::fmt::Debug for AudioGraph {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraph {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioGraph {
     type Vtable = IAudioGraph_Vtbl;
@@ -2264,6 +2268,7 @@ impl ::core::fmt::Debug for AudioGraphBatchUpdater {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for AudioGraphBatchUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphBatchUpdater;{30d5a829-7fa4-4026-83bb-d75bae4ea99e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for AudioGraphBatchUpdater {
@@ -2396,6 +2401,7 @@ impl ::core::fmt::Debug for AudioGraphConnection {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphConnection;{763070ed-d04e-4fac-b233-600b42edd469})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioGraphConnection {
     type Vtable = IAudioGraphConnection_Vtbl;
@@ -2477,8 +2483,6 @@ impl ::core::fmt::Debug for AudioGraphCreationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for AudioGraphCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -2614,6 +2618,7 @@ impl ::core::fmt::Debug for AudioGraphSettings {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioGraphSettings {
     type Vtable = IAudioGraphSettings_Vtbl;
@@ -2695,8 +2700,6 @@ impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
-}
-impl ::windows::core::DefaultType for AudioGraphUnrecoverableError {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -2730,6 +2733,7 @@ impl ::core::fmt::Debug for AudioGraphUnrecoverableErrorOccurredEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs;{c3d9cbe0-3ff6-4fb3-b262-50d435c55423})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl;
@@ -2943,6 +2947,7 @@ impl ::core::fmt::Debug for AudioNodeEmitter {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitter {
     type Vtable = IAudioNodeEmitter_Vtbl;
@@ -3040,6 +3045,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterConeProperties {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterConeProperties;{e99b2cee-02ca-4375-9326-0c6ae4bcdfb5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterConeProperties {
     type Vtable = IAudioNodeEmitterConeProperties_Vtbl;
@@ -3119,8 +3125,6 @@ impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
-}
-impl ::windows::core::DefaultType for AudioNodeEmitterDecayKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -3197,6 +3201,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterDecayModel {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterDecayModel {
     type Vtable = IAudioNodeEmitterDecayModel_Vtbl;
@@ -3286,6 +3291,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterNaturalDecayModelProperties {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties;{48934bcf-cf2c-4efc-9331-75bd22df1f0c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_Vtbl;
@@ -3393,8 +3399,6 @@ impl ::core::ops::Not for AudioNodeEmitterSettings {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
-}
-impl ::windows::core::DefaultType for AudioNodeEmitterSettings {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -3455,6 +3459,7 @@ impl ::core::fmt::Debug for AudioNodeEmitterShape {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterShape;{ea0311c5-e73d-44bc-859c-45553bbc4828})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterShape {
     type Vtable = IAudioNodeEmitterShape_Vtbl;
@@ -3534,8 +3539,6 @@ impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
-}
-impl ::windows::core::DefaultType for AudioNodeEmitterShapeKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -3626,6 +3629,7 @@ impl ::core::fmt::Debug for AudioNodeListener {
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeListener;{d9722e16-0c0a-41da-b755-6c77835fb1eb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioNodeListener {
     type Vtable = IAudioNodeListener_Vtbl;
@@ -3786,6 +3790,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnection {
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnection {
     type Vtable = IAudioPlaybackConnection_Vtbl;
@@ -3901,6 +3906,7 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResult {
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnectionOpenResult;{4e656aef-39f9-5fc9-a519-a5bbfd9fe921})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnectionOpenResult {
     type Vtable = IAudioPlaybackConnectionOpenResult_Vtbl;
@@ -3982,8 +3988,6 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
-}
-impl ::windows::core::DefaultType for AudioPlaybackConnectionOpenResultStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -4015,8 +4019,6 @@ impl ::core::fmt::Debug for AudioPlaybackConnectionState {
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
-}
-impl ::windows::core::DefaultType for AudioPlaybackConnectionState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -4132,6 +4134,7 @@ impl ::core::fmt::Debug for AudioStateMonitor {
 }
 unsafe impl ::windows::core::RuntimeType for AudioStateMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioStateMonitor;{1d13d136-0199-4cdc-b84e-e72c2b581ece})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioStateMonitor {
     type Vtable = IAudioStateMonitor_Vtbl;
@@ -4314,6 +4317,7 @@ impl ::core::fmt::Debug for AudioSubmixNode {
 }
 unsafe impl ::windows::core::RuntimeType for AudioSubmixNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioSubmixNode {
     type Vtable = IAudioInputNode_Vtbl;
@@ -4503,6 +4507,7 @@ impl ::core::fmt::Debug for CreateAudioDeviceInputNodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceInputNodeResult {
     type Vtable = ICreateAudioDeviceInputNodeResult_Vtbl;
@@ -4600,6 +4605,7 @@ impl ::core::fmt::Debug for CreateAudioDeviceOutputNodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceOutputNodeResult;{f7776d27-1d9a-47f7-9cd4-2859cc1b7bff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceOutputNodeResult {
     type Vtable = ICreateAudioDeviceOutputNodeResult_Vtbl;
@@ -4697,6 +4703,7 @@ impl ::core::fmt::Debug for CreateAudioFileInputNodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileInputNodeResult {
     type Vtable = ICreateAudioFileInputNodeResult_Vtbl;
@@ -4794,6 +4801,7 @@ impl ::core::fmt::Debug for CreateAudioFileOutputNodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileOutputNodeResult;{47d6ba7b-e909-453f-866e-5540cda734ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileOutputNodeResult {
     type Vtable = ICreateAudioFileOutputNodeResult_Vtbl;
@@ -4891,6 +4899,7 @@ impl ::core::fmt::Debug for CreateAudioGraphResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioGraphResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateAudioGraphResult {
     type Vtable = ICreateAudioGraphResult_Vtbl;
@@ -4988,6 +4997,7 @@ impl ::core::fmt::Debug for CreateMediaSourceAudioInputNodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult;{46a658a3-53c0-4d59-9e51-cc1d1044a4c4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CreateMediaSourceAudioInputNodeResult {
     type Vtable = ICreateMediaSourceAudioInputNodeResult_Vtbl;
@@ -5130,6 +5140,7 @@ impl ::core::fmt::Debug for EchoEffectDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for EchoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EchoEffectDefinition {
     type Vtable = IEchoEffectDefinition_Vtbl;
@@ -5268,6 +5279,7 @@ impl ::core::fmt::Debug for EqualizerBand {
 }
 unsafe impl ::windows::core::RuntimeType for EqualizerBand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EqualizerBand {
     type Vtable = IEqualizerBand_Vtbl;
@@ -5380,6 +5392,7 @@ impl ::core::fmt::Debug for EqualizerEffectDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EqualizerEffectDefinition {
     type Vtable = IEqualizerEffectDefinition_Vtbl;
@@ -5487,6 +5500,7 @@ impl ::core::fmt::Debug for FrameInputNodeQuantumStartedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs;{3d9bd498-a306-4f06-bd9f-e9efc8226304})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for FrameInputNodeQuantumStartedEventArgs {
     type Vtable = IFrameInputNodeQuantumStartedEventArgs_Vtbl;
@@ -6188,6 +6202,7 @@ impl ::core::fmt::Debug for IAudioInputNode {
 }
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAudioInputNode {
     type Vtable = IAudioInputNode_Vtbl;
@@ -6447,6 +6462,7 @@ impl ::core::fmt::Debug for IAudioInputNode2 {
 }
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAudioInputNode2 {
     type Vtable = IAudioInputNode2_Vtbl;
@@ -6624,6 +6640,7 @@ impl ::core::fmt::Debug for IAudioNode {
 }
 unsafe impl ::windows::core::RuntimeType for IAudioNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAudioNode {
     type Vtable = IAudioNode_Vtbl;
@@ -7055,6 +7072,7 @@ impl ::core::fmt::Debug for IAudioNodeWithListener {
 }
 unsafe impl ::windows::core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAudioNodeWithListener {
     type Vtable = IAudioNodeWithListener_Vtbl;
@@ -7801,6 +7819,7 @@ impl ::core::fmt::Debug for LimiterEffectDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for LimiterEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.LimiterEffectDefinition;{6b755d19-2603-47ba-bdeb-39055e3486dc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LimiterEffectDefinition {
     type Vtable = ILimiterEffectDefinition_Vtbl;
@@ -8115,6 +8134,7 @@ impl ::core::fmt::Debug for MediaSourceAudioInputNode {
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.MediaSourceAudioInputNode;{99d8983b-a88a-4041-8e4f-ddbac0c91fd3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaSourceAudioInputNode {
     type Vtable = IMediaSourceAudioInputNode_Vtbl;
@@ -8288,8 +8308,6 @@ impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for MediaSourceAudioInputNodeCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -8321,8 +8339,6 @@ impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
-}
-impl ::windows::core::DefaultType for MixedRealitySpatialAudioFormatPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -8355,8 +8371,6 @@ impl ::core::fmt::Debug for QuantumSizeSelectionMode {
 }
 unsafe impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
-}
-impl ::windows::core::DefaultType for QuantumSizeSelectionMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -8711,6 +8725,7 @@ impl ::core::fmt::Debug for ReverbEffectDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for ReverbEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ReverbEffectDefinition {
     type Vtable = IReverbEffectDefinition_Vtbl;
@@ -8818,6 +8833,7 @@ impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatResult {
 }
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SetDefaultSpatialAudioFormatResult;{1c2aa511-1400-5e70-9ea9-ae151241e8ea})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SetDefaultSpatialAudioFormatResult {
     type Vtable = ISetDefaultSpatialAudioFormatResult_Vtbl;
@@ -8901,8 +8917,6 @@ impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
-}
-impl ::windows::core::DefaultType for SetDefaultSpatialAudioFormatStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Audio'*"]
@@ -9004,6 +9018,7 @@ impl ::core::fmt::Debug for SpatialAudioDeviceConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SpatialAudioDeviceConfiguration {
     type Vtable = ISpatialAudioDeviceConfiguration_Vtbl;
@@ -9120,6 +9135,7 @@ impl ::core::fmt::Debug for SpatialAudioFormatConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioFormatConfiguration;{32df09a8-50f0-5395-9923-7d44ca71ed6d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SpatialAudioFormatConfiguration {
     type Vtable = ISpatialAudioFormatConfiguration_Vtbl;
@@ -9265,8 +9281,6 @@ impl ::core::fmt::Debug for SpatialAudioModel {
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAudioModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
-}
-impl ::windows::core::DefaultType for SpatialAudioModel {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

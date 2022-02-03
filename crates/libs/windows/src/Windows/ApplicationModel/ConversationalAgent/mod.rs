@@ -260,6 +260,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
@@ -375,6 +376,7 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationResult
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
@@ -460,8 +462,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -495,8 +495,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult 
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationRemovalResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -534,8 +532,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataRe
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationSetModelDataResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -568,8 +564,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeRes
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationStateChangeResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -610,8 +604,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectionTrainingDataFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -829,6 +821,7 @@ impl ::core::fmt::Debug for ActivationSignalDetector {
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
@@ -909,8 +902,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectorKind {
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectorKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -943,8 +934,6 @@ impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
 }
 unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
-}
-impl ::windows::core::DefaultType for ActivationSignalDetectorPowerState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -976,8 +965,6 @@ impl ::core::fmt::Debug for ConversationalAgentActivationKind {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentActivationKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -1011,8 +998,6 @@ impl ::core::fmt::Debug for ConversationalAgentActivationResult {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentActivationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -1103,6 +1088,7 @@ impl ::core::fmt::Debug for ConversationalAgentDetectorManager {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
@@ -1532,6 +1518,7 @@ impl ::core::fmt::Debug for ConversationalAgentSession {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
@@ -1630,6 +1617,7 @@ impl ::core::fmt::Debug for ConversationalAgentSessionInterruptedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
@@ -1709,8 +1697,6 @@ impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentSessionUpdateResponse {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -1834,6 +1820,7 @@ impl ::core::fmt::Debug for ConversationalAgentSignal {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignal {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
@@ -1906,6 +1893,7 @@ impl ::core::fmt::Debug for ConversationalAgentSignalDetectedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
@@ -1989,8 +1977,6 @@ impl ::core::fmt::Debug for ConversationalAgentState {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -2024,8 +2010,6 @@ impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentSystemStateChangeType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -2059,6 +2043,7 @@ impl ::core::fmt::Debug for ConversationalAgentSystemStateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
@@ -2142,8 +2127,6 @@ impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
-}
-impl ::windows::core::DefaultType for ConversationalAgentVoiceActivationPrerequisiteKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -2176,8 +2159,6 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
 }
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
-}
-impl ::windows::core::DefaultType for DetectionConfigurationAvailabilityChangeKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
@@ -2211,6 +2192,7 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
@@ -2325,6 +2307,7 @@ impl ::core::fmt::Debug for DetectionConfigurationAvailabilityInfo {
 }
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
@@ -2412,8 +2395,6 @@ impl ::core::fmt::Debug for DetectionConfigurationTrainingStatus {
 }
 unsafe impl ::windows::core::RuntimeType for DetectionConfigurationTrainingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
-}
-impl ::windows::core::DefaultType for DetectionConfigurationTrainingStatus {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -2995,8 +2976,6 @@ impl ::core::fmt::Debug for SignalDetectorResourceKind {
 }
 unsafe impl ::windows::core::RuntimeType for SignalDetectorResourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
-}
-impl ::windows::core::DefaultType for SignalDetectorResourceKind {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

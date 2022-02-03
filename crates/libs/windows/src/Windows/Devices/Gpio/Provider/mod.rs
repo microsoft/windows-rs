@@ -42,6 +42,7 @@ impl ::core::fmt::Debug for GpioPinProviderValueChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for GpioPinProviderValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs;{32a6d6f2-3d5b-44cd-8fbe-13a69f2edb24})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
@@ -171,6 +172,7 @@ impl ::core::fmt::Debug for IGpioControllerProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad11cec7-19ea-4b21-874f-b91aed4a25db}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProvider_Vtbl;
@@ -326,6 +328,7 @@ impl ::core::fmt::Debug for IGpioPinProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{42344cb7-6abc-40ff-9ce7-73b85301b900}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProvider_Vtbl;
@@ -457,6 +460,7 @@ impl ::core::fmt::Debug for IGpioProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IGpioProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{44e82707-08ca-434a-afe0-d61580446f7e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGpioProvider {
     type Vtable = IGpioProvider_Vtbl;
@@ -506,8 +510,6 @@ impl ::core::fmt::Debug for ProviderGpioPinDriveMode {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
-}
-impl ::windows::core::DefaultType for ProviderGpioPinDriveMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
@@ -539,8 +541,6 @@ impl ::core::fmt::Debug for ProviderGpioPinEdge {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
-}
-impl ::windows::core::DefaultType for ProviderGpioPinEdge {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
@@ -572,8 +572,6 @@ impl ::core::fmt::Debug for ProviderGpioPinValue {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
-}
-impl ::windows::core::DefaultType for ProviderGpioPinValue {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
@@ -605,8 +603,6 @@ impl ::core::fmt::Debug for ProviderGpioSharingMode {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderGpioSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioSharingMode;i4)");
-}
-impl ::windows::core::DefaultType for ProviderGpioSharingMode {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

@@ -120,6 +120,7 @@ impl ::core::fmt::Debug for PreviewBuildsManager {
 }
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_Vtbl;
@@ -202,6 +203,7 @@ impl ::core::fmt::Debug for PreviewBuildsState {
 }
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsState {
     type Vtable = IPreviewBuildsState_Vtbl;

@@ -266,6 +266,7 @@ impl ::core::fmt::Debug for DateTimeFormatter {
 }
 unsafe impl ::windows::core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;
@@ -345,8 +346,6 @@ impl ::core::fmt::Debug for DayFormat {
 }
 unsafe impl ::windows::core::RuntimeType for DayFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
-}
-impl ::windows::core::DefaultType for DayFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
@@ -380,8 +379,6 @@ impl ::core::fmt::Debug for DayOfWeekFormat {
 }
 unsafe impl ::windows::core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
-}
-impl ::windows::core::DefaultType for DayOfWeekFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
@@ -413,8 +410,6 @@ impl ::core::fmt::Debug for HourFormat {
 }
 unsafe impl ::windows::core::RuntimeType for HourFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
-}
-impl ::windows::core::DefaultType for HourFormat {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -548,8 +543,6 @@ impl ::core::fmt::Debug for MinuteFormat {
 }
 unsafe impl ::windows::core::RuntimeType for MinuteFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
-}
-impl ::windows::core::DefaultType for MinuteFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
@@ -584,8 +577,6 @@ impl ::core::fmt::Debug for MonthFormat {
 }
 unsafe impl ::windows::core::RuntimeType for MonthFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
-}
-impl ::windows::core::DefaultType for MonthFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
@@ -617,8 +608,6 @@ impl ::core::fmt::Debug for SecondFormat {
 }
 unsafe impl ::windows::core::RuntimeType for SecondFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
-}
-impl ::windows::core::DefaultType for SecondFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
@@ -652,8 +641,6 @@ impl ::core::fmt::Debug for YearFormat {
 }
 unsafe impl ::windows::core::RuntimeType for YearFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
-}
-impl ::windows::core::DefaultType for YearFormat {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

@@ -170,6 +170,7 @@ impl ::core::fmt::Debug for QuickLink {
 }
 unsafe impl ::windows::core::RuntimeType for QuickLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
@@ -306,6 +307,7 @@ impl ::core::fmt::Debug for ShareOperation {
 }
 unsafe impl ::windows::core::RuntimeType for ShareOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;

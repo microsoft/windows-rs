@@ -30,6 +30,7 @@ impl ::core::fmt::Debug for ErrorReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_Vtbl;
@@ -231,6 +232,7 @@ impl ::core::fmt::Debug for PinChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PinChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.PinChangedEventArgs;{a2bf1db0-fc9c-4607-93d0-fa5e8343ee22})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_Vtbl;
@@ -582,6 +584,7 @@ impl ::core::fmt::Debug for SerialDevice {
 }
 unsafe impl ::windows::core::RuntimeType for SerialDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.SerialDevice;{e187ccc6-2210-414f-b65a-f5553a03372a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SerialDevice {
     type Vtable = ISerialDevice_Vtbl;
@@ -690,8 +693,6 @@ impl ::core::fmt::Debug for SerialError {
 }
 unsafe impl ::windows::core::RuntimeType for SerialError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
-}
-impl ::windows::core::DefaultType for SerialError {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
@@ -725,8 +726,6 @@ impl ::core::fmt::Debug for SerialHandshake {
 }
 unsafe impl ::windows::core::RuntimeType for SerialHandshake {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
-}
-impl ::windows::core::DefaultType for SerialHandshake {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
@@ -761,8 +760,6 @@ impl ::core::fmt::Debug for SerialParity {
 }
 unsafe impl ::windows::core::RuntimeType for SerialParity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
-}
-impl ::windows::core::DefaultType for SerialParity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
@@ -797,8 +794,6 @@ impl ::core::fmt::Debug for SerialPinChange {
 }
 unsafe impl ::windows::core::RuntimeType for SerialPinChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
-}
-impl ::windows::core::DefaultType for SerialPinChange {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
@@ -831,8 +826,6 @@ impl ::core::fmt::Debug for SerialStopBitCount {
 }
 unsafe impl ::windows::core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
-}
-impl ::windows::core::DefaultType for SerialStopBitCount {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

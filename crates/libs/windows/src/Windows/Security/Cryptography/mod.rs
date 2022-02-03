@@ -35,8 +35,6 @@ impl ::core::fmt::Debug for BinaryStringEncoding {
 }
 unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
-}
-impl ::windows::core::DefaultType for BinaryStringEncoding {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography'*"]

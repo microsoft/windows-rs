@@ -135,8 +135,6 @@ impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
-}
-impl ::windows::core::DefaultType for SystemUpdateAttentionRequiredReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_Update'*"]
@@ -226,6 +224,7 @@ impl ::core::fmt::Debug for SystemUpdateItem {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemUpdateItem {
     type Vtable = ISystemUpdateItem_Vtbl;
@@ -312,8 +311,6 @@ impl ::core::fmt::Debug for SystemUpdateItemState {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
-}
-impl ::windows::core::DefaultType for SystemUpdateItemState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_Update'*"]
@@ -363,6 +360,7 @@ impl ::core::fmt::Debug for SystemUpdateLastErrorInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateLastErrorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateLastErrorInfo;{7ee887f7-8a44-5b6e-bd07-7aece4116ea9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
@@ -631,8 +629,6 @@ impl ::core::fmt::Debug for SystemUpdateManagerState {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
-}
-impl ::windows::core::DefaultType for SystemUpdateManagerState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_Update'*"]
@@ -664,8 +660,6 @@ impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
-}
-impl ::windows::core::DefaultType for SystemUpdateStartInstallAction {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

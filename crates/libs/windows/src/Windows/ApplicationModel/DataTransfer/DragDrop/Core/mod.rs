@@ -62,6 +62,7 @@ impl ::core::fmt::Debug for CoreDragDropManager {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragDropManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreDragDropManager {
     type Vtable = ICoreDragDropManager_Vtbl;
@@ -168,6 +169,7 @@ impl ::core::fmt::Debug for CoreDragInfo {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo;{48353a8b-cb50-464e-9575-cd4e3a7ab028})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreDragInfo {
     type Vtable = ICoreDragInfo_Vtbl;
@@ -308,6 +310,7 @@ impl ::core::fmt::Debug for CoreDragOperation {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreDragOperation {
     type Vtable = ICoreDragOperation_Vtbl;
@@ -415,8 +418,6 @@ impl ::core::ops::Not for CoreDragUIContentMode {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
-}
-impl ::windows::core::DefaultType for CoreDragUIContentMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
@@ -511,6 +512,7 @@ impl ::core::fmt::Debug for CoreDragUIOverride {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragUIOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_Vtbl;
@@ -589,6 +591,7 @@ impl ::core::fmt::Debug for CoreDropOperationTargetRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;
@@ -875,6 +878,7 @@ impl ::core::fmt::Debug for ICoreDropOperationTarget {
 }
 unsafe impl ::windows::core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTarget_Vtbl;

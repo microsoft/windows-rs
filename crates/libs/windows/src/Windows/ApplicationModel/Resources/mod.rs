@@ -236,6 +236,7 @@ impl ::core::fmt::Debug for ResourceLoader {
 }
 unsafe impl ::windows::core::RuntimeType for ResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.ResourceLoader;{08524908-16ef-45ad-a602-293637d7e61a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ResourceLoader {
     type Vtable = IResourceLoader_Vtbl;

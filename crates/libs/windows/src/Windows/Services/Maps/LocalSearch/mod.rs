@@ -323,6 +323,7 @@ impl ::core::fmt::Debug for LocalLocation {
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocation;{bb0fe9ab-4502-4f2c-94a9-0d60de0e2163})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LocalLocation {
     type Vtable = ILocalLocation_Vtbl;
@@ -433,6 +434,7 @@ impl ::core::fmt::Debug for LocalLocationFinderResult {
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationFinderResult;{d09b6cc6-f338-4191-9fd8-5440b9a68f52})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_Vtbl;
@@ -518,8 +520,6 @@ impl ::core::fmt::Debug for LocalLocationFinderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
-}
-impl ::windows::core::DefaultType for LocalLocationFinderStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
@@ -572,6 +572,7 @@ impl ::core::fmt::Debug for LocalLocationHoursOfOperationItem {
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationHoursOfOperationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem;{23548c72-a1c7-43f1-a4f0-1091c39ec640})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_Vtbl;
@@ -671,6 +672,7 @@ impl ::core::fmt::Debug for LocalLocationRatingInfo {
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationRatingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo;{cb1dab56-3354-4311-8bc0-a2d4d5eb806e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_Vtbl;

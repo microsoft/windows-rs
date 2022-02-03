@@ -64,8 +64,6 @@ impl ::core::ops::Not for Direct3DBindings {
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
-}
-impl ::windows::core::DefaultType for Direct3DBindings {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -90,8 +88,6 @@ unsafe impl ::windows::core::Abi for Direct3DMultisampleDescription {
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
-}
-impl ::windows::core::DefaultType for Direct3DMultisampleDescription {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
@@ -129,8 +125,6 @@ unsafe impl ::windows::core::Abi for Direct3DSurfaceDescription {
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
-}
-impl ::windows::core::DefaultType for Direct3DSurfaceDescription {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
@@ -175,8 +169,6 @@ impl ::core::fmt::Debug for Direct3DUsage {
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
-}
-impl ::windows::core::DefaultType for Direct3DUsage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
@@ -279,6 +271,7 @@ impl ::core::fmt::Debug for IDirect3DDevice {
 }
 unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_Vtbl;
@@ -393,6 +386,7 @@ impl ::core::fmt::Debug for IDirect3DSurface {
 }
 unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_Vtbl;

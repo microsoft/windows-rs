@@ -72,6 +72,7 @@ impl ::core::fmt::Debug for CompositorController {
 }
 unsafe impl ::windows::core::RuntimeType for CompositorController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Core.CompositorController;{2d75f35a-70a7-4395-ba2d-cef0b18399f9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CompositorController {
     type Vtable = ICompositorController_Vtbl;

@@ -29,8 +29,6 @@ impl ::core::fmt::Debug for AddContactResult {
 }
 unsafe impl ::windows::core::RuntimeType for AddContactResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
-}
-impl ::windows::core::DefaultType for AddContactResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts_Provider'*"]
@@ -127,6 +125,7 @@ impl ::core::fmt::Debug for ContactPickerUI {
 }
 unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
@@ -206,6 +205,7 @@ impl ::core::fmt::Debug for ContactRemovedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;

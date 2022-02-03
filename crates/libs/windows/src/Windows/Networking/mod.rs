@@ -46,8 +46,6 @@ impl ::core::fmt::Debug for DomainNameType {
 }
 unsafe impl ::windows::core::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
-}
-impl ::windows::core::DefaultType for DomainNameType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking'*"]
@@ -137,6 +135,7 @@ impl ::core::fmt::Debug for EndpointPair {
 }
 unsafe impl ::windows::core::RuntimeType for EndpointPair {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EndpointPair {
     type Vtable = IEndpointPair_Vtbl;
@@ -292,6 +291,7 @@ impl ::core::fmt::Debug for HostName {
 }
 unsafe impl ::windows::core::RuntimeType for HostName {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HostName {
     type Vtable = IHostName_Vtbl;
@@ -425,8 +425,6 @@ impl ::core::ops::Not for HostNameSortOptions {
 }
 unsafe impl ::windows::core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
-}
-impl ::windows::core::DefaultType for HostNameSortOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking'*"]
@@ -460,8 +458,6 @@ impl ::core::fmt::Debug for HostNameType {
 }
 unsafe impl ::windows::core::RuntimeType for HostNameType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
-}
-impl ::windows::core::DefaultType for HostNameType {
     type DefaultType = Self;
 }
 #[doc(hidden)]

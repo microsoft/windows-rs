@@ -29,8 +29,6 @@ impl ::core::fmt::Debug for CellularClass {
 }
 unsafe impl ::windows::core::RuntimeType for CellularClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
-}
-impl ::windows::core::DefaultType for CellularClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
@@ -123,6 +121,7 @@ impl ::core::fmt::Debug for DeleteSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for DeleteSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.DeleteSmsMessageOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessageOperation {
@@ -354,6 +353,7 @@ impl ::core::fmt::Debug for DeleteSmsMessagesOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for DeleteSmsMessagesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.DeleteSmsMessagesOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessagesOperation {
@@ -588,6 +588,7 @@ impl ::core::fmt::Debug for GetSmsDeviceOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsDeviceOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsDeviceOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Devices.Sms.SmsDevice;{091791ed-872b-4eec-9c72-ab11627b34ec})))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsDeviceOperation {
@@ -822,6 +823,7 @@ impl ::core::fmt::Debug for GetSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsMessageOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};{ed3c5e28-6984-4b07-811d-8d5906ed3cea}))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessageOperation {
@@ -1071,6 +1073,7 @@ impl ::core::fmt::Debug for GetSmsMessagesOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsMessagesOperation;pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd};pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};{ed3c5e28-6984-4b07-811d-8d5906ed3cea});i4))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessagesOperation {
@@ -1405,6 +1408,7 @@ impl ::core::fmt::Debug for ISmsBinaryMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsBinaryMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5bf4e813-3b53-4c6e-b61a-d86a63755650}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsBinaryMessage {
@@ -1620,6 +1624,7 @@ impl ::core::fmt::Debug for ISmsDevice {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{091791ed-872b-4eec-9c72-ab11627b34ec}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsDevice {
@@ -1982,6 +1987,7 @@ impl ::core::fmt::Debug for ISmsMessage {
 }
 unsafe impl ::windows::core::RuntimeType for ISmsMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ed3c5e28-6984-4b07-811d-8d5906ed3cea}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISmsMessage {
     type Vtable = ISmsMessage_Vtbl;
@@ -2097,6 +2103,7 @@ impl ::core::fmt::Debug for ISmsMessageBase {
 }
 unsafe impl ::windows::core::RuntimeType for ISmsMessageBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf0fe30-fe50-4fc6-aa88-4ccfe27a29ea}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISmsMessageBase {
     type Vtable = ISmsMessageBase_Vtbl;
@@ -2513,6 +2520,7 @@ impl ::core::fmt::Debug for ISmsTextMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsTextMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d61c904c-a495-487f-9a6f-971548c5bc9f}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsTextMessage {
@@ -2771,6 +2779,7 @@ impl ::core::fmt::Debug for SendSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for SendSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SendSmsMessageOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for SendSmsMessageOperation {
@@ -3131,6 +3140,7 @@ impl ::core::fmt::Debug for SmsAppMessage {
 }
 unsafe impl ::windows::core::RuntimeType for SmsAppMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsAppMessage;{e8bb8494-d3a0-4a0a-86d7-291033a8cf54})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsAppMessage {
     type Vtable = ISmsAppMessage_Vtbl;
@@ -3286,6 +3296,7 @@ impl ::core::fmt::Debug for SmsBinaryMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsBinaryMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsBinaryMessage;{5bf4e813-3b53-4c6e-b61a-d86a63755650})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsBinaryMessage {
@@ -3544,6 +3555,7 @@ impl ::core::fmt::Debug for SmsBroadcastMessage {
 }
 unsafe impl ::windows::core::RuntimeType for SmsBroadcastMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsBroadcastMessage;{75aebbf1-e4b7-4874-a09c-2956e592f957})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_Vtbl;
@@ -3658,8 +3670,6 @@ impl ::core::fmt::Debug for SmsBroadcastType {
 }
 unsafe impl ::windows::core::RuntimeType for SmsBroadcastType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
-}
-impl ::windows::core::DefaultType for SmsBroadcastType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
@@ -3694,8 +3704,6 @@ impl ::core::fmt::Debug for SmsDataFormat {
 }
 unsafe impl ::windows::core::RuntimeType for SmsDataFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
-}
-impl ::windows::core::DefaultType for SmsDataFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
@@ -3856,6 +3864,7 @@ impl ::core::fmt::Debug for SmsDevice {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDevice;{091791ed-872b-4eec-9c72-ab11627b34ec})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDevice {
@@ -4081,6 +4090,7 @@ impl ::core::fmt::Debug for SmsDevice2 {
 }
 unsafe impl ::windows::core::RuntimeType for SmsDevice2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDevice2;{bd8a5c13-e522-46cb-b8d5-9ead30fb6c47})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsDevice2 {
     type Vtable = ISmsDevice2_Vtbl;
@@ -4204,6 +4214,7 @@ impl ::core::fmt::Debug for SmsDeviceMessageStore {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsDeviceMessageStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDeviceMessageStore;{9889f253-f188-4427-8d54-ce0c2423c5c1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDeviceMessageStore {
@@ -4297,8 +4308,6 @@ impl ::core::fmt::Debug for SmsDeviceStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmsDeviceStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
@@ -4383,6 +4392,7 @@ unsafe impl ::windows::core::Interface for SmsDeviceStatusChangedEventHandler {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{982b1162-3dd7-4618-af89-0c272d5d06d8}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -4419,8 +4429,6 @@ unsafe impl ::windows::core::Abi for SmsEncodedLength {
 }
 unsafe impl ::windows::core::RuntimeType for SmsEncodedLength {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Sms.SmsEncodedLength;u4;u4;u4;u4;u4)");
-}
-impl ::windows::core::DefaultType for SmsEncodedLength {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for SmsEncodedLength {
@@ -4472,8 +4480,6 @@ impl ::core::fmt::Debug for SmsEncoding {
 }
 unsafe impl ::windows::core::RuntimeType for SmsEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
-}
-impl ::windows::core::DefaultType for SmsEncoding {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
@@ -4507,8 +4513,6 @@ impl ::core::fmt::Debug for SmsFilterActionType {
 }
 unsafe impl ::windows::core::RuntimeType for SmsFilterActionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
-}
-impl ::windows::core::DefaultType for SmsFilterActionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
@@ -4666,6 +4670,7 @@ impl ::core::fmt::Debug for SmsFilterRule {
 }
 unsafe impl ::windows::core::RuntimeType for SmsFilterRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRule;{40e32fae-b049-4fbc-afe9-e2a610eff55c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsFilterRule {
     type Vtable = ISmsFilterRule_Vtbl;
@@ -4768,6 +4773,7 @@ impl ::core::fmt::Debug for SmsFilterRules {
 }
 unsafe impl ::windows::core::RuntimeType for SmsFilterRules {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRules;{4e47eafb-79cd-4881-9894-55a4135b23fa})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsFilterRules {
     type Vtable = ISmsFilterRules_Vtbl;
@@ -4850,8 +4856,6 @@ impl ::core::fmt::Debug for SmsGeographicalScope {
 }
 unsafe impl ::windows::core::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
-}
-impl ::windows::core::DefaultType for SmsGeographicalScope {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
@@ -4886,8 +4890,6 @@ impl ::core::fmt::Debug for SmsMessageClass {
 }
 unsafe impl ::windows::core::RuntimeType for SmsMessageClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageClass;i4)");
-}
-impl ::windows::core::DefaultType for SmsMessageClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
@@ -4930,9 +4932,6 @@ impl ::core::fmt::Debug for SmsMessageFilter {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SmsMessageFilter {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
@@ -4983,6 +4982,7 @@ impl ::core::fmt::Debug for SmsMessageReceivedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageReceivedEventArgs;{08e80a98-b8e5-41c1-a3d8-d3abfae22675})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsMessageReceivedEventArgs {
@@ -5123,6 +5123,7 @@ unsafe impl ::windows::core::Interface for SmsMessageReceivedEventHandler {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0b7ad409-ec2d-47ce-a253-732beeebcacd}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -5223,6 +5224,7 @@ impl ::core::fmt::Debug for SmsMessageReceivedTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageReceivedTriggerDetails;{2bcfcbd4-2657-4128-ad5f-e3877132bdb1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_Vtbl;
@@ -5344,6 +5346,7 @@ impl ::core::fmt::Debug for SmsMessageRegistration {
 }
 unsafe impl ::windows::core::RuntimeType for SmsMessageRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageRegistration;{1720503e-f34f-446b-83b3-0ff19923b409})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_Vtbl;
@@ -5426,8 +5429,6 @@ impl ::core::fmt::Debug for SmsMessageType {
 }
 unsafe impl ::windows::core::RuntimeType for SmsMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
-}
-impl ::windows::core::DefaultType for SmsMessageType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
@@ -5469,8 +5470,6 @@ impl ::core::fmt::Debug for SmsModemErrorCode {
 }
 unsafe impl ::windows::core::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
-}
-impl ::windows::core::DefaultType for SmsModemErrorCode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
@@ -5539,6 +5538,7 @@ impl ::core::fmt::Debug for SmsReceivedEventDetails {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsReceivedEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsReceivedEventDetails;{5bb50f15-e46d-4c82-847d-5a0304c1d53d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsReceivedEventDetails {
@@ -5681,6 +5681,7 @@ impl ::core::fmt::Debug for SmsSendMessageResult {
 }
 unsafe impl ::windows::core::RuntimeType for SmsSendMessageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsSendMessageResult;{db139af2-78c9-4feb-9622-452328088d62})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_Vtbl;
@@ -5852,6 +5853,7 @@ impl ::core::fmt::Debug for SmsStatusMessage {
 }
 unsafe impl ::windows::core::RuntimeType for SmsStatusMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsStatusMessage;{e6d28342-b70b-4677-9379-c9783fdff8f4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsStatusMessage {
     type Vtable = ISmsStatusMessage_Vtbl;
@@ -6104,6 +6106,7 @@ impl ::core::fmt::Debug for SmsTextMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsTextMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsTextMessage;{d61c904c-a495-487f-9a6f-971548c5bc9f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsTextMessage {
@@ -6399,6 +6402,7 @@ impl ::core::fmt::Debug for SmsTextMessage2 {
 }
 unsafe impl ::windows::core::RuntimeType for SmsTextMessage2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsTextMessage2;{22a0d893-4555-4755-b5a1-e7fd84955f8d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsTextMessage2 {
     type Vtable = ISmsTextMessage2_Vtbl;
@@ -6568,6 +6572,7 @@ impl ::core::fmt::Debug for SmsVoicemailMessage {
 }
 unsafe impl ::windows::core::RuntimeType for SmsVoicemailMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsVoicemailMessage;{271aa0a6-95b1-44ff-bcb8-b8fdd7e08bc3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_Vtbl;
@@ -6762,6 +6767,7 @@ impl ::core::fmt::Debug for SmsWapMessage {
 }
 unsafe impl ::windows::core::RuntimeType for SmsWapMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsWapMessage;{cd937743-7a55-4d3b-9021-f22e022d09c5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmsWapMessage {
     type Vtable = ISmsWapMessage_Vtbl;

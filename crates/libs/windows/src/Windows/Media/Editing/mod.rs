@@ -153,6 +153,7 @@ impl ::core::fmt::Debug for BackgroundAudioTrack {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_Vtbl;
@@ -235,6 +236,7 @@ impl ::core::fmt::Debug for EmbeddedAudioTrack {
 }
 unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_Vtbl;
@@ -885,6 +887,7 @@ impl ::core::fmt::Debug for MediaClip {
 }
 unsafe impl ::windows::core::RuntimeType for MediaClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaClip {
     type Vtable = IMediaClip_Vtbl;
@@ -1121,6 +1124,7 @@ impl ::core::fmt::Debug for MediaComposition {
 }
 unsafe impl ::windows::core::RuntimeType for MediaComposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaComposition {
     type Vtable = IMediaComposition_Vtbl;
@@ -1286,6 +1290,7 @@ impl ::core::fmt::Debug for MediaOverlay {
 }
 unsafe impl ::windows::core::RuntimeType for MediaOverlay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaOverlay {
     type Vtable = IMediaOverlay_Vtbl;
@@ -1405,6 +1410,7 @@ impl ::core::fmt::Debug for MediaOverlayLayer {
 }
 unsafe impl ::windows::core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_Vtbl;
@@ -1484,8 +1490,6 @@ impl ::core::fmt::Debug for MediaTrimmingPreference {
 }
 unsafe impl ::windows::core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
-}
-impl ::windows::core::DefaultType for MediaTrimmingPreference {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Editing'*"]
@@ -1517,8 +1521,6 @@ impl ::core::fmt::Debug for VideoFramePrecision {
 }
 unsafe impl ::windows::core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
-}
-impl ::windows::core::DefaultType for VideoFramePrecision {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

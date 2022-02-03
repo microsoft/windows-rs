@@ -58,6 +58,7 @@ impl ::core::fmt::Debug for EnhancedWaypoint {
 }
 unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EnhancedWaypoint {
     type Vtable = IEnhancedWaypoint_Vtbl;
@@ -798,6 +799,7 @@ impl ::core::fmt::Debug for ManeuverWarning {
 }
 unsafe impl ::windows::core::RuntimeType for ManeuverWarning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.ManeuverWarning;{c1a36d8a-2630-4378-9e4a-6e44253dceba})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ManeuverWarning {
     type Vtable = IManeuverWarning_Vtbl;
@@ -911,8 +913,6 @@ impl ::core::fmt::Debug for ManeuverWarningKind {
 }
 unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
-}
-impl ::windows::core::DefaultType for ManeuverWarningKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -947,8 +947,6 @@ impl ::core::fmt::Debug for ManeuverWarningSeverity {
 }
 unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
-}
-impl ::windows::core::DefaultType for ManeuverWarningSeverity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -1102,6 +1100,7 @@ impl ::core::fmt::Debug for MapAddress {
 }
 unsafe impl ::windows::core::RuntimeType for MapAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapAddress;{cfa7a973-a3b4-4494-b3ff-cba94db69699})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapAddress {
     type Vtable = IMapAddress_Vtbl;
@@ -1208,6 +1207,7 @@ impl ::core::fmt::Debug for MapLocation {
 }
 unsafe impl ::windows::core::RuntimeType for MapLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocation;{3c073f57-0da4-42e8-9ee2-a96fcf2371dc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapLocation {
     type Vtable = IMapLocation_Vtbl;
@@ -1287,8 +1287,6 @@ impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
 }
 unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
-}
-impl ::windows::core::DefaultType for MapLocationDesiredAccuracy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -1380,6 +1378,7 @@ impl ::core::fmt::Debug for MapLocationFinderResult {
 }
 unsafe impl ::windows::core::RuntimeType for MapLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocationFinderResult;{43f1f179-e8cc-45f6-bed2-54ccbf965d9a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapLocationFinderResult {
     type Vtable = IMapLocationFinderResult_Vtbl;
@@ -1464,8 +1463,6 @@ impl ::core::fmt::Debug for MapLocationFinderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
-}
-impl ::windows::core::DefaultType for MapLocationFinderStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -1546,8 +1543,6 @@ impl ::core::ops::Not for MapManeuverNotices {
 }
 unsafe impl ::windows::core::RuntimeType for MapManeuverNotices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
-}
-impl ::windows::core::DefaultType for MapManeuverNotices {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -1666,6 +1661,7 @@ impl ::core::fmt::Debug for MapRoute {
 }
 unsafe impl ::windows::core::RuntimeType for MapRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRoute;{fb07b732-584d-4583-9c60-641fea274349})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapRoute {
     type Vtable = IMapRoute_Vtbl;
@@ -1815,6 +1811,7 @@ impl ::core::fmt::Debug for MapRouteDrivingOptions {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteDrivingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteDrivingOptions;{6815364d-c6dc-4697-a452-b18f8f0b67a1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapRouteDrivingOptions {
     type Vtable = IMapRouteDrivingOptions_Vtbl;
@@ -2039,6 +2036,7 @@ impl ::core::fmt::Debug for MapRouteFinderResult {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteFinderResult;{a868a31a-9422-46ac-8ca1-b1614d4bfbe2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapRouteFinderResult {
     type Vtable = IMapRouteFinderResult_Vtbl;
@@ -2126,8 +2124,6 @@ impl ::core::fmt::Debug for MapRouteFinderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
-}
-impl ::windows::core::DefaultType for MapRouteFinderStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -2214,6 +2210,7 @@ impl ::core::fmt::Debug for MapRouteLeg {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteLeg {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteLeg;{96f8b2f6-5bba-4d17-9db6-1a263fec7471})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapRouteLeg {
     type Vtable = IMapRouteLeg_Vtbl;
@@ -2369,6 +2366,7 @@ impl ::core::fmt::Debug for MapRouteManeuver {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteManeuver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteManeuver;{ed5c17f0-a6ab-4d65-a086-fa8a7e340df2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MapRouteManeuver {
     type Vtable = IMapRouteManeuver_Vtbl;
@@ -2471,8 +2469,6 @@ impl ::core::fmt::Debug for MapRouteManeuverKind {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
-}
-impl ::windows::core::DefaultType for MapRouteManeuverKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -2506,8 +2502,6 @@ impl ::core::fmt::Debug for MapRouteOptimization {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
-}
-impl ::windows::core::DefaultType for MapRouteOptimization {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -2572,8 +2566,6 @@ impl ::core::ops::Not for MapRouteRestrictions {
 }
 unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
-}
-impl ::windows::core::DefaultType for MapRouteRestrictions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -2668,8 +2660,6 @@ impl ::core::fmt::Debug for MapServiceDataUsagePreference {
 }
 unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
-}
-impl ::windows::core::DefaultType for MapServiceDataUsagePreference {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -2809,6 +2799,7 @@ impl ::core::fmt::Debug for PlaceInfo {
 }
 unsafe impl ::windows::core::RuntimeType for PlaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfo;{9a0810b6-31c8-4f6a-9f18-950b4c38951a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlaceInfo {
     type Vtable = IPlaceInfo_Vtbl;
@@ -2915,6 +2906,7 @@ impl ::core::fmt::Debug for PlaceInfoCreateOptions {
 }
 unsafe impl ::windows::core::RuntimeType for PlaceInfoCreateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfoCreateOptions;{cd33c125-67f1-4bb3-9907-ecce939b0399})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlaceInfoCreateOptions {
     type Vtable = IPlaceInfoCreateOptions_Vtbl;
@@ -2997,8 +2989,6 @@ impl ::core::fmt::Debug for TrafficCongestion {
 }
 unsafe impl ::windows::core::RuntimeType for TrafficCongestion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
-}
-impl ::windows::core::DefaultType for TrafficCongestion {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Maps'*"]
@@ -3030,8 +3020,6 @@ impl ::core::fmt::Debug for WaypointKind {
 }
 unsafe impl ::windows::core::RuntimeType for WaypointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
-}
-impl ::windows::core::DefaultType for WaypointKind {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

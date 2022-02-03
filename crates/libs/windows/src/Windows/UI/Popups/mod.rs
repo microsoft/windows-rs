@@ -173,6 +173,7 @@ impl ::core::fmt::Debug for IUICommand {
 }
 unsafe impl ::windows::core::RuntimeType for IUICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IUICommand {
     type Vtable = IUICommand_Vtbl;
@@ -329,6 +330,7 @@ impl ::core::fmt::Debug for MessageDialog {
 }
 unsafe impl ::windows::core::RuntimeType for MessageDialog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MessageDialog {
     type Vtable = IMessageDialog_Vtbl;
@@ -434,8 +436,6 @@ impl ::core::ops::Not for MessageDialogOptions {
 }
 unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
-}
-impl ::windows::core::DefaultType for MessageDialogOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Popups'*"]
@@ -470,8 +470,6 @@ impl ::core::fmt::Debug for Placement {
 }
 unsafe impl ::windows::core::RuntimeType for Placement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
-}
-impl ::windows::core::DefaultType for Placement {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Popups'*"]
@@ -540,6 +538,7 @@ impl ::core::fmt::Debug for PopupMenu {
 }
 unsafe impl ::windows::core::RuntimeType for PopupMenu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PopupMenu {
     type Vtable = IPopupMenu_Vtbl;
@@ -683,6 +682,7 @@ impl ::core::fmt::Debug for UICommand {
 }
 unsafe impl ::windows::core::RuntimeType for UICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UICommand {
     type Vtable = IUICommand_Vtbl;
@@ -826,6 +826,7 @@ unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
 }
 unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{daf77a4f-c27a-4298-9ac6-2922c45e7da6}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -902,6 +903,7 @@ impl ::core::fmt::Debug for UICommandSeparator {
 }
 unsafe impl ::windows::core::RuntimeType for UICommandSeparator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UICommandSeparator {
     type Vtable = IUICommand_Vtbl;

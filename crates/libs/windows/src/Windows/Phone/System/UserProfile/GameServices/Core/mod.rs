@@ -112,8 +112,6 @@ impl ::core::fmt::Debug for GameServiceGameOutcome {
 }
 unsafe impl ::windows::core::RuntimeType for GameServiceGameOutcome {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
-}
-impl ::windows::core::DefaultType for GameServiceGameOutcome {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
@@ -148,6 +146,7 @@ impl ::core::fmt::Debug for GameServicePropertyCollection {
 }
 unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
@@ -227,8 +226,6 @@ impl ::core::fmt::Debug for GameServiceScoreKind {
 }
 unsafe impl ::windows::core::RuntimeType for GameServiceScoreKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
-}
-impl ::windows::core::DefaultType for GameServiceScoreKind {
     type DefaultType = Self;
 }
 #[doc(hidden)]

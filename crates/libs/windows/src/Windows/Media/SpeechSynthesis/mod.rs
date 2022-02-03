@@ -179,8 +179,6 @@ impl ::core::fmt::Debug for SpeechAppendedSilence {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
-}
-impl ::windows::core::DefaultType for SpeechAppendedSilence {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
@@ -212,8 +210,6 @@ impl ::core::fmt::Debug for SpeechPunctuationSilence {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
-}
-impl ::windows::core::DefaultType for SpeechPunctuationSilence {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
@@ -374,6 +370,7 @@ impl ::core::fmt::Debug for SpeechSynthesisStream {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesisStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesisStream;{83e46e93-244c-4622-ba0b-6229c4d0d65d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesisStream {
     type Vtable = ISpeechSynthesisStream_Vtbl;
@@ -714,6 +711,7 @@ impl ::core::fmt::Debug for SpeechSynthesizer {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizer;{ce9f7c76-97f4-4ced-ad68-d51c458e45c6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesizer {
     type Vtable = ISpeechSynthesizer_Vtbl;
@@ -904,6 +902,7 @@ impl ::core::fmt::Debug for SpeechSynthesizerOptions {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechSynthesizerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions;{a0e23871-cc3d-43c9-91b1-ee185324d83d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesizerOptions {
     type Vtable = ISpeechSynthesizerOptions_Vtbl;
@@ -983,8 +982,6 @@ impl ::core::fmt::Debug for VoiceGender {
 }
 unsafe impl ::windows::core::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
-}
-impl ::windows::core::DefaultType for VoiceGender {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
@@ -1050,6 +1047,7 @@ impl ::core::fmt::Debug for VoiceInformation {
 }
 unsafe impl ::windows::core::RuntimeType for VoiceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechSynthesis.VoiceInformation;{b127d6a4-1291-4604-aa9c-83134083352c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for VoiceInformation {
     type Vtable = IVoiceInformation_Vtbl;

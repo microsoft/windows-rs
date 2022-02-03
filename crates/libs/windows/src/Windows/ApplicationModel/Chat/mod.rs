@@ -62,6 +62,7 @@ impl ::core::fmt::Debug for ChatCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for ChatCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatCapabilities {
     type Vtable = IChatCapabilities_Vtbl;
@@ -341,6 +342,7 @@ impl ::core::fmt::Debug for ChatConversation {
 }
 unsafe impl ::windows::core::RuntimeType for ChatConversation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatConversation {
     type Vtable = IChatConversation_Vtbl;
@@ -454,6 +456,7 @@ impl ::core::fmt::Debug for ChatConversationReader {
 }
 unsafe impl ::windows::core::RuntimeType for ChatConversationReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatConversationReader {
     type Vtable = IChatConversationReader_Vtbl;
@@ -595,6 +598,7 @@ impl ::core::fmt::Debug for ChatConversationThreadingInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_Vtbl;
@@ -676,8 +680,6 @@ impl ::core::fmt::Debug for ChatConversationThreadingKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatConversationThreadingKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -709,8 +711,6 @@ impl ::core::fmt::Debug for ChatItemKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatItemKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -1083,6 +1083,7 @@ impl ::core::fmt::Debug for ChatMessage {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessage {
     type Vtable = IChatMessage_Vtbl;
@@ -1286,6 +1287,7 @@ impl ::core::fmt::Debug for ChatMessageAttachment {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageAttachment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageAttachment {
     type Vtable = IChatMessageAttachment_Vtbl;
@@ -1395,6 +1397,7 @@ impl ::core::fmt::Debug for ChatMessageChange {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageChange {
     type Vtable = IChatMessageChange_Vtbl;
@@ -1487,6 +1490,7 @@ impl ::core::fmt::Debug for ChatMessageChangeReader {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_Vtbl;
@@ -1578,6 +1582,7 @@ impl ::core::fmt::Debug for ChatMessageChangeTracker {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_Vtbl;
@@ -1659,8 +1664,6 @@ impl ::core::fmt::Debug for ChatMessageChangeType {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageChangeType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -1691,6 +1694,7 @@ impl ::core::fmt::Debug for ChatMessageChangedDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_Vtbl;
@@ -1772,6 +1776,7 @@ impl ::core::fmt::Debug for ChatMessageChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_Vtbl;
@@ -1856,8 +1861,6 @@ impl ::core::fmt::Debug for ChatMessageKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -1997,6 +2000,7 @@ impl ::core::fmt::Debug for ChatMessageNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
@@ -2078,8 +2082,6 @@ impl ::core::fmt::Debug for ChatMessageOperatorKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageOperatorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageOperatorKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -2123,6 +2125,7 @@ impl ::core::fmt::Debug for ChatMessageReader {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageReader {
     type Vtable = IChatMessageReader_Vtbl;
@@ -2214,8 +2217,6 @@ impl ::core::fmt::Debug for ChatMessageStatus {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -2500,6 +2501,7 @@ impl ::core::fmt::Debug for ChatMessageStore {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageStore {
     type Vtable = IChatMessageStore_Vtbl;
@@ -2589,6 +2591,7 @@ impl ::core::fmt::Debug for ChatMessageStoreChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
@@ -2719,6 +2722,7 @@ impl ::core::fmt::Debug for ChatMessageTransport {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransport {
     type Vtable = IChatMessageTransport_Vtbl;
@@ -2834,6 +2838,7 @@ impl ::core::fmt::Debug for ChatMessageTransportConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_Vtbl;
@@ -2915,8 +2920,6 @@ impl ::core::fmt::Debug for ChatMessageTransportKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageTransportKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageTransportKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -2977,6 +2980,7 @@ impl ::core::fmt::Debug for ChatMessageValidationResult {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_Vtbl;
@@ -3068,8 +3072,6 @@ impl ::core::fmt::Debug for ChatMessageValidationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
-}
-impl ::windows::core::DefaultType for ChatMessageValidationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -3115,6 +3117,7 @@ impl ::core::fmt::Debug for ChatQueryOptions {
 }
 unsafe impl ::windows::core::RuntimeType for ChatQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatQueryOptions {
     type Vtable = IChatQueryOptions_Vtbl;
@@ -3278,6 +3281,7 @@ impl ::core::fmt::Debug for ChatRecipientDeliveryInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ChatRecipientDeliveryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_Vtbl;
@@ -3358,8 +3362,6 @@ impl ::core::fmt::Debug for ChatRestoreHistorySpan {
 }
 unsafe impl ::windows::core::RuntimeType for ChatRestoreHistorySpan {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
-}
-impl ::windows::core::DefaultType for ChatRestoreHistorySpan {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -3403,6 +3405,7 @@ impl ::core::fmt::Debug for ChatSearchReader {
 }
 unsafe impl ::windows::core::RuntimeType for ChatSearchReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatSearchReader {
     type Vtable = IChatSearchReader_Vtbl;
@@ -3488,8 +3491,6 @@ impl ::core::fmt::Debug for ChatStoreChangedEventKind {
 }
 unsafe impl ::windows::core::RuntimeType for ChatStoreChangedEventKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
-}
-impl ::windows::core::DefaultType for ChatStoreChangedEventKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -3541,6 +3542,7 @@ impl ::core::fmt::Debug for ChatSyncConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ChatSyncConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_Vtbl;
@@ -3663,6 +3665,7 @@ impl ::core::fmt::Debug for ChatSyncManager {
 }
 unsafe impl ::windows::core::RuntimeType for ChatSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChatSyncManager {
     type Vtable = IChatSyncManager_Vtbl;
@@ -3744,8 +3747,6 @@ impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
 }
 unsafe impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
-}
-impl ::windows::core::DefaultType for ChatTransportErrorCodeCategory {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -3781,8 +3782,6 @@ impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
 }
 unsafe impl ::windows::core::RuntimeType for ChatTransportInterpretedErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
-}
-impl ::windows::core::DefaultType for ChatTransportInterpretedErrorCode {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -4022,6 +4021,7 @@ impl ::core::fmt::Debug for IChatItem {
 }
 unsafe impl ::windows::core::RuntimeType for IChatItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IChatItem {
     type Vtable = IChatItem_Vtbl;
@@ -5074,6 +5074,7 @@ impl ::core::fmt::Debug for RcsEndUserMessage {
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_Vtbl;
@@ -5155,6 +5156,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAction {
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_Vtbl;
@@ -5244,6 +5246,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAvailableEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
@@ -5333,6 +5336,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageAvailableTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
@@ -5421,6 +5425,7 @@ impl ::core::fmt::Debug for RcsEndUserMessageManager {
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_Vtbl;
@@ -5563,8 +5568,6 @@ impl ::core::fmt::Debug for RcsServiceKind {
 }
 unsafe impl ::windows::core::RuntimeType for RcsServiceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
-}
-impl ::windows::core::DefaultType for RcsServiceKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
@@ -5598,6 +5601,7 @@ impl ::core::fmt::Debug for RcsServiceKindSupportedChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
@@ -5743,6 +5747,7 @@ impl ::core::fmt::Debug for RcsTransport {
 }
 unsafe impl ::windows::core::RuntimeType for RcsTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsTransport {
     type Vtable = IRcsTransport_Vtbl;
@@ -5864,6 +5869,7 @@ impl ::core::fmt::Debug for RcsTransportConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for RcsTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_Vtbl;
@@ -5961,6 +5967,7 @@ impl ::core::fmt::Debug for RemoteParticipantComposingChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;

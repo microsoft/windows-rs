@@ -123,6 +123,7 @@ impl ::core::fmt::Debug for CortanaActionableInsights {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaActionableInsights {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaActionableInsights;{951ec6b1-fc83-586d-8b84-2452c8981625})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsights {
@@ -252,6 +253,7 @@ impl ::core::fmt::Debug for CortanaActionableInsightsOptions {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaActionableInsightsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaActionableInsightsOptions;{aac2bbcf-9782-5420-b81e-7ae56af31815})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsightsOptions {
@@ -360,9 +362,6 @@ impl ::core::fmt::Debug for CortanaPermission {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermission {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for CortanaPermission {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
@@ -403,9 +402,6 @@ impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for CortanaPermissionsChangeResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
@@ -488,6 +484,7 @@ impl ::core::fmt::Debug for CortanaPermissionsManager {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaPermissionsManager;{191330e0-8695-438a-9545-3da4e822ddb4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaPermissionsManager {
@@ -626,6 +623,7 @@ impl ::core::fmt::Debug for CortanaSettings {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Cortana.CortanaSettings;{54d571a7-8062-40f4-abe7-dedfd697b019})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaSettings {

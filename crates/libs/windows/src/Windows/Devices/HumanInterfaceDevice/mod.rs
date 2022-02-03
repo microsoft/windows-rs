@@ -67,6 +67,7 @@ impl ::core::fmt::Debug for HidBooleanControl {
 }
 unsafe impl ::windows::core::RuntimeType for HidBooleanControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControl;{524df48a-3695-408c-bba2-e2eb5abfbc20})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
@@ -197,6 +198,7 @@ impl ::core::fmt::Debug for HidBooleanControlDescription {
 }
 unsafe impl ::windows::core::RuntimeType for HidBooleanControlDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription;{6196e543-29d8-4a2a-8683-849e207bbe31})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
@@ -302,6 +304,7 @@ impl ::core::fmt::Debug for HidCollection {
 }
 unsafe impl ::windows::core::RuntimeType for HidCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidCollection;{7189f5a3-32f1-46e3-befd-44d2663b7e6a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidCollection {
     type Vtable = IHidCollection_Vtbl;
@@ -387,8 +390,6 @@ impl ::core::fmt::Debug for HidCollectionType {
 }
 unsafe impl ::windows::core::RuntimeType for HidCollectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
-}
-impl ::windows::core::DefaultType for HidCollectionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
@@ -606,6 +607,7 @@ impl ::core::fmt::Debug for HidDevice {
 }
 unsafe impl ::windows::core::RuntimeType for HidDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidDevice;{5f8a14e7-2200-432e-95da-d09b87d574a8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidDevice {
     type Vtable = IHidDevice_Vtbl;
@@ -760,6 +762,7 @@ impl ::core::fmt::Debug for HidFeatureReport {
 }
 unsafe impl ::windows::core::RuntimeType for HidFeatureReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidFeatureReport;{841d9b79-5ae5-46e3-82ef-1fec5c8942f4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
@@ -900,6 +903,7 @@ impl ::core::fmt::Debug for HidInputReport {
 }
 unsafe impl ::windows::core::RuntimeType for HidInputReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReport;{c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidInputReport {
     type Vtable = IHidInputReport_Vtbl;
@@ -981,6 +985,7 @@ impl ::core::fmt::Debug for HidInputReportReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for HidInputReportReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs;{7059c5cb-59b2-4dc2-985c-0adc6136fa2d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
@@ -1120,6 +1125,7 @@ impl ::core::fmt::Debug for HidNumericControl {
 }
 unsafe impl ::windows::core::RuntimeType for HidNumericControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControl;{e38a12a5-35a7-4b75-89c8-fb1f28b10823})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
@@ -1322,6 +1328,7 @@ impl ::core::fmt::Debug for HidNumericControlDescription {
 }
 unsafe impl ::windows::core::RuntimeType for HidNumericControlDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription;{638d5e86-1d97-4c75-927f-5ff58ba05e32})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
@@ -1450,6 +1457,7 @@ impl ::core::fmt::Debug for HidOutputReport {
 }
 unsafe impl ::windows::core::RuntimeType for HidOutputReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidOutputReport;{62cb2544-c896-4463-93c1-df9db053c450})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
@@ -1530,8 +1538,6 @@ impl ::core::fmt::Debug for HidReportType {
 }
 unsafe impl ::windows::core::RuntimeType for HidReportType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
-}
-impl ::windows::core::DefaultType for HidReportType {
     type DefaultType = Self;
 }
 #[doc(hidden)]

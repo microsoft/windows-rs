@@ -63,6 +63,7 @@ impl ::core::fmt::Debug for AttributedNetworkUsage {
 }
 unsafe impl ::windows::core::RuntimeType for AttributedNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_Vtbl;
@@ -144,8 +145,6 @@ impl ::core::fmt::Debug for CellularApnAuthenticationType {
 }
 unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
-}
-impl ::windows::core::DefaultType for CellularApnAuthenticationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -269,6 +268,7 @@ impl ::core::fmt::Debug for CellularApnContext {
 }
 unsafe impl ::windows::core::RuntimeType for CellularApnContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CellularApnContext {
     type Vtable = ICellularApnContext_Vtbl;
@@ -382,6 +382,7 @@ impl ::core::fmt::Debug for ConnectionCost {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionCost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionCost;{bad7d829-3416-4b10-a202-bac0b075bdae})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConnectionCost {
     type Vtable = IConnectionCost_Vtbl;
@@ -641,6 +642,7 @@ impl ::core::fmt::Debug for ConnectionProfile {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConnectionProfile {
     type Vtable = IConnectionProfile_Vtbl;
@@ -722,8 +724,6 @@ impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
-}
-impl ::windows::core::DefaultType for ConnectionProfileDeleteStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -892,6 +892,7 @@ impl ::core::fmt::Debug for ConnectionProfileFilter {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_Vtbl;
@@ -979,6 +980,7 @@ impl ::core::fmt::Debug for ConnectionSession {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionSession;{ff905d4c-f83b-41b0-8a0c-1462d9c56b73})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConnectionSession {
     type Vtable = IConnectionSession_Vtbl;
@@ -1096,6 +1098,7 @@ impl ::core::fmt::Debug for ConnectivityInterval {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectivityInterval {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectivityInterval;{4faa3fff-6746-4824-a964-eed8e87f8709})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ConnectivityInterval {
     type Vtable = IConnectivityInterval_Vtbl;
@@ -1250,6 +1253,7 @@ impl ::core::fmt::Debug for DataPlanStatus {
 }
 unsafe impl ::windows::core::RuntimeType for DataPlanStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DataPlanStatus {
     type Vtable = IDataPlanStatus_Vtbl;
@@ -1340,6 +1344,7 @@ impl ::core::fmt::Debug for DataPlanUsage {
 }
 unsafe impl ::windows::core::RuntimeType for DataPlanUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanUsage;{b921492d-3b44-47ff-b361-be59e69ed1b0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DataPlanUsage {
     type Vtable = IDataPlanUsage_Vtbl;
@@ -1438,6 +1443,7 @@ impl ::core::fmt::Debug for DataUsage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DataUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DataUsage {
@@ -1531,8 +1537,6 @@ impl ::core::fmt::Debug for DataUsageGranularity {
 }
 unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
-}
-impl ::windows::core::DefaultType for DataUsageGranularity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -1565,8 +1569,6 @@ impl ::core::fmt::Debug for DomainConnectivityLevel {
 }
 unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
-}
-impl ::windows::core::DefaultType for DomainConnectivityLevel {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -2225,6 +2227,7 @@ impl ::core::fmt::Debug for IPInformation {
 }
 unsafe impl ::windows::core::RuntimeType for IPInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPInformation {
     type Vtable = IIPInformation_Vtbl;
@@ -2428,6 +2431,7 @@ impl ::core::fmt::Debug for LanIdentifier {
 }
 unsafe impl ::windows::core::RuntimeType for LanIdentifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LanIdentifier {
     type Vtable = ILanIdentifier_Vtbl;
@@ -2518,6 +2522,7 @@ impl ::core::fmt::Debug for LanIdentifierData {
 }
 unsafe impl ::windows::core::RuntimeType for LanIdentifierData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifierData;{a74e83c3-d639-45be-a36a-c4e4aeaf6d9b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LanIdentifierData {
     type Vtable = ILanIdentifierData_Vtbl;
@@ -2640,6 +2645,7 @@ impl ::core::fmt::Debug for NetworkAdapter {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkAdapter;{3b542e03-5388-496c-a8a3-affd39aec2e6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NetworkAdapter {
     type Vtable = INetworkAdapter_Vtbl;
@@ -2732,8 +2738,6 @@ impl ::core::fmt::Debug for NetworkAuthenticationType {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
-}
-impl ::windows::core::DefaultType for NetworkAuthenticationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -2767,8 +2771,6 @@ impl ::core::fmt::Debug for NetworkConnectivityLevel {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
-}
-impl ::windows::core::DefaultType for NetworkConnectivityLevel {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -2802,8 +2804,6 @@ impl ::core::fmt::Debug for NetworkCostType {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkCostType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
-}
-impl ::windows::core::DefaultType for NetworkCostType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -2845,8 +2845,6 @@ impl ::core::fmt::Debug for NetworkEncryptionType {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
-}
-impl ::windows::core::DefaultType for NetworkEncryptionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -2973,6 +2971,7 @@ impl ::core::fmt::Debug for NetworkItem {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NetworkItem {
     type Vtable = INetworkItem_Vtbl;
@@ -3062,6 +3061,7 @@ impl ::core::fmt::Debug for NetworkSecuritySettings {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkSecuritySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkSecuritySettings;{7ca07e8d-917b-4b5f-b84d-28f7a5ac5402})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_Vtbl;
@@ -3199,6 +3199,7 @@ impl ::core::fmt::Debug for NetworkStateChangeEventDetails {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_Vtbl;
@@ -3320,6 +3321,7 @@ unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{71ba143f-598e-49d0-84eb-8febaedcc195}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3385,8 +3387,6 @@ impl ::core::ops::Not for NetworkTypes {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
-}
-impl ::windows::core::DefaultType for NetworkTypes {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -3437,6 +3437,7 @@ impl ::core::fmt::Debug for NetworkUsage {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NetworkUsage {
     type Vtable = INetworkUsage_Vtbl;
@@ -3509,8 +3510,6 @@ unsafe impl ::windows::core::Abi for NetworkUsageStates {
 }
 unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
-}
-impl ::windows::core::DefaultType for NetworkUsageStates {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for NetworkUsageStates {
@@ -3571,6 +3570,7 @@ impl ::core::fmt::Debug for ProviderNetworkUsage {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_Vtbl;
@@ -3661,6 +3661,7 @@ impl ::core::fmt::Debug for ProxyConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ProxyConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProxyConfiguration;{ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ProxyConfiguration {
     type Vtable = IProxyConfiguration_Vtbl;
@@ -3769,8 +3770,6 @@ impl ::core::ops::Not for RoamingStates {
 }
 unsafe impl ::windows::core::RuntimeType for RoamingStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
-}
-impl ::windows::core::DefaultType for RoamingStates {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -3832,6 +3831,7 @@ impl ::core::fmt::Debug for RoutePolicy {
 }
 unsafe impl ::windows::core::RuntimeType for RoutePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for RoutePolicy {
     type Vtable = IRoutePolicy_Vtbl;
@@ -3912,8 +3912,6 @@ impl ::core::fmt::Debug for TriStates {
 }
 unsafe impl ::windows::core::RuntimeType for TriStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
-}
-impl ::windows::core::DefaultType for TriStates {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -3947,6 +3945,7 @@ impl ::core::fmt::Debug for WlanConnectionProfileDetails {
 }
 unsafe impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WlanConnectionProfileDetails;{562098cb-b35a-4bf1-a884-b7557e88ff86})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_Vtbl;
@@ -4069,6 +4068,7 @@ impl ::core::fmt::Debug for WwanConnectionProfileDetails {
 }
 unsafe impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_Vtbl;
@@ -4189,8 +4189,6 @@ impl ::core::ops::Not for WwanDataClass {
 }
 unsafe impl ::windows::core::RuntimeType for WwanDataClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
-}
-impl ::windows::core::DefaultType for WwanDataClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -4225,8 +4223,6 @@ impl ::core::fmt::Debug for WwanNetworkIPKind {
 }
 unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
-}
-impl ::windows::core::DefaultType for WwanNetworkIPKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
@@ -4263,8 +4259,6 @@ impl ::core::fmt::Debug for WwanNetworkRegistrationState {
 }
 unsafe impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
-}
-impl ::windows::core::DefaultType for WwanNetworkRegistrationState {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

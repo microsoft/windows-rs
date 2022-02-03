@@ -295,6 +295,7 @@ impl ::core::fmt::Debug for IPrintCustomOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IPrintCustomOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e32bde1c-28af-4b90-95da-a3acf320b929}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPrintCustomOptionDetails {
     type Vtable = IPrintCustomOptionDetails_Vtbl;
@@ -537,6 +538,7 @@ impl ::core::fmt::Debug for IPrintItemListOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IPrintItemListOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a2257bf-fe61-43d8-a24f-a3f6ab7320e7}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPrintItemListOptionDetails {
     type Vtable = IPrintItemListOptionDetails_Vtbl;
@@ -742,6 +744,7 @@ impl ::core::fmt::Debug for IPrintNumberOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IPrintNumberOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d01bbaf-645c-4de9-965f-6fc6bbc47cab}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPrintNumberOptionDetails {
     type Vtable = IPrintNumberOptionDetails_Vtbl;
@@ -875,6 +878,7 @@ impl ::core::fmt::Debug for IPrintOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IPrintOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{390686cf-d682-495f-adfe-d7333f5c1808}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPrintOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1181,6 +1185,7 @@ impl ::core::fmt::Debug for IPrintTextOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IPrintTextOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad75e563-5ce4-46bc-9918-ab9fad144c5b}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IPrintTextOptionDetails {
     type Vtable = IPrintTextOptionDetails_Vtbl;
@@ -1308,6 +1313,7 @@ impl ::core::fmt::Debug for PrintBindingOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintBindingOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintBindingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1518,6 +1524,7 @@ impl ::core::fmt::Debug for PrintBorderingOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintBorderingOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintBorderingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1728,6 +1735,7 @@ impl ::core::fmt::Debug for PrintCollationOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCollationOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCollationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1938,6 +1946,7 @@ impl ::core::fmt::Debug for PrintColorModeOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintColorModeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintColorModeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2155,6 +2164,7 @@ impl ::core::fmt::Debug for PrintCopiesOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCopiesOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCopiesOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2293,6 +2303,7 @@ impl ::core::fmt::Debug for PrintCustomItemDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCustomItemDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails;{5704b637-5c3a-449a-aa36-b3291b1192fd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemDetails {
     type Vtable = IPrintCustomItemDetails_Vtbl;
@@ -2483,6 +2494,7 @@ impl ::core::fmt::Debug for PrintCustomItemListOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCustomItemListOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemListOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2732,6 +2744,7 @@ impl ::core::fmt::Debug for PrintCustomTextOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCustomTextOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCustomTextOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2946,6 +2959,7 @@ impl ::core::fmt::Debug for PrintCustomToggleOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintCustomToggleOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintCustomToggleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -3156,6 +3170,7 @@ impl ::core::fmt::Debug for PrintDuplexOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintDuplexOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintDuplexOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -3366,6 +3381,7 @@ impl ::core::fmt::Debug for PrintHolePunchOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintHolePunchOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintHolePunchOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -3576,6 +3592,7 @@ impl ::core::fmt::Debug for PrintMediaSizeOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintMediaSizeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintMediaSizeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -3786,6 +3803,7 @@ impl ::core::fmt::Debug for PrintMediaTypeOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintMediaTypeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintMediaTypeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -3938,8 +3956,6 @@ impl ::core::ops::Not for PrintOptionStates {
 }
 unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
-}
-impl ::windows::core::DefaultType for PrintOptionStates {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
@@ -3974,8 +3990,6 @@ impl ::core::fmt::Debug for PrintOptionType {
 }
 unsafe impl ::windows::core::RuntimeType for PrintOptionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
-}
-impl ::windows::core::DefaultType for PrintOptionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
@@ -4094,6 +4108,7 @@ impl ::core::fmt::Debug for PrintOrientationOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintOrientationOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintOrientationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -4295,6 +4310,7 @@ impl ::core::fmt::Debug for PrintPageRangeOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintPageRangeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -4483,6 +4499,7 @@ impl ::core::fmt::Debug for PrintQualityOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintQualityOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintQualityOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -4693,6 +4710,7 @@ impl ::core::fmt::Debug for PrintStapleOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintStapleOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintStapleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -4818,6 +4836,7 @@ impl ::core::fmt::Debug for PrintTaskOptionChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskOptionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs;{65197d05-a5ee-4307-9407-9acad147679c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionChangedEventArgs {
     type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
@@ -4984,6 +5003,7 @@ impl ::core::fmt::Debug for PrintTaskOptionDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails;{f5720af1-a89e-42a6-81af-f8e010b38a68})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionDetails {
     type Vtable = IPrintTaskOptionDetails_Vtbl;

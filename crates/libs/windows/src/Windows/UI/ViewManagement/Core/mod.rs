@@ -71,6 +71,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputView {
 }
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputView {
     type Vtable = ICoreFrameworkInputView_Vtbl;
@@ -170,6 +171,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputViewAnimationStartingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewAnimationStartingEventArgs {
     type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl;
@@ -260,6 +262,7 @@ impl ::core::fmt::Debug for CoreFrameworkInputViewOcclusionsChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs;{f36f4949-c82c-53d1-a75d-2b2baf0d9b0d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl;
@@ -528,6 +531,7 @@ impl ::core::fmt::Debug for CoreInputView {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputView {
     type Vtable = ICoreInputView_Vtbl;
@@ -632,6 +636,7 @@ impl ::core::fmt::Debug for CoreInputViewAnimationStartingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewAnimationStartingEventArgs {
     type Vtable = ICoreInputViewAnimationStartingEventArgs_Vtbl;
@@ -713,6 +718,7 @@ impl ::core::fmt::Debug for CoreInputViewHidingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs;{eada47bd-bac5-5336-848d-41083584daad})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewHidingEventArgs {
     type Vtable = ICoreInputViewHidingEventArgs_Vtbl;
@@ -797,8 +803,6 @@ impl ::core::fmt::Debug for CoreInputViewKind {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
-}
-impl ::windows::core::DefaultType for CoreInputViewKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_ViewManagement_Core'*"]
@@ -841,6 +845,7 @@ impl ::core::fmt::Debug for CoreInputViewOcclusion {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusion;{cc36ce06-3865-4177-b5f5-8b65e0b9ce84})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusion {
     type Vtable = ICoreInputViewOcclusion_Vtbl;
@@ -921,8 +926,6 @@ impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
-}
-impl ::windows::core::DefaultType for CoreInputViewOcclusionKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_ViewManagement_Core'*"]
@@ -970,6 +973,7 @@ impl ::core::fmt::Debug for CoreInputViewOcclusionsChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreInputViewOcclusionsChangedEventArgs_Vtbl;
@@ -1051,6 +1055,7 @@ impl ::core::fmt::Debug for CoreInputViewShowingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs;{ca52261b-fb9e-5daf-a98c-262b8b76af50})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewShowingEventArgs {
     type Vtable = ICoreInputViewShowingEventArgs_Vtbl;
@@ -1167,6 +1172,7 @@ impl ::core::fmt::Debug for CoreInputViewTransferringXYFocusEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CoreInputViewTransferringXYFocusEventArgs {
     type Vtable = ICoreInputViewTransferringXYFocusEventArgs_Vtbl;
@@ -1248,8 +1254,6 @@ impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewXYFocusTransferDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
-}
-impl ::windows::core::DefaultType for CoreInputViewXYFocusTransferDirection {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -1686,6 +1690,7 @@ impl ::core::fmt::Debug for UISettingsController {
 }
 unsafe impl ::windows::core::RuntimeType for UISettingsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UISettingsController {
     type Vtable = IUISettingsController_Vtbl;

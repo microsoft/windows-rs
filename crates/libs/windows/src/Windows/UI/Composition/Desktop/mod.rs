@@ -142,6 +142,7 @@ impl ::core::fmt::Debug for DesktopWindowTarget {
 }
 unsafe impl ::windows::core::RuntimeType for DesktopWindowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_Vtbl;

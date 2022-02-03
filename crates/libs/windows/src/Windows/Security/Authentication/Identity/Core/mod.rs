@@ -274,6 +274,7 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationManager {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager;{0fd340a5-f574-4320-a08e-0a19a82322aa})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
@@ -353,8 +354,6 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
-}
-impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorAuthenticationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
@@ -397,6 +396,7 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorGetSessionsResult {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult;{4e23a9a0-e9fa-497a-95de-6d5747bf974c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
@@ -504,6 +504,7 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorOneTimeCodedInfo {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo;{82ba264b-d87c-4668-a976-40cfae547d08})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
@@ -603,8 +604,6 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
-}
-impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorServiceResponse {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
@@ -637,8 +636,6 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
-}
-impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
@@ -670,8 +667,6 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStat
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
-}
-impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
@@ -755,6 +750,7 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo;{5f7eabb4-a278-4635-b765-b494eb260af4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
@@ -854,6 +850,7 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorUnregisteredAccountsAndSe
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;{aa7ec5fb-da3f-4088-a20d-5618afadb2e5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;

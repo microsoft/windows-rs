@@ -34,8 +34,6 @@ impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
 }
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
-}
-impl ::windows::core::DefaultType for DeliveryOptimizationDownloadMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
@@ -67,8 +65,6 @@ impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
 }
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
-}
-impl ::windows::core::DefaultType for DeliveryOptimizationDownloadModeSource {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
@@ -122,6 +118,7 @@ impl ::core::fmt::Debug for DeliveryOptimizationSettings {
 }
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DeliveryOptimizationSettings {
     type Vtable = IDeliveryOptimizationSettings_Vtbl;
@@ -710,6 +707,7 @@ impl ::core::fmt::Debug for StoreHardwareManufacturerInfo {
 }
 unsafe impl ::windows::core::RuntimeType for StoreHardwareManufacturerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo;{f292dc08-c654-43ac-a21f-34801c9d3388})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StoreHardwareManufacturerInfo {
     type Vtable = IStoreHardwareManufacturerInfo_Vtbl;
@@ -817,8 +815,6 @@ impl ::core::ops::Not for StoreLogOptions {
 }
 unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
-}
-impl ::windows::core::DefaultType for StoreLogOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
@@ -913,6 +909,7 @@ impl ::core::fmt::Debug for StorePreviewProductInfo {
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo;{1937dbb3-6c01-4c9d-85cd-5babaac2b351})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorePreviewProductInfo {
     type Vtable = IStorePreviewProductInfo_Vtbl;
@@ -994,8 +991,6 @@ impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
-}
-impl ::windows::core::DefaultType for StorePreviewProductPurchaseStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
@@ -1029,6 +1024,7 @@ impl ::core::fmt::Debug for StorePreviewPurchaseResults {
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewPurchaseResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults;{b0daaed1-d6c5-4e53-a043-fba0d8e61231})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorePreviewPurchaseResults {
     type Vtable = IStorePreviewPurchaseResults_Vtbl;
@@ -1174,6 +1170,7 @@ impl ::core::fmt::Debug for StorePreviewSkuInfo {
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewSkuInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo;{81fd76e2-0b26-48d9-98ce-27461c669d6c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorePreviewSkuInfo {
     type Vtable = IStorePreviewSkuInfo_Vtbl;
@@ -1286,8 +1283,6 @@ impl ::core::fmt::Debug for StoreSystemFeature {
 }
 unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
-}
-impl ::windows::core::DefaultType for StoreSystemFeature {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]

@@ -30,8 +30,6 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
-}
-impl ::windows::core::DefaultType for ExtendedExecutionForegroundReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
@@ -63,8 +61,6 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
-}
-impl ::windows::core::DefaultType for ExtendedExecutionForegroundResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
@@ -98,6 +94,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs;{b07cd940-9557-aea4-2c99-bdd56d9be461})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
@@ -177,8 +174,6 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
-}
-impl ::windows::core::DefaultType for ExtendedExecutionForegroundRevokedReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
@@ -267,6 +262,7 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundSession {
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession;{fbf440e1-9d10-4201-b01e-c83275296f2e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;

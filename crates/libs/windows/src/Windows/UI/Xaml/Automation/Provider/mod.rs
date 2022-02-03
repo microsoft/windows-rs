@@ -102,6 +102,7 @@ impl ::core::fmt::Debug for IAnnotationProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IAnnotationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95ba1417-4437-451b-9461-050a49b59d06}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_Vtbl;
@@ -189,6 +190,7 @@ impl ::core::fmt::Debug for ICustomNavigationProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ICustomNavigationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2bd8a6d0-2fa3-4717-b28c-4917ce54928d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_Vtbl;
@@ -279,6 +281,7 @@ impl ::core::fmt::Debug for IDockProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IDockProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{48c243f8-78b1-44a0-ac5f-750757bcde3c}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IDockProvider {
     type Vtable = IDockProvider_Vtbl;
@@ -386,6 +389,7 @@ impl ::core::fmt::Debug for IDragProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IDragProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e7786a9-7ffc-4f57-b965-1ef1f373f546}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IDragProvider {
     type Vtable = IDragProvider_Vtbl;
@@ -479,6 +483,7 @@ impl ::core::fmt::Debug for IDropTargetProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IDropTargetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a245bdd-b458-4fe0-98c8-aac89df56d61}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_Vtbl;
@@ -572,6 +577,7 @@ impl ::core::fmt::Debug for IExpandCollapseProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IExpandCollapseProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{49ac8399-d626-4543-94b9-a6d9a9593af6}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_Vtbl;
@@ -688,6 +694,7 @@ impl ::core::fmt::Debug for IGridItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IGridItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fff3683c-7407-45bb-a936-df3ed6d3837d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_Vtbl;
@@ -790,6 +797,7 @@ impl ::core::fmt::Debug for IGridProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IGridProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8b62b7a0-932c-4490-9a13-02fdb39a8f5b}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGridProvider {
     type Vtable = IGridProvider_Vtbl;
@@ -883,6 +891,7 @@ impl ::core::fmt::Debug for IInvokeProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IInvokeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f7d1a187-b13c-4540-b09e-6778e2dc9ba5}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_Vtbl;
@@ -965,6 +974,7 @@ impl ::core::fmt::Debug for IItemContainerProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IItemContainerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ef5cd845-e1d4-40f4-bad5-c7fad44a703e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_Vtbl;
@@ -1068,6 +1078,7 @@ impl ::core::fmt::Debug for IMultipleViewProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IMultipleViewProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d014e196-0e50-4843-a5d2-c22897c8845a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_Vtbl;
@@ -1153,6 +1164,7 @@ impl ::core::fmt::Debug for IObjectModelProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IObjectModelProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c3ca36b9-0793-4ed0-bbf4-9ff4e0f98f80}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_Vtbl;
@@ -1280,6 +1292,7 @@ impl ::core::fmt::Debug for IRangeValueProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IRangeValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{838a34a8-7d5f-4079-af03-c3d015e93413}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_Vtbl;
@@ -1319,6 +1332,7 @@ impl ::core::fmt::Debug for IRawElementProviderSimple {
 }
 unsafe impl ::windows::core::RuntimeType for IRawElementProviderSimple {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple;{ec752224-9b77-4720-bb21-4ac89fdb1afd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimple_Vtbl;
@@ -1457,6 +1471,7 @@ impl ::core::fmt::Debug for IScrollItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IScrollItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a3ec090-5d2c-4e42-9ee6-9d58db100b55}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_Vtbl;
@@ -1589,6 +1604,7 @@ impl ::core::fmt::Debug for IScrollProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IScrollProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{374bf581-7716-4bbc-82eb-d997006ea999}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IScrollProvider {
     type Vtable = IScrollProvider_Vtbl;
@@ -1701,6 +1717,7 @@ impl ::core::fmt::Debug for ISelectionItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ISelectionItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6a4977c1-830d-42d2-bf62-042ebddecc19}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_Vtbl;
@@ -1803,6 +1820,7 @@ impl ::core::fmt::Debug for ISelectionProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ISelectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f018fca-b944-4395-8de1-88f674af51d3}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_Vtbl;
@@ -1903,6 +1921,7 @@ impl ::core::fmt::Debug for ISpreadsheetItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ISpreadsheetItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ebde8f92-6015-4826-b719-47521a81c67e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_Vtbl;
@@ -1987,6 +2006,7 @@ impl ::core::fmt::Debug for ISpreadsheetProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ISpreadsheetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15359093-bd99-4cfd-9f07-3b14b315e23d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_Vtbl;
@@ -2117,6 +2137,7 @@ impl ::core::fmt::Debug for IStylesProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IStylesProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1a5b7a17-7c01-4bec-9cd4-2dfa7dc246cd}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStylesProvider {
     type Vtable = IStylesProvider_Vtbl;
@@ -2207,6 +2228,7 @@ impl ::core::fmt::Debug for ISynchronizedInputProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ISynchronizedInputProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3d60cecb-da54-4aa3-b915-e3244427d4ac}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_Vtbl;
@@ -2298,6 +2320,7 @@ impl ::core::fmt::Debug for ITableItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITableItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b2c49cd-1de2-4ee2-a3e1-fb553559d15d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_Vtbl;
@@ -2397,6 +2420,7 @@ impl ::core::fmt::Debug for ITableProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITableProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a8ed399-6824-4595-bab3-464bc9a04417}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITableProvider {
     type Vtable = ITableProvider_Vtbl;
@@ -2489,6 +2513,7 @@ impl ::core::fmt::Debug for ITextChildProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITextChildProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1133c336-a89b-4130-9be6-55e33334f557}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_Vtbl;
@@ -2651,6 +2676,7 @@ impl ::core::fmt::Debug for ITextEditProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITextEditProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ea3605b4-3a05-400e-b5f9-4e91b40f6176}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_Vtbl;
@@ -2775,6 +2801,7 @@ impl ::core::fmt::Debug for ITextProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITextProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db5bbc9f-4807-4f2a-8678-1b13f3c60e22}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextProvider {
     type Vtable = ITextProvider_Vtbl;
@@ -2944,6 +2971,7 @@ impl ::core::fmt::Debug for ITextProvider2 {
 }
 unsafe impl ::windows::core::RuntimeType for ITextProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{df1d48bc-0487-4e7f-9d5e-f09e77e41246}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_Vtbl;
@@ -3147,6 +3175,7 @@ impl ::core::fmt::Debug for ITextRangeProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITextRangeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0274688d-06e9-4f66-9446-28a5be98fbd0}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_Vtbl;
@@ -3408,6 +3437,7 @@ impl ::core::fmt::Debug for ITextRangeProvider2 {
 }
 unsafe impl ::windows::core::RuntimeType for ITextRangeProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d3be3dfb-9f54-4642-a7a5-5c18d5ee2a3f}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_Vtbl;
@@ -3495,6 +3525,7 @@ impl ::core::fmt::Debug for IToggleProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IToggleProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{93b88290-656f-44f7-aeaf-78b8f944d062}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IToggleProvider {
     type Vtable = IToggleProvider_Vtbl;
@@ -3609,6 +3640,7 @@ impl ::core::fmt::Debug for ITransformProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ITransformProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79670fdd-f6a9-4a65-af17-861db799a2da}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITransformProvider {
     type Vtable = ITransformProvider_Vtbl;
@@ -3791,6 +3823,7 @@ impl ::core::fmt::Debug for ITransformProvider2 {
 }
 unsafe impl ::windows::core::RuntimeType for ITransformProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a8b11756-a39f-4e97-8c7d-c1ea8dd633c5}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_Vtbl;
@@ -3891,6 +3924,7 @@ impl ::core::fmt::Debug for IValueProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2086b7a7-ac0e-47d1-ab9b-2a64292afdf8}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IValueProvider {
     type Vtable = IValueProvider_Vtbl;
@@ -3972,6 +4006,7 @@ impl ::core::fmt::Debug for IVirtualizedItemProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IVirtualizedItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{17d4a04b-d658-48e0-a574-5a516c58dfa7}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_Vtbl;
@@ -4112,6 +4147,7 @@ impl ::core::fmt::Debug for IWindowProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IWindowProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baa8b3d-38cf-415a-85d3-20e43a0ec1b1}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IWindowProvider {
     type Vtable = IWindowProvider_Vtbl;

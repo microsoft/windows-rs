@@ -230,6 +230,7 @@ impl ::core::fmt::Debug for Certificate {
 }
 unsafe impl ::windows::core::RuntimeType for Certificate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.Certificate;{333f740c-04d8-43b3-b278-8c5fcc9be5a0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Certificate {
     type Vtable = ICertificate_Vtbl;
@@ -328,6 +329,7 @@ impl ::core::fmt::Debug for CertificateChain {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateChain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateChain;{20bf5385-3691-4501-a62c-fd97278b31ee})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateChain {
     type Vtable = ICertificateChain_Vtbl;
@@ -409,8 +411,6 @@ impl ::core::fmt::Debug for CertificateChainPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
-}
-impl ::windows::core::DefaultType for CertificateChainPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -556,6 +556,7 @@ impl ::core::fmt::Debug for CertificateExtension {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateExtension;{84cf0656-a9e6-454d-8e45-2ea7c4bcd53b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateExtension {
     type Vtable = ICertificateExtension_Vtbl;
@@ -740,6 +741,7 @@ impl ::core::fmt::Debug for CertificateKeyUsages {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateKeyUsages;{6ac6206f-e1cf-486a-b485-a69c83e46fd1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateKeyUsages {
     type Vtable = ICertificateKeyUsages_Vtbl;
@@ -920,6 +922,7 @@ impl ::core::fmt::Debug for CertificateQuery {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateQuery;{5b082a31-a728-4916-b5ee-ffcb8acf2417})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateQuery {
     type Vtable = ICertificateQuery_Vtbl;
@@ -1247,6 +1250,7 @@ impl ::core::fmt::Debug for CertificateRequestProperties {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateRequestProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateRequestProperties;{487e84f6-94e2-4dce-8833-1a700a37a29a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateRequestProperties {
     type Vtable = ICertificateRequestProperties_Vtbl;
@@ -1338,6 +1342,7 @@ impl ::core::fmt::Debug for CertificateStore {
 }
 unsafe impl ::windows::core::RuntimeType for CertificateStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateStore;{b0bff720-344e-4331-af14-a7f7a7ebc93a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CertificateStore {
     type Vtable = ICertificateStore_Vtbl;
@@ -1564,6 +1569,7 @@ impl ::core::fmt::Debug for ChainBuildingParameters {
 }
 unsafe impl ::windows::core::RuntimeType for ChainBuildingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainBuildingParameters;{422ba922-7c8d-47b7-b59b-b12703733ac3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChainBuildingParameters {
     type Vtable = IChainBuildingParameters_Vtbl;
@@ -1672,6 +1678,7 @@ impl ::core::fmt::Debug for ChainValidationParameters {
 }
 unsafe impl ::windows::core::RuntimeType for ChainValidationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainValidationParameters;{c4743b4a-7eb0-4b56-a040-b9c8e655ddf3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ChainValidationParameters {
     type Vtable = IChainValidationParameters_Vtbl;
@@ -1763,8 +1770,6 @@ impl ::core::fmt::Debug for ChainValidationResult {
 }
 unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
-}
-impl ::windows::core::DefaultType for ChainValidationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -1850,6 +1855,7 @@ impl ::core::fmt::Debug for CmsAttachedSignature {
 }
 unsafe impl ::windows::core::RuntimeType for CmsAttachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsAttachedSignature;{61899d9d-3757-4ecb-bddc-0ca357d7a936})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CmsAttachedSignature {
     type Vtable = ICmsAttachedSignature_Vtbl;
@@ -1976,6 +1982,7 @@ impl ::core::fmt::Debug for CmsDetachedSignature {
 }
 unsafe impl ::windows::core::RuntimeType for CmsDetachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsDetachedSignature;{0f1ef154-f65e-4536-8339-5944081db2ca})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CmsDetachedSignature {
     type Vtable = ICmsDetachedSignature_Vtbl;
@@ -2090,6 +2097,7 @@ impl ::core::fmt::Debug for CmsSignerInfo {
 }
 unsafe impl ::windows::core::RuntimeType for CmsSignerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsSignerInfo;{50d020db-1d2f-4c1a-b5c5-d0188ff91f47})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CmsSignerInfo {
     type Vtable = ICmsSignerInfo_Vtbl;
@@ -2189,6 +2197,7 @@ impl ::core::fmt::Debug for CmsTimestampInfo {
 }
 unsafe impl ::windows::core::RuntimeType for CmsTimestampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsTimestampInfo;{2f5f00f2-2c18-4f88-8435-c534086076f5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CmsTimestampInfo {
     type Vtable = ICmsTimestampInfo_Vtbl;
@@ -2299,8 +2308,6 @@ impl ::core::ops::Not for EnrollKeyUsages {
 }
 unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
-}
-impl ::windows::core::DefaultType for EnrollKeyUsages {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -2332,8 +2339,6 @@ impl ::core::fmt::Debug for ExportOption {
 }
 unsafe impl ::windows::core::RuntimeType for ExportOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
-}
-impl ::windows::core::DefaultType for ExportOption {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -3285,8 +3290,6 @@ impl ::core::ops::Not for InstallOptions {
 }
 unsafe impl ::windows::core::RuntimeType for InstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
-}
-impl ::windows::core::DefaultType for InstallOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -3447,8 +3450,6 @@ impl ::core::fmt::Debug for KeyProtectionLevel {
 }
 unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
-}
-impl ::windows::core::DefaultType for KeyProtectionLevel {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -3481,8 +3482,6 @@ impl ::core::fmt::Debug for KeySize {
 }
 unsafe impl ::windows::core::RuntimeType for KeySize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
-}
-impl ::windows::core::DefaultType for KeySize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -3651,6 +3650,7 @@ impl ::core::fmt::Debug for PfxImportParameters {
 }
 unsafe impl ::windows::core::RuntimeType for PfxImportParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.PfxImportParameters;{680d3511-9a08-47c8-864a-2edd4d8eb46c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PfxImportParameters {
     type Vtable = IPfxImportParameters_Vtbl;
@@ -3733,8 +3733,6 @@ impl ::core::fmt::Debug for SignatureValidationResult {
 }
 unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
-}
-impl ::windows::core::DefaultType for SignatureValidationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
@@ -3916,6 +3914,7 @@ impl ::core::fmt::Debug for SubjectAlternativeNameInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SubjectAlternativeNameInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo;{582859f1-569d-4c20-be7b-4e1c9a0bc52b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SubjectAlternativeNameInfo {
     type Vtable = ISubjectAlternativeNameInfo_Vtbl;
@@ -4034,6 +4033,7 @@ impl ::core::fmt::Debug for UserCertificateEnrollmentManager {
 }
 unsafe impl ::windows::core::RuntimeType for UserCertificateEnrollmentManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager;{96313718-22e1-4819-b20b-ab46a6eca06e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserCertificateEnrollmentManager {
     type Vtable = IUserCertificateEnrollmentManager_Vtbl;
@@ -4133,6 +4133,7 @@ impl ::core::fmt::Debug for UserCertificateStore {
 }
 unsafe impl ::windows::core::RuntimeType for UserCertificateStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateStore;{c9fb1d83-789f-4b4e-9180-045a757aac6d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserCertificateStore {
     type Vtable = IUserCertificateStore_Vtbl;

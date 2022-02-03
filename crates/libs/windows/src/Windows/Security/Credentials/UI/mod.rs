@@ -33,8 +33,6 @@ impl ::core::fmt::Debug for AuthenticationProtocol {
 }
 unsafe impl ::windows::core::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
-}
-impl ::windows::core::DefaultType for AuthenticationProtocol {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
@@ -235,6 +233,7 @@ impl ::core::fmt::Debug for CredentialPickerOptions {
 }
 unsafe impl ::windows::core::RuntimeType for CredentialPickerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_Vtbl;
@@ -363,6 +362,7 @@ impl ::core::fmt::Debug for CredentialPickerResults {
 }
 unsafe impl ::windows::core::RuntimeType for CredentialPickerResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CredentialPickerResults {
     type Vtable = ICredentialPickerResults_Vtbl;
@@ -441,8 +441,6 @@ impl ::core::fmt::Debug for CredentialSaveOption {
 }
 unsafe impl ::windows::core::RuntimeType for CredentialSaveOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
-}
-impl ::windows::core::DefaultType for CredentialSaveOption {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -583,8 +581,6 @@ impl ::core::fmt::Debug for UserConsentVerificationResult {
 }
 unsafe impl ::windows::core::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
-}
-impl ::windows::core::DefaultType for UserConsentVerificationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
@@ -647,8 +643,6 @@ impl ::core::fmt::Debug for UserConsentVerifierAvailability {
 }
 unsafe impl ::windows::core::RuntimeType for UserConsentVerifierAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");
-}
-impl ::windows::core::DefaultType for UserConsentVerifierAvailability {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

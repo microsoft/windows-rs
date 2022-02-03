@@ -244,8 +244,6 @@ impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
-}
-impl ::windows::core::DefaultType for InjectedInputButtonChangeKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -384,6 +382,7 @@ impl ::core::fmt::Debug for InjectedInputGamepadInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo;{20ae9a3f-df11-4572-a9ab-d75b8a5e48ad})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_Vtbl;
@@ -492,8 +491,6 @@ impl ::core::ops::Not for InjectedInputKeyOptions {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputKeyOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -565,6 +562,7 @@ impl ::core::fmt::Debug for InjectedInputKeyboardInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo;{4b46d140-2b6a-5ffa-7eae-bd077b052acd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_Vtbl;
@@ -708,6 +706,7 @@ impl ::core::fmt::Debug for InjectedInputMouseInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo;{96f56e6b-e47a-5cf4-418d-8a5fb9670c7d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_Vtbl;
@@ -826,8 +825,6 @@ impl ::core::ops::Not for InjectedInputMouseOptions {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputMouseOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -889,8 +886,6 @@ impl ::core::ops::Not for InjectedInputPenButtons {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputPenButtons {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -1014,6 +1009,7 @@ impl ::core::fmt::Debug for InjectedInputPenInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputPenInfo;{6b40ad03-ca1e-5527-7e02-2828540bb1d4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_Vtbl;
@@ -1122,8 +1118,6 @@ impl ::core::ops::Not for InjectedInputPenParameters {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputPenParameters {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -1148,8 +1142,6 @@ unsafe impl ::windows::core::Abi for InjectedInputPoint {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
-}
-impl ::windows::core::DefaultType for InjectedInputPoint {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for InjectedInputPoint {
@@ -1188,8 +1180,6 @@ unsafe impl ::windows::core::Abi for InjectedInputPointerInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
-}
-impl ::windows::core::DefaultType for InjectedInputPointerInfo {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for InjectedInputPointerInfo {
@@ -1271,8 +1261,6 @@ impl ::core::ops::Not for InjectedInputPointerOptions {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputPointerOptions {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -1299,8 +1287,6 @@ unsafe impl ::windows::core::Abi for InjectedInputRectangle {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
-}
-impl ::windows::core::DefaultType for InjectedInputRectangle {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for InjectedInputRectangle {
@@ -1344,8 +1330,6 @@ impl ::core::fmt::Debug for InjectedInputShortcut {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
-}
-impl ::windows::core::DefaultType for InjectedInputShortcut {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -1443,6 +1427,7 @@ impl ::core::fmt::Debug for InjectedInputTouchInfo {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo;{224fd1df-43e8-5ef5-510a-69ca8c9b4c28})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_Vtbl;
@@ -1550,8 +1535,6 @@ impl ::core::ops::Not for InjectedInputTouchParameters {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
-}
-impl ::windows::core::DefaultType for InjectedInputTouchParameters {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -1584,8 +1567,6 @@ impl ::core::fmt::Debug for InjectedInputVisualizationMode {
 }
 unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
-}
-impl ::windows::core::DefaultType for InjectedInputVisualizationMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
@@ -1698,6 +1679,7 @@ impl ::core::fmt::Debug for InputInjector {
 }
 unsafe impl ::windows::core::RuntimeType for InputInjector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InputInjector;{8ec26f84-0b02-4bd2-ad7a-3d4658be3e18})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InputInjector {
     type Vtable = IInputInjector_Vtbl;

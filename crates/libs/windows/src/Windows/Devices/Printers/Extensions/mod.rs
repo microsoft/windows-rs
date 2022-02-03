@@ -248,6 +248,7 @@ impl ::core::fmt::Debug for Print3DWorkflow {
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflow;{c56f74bd-3669-4a66-ab42-c8151930cd34})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Print3DWorkflow {
     type Vtable = IPrint3DWorkflow_Vtbl;
@@ -332,8 +333,6 @@ impl ::core::fmt::Debug for Print3DWorkflowDetail {
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
-}
-impl ::windows::core::DefaultType for Print3DWorkflowDetail {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Printers_Extensions'*"]
@@ -382,6 +381,7 @@ impl ::core::fmt::Debug for Print3DWorkflowPrintRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs;{19f8c858-5ac8-4b55-8a5f-e61567dafb4d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Print3DWorkflowPrintRequestedEventArgs {
     type Vtable = IPrint3DWorkflowPrintRequestedEventArgs_Vtbl;
@@ -463,6 +463,7 @@ impl ::core::fmt::Debug for Print3DWorkflowPrinterChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs;{45226402-95fc-4847-93b3-134dbf5c60f7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Print3DWorkflowPrinterChangedEventArgs {
     type Vtable = IPrint3DWorkflowPrinterChangedEventArgs_Vtbl;
@@ -545,8 +546,6 @@ impl ::core::fmt::Debug for Print3DWorkflowStatus {
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
-}
-impl ::windows::core::DefaultType for Print3DWorkflowStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Printers_Extensions'*"]
@@ -612,6 +611,7 @@ impl ::core::fmt::Debug for PrintNotificationEventDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PrintNotificationEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintNotificationEventDetails;{e00e4c8a-4828-4da1-8bb8-8672df8515e7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintNotificationEventDetails {
     type Vtable = IPrintNotificationEventDetails_Vtbl;
@@ -708,6 +708,7 @@ impl ::core::fmt::Debug for PrintTaskConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfiguration;{e3c22451-3aa4-4885-9240-311f5f8fbe9d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskConfiguration {
     type Vtable = IPrintTaskConfiguration_Vtbl;
@@ -806,6 +807,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequest {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest;{eeaf2fcb-621e-4b62-ac77-b281cce08d60})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequest {
     type Vtable = IPrintTaskConfigurationSaveRequest_Vtbl;
@@ -882,6 +884,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral;{e959d568-f729-44a4-871d-bd0628696a33})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequestedDeferral {
     type Vtable = IPrintTaskConfigurationSaveRequestedDeferral_Vtbl;
@@ -961,6 +964,7 @@ impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs;{e06c2879-0d61-4938-91d0-96a45bee8479})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PrintTaskConfigurationSaveRequestedEventArgs {
     type Vtable = IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl;

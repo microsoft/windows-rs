@@ -94,8 +94,6 @@ impl ::core::fmt::Debug for WalletItemAppAssociation {
 }
 unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
-}
-impl ::windows::core::DefaultType for WalletItemAppAssociation {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
@@ -180,6 +178,7 @@ impl ::core::fmt::Debug for WalletItemSystemStore {
 }
 unsafe impl ::windows::core::RuntimeType for WalletItemSystemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_Vtbl;

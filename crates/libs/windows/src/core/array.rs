@@ -45,7 +45,9 @@ impl<T: RuntimeType> Array<T> {
     }
 
     /// Creates an array by copying the elements from the slice.
-    pub fn from_slice(values: &[T::DefaultType]) -> Self {
+    pub fn from_slice(values: &[T::DefaultType]) -> Self
+    where T::DefaultType: Clone // TODO: remove if the RuntimeType/DEfaultType requires Clone (probably should)
+    {
         let mut array = Self::with_len(values.len());
         array.clone_from_slice(values);
         array

@@ -77,6 +77,7 @@ impl ::core::fmt::Debug for DataProtectionProvider {
 }
 unsafe impl ::windows::core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.DataProtection.DataProtectionProvider;{09639948-ed22-4270-bd1c-6d72c00f8787})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DataProtectionProvider {
     type Vtable = IDataProtectionProvider_Vtbl;

@@ -736,6 +736,7 @@ impl ::core::fmt::Debug for WebViewControl {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControl;{3f921316-bc70-4bda-9136-c94370899fab})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebViewControl {
     type Vtable = super::IWebViewControl_Vtbl;
@@ -899,6 +900,7 @@ impl ::core::fmt::Debug for WebViewControlAcceleratorKeyPressedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs;{77a2a53e-7c74-437d-a290-3ac0d8cd5655})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebViewControlAcceleratorKeyPressedEventArgs {
     type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl;
@@ -976,8 +978,6 @@ impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
-}
-impl ::windows::core::DefaultType for WebViewControlAcceleratorKeyRoutingStage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
@@ -1010,8 +1010,6 @@ impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
-}
-impl ::windows::core::DefaultType for WebViewControlMoveFocusReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
@@ -1045,6 +1043,7 @@ impl ::core::fmt::Debug for WebViewControlMoveFocusRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs;{6b2a340d-4bd0-405e-b7c1-1e72a492f446})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebViewControlMoveFocusRequestedEventArgs {
     type Vtable = IWebViewControlMoveFocusRequestedEventArgs_Vtbl;
@@ -1197,6 +1196,7 @@ impl ::core::fmt::Debug for WebViewControlProcess {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcess;{02c723ec-98d6-424a-b63e-c6136c36a0f2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcess {
     type Vtable = IWebViewControlProcess_Vtbl;
@@ -1275,8 +1275,6 @@ impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
-}
-impl ::windows::core::DefaultType for WebViewControlProcessCapabilityState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
@@ -1335,6 +1333,7 @@ impl ::core::fmt::Debug for WebViewControlProcessOptions {
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcessOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcessOptions;{1cca72a7-3bd6-4826-8261-6c8189505d89})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcessOptions {
     type Vtable = IWebViewControlProcessOptions_Vtbl;

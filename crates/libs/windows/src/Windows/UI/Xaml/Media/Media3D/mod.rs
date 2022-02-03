@@ -274,6 +274,7 @@ impl ::core::fmt::Debug for CompositeTransform3D {
 }
 unsafe impl ::windows::core::RuntimeType for CompositeTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.CompositeTransform3D;{8977cb01-af8d-4af5-b084-c08eb9704abe})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CompositeTransform3D {
     type Vtable = ICompositeTransform3D_Vtbl;
@@ -548,8 +549,6 @@ unsafe impl ::windows::core::Abi for Matrix3D {
 }
 unsafe impl ::windows::core::RuntimeType for Matrix3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Media3D.Matrix3D;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8)");
-}
-impl ::windows::core::DefaultType for Matrix3D {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for Matrix3D {
@@ -633,6 +632,7 @@ impl ::core::fmt::Debug for Matrix3DHelper {
 }
 unsafe impl ::windows::core::RuntimeType for Matrix3DHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Matrix3DHelper;{e48c10ef-9927-4c9b-8213-07775512ba04})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Matrix3DHelper {
     type Vtable = IMatrix3DHelper_Vtbl;
@@ -778,6 +778,7 @@ impl ::core::fmt::Debug for PerspectiveTransform3D {
 }
 unsafe impl ::windows::core::RuntimeType for PerspectiveTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D;{9a7b532a-30f9-40a1-96c9-c59d87f95ac3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3D_Vtbl;
@@ -890,6 +891,7 @@ impl ::core::fmt::Debug for Transform3D {
 }
 unsafe impl ::windows::core::RuntimeType for Transform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Transform3D;{ae3ed43a-a9fc-4c31-86cd-56d9ca251a69})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Transform3D {
     type Vtable = ITransform3D_Vtbl;

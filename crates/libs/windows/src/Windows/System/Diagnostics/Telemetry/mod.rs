@@ -99,6 +99,7 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationResult {
 }
 unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult;{4d8518ab-2292-49bd-a15a-3d71d2145112})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationResult {
     type Vtable = IPlatformTelemetryRegistrationResult_Vtbl;
@@ -205,6 +206,7 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationSettings {
 }
 unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings;{819a8582-ca19-415e-bb79-9c224bfa3a73})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettings_Vtbl;
@@ -285,8 +287,6 @@ impl ::core::fmt::Debug for PlatformTelemetryRegistrationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus;i4)");
-}
-impl ::windows::core::DefaultType for PlatformTelemetryRegistrationStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

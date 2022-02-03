@@ -97,6 +97,7 @@ impl ::core::fmt::Debug for IGraphicsEffect {
 }
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_Vtbl;
@@ -171,6 +172,7 @@ impl ::core::fmt::Debug for IGraphicsEffectSource {
 }
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_Vtbl;

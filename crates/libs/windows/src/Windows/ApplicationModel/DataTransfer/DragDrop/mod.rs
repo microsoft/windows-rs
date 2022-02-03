@@ -63,8 +63,6 @@ impl ::core::ops::Not for DragDropModifiers {
 }
 unsafe impl ::windows::core::RuntimeType for DragDropModifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
-}
-impl ::windows::core::DefaultType for DragDropModifiers {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

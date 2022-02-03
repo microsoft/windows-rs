@@ -476,8 +476,6 @@ impl ::core::fmt::Debug for PhotoImportAccessMode {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportAccessMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -511,8 +509,6 @@ impl ::core::fmt::Debug for PhotoImportConnectionTransport {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportConnectionTransport {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -545,8 +541,6 @@ impl ::core::fmt::Debug for PhotoImportContentType {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportContentType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -580,8 +574,6 @@ impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportContentTypeFilter {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -712,6 +704,7 @@ impl ::core::fmt::Debug for PhotoImportDeleteImportedItemsFromSourceResult {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult;{f4e112f8-843d-428a-a1a6-81510292b0ae})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
     type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl;
@@ -1047,6 +1040,7 @@ impl ::core::fmt::Debug for PhotoImportFindItemsResult {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportFindItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportFindItemsResult;{3915e647-6c78-492b-844e-8fe5e8f6bfb9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportFindItemsResult {
     type Vtable = IPhotoImportFindItemsResult_Vtbl;
@@ -1234,6 +1228,7 @@ impl ::core::fmt::Debug for PhotoImportImportItemsResult {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportImportItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportImportItemsResult;{e4d4f478-d419-4443-a84e-f06a850c0b00})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportImportItemsResult {
     type Vtable = IPhotoImportImportItemsResult_Vtbl;
@@ -1315,8 +1310,6 @@ impl ::core::fmt::Debug for PhotoImportImportMode {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportImportMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -1457,6 +1450,7 @@ impl ::core::fmt::Debug for PhotoImportItem {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItem;{a9d07e76-9bfc-43b8-b356-633b6a988c9e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportItem {
     type Vtable = IPhotoImportItem_Vtbl;
@@ -1538,6 +1532,7 @@ impl ::core::fmt::Debug for PhotoImportItemImportedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportItemImportedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItemImportedEventArgs;{42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportItemImportedEventArgs {
     type Vtable = IPhotoImportItemImportedEventArgs_Vtbl;
@@ -1618,8 +1613,6 @@ impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportItemSelectionMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -1724,6 +1717,7 @@ impl ::core::fmt::Debug for PhotoImportOperation {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportOperation;{d9f797e4-a09a-4ee4-a4b1-20940277a5be})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportOperation {
     type Vtable = IPhotoImportOperation_Vtbl;
@@ -1804,8 +1798,6 @@ impl ::core::fmt::Debug for PhotoImportPowerSource {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportPowerSource {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -1833,8 +1825,6 @@ unsafe impl ::windows::core::Abi for PhotoImportProgress {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
-}
-impl ::windows::core::DefaultType for PhotoImportProgress {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for PhotoImportProgress {
@@ -1879,6 +1869,7 @@ impl ::core::fmt::Debug for PhotoImportSelectionChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSelectionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSelectionChangedEventArgs;{10461782-fa9d-4c30-8bc9-4d64911572d5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportSelectionChangedEventArgs {
     type Vtable = IPhotoImportSelectionChangedEventArgs_Vtbl;
@@ -2063,6 +2054,7 @@ impl ::core::fmt::Debug for PhotoImportSession {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSession;{aa63916e-ecdb-4efe-94c6-5f5cafe34cfb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportSession {
     type Vtable = IPhotoImportSession_Vtbl;
@@ -2187,6 +2179,7 @@ impl ::core::fmt::Debug for PhotoImportSidecar {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSidecar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSidecar;{46d7d757-f802-44c7-9c98-7a71f4bc1486})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportSidecar {
     type Vtable = IPhotoImportSidecar_Vtbl;
@@ -2422,6 +2415,7 @@ impl ::core::fmt::Debug for PhotoImportSource {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSource;{1f8ea35e-145b-4cd6-87f1-54965a982fef})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportSource {
     type Vtable = IPhotoImportSource_Vtbl;
@@ -2506,8 +2500,6 @@ impl ::core::fmt::Debug for PhotoImportSourceType {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportSourceType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -2541,8 +2533,6 @@ impl ::core::fmt::Debug for PhotoImportStage {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportStage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -2629,6 +2619,7 @@ impl ::core::fmt::Debug for PhotoImportStorageMedium {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMedium {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportStorageMedium;{f2b9b093-fc85-487f-87c2-58d675d05b07})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportStorageMedium {
     type Vtable = IPhotoImportStorageMedium_Vtbl;
@@ -2709,8 +2700,6 @@ impl ::core::fmt::Debug for PhotoImportStorageMediumType {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportStorageMediumType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -2744,8 +2733,6 @@ impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportSubfolderCreationMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -2778,8 +2765,6 @@ impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
-}
-impl ::windows::core::DefaultType for PhotoImportSubfolderDateFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Import'*"]
@@ -2847,6 +2832,7 @@ impl ::core::fmt::Debug for PhotoImportVideoSegment {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoImportVideoSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportVideoSegment;{623c0289-321a-41d8-9166-8c62a333276c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PhotoImportVideoSegment {
     type Vtable = IPhotoImportVideoSegment_Vtbl;

@@ -38,6 +38,7 @@ impl ::core::fmt::Debug for CharacterGrouping {
 }
 unsafe impl ::windows::core::RuntimeType for CharacterGrouping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGrouping;{fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CharacterGrouping {
     type Vtable = ICharacterGrouping_Vtbl;
@@ -183,6 +184,7 @@ impl ::core::fmt::Debug for CharacterGroupings {
 }
 unsafe impl ::windows::core::RuntimeType for CharacterGroupings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGroupings;{b8d20a75-d4cf-4055-80e5-ce169c226496})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CharacterGroupings {
     type Vtable = ICharacterGroupings_Vtbl;

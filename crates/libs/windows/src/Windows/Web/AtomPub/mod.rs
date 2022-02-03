@@ -227,6 +227,7 @@ impl ::core::fmt::Debug for AtomPubClient {
 }
 unsafe impl ::windows::core::RuntimeType for AtomPubClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AtomPubClient {
     type Vtable = IAtomPubClient_Vtbl;
@@ -597,6 +598,7 @@ impl ::core::fmt::Debug for ResourceCollection {
 }
 unsafe impl ::windows::core::RuntimeType for ResourceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ResourceCollection {
     type Vtable = IResourceCollection_Vtbl;
@@ -807,6 +809,7 @@ impl ::core::fmt::Debug for ServiceDocument {
 }
 unsafe impl ::windows::core::RuntimeType for ServiceDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ServiceDocument {
     type Vtable = IServiceDocument_Vtbl;
@@ -1026,6 +1029,7 @@ impl ::core::fmt::Debug for Workspace {
 }
 unsafe impl ::windows::core::RuntimeType for Workspace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Workspace {
     type Vtable = IWorkspace_Vtbl;

@@ -50,6 +50,7 @@ impl ::core::fmt::Debug for AppServiceClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
@@ -131,8 +132,6 @@ impl ::core::fmt::Debug for AppServiceClosedStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
-}
-impl ::windows::core::DefaultType for AppServiceClosedStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
@@ -282,6 +281,7 @@ impl ::core::fmt::Debug for AppServiceConnection {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
@@ -397,8 +397,6 @@ impl ::core::fmt::Debug for AppServiceConnectionStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
-}
-impl ::windows::core::DefaultType for AppServiceConnectionStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
@@ -429,6 +427,7 @@ impl ::core::fmt::Debug for AppServiceDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
@@ -520,6 +519,7 @@ impl ::core::fmt::Debug for AppServiceRequest {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
@@ -609,6 +609,7 @@ impl ::core::fmt::Debug for AppServiceRequestReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs;{6e122360-ff65-44ae-9e45-857fe4180681})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
@@ -699,6 +700,7 @@ impl ::core::fmt::Debug for AppServiceResponse {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceResponse;{8d503cec-9aa3-4e68-9559-9de63e372ce4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
@@ -787,8 +789,6 @@ impl ::core::fmt::Debug for AppServiceResponseStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
-}
-impl ::windows::core::DefaultType for AppServiceResponseStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
@@ -863,6 +863,7 @@ impl ::core::fmt::Debug for AppServiceTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
@@ -1200,6 +1201,7 @@ impl ::core::fmt::Debug for StatelessAppServiceResponse {
 }
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;
@@ -1292,8 +1294,6 @@ impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
 }
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
-}
-impl ::windows::core::DefaultType for StatelessAppServiceResponseStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

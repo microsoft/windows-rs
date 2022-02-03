@@ -130,6 +130,7 @@ impl ::core::fmt::Debug for AppDataPaths {
 }
 unsafe impl ::windows::core::RuntimeType for AppDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppDataPaths {
     type Vtable = IAppDataPaths_Vtbl;
@@ -370,6 +371,7 @@ impl ::core::fmt::Debug for ApplicationData {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ApplicationData {
     type Vtable = IApplicationData_Vtbl;
@@ -564,6 +566,7 @@ impl ::core::fmt::Debug for ApplicationDataCompositeValue {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ApplicationDataCompositeValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataCompositeValue;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ApplicationDataCompositeValue {
@@ -822,6 +825,7 @@ impl ::core::fmt::Debug for ApplicationDataContainer {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ApplicationDataContainer {
     type Vtable = IApplicationDataContainer_Vtbl;
@@ -1009,6 +1013,7 @@ impl ::core::fmt::Debug for ApplicationDataContainerSettings {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ApplicationDataContainerSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainerSettings;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ApplicationDataContainerSettings {
@@ -1220,8 +1225,6 @@ impl ::core::fmt::Debug for ApplicationDataCreateDisposition {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataCreateDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
-}
-impl ::windows::core::DefaultType for ApplicationDataCreateDisposition {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -1256,8 +1259,6 @@ impl ::core::fmt::Debug for ApplicationDataLocality {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
-}
-impl ::windows::core::DefaultType for ApplicationDataLocality {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -1331,6 +1332,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataSetVersionHandler {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a05791e6-cc9f-4687-acab-a364fd785463}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1393,8 +1395,6 @@ impl ::core::fmt::Debug for CreationCollisionOption {
 }
 unsafe impl ::windows::core::RuntimeType for CreationCollisionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
-}
-impl ::windows::core::DefaultType for CreationCollisionOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -1507,8 +1507,6 @@ impl ::core::fmt::Debug for FileAccessMode {
 }
 unsafe impl ::windows::core::RuntimeType for FileAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
-}
-impl ::windows::core::DefaultType for FileAccessMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -1572,8 +1570,6 @@ impl ::core::ops::Not for FileAttributes {
 }
 unsafe impl ::windows::core::RuntimeType for FileAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
-}
-impl ::windows::core::DefaultType for FileAttributes {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -2575,6 +2571,7 @@ impl ::core::fmt::Debug for IStorageFile {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFile {
     type Vtable = IStorageFile_Vtbl;
@@ -2708,6 +2705,7 @@ impl ::core::fmt::Debug for IStorageFile2 {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFile2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFile2 {
     type Vtable = IStorageFile2_Vtbl;
@@ -2797,6 +2795,7 @@ impl ::core::fmt::Debug for IStorageFilePropertiesWithAvailability {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFilePropertiesWithAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{afcbbe9b-582b-4133-9648-e44ca46ee491}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFilePropertiesWithAvailability {
     type Vtable = IStorageFilePropertiesWithAvailability_Vtbl;
@@ -3121,6 +3120,7 @@ impl ::core::fmt::Debug for IStorageFolder {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFolder {
     type Vtable = IStorageFolder_Vtbl;
@@ -3243,6 +3243,7 @@ impl ::core::fmt::Debug for IStorageFolder2 {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFolder2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e827e8b9-08d9-4a8e-a0ac-fe5ed3cbbbd3}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFolder2 {
     type Vtable = IStorageFolder2_Vtbl;
@@ -3451,6 +3452,7 @@ impl ::core::fmt::Debug for IStorageItem {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4207a996-ca2f-42f7-bde8-8b10457a7f30}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageItem {
     type Vtable = IStorageItem_Vtbl;
@@ -3677,6 +3679,7 @@ impl ::core::fmt::Debug for IStorageItem2 {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItem2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageItem2 {
     type Vtable = IStorageItem2_Vtbl;
@@ -3815,6 +3818,7 @@ impl ::core::fmt::Debug for IStorageItemProperties {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{86664478-8029-46fe-a789-1c2f3e2ffb5c}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageItemProperties {
     type Vtable = IStorageItemProperties_Vtbl;
@@ -4016,6 +4020,7 @@ impl ::core::fmt::Debug for IStorageItemProperties2 {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageItemProperties2 {
     type Vtable = IStorageItemProperties2_Vtbl;
@@ -4191,6 +4196,7 @@ impl ::core::fmt::Debug for IStorageItemPropertiesWithProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemPropertiesWithProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{861bf39b-6368-4dee-b40e-74684a5ce714}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageItemPropertiesWithProvider {
     type Vtable = IStorageItemPropertiesWithProvider_Vtbl;
@@ -4535,6 +4541,7 @@ impl ::core::fmt::Debug for IStreamedFileDataRequest {
 }
 unsafe impl ::windows::core::RuntimeType for IStreamedFileDataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1673fcce-dabd-4d50-beee-180b8a8191b6}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStreamedFileDataRequest {
     type Vtable = IStreamedFileDataRequest_Vtbl;
@@ -4817,8 +4824,6 @@ impl ::core::fmt::Debug for KnownFolderId {
 }
 unsafe impl ::windows::core::RuntimeType for KnownFolderId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
-}
-impl ::windows::core::DefaultType for KnownFolderId {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -5019,8 +5024,6 @@ impl ::core::fmt::Debug for KnownFoldersAccessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for KnownFoldersAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
-}
-impl ::windows::core::DefaultType for KnownFoldersAccessStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -5054,8 +5057,6 @@ impl ::core::fmt::Debug for KnownLibraryId {
 }
 unsafe impl ::windows::core::RuntimeType for KnownLibraryId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
-}
-impl ::windows::core::DefaultType for KnownLibraryId {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -5088,8 +5089,6 @@ impl ::core::fmt::Debug for NameCollisionOption {
 }
 unsafe impl ::windows::core::RuntimeType for NameCollisionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
-}
-impl ::windows::core::DefaultType for NameCollisionOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -5252,6 +5251,7 @@ impl ::core::fmt::Debug for SetVersionDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for SetVersionDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SetVersionDeferral {
     type Vtable = ISetVersionDeferral_Vtbl;
@@ -5349,6 +5349,7 @@ impl ::core::fmt::Debug for SetVersionRequest {
 }
 unsafe impl ::windows::core::RuntimeType for SetVersionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionRequest;{b9c76b9b-1056-4e69-8330-162619956f9b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SetVersionRequest {
     type Vtable = ISetVersionRequest_Vtbl;
@@ -5428,8 +5429,6 @@ impl ::core::fmt::Debug for StorageDeleteOption {
 }
 unsafe impl ::windows::core::RuntimeType for StorageDeleteOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
-}
-impl ::windows::core::DefaultType for StorageDeleteOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -5869,6 +5868,7 @@ impl ::core::fmt::Debug for StorageFile {
 }
 unsafe impl ::windows::core::RuntimeType for StorageFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageFile {
     type Vtable = IStorageFile_Vtbl;
@@ -6652,6 +6652,7 @@ impl ::core::fmt::Debug for StorageFolder {
 }
 unsafe impl ::windows::core::RuntimeType for StorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageFolder {
     type Vtable = IStorageFolder_Vtbl;
@@ -6938,8 +6939,6 @@ impl ::core::ops::Not for StorageItemTypes {
 }
 unsafe impl ::windows::core::RuntimeType for StorageItemTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
-}
-impl ::windows::core::DefaultType for StorageItemTypes {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -7058,6 +7057,7 @@ impl ::core::fmt::Debug for StorageLibrary {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibrary {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibrary {
     type Vtable = IStorageLibrary_Vtbl;
@@ -7170,6 +7170,7 @@ impl ::core::fmt::Debug for StorageLibraryChange {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChange {
     type Vtable = IStorageLibraryChange_Vtbl;
@@ -7269,6 +7270,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeReader {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReader_Vtbl;
@@ -7370,6 +7372,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTracker {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTracker_Vtbl;
@@ -7463,6 +7466,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTrackerOptions {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptions_Vtbl;
@@ -7550,8 +7554,6 @@ impl ::core::fmt::Debug for StorageLibraryChangeType {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
-}
-impl ::windows::core::DefaultType for StorageLibraryChangeType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -7589,6 +7591,7 @@ impl ::core::fmt::Debug for StorageLibraryLastChangeId {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryLastChangeId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryLastChangeId;{5281826a-bbe1-53bc-82ca-81cc7f039329})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeId_Vtbl;
@@ -7697,8 +7700,6 @@ impl ::core::ops::Not for StorageOpenOptions {
 }
 unsafe impl ::windows::core::RuntimeType for StorageOpenOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
-}
-impl ::windows::core::DefaultType for StorageOpenOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -7749,6 +7750,7 @@ impl ::core::fmt::Debug for StorageProvider {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageProvider {
     type Vtable = IStorageProvider_Vtbl;
@@ -7844,6 +7846,7 @@ impl ::core::fmt::Debug for StorageStreamTransaction {
 }
 unsafe impl ::windows::core::RuntimeType for StorageStreamTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageStreamTransaction;{f67cf363-a53d-4d94-ae2c-67232d93acdd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageStreamTransaction {
     type Vtable = IStorageStreamTransaction_Vtbl;
@@ -7977,6 +7980,7 @@ impl ::core::fmt::Debug for StreamedFileDataRequest {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for StreamedFileDataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StreamedFileDataRequest;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StreamedFileDataRequest {
@@ -8195,6 +8199,7 @@ unsafe impl ::windows::core::Interface for StreamedFileDataRequestedHandler {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for StreamedFileDataRequestedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fef6a824-2fe1-4d07-a35b-b77c50b5f4cc}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
@@ -8236,8 +8241,6 @@ impl ::core::fmt::Debug for StreamedFileFailureMode {
 }
 unsafe impl ::windows::core::RuntimeType for StreamedFileFailureMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
-}
-impl ::windows::core::DefaultType for StreamedFileFailureMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage'*"]
@@ -8271,6 +8274,7 @@ impl ::core::fmt::Debug for SystemAudioProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemAudioProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemAudioProperties;{3f8f38b7-308c-47e1-924d-8645348e5db7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemAudioProperties {
     type Vtable = ISystemAudioProperties_Vtbl;
@@ -8484,6 +8488,7 @@ impl ::core::fmt::Debug for SystemDataPaths {
 }
 unsafe impl ::windows::core::RuntimeType for SystemDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemDataPaths {
     type Vtable = ISystemDataPaths_Vtbl;
@@ -8573,6 +8578,7 @@ impl ::core::fmt::Debug for SystemGPSProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemGPSProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemGPSProperties {
     type Vtable = ISystemGPSProperties_Vtbl;
@@ -8662,6 +8668,7 @@ impl ::core::fmt::Debug for SystemImageProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemImageProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemImageProperties;{011b2e30-8b39-4308-bea1-e8aa61e47826})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemImageProperties {
     type Vtable = ISystemImageProperties_Vtbl;
@@ -8783,6 +8790,7 @@ impl ::core::fmt::Debug for SystemMediaProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemMediaProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMediaProperties;{a42b3316-8415-40dc-8c44-98361d235430})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemMediaProperties {
     type Vtable = ISystemMediaProperties_Vtbl;
@@ -8920,6 +8928,7 @@ impl ::core::fmt::Debug for SystemMusicProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemMusicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemMusicProperties {
     type Vtable = ISystemMusicProperties_Vtbl;
@@ -9033,6 +9042,7 @@ impl ::core::fmt::Debug for SystemPhotoProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemPhotoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemPhotoProperties;{4734fc3d-ab21-4424-b735-f4353a56c8fc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemPhotoProperties {
     type Vtable = ISystemPhotoProperties_Vtbl;
@@ -9249,6 +9259,7 @@ impl ::core::fmt::Debug for SystemVideoProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SystemVideoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemVideoProperties;{2040f715-67f8-4322-9b80-4fa9fefb83e8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemVideoProperties {
     type Vtable = ISystemVideoProperties_Vtbl;
@@ -9494,6 +9505,7 @@ impl ::core::fmt::Debug for UserDataPaths {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserDataPaths {
     type Vtable = IUserDataPaths_Vtbl;

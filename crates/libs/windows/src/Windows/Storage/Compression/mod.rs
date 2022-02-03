@@ -32,8 +32,6 @@ impl ::core::fmt::Debug for CompressAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for CompressAlgorithm {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Compression'*"]
@@ -122,6 +120,7 @@ impl ::core::fmt::Debug for Compressor {
 }
 unsafe impl ::windows::core::RuntimeType for Compressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Compressor {
     type Vtable = ICompressor_Vtbl;
@@ -284,6 +283,7 @@ impl ::core::fmt::Debug for Decompressor {
 }
 unsafe impl ::windows::core::RuntimeType for Decompressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Decompressor {
     type Vtable = IDecompressor_Vtbl;

@@ -129,8 +129,6 @@ impl ::core::fmt::Debug for UserDataAvailability {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
-}
-impl ::windows::core::DefaultType for UserDataAvailability {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_DataProtection'*"]
@@ -165,6 +163,7 @@ impl ::core::fmt::Debug for UserDataAvailabilityStateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
@@ -255,6 +254,7 @@ impl ::core::fmt::Debug for UserDataBufferUnprotectResult {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataBufferUnprotectResult;{8efd0e90-fa9a-46a4-a377-01cebf1e74d8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_Vtbl;
@@ -334,8 +334,6 @@ impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
-}
-impl ::windows::core::DefaultType for UserDataBufferUnprotectStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_DataProtection'*"]
@@ -440,6 +438,7 @@ impl ::core::fmt::Debug for UserDataProtectionManager {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataProtectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_Vtbl;
@@ -521,6 +520,7 @@ impl ::core::fmt::Debug for UserDataStorageItemProtectionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
@@ -601,8 +601,6 @@ impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
 }
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
-}
-impl ::windows::core::DefaultType for UserDataStorageItemProtectionStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

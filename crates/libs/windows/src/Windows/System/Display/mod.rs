@@ -39,6 +39,7 @@ impl ::core::fmt::Debug for DisplayRequest {
 }
 unsafe impl ::windows::core::RuntimeType for DisplayRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;

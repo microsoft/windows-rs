@@ -60,9 +60,6 @@ unsafe impl Abi for GUID {
 
 unsafe impl RuntimeType for GUID {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
-}
-
-impl ::windows::core::DefaultType for GUID {
     type DefaultType = Self;
 }
 

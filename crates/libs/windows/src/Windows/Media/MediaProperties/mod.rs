@@ -196,6 +196,7 @@ impl ::core::fmt::Debug for AudioEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AudioEncodingProperties {
     type Vtable = IAudioEncodingProperties_Vtbl;
@@ -299,8 +300,6 @@ impl ::core::fmt::Debug for AudioEncodingQuality {
 }
 unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
-}
-impl ::windows::core::DefaultType for AudioEncodingQuality {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -371,6 +370,7 @@ impl ::core::fmt::Debug for ContainerEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_Vtbl;
@@ -947,6 +947,7 @@ impl ::core::fmt::Debug for IMediaEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for IMediaEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IMediaEncodingProperties {
     type Vtable = IMediaEncodingProperties_Vtbl;
@@ -1406,6 +1407,7 @@ impl ::core::fmt::Debug for ImageEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for ImageEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ImageEncodingProperties;{78625635-f331-4189-b1c3-b48d5ae034f1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ImageEncodingProperties {
     type Vtable = IImageEncodingProperties_Vtbl;
@@ -1693,6 +1695,7 @@ impl ::core::fmt::Debug for MediaEncodingProfile {
 }
 unsafe impl ::windows::core::RuntimeType for MediaEncodingProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaEncodingProfile;{e7dbf5a8-1db9-4783-876b-3dfe12acfdb3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaEncodingProfile {
     type Vtable = IMediaEncodingProfile_Vtbl;
@@ -2202,8 +2205,6 @@ impl ::core::ops::Not for MediaMirroringOptions {
 }
 unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
-}
-impl ::windows::core::DefaultType for MediaMirroringOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -2236,8 +2237,6 @@ impl ::core::fmt::Debug for MediaPixelFormat {
 }
 unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
-}
-impl ::windows::core::DefaultType for MediaPixelFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties', 'Foundation_Collections'*"]
@@ -2343,6 +2342,7 @@ impl ::core::fmt::Debug for MediaPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};g16;cinterface(IInspectable)))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPropertySet {
@@ -2522,6 +2522,7 @@ impl ::core::fmt::Debug for MediaRatio {
 }
 unsafe impl ::windows::core::RuntimeType for MediaRatio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaRatio;{d2d0fee5-8929-401d-ac78-7d357e378163})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MediaRatio {
     type Vtable = IMediaRatio_Vtbl;
@@ -2603,8 +2604,6 @@ impl ::core::fmt::Debug for MediaRotation {
 }
 unsafe impl ::windows::core::RuntimeType for MediaRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
-}
-impl ::windows::core::DefaultType for MediaRotation {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -2636,8 +2635,6 @@ impl ::core::fmt::Debug for MediaThumbnailFormat {
 }
 unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
-}
-impl ::windows::core::DefaultType for MediaThumbnailFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -2717,8 +2714,6 @@ impl ::core::fmt::Debug for SphericalVideoFrameFormat {
 }
 unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
-}
-impl ::windows::core::DefaultType for SphericalVideoFrameFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -2751,8 +2746,6 @@ impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
 }
 unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
-}
-impl ::windows::core::DefaultType for StereoscopicVideoPackingMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
@@ -2866,6 +2859,7 @@ impl ::core::fmt::Debug for TimedMetadataEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for TimedMetadataEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.TimedMetadataEncodingProperties;{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for TimedMetadataEncodingProperties {
     type Vtable = IMediaEncodingProperties_Vtbl;
@@ -3138,6 +3132,7 @@ impl ::core::fmt::Debug for VideoEncodingProperties {
 }
 unsafe impl ::windows::core::RuntimeType for VideoEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.VideoEncodingProperties;{76ee6c9a-37c2-4f2a-880a-1282bbb4373d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for VideoEncodingProperties {
     type Vtable = IVideoEncodingProperties_Vtbl;
@@ -3247,8 +3242,6 @@ impl ::core::fmt::Debug for VideoEncodingQuality {
 }
 unsafe impl ::windows::core::RuntimeType for VideoEncodingQuality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.VideoEncodingQuality;i4)");
-}
-impl ::windows::core::DefaultType for VideoEncodingQuality {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

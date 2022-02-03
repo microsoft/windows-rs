@@ -72,6 +72,7 @@ impl ::core::fmt::Debug for Enterprise {
 }
 unsafe impl ::windows::core::RuntimeType for Enterprise {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Enterprise {
     type Vtable = IEnterprise_Vtbl;
@@ -212,6 +213,7 @@ impl ::core::fmt::Debug for EnterpriseEnrollmentResult {
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult;{9ff71ce6-90db-4342-b326-1729aa91301c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_Vtbl;
@@ -290,8 +292,6 @@ impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
-}
-impl ::windows::core::DefaultType for EnterpriseEnrollmentStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Phone_Management_Deployment'*"]
@@ -325,8 +325,6 @@ impl ::core::fmt::Debug for EnterpriseStatus {
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
-}
-impl ::windows::core::DefaultType for EnterpriseStatus {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -611,6 +609,7 @@ impl ::core::fmt::Debug for PackageInstallResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageInstallResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageInstallResult {
     type Vtable = IPackageInstallResult_Vtbl;

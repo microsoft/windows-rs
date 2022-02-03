@@ -158,6 +158,7 @@ impl ::core::fmt::Debug for Radio {
 }
 unsafe impl ::windows::core::RuntimeType for Radio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Radio {
     type Vtable = IRadio_Vtbl;
@@ -239,8 +240,6 @@ impl ::core::fmt::Debug for RadioAccessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for RadioAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
-}
-impl ::windows::core::DefaultType for RadioAccessStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Radios'*"]
@@ -275,8 +274,6 @@ impl ::core::fmt::Debug for RadioKind {
 }
 unsafe impl ::windows::core::RuntimeType for RadioKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
-}
-impl ::windows::core::DefaultType for RadioKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Radios'*"]
@@ -310,8 +307,6 @@ impl ::core::fmt::Debug for RadioState {
 }
 unsafe impl ::windows::core::RuntimeType for RadioState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
-}
-impl ::windows::core::DefaultType for RadioState {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

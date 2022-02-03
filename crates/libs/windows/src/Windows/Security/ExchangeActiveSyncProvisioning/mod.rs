@@ -93,6 +93,7 @@ impl ::core::fmt::Debug for EasClientDeviceInformation {
 }
 unsafe impl ::windows::core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
@@ -296,6 +297,7 @@ impl ::core::fmt::Debug for EasClientSecurityPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
@@ -447,6 +449,7 @@ impl ::core::fmt::Debug for EasComplianceResults {
 }
 unsafe impl ::windows::core::RuntimeType for EasComplianceResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
@@ -526,8 +529,6 @@ impl ::core::fmt::Debug for EasDisallowConvenienceLogonResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
-}
-impl ::windows::core::DefaultType for EasDisallowConvenienceLogonResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -560,8 +561,6 @@ impl ::core::fmt::Debug for EasEncryptionProviderType {
 }
 unsafe impl ::windows::core::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
-}
-impl ::windows::core::DefaultType for EasEncryptionProviderType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -596,8 +595,6 @@ impl ::core::fmt::Debug for EasMaxInactivityTimeLockResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
-}
-impl ::windows::core::DefaultType for EasMaxInactivityTimeLockResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -632,8 +629,6 @@ impl ::core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
-}
-impl ::windows::core::DefaultType for EasMaxPasswordFailedAttemptsResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -678,8 +673,6 @@ impl ::core::fmt::Debug for EasMinPasswordComplexCharactersResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
-}
-impl ::windows::core::DefaultType for EasMinPasswordComplexCharactersResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -724,8 +717,6 @@ impl ::core::fmt::Debug for EasMinPasswordLengthResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
-}
-impl ::windows::core::DefaultType for EasMinPasswordLengthResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -764,8 +755,6 @@ impl ::core::fmt::Debug for EasPasswordExpirationResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
-}
-impl ::windows::core::DefaultType for EasPasswordExpirationResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -800,8 +789,6 @@ impl ::core::fmt::Debug for EasPasswordHistoryResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
-}
-impl ::windows::core::DefaultType for EasPasswordHistoryResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
@@ -850,8 +837,6 @@ impl ::core::fmt::Debug for EasRequireEncryptionResult {
 }
 unsafe impl ::windows::core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
-}
-impl ::windows::core::DefaultType for EasRequireEncryptionResult {
     type DefaultType = Self;
 }
 #[doc(hidden)]

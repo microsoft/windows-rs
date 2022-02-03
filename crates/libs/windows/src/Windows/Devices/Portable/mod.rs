@@ -90,8 +90,6 @@ impl ::core::fmt::Debug for ServiceDeviceType {
 }
 unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
-}
-impl ::windows::core::DefaultType for ServiceDeviceType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Portable'*"]

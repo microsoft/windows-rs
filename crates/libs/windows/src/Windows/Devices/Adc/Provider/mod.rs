@@ -133,6 +133,7 @@ impl ::core::fmt::Debug for IAdcControllerProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_Vtbl;
@@ -225,6 +226,7 @@ impl ::core::fmt::Debug for IAdcProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IAdcProvider {
     type Vtable = IAdcProvider_Vtbl;
@@ -268,8 +270,6 @@ impl ::core::fmt::Debug for ProviderAdcChannelMode {
 }
 unsafe impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
-}
-impl ::windows::core::DefaultType for ProviderAdcChannelMode {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

@@ -122,6 +122,7 @@ impl ::core::fmt::Debug for Playlist {
 }
 unsafe impl ::windows::core::RuntimeType for Playlist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;
@@ -200,8 +201,6 @@ impl ::core::fmt::Debug for PlaylistFormat {
 }
 unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
-}
-impl ::windows::core::DefaultType for PlaylistFormat {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

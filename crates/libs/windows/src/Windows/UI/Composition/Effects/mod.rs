@@ -166,6 +166,7 @@ impl ::core::fmt::Debug for SceneLightingEffect {
 }
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;
@@ -297,8 +298,6 @@ impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
 }
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
-}
-impl ::windows::core::DefaultType for SceneLightingEffectReflectanceModel {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

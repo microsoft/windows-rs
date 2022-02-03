@@ -24,8 +24,6 @@ unsafe impl ::windows::core::Abi for BackgroundDownloadProgress {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundDownloadProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
-}
-impl ::windows::core::DefaultType for BackgroundDownloadProgress {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for BackgroundDownloadProgress {
@@ -313,6 +311,7 @@ impl ::core::fmt::Debug for BackgroundDownloader {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundDownloader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundDownloader {
     type Vtable = IBackgroundDownloader_Vtbl;
@@ -414,8 +413,6 @@ impl ::core::fmt::Debug for BackgroundTransferBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
-}
-impl ::windows::core::DefaultType for BackgroundTransferBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
@@ -470,6 +467,7 @@ impl ::core::fmt::Debug for BackgroundTransferCompletionGroup {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroup {
     type Vtable = IBackgroundTransferCompletionGroup_Vtbl;
@@ -561,6 +559,7 @@ impl ::core::fmt::Debug for BackgroundTransferCompletionGroupTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails;{7b6be286-6e47-5136-7fcb-fa4389f46f5b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroupTriggerDetails {
     type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_Vtbl;
@@ -676,6 +675,7 @@ impl ::core::fmt::Debug for BackgroundTransferContentPart {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart;{e8e15657-d7d1-4ed8-838e-674ac217ace6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferContentPart {
     type Vtable = IBackgroundTransferContentPart_Vtbl;
@@ -756,8 +756,6 @@ impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
-}
-impl ::windows::core::DefaultType for BackgroundTransferCostPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
@@ -802,8 +800,6 @@ unsafe impl ::windows::core::Abi for BackgroundTransferFileRange {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferFileRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
-}
-impl ::windows::core::DefaultType for BackgroundTransferFileRange {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for BackgroundTransferFileRange {
@@ -873,6 +869,7 @@ impl ::core::fmt::Debug for BackgroundTransferGroup {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferGroup {
     type Vtable = IBackgroundTransferGroup_Vtbl;
@@ -953,8 +950,6 @@ impl ::core::fmt::Debug for BackgroundTransferPriority {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
-}
-impl ::windows::core::DefaultType for BackgroundTransferPriority {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
@@ -1006,6 +1001,7 @@ impl ::core::fmt::Debug for BackgroundTransferRangesDownloadedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs;{3ebc7453-bf48-4a88-9248-b0c165184f5c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferRangesDownloadedEventArgs {
     type Vtable = IBackgroundTransferRangesDownloadedEventArgs_Vtbl;
@@ -1093,8 +1089,6 @@ impl ::core::fmt::Debug for BackgroundTransferStatus {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
-}
-impl ::windows::core::DefaultType for BackgroundTransferStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -1124,8 +1118,6 @@ unsafe impl ::windows::core::Abi for BackgroundUploadProgress {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundUploadProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
-}
-impl ::windows::core::DefaultType for BackgroundUploadProgress {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for BackgroundUploadProgress {
@@ -1431,6 +1423,7 @@ impl ::core::fmt::Debug for BackgroundUploader {
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundUploader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BackgroundUploader {
     type Vtable = IBackgroundUploader_Vtbl;
@@ -1787,6 +1780,7 @@ impl ::core::fmt::Debug for DownloadOperation {
 }
 unsafe impl ::windows::core::RuntimeType for DownloadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DownloadOperation {
     type Vtable = IDownloadOperation_Vtbl;
@@ -2171,6 +2165,7 @@ impl ::core::fmt::Debug for IBackgroundTransferBase {
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferBase {
     type Vtable = IBackgroundTransferBase_Vtbl;
@@ -2345,6 +2340,7 @@ impl ::core::fmt::Debug for IBackgroundTransferContentPartFactory {
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferContentPartFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferContentPartFactory {
     type Vtable = IBackgroundTransferContentPartFactory_Vtbl;
@@ -2528,6 +2524,7 @@ impl ::core::fmt::Debug for IBackgroundTransferOperation {
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferOperation {
     type Vtable = IBackgroundTransferOperation_Vtbl;
@@ -2631,6 +2628,7 @@ impl ::core::fmt::Debug for IBackgroundTransferOperationPriority {
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperationPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferOperationPriority {
     type Vtable = IBackgroundTransferOperationPriority_Vtbl;
@@ -3135,6 +3133,7 @@ impl ::core::fmt::Debug for ResponseInformation {
 }
 unsafe impl ::windows::core::RuntimeType for ResponseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ResponseInformation {
     type Vtable = IResponseInformation_Vtbl;
@@ -3224,6 +3223,7 @@ impl ::core::fmt::Debug for UnconstrainedTransferRequestResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for UnconstrainedTransferRequestResult {
@@ -3444,6 +3444,7 @@ impl ::core::fmt::Debug for UploadOperation {
 }
 unsafe impl ::windows::core::RuntimeType for UploadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UploadOperation {
     type Vtable = IUploadOperation_Vtbl;

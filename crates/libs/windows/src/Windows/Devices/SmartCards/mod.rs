@@ -30,6 +30,7 @@ impl ::core::fmt::Debug for CardAddedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CardAddedEventArgs {
     type Vtable = ICardAddedEventArgs_Vtbl;
@@ -111,6 +112,7 @@ impl ::core::fmt::Debug for CardRemovedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgs_Vtbl;
@@ -1394,6 +1396,7 @@ impl ::core::fmt::Debug for SmartCard {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCard;{1b718871-6434-43f4-b55a-6a29623870aa})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCard {
     type Vtable = ISmartCard_Vtbl;
@@ -1473,8 +1476,6 @@ impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardActivationPolicyChangeResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -1643,6 +1644,7 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroup {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroup;{7db165e6-6264-56f4-5e03-c86385395eb1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroup_Vtbl;
@@ -1723,8 +1725,6 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardAppletIdGroupActivationPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -1809,6 +1809,7 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroupRegistration {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration;{df1208d1-31bb-5596-43b1-6d69a0257b3a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
@@ -2011,6 +2012,7 @@ impl ::core::fmt::Debug for SmartCardAutomaticResponseApdu {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseApdu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu;{52152bab-c63e-4531-a857-d756d99b986a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
@@ -2091,8 +2093,6 @@ impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardAutomaticResponseStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -2169,6 +2169,7 @@ impl ::core::fmt::Debug for SmartCardChallengeContext {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardChallengeContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardChallengeContext;{192a5319-c9c4-4947-81cc-44794a61ef91})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContext_Vtbl;
@@ -2283,6 +2284,7 @@ impl ::core::fmt::Debug for SmartCardConnection {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardConnection;{7edb991a-a81a-47bc-a649-156be6b7f231})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardConnection {
     type Vtable = ISmartCardConnection_Vtbl;
@@ -2395,8 +2397,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramAlgorithm {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -2600,6 +2600,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGenerator {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGenerator;{e39f587b-edd3-4e49-b594-0ff5e4d0c76f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGenerator_Vtbl;
@@ -2691,8 +2692,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramGeneratorOperationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -2742,6 +2741,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialCharacter
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;{2798e029-d687-4c92-86c6-399e9a0ecb09})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
@@ -2839,6 +2839,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialPackageCh
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;{4e6a8a5c-9773-46c4-a32f-b1e543159e04})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
@@ -2936,6 +2937,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramStorageKeyCharact
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;{8c7ce857-a7e7-489d-b9d6-368061515012})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
@@ -3083,6 +3085,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialCharacteristics {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialCharacteristics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics;{fc9ac5cc-c1d7-4153-923b-a2d43c6c8d49})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
@@ -3196,6 +3199,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageCharacteristics {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageCharacteristics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics;{ffb58e1f-0692-4c47-93cf-34d91f9dcd00})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
@@ -3275,8 +3279,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationRespon
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3308,8 +3310,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramMaterialPackageFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3352,6 +3352,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPossessionProof {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPossessionProof {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof;{e5b9ab8c-a141-4135-9add-b0d2e3aa1fc9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPossessionProof {
     type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
@@ -3431,8 +3432,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramMaterialProtectionMethod {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3467,8 +3466,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramMaterialType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3529,8 +3526,6 @@ impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramPlacementOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3682,6 +3677,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramPlacementStep {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementStep {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep;{947b03eb-8342-4792-a2e5-925636378a53})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
@@ -3761,8 +3757,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramStorageKeyAlgorithm {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3823,8 +3817,6 @@ impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptogramStorageKeyCapabilities {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -3890,6 +3882,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCharacteristics {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics;{8552546e-4457-4825-b464-635471a39f5c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
@@ -4031,6 +4024,7 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo;{77b0f00d-b097-4f61-a26a-9561639c9c3a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
@@ -4116,8 +4110,6 @@ impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardCryptographicKeyAttestationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4149,8 +4141,6 @@ impl ::core::fmt::Debug for SmartCardEmulationCategory {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardEmulationCategory {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4183,8 +4173,6 @@ impl ::core::fmt::Debug for SmartCardEmulationType {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardEmulationType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4322,6 +4310,7 @@ impl ::core::fmt::Debug for SmartCardEmulator {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulator;{dfb906b2-875e-47e5-8077-e8bff1b1c6fb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulator {
     type Vtable = ISmartCardEmulator_Vtbl;
@@ -4464,6 +4453,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorApduReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs;{d55d1576-69d2-5333-5b5f-f8c0d6e9f09f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorApduReceivedEventArgs {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
@@ -4553,6 +4543,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs;{2186d8d3-c5eb-5262-43df-62a0a1b55557})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
@@ -4632,8 +4623,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardEmulatorConnectionDeactivatedReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4675,6 +4664,7 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionProperties {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties;{4e2ca5ee-f969-507d-6cf9-34e2d18df311})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
@@ -4754,8 +4744,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardEmulatorConnectionSource {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4789,8 +4777,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardEmulatorEnablementPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4822,8 +4808,6 @@ impl ::core::fmt::Debug for SmartCardLaunchBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardLaunchBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4856,8 +4840,6 @@ impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardPinCharacterPolicyOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -4968,6 +4950,7 @@ impl ::core::fmt::Debug for SmartCardPinPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinPolicy;{183ce184-4db6-4841-ac9e-2ac1f39b7304})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicy_Vtbl;
@@ -5046,6 +5029,7 @@ impl ::core::fmt::Debug for SmartCardPinResetDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetDeferral;{18c94aac-7805-4004-85e4-bbefac8f6884})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferral_Vtbl;
@@ -5167,6 +5151,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetHandler {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{138d5e40-f3bc-4a5c-b41d-4b4ef684e237}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5229,6 +5214,7 @@ impl ::core::fmt::Debug for SmartCardPinResetRequest {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetRequest;{12fe3c4d-5fb9-4e8e-9ff6-61f475124fef})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequest_Vtbl;
@@ -5422,6 +5408,7 @@ impl ::core::fmt::Debug for SmartCardProvisioning {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardProvisioning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardProvisioning;{19eeedbd-1fab-477c-b712-1a2c5af1fd6e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardProvisioning {
     type Vtable = ISmartCardProvisioning_Vtbl;
@@ -5594,6 +5581,7 @@ impl ::core::fmt::Debug for SmartCardReader {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardReader;{1074b4e0-54c2-4df0-817a-14c14378f06c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardReader {
     type Vtable = ISmartCardReader_Vtbl;
@@ -5677,8 +5665,6 @@ impl ::core::fmt::Debug for SmartCardReaderKind {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardReaderKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -5711,8 +5697,6 @@ impl ::core::fmt::Debug for SmartCardReaderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardReaderStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -5747,8 +5731,6 @@ impl ::core::fmt::Debug for SmartCardStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -5834,6 +5816,7 @@ impl ::core::fmt::Debug for SmartCardTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardTriggerDetails;{5f9bf11e-39ef-4f2b-b44f-0a9155b177bc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetails_Vtbl;
@@ -5917,8 +5900,6 @@ impl ::core::fmt::Debug for SmartCardTriggerType {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardTriggerType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
@@ -5951,8 +5932,6 @@ impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardUnlockPromptingBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
-}
-impl ::windows::core::DefaultType for SmartCardUnlockPromptingBehavior {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

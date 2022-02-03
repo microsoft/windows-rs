@@ -145,6 +145,7 @@ impl ::core::fmt::Debug for DualSimTile {
 }
 unsafe impl ::windows::core::RuntimeType for DualSimTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DualSimTile {
     type Vtable = IDualSimTile_Vtbl;
@@ -333,6 +334,7 @@ impl ::core::fmt::Debug for IToastNotificationManagerStatics3 {
 }
 unsafe impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_Vtbl;

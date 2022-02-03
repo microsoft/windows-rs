@@ -21,8 +21,6 @@ unsafe impl ::windows::core::Abi for HolographicAdapterId {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicAdapterId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
-}
-impl ::windows::core::DefaultType for HolographicAdapterId {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for HolographicAdapterId {
@@ -198,6 +196,7 @@ impl ::core::fmt::Debug for HolographicCamera {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicCamera {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicCamera {
     type Vtable = IHolographicCamera_Vtbl;
@@ -358,6 +357,7 @@ impl ::core::fmt::Debug for HolographicCameraPose {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicCameraPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicCameraPose {
     type Vtable = IHolographicCameraPose_Vtbl;
@@ -512,6 +512,7 @@ impl ::core::fmt::Debug for HolographicCameraRenderingParameters {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicCameraRenderingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_Vtbl;
@@ -603,6 +604,7 @@ impl ::core::fmt::Debug for HolographicCameraViewportParameters {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicCameraViewportParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraViewportParameters;{80cdf3f7-842a-41e1-93ed-5692ab1fbb10})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_Vtbl;
@@ -682,8 +684,6 @@ impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
-}
-impl ::windows::core::DefaultType for HolographicDepthReprojectionMethod {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Holographic'*"]
@@ -787,6 +787,7 @@ impl ::core::fmt::Debug for HolographicDisplay {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicDisplay;{9acea414-1d9f-4090-a388-90c06f6eae9c})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicDisplay {
     type Vtable = IHolographicDisplay_Vtbl;
@@ -945,6 +946,7 @@ impl ::core::fmt::Debug for HolographicFrame {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicFrame {
     type Vtable = IHolographicFrame_Vtbl;
@@ -1016,8 +1018,6 @@ unsafe impl ::windows::core::Abi for HolographicFrameId {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrameId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
-}
-impl ::windows::core::DefaultType for HolographicFrameId {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for HolographicFrameId {
@@ -1072,6 +1072,7 @@ impl ::core::fmt::Debug for HolographicFramePrediction {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFramePrediction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_Vtbl;
@@ -1151,8 +1152,6 @@ impl ::core::fmt::Debug for HolographicFramePresentResult {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
-}
-impl ::windows::core::DefaultType for HolographicFramePresentResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Holographic'*"]
@@ -1184,8 +1183,6 @@ impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
-}
-impl ::windows::core::DefaultType for HolographicFramePresentWaitBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Holographic', 'deprecated'*"]
@@ -1233,6 +1230,7 @@ impl ::core::fmt::Debug for HolographicFramePresentationMonitor {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationMonitor {
@@ -1396,6 +1394,7 @@ impl ::core::fmt::Debug for HolographicFramePresentationReport {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationReport {
@@ -1524,6 +1523,7 @@ impl ::core::fmt::Debug for HolographicFrameRenderingReport {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrameRenderingReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_Vtbl;
@@ -1612,6 +1612,7 @@ impl ::core::fmt::Debug for HolographicFrameScanoutMonitor {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutMonitor;{7e83efa9-843c-5401-8095-9bc1b8b08638})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_Vtbl;
@@ -1754,6 +1755,7 @@ impl ::core::fmt::Debug for HolographicFrameScanoutReport {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_Vtbl;
@@ -1872,6 +1874,7 @@ impl ::core::fmt::Debug for HolographicQuadLayer {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayer;{903460c9-c9d9-5d5c-41ac-a2d5ab0fd331})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_Vtbl;
@@ -2026,6 +2029,7 @@ impl ::core::fmt::Debug for HolographicQuadLayerUpdateParameters {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayerUpdateParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters;{2b0ea3b0-798d-5bca-55c2-2c0c762ebb08})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_Vtbl;
@@ -2106,8 +2110,6 @@ impl ::core::fmt::Debug for HolographicReprojectionMode {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
-}
-impl ::windows::core::DefaultType for HolographicReprojectionMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Graphics_Holographic'*"]
@@ -2293,6 +2295,7 @@ impl ::core::fmt::Debug for HolographicSpace {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicSpace {
     type Vtable = IHolographicSpace_Vtbl;
@@ -2383,6 +2386,7 @@ impl ::core::fmt::Debug for HolographicSpaceCameraAddedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_Vtbl;
@@ -2464,6 +2468,7 @@ impl ::core::fmt::Debug for HolographicSpaceCameraRemovedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs;{805444a8-f2ae-322e-8da9-836a0a95a4c1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_Vtbl;
@@ -2544,8 +2549,6 @@ impl ::core::fmt::Debug for HolographicSpaceUserPresence {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
-}
-impl ::windows::core::DefaultType for HolographicSpaceUserPresence {
     type DefaultType = Self;
 }
 #[repr(C)]
@@ -2576,9 +2579,6 @@ unsafe impl ::windows::core::Abi for HolographicStereoTransform {
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::RuntimeType for HolographicStereoTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::windows::core::DefaultType for HolographicStereoTransform {
     type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2723,6 +2723,7 @@ impl ::core::fmt::Debug for HolographicViewConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for HolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_Vtbl;
@@ -2802,8 +2803,6 @@ impl ::core::fmt::Debug for HolographicViewConfigurationKind {
 }
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
-}
-impl ::windows::core::DefaultType for HolographicViewConfigurationKind {
     type DefaultType = Self;
 }
 #[doc(hidden)]

@@ -141,8 +141,6 @@ impl ::core::fmt::Debug for LicenseRefreshOption {
 }
 unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
-}
-impl ::windows::core::DefaultType for LicenseRefreshOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
@@ -224,6 +222,7 @@ impl ::core::fmt::Debug for LicenseSatisfactionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
@@ -314,6 +313,7 @@ impl ::core::fmt::Debug for LicenseSatisfactionResult {
 }
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;

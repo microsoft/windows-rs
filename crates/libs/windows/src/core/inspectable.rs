@@ -36,6 +36,7 @@ unsafe impl Interface for IInspectable {
 
 unsafe impl RuntimeType for IInspectable {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"cinterface(IInspectable)");
+    type DefaultType = Option<Self>;
 }
 
 impl RuntimeName for IInspectable {

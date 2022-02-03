@@ -78,6 +78,7 @@ pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             #cfg
             unsafe impl<#(#constraints)*> ::windows::core::RuntimeType for #name {
                 const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
+                type DefaultType = ::core::option::Option<Self>;
             }
         }
     } else {
@@ -508,7 +509,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
             quote! { &mut ::windows::core::Array<#kind> }
         } else {
             let kind = if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { <#kind as ::windows::core::DefaultType>::DefaultType }
+                quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
             } else if param.signature.kind.is_nullable() {
                 quote! { ::core::option::Option<#kind> }
             } else {
@@ -523,7 +524,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
         }
     } else if param.param.is_input() {
         if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#kind as ::windows::core::DefaultType>::DefaultType }
+            quote! { &<#kind as ::windows::core::RuntimeType>::DefaultType }
         } else if param.signature.kind.is_primitive() {
             quote! { #kind }
         } else if param.signature.kind.is_nullable() {

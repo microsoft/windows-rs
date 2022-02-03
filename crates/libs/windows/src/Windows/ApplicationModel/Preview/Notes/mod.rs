@@ -163,6 +163,7 @@ impl ::core::fmt::Debug for NotePlacementChangedPreviewEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for NotePlacementChangedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs;{491d57b7-f780-4e7f-a939-9a4caf965214})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NotePlacementChangedPreviewEventArgs {
     type Vtable = INotePlacementChangedPreviewEventArgs_Vtbl;
@@ -252,6 +253,7 @@ impl ::core::fmt::Debug for NoteVisibilityChangedPreviewEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for NoteVisibilityChangedPreviewEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs;{0e34649e-3815-4ff6-83b3-a14d17120e24})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgs_Vtbl;
@@ -468,6 +470,7 @@ impl ::core::fmt::Debug for NotesWindowManagerPreview {
 }
 unsafe impl ::windows::core::RuntimeType for NotesWindowManagerPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview;{dc2ac23e-4850-4f13-9cc7-ff487efdfcde})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreview_Vtbl;
@@ -561,6 +564,7 @@ impl ::core::fmt::Debug for NotesWindowManagerPreviewShowNoteOptions {
 }
 unsafe impl ::windows::core::RuntimeType for NotesWindowManagerPreviewShowNoteOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions;{886b09d6-a6ae-4007-a56d-1ca70c84c0d2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for NotesWindowManagerPreviewShowNoteOptions {
     type Vtable = INotesWindowManagerPreviewShowNoteOptions_Vtbl;

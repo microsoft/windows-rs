@@ -138,6 +138,7 @@ impl ::core::fmt::Debug for UserNotificationListener {
 }
 unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_Vtbl;
@@ -218,8 +219,6 @@ impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
-}
-impl ::windows::core::DefaultType for UserNotificationListenerAccessStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

@@ -435,6 +435,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthentication {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthentication {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication;{020a16e5-6a25-40a3-8c00-50a023f619d1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthentication {
@@ -561,9 +562,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationMessage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -614,6 +612,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult;{9cbb5987-ef6d-4bc2-bf49-4617515a0f9a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationResult {
@@ -713,9 +712,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationScenario 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationScenario {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -762,9 +758,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationStage {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -806,6 +799,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStageChan
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;{d4a5ee56-7291-4073-bc1f-ccb8f5afdf96})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
@@ -925,6 +919,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStageInfo
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStageInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo;{56fec28b-e8aa-4c0f-8e4c-a559e73add88})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationStageInfo {
@@ -1027,9 +1022,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStatus {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1103,9 +1095,6 @@ impl ::core::ops::Not for SecondaryAuthenticationFactorDeviceCapabilities {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDeviceCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities;u4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceCapabilities {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1145,9 +1134,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceFindScope {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDeviceFindScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceFindScope {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1187,9 +1173,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresence {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresence;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresence {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1230,9 +1213,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitorin
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1273,9 +1253,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitorin
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1316,9 +1293,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorFinishAuthenticationSta
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
@@ -1414,6 +1388,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo;{1e2ba861-8533-4fce-839b-ecb72410ac14})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorInfo {
@@ -1600,6 +1575,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistration {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration;{9f4cbbb4-8cba-48b0-840d-dbb22a54c678})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorRegistration {
@@ -1710,6 +1686,7 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult;{a4fe35f0-ade3-4981-af6b-ec195921682a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorRegistrationResult {
@@ -1812,9 +1789,6 @@ impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationStatus {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SecondaryAuthenticationFactorRegistrationStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

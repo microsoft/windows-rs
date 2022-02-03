@@ -75,8 +75,6 @@ impl ::core::ops::Not for ApplicationProfileModes {
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationProfileModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
-}
-impl ::windows::core::DefaultType for ApplicationProfileModes {
     type DefaultType = Self;
 }
 #[doc(hidden)]

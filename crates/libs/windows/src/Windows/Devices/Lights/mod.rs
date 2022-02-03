@@ -323,6 +323,7 @@ impl ::core::fmt::Debug for Lamp {
 }
 unsafe impl ::windows::core::RuntimeType for Lamp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Lamp {
     type Vtable = ILamp_Vtbl;
@@ -635,6 +636,7 @@ impl ::core::fmt::Debug for LampArray {
 }
 unsafe impl ::windows::core::RuntimeType for LampArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArray {
     type Vtable = ILampArray_Vtbl;
@@ -723,8 +725,6 @@ impl ::core::fmt::Debug for LampArrayKind {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
-}
-impl ::windows::core::DefaultType for LampArrayKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Lights'*"]
@@ -758,6 +758,7 @@ impl ::core::fmt::Debug for LampAvailabilityChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampAvailabilityChangedEventArgs;{4f6e3ded-07a2-499d-9260-67e304532ba4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
@@ -915,6 +916,7 @@ impl ::core::fmt::Debug for LampInfo {
 }
 unsafe impl ::windows::core::RuntimeType for LampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampInfo {
     type Vtable = ILampInfo_Vtbl;
@@ -1027,8 +1029,6 @@ impl ::core::ops::Not for LampPurposes {
 }
 unsafe impl ::windows::core::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
-}
-impl ::windows::core::DefaultType for LampPurposes {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]

@@ -115,6 +115,7 @@ impl ::core::fmt::Debug for CustomSensor {
 }
 unsafe impl ::windows::core::RuntimeType for CustomSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CustomSensor {
     type Vtable = ICustomSensor_Vtbl;
@@ -215,6 +216,7 @@ impl ::core::fmt::Debug for CustomSensorReading {
 }
 unsafe impl ::windows::core::RuntimeType for CustomSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CustomSensorReading {
     type Vtable = ICustomSensorReading_Vtbl;
@@ -296,6 +298,7 @@ impl ::core::fmt::Debug for CustomSensorReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;

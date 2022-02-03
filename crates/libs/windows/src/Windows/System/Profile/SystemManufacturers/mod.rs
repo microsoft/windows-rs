@@ -128,6 +128,7 @@ impl ::core::fmt::Debug for OemSupportInfo {
 }
 unsafe impl ::windows::core::RuntimeType for OemSupportInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.OemSupportInfo;{8d2eae55-87ef-4266-86d0-c4afbeb29bb9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for OemSupportInfo {
     type Vtable = IOemSupportInfo_Vtbl;
@@ -276,6 +277,7 @@ impl ::core::fmt::Debug for SystemSupportDeviceInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SystemSupportDeviceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo;{05880b99-8247-441b-a996-a1784bab79a8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_Vtbl;

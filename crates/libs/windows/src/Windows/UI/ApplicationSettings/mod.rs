@@ -95,6 +95,7 @@ impl ::core::fmt::Debug for AccountsSettingsPane {
 }
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPane;{81ea942c-4f09-4406-a538-838d9b14b7e6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPane {
     type Vtable = IAccountsSettingsPane_Vtbl;
@@ -232,6 +233,7 @@ impl ::core::fmt::Debug for AccountsSettingsPaneCommandsRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs;{3b68c099-db19-45d0-9abf-95d3773c9330})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl;
@@ -308,6 +310,7 @@ impl ::core::fmt::Debug for AccountsSettingsPaneEventDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneEventDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral;{cbf25d3f-e5ba-40ef-93da-65e096e5fb04})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferral_Vtbl;
@@ -417,6 +420,7 @@ impl ::core::fmt::Debug for CredentialCommand {
 }
 unsafe impl ::windows::core::RuntimeType for CredentialCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.CredentialCommand;{a5f665e6-6143-4a7a-a971-b017ba978ce2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for CredentialCommand {
     type Vtable = ICredentialCommand_Vtbl;
@@ -536,6 +540,7 @@ unsafe impl ::windows::core::Interface for CredentialCommandCredentialDeletedHan
 }
 unsafe impl ::windows::core::RuntimeType for CredentialCommandCredentialDeletedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c0e185-0977-4678-b4e2-98727afbeed9}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1015,6 +1020,7 @@ impl ::core::fmt::Debug for SettingsCommand {
 #[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::core::RuntimeType for SettingsCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsCommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::core::Interface for SettingsCommand {
@@ -1136,9 +1142,6 @@ impl ::core::fmt::Debug for SettingsEdgeLocation {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SettingsEdgeLocation {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
@@ -1213,6 +1216,7 @@ impl ::core::fmt::Debug for SettingsPane {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPane;{b1cd0932-4570-4c69-8d38-89446561ace0})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPane {
@@ -1310,6 +1314,7 @@ impl ::core::fmt::Debug for SettingsPaneCommandsRequest {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest;{44df23ae-5d6e-4068-a168-f47643182114})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequest {
@@ -1407,6 +1412,7 @@ impl ::core::fmt::Debug for SettingsPaneCommandsRequestedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs;{205f5d24-1b48-4629-a6ca-2fdfedafb75d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequestedEventArgs {
@@ -1526,8 +1532,6 @@ impl ::core::ops::Not for SupportedWebAccountActions {
 }
 unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
-}
-impl ::windows::core::DefaultType for SupportedWebAccountActions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_ApplicationSettings'*"]
@@ -1562,8 +1566,6 @@ impl ::core::fmt::Debug for WebAccountAction {
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
-}
-impl ::windows::core::DefaultType for WebAccountAction {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'UI_ApplicationSettings'*"]
@@ -1627,6 +1629,7 @@ impl ::core::fmt::Debug for WebAccountCommand {
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountCommand;{caa39398-9cfa-4246-b0c4-a913a3896541})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebAccountCommand {
     type Vtable = IWebAccountCommand_Vtbl;
@@ -1746,6 +1749,7 @@ unsafe impl ::windows::core::Interface for WebAccountCommandInvokedHandler {
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountCommandInvokedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ee6e459-1705-4a9a-b599-a0c3d6921973}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1784,6 +1788,7 @@ impl ::core::fmt::Debug for WebAccountInvokedArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountInvokedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountInvokedArgs;{e7abcc40-a1d8-4c5d-9a7f-1d34b2f90ad2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgs_Vtbl;
@@ -1885,6 +1890,7 @@ impl ::core::fmt::Debug for WebAccountProviderCommand {
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountProviderCommand;{d69bdd9a-a0a6-4e9b-88dc-c71e757a3501})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommand_Vtbl;
@@ -2004,6 +2010,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderCommandInvokedHandl
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderCommandInvokedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7de5527-4c8f-42dd-84da-5ec493abdb9a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[repr(C)]
 #[doc(hidden)]

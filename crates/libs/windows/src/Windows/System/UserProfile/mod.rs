@@ -37,9 +37,6 @@ impl ::core::fmt::Debug for AccountPictureKind {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for AccountPictureKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_UserProfile'*"]
@@ -112,6 +109,7 @@ impl ::core::fmt::Debug for AdvertisingManagerForUser {
 }
 unsafe impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
@@ -228,6 +226,7 @@ impl ::core::fmt::Debug for AssignedAccessSettings {
 }
 unsafe impl ::windows::core::RuntimeType for AssignedAccessSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
@@ -336,6 +335,7 @@ impl ::core::fmt::Debug for DiagnosticsSettings {
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticsSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for DiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
@@ -463,6 +463,7 @@ impl ::core::fmt::Debug for FirstSignInSettings {
 }
 unsafe impl ::windows::core::RuntimeType for FirstSignInSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for FirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
@@ -756,6 +757,7 @@ impl ::core::fmt::Debug for GlobalizationPreferencesForUser {
 }
 unsafe impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
@@ -1284,9 +1286,6 @@ impl ::core::fmt::Debug for SetAccountPictureResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for SetAccountPictureResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_UserProfile'*"]
@@ -1319,8 +1318,6 @@ impl ::core::fmt::Debug for SetImageFeedResult {
 }
 unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
-}
-impl ::windows::core::DefaultType for SetImageFeedResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
@@ -1516,6 +1513,7 @@ impl ::core::fmt::Debug for UserProfilePersonalizationSettings {
 }
 unsafe impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;

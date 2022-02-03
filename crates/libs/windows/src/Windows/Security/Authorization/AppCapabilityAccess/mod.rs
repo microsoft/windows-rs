@@ -107,6 +107,7 @@ impl ::core::fmt::Debug for AppCapability {
 }
 unsafe impl ::windows::core::RuntimeType for AppCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppCapability {
     type Vtable = IAppCapability_Vtbl;
@@ -179,6 +180,7 @@ impl ::core::fmt::Debug for AppCapabilityAccessChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
@@ -261,8 +263,6 @@ impl ::core::fmt::Debug for AppCapabilityAccessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
-}
-impl ::windows::core::DefaultType for AppCapabilityAccessStatus {
     type DefaultType = Self;
 }
 #[doc(hidden)]

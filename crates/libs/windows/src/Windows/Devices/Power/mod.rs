@@ -80,6 +80,7 @@ impl ::core::fmt::Debug for Battery {
 }
 unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.Battery;{bc894fc6-0072-47c8-8b5d-614aaa7a437e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Battery {
     type Vtable = IBattery_Vtbl;
@@ -198,6 +199,7 @@ impl ::core::fmt::Debug for BatteryReport {
 }
 unsafe impl ::windows::core::RuntimeType for BatteryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.BatteryReport;{c9858c3a-4e13-420a-a8d0-24f18f395401})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BatteryReport {
     type Vtable = IBatteryReport_Vtbl;

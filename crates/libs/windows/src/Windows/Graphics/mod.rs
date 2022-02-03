@@ -37,8 +37,6 @@ unsafe impl ::windows::core::Abi for DisplayAdapterId {
 }
 unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
-}
-impl ::windows::core::DefaultType for DisplayAdapterId {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for DisplayAdapterId {
@@ -73,8 +71,6 @@ unsafe impl ::windows::core::Abi for DisplayId {
 }
 unsafe impl ::windows::core::RuntimeType for DisplayId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
-}
-impl ::windows::core::DefaultType for DisplayId {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for DisplayId {
@@ -150,6 +146,7 @@ impl ::core::fmt::Debug for IGeometrySource2D {
 }
 unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
@@ -182,8 +179,6 @@ unsafe impl ::windows::core::Abi for PointInt32 {
 }
 unsafe impl ::windows::core::RuntimeType for PointInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
-}
-impl ::windows::core::DefaultType for PointInt32 {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for PointInt32 {
@@ -221,8 +216,6 @@ unsafe impl ::windows::core::Abi for RectInt32 {
 }
 unsafe impl ::windows::core::RuntimeType for RectInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
-}
-impl ::windows::core::DefaultType for RectInt32 {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for RectInt32 {
@@ -258,8 +251,6 @@ unsafe impl ::windows::core::Abi for SizeInt32 {
 }
 unsafe impl ::windows::core::RuntimeType for SizeInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
-}
-impl ::windows::core::DefaultType for SizeInt32 {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for SizeInt32 {

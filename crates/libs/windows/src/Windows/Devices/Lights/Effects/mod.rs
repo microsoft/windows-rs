@@ -333,6 +333,7 @@ impl ::core::fmt::Debug for ILampArrayEffect {
 }
 unsafe impl ::windows::core::RuntimeType for ILampArrayEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffect_Vtbl;
@@ -592,6 +593,7 @@ impl ::core::fmt::Debug for LampArrayBitmapEffect {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayBitmapEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapEffect;{3238e065-d877-4627-89e5-2a88f7052fa6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_Vtbl;
@@ -702,6 +704,7 @@ impl ::core::fmt::Debug for LampArrayBitmapRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayBitmapRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs;{c8b4af9e-fe63-4d51-babd-619defb454ba})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
@@ -916,6 +919,7 @@ impl ::core::fmt::Debug for LampArrayBlinkEffect {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayBlinkEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBlinkEffect;{ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_Vtbl;
@@ -1094,6 +1098,7 @@ impl ::core::fmt::Debug for LampArrayColorRampEffect {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayColorRampEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayColorRampEffect;{2b004437-40a7-432e-a0b9-0d570c2153ff})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_Vtbl;
@@ -1259,6 +1264,7 @@ impl ::core::fmt::Debug for LampArrayCustomEffect {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayCustomEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayCustomEffect;{ec579170-3c34-4876-818b-5765f78b0ee4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_Vtbl;
@@ -1360,8 +1366,6 @@ impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
-}
-impl ::windows::core::DefaultType for LampArrayEffectCompletionBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
@@ -1523,6 +1527,7 @@ impl ::core::fmt::Debug for LampArrayEffectPlaylist {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayEffectPlaylist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayEffectPlaylist;{7de58bfe-6f61-4103-98c7-d6632f7b9169})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_Vtbl;
@@ -1670,8 +1675,6 @@ impl ::core::fmt::Debug for LampArrayEffectStartMode {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
-}
-impl ::windows::core::DefaultType for LampArrayEffectStartMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
@@ -1703,8 +1706,6 @@ impl ::core::fmt::Debug for LampArrayRepetitionMode {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
-}
-impl ::windows::core::DefaultType for LampArrayRepetitionMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
@@ -1813,6 +1814,7 @@ impl ::core::fmt::Debug for LampArraySolidEffect {
 }
 unsafe impl ::windows::core::RuntimeType for LampArraySolidEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArraySolidEffect;{441f8213-43cc-4b33-80eb-c6ddde7dc8ed})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_Vtbl;
@@ -1941,6 +1943,7 @@ impl ::core::fmt::Debug for LampArrayUpdateRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayUpdateRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs;{73560d6a-576a-48af-8539-67ffa0ab3516})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;

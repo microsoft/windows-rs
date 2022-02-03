@@ -32,8 +32,6 @@ impl ::core::fmt::Debug for CommonFileQuery {
 }
 unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
-}
-impl ::windows::core::DefaultType for CommonFileQuery {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Search'*"]
@@ -76,8 +74,6 @@ impl ::core::fmt::Debug for CommonFolderQuery {
 }
 unsafe impl ::windows::core::RuntimeType for CommonFolderQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
-}
-impl ::windows::core::DefaultType for CommonFolderQuery {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Search'*"]
@@ -211,6 +207,7 @@ impl ::core::fmt::Debug for ContentIndexer {
 }
 unsafe impl ::windows::core::RuntimeType for ContentIndexer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ContentIndexer {
     type Vtable = IContentIndexer_Vtbl;
@@ -337,6 +334,7 @@ impl ::core::fmt::Debug for ContentIndexerQuery {
 }
 unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ContentIndexerQuery {
     type Vtable = IContentIndexerQuery_Vtbl;
@@ -417,8 +415,6 @@ impl ::core::fmt::Debug for DateStackOption {
 }
 unsafe impl ::windows::core::RuntimeType for DateStackOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
-}
-impl ::windows::core::DefaultType for DateStackOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Search'*"]
@@ -450,8 +446,6 @@ impl ::core::fmt::Debug for FolderDepth {
 }
 unsafe impl ::windows::core::RuntimeType for FolderDepth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
-}
-impl ::windows::core::DefaultType for FolderDepth {
     type DefaultType = Self;
 }
 #[doc(hidden)]
@@ -675,6 +669,7 @@ impl ::core::fmt::Debug for IIndexableContent {
 }
 unsafe impl ::windows::core::RuntimeType for IIndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IIndexableContent {
     type Vtable = IIndexableContent_Vtbl;
@@ -1017,6 +1012,7 @@ impl ::core::fmt::Debug for IStorageFolderQueryOperations {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFolderQueryOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_Vtbl;
@@ -1265,6 +1261,7 @@ impl ::core::fmt::Debug for IStorageQueryResultBase {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageQueryResultBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_Vtbl;
@@ -1398,6 +1395,7 @@ impl ::core::fmt::Debug for IndexableContent {
 }
 unsafe impl ::windows::core::RuntimeType for IndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IndexableContent {
     type Vtable = IIndexableContent_Vtbl;
@@ -1501,8 +1499,6 @@ impl ::core::fmt::Debug for IndexedState {
 }
 unsafe impl ::windows::core::RuntimeType for IndexedState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
-}
-impl ::windows::core::DefaultType for IndexedState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Search'*"]
@@ -1536,8 +1532,6 @@ impl ::core::fmt::Debug for IndexerOption {
 }
 unsafe impl ::windows::core::RuntimeType for IndexerOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
-}
-impl ::windows::core::DefaultType for IndexerOption {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Storage_Search'*"]
@@ -1723,6 +1717,7 @@ impl ::core::fmt::Debug for QueryOptions {
 }
 unsafe impl ::windows::core::RuntimeType for QueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for QueryOptions {
     type Vtable = IQueryOptions_Vtbl;
@@ -1794,8 +1789,6 @@ unsafe impl ::windows::core::Abi for SortEntry {
 }
 unsafe impl ::windows::core::RuntimeType for SortEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
-}
-impl ::windows::core::DefaultType for SortEntry {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for SortEntry {
@@ -1935,6 +1928,7 @@ impl ::core::fmt::Debug for SortEntryVector {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SortEntryVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.SortEntryVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Storage.Search.SortEntry;string;b1)))");
+    type DefaultType = ::core::option::Option<Self>;
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SortEntryVector {
@@ -2180,6 +2174,7 @@ impl ::core::fmt::Debug for StorageFileQueryResult {
 }
 unsafe impl ::windows::core::RuntimeType for StorageFileQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_Vtbl;
@@ -2360,6 +2355,7 @@ impl ::core::fmt::Debug for StorageFolderQueryResult {
 }
 unsafe impl ::windows::core::RuntimeType for StorageFolderQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_Vtbl;
@@ -2540,6 +2536,7 @@ impl ::core::fmt::Debug for StorageItemQueryResult {
 }
 unsafe impl ::windows::core::RuntimeType for StorageItemQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_Vtbl;
@@ -2649,6 +2646,7 @@ impl ::core::fmt::Debug for StorageLibraryChangeTrackerTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
@@ -2737,6 +2735,7 @@ impl ::core::fmt::Debug for StorageLibraryContentChangedTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
@@ -2841,6 +2840,7 @@ impl ::core::fmt::Debug for ValueAndLanguage {
 }
 unsafe impl ::windows::core::RuntimeType for ValueAndLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ValueAndLanguage {
     type Vtable = IValueAndLanguage_Vtbl;

@@ -111,8 +111,6 @@ impl ::core::ops::Not for AddResourcePackageOptions {
 }
 unsafe impl ::windows::core::RuntimeType for AddResourcePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
-}
-impl ::windows::core::DefaultType for AddResourcePackageOptions {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -163,6 +161,7 @@ impl ::core::fmt::Debug for AppDisplayInfo {
 }
 unsafe impl ::windows::core::RuntimeType for AppDisplayInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppDisplayInfo;{1aeb1103-e4d4-41aa-a4f6-c4a276e79eac})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppDisplayInfo {
     type Vtable = IAppDisplayInfo_Vtbl;
@@ -243,8 +242,6 @@ impl ::core::fmt::Debug for AppExecutionContext {
 }
 unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
-}
-impl ::windows::core::DefaultType for AppExecutionContext {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -353,6 +350,7 @@ impl ::core::fmt::Debug for AppInfo {
 }
 unsafe impl ::windows::core::RuntimeType for AppInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInfo;{cf7f59b3-6a09-4de8-a6c0-5792d56880d1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppInfo {
     type Vtable = IAppInfo_Vtbl;
@@ -561,6 +559,7 @@ impl ::core::fmt::Debug for AppInstallerInfo {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstallerInfo;{29ab2ac0-d4f6-42a3-adcd-d6583c659508})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppInstallerInfo {
     type Vtable = IAppInstallerInfo_Vtbl;
@@ -640,8 +639,6 @@ impl ::core::fmt::Debug for AppInstallerPolicySource {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
-}
-impl ::windows::core::DefaultType for AppInstallerPolicySource {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -727,6 +724,7 @@ impl ::core::fmt::Debug for AppInstance {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstance;{675f2b47-f25f-4532-9fd6-3633e0634d01})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for AppInstance {
     type Vtable = IAppInstance_Vtbl;
@@ -856,6 +854,7 @@ impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for EnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_Vtbl;
@@ -959,8 +958,6 @@ impl ::core::fmt::Debug for FullTrustLaunchResult {
 }
 unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
-}
-impl ::windows::core::DefaultType for FullTrustLaunchResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -1002,6 +999,7 @@ impl ::core::fmt::Debug for FullTrustProcessLaunchResult {
 }
 unsafe impl ::windows::core::RuntimeType for FullTrustProcessLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FullTrustProcessLaunchResult;{8917d888-edfb-515f-8e22-5ebceb69dfd9})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for FullTrustProcessLaunchResult {
     type Vtable = IFullTrustProcessLaunchResult_Vtbl;
@@ -1418,6 +1416,7 @@ impl ::core::fmt::Debug for IEnteredBackgroundEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for IEnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f722dcc2-9827-403d-aaed-ecca9ac17398}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for IEnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_Vtbl;
@@ -1566,6 +1565,7 @@ impl ::core::fmt::Debug for ILeavingBackgroundEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ILeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ILeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_Vtbl;
@@ -2350,6 +2350,7 @@ impl ::core::fmt::Debug for ISuspendingDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for ISuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{59140509-8bc9-4eb4-b636-dabdc4f46f66}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISuspendingDeferral {
     type Vtable = ISuspendingDeferral_Vtbl;
@@ -2432,6 +2433,7 @@ impl ::core::fmt::Debug for ISuspendingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ISuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96061c05-2dba-4d08-b0bd-2b30a131c6aa}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_Vtbl;
@@ -2523,6 +2525,7 @@ impl ::core::fmt::Debug for ISuspendingOperation {
 }
 unsafe impl ::windows::core::RuntimeType for ISuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9da4ca41-20e1-4e9b-9f65-a9f435340c3a}");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for ISuspendingOperation {
     type Vtable = ISuspendingOperation_Vtbl;
@@ -2570,6 +2573,7 @@ impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_Vtbl;
@@ -2690,6 +2694,7 @@ impl ::core::fmt::Debug for LimitedAccessFeatureRequestResult {
 }
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LimitedAccessFeatureRequestResult;{d45156a6-1e24-5ddd-abb4-6188aba4d5bf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for LimitedAccessFeatureRequestResult {
     type Vtable = ILimitedAccessFeatureRequestResult_Vtbl;
@@ -2771,8 +2776,6 @@ impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
 }
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
-}
-impl ::windows::core::DefaultType for LimitedAccessFeatureStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -3175,6 +3178,7 @@ impl ::core::fmt::Debug for Package {
 }
 unsafe impl ::windows::core::RuntimeType for Package {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Package;{163c792f-bd75-413c-bf23-b1fe7b95d825})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for Package {
     type Vtable = IPackage_Vtbl;
@@ -3393,6 +3397,7 @@ impl ::core::fmt::Debug for PackageCatalog {
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalog;{230a3751-9de3-4445-be74-91fb325abefe})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageCatalog {
     type Vtable = IPackageCatalog_Vtbl;
@@ -3480,6 +3485,7 @@ impl ::core::fmt::Debug for PackageCatalogAddOptionalPackageResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddOptionalPackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult;{3bf10cd4-b4df-47b3-a963-e2fa832f7dd3})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageCatalogAddOptionalPackageResult {
     type Vtable = IPackageCatalogAddOptionalPackageResult_Vtbl;
@@ -3575,6 +3581,7 @@ impl ::core::fmt::Debug for PackageCatalogAddResourcePackageResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddResourcePackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddResourcePackageResult;{9636ce0d-3e17-493f-aa08-ccec6fdef699})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageCatalogAddResourcePackageResult {
     type Vtable = IPackageCatalogAddResourcePackageResult_Vtbl;
@@ -3665,6 +3672,7 @@ impl ::core::fmt::Debug for PackageCatalogRemoveOptionalPackagesResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult;{29d2f97b-d974-4e64-9359-22cadfd79828})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageCatalogRemoveOptionalPackagesResult {
     type Vtable = IPackageCatalogRemoveOptionalPackagesResult_Vtbl;
@@ -3753,6 +3761,7 @@ impl ::core::fmt::Debug for PackageCatalogRemoveResourcePackagesResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult;{ae719709-1a52-4321-87b3-e5a1a17981a7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageCatalogRemoveResourcePackagesResult {
     type Vtable = IPackageCatalogRemoveResourcePackagesResult_Vtbl;
@@ -3870,6 +3879,7 @@ impl ::core::fmt::Debug for PackageContentGroup {
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroup;{8f62695d-120a-4798-b5e1-5800dda8f2e1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageContentGroup {
     type Vtable = IPackageContentGroup_Vtbl;
@@ -3999,6 +4009,7 @@ impl ::core::fmt::Debug for PackageContentGroupStagingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupStagingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageContentGroupStagingEventArgs;{3d7bc27e-6f27-446c-986e-d4733d4d9113})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageContentGroupStagingEventArgs {
     type Vtable = IPackageContentGroupStagingEventArgs_Vtbl;
@@ -4080,8 +4091,6 @@ impl ::core::fmt::Debug for PackageContentGroupState {
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
-}
-impl ::windows::core::DefaultType for PackageContentGroupState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -4188,6 +4197,7 @@ impl ::core::fmt::Debug for PackageId {
 }
 unsafe impl ::windows::core::RuntimeType for PackageId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageId;{1adb665e-37c7-4790-9980-dd7ae74e8bb2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageId {
     type Vtable = IPackageId_Vtbl;
@@ -4259,8 +4269,6 @@ unsafe impl ::windows::core::Abi for PackageInstallProgress {
 }
 unsafe impl ::windows::core::RuntimeType for PackageInstallProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
-}
-impl ::windows::core::DefaultType for PackageInstallProgress {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for PackageInstallProgress {
@@ -4337,6 +4345,7 @@ impl ::core::fmt::Debug for PackageInstallingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageInstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageInstallingEventArgs;{97741eb7-ab7a-401a-8b61-eb0e7faff237})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageInstallingEventArgs {
     type Vtable = IPackageInstallingEventArgs_Vtbl;
@@ -4419,8 +4428,6 @@ impl ::core::fmt::Debug for PackageSignatureKind {
 }
 unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
-}
-impl ::windows::core::DefaultType for PackageSignatureKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -4486,6 +4493,7 @@ impl ::core::fmt::Debug for PackageStagingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageStagingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStagingEventArgs;{1041682d-54e2-4f51-b828-9ef7046c210f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageStagingEventArgs {
     type Vtable = IPackageStagingEventArgs_Vtbl;
@@ -4663,6 +4671,7 @@ impl ::core::fmt::Debug for PackageStatus {
 }
 unsafe impl ::windows::core::RuntimeType for PackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatus;{5fe74f71-a365-4c09-a02d-046d525ea1da})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageStatus {
     type Vtable = IPackageStatus_Vtbl;
@@ -4744,6 +4753,7 @@ impl ::core::fmt::Debug for PackageStatusChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatusChangedEventArgs;{437d714d-bd80-4a70-bc50-f6e796509575})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageStatusChangedEventArgs {
     type Vtable = IPackageStatusChangedEventArgs_Vtbl;
@@ -4857,6 +4867,7 @@ impl ::core::fmt::Debug for PackageUninstallingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageUninstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUninstallingEventArgs;{4443aa52-ab22-44cd-82bb-4ec9b827367a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageUninstallingEventArgs {
     type Vtable = IPackageUninstallingEventArgs_Vtbl;
@@ -4939,8 +4950,6 @@ impl ::core::fmt::Debug for PackageUpdateAvailability {
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
-}
-impl ::windows::core::DefaultType for PackageUpdateAvailability {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -4982,6 +4991,7 @@ impl ::core::fmt::Debug for PackageUpdateAvailabilityResult {
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailabilityResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdateAvailabilityResult;{114e5009-199a-48a1-a079-313c45634a71})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageUpdateAvailabilityResult {
     type Vtable = IPackageUpdateAvailabilityResult_Vtbl;
@@ -5103,6 +5113,7 @@ impl ::core::fmt::Debug for PackageUpdatingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUpdatingEventArgs;{cd7b4228-fd74-443e-b114-23e677b0e86f})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for PackageUpdatingEventArgs {
     type Vtable = IPackageUpdatingEventArgs_Vtbl;
@@ -5177,8 +5188,6 @@ unsafe impl ::windows::core::Abi for PackageVersion {
 }
 unsafe impl ::windows::core::RuntimeType for PackageVersion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
-}
-impl ::windows::core::DefaultType for PackageVersion {
     type DefaultType = Self;
 }
 impl ::core::cmp::PartialEq for PackageVersion {
@@ -5266,6 +5275,7 @@ impl ::core::fmt::Debug for StartupTask {
 }
 unsafe impl ::windows::core::RuntimeType for StartupTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.StartupTask;{f75c23c8-b5f2-4f6c-88dd-36cb1d599d17})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for StartupTask {
     type Vtable = IStartupTask_Vtbl;
@@ -5348,8 +5358,6 @@ impl ::core::fmt::Debug for StartupTaskState {
 }
 unsafe impl ::windows::core::RuntimeType for StartupTaskState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
-}
-impl ::windows::core::DefaultType for StartupTaskState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'ApplicationModel'*"]
@@ -5380,6 +5388,7 @@ impl ::core::fmt::Debug for SuspendingDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SuspendingDeferral {
     type Vtable = ISuspendingDeferral_Vtbl;
@@ -5483,6 +5492,7 @@ impl ::core::fmt::Debug for SuspendingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_Vtbl;
@@ -5595,6 +5605,7 @@ impl ::core::fmt::Debug for SuspendingOperation {
 }
 unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for SuspendingOperation {
     type Vtable = ISuspendingOperation_Vtbl;

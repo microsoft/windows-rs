@@ -35,8 +35,6 @@ impl ::core::fmt::Debug for ClosedCaptionColor {
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
-}
-impl ::windows::core::DefaultType for ClosedCaptionColor {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
@@ -72,8 +70,6 @@ impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
-}
-impl ::windows::core::DefaultType for ClosedCaptionEdgeEffect {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
@@ -108,8 +104,6 @@ impl ::core::fmt::Debug for ClosedCaptionOpacity {
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
-}
-impl ::windows::core::DefaultType for ClosedCaptionOpacity {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
@@ -243,8 +237,6 @@ impl ::core::fmt::Debug for ClosedCaptionSize {
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
-}
-impl ::windows::core::DefaultType for ClosedCaptionSize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
@@ -282,8 +274,6 @@ impl ::core::fmt::Debug for ClosedCaptionStyle {
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
-}
-impl ::windows::core::DefaultType for ClosedCaptionStyle {
     type DefaultType = Self;
 }
 #[doc(hidden)]

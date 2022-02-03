@@ -58,6 +58,7 @@ impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest;{88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_Vtbl;
@@ -148,6 +149,7 @@ impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs;{7006e142-e802-46f5-b604-352a15ce9232})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_Vtbl;
@@ -257,6 +259,7 @@ impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest;{c0b3e9ba-816a-452b-bd77-b7e453ec446d})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_Vtbl;
@@ -347,6 +350,7 @@ impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs;{956c9419-7b4e-4451-8c41-8e10cfbc5b41})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_Vtbl;
@@ -476,6 +480,7 @@ impl ::core::fmt::Debug for BarcodeScannerFrameReader {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader;{dbc72b07-64c3-482b-93c8-65fb33c22208})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_Vtbl;
@@ -584,6 +589,7 @@ impl ::core::fmt::Debug for BarcodeScannerFrameReaderFrameArrivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs;{b0bbd604-54fd-436d-8629-712e787223dd})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl;
@@ -701,6 +707,7 @@ impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest;{9774c46a-58e4-4c5f-b8e9-e41467632700})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_Vtbl;
@@ -791,6 +798,7 @@ impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequestEventArgs
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs;{7f89de3e-fb5d-493c-b402-356b24d574a6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl;
@@ -900,6 +908,7 @@ impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest;{fa4ebe7f-6670-40e1-b90b-bb10d8d425fa})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_Vtbl;
@@ -990,6 +999,7 @@ impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs;{16a281fc-d6be-4bc7-9df1-33741f3eadea})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl;
@@ -1321,6 +1331,7 @@ impl ::core::fmt::Debug for BarcodeScannerProviderConnection {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection;{b44acbed-0b3a-4fa3-86c5-491ea30780eb})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_Vtbl;
@@ -1428,6 +1439,7 @@ impl ::core::fmt::Debug for BarcodeScannerProviderTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails;{50856d82-24e3-48ce-99c7-70aac1cbc9f7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_Vtbl;
@@ -1546,6 +1558,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest;{db3f32b9-f7da-41a1-9f79-07bcd95f0bdf})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_Vtbl;
@@ -1636,6 +1649,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs;{06305afa-7bf6-4d52-801a-330272f60ae1})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl;
@@ -1761,6 +1775,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest;{32fb814f-a37f-48b0-acea-dce1480f12ae})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_Vtbl;
@@ -1851,6 +1866,7 @@ impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequestEventArgs
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs;{b2b89809-9824-47d4-85bd-d0077baa7bd2})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl;
@@ -1960,6 +1976,7 @@ impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest;{e3fa7b27-ff62-4454-af4a-cb6144a3e3f7})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_Vtbl;
@@ -2050,6 +2067,7 @@ impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs;{2305d843-c88f-4f3b-8c3b-d3df071051ec})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl;
@@ -2159,6 +2177,7 @@ impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequest {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest;{6f9faf35-e287-4ca8-b70d-5a91d694f668})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_Vtbl;
@@ -2249,6 +2268,7 @@ impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs;{eac34450-4eb7-481a-9273-147a273b99b8})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl;
@@ -2328,8 +2348,6 @@ impl ::core::fmt::Debug for BarcodeScannerTriggerState {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
-}
-impl ::windows::core::DefaultType for BarcodeScannerTriggerState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
@@ -2395,6 +2413,7 @@ impl ::core::fmt::Debug for BarcodeScannerVideoFrame {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerVideoFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame;{7e585248-9df7-4121-a175-801d8000112e})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_Vtbl;
@@ -2548,6 +2567,7 @@ impl ::core::fmt::Debug for BarcodeSymbologyAttributesBuilder {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributesBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder;{c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_Vtbl;

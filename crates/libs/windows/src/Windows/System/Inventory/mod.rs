@@ -108,6 +108,7 @@ impl ::core::fmt::Debug for InstalledDesktopApp {
 }
 unsafe impl ::windows::core::RuntimeType for InstalledDesktopApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;

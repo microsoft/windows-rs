@@ -201,6 +201,7 @@ impl ::core::fmt::Debug for MdmAlert {
 }
 unsafe impl ::windows::core::RuntimeType for MdmAlert {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmAlert;{b0fbc327-28c1-4b52-a548-c5807caf70b6})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
@@ -280,8 +281,6 @@ impl ::core::fmt::Debug for MdmAlertDataType {
 }
 unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
-}
-impl ::windows::core::DefaultType for MdmAlertDataType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Management'*"]
@@ -316,8 +315,6 @@ impl ::core::fmt::Debug for MdmAlertMark {
 }
 unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
-}
-impl ::windows::core::DefaultType for MdmAlertMark {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Management'*"]
@@ -408,6 +405,7 @@ impl ::core::fmt::Debug for MdmSession {
 }
 unsafe impl ::windows::core::RuntimeType for MdmSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmSession;{fe89314c-8f64-4797-a9d7-9d88f86ae166})");
+    type DefaultType = ::core::option::Option<Self>;
 }
 unsafe impl ::windows::core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;
@@ -528,8 +526,6 @@ impl ::core::fmt::Debug for MdmSessionState {
 }
 unsafe impl ::windows::core::RuntimeType for MdmSessionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
-}
-impl ::windows::core::DefaultType for MdmSessionState {
     type DefaultType = Self;
 }
 #[cfg(feature = "implement")]
